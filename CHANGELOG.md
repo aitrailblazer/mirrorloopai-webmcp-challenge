@@ -11,6 +11,9 @@
   with live status semantics for assistive technology.
 - Preserved the existing tool, privacy, email, cart, and Stripe boundaries;
   this change identifies capability but grants no new agent action.
+- Deployed the change to `mirrorloopai.com` and verified the exact ready label,
+  eight-tool count, header placement, and live-region semantics in connected
+  Chrome using its native WebMCP context.
 - Recorded and retested the improvement as tracker story `WM-013`.
 
 ## 2026-08-29 — Full WebMCP conversion and release audit

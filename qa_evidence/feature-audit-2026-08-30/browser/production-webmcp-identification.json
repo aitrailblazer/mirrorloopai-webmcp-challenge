@@ -1,0 +1,12 @@
+{
+  "active": "true",
+  "app_bundle": "/app.js?v=20260830-1",
+  "aria_live": "polite",
+  "in_header": true,
+  "role": "status",
+  "status": "WebMCP ready · 8 tools",
+  "stylesheet": "/styles.css?v=20260830-1",
+  "url": "https://mirrorloopai.com/?wm013=20260830",
+  "verified_status": "WebMCP ready · 8 tools",
+  "evidence_boundary": "Connected Chrome reported the live status after native document.modelContext registration; no modelContext shim was injected into this production tab."
+}

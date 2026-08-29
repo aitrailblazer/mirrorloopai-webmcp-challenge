@@ -21,9 +21,9 @@ Key decisions:
 - Connect the reflection result to a highlighted matching ARC without automatically adding a product or initiating checkout.
 
 State:
-- The 56-story audit pass is complete: 50 stories passed initially and six tracker-backed failures were fixed and verified.
-- The audited release is deployed on `mirrorloopai.com`; connected user Chrome reports eight tools available and the production checkout handoff resolves to Stripe without automatic payment.
-- Follow-up story `WM-013` is documented as a failed baseline before implementation: the readiness label is currently inside the quiz introduction and does not use the concise reference wording.
+- The 57-story audit is complete: 50 stories passed initially and seven tracker-backed failures were fixed and verified.
+- The audited release is deployed on `mirrorloopai.com`; connected Chrome reports `WebMCP ready · 8 tools` in the persistent header and the production checkout boundary remains unchanged.
+- Follow-up story `WM-013` retains its failed baseline and now has local, responsive, fallback, deployment, and native-production evidence.
 
 Done:
 - Copied the website, Go API, public data, tests, deployment configuration, documentation, and sanitized QA evidence.
@@ -40,12 +40,14 @@ Done:
 - Fixed the six documented failures in implementation commit `9740b57`.
 - Verified local Node, Go, security, responsive browser, 12-question direct, eight-tool WebMCP, confirmed-revision, matching-ARC, and cart flows.
 - Deployed Firebase Hosting and verified the public origin, security headers, API health, Chrome-native WebMCP registration status, and Stripe Checkout handoff.
+- Added the reference-style WebMCP header badge, verified desktop and 390 px mobile layouts without horizontal overflow, and confirmed the direct-use fallback.
+- Redeployed Firebase Hosting and verified the exact production label through connected Chrome's native WebMCP context.
 
 Now:
-- Implement and verify the tracker-backed `WM-013` readiness badge without changing the existing eight-tool registry or commerce boundary.
+- The `WM-013` implementation, audit, and production verification are complete.
 
 Next:
-- Regenerate audit views, record the changelog entry, deploy the verified badge to Firebase Hosting, and confirm the exact production status in a WebMCP-enabled browser.
+- Prepare the competition description and demonstration video as a separate tracker-backed pass.
 
 Open questions (UNCONFIRMED if needed):
 - UNCONFIRMED: Final competition title and submission copy.
@@ -64,4 +66,7 @@ Working set (files/ids/commands):
 - `feature_qa_report.md`
 - `qa_evidence/feature-audit-2026-08-29/`
 - `qa_evidence/feature-audit-2026-08-30/commands/webmcp-identification-baseline.txt`
+- `qa_evidence/feature-audit-2026-08-30/browser/production-webmcp-identification.json`
+- `qa_evidence/feature-audit-2026-08-30/commands/production-webmcp-identification.txt`
+- `qa_evidence/feature-audit-2026-08-30/commands/firebase-hosting-deploy.txt`
 - `WM-013`

@@ -1,0 +1,19 @@
+$ firebase deploy --only hosting --project mirrorloopai-com
+
+=== Deploying to 'mirrorloopai-com'...
+
+i  deploying hosting
+i  hosting: The site mirrorloopai-com will pin rewrites to the current latest revision of service(s) mirrorloopai-subscriber
+i  hosting[mirrorloopai-com]: beginning deploy...
+i  hosting[mirrorloopai-com]: found 50 files in web
+i  hosting: upload complete
+✔  hosting[mirrorloopai-com]: file upload complete
+i  hosting[mirrorloopai-com]: finalizing version...
+✔  hosting[mirrorloopai-com]: version finalized
+i  hosting[mirrorloopai-com]: releasing new version...
+✔  hosting[mirrorloopai-com]: release complete
+
+✔  Deploy complete!
+
+Project Console: https://console.firebase.google.com/project/mirrorloopai-com/overview
+Hosting URL: https://mirrorloopai-com.web.app
