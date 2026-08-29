@@ -20,6 +20,14 @@ const LOCAL_MUTATION = Object.freeze({
   untrustedContentHint: false,
 });
 
+export const WEBMCP_CHARACTER_BUDGETS = Object.freeze({
+  toolName: 30,
+  parameterName: 30,
+  toolDescription: 500,
+  parameterDescription: 150,
+  toolOutput: 1500,
+});
+
 export const MIRRORLOOP_WEBMCP_TOOL_NAMES = Object.freeze([
   "start_reflection",
   "get_current_question",
@@ -32,8 +40,12 @@ export const MIRRORLOOP_WEBMCP_TOOL_NAMES = Object.freeze([
 ]);
 
 function asToolResult(value) {
+  const text = JSON.stringify(value);
+  if (text.length > WEBMCP_CHARACTER_BUDGETS.toolOutput) {
+    throw new Error("Tool output exceeded the 1500-character WebMCP budget.");
+  }
   return {
-    content: [{ type: "text", text: JSON.stringify(value) }],
+    content: [{ type: "text", text }],
   };
 }
 
@@ -301,25 +313,30 @@ function defineTools(api) {
   ];
 }
 
-export function registerMirrorLoopWebMCP(modelContext, api, options = {}) {
+export async function registerMirrorLoopWebMCP(modelContext, api, options = {}) {
   if (!modelContext || typeof modelContext.registerTool !== "function") {
     throw new Error("A WebMCP model context with registerTool() is required.");
   }
 
   const controller = options.controller ?? new AbortController();
   const tools = defineTools(api);
-  for (const tool of tools) {
-    const { run, ...definition } = tool;
-    modelContext.registerTool({
-      ...definition,
-      async execute(input) {
-        try {
-          return asToolResult(await run(input));
-        } catch (error) {
-          return asToolError(error);
-        }
-      },
-    }, { signal: controller.signal });
+  try {
+    for (const tool of tools) {
+      const { run, ...definition } = tool;
+      await modelContext.registerTool({
+        ...definition,
+        async execute(input) {
+          try {
+            return asToolResult(await run(input));
+          } catch (error) {
+            return asToolError(error);
+          }
+        },
+      }, { signal: controller.signal });
+    }
+  } catch (error) {
+    controller.abort();
+    throw error;
   }
 
   return {
@@ -347,12 +364,16 @@ export function installMirrorLoopWebMCP({
   let registration = null;
   let remaining = attempts;
 
-  const tryInstall = () => {
+  const tryInstall = async () => {
     if (cancelled) return;
     const modelContext = findModelContext(documentRef, navigatorRef);
     if (modelContext) {
-      registration = registerMirrorLoopWebMCP(modelContext, api);
-      onStatus({ supported: true, names: registration.names });
+      try {
+        registration = await registerMirrorLoopWebMCP(modelContext, api);
+        if (!cancelled) onStatus({ supported: true, names: registration.names });
+      } catch (error) {
+        if (!cancelled) onStatus({ supported: false, names: [], error });
+      }
       return;
     }
     remaining -= 1;

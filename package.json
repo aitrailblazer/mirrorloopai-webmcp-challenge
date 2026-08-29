@@ -4,6 +4,7 @@
   "type": "module",
   "scripts": {
     "test": "node --test web/tests/*.test.mjs",
+    "test:webmcp:evals": "node scripts/validate-webmcp-evals.mjs",
     "test:stripe": "node --test scripts/tests/*.test.mjs",
     "validate": "node scripts/validate-site.mjs",
     "validate:submission": "node scripts/validate-submission.mjs",

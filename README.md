@@ -9,6 +9,7 @@ answer, email submission, cart change, and payment.
 - **Live experience:** [mirrorloopai.com](https://mirrorloopai.com/)
 - **Source:** [aitrailblazer/mirrorloopai-webmcp-challenge](https://github.com/aitrailblazer/mirrorloopai-webmcp-challenge)
 - **Devpost package:** [SUBMISSION.md](SUBMISSION.md)
+- **Official resource review:** [RESOURCE_REVIEW.html](RESOURCE_REVIEW.html)
 - **License:** [MIT](LICENSE)
 
 > **Submission gate:** this repository remains private until the operator
@@ -46,7 +47,7 @@ registration. The implementation uses the browser-native registration pattern:
 const modelContext =
   document.modelContext ?? navigator.modelContext;
 
-modelContext.registerTool({
+await modelContext.registerTool({
   name: "get_current_question",
   description: "Read the active reflection question.",
   inputSchema: {
@@ -67,6 +68,12 @@ configured. Recording or revising an answer requires an explicit
 `confirmed_by_user` value. The recommendation tool is read-only and returns no
 price or direct Stripe URL. Email submission, cart mutation, Checkout creation,
 and payment are deliberately not WebMCP tools.
+
+Registration is considered ready only after all eight registration promises
+resolve. A rejection aborts the partial tool set and activates the normal
+direct-use fallback. Tool names, descriptions, parameter descriptions, and
+individual results are checked against the current Chrome WebMCP character
+budgets; each result is capped at 1,500 characters.
 
 ## What humans and agents do together
 
@@ -128,6 +135,7 @@ manual experience.
 
 ```bash
 npm test
+npm run test:webmcp:evals
 npm run test:stripe
 npm run validate
 npm run validate:submission
@@ -145,13 +153,23 @@ or upload a video.
    `chrome://flags/#enable-webmcp-testing`, and restart Chrome.
 2. Open `https://mirrorloopai.com/`.
 3. Confirm the header reads **WebMCP ready · 8 tools**.
-4. Inspect the page's registered tools.
-5. Run `start_reflection`, `get_current_question`, and `explain_choice`.
-6. Confirm an answer with `confirmed_by_user: true`.
+4. Open DevTools, select **Application → WebMCP**, and confirm all eight tools
+   appear under **Available Tools** with no schema errors.
+5. Select a tool and use **Run tool** to invoke `start_reflection`,
+   `get_current_question`, and `explain_choice`; inspect each record under
+   **Invoked Tools**.
+6. Confirm an answer with `confirmed_by_user: true`, then deliberately try an
+   unknown field and verify the schema violation is visible.
 7. Complete the reflection, call `get_card`, and call
    `recommend_card_edition`.
 8. Verify that no tool can submit email, mutate the cart, create Checkout, or
    make a payment.
+
+The machine-readable intent corpus in
+[`web/evals/webmcp-evals.json`](web/evals/webmcp-evals.json) covers all eight
+tools, ordered flows, ambiguous requests, and no-tool email/cart/payment cases.
+`npm run test:webmcp:evals` validates that corpus deterministically. A live
+host-agent model evaluation is separate and must be reported as such.
 
 Connected Chrome is the verified competition path. Actual ChatGPT in-app
 browser WebMCP support remains unconfirmed; if its host does not expose WebMCP,

@@ -47,13 +47,19 @@ generic DOM automation and is direct with WebMCP.
 
 `web/lib/webmcp.js` defines eight tools with JSON input schemas,
 `additionalProperties: false`, behavioral annotations, and same-origin
-registration through `modelContext.registerTool(...)`. The installer selects
+registration through awaited `modelContext.registerTool(...)` calls. The installer selects
 `document.modelContext` first and supports the compatible navigator surface.
 Three tools change only ephemeral local reflection state; five are read-only.
 `answer_reflection_question` requires `confirmed_by_user: true`. No tool can
 submit an email address, mutate the cart, create a Checkout Session, or pay.
 Automated tests validate registration, schemas, annotations, malformed inputs,
 confirmation, revision, card lookup, and commerce isolation.
+
+The installer reports readiness only after every registration resolves, aborts
+partial registrations after rejection, and preserves the complete direct-use
+experience. Current Chrome character budgets are enforced, including a
+1,500-character result ceiling. An official-style expected-call corpus covers
+all eight tools, ordered flows, ambiguous requests, and no-tool boundaries.
 
 ## Judging criteria map
 
@@ -64,7 +70,7 @@ confirmation, revision, card lookup, and commerce isolation.
 - An agent can explain, record, review, revise, complete, retrieve, and
   recommend across one coherent session.
 - Evidence: `web/lib/webmcp.js`, `web/tests/webmcp.test.mjs`, and
-  `qa_evidence/feature-audit-2026-08-30/browser/production-webmcp-identification.json`.
+  `web/evals/webmcp-evals.json`.
 
 ### Execution
 
@@ -135,14 +141,28 @@ viewable on YouTube, audible, captioned, and demonstrates the deployed build.
 1. In Chrome 149 or later, enable `chrome://flags/#enable-webmcp-testing`,
    restart Chrome, and open https://mirrorloopai.com/.
 2. Confirm `WebMCP ready · 8 tools`.
-3. Run `start_reflection`, `get_current_question`, and `explain_choice`.
-4. Call `answer_reflection_question` first with
+3. Open DevTools and select **Application → WebMCP**. Confirm eight entries
+   under **Available Tools** and no schema errors.
+4. Select each tool and use **Run tool**; inspect calls and results under
+   **Invoked Tools**. Begin with `start_reflection`,
+   `get_current_question`, and `explain_choice`.
+5. Call `answer_reflection_question` first with
    `confirmed_by_user: false` and verify rejection; then use `true`.
-5. Review, revise one prior answer, and complete the session.
-6. Call `get_card` with `012`.
-7. Call `recommend_card_edition` with an ARC and edition.
-8. Verify no WebMCP tool can submit email, mutate a cart, create Checkout, or
+6. Review, revise one prior answer, and complete the session.
+7. Call `get_card` with `012`.
+8. Call `recommend_card_edition` with an ARC and edition.
+9. Add an unknown argument during a manual run and confirm the schema
+   diagnostic is visible.
+10. Verify no WebMCP tool can submit email, mutate a cart, create Checkout, or
    make payment.
+
+For a deterministic preflight, run `npm run test:webmcp:evals`. It validates
+the expected intent-to-tool, arguments, ordering, and no-tool cases in
+`web/evals/webmcp-evals.json`; it does not claim to be a live host-agent model
+evaluation.
+
+Every official challenge resource and its implementation decision is recorded
+in `RESOURCE_REVIEW.html`.
 
 Chrome is the verified path accepted by the rules. Actual ChatGPT in-app
 browser behavior is still unconfirmed. Unsupported hosts retain the full direct

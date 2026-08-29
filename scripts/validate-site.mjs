@@ -30,7 +30,7 @@ assert.ok(index.includes('id="webmcp-status"'));
 assert.ok(index.includes('role="status" aria-live="polite"'));
 assert.ok(index.indexOf('id="webmcp-status"') < index.indexOf("<main"));
 assert.ok(index.includes('/styles.css?v=20260830-1'));
-assert.ok(index.includes('/app.js?v=20260830-1'));
+assert.ok(index.includes('/app.js?v=20260830-4'));
 assert.ok(index.includes('id="result-shop-link"'));
 assert.ok(config.includes("shopEnabled: true"));
 assert.ok(app.includes("shopLink.href ="));

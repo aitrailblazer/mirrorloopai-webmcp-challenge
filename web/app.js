@@ -1,6 +1,6 @@
 import { RESPONSE_GROUPS, resultCopy, scoreAnswers, supportingPattern } from "./lib/quiz-core.js?v=20260826-3";
 import { createFunnelTracker } from "./lib/analytics.js?v=20260826-3";
-import { installMirrorLoopWebMCP } from "./lib/webmcp.js?v=20260829-3";
+import { installMirrorLoopWebMCP } from "./lib/webmcp.js?v=20260830-4";
 
 const $ = (selector) => document.querySelector(selector);
 const state = {

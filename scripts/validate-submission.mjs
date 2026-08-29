@@ -6,6 +6,7 @@ const fail = [];
 const readme = read("README.md");
 const submission = read("SUBMISSION.md");
 const notices = read("THIRD_PARTY_NOTICES.md");
+const resourceReview = read("RESOURCE_REVIEW.html");
 const license = read("LICENSE");
 const packageJSON = JSON.parse(read("package.json"));
 const manifest = JSON.parse(read("competition_manifest.json"));
@@ -14,6 +15,14 @@ const checks = [
   ["README live URL", readme.includes("https://mirrorloopai.com/")],
   ["README source URL", readme.includes("mirrorloopai-webmcp-challenge")],
   ["README native registration pattern", readme.includes("modelContext.registerTool")],
+  ["README current DevTools judge path", [
+    "Application → WebMCP",
+    "Available Tools",
+    "Invoked Tools",
+    "Run tool",
+    "schema violation",
+  ].every((term) => readme.includes(term))],
+  ["README resource review", readme.includes("RESOURCE_REVIEW.html")],
   ["README pre-existing disclosure", readme.includes("Pre-existing before August 25, 2026")],
   ["README all eight tools", manifest.webmcpTools.every((name) => readme.includes("`" + name + "`"))],
   ["Submission four required explanations", [
@@ -34,6 +43,14 @@ const checks = [
   ["Third-party service inventory", ["Google Cloud", "Cloudflare Turnstile", "Resend", "Stripe"].every((name) => notices.includes(name))],
   ["Top-level MIT license", license.includes("MIT License")],
   ["Package validation entry point", packageJSON.scripts?.["validate:submission"] === "node scripts/validate-submission.mjs"],
+  ["Eval validation entry point", packageJSON.scripts?.["test:webmcp:evals"] === "node scripts/validate-webmcp-evals.mjs"],
+  ["Official resource matrix", [
+    'resource_cards="36"',
+    'classified="36"',
+    "WebMCP evals",
+    "Debug WebMCP tools",
+    "Netlify WebMCP starter",
+  ].every((term) => resourceReview.includes(term))],
 ];
 
 for (const [name, passed] of checks) {
