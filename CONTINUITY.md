@@ -40,7 +40,7 @@ Done:
 - Deployed Firebase Hosting and verified the public origin, security headers, API health, Chrome-native WebMCP registration status, and Stripe Checkout handoff.
 
 Now:
-- The audited production release and its evidence are complete and pushed through commit `6d6415d`.
+- The audited production release and its evidence are complete and pushed to `origin/main`.
 
 Next:
 - Prepare the competition description and demonstration video as a separate tracker-backed pass.
