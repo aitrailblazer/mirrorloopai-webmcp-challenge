@@ -55,10 +55,9 @@ Done:
 - Committed the resource-driven implementation as `2d84634`, deployed it to Firebase Hosting, and verified the production bundle plus native eight-tool registration in isolated Chrome.
 
 Now:
-- The official-resource enhancement pass is implemented, deployed, and locally verified; tracker artifact regeneration and final audit commit are in progress.
+- The official-resource enhancement pass is implemented, deployed, verified, recorded in all tracker views, and pushed to the private competition repository.
 
 Next:
-- Regenerate the canonical tracker views and QA report, commit the audit evidence, and push the private repository.
 - Obtain operator confirmation before changing the GitHub repository to public.
 - Record and publish the under-three-minute YouTube demo.
 - Create the Devpost project, paste the prepared package, complete attestations, and submit before the deadline.
@@ -99,3 +98,5 @@ Working set (files/ids/commands):
 - `qa_evidence/feature-audit-2026-08-30/commands/webmcp-resources-link-audit.json`
 - `qa_evidence/feature-audit-2026-08-30/commands/webmcp-resources-final-gates.txt`
 - `qa_evidence/feature-audit-2026-08-30/browser/production-webmcp-resource-audit-isolated.json`
+- Implementation commit `2d84634`
+- Audit/evidence commit `4ec5121`
