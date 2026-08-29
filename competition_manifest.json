@@ -27,5 +27,14 @@
     "private research corpora",
     "temporary outputs and unrelated generated artifacts"
   ],
-  "webmcpImplementationStatus": "origin-trial-enabled-tools-not-yet-registered"
+  "webmcpImplementationStatus": "seven-tools-implemented-pending-browser-inspector-verification",
+  "webmcpTools": [
+    "start_reflection",
+    "get_current_question",
+    "explain_choice",
+    "answer_reflection_question",
+    "review_reflection_answers",
+    "complete_reflection",
+    "get_card"
+  ]
 }

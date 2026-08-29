@@ -1,0 +1,33 @@
+{
+  "date": "2026-08-29",
+  "browser": "Chrome 154.0.8013.2",
+  "transport": "Chrome DevTools Protocol against a local static server",
+  "modelContext": "injected test double implementing document.modelContext.registerTool",
+  "registeredTools": [
+    "start_reflection",
+    "get_current_question",
+    "explain_choice",
+    "answer_reflection_question",
+    "review_reflection_answers",
+    "complete_reflection",
+    "get_card"
+  ],
+  "checks": {
+    "visibleStatus": "AI-guided reflection ready · 7 tools available",
+    "startReflection": "PASS",
+    "questionOneOptionCount": 12,
+    "unconfirmedAnswerRejected": true,
+    "confirmedAnswerAdvancedDOM": "Question 2 of 12",
+    "twelveQuestionCompletion": "PASS",
+    "resultPanelDisplayed": true,
+    "card144Lookup": {
+      "found": true,
+      "title": "Final Integration",
+      "code": "ARC12-144"
+    },
+    "largestQuestionResultBytes": 937,
+    "largestCardResultBytes": 665,
+    "secretPatternScan": "PASS"
+  },
+  "boundary": "This validates registration and browser-DOM integration. Native Chrome WebMCP Inspector discovery on the deployed origin remains pending."
+}

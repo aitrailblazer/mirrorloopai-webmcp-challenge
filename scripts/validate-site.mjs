@@ -5,16 +5,41 @@ const root = new URL("../", import.meta.url);
 const index = await readFile(new URL("web/index.html", root), "utf8");
 const privacy = await readFile(new URL("web/privacy.html", root), "utf8");
 const quiz = JSON.parse(await readFile(new URL("web/data/quiz.json", root), "utf8"));
+const cards = JSON.parse(await readFile(new URL("web/data/cards.json", root), "utf8"));
 const app = await readFile(new URL("web/app.js", root), "utf8");
+const webmcp = await readFile(new URL("web/lib/webmcp.js", root), "utf8");
 const shop = await readFile(new URL("web/shop.html", root), "utf8");
 const terms = await readFile(new URL("web/terms.html", root), "utf8");
 const shopCatalog = JSON.parse(await readFile(new URL("web/data/shop.json", root), "utf8"));
 
 assert.equal(quiz.questions.length, 12);
+assert.equal(cards.cards.length, 144);
+assert.equal(new Set(cards.cards.map(({ id }) => id)).size, 144);
+assert.equal(cards.cards[0].id, "001");
+assert.equal(cards.cards.at(-1).id, "144");
+for (const forbidden of ["monoPrompt", "colorPrompt", "articlePrompt", "founder", "readingQuality", "imagePrompt"]) {
+  assert.ok(!JSON.stringify(cards).includes(`"${forbidden}"`), `private card field leaked: ${forbidden}`);
+}
 assert.ok(index.includes('id="subscribe-form"'));
 assert.ok(index.includes('type="checkbox" required'));
 assert.ok(index.includes("No email required to see your result."));
 assert.ok(index.includes("/images/shattered-compass-entry.webp"));
+assert.ok(index.includes('id="webmcp-status"'));
+assert.ok(app.includes("installMirrorLoopWebMCP"));
+for (const tool of [
+  "start_reflection",
+  "get_current_question",
+  "explain_choice",
+  "answer_reflection_question",
+  "review_reflection_answers",
+  "complete_reflection",
+  "get_card",
+]) {
+  assert.ok(webmcp.includes(`"${tool}"`), `missing WebMCP tool: ${tool}`);
+}
+assert.ok(webmcp.includes("additionalProperties: false"));
+assert.ok(webmcp.includes("confirmed_by_user"));
+assert.ok(!webmcp.includes("exposedTo"));
 assert.ok(index.includes("The Shattered Compass"));
 assert.ok(index.includes("Ask what repeats. Reveal the loop. Choose a new direction."));
 assert.ok(index.indexOf('id="result-panel"') < index.indexOf('id="subscribe-form"'));

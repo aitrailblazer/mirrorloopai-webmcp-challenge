@@ -1,0 +1,2312 @@
+{
+  "version": "1.0.0",
+  "sourceSHA256": "1a9759f491b93a6184ff2aca51f64772ccc35bd7a8ab667d425deab820aa0a1c",
+  "cards": [
+    {
+      "id": "001",
+      "code": "ARC01-001",
+      "arc": "01",
+      "arcName": "Horizon Signal",
+      "domain": "Future-Pull Mechanics",
+      "glyph": "◯",
+      "title": "Future-First Thinking",
+      "glyphs": [
+        "field_architect",
+        "velocity_holder",
+        "temporal_compression",
+        "horizon_signal"
+      ],
+      "mirror": "When clarity remains distant, could one modest step reveal useful information—or is more inquiry genuinely needed first?",
+      "loop": "Option: test one reversible step, then compare what became clearer with what remained uncertain."
+    },
+    {
+      "id": "002",
+      "code": "ARC01-002",
+      "arc": "01",
+      "arcName": "Horizon Signal",
+      "domain": "Future-Pull Mechanics",
+      "glyph": "◯",
+      "title": "The Horizon Contract",
+      "glyphs": [
+        "horizon_signal",
+        "future_vector",
+        "field_architect",
+        "horizon_sourcepoint"
+      ],
+      "mirror": "A direction may become actionable through commitment, while exploration can still reveal whether that direction deserves continued investment.",
+      "loop": "Option: make one time-limited commitment and observe whether it improves focus without closing useful discovery."
+    },
+    {
+      "id": "003",
+      "code": "ARC01-003",
+      "arc": "01",
+      "arcName": "Horizon Signal",
+      "domain": "Future-Pull Mechanics",
+      "glyph": "◯",
+      "title": "The First Vector",
+      "glyphs": [
+        "future_vector",
+        "velocity_holder",
+        "arc_origin"
+      ],
+      "mirror": "A first vector can turn an imagined future into something testable, though small movement does not guarantee a large shift.",
+      "loop": "Option: take the smallest meaningful step and record whether it changes information, access, or momentum."
+    },
+    {
+      "id": "004",
+      "code": "ARC01-004",
+      "arc": "01",
+      "arcName": "Horizon Signal",
+      "domain": "Future-Pull Mechanics",
+      "glyph": "◯",
+      "title": "Future Noise",
+      "glyphs": [
+        "signal_noise",
+        "temporal_static",
+        "horizon_signal"
+      ],
+      "mirror": "When one concern repeats after facts are checked, notice whether it changes with timing, stakes, or available options.",
+      "loop": "Optionally, test one smaller, reversible version and record whether the same evidenced risk appears."
+    },
+    {
+      "id": "005",
+      "code": "ARC01-005",
+      "arc": "01",
+      "arcName": "Horizon Signal",
+      "domain": "Future-Pull Mechanics",
+      "glyph": "◯",
+      "title": "The Pull",
+      "glyphs": [
+        "horizon_signal",
+        "future_gravity",
+        "velocity_holder"
+      ],
+      "mirror": "A compelling future can feel gravitational, yet present desire must share the field with commitments, uncertainty, and limits.",
+      "loop": "Option: translate the pull into one chosen action, then check its fit with current responsibilities."
+    },
+    {
+      "id": "006",
+      "code": "ARC01-006",
+      "arc": "01",
+      "arcName": "Horizon Signal",
+      "domain": "Future-Pull Mechanics",
+      "glyph": "◯",
+      "title": "Future Geometry",
+      "glyphs": [
+        "temporal_compression",
+        "future_geometry",
+        "horizon_signal"
+      ],
+      "mirror": "The future’s sensed geometry may point toward values, constraints, habits, or relationships that deserve clearer names and practical tests.",
+      "loop": "Option: sketch the future shape, label its parts, and test one present-day implication."
+    },
+    {
+      "id": "007",
+      "code": "ARC01-007",
+      "arc": "01",
+      "arcName": "Horizon Signal",
+      "domain": "Future-Pull Mechanics",
+      "glyph": "◯",
+      "title": "Future Friction",
+      "glyphs": [
+        "resistance_line",
+        "future_vector",
+        "horizon_signal"
+      ],
+      "mirror": "Friction marks contact with a constraint; its source may be growth, poor fit, danger, or ordinary difficulty.",
+      "loop": "Option: reduce one friction point and observe whether the direction becomes safer, clearer, or less suitable."
+    },
+    {
+      "id": "008",
+      "code": "ARC01-008",
+      "arc": "01",
+      "arcName": "Horizon Signal",
+      "domain": "Future-Pull Mechanics",
+      "glyph": "◯",
+      "title": "Future-Identity Lock",
+      "glyphs": [
+        "identity_lock",
+        "horizon_identity",
+        "future_vector"
+      ],
+      "mirror": "A chosen future identity can steady decisions while remaining open to evidence, changing circumstances, and other legitimate roles.",
+      "loop": "Option: apply the chosen identity to one decision, then test whether it clarifies or distorts the choice."
+    },
+    {
+      "id": "009",
+      "code": "ARC01-009",
+      "arc": "01",
+      "arcName": "Horizon Signal",
+      "domain": "Future-Pull Mechanics",
+      "glyph": "◯",
+      "title": "Future Compression",
+      "glyphs": [
+        "temporal_compression",
+        "timeline_collapse",
+        "future_vector"
+      ],
+      "mirror": "A distant future may feel nearer when translated into present decisions, even while external timelines and dependencies remain unchanged.",
+      "loop": "Option: plan one week from the destination backward, then compare imagined compression with actual constraints."
+    },
+    {
+      "id": "010",
+      "code": "ARC01-010",
+      "arc": "01",
+      "arcName": "Horizon Signal",
+      "domain": "Future-Pull Mechanics",
+      "glyph": "◯",
+      "title": "Future-Motion",
+      "glyphs": [
+        "future_motion",
+        "future_vector",
+        "horizon_identity"
+      ],
+      "mirror": "Momentum may feel future-driven while actually emerging through present choices, repeated habits, available support, and favorable conditions.",
+      "loop": "Option: repeat one small enabling action and observe which present factor actually sustains motion."
+    },
+    {
+      "id": "011",
+      "code": "ARC01-011",
+      "arc": "01",
+      "arcName": "Horizon Signal",
+      "domain": "Future-Pull Mechanics",
+      "glyph": "◯",
+      "title": "Future Alignment",
+      "glyphs": [
+        "alignment_glyph",
+        "future_identity",
+        "horizon_signal"
+      ],
+      "mirror": "Choosing a future identity may organize some present decisions without resolving every conflict, demand, or incompatible value.",
+      "loop": "Option: align one behavior with the chosen direction, then inspect what becomes clearer and what remains contested."
+    },
+    {
+      "id": "012",
+      "code": "ARC01-012",
+      "arc": "01",
+      "arcName": "Horizon Signal",
+      "domain": "Future-Pull Mechanics",
+      "glyph": "◯",
+      "title": "Arrival",
+      "glyphs": [
+        "arrival_point",
+        "future_identity",
+        "unity_circle"
+      ],
+      "mirror": "An internal sense of arrival can change present posture without proving that external work, conditions, or consequences are complete.",
+      "loop": "Option: embody one quality of arrival briefly, then compare internal change with unchanged external requirements."
+    },
+    {
+      "id": "013",
+      "code": "ARC02-013",
+      "arc": "02",
+      "arcName": "Field Architect",
+      "domain": "Field Creation",
+      "glyph": "△",
+      "title": "First Resistance",
+      "glyphs": [
+        "friction_band",
+        "horizon_signal",
+        "inner_wall"
+      ],
+      "mirror": "What becomes noticeable when the first step meets friction: hesitation, missing resources, unclear stakes, or a firm boundary?",
+      "loop": "Optionally test one smaller step, then compare whether friction softens, persists, or becomes more specific."
+    },
+    {
+      "id": "014",
+      "code": "ARC02-014",
+      "arc": "02",
+      "arcName": "Field Architect",
+      "domain": "Field Creation",
+      "glyph": "△",
+      "title": "Familiar Cage",
+      "glyphs": [
+        "inner_cage",
+        "identity_loop",
+        "friction_band"
+      ],
+      "mirror": "Familiarity can shelter, steady, or confine; its effect becomes visible in what it enables and repeatedly prevents.",
+      "loop": "Compare one familiar choice with a low-risk alternative, observing protection, cost, and available movement."
+    },
+    {
+      "id": "015",
+      "code": "ARC02-015",
+      "arc": "02",
+      "arcName": "Field Architect",
+      "domain": "Field Creation",
+      "glyph": "△",
+      "title": "Friction Map",
+      "glyphs": [
+        "friction_map",
+        "future_vector",
+        "horizon_signal"
+      ],
+      "mirror": "Recurring friction can form a map, but the pattern alone does not declare growth, danger, or direction.",
+      "loop": "Mark one repeated friction point, vary a condition, and observe whether strain, risk, or movement changes."
+    },
+    {
+      "id": "016",
+      "code": "ARC02-016",
+      "arc": "02",
+      "arcName": "Field Architect",
+      "domain": "Field Creation",
+      "glyph": "△",
+      "title": "Emotional Static",
+      "glyphs": [
+        "emotional_static",
+        "signal_noise",
+        "inner_field"
+      ],
+      "mirror": "When emotional intensity shifts across time or context, the static image invites comparison—not dismissal of a possible warning.",
+      "loop": "Optionally record the signal, pause, and compare it after one calmer interval."
+    },
+    {
+      "id": "017",
+      "code": "ARC02-017",
+      "arc": "02",
+      "arcName": "Field Architect",
+      "domain": "Field Creation",
+      "glyph": "△",
+      "title": "The Hidden Veto",
+      "glyphs": [
+        "inner_veto",
+        "phantom_contract",
+        "friction_band"
+      ],
+      "mirror": "Repeated reversals, delays, or competing commitments can resemble a quiet veto without proving an unseen veto-maker.",
+      "loop": "Name two conflicting commitments, test one small choice, and observe which constraint actually appears."
+    },
+    {
+      "id": "018",
+      "code": "ARC02-018",
+      "arc": "02",
+      "arcName": "Field Architect",
+      "domain": "Field Creation",
+      "glyph": "△",
+      "title": "Instruction Layer",
+      "glyphs": [
+        "instruction_layer",
+        "friction_arrow",
+        "horizon_signal"
+      ],
+      "mirror": "Friction may contain usable information, though fatigue, fear, incompatible demands, barriers, and noise can look similar.",
+      "loop": "Adjust one plausible factor, then observe whether the resistance changes enough to clarify its source."
+    },
+    {
+      "id": "019",
+      "code": "ARC02-019",
+      "arc": "02",
+      "arcName": "Field Architect",
+      "domain": "Field Creation",
+      "glyph": "△",
+      "title": "Aligned Resistance",
+      "glyphs": [
+        "horizon_signal",
+        "friction_band",
+        "alignment_mark"
+      ],
+      "mirror": "A spike in resistance marks a moment for reassessment, not proof that alignment or breakthrough is near.",
+      "loop": "Pause one commitment level down and compare alignment, safety, capacity, timing, and consequences."
+    },
+    {
+      "id": "020",
+      "code": "ARC02-020",
+      "arc": "02",
+      "arcName": "Field Architect",
+      "domain": "Field Creation",
+      "glyph": "△",
+      "title": "Directional Fear",
+      "glyphs": [
+        "fear_wave",
+        "future_vector",
+        "inner_field"
+      ],
+      "mirror": "Fear can highlight value, danger, uncertainty, conditioning, or overload; direction requires evidence beyond intensity alone.",
+      "loop": "Compare one feared option across value, concrete risk, reversibility, capacity, and available alternatives."
+    },
+    {
+      "id": "021",
+      "code": "ARC02-021",
+      "arc": "02",
+      "arcName": "Field Architect",
+      "domain": "Field Creation",
+      "glyph": "△",
+      "title": "Resistance Contract",
+      "glyphs": [
+        "phantom_contract",
+        "friction_band",
+        "identity_lock"
+      ],
+      "mirror": "A recurring limit may resemble an old agreement when present choices repeatedly follow a once-useful rule.",
+      "loop": "Write one suspected rule, test a narrow exception, and compare consequences with the contract metaphor."
+    },
+    {
+      "id": "022",
+      "code": "ARC02-022",
+      "arc": "02",
+      "arcName": "Field Architect",
+      "domain": "Field Creation",
+      "glyph": "△",
+      "title": "Following the Edge",
+      "glyphs": [
+        "edge_line",
+        "future_vector",
+        "friction_band"
+      ],
+      "mirror": "Discomfort can mark learning, danger, depletion, coercion, or misalignment; the edge must be assessed before following.",
+      "loop": "Approach one low-risk edge briefly, with clear pause conditions, then compare capacity, consequence, and recovery."
+    },
+    {
+      "id": "023",
+      "code": "ARC02-023",
+      "arc": "02",
+      "arcName": "Field Architect",
+      "domain": "Field Creation",
+      "glyph": "△",
+      "title": "Resistance Compass",
+      "glyphs": [
+        "compass_rose",
+        "friction_vector",
+        "horizon_signal"
+      ],
+      "mirror": "Resistance may refine orientation when compared with values, evidence, constraints, safety, and consequences—not when followed alone.",
+      "loop": "Add one resistance signal to a five-input decision check, then test the smallest reversible direction."
+    },
+    {
+      "id": "024",
+      "code": "ARC02-024",
+      "arc": "02",
+      "arcName": "Field Architect",
+      "domain": "Field Creation",
+      "glyph": "△",
+      "title": "Instruction Accepted",
+      "glyphs": [
+        "instruction_layer",
+        "horizon_signal",
+        "identity_seal"
+      ],
+      "mirror": "After an informed adjustment, friction may soften, persist, relocate, or reveal that no single instruction was present.",
+      "loop": "Try one evidence-based adjustment, then compare the resistance before, during, and after the change."
+    },
+    {
+      "id": "025",
+      "code": "ARC03-025",
+      "arc": "03",
+      "arcName": "Shape-Shifter",
+      "domain": "Identity Architecture",
+      "glyph": "◇",
+      "title": "Soft Drift",
+      "glyphs": [
+        "drift_wave",
+        "identity_field",
+        "future_vector"
+      ],
+      "mirror": "Notice whether small, repeated departures from chosen direction are accumulating—or simply reflecting ordinary variation.",
+      "loop": "Optionally track one recurring choice for a week, then compare its direction and context."
+    },
+    {
+      "id": "026",
+      "code": "ARC03-026",
+      "arc": "03",
+      "arcName": "Shape-Shifter",
+      "domain": "Identity Architecture",
+      "glyph": "◇",
+      "title": "Micro-Abandonment",
+      "glyphs": [
+        "identity_crack",
+        "drift_wave",
+        "inner_field"
+      ],
+      "mirror": "Small departures from stated intentions may create disconnection, though changed priorities or constraints can look similar.",
+      "loop": "Optionally repair or renegotiate one small commitment, then observe whether consistency changes."
+    },
+    {
+      "id": "027",
+      "code": "ARC03-027",
+      "arc": "03",
+      "arcName": "Shape-Shifter",
+      "domain": "Identity Architecture",
+      "glyph": "◇",
+      "title": "Identity Vector",
+      "glyphs": [
+        "identity_vector",
+        "future_vector",
+        "alignment_mark"
+      ],
+      "mirror": "Repeated choices can be read as a vector, while exploration may remain directionally useful rather than misaligned.",
+      "loop": "Name one provisional direction and test it against three upcoming choices."
+    },
+    {
+      "id": "028",
+      "code": "ARC03-028",
+      "arc": "03",
+      "arcName": "Shape-Shifter",
+      "domain": "Identity Architecture",
+      "glyph": "◇",
+      "title": "Leak",
+      "glyphs": [
+        "identity_leak",
+        "drift_wave",
+        "inner_field"
+      ],
+      "mirror": "The leak image may highlight neglected habits, boundaries, or environments that repeatedly interrupt a chosen direction.",
+      "loop": "Temporarily maintain one neglected point and observe whether recurring friction changes."
+    },
+    {
+      "id": "029",
+      "code": "ARC03-029",
+      "arc": "03",
+      "arcName": "Shape-Shifter",
+      "domain": "Identity Architecture",
+      "glyph": "◇",
+      "title": "Collapse Moment",
+      "glyphs": [
+        "collapse_point",
+        "identity_crack",
+        "inner_field"
+      ],
+      "mirror": "Some disruptions have recurring precursors, while others become legible only afterward or arrive without warning.",
+      "loop": "Choose one possible precursor and monitor it without assuming prevention is available."
+    },
+    {
+      "id": "030",
+      "code": "ARC03-030",
+      "arc": "03",
+      "arcName": "Shape-Shifter",
+      "domain": "Identity Architecture",
+      "glyph": "◇",
+      "title": "The Drift Signal",
+      "glyphs": [
+        "drift_signal",
+        "identity_field",
+        "future_vector"
+      ],
+      "mirror": "Unease may accompany a loss of direction, but context must distinguish that signal from other sources.",
+      "loop": "Log one episode of unease, its context, and the decision it seems to concern."
+    },
+    {
+      "id": "031",
+      "code": "ARC03-031",
+      "arc": "03",
+      "arcName": "Shape-Shifter",
+      "domain": "Identity Architecture",
+      "glyph": "◇",
+      "title": "Identity Reclaim",
+      "glyphs": [
+        "identity_core",
+        "alignment_mark",
+        "future_identity"
+      ],
+      "mirror": "Reclaiming may mean renewing selected commitments, while changed commitments can also represent legitimate development.",
+      "loop": "Revisit one former commitment briefly and test whether it still provides orientation."
+    },
+    {
+      "id": "032",
+      "code": "ARC03-032",
+      "arc": "03",
+      "arcName": "Shape-Shifter",
+      "domain": "Identity Architecture",
+      "glyph": "◇",
+      "title": "Vector Collapse",
+      "glyphs": [
+        "collapse_vector",
+        "drift_wave",
+        "future_vector"
+      ],
+      "mirror": "A missing future vector may contribute to stalled coordination, though resources, dependencies, or unclear information may matter more.",
+      "loop": "Set one provisional horizon and observe whether a stalled decision becomes easier to resolve."
+    },
+    {
+      "id": "033",
+      "code": "ARC03-033",
+      "arc": "03",
+      "arcName": "Shape-Shifter",
+      "domain": "Identity Architecture",
+      "glyph": "◇",
+      "title": "Identity Anchor",
+      "glyphs": [
+        "identity_anchor",
+        "alignment_mark",
+        "future_identity"
+      ],
+      "mirror": "Revisable commitments can anchor direction through routines, boundaries, or criteria without fixing one permanent future identity.",
+      "loop": "Try one anchor for a week, with a scheduled point for reconsideration."
+    },
+    {
+      "id": "034",
+      "code": "ARC03-034",
+      "arc": "03",
+      "arcName": "Shape-Shifter",
+      "domain": "Identity Architecture",
+      "glyph": "◇",
+      "title": "Identity Stabilization",
+      "glyphs": [
+        "identity_stabilizer",
+        "future_identity",
+        "alignment_mark"
+      ],
+      "mirror": "Stability may appear as continuity across changing conditions, while clarity can still refine what deserves continuity.",
+      "loop": "Hold one small practice steady while clarifying one uncertain decision."
+    },
+    {
+      "id": "035",
+      "code": "ARC03-035",
+      "arc": "03",
+      "arcName": "Shape-Shifter",
+      "domain": "Identity Architecture",
+      "glyph": "◇",
+      "title": "Identity Field",
+      "glyphs": [
+        "identity_field",
+        "alignment_mark",
+        "unity_circle"
+      ],
+      "mirror": "The identity field can represent interacting environments, inputs, relationships, and norms that influence—but do not control—action.",
+      "loop": "Change one contextual input briefly, then compare the same task under both conditions."
+    },
+    {
+      "id": "036",
+      "code": "ARC03-036",
+      "arc": "03",
+      "arcName": "Shape-Shifter",
+      "domain": "Identity Architecture",
+      "glyph": "◇",
+      "title": "Identity Cohesion",
+      "glyphs": [
+        "identity_cohesion",
+        "future_identity",
+        "unity_circle"
+      ],
+      "mirror": "Cohesion may emerge when different aims coordinate without requiring every part to share one direction.",
+      "loop": "Map two competing aims and test one boundary that lets both remain visible."
+    },
+    {
+      "id": "037",
+      "code": "ARC04-037",
+      "arc": "04",
+      "arcName": "Silent Gate",
+      "domain": "Emotional Gravity",
+      "glyph": "□",
+      "title": "The Inner Deal",
+      "glyphs": [
+        "inner_deal",
+        "identity_split",
+        "friction_band"
+      ],
+      "mirror": "A quiet bargain may be visible when action repeatedly depends on an unspoken condition.",
+      "loop": "Optionally name one condition and test a smaller version of the choice."
+    },
+    {
+      "id": "038",
+      "code": "ARC04-038",
+      "arc": "04",
+      "arcName": "Silent Gate",
+      "domain": "Emotional Gravity",
+      "glyph": "□",
+      "title": "Delay Negotiator",
+      "glyphs": [
+        "delay_clock",
+        "inner_deal",
+        "future_vector"
+      ],
+      "mirror": "“Later” can mark either useful timing or postponement without a clear decision point.",
+      "loop": "Try giving one delay a date, purpose, and decision criterion."
+    },
+    {
+      "id": "039",
+      "code": "ARC04-039",
+      "arc": "04",
+      "arcName": "Silent Gate",
+      "domain": "Emotional Gravity",
+      "glyph": "□",
+      "title": "Emotional Bargain",
+      "glyphs": [
+        "emotional_scale",
+        "inner_deal",
+        "identity_field"
+      ],
+      "mirror": "Short-term calm may carry a cost when the same unspoken concern repeatedly returns.",
+      "loop": "In one low-stakes moment, test a measured statement of the concern."
+    },
+    {
+      "id": "040",
+      "code": "ARC04-040",
+      "arc": "04",
+      "arcName": "Silent Gate",
+      "domain": "Emotional Gravity",
+      "glyph": "□",
+      "title": "Split Council",
+      "glyphs": [
+        "identity_split",
+        "inner_voices_circle",
+        "negotiation_table"
+      ],
+      "mirror": "The council image may fit when stable priorities repeatedly pull the same choice in opposing directions.",
+      "loop": "Name two competing priorities and trial a choice that minimally serves both."
+    },
+    {
+      "id": "041",
+      "code": "ARC04-041",
+      "arc": "04",
+      "arcName": "Silent Gate",
+      "domain": "Emotional Gravity",
+      "glyph": "□",
+      "title": "Negotiated Identity",
+      "glyphs": [
+        "identity_mask",
+        "inner_deal",
+        "outer_field"
+      ],
+      "mirror": "Adaptation becomes worth examining when preferences and limits repeatedly disappear across roles, with recognizable costs afterward.",
+      "loop": "Test one low-stakes preference openly and observe both relational and practical effects."
+    },
+    {
+      "id": "042",
+      "code": "ARC04-042",
+      "arc": "04",
+      "arcName": "Silent Gate",
+      "domain": "Emotional Gravity",
+      "glyph": "□",
+      "title": "Terms \u0026 Conditions",
+      "glyphs": [
+        "contract_lines",
+        "inner_deal",
+        "identity_field"
+      ],
+      "mirror": "An implicit term may be present when the same “only if” pattern repeatedly stalls action.",
+      "loop": "Write one suspected if-then term, then test a limited exception."
+    },
+    {
+      "id": "043",
+      "code": "ARC04-043",
+      "arc": "04",
+      "arcName": "Silent Gate",
+      "domain": "Emotional Gravity",
+      "glyph": "□",
+      "title": "The Non-Negotiable",
+      "glyphs": [
+        "identity_core",
+        "nonnegotiable_mark",
+        "future_identity"
+      ],
+      "mirror": "A value, commitment, or current priority may need firmer terms—but each carries different costs.",
+      "loop": "Trial one scoped non-negotiable briefly, with an exception and review date."
+    },
+    {
+      "id": "044",
+      "code": "ARC04-044",
+      "arc": "04",
+      "arcName": "Silent Gate",
+      "domain": "Emotional Gravity",
+      "glyph": "□",
+      "title": "Emotional Gate",
+      "glyphs": [
+        "emotional_gate",
+        "inner_field",
+        "horizon_signal"
+      ],
+      "mirror": "The gate image may fit when a specific unresolved concern repeatedly accompanies stalled movement.",
+      "loop": "Pair one factual plan with one named concern and test a modest next step."
+    },
+    {
+      "id": "045",
+      "code": "ARC04-045",
+      "arc": "04",
+      "arcName": "Silent Gate",
+      "domain": "Emotional Gravity",
+      "glyph": "□",
+      "title": "Self-Against-Self",
+      "glyphs": [
+        "identity_split",
+        "counter_vector",
+        "inner_field"
+      ],
+      "mirror": "Countervailing priorities may appear when building actions are repeatedly followed by reversals under similar conditions.",
+      "loop": "Track one build-and-reversal pair, then test a smaller step serving both priorities."
+    },
+    {
+      "id": "046",
+      "code": "ARC04-046",
+      "arc": "04",
+      "arcName": "Silent Gate",
+      "domain": "Emotional Gravity",
+      "glyph": "□",
+      "title": "Unified Terms",
+      "glyphs": [
+        "contract_unified",
+        "identity_field",
+        "alignment_mark"
+      ],
+      "mirror": "Workable consent may matter when the same unresolved objection repeatedly reopens an otherwise settled plan.",
+      "loop": "Trial a minimum agreement while recording one dissent and scheduling its review."
+    },
+    {
+      "id": "047",
+      "code": "ARC04-047",
+      "arc": "04",
+      "arcName": "Silent Gate",
+      "domain": "Emotional Gravity",
+      "glyph": "□",
+      "title": "Aligned Negotiator",
+      "glyphs": [
+        "inner_negotiator",
+        "alignment_mark",
+        "future_identity"
+      ],
+      "mirror": "Negotiation can serve a chosen commitment when exceptions and tradeoffs are tested against clear criteria.",
+      "loop": "Trial one future-facing boundary briefly, then review its benefits, costs, and exceptions."
+    },
+    {
+      "id": "048",
+      "code": "ARC04-048",
+      "arc": "04",
+      "arcName": "Silent Gate",
+      "domain": "Emotional Gravity",
+      "glyph": "□",
+      "title": "Internal Treaty",
+      "glyphs": [
+        "treaty_scroll",
+        "unity_circle",
+        "identity_field"
+      ],
+      "mirror": "A treaty can coordinate enduring differences without requiring every priority to move identically.",
+      "loop": "Draft a short, revisable treaty naming a shared aim, dissent, next step, and review."
+    },
+    {
+      "id": "049",
+      "code": "ARC05-049",
+      "arc": "05",
+      "arcName": "Temporal Navigator",
+      "domain": "Timeline Intelligence",
+      "glyph": "⌘",
+      "title": "Sabotage Signature",
+      "glyphs": [
+        "sabotage_mark",
+        "identity_split",
+        "phantom_contract"
+      ],
+      "mirror": "What repeating sequence appears before a chosen action gets delayed, reduced, or abandoned?",
+      "loop": "Optional: track one recurring sequence for a week without trying to fix it."
+    },
+    {
+      "id": "050",
+      "code": "ARC05-050",
+      "arc": "05",
+      "arcName": "Temporal Navigator",
+      "domain": "Timeline Intelligence",
+      "glyph": "⌘",
+      "title": "The False Win",
+      "glyphs": [
+        "false_reward",
+        "phantom_contract",
+        "identity_field"
+      ],
+      "mirror": "Which satisfying wins also carry delayed costs for the direction that matters?",
+      "loop": "Optional: compare one immediate reward with its effects three days later."
+    },
+    {
+      "id": "051",
+      "code": "ARC05-051",
+      "arc": "05",
+      "arcName": "Temporal Navigator",
+      "domain": "Timeline Intelligence",
+      "glyph": "⌘",
+      "title": "The Protector",
+      "glyphs": [
+        "inner_protector",
+        "phantom_contract",
+        "fear_wave"
+      ],
+      "mirror": "Could a recurring retreat be preserving something valuable, or simply reflecting present limits?",
+      "loop": "Optional: test one smaller step while preserving the suspected concern."
+    },
+    {
+      "id": "052",
+      "code": "ARC05-052",
+      "arc": "05",
+      "arcName": "Temporal Navigator",
+      "domain": "Timeline Intelligence",
+      "glyph": "⌘",
+      "title": "Contract Anchor",
+      "glyphs": [
+        "contract_anchor",
+        "phantom_contract",
+        "identity_lock"
+      ],
+      "mirror": "Does a repeated rule seem to anchor choices after its usefulness has faded?",
+      "loop": "Optional: name one suspected rule and suspend it for a low-stakes choice."
+    },
+    {
+      "id": "053",
+      "code": "ARC05-053",
+      "arc": "05",
+      "arcName": "Temporal Navigator",
+      "domain": "Timeline Intelligence",
+      "glyph": "⌘",
+      "title": "Fear Clause",
+      "glyphs": [
+        "fear_clause",
+        "phantom_contract",
+        "inner_field"
+      ],
+      "mirror": "What concern appears in the fine print when a planned step repeatedly narrows?",
+      "loop": "Optional: name one concern, then test a bounded version of the step."
+    },
+    {
+      "id": "054",
+      "code": "ARC05-054",
+      "arc": "05",
+      "arcName": "Temporal Navigator",
+      "domain": "Timeline Intelligence",
+      "glyph": "⌘",
+      "title": "Countermove",
+      "glyphs": [
+        "counter_vector",
+        "phantom_contract",
+        "identity_split"
+      ],
+      "mirror": "After visible progress, does a recurring countermove reduce, reverse, or complicate the next step?",
+      "loop": "Optional: watch the next milestone for one predefined countermove indicator."
+    },
+    {
+      "id": "055",
+      "code": "ARC05-055",
+      "arc": "05",
+      "arcName": "Temporal Navigator",
+      "domain": "Timeline Intelligence",
+      "glyph": "⌘",
+      "title": "Contract Reveal",
+      "glyphs": [
+        "contract_reveal",
+        "inner_field",
+        "identity_split"
+      ],
+      "mirror": "When difficulty intensifies, what repeated rule or split becomes easier to observe?",
+      "loop": "Optional: pause during one pressure spike and record competing commitments without resolving them."
+    },
+    {
+      "id": "056",
+      "code": "ARC05-056",
+      "arc": "05",
+      "arcName": "Temporal Navigator",
+      "domain": "Timeline Intelligence",
+      "glyph": "⌘",
+      "title": "Old Promises",
+      "glyphs": [
+        "old_promise",
+        "phantom_contract",
+        "identity_field"
+      ],
+      "mirror": "When recurring “shoulds” outpredict present incentives, might an old promise still be shaping the choice?",
+      "loop": "Optionally alternate two competing criteria across comparable low-stakes choices, then compare the outcomes."
+    },
+    {
+      "id": "057",
+      "code": "ARC05-057",
+      "arc": "05",
+      "arcName": "Temporal Navigator",
+      "domain": "Timeline Intelligence",
+      "glyph": "⌘",
+      "title": "Loyal Sabotage",
+      "glyphs": [
+        "loyalty_knot",
+        "phantom_contract",
+        "inner_chain"
+      ],
+      "mirror": "When a familiar choice repeats, what observable duty might it preserve, and what would distinguish loyalty from familiarity, incentives, limited capacity, or uncertainty?",
+      "loop": "Optional: define one concrete duty, then compare matched, reversible forms with practical support held constant—one that visibly carries the duty forward and one that serves the immediate task without it."
+    },
+    {
+      "id": "058",
+      "code": "ARC05-058",
+      "arc": "05",
+      "arcName": "Temporal Navigator",
+      "domain": "Timeline Intelligence",
+      "glyph": "⌘",
+      "title": "Contract Break",
+      "glyphs": [
+        "contract_break",
+        "identity_vector",
+        "future_identity"
+      ],
+      "mirror": "What changes when an outdated agreement is replaced, and what patterns remain afterward?",
+      "loop": "Optional: revise one commitment and observe three related decisions before drawing conclusions."
+    },
+    {
+      "id": "059",
+      "code": "ARC05-059",
+      "arc": "05",
+      "arcName": "Temporal Navigator",
+      "domain": "Timeline Intelligence",
+      "glyph": "⌘",
+      "title": "Aligned Loyalty",
+      "glyphs": [
+        "loyalty_chain",
+        "future_identity",
+        "unity_circle"
+      ],
+      "mirror": "Which loyalties reinforce chosen values, and which create observable conflict among commitments?",
+      "loop": "Optional: redirect one commitment toward a named value and review its actual effects."
+    },
+    {
+      "id": "060",
+      "code": "ARC05-060",
+      "arc": "05",
+      "arcName": "Temporal Navigator",
+      "domain": "Timeline Intelligence",
+      "glyph": "⌘",
+      "title": "Sabotage Ends",
+      "glyphs": [
+        "contract_seal",
+        "unity_circle",
+        "future_identity"
+      ],
+      "mirror": "Does a chosen identity agreement add anything measurable beyond the same practical support used alone?",
+      "loop": "Optionally alternate practical support alone with the same support plus one explicit agreement."
+    },
+    {
+      "id": "061",
+      "code": "ARC06-061",
+      "arc": "06",
+      "arcName": "Fracture Path",
+      "domain": "Decision Physics",
+      "glyph": "✦",
+      "title": "Time Gap",
+      "glyphs": [
+        "time_gap",
+        "future_vector",
+        "temporal_line"
+      ],
+      "mirror": "Where does clear intention remain visible while action repeatedly begins later than expected?",
+      "loop": "Optionally test one low-risk step now against one deliberately scheduled step."
+    },
+    {
+      "id": "062",
+      "code": "ARC06-062",
+      "arc": "06",
+      "arcName": "Fracture Path",
+      "domain": "Decision Physics",
+      "glyph": "✦",
+      "title": "Delay Window",
+      "glyphs": [
+        "delay_window",
+        "temporal_frame",
+        "identity_field"
+      ],
+      "mirror": "When a decision pauses, does the open window bring useful information or repeated drift?",
+      "loop": "Leave one pause open briefly, with a deadline and a question it must answer."
+    },
+    {
+      "id": "063",
+      "code": "ARC06-063",
+      "arc": "06",
+      "arcName": "Fracture Path",
+      "domain": "Decision Physics",
+      "glyph": "✦",
+      "title": "Immediate Vector",
+      "glyphs": [
+        "future_vector",
+        "instant_point",
+        "temporal_acceleration"
+      ],
+      "mirror": "Which opportunities become clearer through a small trial, and which require verification before movement?",
+      "loop": "Test one promising direction with the smallest reversible action that can return useful evidence."
+    },
+    {
+      "id": "064",
+      "code": "ARC06-064",
+      "arc": "06",
+      "arcName": "Fracture Path",
+      "domain": "Decision Physics",
+      "glyph": "✦",
+      "title": "Temporal Friction",
+      "glyphs": [
+        "friction_time",
+        "temporal_chain",
+        "identity_field"
+      ],
+      "mirror": "Does waiting make the task objectively harder, or does repeated anticipation make it feel heavier?",
+      "loop": "Compare one early micro-step with one intentional pause, then note what actually changes."
+    },
+    {
+      "id": "065",
+      "code": "ARC06-065",
+      "arc": "06",
+      "arcName": "Fracture Path",
+      "domain": "Decision Physics",
+      "glyph": "✦",
+      "title": "Action Lapse",
+      "glyphs": [
+        "action_lapse",
+        "temporal_gap",
+        "future_vector"
+      ],
+      "mirror": "An interrupted action can reveal a broken sequence without defining the person who began it.",
+      "loop": "Re-enter one paused sequence through a step small enough to stop or revise."
+    },
+    {
+      "id": "066",
+      "code": "ARC06-066",
+      "arc": "06",
+      "arcName": "Fracture Path",
+      "domain": "Decision Physics",
+      "glyph": "✦",
+      "title": "Compression Line",
+      "glyphs": [
+        "temporal_compression",
+        "future_vector",
+        "identity_field"
+      ],
+      "mirror": "When does deliberation clarify a commitment, and when does it merely reopen a settled choice?",
+      "loop": "Give one recurring decision a criterion, a deadline, and one reversible committed step."
+    },
+    {
+      "id": "067",
+      "code": "ARC06-067",
+      "arc": "06",
+      "arcName": "Fracture Path",
+      "domain": "Decision Physics",
+      "glyph": "✦",
+      "title": "Temporal Edge",
+      "glyphs": [
+        "temporal_edge",
+        "future_vector",
+        "alignment_mark"
+      ],
+      "mirror": "A temporal edge may appear when readiness increases, though uncertainty can still justify stepping back.",
+      "loop": "At one readiness threshold, test a reversible move or pause for one named uncertainty."
+    },
+    {
+      "id": "068",
+      "code": "ARC06-068",
+      "arc": "06",
+      "arcName": "Fracture Path",
+      "domain": "Decision Physics",
+      "glyph": "✦",
+      "title": "Time Fold",
+      "glyphs": [
+        "time_fold",
+        "temporal_curve",
+        "future_identity"
+      ],
+      "mirror": "What present choice changes when an envisioned future is treated as a perspective, not a promise?",
+      "loop": "Borrow one criterion from an envisioned future and test it in a reversible present choice."
+    },
+    {
+      "id": "069",
+      "code": "ARC06-069",
+      "arc": "06",
+      "arcName": "Fracture Path",
+      "domain": "Decision Physics",
+      "glyph": "✦",
+      "title": "Competing Timelines",
+      "glyphs": [
+        "timeline_split",
+        "identity_field",
+        "future_vector"
+      ],
+      "mirror": "When two futures compete, which concrete priorities, costs, and commitments distinguish their paths?",
+      "loop": "Compare two paths using three criteria, then trial the more reversible option briefly."
+    },
+    {
+      "id": "070",
+      "code": "ARC06-070",
+      "arc": "06",
+      "arcName": "Fracture Path",
+      "domain": "Decision Physics",
+      "glyph": "✦",
+      "title": "Accelerated Identity",
+      "glyphs": [
+        "identity_acceleration",
+        "future_identity",
+        "temporal_compression"
+      ],
+      "mirror": "Speed may reinforce a chosen direction when the action is aligned, reversible, and responsive to feedback.",
+      "loop": "Accelerate one pre-checked action briefly, with a clear stop condition and feedback measure."
+    },
+    {
+      "id": "071",
+      "code": "ARC06-071",
+      "arc": "06",
+      "arcName": "Fracture Path",
+      "domain": "Decision Physics",
+      "glyph": "✦",
+      "title": "Time Collapse",
+      "glyphs": [
+        "timeline_collapse",
+        "future_identity",
+        "unity_circle"
+      ],
+      "mirror": "A debate may close when its criteria are met, while new warning signals remain welcome.",
+      "loop": "Close one adequately considered choice until review, unless a named warning condition appears."
+    },
+    {
+      "id": "072",
+      "code": "ARC06-072",
+      "arc": "06",
+      "arcName": "Fracture Path",
+      "domain": "Decision Physics",
+      "glyph": "✦",
+      "title": "Zero Distance",
+      "glyphs": [
+        "zero_point",
+        "future_identity",
+        "unity_circle"
+      ],
+      "mirror": "How much of a distant future reflects present practice, and how much remains constrained by time and circumstance?",
+      "loop": "Practice one future-consistent behavior briefly, then compare aspiration with material conditions."
+    },
+    {
+      "id": "073",
+      "code": "ARC07-073",
+      "arc": "07",
+      "arcName": "Duality Weaver",
+      "domain": "Paradox Work",
+      "glyph": "✿",
+      "title": "First Fracture",
+      "glyphs": [
+        "fracture_mark",
+        "identity_crack",
+        "future_vector"
+      ],
+      "mirror": "A first crack may mark change, or simply expose a temporary mismatch worth watching.",
+      "loop": "Optionally track one recurring crack for a week before assigning it a direction."
+    },
+    {
+      "id": "074",
+      "code": "ARC07-074",
+      "arc": "07",
+      "arcName": "Duality Weaver",
+      "domain": "Paradox Work",
+      "glyph": "✿",
+      "title": "Breakage Path",
+      "glyphs": [
+        "break_path",
+        "fracture_mark",
+        "future_vector"
+      ],
+      "mirror": "A break can reveal pressure, but damage, chance, or external force may explain the same line.",
+      "loop": "Test one break as a clue, while keeping repair and disengagement equally available."
+    },
+    {
+      "id": "075",
+      "code": "ARC07-075",
+      "arc": "07",
+      "arcName": "Duality Weaver",
+      "domain": "Paradox Work",
+      "glyph": "✿",
+      "title": "Fracture Pulse",
+      "glyphs": [
+        "fracture_pulse",
+        "identity_field",
+        "signal_wave"
+      ],
+      "mirror": "Tension may carry useful information, though its apparent pulse can be brief, ambiguous, or unrelated to direction.",
+      "loop": "Briefly log three tension pulses, then compare what changed and what remained."
+    },
+    {
+      "id": "076",
+      "code": "ARC07-076",
+      "arc": "07",
+      "arcName": "Duality Weaver",
+      "domain": "Paradox Work",
+      "glyph": "✿",
+      "title": "Fracture Lens",
+      "glyphs": [
+        "fracture_lens",
+        "identity_field",
+        "alignment_mark"
+      ],
+      "mirror": "A fracture can act as a lens on demand, capacity, and fit without proving that something larger must emerge.",
+      "loop": "Temporarily reduce one demand and observe whether the fracture pattern changes."
+    },
+    {
+      "id": "077",
+      "code": "ARC07-077",
+      "arc": "07",
+      "arcName": "Duality Weaver",
+      "domain": "Paradox Work",
+      "glyph": "✿",
+      "title": "Breaking Point",
+      "glyphs": [
+        "breaking_point",
+        "identity_crack",
+        "temporal_line"
+      ],
+      "mirror": "A breaking point may reveal limits or options, but it does not guarantee that breakthrough waits beyond it.",
+      "loop": "Try one brief pause at a limit and record what becomes observable."
+    },
+    {
+      "id": "078",
+      "code": "ARC07-078",
+      "arc": "07",
+      "arcName": "Duality Weaver",
+      "domain": "Paradox Work",
+      "glyph": "✿",
+      "title": "Fracture Map",
+      "glyphs": [
+        "fracture_map",
+        "identity_field",
+        "future_vector"
+      ],
+      "mirror": "Break lines may form a partial map, especially when the same strain appears across time and contexts.",
+      "loop": "Trace three related breaks and check whether their apparent map survives comparison."
+    },
+    {
+      "id": "079",
+      "code": "ARC07-079",
+      "arc": "07",
+      "arcName": "Duality Weaver",
+      "domain": "Paradox Work",
+      "glyph": "✿",
+      "title": "Fracture Choice",
+      "glyphs": [
+        "fracture_choice",
+        "break_path",
+        "future_identity"
+      ],
+      "mirror": "The next choice can shape a fracture’s course, alongside resources, timing, constraints, and other people’s actions.",
+      "loop": "Compare two reversible responses against present values, conditions, and likely costs."
+    },
+    {
+      "id": "080",
+      "code": "ARC07-080",
+      "arc": "07",
+      "arcName": "Duality Weaver",
+      "domain": "Paradox Work",
+      "glyph": "✿",
+      "title": "Fracture Stability",
+      "glyphs": [
+        "fracture_stability",
+        "identity_field",
+        "unity_circle"
+      ],
+      "mirror": "Integration may support stability when repair restores function without concealing damage or transferring strain elsewhere.",
+      "loop": "Test one modest repair and monitor function, recurrence, and new strain."
+    },
+    {
+      "id": "081",
+      "code": "ARC07-081",
+      "arc": "07",
+      "arcName": "Duality Weaver",
+      "domain": "Paradox Work",
+      "glyph": "✿",
+      "title": "Threshold",
+      "glyphs": [
+        "threshold_line",
+        "temporal_edge",
+        "future_identity"
+      ],
+      "mirror": "A threshold can invite movement or caution; repeated hesitation alone does not reveal which response fits.",
+      "loop": "Define one reversible crossing, then compare its information gain with its risk."
+    },
+    {
+      "id": "082",
+      "code": "ARC07-082",
+      "arc": "07",
+      "arcName": "Duality Weaver",
+      "domain": "Paradox Work",
+      "glyph": "✿",
+      "title": "Fracture Rhythm",
+      "glyphs": [
+        "fracture_rhythm",
+        "temporal_line",
+        "identity_field"
+      ],
+      "mirror": "Some fractures recur with a rhythm, while others remain irregular events that resist a single sequence.",
+      "loop": "Time-stamp three breakpoints and compare their order, spacing, triggers, and recovery."
+    },
+    {
+      "id": "083",
+      "code": "ARC07-083",
+      "arc": "07",
+      "arcName": "Duality Weaver",
+      "domain": "Paradox Work",
+      "glyph": "✿",
+      "title": "Fracture Alignment",
+      "glyphs": [
+        "fracture_alignment",
+        "alignment_mark",
+        "future_identity"
+      ],
+      "mirror": "A break may clarify a chosen direction, but relief or novelty can resemble alignment without confirming it.",
+      "loop": "Trial one value-linked step and watch whether contradictions lessen or multiply."
+    },
+    {
+      "id": "084",
+      "code": "ARC07-084",
+      "arc": "07",
+      "arcName": "Duality Weaver",
+      "domain": "Paradox Work",
+      "glyph": "✿",
+      "title": "Fracture Integration",
+      "glyphs": [
+        "fracture_integration",
+        "unity_circle",
+        "future_identity"
+      ],
+      "mirror": "A fracture may reveal usable details, unresolved questions, or damage that offers little basis for rebuilding.",
+      "loop": "Sort one break into salvage, discard, and unknown; test only one salvageable element."
+    },
+    {
+      "id": "085",
+      "code": "ARC08-085",
+      "arc": "08",
+      "arcName": "Phantom Contract",
+      "domain": "Shadow Contracts",
+      "glyph": "▣",
+      "title": "Architect Awakening",
+      "glyphs": [
+        "architect_awaken",
+        "identity_core",
+        "future_vector"
+      ],
+      "mirror": "Where do recurring defaults leave room for deliberate design, and where do circumstances still set the frame?",
+      "loop": "Optionally redesign one recurring choice and observe whether agency increases without creating new friction."
+    },
+    {
+      "id": "086",
+      "code": "ARC08-086",
+      "arc": "08",
+      "arcName": "Phantom Contract",
+      "domain": "Shadow Contracts",
+      "glyph": "▣",
+      "title": "Structure Audit",
+      "glyphs": [
+        "structure_grid",
+        "identity_field",
+        "alignment_mark"
+      ],
+      "mirror": "When effort repeatedly meets the same friction, which surrounding rule, cue, or constraint might be contributing?",
+      "loop": "Temporarily change one structural variable and compare the effort, errors, or delay that follows."
+    },
+    {
+      "id": "087",
+      "code": "ARC08-087",
+      "arc": "08",
+      "arcName": "Phantom Contract",
+      "domain": "Shadow Contracts",
+      "glyph": "▣",
+      "title": "Identity Blueprint",
+      "glyphs": [
+        "identity_blueprint",
+        "future_identity",
+        "unity_circle"
+      ],
+      "mirror": "Could a provisional blueprint clarify which roles, traits, directions, or boundaries deserve practical exploration?",
+      "loop": "Sketch one provisional identity feature, test it once, and revise it from the observed fit."
+    },
+    {
+      "id": "088",
+      "code": "ARC08-088",
+      "arc": "08",
+      "arcName": "Phantom Contract",
+      "domain": "Shadow Contracts",
+      "glyph": "▣",
+      "title": "Constraint Design",
+      "glyphs": [
+        "constraint_frame",
+        "identity_field",
+        "future_vector"
+      ],
+      "mirror": "Which revisable boundary might reduce conflicting choices, and which options remain necessary for learning or adaptation?",
+      "loop": "Try one removable constraint briefly, watching for reduced conflict, rigidity, or unintended cost."
+    },
+    {
+      "id": "089",
+      "code": "ARC08-089",
+      "arc": "08",
+      "arcName": "Phantom Contract",
+      "domain": "Shadow Contracts",
+      "glyph": "▣",
+      "title": "Architect Threshold",
+      "glyphs": [
+        "threshold_architect",
+        "future_identity",
+        "alignment_mark"
+      ],
+      "mirror": "A threshold may appear when a familiar response pauses long enough for one deliberate alternative to become visible.",
+      "loop": "Mark one recurring fork, try a different response once, and compare what changes afterward."
+    },
+    {
+      "id": "090",
+      "code": "ARC08-090",
+      "arc": "08",
+      "arcName": "Phantom Contract",
+      "domain": "Shadow Contracts",
+      "glyph": "▣",
+      "title": "Structural Identity",
+      "glyphs": [
+        "identity_structure",
+        "unity_circle",
+        "future_identity"
+      ],
+      "mirror": "Do calendar, environment, rhythms, and boundaries consistently support a stated direction, or require repeated renegotiation?",
+      "loop": "Adjust one supporting structure for a week and observe whether follow-through becomes steadier or merely different."
+    },
+    {
+      "id": "091",
+      "code": "ARC08-091",
+      "arc": "08",
+      "arcName": "Phantom Contract",
+      "domain": "Shadow Contracts",
+      "glyph": "▣",
+      "title": "System Author",
+      "glyphs": [
+        "system_grid",
+        "architect_compass",
+        "future_vector"
+      ],
+      "mirror": "When a written goal repeatedly stalls at the same point, could a supporting system change the conditions?",
+      "loop": "Pair one goal with a tiny repeatable system, then compare starts, completions, and burden."
+    },
+    {
+      "id": "092",
+      "code": "ARC08-092",
+      "arc": "08",
+      "arcName": "Phantom Contract",
+      "domain": "Shadow Contracts",
+      "glyph": "▣",
+      "title": "Identity Geometry",
+      "glyphs": [
+        "identity_geometry",
+        "future_identity",
+        "structure_grid"
+      ],
+      "mirror": "If commitments crowd or boundaries overlap, what does the geometry image reveal without treating discomfort as proof?",
+      "loop": "Sketch one crowded arrangement, move a boundary provisionally, and observe whether choices become clearer."
+    },
+    {
+      "id": "093",
+      "code": "ARC08-093",
+      "arc": "08",
+      "arcName": "Phantom Contract",
+      "domain": "Shadow Contracts",
+      "glyph": "▣",
+      "title": "Architect Conflict",
+      "glyphs": [
+        "architect_split",
+        "identity_field",
+        "alignment_mark"
+      ],
+      "mirror": "Across comparable choices, do familiar and emerging commitments preserve different benefits, or does context explain the alternation?",
+      "loop": "Try both options across several low-stakes choices; record immediate benefits, costs, and context."
+    },
+    {
+      "id": "094",
+      "code": "ARC08-094",
+      "arc": "08",
+      "arcName": "Phantom Contract",
+      "domain": "Shadow Contracts",
+      "glyph": "▣",
+      "title": "Structural Rewrite",
+      "glyphs": [
+        "structure_rewrite",
+        "architect_compass",
+        "future_identity"
+      ],
+      "mirror": "Which recurring arrangement sustains an old pattern, and how might a changed story interact with that structure?",
+      "loop": "Alter one arrangement while holding the stated story steady, then compare whether the pattern changes."
+    },
+    {
+      "id": "095",
+      "code": "ARC08-095",
+      "arc": "08",
+      "arcName": "Phantom Contract",
+      "domain": "Shadow Contracts",
+      "glyph": "▣",
+      "title": "Identity Architect",
+      "glyphs": [
+        "architect_compass",
+        "future_identity",
+        "unity_circle"
+      ],
+      "mirror": "Across recurring choices, does changing one cue alter later decisions, or do external conditions better explain the pattern?",
+      "loop": "Repeat one reversible cue change across several cycles and compare carryover with external conditions."
+    },
+    {
+      "id": "096",
+      "code": "ARC08-096",
+      "arc": "08",
+      "arcName": "Phantom Contract",
+      "domain": "Shadow Contracts",
+      "glyph": "▣",
+      "title": "Architect Seal",
+      "glyphs": [
+        "architect_seal",
+        "unity_circle",
+        "future_identity"
+      ],
+      "mirror": "Which commitments and supports currently work together well enough to mark a checkpoint without closing future revision?",
+      "loop": "Create a thirty-day provisional design, reviewing whether its supports remain coherent under changing conditions."
+    },
+    {
+      "id": "097",
+      "code": "ARC09-097",
+      "arc": "09",
+      "arcName": "Flame of Reversal",
+      "domain": "Energy Reversal",
+      "glyph": "★",
+      "title": "Shadow Contract",
+      "glyphs": [
+        "shadow_contract",
+        "phantom_contract",
+        "identity_field"
+      ],
+      "mirror": "What unstated condition seems to precede the same choice, and could present constraints explain the pattern equally well?",
+      "loop": "Optionally name one possible term, then watch whether it predicts the next similar choice."
+    },
+    {
+      "id": "098",
+      "code": "ARC09-098",
+      "arc": "09",
+      "arcName": "Flame of Reversal",
+      "domain": "Energy Reversal",
+      "glyph": "★",
+      "title": "Hidden Rule",
+      "glyphs": [
+        "hidden_rule",
+        "shadow_contract",
+        "inner_field"
+      ],
+      "mirror": "Does one recurring condition organize several choices, or do different situations appear to follow different rules?",
+      "loop": "Write one candidate rule and compare it with two recent examples."
+    },
+    {
+      "id": "099",
+      "code": "ARC09-099",
+      "arc": "09",
+      "arcName": "Flame of Reversal",
+      "domain": "Energy Reversal",
+      "glyph": "★",
+      "title": "Shadow Loyalty",
+      "glyphs": [
+        "shadow_loyalty",
+        "loyalty_knot",
+        "identity_field"
+      ],
+      "mirror": "Could a repeated choice be preserving loyalty, obligation, attachment, or continuity—and what other explanation fits?",
+      "loop": "Try one low-stakes variation and observe what the relationship actually requires."
+    },
+    {
+      "id": "100",
+      "code": "ARC09-100",
+      "arc": "09",
+      "arcName": "Flame of Reversal",
+      "domain": "Energy Reversal",
+      "glyph": "★",
+      "title": "Unspoken Terms",
+      "glyphs": [
+        "unspoken_terms",
+        "shadow_contract",
+        "inner_deal"
+      ],
+      "mirror": "Which expectation seems active without being stated, and does naming it accurately describe what others actually do?",
+      "loop": "Draft one possible term privately, then compare it with the next interaction."
+    },
+    {
+      "id": "101",
+      "code": "ARC09-101",
+      "arc": "09",
+      "arcName": "Flame of Reversal",
+      "domain": "Energy Reversal",
+      "glyph": "★",
+      "title": "Inherited Script",
+      "glyphs": [
+        "inherited_script",
+        "shadow_contract",
+        "timeline_back"
+      ],
+      "mirror": "Where does an old storyline appear in present choices, and where do current preferences or conditions explain more?",
+      "loop": "Try one alternate line in a reversible choice and compare the outcome."
+    },
+    {
+      "id": "102",
+      "code": "ARC09-102",
+      "arc": "09",
+      "arcName": "Flame of Reversal",
+      "domain": "Energy Reversal",
+      "glyph": "★",
+      "title": "Shadow Obligation",
+      "glyphs": [
+        "shadow_obligation",
+        "inner_chain",
+        "identity_field"
+      ],
+      "mirror": "Which obligations are explicit, reciprocal, assumed, or imposed—and what evidence distinguishes them in practice?",
+      "loop": "Reclassify one nonurgent duty temporarily, then observe what consequences actually follow."
+    },
+    {
+      "id": "103",
+      "code": "ARC09-103",
+      "arc": "09",
+      "arcName": "Flame of Reversal",
+      "domain": "Energy Reversal",
+      "glyph": "★",
+      "title": "Agreement Audit",
+      "glyphs": [
+        "agreement_audit",
+        "contract_lines",
+        "alignment_mark"
+      ],
+      "mirror": "Could one recurring pattern be partly maintained by an agreement, while conditioning or constraint carries the rest?",
+      "loop": "Pause one chosen contribution briefly and observe whether the pattern changes."
+    },
+    {
+      "id": "104",
+      "code": "ARC09-104",
+      "arc": "09",
+      "arcName": "Flame of Reversal",
+      "domain": "Energy Reversal",
+      "glyph": "★",
+      "title": "Shadow Benefit",
+      "glyphs": [
+        "shadow_benefit",
+        "reward_mask",
+        "identity_field"
+      ],
+      "mirror": "Does the current pattern provide protection or familiarity, or are exhaustion and limited resources sufficient explanations?",
+      "loop": "Preserve one suspected protection while changing a small part of the pattern."
+    },
+    {
+      "id": "105",
+      "code": "ARC09-105",
+      "arc": "09",
+      "arcName": "Flame of Reversal",
+      "domain": "Energy Reversal",
+      "glyph": "★",
+      "title": "Expired Vow",
+      "glyphs": [
+        "expired_vow",
+        "phantom_contract",
+        "timeline_back"
+      ],
+      "mirror": "When a repeated commitment outlasts its original context, is it carrying a core value—or serving a present duty?",
+      "loop": "Try one low-stakes variation; note whether integrity strengthens, weakens, or stays unchanged."
+    },
+    {
+      "id": "106",
+      "code": "ARC09-106",
+      "arc": "09",
+      "arcName": "Flame of Reversal",
+      "domain": "Energy Reversal",
+      "glyph": "★",
+      "title": "Aligned Agreement",
+      "glyphs": [
+        "aligned_agreement",
+        "contract_seal",
+        "future_identity"
+      ],
+      "mirror": "Which agreements support a chosen direction while remaining workable for present needs, uncertainty, and reciprocal commitments?",
+      "loop": "Trial one agreement briefly, then review its benefits, costs, and effects on others."
+    },
+    {
+      "id": "107",
+      "code": "ARC09-107",
+      "arc": "09",
+      "arcName": "Flame of Reversal",
+      "domain": "Energy Reversal",
+      "glyph": "★",
+      "title": "Shadow Integration",
+      "glyphs": [
+        "shadow_integration",
+        "unity_circle",
+        "identity_field"
+      ],
+      "mirror": "Which commitments repeatedly collide, and would coordination help more than forcing them into complete agreement?",
+      "loop": "Give two competing commitments one temporary coordination rule and observe the next collision."
+    },
+    {
+      "id": "108",
+      "code": "ARC09-108",
+      "arc": "09",
+      "arcName": "Flame of Reversal",
+      "domain": "Energy Reversal",
+      "glyph": "★",
+      "title": "New Covenant",
+      "glyphs": [
+        "new_covenant",
+        "unity_circle",
+        "future_identity"
+      ],
+      "mirror": "Which deep commitment appears to shape repeated choices, alongside habits, relationships, resources, and surrounding structures?",
+      "loop": "Make one revisable covenant for a week, then compare intention with observable choices."
+    },
+    {
+      "id": "109",
+      "code": "ARC10-109",
+      "arc": "10",
+      "arcName": "Shattered Compass",
+      "domain": "Pattern Collapse",
+      "glyph": "✧",
+      "title": "Inherited Desire",
+      "glyphs": [
+        "inherited_desire",
+        "shadow_contract",
+        "identity_field"
+      ],
+      "mirror": "Which desires recur across changing contexts, and which appear mainly around particular expectations, relationships, or roles?",
+      "loop": "Optionally compare one desire across three contexts, noting both personal meaning and outside influence."
+    },
+    {
+      "id": "110",
+      "code": "ARC10-110",
+      "arc": "10",
+      "arcName": "Shattered Compass",
+      "domain": "Pattern Collapse",
+      "glyph": "✧",
+      "title": "Desire Echo",
+      "glyphs": [
+        "desire_echo",
+        "identity_field",
+        "timeline_back"
+      ],
+      "mirror": "Does an older desire still create meaningful engagement, or does it persist mainly through routine and remembered importance?",
+      "loop": "Revisit one old desire briefly, then compare anticipation, engagement, and aftereffects."
+    },
+    {
+      "id": "111",
+      "code": "ARC10-111",
+      "arc": "10",
+      "arcName": "Shattered Compass",
+      "domain": "Pattern Collapse",
+      "glyph": "✧",
+      "title": "Desire Pulse",
+      "glyphs": [
+        "desire_pulse",
+        "future_signal",
+        "identity_core"
+      ],
+      "mirror": "Which possibilities repeatedly bring steadier attention or vitality, and what other evidence agrees or conflicts with that pulse?",
+      "loop": "Try one small step, then compare bodily response, consequences, values, and practical context."
+    },
+    {
+      "id": "112",
+      "code": "ARC10-112",
+      "arc": "10",
+      "arcName": "Shattered Compass",
+      "domain": "Pattern Collapse",
+      "glyph": "✧",
+      "title": "Desire Purity",
+      "glyphs": [
+        "desire_purity",
+        "alignment_mark",
+        "identity_field"
+      ],
+      "mirror": "Clarity may emerge by distinguishing overlapping influences, not by finding one perfectly uncontaminated desire.",
+      "loop": "Map one desire’s influences, then test which combination remains workable and meaningful."
+    },
+    {
+      "id": "113",
+      "code": "ARC10-113",
+      "arc": "10",
+      "arcName": "Shattered Compass",
+      "domain": "Pattern Collapse",
+      "glyph": "✧",
+      "title": "Desire Distortion",
+      "glyphs": [
+        "desire_distortion",
+        "shadow_contract",
+        "inner_field"
+      ],
+      "mirror": "When a desired option changes near risk or uncertainty, fear may be involved—but so may values, limits, or judgment.",
+      "loop": "Compare the option under one safer condition and observe whether its appeal meaningfully changes."
+    },
+    {
+      "id": "114",
+      "code": "ARC10-114",
+      "arc": "10",
+      "arcName": "Shattered Compass",
+      "domain": "Pattern Collapse",
+      "glyph": "✧",
+      "title": "Desire Geometry",
+      "glyphs": [
+        "desire_geometry",
+        "future_identity",
+        "alignment_mark"
+      ],
+      "mirror": "Imagine desire as a shape: do its scale, boundaries, timing, and costs fit the life presently anticipated?",
+      "loop": "Redraw one desire at two scales, then compare feasibility, meaning, and consequences."
+    },
+    {
+      "id": "115",
+      "code": "ARC10-115",
+      "arc": "10",
+      "arcName": "Shattered Compass",
+      "domain": "Pattern Collapse",
+      "glyph": "✧",
+      "title": "True Want",
+      "glyphs": [
+        "true_want",
+        "identity_core",
+        "future_signal"
+      ],
+      "mirror": "A meaningful want may remain complex after fear, history, obligation, and imagined futures are examined.",
+      "loop": "Let present and imagined future perspectives evaluate one small, reversible choice."
+    },
+    {
+      "id": "116",
+      "code": "ARC10-116",
+      "arc": "10",
+      "arcName": "Shattered Compass",
+      "domain": "Pattern Collapse",
+      "glyph": "✧",
+      "title": "Desire Vector",
+      "glyphs": [
+        "desire_vector",
+        "future_vector",
+        "identity_field"
+      ],
+      "mirror": "Across repeated choices, does desire suggest a direction, several competing vectors, or no stable path yet?",
+      "loop": "Test one possible direction with a bounded step and compare desire, duty, and consequence."
+    },
+    {
+      "id": "117",
+      "code": "ARC10-117",
+      "arc": "10",
+      "arcName": "Shattered Compass",
+      "domain": "Pattern Collapse",
+      "glyph": "✧",
+      "title": "Desire Conflict",
+      "glyphs": [
+        "desire_conflict",
+        "identity_split",
+        "shadow_contract"
+      ],
+      "mirror": "A difficult choice may contain several legitimate interests, not merely a contest between growth and safety.",
+      "loop": "Compare two reversible trials using values, costs, safety, growth, and affected relationships."
+    },
+    {
+      "id": "118",
+      "code": "ARC10-118",
+      "arc": "10",
+      "arcName": "Shattered Compass",
+      "domain": "Pattern Collapse",
+      "glyph": "✧",
+      "title": "Curated Desire",
+      "glyphs": [
+        "curated_desire",
+        "structure_grid",
+        "identity_field"
+      ],
+      "mirror": "Notice how a desire changes under encouragement, friction, dissent, and distance—not only under supportive exposure.",
+      "loop": "Curate one week of support plus deliberate counterevidence, then reassess the desire."
+    },
+    {
+      "id": "119",
+      "code": "ARC10-119",
+      "arc": "10",
+      "arcName": "Shattered Compass",
+      "domain": "Pattern Collapse",
+      "glyph": "✧",
+      "title": "Future Desire",
+      "glyphs": [
+        "future_desire",
+        "future_identity",
+        "future_signal"
+      ],
+      "mirror": "An imagined future can illuminate desire when its picture is compared with past lessons and present constraints.",
+      "loop": "Ask two possible future perspectives to assess one reversible choice, then compare their assumptions."
+    },
+    {
+      "id": "120",
+      "code": "ARC10-120",
+      "arc": "10",
+      "arcName": "Shattered Compass",
+      "domain": "Pattern Collapse",
+      "glyph": "✧",
+      "title": "Desire Alignment",
+      "glyphs": [
+        "desire_alignment",
+        "unity_circle",
+        "future_identity"
+      ],
+      "mirror": "Alignment may appear gradually when desire, chosen direction, consequences, relationships, and circumstances remain workable together.",
+      "loop": "Run one small aligned choice, then observe coherence, costs, and effects beyond self-construction."
+    },
+    {
+      "id": "121",
+      "code": "ARC11-121",
+      "arc": "11",
+      "arcName": "Velocity Holder",
+      "domain": "Momentum Mechanics",
+      "glyph": "↑",
+      "title": "Broken Agency",
+      "glyphs": [
+        "agency_crack",
+        "identity_field",
+        "friction_band"
+      ],
+      "mirror": "A clear plan can coexist with repeated difficulty beginning, continuing, or completing the next visible action.",
+      "loop": "Test one small action while changing a single source of friction."
+    },
+    {
+      "id": "122",
+      "code": "ARC11-122",
+      "arc": "11",
+      "arcName": "Velocity Holder",
+      "domain": "Momentum Mechanics",
+      "glyph": "↑",
+      "title": "Borrowed Will",
+      "glyphs": [
+        "borrowed_will",
+        "shadow_contract",
+        "identity_split"
+      ],
+      "mirror": "Action may come more readily under observation, while private follow-through reveals what accountability is actually providing.",
+      "loop": "Repeat one small task once observed and once privately."
+    },
+    {
+      "id": "123",
+      "code": "ARC11-123",
+      "arc": "11",
+      "arcName": "Velocity Holder",
+      "domain": "Momentum Mechanics",
+      "glyph": "↑",
+      "title": "First Strike",
+      "glyphs": [
+        "first_strike",
+        "future_vector",
+        "temporal_acceleration"
+      ],
+      "mirror": "One bounded first move may reveal whether planning is preparing action or repeatedly postponing contact with reality.",
+      "loop": "Make one reversible move, then inspect what it teaches."
+    },
+    {
+      "id": "124",
+      "code": "ARC11-124",
+      "arc": "11",
+      "arcName": "Velocity Holder",
+      "domain": "Momentum Mechanics",
+      "glyph": "↑",
+      "title": "Agency Signal",
+      "glyphs": [
+        "agency_signal",
+        "identity_field",
+        "future_signal"
+      ],
+      "mirror": "Chosen action may coincide with recognizable cues such as steadier breathing, reduced hesitation, alertness, or no distinct sensation.",
+      "loop": "Compare bodily cues before, during, and after one chosen action."
+    },
+    {
+      "id": "125",
+      "code": "ARC11-125",
+      "arc": "11",
+      "arcName": "Velocity Holder",
+      "domain": "Momentum Mechanics",
+      "glyph": "↑",
+      "title": "Fragmented Will",
+      "glyphs": [
+        "will_fragment",
+        "identity_split",
+        "counter_vector"
+      ],
+      "mirror": "Effort spread across competing commitments can resemble weak will, though unclear priorities or limited resources may produce the same pattern.",
+      "loop": "Pause one low-priority demand and observe where effort moves."
+    },
+    {
+      "id": "126",
+      "code": "ARC11-126",
+      "arc": "11",
+      "arcName": "Velocity Holder",
+      "domain": "Momentum Mechanics",
+      "glyph": "↑",
+      "title": "Non-Negotiable Core",
+      "glyphs": [
+        "nonnegotiable_core",
+        "identity_core",
+        "unity_circle"
+      ],
+      "mirror": "A small chosen core can steady decisions when it guides tradeoffs without becoming immune to evidence or changing conditions.",
+      "loop": "Test one commitment alongside a clear condition for revision."
+    },
+    {
+      "id": "127",
+      "code": "ARC11-127",
+      "arc": "11",
+      "arcName": "Velocity Holder",
+      "domain": "Momentum Mechanics",
+      "glyph": "↑",
+      "title": "Agency Pivot",
+      "glyphs": [
+        "agency_pivot",
+        "future_vector",
+        "fracture_mark"
+      ],
+      "mirror": "A directional pivot may expose whether stalled action comes from the current path or from constraints that direction alone cannot solve.",
+      "loop": "Try one bounded pivot with a checkpoint before escalation."
+    },
+    {
+      "id": "128",
+      "code": "ARC11-128",
+      "arc": "11",
+      "arcName": "Velocity Holder",
+      "domain": "Momentum Mechanics",
+      "glyph": "↑",
+      "title": "Agency Channel",
+      "glyphs": [
+        "agency_channel",
+        "structure_grid",
+        "future_vector"
+      ],
+      "mirror": "When several commitments compete, does progress sharpen after one channel is temporarily narrowed?",
+      "loop": "Optionally pause one low-stakes commitment for seven days and compare completion, delay, and strain."
+    },
+    {
+      "id": "129",
+      "code": "ARC11-129",
+      "arc": "11",
+      "arcName": "Velocity Holder",
+      "domain": "Momentum Mechanics",
+      "glyph": "↑",
+      "title": "Sovereign Choice",
+      "glyphs": [
+        "sovereign_choice",
+        "identity_core",
+        "alignment_mark"
+      ],
+      "mirror": "A choice can remain internally owned while still drawing on consultation, expertise, uncertainty, or genuinely shared authority.",
+      "loop": "Make one low-stakes choice after separating advice from authority."
+    },
+    {
+      "id": "130",
+      "code": "ARC11-130",
+      "arc": "11",
+      "arcName": "Velocity Holder",
+      "domain": "Momentum Mechanics",
+      "glyph": "↑",
+      "title": "Reforged Will",
+      "glyphs": [
+        "forged_blade",
+        "identity_core",
+        "future_vector"
+      ],
+      "mirror": "Effort may last differently when shaped by chosen direction, external pressure, task design, available support, or their combination.",
+      "loop": "Compare two motivations on one repeated, low-stakes task."
+    },
+    {
+      "id": "131",
+      "code": "ARC11-131",
+      "arc": "11",
+      "arcName": "Velocity Holder",
+      "domain": "Momentum Mechanics",
+      "glyph": "↑",
+      "title": "Unbreakable Direction",
+      "glyphs": [
+        "unbreakable_vector",
+        "unity_circle",
+        "future_identity"
+      ],
+      "mirror": "Direction can remain durable while strategy changes, provided new evidence is allowed to challenge both means and underlying assumptions.",
+      "loop": "Name one fixed purpose, one revisable strategy, and one review trigger."
+    },
+    {
+      "id": "132",
+      "code": "ARC11-132",
+      "arc": "11",
+      "arcName": "Velocity Holder",
+      "domain": "Momentum Mechanics",
+      "glyph": "↑",
+      "title": "Forged Agency",
+      "glyphs": [
+        "agency_forged",
+        "unity_circle",
+        "future_identity"
+      ],
+      "mirror": "Trust in future action can grow from repeated follow-through and repair, without requiring flawless consistency or a permanent trait.",
+      "loop": "Track one small promise, including completion, lapse, and repair."
+    },
+    {
+      "id": "133",
+      "code": "ARC12-133",
+      "arc": "12",
+      "arcName": "Convergence Seal",
+      "domain": "Integration",
+      "glyph": "Ω",
+      "title": "Identity Tension",
+      "glyphs": [
+        "identity_tension",
+        "identity_split",
+        "future_vector"
+      ],
+      "mirror": "Notice when two credible ways of acting compete, while leaving room for coexistence rather than a forced winner.",
+      "loop": "Optional experiment: let both positions shape one small, reversible choice."
+    },
+    {
+      "id": "134",
+      "code": "ARC12-134",
+      "arc": "12",
+      "arcName": "Convergence Seal",
+      "domain": "Integration",
+      "glyph": "Ω",
+      "title": "Identity Residue",
+      "glyphs": [
+        "identity_residue",
+        "past_identity",
+        "shadow_contract"
+      ],
+      "mirror": "An earlier role may still appear in present choices, whether as useful continuity, outdated habit, or unresolved attachment.",
+      "loop": "Optional experiment: retain, revise, and release one small element on trial."
+    },
+    {
+      "id": "135",
+      "code": "ARC12-135",
+      "arc": "12",
+      "arcName": "Convergence Seal",
+      "domain": "Integration",
+      "glyph": "Ω",
+      "title": "Identity Merge",
+      "glyphs": [
+        "identity_merge",
+        "unity_circle",
+        "future_vector"
+      ],
+      "mirror": "Previously conflicting priorities may now cooperate in some choices, even while meaningful differences remain elsewhere.",
+      "loop": "Optional experiment: test one decision for partial cooperation without demanding complete harmony."
+    },
+    {
+      "id": "136",
+      "code": "ARC12-136",
+      "arc": "12",
+      "arcName": "Convergence Seal",
+      "domain": "Integration",
+      "glyph": "Ω",
+      "title": "Synthesis Field",
+      "glyphs": [
+        "synthesis_field",
+        "identity_field",
+        "unity_circle"
+      ],
+      "mirror": "Several changes may feel simultaneous when choices, boundaries, desires, and commitments begin affecting the same everyday situations.",
+      "loop": "Optional experiment: map one recent event across several changing areas."
+    },
+    {
+      "id": "137",
+      "code": "ARC12-137",
+      "arc": "12",
+      "arcName": "Convergence Seal",
+      "domain": "Integration",
+      "glyph": "Ω",
+      "title": "Geometry of Convergence",
+      "glyphs": [
+        "identity_geometry_final",
+        "structure_grid",
+        "alignment_mark"
+      ],
+      "mirror": "Identity geometry can picture how commitments fit, where boundaries hold, and which arrangements remain flexible under pressure.",
+      "loop": "Optional experiment: sketch one commitment, boundary, and adjustable edge."
+    },
+    {
+      "id": "138",
+      "code": "ARC12-138",
+      "arc": "12",
+      "arcName": "Convergence Seal",
+      "domain": "Integration",
+      "glyph": "Ω",
+      "title": "Identity Resonance",
+      "glyphs": [
+        "identity_resonance",
+        "future_signal",
+        "unity_circle"
+      ],
+      "mirror": "Resonance may describe the felt fit between stated priorities, repeated actions, and settings that make those actions easier.",
+      "loop": "Optional experiment: compare one aligned action across two different settings."
+    },
+    {
+      "id": "139",
+      "code": "ARC12-139",
+      "arc": "12",
+      "arcName": "Convergence Seal",
+      "domain": "Integration",
+      "glyph": "Ω",
+      "title": "True Identity",
+      "glyphs": [
+        "true_identity",
+        "future_identity",
+        "unity_circle"
+      ],
+      "mirror": "An emerging possibility may feel both unfamiliar and recognizable, without proving it was hidden, destined, or final.",
+      "loop": "Optional experiment: inhabit one promising quality for a limited trial."
+    },
+    {
+      "id": "140",
+      "code": "ARC12-140",
+      "arc": "12",
+      "arcName": "Convergence Seal",
+      "domain": "Integration",
+      "glyph": "Ω",
+      "title": "Identity Lock",
+      "glyphs": [
+        "identity_lock",
+        "alignment_mark",
+        "unity_circle"
+      ],
+      "mirror": "Repeated supportive choices can stabilize an identity pattern while leaving it open to recurrence, revision, and changing conditions.",
+      "loop": "Optional experiment: repeat one supportive practice three times, then reassess."
+    },
+    {
+      "id": "141",
+      "code": "ARC12-141",
+      "arc": "12",
+      "arcName": "Convergence Seal",
+      "domain": "Integration",
+      "glyph": "Ω",
+      "title": "Identity Home",
+      "glyphs": [
+        "identity_home",
+        "unity_circle",
+        "future_identity"
+      ],
+      "mirror": "A sense of home may appear when values, actions, boundaries, and present conditions become mutually livable.",
+      "loop": "Optionally compare what makes two contrasting moments feel more or less habitable."
+    },
+    {
+      "id": "142",
+      "code": "ARC12-142",
+      "arc": "12",
+      "arcName": "Convergence Seal",
+      "domain": "Integration",
+      "glyph": "Ω",
+      "title": "Identity Flow",
+      "glyphs": [
+        "identity_flow",
+        "future_vector",
+        "unity_circle"
+      ],
+      "mirror": "Flow may become visible when clarified direction changes hesitation while effort, task difficulty, and conditions remain comparable.",
+      "loop": "Optionally compare two similar steps, clarifying direction only before the second."
+    },
+    {
+      "id": "143",
+      "code": "ARC12-143",
+      "arc": "12",
+      "arcName": "Convergence Seal",
+      "domain": "Integration",
+      "glyph": "Ω",
+      "title": "Architect Self",
+      "glyphs": [
+        "architect_self",
+        "unity_circle",
+        "architect_compass"
+      ],
+      "mirror": "The architect image highlights choices, structures, and responses within influence, while conditions, other people, and chance remain active.",
+      "loop": "Optional experiment: redesign one controllable feature while naming three constraints."
+    },
+    {
+      "id": "144",
+      "code": "ARC12-144",
+      "arc": "12",
+      "arcName": "Convergence Seal",
+      "domain": "Integration",
+      "glyph": "Ω",
+      "title": "Final Integration",
+      "glyphs": [
+        "final_integration",
+        "unity_circle",
+        "future_identity"
+      ],
+      "mirror": "Integration may look like several values, roles, and commitments coordinating for now without becoming one permanent or seamless identity.",
+      "loop": "Optional experiment: test coordination across one meaningful, reversible decision."
+    }
+  ]
+}

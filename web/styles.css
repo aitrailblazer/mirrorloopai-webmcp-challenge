@@ -60,6 +60,9 @@ h2 { font-family: Georgia, serif; font-size: clamp(2rem, 4vw, 3.8rem); line-heig
 .quiz-intro { max-width: 680px; margin: 5rem auto; text-align: center; }
 .quiz-intro p:not(.eyebrow) { color: var(--muted); font-size: 1.1rem; }
 .quiz-intro .privacy-promise { max-width: 610px; margin: 1.5rem auto; padding: 1rem; border: 1px solid var(--line); border-radius: .9rem; font-size: .9rem; }
+.webmcp-status { display: inline-flex; align-items: center; gap: .5rem; margin: .35rem 0 .8rem; color: var(--muted); font-size: .9rem; }
+.webmcp-status::before { width: .55rem; height: .55rem; border-radius: 50%; background: currentColor; content: ""; opacity: .55; }
+.webmcp-status[data-active="true"] { color: var(--gold); }
 .progress-row { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 1rem; color: var(--muted); font-size: .9rem; }
 .progress-row p { margin: 0; white-space: nowrap; }
 .progress-track { height: 5px; background: #272d42; border-radius: 1rem; overflow: hidden; }

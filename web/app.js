@@ -1,8 +1,17 @@
 import { RESPONSE_GROUPS, resultCopy, scoreAnswers, supportingPattern } from "./lib/quiz-core.js?v=20260826-3";
 import { createFunnelTracker } from "./lib/analytics.js?v=20260826-3";
+import { installMirrorLoopWebMCP } from "./lib/webmcp.js?v=20260829-1";
 
 const $ = (selector) => document.querySelector(selector);
-const state = { quiz: null, index: 0, answers: Array(12).fill(null), result: null };
+const state = {
+  quiz: null,
+  cards: null,
+  index: 0,
+  answers: Array(12).fill(null),
+  result: null,
+  focusArea: "",
+  started: false,
+};
 const config = window.MIRRORLOOP_CONFIG ?? { apiBaseURL: "" };
 let analyticsStorage = null;
 try {
@@ -29,9 +38,23 @@ if (!config.subscriberEnabled) {
 }
 
 async function loadQuiz() {
+  if (state.quiz) return state.quiz;
   const response = await fetch("/data/quiz.json", { cache: "no-cache" });
   if (!response.ok) throw new Error("The quiz could not be loaded.");
   state.quiz = await response.json();
+  return state.quiz;
+}
+
+async function loadCards() {
+  if (state.cards) return state.cards;
+  const response = await fetch("/data/cards.json", { cache: "no-cache" });
+  if (!response.ok) throw new Error("The public card registry could not be loaded.");
+  const registry = await response.json();
+  if (!Array.isArray(registry.cards) || registry.cards.length !== 144) {
+    throw new Error("The public card registry is incomplete.");
+  }
+  state.cards = new Map(registry.cards.map((card) => [card.id, card]));
+  return state.cards;
 }
 
 function optionButton(option, optionIndex) {
@@ -117,6 +140,152 @@ function showResult() {
   $("#result-name").setAttribute("tabindex", "-1");
   $("#result-name").focus({ preventScroll: true });
   ensureTurnstile();
+  return {
+    status: "REFLECTION_COMPLETE",
+    primary_lens: {
+      code: state.result.dominant,
+      name: primary.name,
+      glyph: primary.glyph,
+      domain: primary.domain,
+      observed_count: primaryCount,
+    },
+    supporting_lens: support ? {
+      code: support.code,
+      name: state.quiz.archetypes[support.code].name,
+      observed_count: support.count,
+    } : null,
+    reflection: copy.summary,
+    bounded_action: copy.prompt,
+    boundary: "A reflective snapshot, not a diagnosis, prediction, or fixed identity.",
+  };
+}
+
+async function startReflection({ focusArea = "" } = {}) {
+  await loadQuiz();
+  state.index = 0;
+  state.answers.fill(null);
+  state.result = null;
+  state.focusArea = focusArea;
+  state.started = true;
+  elements.start.hidden = true;
+  elements.result.hidden = true;
+  elements.panel.hidden = false;
+  recordFunnelEvent("quiz_started");
+  renderQuestion();
+  elements.question.focus();
+  window.dispatchEvent(new CustomEvent("mirrorloop:session_start"));
+  return {
+    status: "SESSION_INITIALIZED",
+    total_questions: state.quiz.questions.length,
+    current_question_id: 1,
+    privacy: "Answers remain in this browser unless the human separately requests email delivery.",
+  };
+}
+
+async function currentQuestion() {
+  await loadQuiz();
+  if (!state.started) throw new Error("Start a reflection before requesting a question.");
+  const question = state.quiz.questions[state.index];
+  if (!question) throw new Error("The current reflection question is unavailable.");
+  return {
+    question_id: question.id,
+    stage_name: question.sectionTitle,
+    prompt: question.title,
+    options: question.options.map((option) => ({
+      code: option.arcCode,
+      label: option.microIntent,
+      glyph: option.glyph,
+    })),
+  };
+}
+
+async function explainChoice({ questionID, choiceCode }) {
+  await loadQuiz();
+  const question = state.quiz.questions[questionID - 1];
+  const option = question?.options.find(({ arcCode }) => arcCode === choiceCode);
+  const archetype = state.quiz.archetypes[choiceCode];
+  if (!question || !option || !archetype) throw new Error("That choice is not available for this question.");
+  const copy = resultCopy(choiceCode);
+  return {
+    question_id: questionID,
+    choice_code: choiceCode,
+    label: option.microIntent,
+    lens: archetype.name,
+    plain_language_meaning: copy.summary,
+    reflection_prompt: copy.prompt,
+    selection_status: "NOT_SELECTED",
+  };
+}
+
+async function answerQuestion({ questionID, choiceCode }) {
+  await loadQuiz();
+  if (!state.started) throw new Error("Start a reflection before recording an answer.");
+  const expectedID = state.quiz.questions[state.index]?.id;
+  if (questionID !== expectedID) {
+    throw new Error(`Question ${expectedID} is currently active; questions cannot be skipped.`);
+  }
+  const question = state.quiz.questions[state.index];
+  if (!question.options.some(({ arcCode }) => arcCode === choiceCode)) {
+    throw new Error("That choice is not available for the current question.");
+  }
+  state.answers[state.index] = choiceCode;
+  const completed = state.answers.filter(Boolean).length;
+  const finished = completed === state.quiz.questions.length;
+  if (!finished) state.index += 1;
+  renderQuestion();
+  elements.question.focus();
+  window.dispatchEvent(new CustomEvent("mirrorloop:step_transition", {
+    detail: { question_id: questionID, choice_code: choiceCode },
+  }));
+  return {
+    recorded: true,
+    question_id: questionID,
+    choice_code: choiceCode,
+    completed_questions: completed,
+    is_finished: finished,
+    next_action: finished ? "Call complete_reflection." : "Call get_current_question.",
+  };
+}
+
+async function reviewAnswers() {
+  await loadQuiz();
+  return {
+    total_answered: state.answers.filter(Boolean).length,
+    total_questions: state.quiz.questions.length,
+    answers: state.answers.flatMap((choiceCode, index) => (
+      choiceCode ? [{ question_id: index + 1, choice_code: choiceCode }] : []
+    )),
+  };
+}
+
+async function completeReflection() {
+  await loadQuiz();
+  const answered = state.answers.filter(Boolean).length;
+  if (answered !== state.quiz.questions.length) {
+    throw new Error(`Complete all 12 questions first; ${answered} are currently answered.`);
+  }
+  const result = showResult();
+  window.dispatchEvent(new CustomEvent("mirrorloop:reflection_complete", { detail: result }));
+  return result;
+}
+
+async function getCard({ cardID }) {
+  const cards = await loadCards();
+  const card = cards.get(cardID);
+  if (!card) throw new Error(`Card ${cardID} is not available in the public registry.`);
+  return {
+    found: true,
+    card_id: cardID,
+    code: card.code,
+    arc: card.arc,
+    arc_name: card.arcName,
+    title: card.title,
+    glyph: card.glyph,
+    domain: card.domain,
+    mirror: card.mirror,
+    bounded_action: card.loop,
+    source_scope: "Curated public MIRROR//LOOP card metadata; private source corpora are excluded.",
+  };
 }
 
 async function subscribe(event) {
@@ -156,12 +325,7 @@ async function subscribe(event) {
 
 $("#start-button").addEventListener("click", async () => {
   try {
-    if (!state.quiz) await loadQuiz();
-    elements.start.hidden = true;
-    elements.panel.hidden = false;
-    recordFunnelEvent("quiz_started");
-    renderQuestion();
-    elements.question.focus();
+    await startReflection();
   } catch (error) {
     elements.start.querySelector("p:last-of-type").textContent = error.message;
   }
@@ -192,6 +356,28 @@ $("#restart-button").addEventListener("click", () => {
 });
 
 elements.form.addEventListener("submit", subscribe);
+
+installMirrorLoopWebMCP({
+  api: {
+    startReflection,
+    getCurrentQuestion: currentQuestion,
+    explainChoice,
+    answerQuestion,
+    reviewAnswers,
+    completeReflection,
+    getCard,
+  },
+  onStatus({ supported, names }) {
+    const status = $("#webmcp-status");
+    if (!status) return;
+    status.textContent = supported
+      ? `AI-guided reflection ready · ${names.length} tools available`
+      : "Use the reflection directly, or open it in a WebMCP-enabled browser for AI-guided navigation.";
+    status.dataset.active = String(supported);
+    document.body.classList.toggle("webmcp-active", supported);
+    document.body.classList.toggle("direct-mode", !supported);
+  },
+});
 
 function ensureTurnstile() {
   if (!config.subscriberEnabled || !config.turnstileSiteKey || turnstileStarted) return;

@@ -1,5 +1,21 @@
 # Changelog
 
+## 2026-08-29 — Seven-tool WebMCP reflection layer
+
+- Registered seven same-origin tools for starting, navigating, explaining,
+  reviewing, completing, and inspecting the existing reflection experience.
+- Required explicit human confirmation before an agent can record a choice.
+- Added strict input schemas, unknown-field rejection, bounded card identifiers,
+  read-only annotations, and curated-output trust annotations.
+- Kept email submission, Stripe checkout, private corpora, and external actions
+  outside the WebMCP tool boundary.
+- Added a sanitized 144-card public lookup registry containing only the fields
+  needed for bounded card explanation; generation prompts and internal
+  evaluation metadata remain excluded.
+- Added a visible graceful-fallback status for direct and AI-guided use.
+- Added deterministic tests for registration, annotations, human confirmation,
+  input rejection, focus-area privacy, and runtime context detection.
+
 ## 2026-08-29 — WebMCP origin-trial enrollment
 
 - Added the Chrome WebMCP origin-trial token registered for
