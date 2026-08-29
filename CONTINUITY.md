@@ -15,7 +15,7 @@ Key decisions:
 - Expose all 144 cards through a reduced public registry containing only curated public interpretation fields.
 
 State:
-- Seven bounded WebMCP tools and the sanitized 144-card public registry are implemented and locally verified.
+- Seven bounded WebMCP tools and the sanitized 144-card public registry are implemented, locally verified, committed, and pushed.
 
 Done:
 - Copied the website, Go API, public data, tests, deployment configuration, documentation, and sanitized QA evidence.
@@ -24,9 +24,10 @@ Done:
 - Published the initial snapshot to `https://github.com/aitrailblazer/mirrorloopai-webmcp-challenge`.
 - Registered seven same-origin WebMCP tools with strict schemas and explicit human confirmation for answer mutation.
 - Verified a complete 12-question agent-driven flow and Card 144 lookup in Chrome through a CDP model-context test harness.
+- Pushed implementation commit `b9dddec` to the private GitHub repository.
 
 Now:
-- Commit and push the verified WebMCP implementation.
+- Verify native tool discovery through the Chrome WebMCP Inspector before production deployment.
 
 Next:
 - Deploy the static bundle to the public origin after production review.
