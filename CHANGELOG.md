@@ -1,5 +1,29 @@
 # Changelog
 
+## 2026-08-30 — Official WebMCP resources audit and hardening
+
+- Opened and classified all 36 resource cards from the official challenge
+  resources page; 35 returned HTTP 200 and the npm React-hook page returned an
+  automated-fetch anti-bot 403 that does not affect this framework-free site.
+- Added `RESOURCE_REVIEW.html` with one disposition for every resource and
+  explicit reasons for retaining Firebase Hosting, Cloud Run, and vanilla
+  JavaScript rather than performing a competition-driven platform migration.
+- Awaited every browser tool-registration promise, aborted partial
+  registration after rejection, and prevented a false-ready badge.
+- Enforced the current WebMCP character budgets, including a 1,500-character
+  ceiling for each tool result.
+- Added a 15-case expected-call corpus covering all eight tools, two ordered
+  flows, ambiguous requests, and no-tool human-choice, email, cart, and payment
+  boundaries.
+- Replaced generic browser instructions with the current Chrome DevTools
+  **Application → WebMCP** judge path, including Available Tools, Invoked
+  Tools, manual Run tool, and schema diagnostics.
+- Passed 25 web tests, eval validation, site and submission validation, Stripe
+  regression, Go tests, Go vet, production HTTP checks, and a fresh isolated
+  Chrome registration check reporting `WebMCP ready · 8 tools`.
+- Deployed the hardened release to `mirrorloopai.com`; external competition
+  gates remain unchanged.
+
 ## 2026-08-30 — Devpost submission-readiness audit
 
 - Reconciled the live product and repository against the official WebMCP

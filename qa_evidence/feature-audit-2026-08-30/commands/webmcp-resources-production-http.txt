@@ -1,0 +1,28 @@
+$ curl production index
+  <script type="module" src="/app.js?v=20260830-4"></script>
+$ curl production app
+import { installMirrorLoopWebMCP } from "./lib/webmcp.js?v=20260830-4";
+$ curl production WebMCP module
+    throw new Error("Tool output exceeded the 1500-character WebMCP budget.");
+      await modelContext.registerTool({
+$ production headers
+HTTP/2 200 
+cache-control: max-age=3600
+content-security-policy: default-src 'self'; script-src 'self' https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; connect-src 'self' https://challenges.cloudflare.com; img-src 'self' data:; style-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
+content-type: text/html; charset=utf-8
+etag: "6b5f4b1c446b342629eeefc99706d75bb78fe92a39116f35daecc94358b94886"
+last-modified: Sat, 29 Aug 2026 22:09:48 GMT
+permissions-policy: camera=(), microphone=(), geolocation=(), payment=()
+referrer-policy: strict-origin-when-cross-origin
+strict-transport-security: max-age=31556926
+x-content-type-options: nosniff
+accept-ranges: bytes
+date: Sat, 29 Aug 2026 22:10:14 GMT
+x-served-by: cache-pdx12324-PDX
+x-cache: MISS
+x-cache-hits: 0
+x-timer: S1788041414.214051,VS0,VE101
+vary: x-fh-requested-host, accept-encoding
+alt-svc: h3=":443";ma=86400,h3-29=":443";ma=86400,h3-27=":443";ma=86400
+content-length: 8302
+

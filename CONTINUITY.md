@@ -22,8 +22,8 @@ Key decisions:
 - Connect the reflection result to a highlighted matching ARC without automatically adding a product or initiating checkout.
 
 State:
-- The product audit plus Devpost readiness audit now covers 68 stories.
-- The audited release is deployed on `mirrorloopai.com`; connected Chrome reports `WebMCP ready · 8 tools` in the persistent header and the production checkout boundary remains unchanged.
+- The product, Devpost readiness, and official-resource audit now covers 74 stories.
+- The audited release is deployed on `mirrorloopai.com`; a fresh isolated Chrome 154 run reports `WebMCP ready · 8 tools` for asset version `20260830-4`, and the production checkout boundary remains unchanged.
 - Follow-up story `WM-013` retains its failed baseline and now has local, responsive, fallback, deployment, and native-production evidence.
 - The local submission package, judge narrative, demo script, public/private work disclosure, criterion map, third-party notice, and freeze plan pass deterministic validation.
 - Repository publication, Devpost project creation, public video upload, operator attestations, and final submission remain explicit operator actions.
@@ -48,11 +48,17 @@ Done:
 - Audited all official Devpost submission requirements as `SUB-001` through `SUB-011`.
 - Added `SUBMISSION.md`, `THIRD_PARTY_NOTICES.md`, expanded `README.md`, and added `npm run validate:submission`.
 - Verified the local submission package and retained all external blockers without changing account state.
+- Reviewed all 36 official WebMCP Challenge resource links and recorded every availability/relevance decision in `RESOURCE_REVIEW.html`.
+- Hardened asynchronous registration so false-ready state is impossible after a rejected browser registration promise.
+- Enforced documented contract/output budgets and added a 15-case expected-call corpus covering all eight tools, ordering, ambiguity, and forbidden email/cart/payment actions.
+- Updated README and submission instructions to the current Chrome DevTools Application → WebMCP workflow.
+- Committed the resource-driven implementation as `2d84634`, deployed it to Firebase Hosting, and verified the production bundle plus native eight-tool registration in isolated Chrome.
 
 Now:
-- The local competition package is ready; four external gates remain.
+- The official-resource enhancement pass is implemented, deployed, and locally verified; tracker artifact regeneration and final audit commit are in progress.
 
 Next:
+- Regenerate the canonical tracker views and QA report, commit the audit evidence, and push the private repository.
 - Obtain operator confirmation before changing the GitHub repository to public.
 - Record and publish the under-three-minute YouTube demo.
 - Create the Devpost project, paste the prepared package, complete attestations, and submit before the deadline.
@@ -68,6 +74,7 @@ Working set (files/ids/commands):
 - `/Users/constantinevassilev02/MyLocalDocuments/go-projects/SyntheonArchive/GENI/mirrorloopai-webmcp-challenge`
 - `npm test`
 - `npm run test:stripe`
+- `npm run test:webmcp:evals`
 - `npm run validate`
 - `go test ./...`
 - `go vet ./...`
@@ -83,7 +90,12 @@ Working set (files/ids/commands):
 - `WM-013`
 - `SUB-001` through `SUB-011`
 - `SUBMISSION.md`
+- `RESOURCE_REVIEW.html`
 - `THIRD_PARTY_NOTICES.md`
 - `npm run validate:submission`
 - `https://webmcp.devpost.com/`
 - `https://webmcp.devpost.com/rules`
+- `https://webmcp.devpost.com/resources`
+- `qa_evidence/feature-audit-2026-08-30/commands/webmcp-resources-link-audit.json`
+- `qa_evidence/feature-audit-2026-08-30/commands/webmcp-resources-final-gates.txt`
+- `qa_evidence/feature-audit-2026-08-30/browser/production-webmcp-resource-audit-isolated.json`

@@ -1,0 +1,326 @@
+[
+  {
+    "label": "webmachinelearning/webmcp on GitHub",
+    "url": "https://github.com/webmachinelearning/webmcp",
+    "status": "200",
+    "effective_url": "https://github.com/webmachinelearning/webmcp",
+    "content_type": "text/html; charset=utf-8",
+    "title": "GitHub - webmachinelearning/webmcp: \ud83e\udd16 WebMCP \u00b7 GitHub",
+    "bytes": 503129
+  },
+  {
+    "label": "WebMCP developer documentation",
+    "url": "https://developer.chrome.com/docs/ai/webmcp",
+    "status": "200",
+    "effective_url": "https://developer.chrome.com/docs/ai/webmcp",
+    "content_type": "text/html; charset=utf-8",
+    "title": "WebMCP \u00a0|\u00a0 AI on Chrome \u00a0|\u00a0 Chrome for Developers",
+    "bytes": 127497
+  },
+  {
+    "label": "WebMCP origin trial",
+    "url": "https://developer.chrome.com/blog/ai-webmcp-origin-trial",
+    "status": "200",
+    "effective_url": "https://developer.chrome.com/blog/ai-webmcp-origin-trial",
+    "content_type": "text/html; charset=utf-8",
+    "title": "Join the WebMCP origin trial \u00a0|\u00a0 Blog \u00a0|\u00a0 Chrome for Developers",
+    "bytes": 95951
+  },
+  {
+    "label": "WebMCP tool security guide",
+    "url": "https://developer.chrome.com/docs/ai/webmcp/secure-tools",
+    "status": "200",
+    "effective_url": "https://developer.chrome.com/docs/ai/webmcp/secure-tools",
+    "content_type": "text/html; charset=utf-8",
+    "title": "WebMCP tool security \u00a0|\u00a0 AI on Chrome \u00a0|\u00a0 Chrome for Developers",
+    "bytes": 126810
+  },
+  {
+    "label": "WebMCP Showcase",
+    "url": "https://developers.openai.com/showcase?view=webmcp-apps",
+    "status": "200",
+    "effective_url": "https://developers.openai.com/showcase?view=webmcp-apps",
+    "content_type": "text/html",
+    "title": "Showcase | OpenAI Developers",
+    "bytes": 420327
+  },
+  {
+    "label": "ChatGPT Sites",
+    "url": "https://learn.chatgpt.com/docs/sites?surface=app",
+    "status": "200",
+    "effective_url": "https://learn.chatgpt.com/docs/sites?surface=app",
+    "content_type": "text/html; charset=utf-8",
+    "title": "Sites \u2013 ChatGPT | ChatGPT Learn",
+    "bytes": 518849
+  },
+  {
+    "label": "WebMCP overview",
+    "url": "https://blog.cloudflare.com/webmcp/",
+    "status": "200",
+    "effective_url": "https://blog.cloudflare.com/webmcp/",
+    "content_type": "text/html",
+    "title": "Give any website a WebMCP interface | Cloudflare Blog",
+    "bytes": 520575
+  },
+  {
+    "label": "WebMCP on Browser Run",
+    "url": "https://developers.cloudflare.com/browser-run/features/webmcp/",
+    "status": "200",
+    "effective_url": "https://developers.cloudflare.com/browser-run/features/webmcp/",
+    "content_type": "text/html",
+    "title": "WebMCP \u00b7 Cloudflare Browser Run docs",
+    "bytes": 137893
+  },
+  {
+    "label": "Coffee-store demo",
+    "url": "https://webmcp-coffee.jilles.fyi/",
+    "status": "200",
+    "effective_url": "https://webmcp-coffee.jilles.fyi/",
+    "content_type": "text/html",
+    "title": "WebMCP Coffee Store",
+    "bytes": 652
+  },
+  {
+    "label": "Cloudflare challenge landing page",
+    "url": "https://webmcp-challenge.examples.workers.dev/",
+    "status": "200",
+    "effective_url": "https://webmcp-challenge.examples.workers.dev/",
+    "content_type": "text/html",
+    "title": "Build WebMCP apps with Cloudflare",
+    "bytes": 17959
+  },
+  {
+    "label": "WebMCP on Workers template",
+    "url": "https://github.com/cloudflare/agents/tree/main/examples/webmcp-react",
+    "status": "200",
+    "effective_url": "https://github.com/cloudflare/agents/tree/main/examples/webmcp-react",
+    "content_type": "text/html; charset=utf-8",
+    "title": "agents/examples/webmcp-react at main \u00b7 cloudflare/agents \u00b7 GitHub",
+    "bytes": 315522
+  },
+  {
+    "label": "Cloudflare Pages / Workers",
+    "url": "https://developers.cloudflare.com/pages/",
+    "status": "200",
+    "effective_url": "https://developers.cloudflare.com/pages/",
+    "content_type": "text/html",
+    "title": "Overview \u00b7 Cloudflare Pages docs",
+    "bytes": 138499
+  },
+  {
+    "label": "Storefront source code",
+    "url": "https://github.com/vercel/shop",
+    "status": "200",
+    "effective_url": "https://github.com/vercel/shop",
+    "content_type": "text/html; charset=utf-8",
+    "title": "GitHub - vercel/shop: Production-ready Shopify storefront on Next.js \u00b7 GitHub",
+    "bytes": 269898
+  },
+  {
+    "label": "WebMCP implementation",
+    "url": "https://github.com/vercel/shop/pull/498",
+    "status": "200",
+    "effective_url": "https://github.com/vercel/shop/pull/498",
+    "content_type": "text/html; charset=utf-8",
+    "title": "Add experimental WebMCP storefront tools by gaojude \u00b7 Pull Request #498 \u00b7 vercel/shop \u00b7 GitHub",
+    "bytes": 364378
+  },
+  {
+    "label": "Live storefront demo",
+    "url": "https://template.vercel.shop/",
+    "status": "200",
+    "effective_url": "https://template.vercel.shop/",
+    "content_type": "text/html; charset=utf-8",
+    "title": "Home | Vercel Shop",
+    "bytes": 134327
+  },
+  {
+    "label": "Vercel pricing",
+    "url": "https://vercel.com/pricing",
+    "status": "200",
+    "effective_url": "https://vercel.com/pricing",
+    "content_type": "text/html; charset=utf-8",
+    "title": "Vercel Pricing: Hobby, Pro, and Enterprise plans",
+    "bytes": 1165786
+  },
+  {
+    "label": "$30 in build credits",
+    "url": "https://credits.vercel.sh/redeem",
+    "status": "200",
+    "effective_url": "https://credits.vercel.sh/redeem",
+    "content_type": "text/html; charset=utf-8",
+    "title": "Vercel Credits Portal",
+    "bytes": 16742
+  },
+  {
+    "label": "Shopify WebMCP tools documentation",
+    "url": "https://shopify.dev/docs/api/web-mcp",
+    "status": "200",
+    "effective_url": "https://shopify.dev/docs/api/web-mcp",
+    "content_type": "text/html; charset=utf-8",
+    "title": "WebMCP tools",
+    "bytes": 328350
+  },
+  {
+    "label": "Agentic tools",
+    "url": "https://shopify.dev/docs/agents",
+    "status": "200",
+    "effective_url": "https://shopify.dev/docs/agents",
+    "content_type": "text/html; charset=utf-8",
+    "title": "Agentic commerce",
+    "bytes": 365227
+  },
+  {
+    "label": "useWebMCPTool React hook",
+    "url": "https://www.npmjs.com/package/use-webmcp-tool",
+    "status": "403",
+    "effective_url": "https://www.npmjs.com/package/use-webmcp-tool",
+    "content_type": "text/html; charset=UTF-8",
+    "title": "Just a moment...",
+    "bytes": 5558
+  },
+  {
+    "label": "WebMCP Explainer",
+    "url": "https://github.com/webmachinelearning/webmcp/blob/main/README.md",
+    "status": "200",
+    "effective_url": "https://github.com/webmachinelearning/webmcp/blob/main/README.md",
+    "content_type": "text/html; charset=utf-8",
+    "title": "webmcp/README.md at main \u00b7 webmachinelearning/webmcp \u00b7 GitHub",
+    "bytes": 532799
+  },
+  {
+    "label": "WebMCP with Angular",
+    "url": "https://angular.dev/ai/webmcp",
+    "status": "200",
+    "effective_url": "https://angular.dev/ai/webmcp",
+    "content_type": "text/html; charset=utf-8",
+    "title": "WebMCP \u2022 Angular",
+    "bytes": 250689
+  },
+  {
+    "label": "WebMCP evals",
+    "url": "https://developer.chrome.com/docs/ai/webmcp/evals",
+    "status": "200",
+    "effective_url": "https://developer.chrome.com/docs/ai/webmcp/evals",
+    "content_type": "text/html; charset=utf-8",
+    "title": "AI on Chrome \u00a0|\u00a0 Chrome for Developers",
+    "bytes": 149525
+  },
+  {
+    "label": "WebMCP developer documentation",
+    "url": "https://developer.chrome.com/docs/ai/webmcp",
+    "status": "200",
+    "effective_url": "https://developer.chrome.com/docs/ai/webmcp",
+    "content_type": "text/html; charset=utf-8",
+    "title": "WebMCP \u00a0|\u00a0 AI on Chrome \u00a0|\u00a0 Chrome for Developers",
+    "bytes": 127497
+  },
+  {
+    "label": "Debug WebMCP tools",
+    "url": "https://developer.chrome.com/docs/devtools/application/webmcp",
+    "status": "200",
+    "effective_url": "https://developer.chrome.com/docs/devtools/application/webmcp",
+    "content_type": "text/html; charset=utf-8",
+    "title": "Debug WebMCP tools \u00a0|\u00a0 Chrome DevTools \u00a0|\u00a0 Chrome for Developers",
+    "bytes": 187557
+  },
+  {
+    "label": "Modern Web Guidance",
+    "url": "https://github.com/GoogleChrome/modern-web-guidance",
+    "status": "200",
+    "effective_url": "https://github.com/GoogleChrome/modern-web-guidance",
+    "content_type": "text/html; charset=utf-8",
+    "title": "GitHub - GoogleChrome/modern-web-guidance: Keep your coding agent up to date with the latest web best practices \u00b7 GitHub",
+    "bytes": 532910
+  },
+  {
+    "label": "WebMCP demos",
+    "url": "https://github.com/GoogleChromeLabs/webmcp-tools/tree/main/demos",
+    "status": "200",
+    "effective_url": "https://github.com/GoogleChromeLabs/webmcp-tools/tree/main/demos",
+    "content_type": "text/html; charset=utf-8",
+    "title": "webmcp-tools/demos at main \u00b7 GoogleChromeLabs/webmcp-tools \u00b7 GitHub",
+    "bytes": 257791
+  },
+  {
+    "label": "Render Workflows",
+    "url": "https://render.com/workflows",
+    "status": "200",
+    "effective_url": "https://render.com/workflows",
+    "content_type": "text/html; charset=utf-8",
+    "title": "Workflows | Render",
+    "bytes": 352927
+  },
+  {
+    "label": "Workflows documentation",
+    "url": "https://render.com/docs/workflows",
+    "status": "200",
+    "effective_url": "https://render.com/docs/workflows",
+    "content_type": "text/html; charset=utf-8",
+    "title": "Intro to Render Workflows \u2013 Render Docs",
+    "bytes": 685545
+  },
+  {
+    "label": "Starter templates",
+    "url": "https://render.com/templates",
+    "status": "200",
+    "effective_url": "https://render.com/templates",
+    "content_type": "text/html; charset=utf-8",
+    "title": "Render Templates | How to Deploy Apps, Frameworks & AI Agents",
+    "bytes": 819794
+  },
+  {
+    "label": "Participant credits",
+    "url": "https://credits-portal-mmdm.onrender.com/claim/openai-hackathon",
+    "status": "200",
+    "effective_url": "https://credits-portal-mmdm.onrender.com/claim/openai-hackathon",
+    "content_type": "text/html; charset=UTF-8",
+    "title": "Credits portal",
+    "bytes": 588
+  },
+  {
+    "label": "Credits documentation",
+    "url": "https://render.com/docs/credits",
+    "status": "200",
+    "effective_url": "https://render.com/docs/credits",
+    "content_type": "text/html; charset=utf-8",
+    "title": "Redeeming Render Credits \u2013 Render Docs",
+    "bytes": 304585
+  },
+  {
+    "label": "Netlify",
+    "url": "https://netlify.com/",
+    "status": "200",
+    "effective_url": "https://www.netlify.com/",
+    "content_type": "text/html; charset=UTF-8",
+    "title": "Push your ideas to the web | Netlify",
+    "bytes": 411153
+  },
+  {
+    "label": "this form",
+    "url": "https://forms.gle/xw75XGUQzCXEiALc7",
+    "status": "200",
+    "effective_url": "https://docs.google.com/forms/d/e/1FAIpQLScfuUMd2_pha9Oyi4PEdRPQ2JSlX2lyaPp3_uE1gBpcOwQjgA/viewform?usp=send_form",
+    "content_type": "text/html; charset=utf-8",
+    "title": "Netlify Credits Request Form | The WebMCP Challenge",
+    "bytes": 119648
+  },
+  {
+    "label": "Choose your path",
+    "url": "https://docs.netlify.com/start/choose-your-path/",
+    "status": "200",
+    "effective_url": "https://docs.netlify.com/start/choose-your-path/",
+    "content_type": "text/html; charset=UTF-8",
+    "title": "Choose your path | Netlify Docs",
+    "bytes": 179270
+  },
+  {
+    "label": "WebMCP starter",
+    "url": "https://webmcp-starter.netlify.app/",
+    "status": "200",
+    "effective_url": "https://webmcp-starter.netlify.app/",
+    "content_type": "text/html; charset=UTF-8",
+    "title": "WebMCP Starter \u2014 a Netlify template for agent-ready sites",
+    "bytes": 33524
+  }
+]

@@ -1,0 +1,17 @@
+/opt/homebrew/lib/node_modules/firebase-tools/node_modules/buffer-equal-constant-time/index.js:37
+var origSlowBufEqual = SlowBuffer.prototype.equal;
+                                  ^
+
+TypeError: Cannot read properties of undefined (reading 'prototype')
+    at Object.<anonymous> (/opt/homebrew/lib/node_modules/firebase-tools/node_modules/buffer-equal-constant-time/index.js:37:35)
+    at Module._compile (node:internal/modules/cjs/loader:1873:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:2013:10)
+    at Module.load (node:internal/modules/cjs/loader:1596:32)
+    at Module._load (node:internal/modules/cjs/loader:1398:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.require (node:internal/modules/cjs/loader:1619:12)
+    at require (node:internal/modules/helpers:191:16)
+    at Object.<anonymous> (/opt/homebrew/lib/node_modules/firebase-tools/node_modules/jsonwebtoken/node_modules/jwa/index.js:1:19)
+    at Module._compile (node:internal/modules/cjs/loader:1873:14)
+
+Node.js v26.3.0

@@ -4,11 +4,11 @@ Tracker source: `feature_status_tracker.csv`
 
 ## Totals
 
-- Total features discovered: 68
-- Total verified before fixes: 51
+- Total features discovered: 74
+- Total verified before fixes: 52
 - Total failed before fixes: 14
-- Total fixed: 13
-- Total verified after retest: 64
+- Total fixed: 18
+- Total verified after retest: 70
 - Total still blocked: 0
 - Total needing product decision: 0
 
@@ -75,6 +75,11 @@ Tracker source: `feature_status_tracker.csv`
 - `THIRD_PARTY_NOTICES.md; README.md; SUBMISSION.md; scripts/validate-submission.mjs`
 - `SUBMISSION.md; README.md; scripts/validate-submission.mjs`
 - `README.md; SUBMISSION.md`
+- `RESOURCE_REVIEW.html; scripts/validate-submission.mjs; README.md; SUBMISSION.md`
+- `web/lib/webmcp.js; web/tests/webmcp.test.mjs; web/app.js; web/index.html`
+- `web/lib/webmcp.js; web/tests/webmcp.test.mjs`
+- `web/evals/webmcp-evals.json; scripts/validate-webmcp-evals.mjs; package.json; README.md; SUBMISSION.md`
+- `firebase.json; web/index.html`
 
 ## Commits Recorded In Tracker
 
@@ -85,10 +90,11 @@ Tracker source: `feature_status_tracker.csv`
 - `4d835111b8ee24560deabafe60efc8499dc105ec`
 - `592c08a`
 - `2f08435`
+- `2d84634`
 
 ## Test Evidence
 
-- Test types used: `Automated + browser`, `Automated + integration + production`, `Persona walkthrough + automated + browser`, `Production cache regression`, `Automated Test + Code Review`, `Automated Test + Cross-surface Review`, `Automated Test`, `Automated Test + Accessibility Review`, `Automated Test + Content Review`, `Browser + responsive`, `Browser interaction`, `Browser + automated`, `Automated integration + production smoke`, `Content + link review`, `Automated + security`, `Automated security review`, `Production browser + Inspector`, `Browser + content`, `Automated links + browser`, `Automated content + production smoke`, `Reference comparison + automated + Chrome responsive`, `Production browser + HTTP`, `GitHub metadata inspection`, `Documentation audit`, `Content audit`, `Artifact + content audit`, `Git + documentation audit`, `Authenticated browser + checklist audit`, `Compliance checklist`, `Operations documentation audit`, `Content + evidence audit`, `Browser compatibility`
+- Test types used: `Automated + browser`, `Automated + integration + production`, `Persona walkthrough + automated + browser`, `Production cache regression`, `Automated Test + Code Review`, `Automated Test + Cross-surface Review`, `Automated Test`, `Automated Test + Accessibility Review`, `Automated Test + Content Review`, `Browser + responsive`, `Browser interaction`, `Browser + automated`, `Automated integration + production smoke`, `Content + link review`, `Automated + security`, `Automated security review`, `Production browser + Inspector`, `Browser + content`, `Automated links + browser`, `Automated content + production smoke`, `Reference comparison + automated + Chrome responsive`, `Production browser + HTTP`, `GitHub metadata inspection`, `Documentation audit`, `Content audit`, `Artifact + content audit`, `Git + documentation audit`, `Authenticated browser + checklist audit`, `Compliance checklist`, `Operations documentation audit`, `Content + evidence audit`, `Browser compatibility`, `Link inventory + content review`, `Code review + automated lifecycle test`, `Automated contract-budget test`, `Eval dataset validation`, `Header and source review`
 - Commands run are not captured as a dedicated tracker column, so this report only summarizes tracker-backed test evidence.
 
 ## Coverage Gaps
