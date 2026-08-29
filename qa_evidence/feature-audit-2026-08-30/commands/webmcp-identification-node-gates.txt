@@ -1,0 +1,56 @@
+$ npm test
+
+> test
+> node --test web/tests/*.test.mjs
+
+✔ funnel tracker sends only aggregate allowlisted event names (3.551292ms)
+✔ session storage suppresses duplicate events after reload (0.1705ms)
+✔ public quiz contains 12 complete questions (0.825125ms)
+✔ public question labels use plain language (0.2915ms)
+✔ scoring matches stable Swift tie-break contract (7.463125ms)
+✔ every archetype has plain-language result copy (0.177625ms)
+✔ response groups provide plain-language scanning help (0.075833ms)
+✔ a zero-count tie is not presented as a supporting pattern (0.922833ms)
+✔ shop exposes 12 ARCs in mono and full color plus four complete decks (0.903167ms)
+✔ public catalog contains no prices or pre-order language (0.531542ms)
+✔ shop is active while Stripe remains the only price and payment surface (0.088792ms)
+✔ private source keeps canonical Stripe amounts (1.391625ms)
+✔ every product image exists and checkout explains its boundary (2.238ms)
+✔ registers exactly eight same-origin bounded tools (1.80325ms)
+✔ marks read operations and local state changes accurately (0.134458ms)
+✔ keeps catalog recommendation read-only and outside checkout (0.37425ms)
+✔ requires explicit human confirmation before recording an answer (0.170083ms)
+✔ passes an explicitly confirmed revision through the bounded answer tool (0.554833ms)
+✔ rejects unknown fields and malformed card identifiers (0.169167ms)
+✔ does not echo the private focus area in the tool result wrapper (0.123666ms)
+✔ prefers the document WebMCP context and supports navigator fallback (0.081542ms)
+ℹ tests 21
+ℹ suites 0
+ℹ pass 21
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 122.064833
+
+$ npm run test:stripe
+
+> test:stripe
+> node --test scripts/tests/*.test.mjs
+
+✔ Stripe CLI inventory retains metadata but never API key material (2.424458ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 110.633625
+
+$ npm run validate
+
+> validate
+> node scripts/validate-site.mjs
+
+site validation: PASS

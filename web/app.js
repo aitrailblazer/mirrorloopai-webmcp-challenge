@@ -451,8 +451,11 @@ installMirrorLoopWebMCP({
     const status = $("#webmcp-status");
     if (!status) return;
     status.textContent = supported
-      ? `AI-guided reflection ready · ${names.length} tools available`
-      : "Use the reflection directly, or open it in a WebMCP-enabled browser for AI-guided navigation.";
+      ? `WebMCP ready · ${names.length} tools`
+      : "WebMCP unavailable · direct reflection ready";
+    status.title = supported
+      ? `${names.length} same-origin tools are registered for guided reflection.`
+      : "The 12-question reflection remains fully available without WebMCP.";
     status.dataset.active = String(supported);
     document.body.classList.toggle("webmcp-active", supported);
     document.body.classList.toggle("direct-mode", !supported);

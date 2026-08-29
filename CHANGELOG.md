@@ -1,5 +1,18 @@
 # Changelog
 
+## 2026-08-30 — Immediately visible WebMCP identification
+
+- Added a persistent header badge that changes from `Checking WebMCP…` to the
+  exact concise status `WebMCP ready · 8 tools` after all eight same-origin
+  tools register.
+- Added a truthful `WebMCP unavailable · direct reflection ready` fallback
+  without disabling the ordinary 12-question experience.
+- Kept the badge visible and free of horizontal overflow on desktop and mobile,
+  with live status semantics for assistive technology.
+- Preserved the existing tool, privacy, email, cart, and Stripe boundaries;
+  this change identifies capability but grants no new agent action.
+- Recorded and retested the improvement as tracker story `WM-013`.
+
 ## 2026-08-29 — Full WebMCP conversion and release audit
 
 - Audited 56 user-visible stories across the landing experience, 12-question

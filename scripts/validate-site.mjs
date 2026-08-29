@@ -27,12 +27,18 @@ assert.ok(index.includes('type="checkbox" required'));
 assert.ok(index.includes("No email required to see your result."));
 assert.ok(index.includes("/images/shattered-compass-entry.webp"));
 assert.ok(index.includes('id="webmcp-status"'));
-assert.ok(index.includes('/app.js?v=20260829-3'));
+assert.ok(index.includes('role="status" aria-live="polite"'));
+assert.ok(index.indexOf('id="webmcp-status"') < index.indexOf("<main"));
+assert.ok(index.includes('/styles.css?v=20260830-1'));
+assert.ok(index.includes('/app.js?v=20260830-1'));
 assert.ok(index.includes('id="result-shop-link"'));
 assert.ok(config.includes("shopEnabled: true"));
 assert.ok(app.includes("shopLink.href ="));
 assert.ok(app.includes("revised: true"));
 assert.ok(app.includes("installMirrorLoopWebMCP"));
+assert.ok(app.includes("WebMCP ready · ${names.length} tools"));
+assert.ok(app.includes("WebMCP unavailable · direct reflection ready"));
+assert.ok(!app.includes("AI-guided reflection ready"));
 for (const tool of [
   "start_reflection",
   "get_current_question",

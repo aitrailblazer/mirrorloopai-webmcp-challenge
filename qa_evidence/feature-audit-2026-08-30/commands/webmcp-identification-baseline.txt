@@ -1,0 +1,12 @@
+$ reference implementation source inspection
+Reference status copy:
+WebMCP ready · ${l} tools
+Reference status CSS:
+.webmcp-status{color:var(--muted);align-items:center;gap:7px;font-size:.72rem;display:inline-flex}.webmcp-status>span{background:#b9b9b4;border-radius:50%;width:6px;height:6px}.webmcp-status.is-ready>span{background:var(--accent);box-shadow:0 0 0 3px var(--accent-wash)}.notice{z-index:100;border-left:3px solid var(--accent);max-width:min(
+$ current MIRROR//LOOP source inspection
+web/app.js:451:    const status = $("#webmcp-status");
+web/app.js:454:      ? `AI-guided reflection ready · ${names.length} tools available`
+web/styles.css:63:.webmcp-status { display: inline-flex; align-items: center; gap: .5rem; margin: .35rem 0 .8rem; color: var(--muted); font-size: .9rem; }
+web/styles.css:64:.webmcp-status::before { width: .55rem; height: .55rem; border-radius: 50%; background: currentColor; content: ""; opacity: .55; }
+web/styles.css:65:.webmcp-status[data-active="true"] { color: var(--gold); }
+web/index.html:72:        <p class="webmcp-status" id="webmcp-status" role="status">Checking for AI-guided reflection…</p>

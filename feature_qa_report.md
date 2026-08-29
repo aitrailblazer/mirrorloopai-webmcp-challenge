@@ -4,9 +4,9 @@ Tracker source: `feature_status_tracker.csv`
 
 ## Totals
 
-- Total features discovered: 56
+- Total features discovered: 57
 - Total verified before fixes: 50
-- Total failed before fixes: 6
+- Total failed before fixes: 7
 - Total fixed: 6
 - Total verified after retest: 56
 - Total still blocked: 0
@@ -14,7 +14,7 @@ Tracker source: `feature_status_tracker.csv`
 
 ## Unresolved Critical Or High
 
-- None
+- WM-013 `Immediately visible WebMCP readiness badge` — High — Failed Test
 
 ## Files Changed Or Audited
 
@@ -75,7 +75,7 @@ Tracker source: `feature_status_tracker.csv`
 
 ## Test Evidence
 
-- Test types used: `Automated + browser`, `Automated + integration + production`, `Persona walkthrough + automated + browser`, `Production cache regression`, `Automated Test + Code Review`, `Automated Test + Cross-surface Review`, `Automated Test`, `Automated Test + Accessibility Review`, `Automated Test + Content Review`, `Browser + responsive`, `Browser interaction`, `Browser + automated`, `Automated integration + production smoke`, `Content + link review`, `Automated + security`, `Automated security review`, `Production browser + Inspector`, `Browser + content`, `Automated links + browser`, `Automated content + production smoke`
+- Test types used: `Automated + browser`, `Automated + integration + production`, `Persona walkthrough + automated + browser`, `Production cache regression`, `Automated Test + Code Review`, `Automated Test + Cross-surface Review`, `Automated Test`, `Automated Test + Accessibility Review`, `Automated Test + Content Review`, `Browser + responsive`, `Browser interaction`, `Browser + automated`, `Automated integration + production smoke`, `Content + link review`, `Automated + security`, `Automated security review`, `Production browser + Inspector`, `Browser + content`, `Automated links + browser`, `Automated content + production smoke`, `Reference comparison + automated + Chrome responsive`
 - Commands run are not captured as a dedicated tracker column, so this report only summarizes tracker-backed test evidence.
 
 ## Coverage Gaps
@@ -84,4 +84,4 @@ Tracker source: `feature_status_tracker.csv`
 
 ## Recommended Next Pass
 
-- Continue using the tracker loop for the next repo improvement and regenerate the workbook/report artifacts after changes.
+- Resolve the remaining unresolved critical/high rows before expanding scope.

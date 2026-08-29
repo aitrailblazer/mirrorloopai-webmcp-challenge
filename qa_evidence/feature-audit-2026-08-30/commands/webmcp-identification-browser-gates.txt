@@ -1,0 +1,25 @@
+$ supported WebMCP header check (injected browser-native contract shim)
+### Result
+{"status":"WebMCP ready · 8 tools","tools":["start_reflection","get_current_question","explain_choice","answer_reflection_question","review_reflection_answers","complete_reflection","get_card","recommend_card_edition"],"inHeader":true,"role":"status","ariaLive":"polite","width":390,"scrollWidth":390}
+### Ran Playwright code
+```js
+await (async (page) => await page.evaluate(() => ({ status: document.querySelector('#webmcp-status')?.textContent, tools: window.__registeredWebMCPTools, inHeader: Boolean(document.querySelector('header #webmcp-status')), role: document.querySelector('#webmcp-status')?.getAttribute('role'), ariaLive: document.querySelector('#webmcp-status')?.getAttribute('aria-live'), width: document.documentElement.clientWidth, scrollWidth: document.documentElement.scrollWidth })))(page);
+```
+
+$ direct-use fallback check (no modelContext)
+### Browser `mirrorloop-wm013-fallback` opened with pid 77339.
+### Ran Playwright code
+```js
+await page.goto('http://127.0.0.1:4173/');
+```
+### Page
+- Page URL: http://127.0.0.1:4173/
+- Page Title: MIRROR//LOOP — See How You Respond
+### Snapshot
+- [Snapshot](.playwright-cli/page-2026-08-29T20-22-29-664Z.yml)
+### Result
+{"status":"WebMCP unavailable · direct reflection ready","inHeader":true,"bodyDirectMode":true,"startButton":"Begin question 1 of 12"}
+### Ran Playwright code
+```js
+await (async (page) => { await page.waitForFunction(() => document.querySelector('#webmcp-status')?.textContent === 'WebMCP unavailable · direct reflection ready', null, { timeout: 15000 }); return await page.evaluate(() => ({ status: document.querySelector('#webmcp-status')?.textContent, inHeader: Boolean(document.querySelector('header #webmcp-status')), bodyDirectMode: document.body.classList.contains('direct-mode'), startButton: document.querySelector('#start-button')?.textContent })); })(page);
+```

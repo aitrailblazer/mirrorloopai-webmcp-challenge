@@ -1,6 +1,7 @@
 Goal (incl. success criteria):
 - Complete a tracker-backed audit and implementation pass that makes mirrorloopai.com a first-class WebMCP experience for understandable quiz conversion, secure paid acquisition, and competition readiness.
 - Success requires all user-visible stories to have test evidence, all tracker-backed failures to be fixed and retested, generated tracker views to match the canonical CSV, production to serve the audited release, and the completed pass to be recorded in `CHANGELOG.md`.
+- Match the reference site's immediately recognizable WebMCP identification with a persistent header badge that reports `WebMCP ready · 8 tools` after registration and a truthful direct-use fallback otherwise.
 
 Constraints/Assumptions:
 - Preserve the existing production repository unchanged.
@@ -22,6 +23,7 @@ Key decisions:
 State:
 - The 56-story audit pass is complete: 50 stories passed initially and six tracker-backed failures were fixed and verified.
 - The audited release is deployed on `mirrorloopai.com`; connected user Chrome reports eight tools available and the production checkout handoff resolves to Stripe without automatic payment.
+- Follow-up story `WM-013` is documented as a failed baseline before implementation: the readiness label is currently inside the quiz introduction and does not use the concise reference wording.
 
 Done:
 - Copied the website, Go API, public data, tests, deployment configuration, documentation, and sanitized QA evidence.
@@ -40,10 +42,10 @@ Done:
 - Deployed Firebase Hosting and verified the public origin, security headers, API health, Chrome-native WebMCP registration status, and Stripe Checkout handoff.
 
 Now:
-- The audited production release and its evidence are complete and pushed to `origin/main`.
+- Implement and verify the tracker-backed `WM-013` readiness badge without changing the existing eight-tool registry or commerce boundary.
 
 Next:
-- Prepare the competition description and demonstration video as a separate tracker-backed pass.
+- Regenerate audit views, record the changelog entry, deploy the verified badge to Firebase Hosting, and confirm the exact production status in a WebMCP-enabled browser.
 
 Open questions (UNCONFIRMED if needed):
 - UNCONFIRMED: Final competition title and submission copy.
@@ -61,3 +63,5 @@ Working set (files/ids/commands):
 - `feature_status_tracker.html`
 - `feature_qa_report.md`
 - `qa_evidence/feature-audit-2026-08-29/`
+- `qa_evidence/feature-audit-2026-08-30/commands/webmcp-identification-baseline.txt`
+- `WM-013`
