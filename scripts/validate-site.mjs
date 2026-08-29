@@ -25,6 +25,7 @@ assert.ok(index.includes('type="checkbox" required'));
 assert.ok(index.includes("No email required to see your result."));
 assert.ok(index.includes("/images/shattered-compass-entry.webp"));
 assert.ok(index.includes('id="webmcp-status"'));
+assert.ok(index.includes('/app.js?v=20260829-2'));
 assert.ok(app.includes("installMirrorLoopWebMCP"));
 for (const tool of [
   "start_reflection",
@@ -34,12 +35,16 @@ for (const tool of [
   "review_reflection_answers",
   "complete_reflection",
   "get_card",
+  "recommend_card_edition",
 ]) {
   assert.ok(webmcp.includes(`"${tool}"`), `missing WebMCP tool: ${tool}`);
 }
 assert.ok(webmcp.includes("additionalProperties: false"));
 assert.ok(webmcp.includes("confirmed_by_user"));
 assert.ok(!webmcp.includes("exposedTo"));
+assert.ok(!webmcp.includes("recommend_physical_deck"));
+assert.ok(app.includes('fulfillment: "digital_download"'));
+assert.ok(app.includes("This tool cannot add items, start checkout, or make a purchase."));
 assert.ok(index.includes("The Shattered Compass"));
 assert.ok(index.includes("Ask what repeats. Reveal the loop. Choose a new direction."));
 assert.ok(index.indexOf('id="result-panel"') < index.indexOf('id="subscribe-form"'));

@@ -1,0 +1,59 @@
+{
+  "date": "2026-08-29",
+  "browser": "Google Chrome headless via DevTools Protocol",
+  "transport": "Chrome DevTools Protocol against local static server",
+  "modelContext": "injected test double implementing document.modelContext.registerTool",
+  "registeredTools": [
+    "start_reflection",
+    "get_current_question",
+    "explain_choice",
+    "answer_reflection_question",
+    "review_reflection_answers",
+    "complete_reflection",
+    "get_card",
+    "recommend_card_edition"
+  ],
+  "visibleStatus": "AI-guided reflection ready · 8 tools available",
+  "explicitRecommendation": {
+    "found": true,
+    "sku": "arc-12-color",
+    "title": "ARC 12 · Convergence Seal",
+    "subtitle": "Full-Color Edition",
+    "description": "12 high-resolution full-color cards. Integration, Cards 133–144.",
+    "edition": "color",
+    "scope": "arc",
+    "arc_code": "12",
+    "domain": "Integration",
+    "image": "/images/shop/arc-12-color.webp",
+    "fulfillment": "digital_download",
+    "recommendation_basis": "ARC 12 was explicitly requested.",
+    "shop_path": "/shop.html",
+    "purchase_boundary": "Review the edition and Stripe-hosted price yourself. This tool cannot add items, start checkout, or make a purchase."
+  },
+  "missingReflectionRejected": true,
+  "completeRecommendation": {
+    "found": true,
+    "sku": "deck-mono-insight",
+    "title": "Complete 144-Card Deck",
+    "subtitle": "Mono Insight Edition",
+    "description": "All 144 gold-on-black cards with the companion descriptions and reflection prompts.",
+    "edition": "mono",
+    "scope": "insight",
+    "arc_code": null,
+    "domain": null,
+    "image": "/images/shop/collection-mono-insight.webp",
+    "fulfillment": "digital_download",
+    "recommendation_basis": "The complete edition includes all 144 cards and companion reflection prompts.",
+    "shop_path": "/shop.html",
+    "purchase_boundary": "Review the edition and Stripe-hosted price yourself. This tool cannot add items, start checkout, or make a purchase."
+  },
+  "checks": {
+    "eightToolsRegistered": true,
+    "publicCatalogRecommendation": "PASS",
+    "digitalFulfillmentDeclared": true,
+    "missingReflectionRejected": true,
+    "noPriceOrDirectStripeURL": true,
+    "checkoutMutationUnavailable": true
+  },
+  "boundary": "This validates registration and the real browser app adapter. Native Chrome WebMCP Inspector discovery on the deployed origin remains pending."
+}

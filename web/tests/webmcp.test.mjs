@@ -23,6 +23,7 @@ function fixture() {
     "reviewAnswers",
     "completeReflection",
     "getCard",
+    "recommendCardEdition",
   ].map((name) => [name, async (input) => {
     calls.push({ name, input });
     return { ok: true, name, input };
@@ -34,12 +35,12 @@ function registeredTool(registrations, name) {
   return registrations.find(({ definition }) => definition.name === name).definition;
 }
 
-test("registers exactly seven same-origin bounded tools", () => {
+test("registers exactly eight same-origin bounded tools", () => {
   const { registrations, modelContext, api } = fixture();
   const registration = registerMirrorLoopWebMCP(modelContext, api);
 
   assert.deepEqual(registration.names, MIRRORLOOP_WEBMCP_TOOL_NAMES);
-  assert.equal(registrations.length, 7);
+  assert.equal(registrations.length, 8);
   for (const { definition, options } of registrations) {
     assert.equal(definition.inputSchema.additionalProperties, false);
     assert.equal("exposedTo" in definition, false);
@@ -55,12 +56,47 @@ test("marks read operations and local state changes accurately", () => {
   const { registrations, modelContext, api } = fixture();
   registerMirrorLoopWebMCP(modelContext, api);
 
-  for (const name of ["get_current_question", "explain_choice", "review_reflection_answers", "get_card"]) {
+  for (const name of ["get_current_question", "explain_choice", "review_reflection_answers", "get_card", "recommend_card_edition"]) {
     assert.equal(registeredTool(registrations, name).annotations.readOnlyHint, true);
   }
   for (const name of ["start_reflection", "answer_reflection_question", "complete_reflection"]) {
     assert.equal(registeredTool(registrations, name).annotations.readOnlyHint, false);
   }
+});
+
+test("keeps catalog recommendation read-only and outside checkout", async () => {
+  const { registrations, calls, modelContext, api } = fixture();
+  registerMirrorLoopWebMCP(modelContext, api);
+  const recommend = registeredTool(registrations, "recommend_card_edition");
+
+  const result = await recommend.execute({
+    arc_code: "12",
+    edition: "color",
+    collection_scope: "arc",
+  });
+  assert.equal(result.isError, undefined);
+  assert.deepEqual(calls[0], {
+    name: "recommendCardEdition",
+    input: { arcCode: "12", edition: "color", collectionScope: "arc" },
+  });
+  assert.equal(result.content[0].text.includes("stripe.com"), false);
+  assert.equal(result.content[0].text.match(/\$\d/), null);
+
+  const rejected = await recommend.execute({
+    arc_code: "12",
+    edition: "color",
+    collection_scope: "arc",
+    checkout: true,
+  });
+  assert.equal(rejected.isError, true);
+  assert.match(rejected.content[0].text, /unknown input field/i);
+
+  const malformedArc = await recommend.execute({
+    arc_code: "",
+    edition: "mono",
+  });
+  assert.equal(malformedArc.isError, true);
+  assert.match(malformedArc.content[0].text, /arc_code must be/i);
 });
 
 test("requires explicit human confirmation before recording an answer", async () => {

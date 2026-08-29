@@ -1,5 +1,17 @@
 # Changelog
 
+## 2026-08-29 — Truthful eighth WebMCP catalog tool
+
+- Added `recommend_card_edition`, a read-only discovery tool backed by the
+  existing public catalog of 12 ARC editions and complete 144-card editions.
+- Kept the public response price-free and identified fulfillment accurately as
+  a digital download.
+- Prevented the tool from adding cart items, creating Stripe Checkout Sessions,
+  exposing direct payment links, or making purchases.
+- Rejected unsupported physical-product materials, shipping promises, prices,
+  and zero-backend claims from the revised proposal.
+- Added strict schema and boundary tests for the eighth tool.
+
 ## 2026-08-29 — Seven-tool WebMCP reflection layer
 
 - Registered seven same-origin tools for starting, navigating, explaining,

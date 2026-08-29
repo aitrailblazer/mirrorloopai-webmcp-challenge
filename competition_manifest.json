@@ -27,7 +27,7 @@
     "private research corpora",
     "temporary outputs and unrelated generated artifacts"
   ],
-  "webmcpImplementationStatus": "seven-tools-implemented-pending-browser-inspector-verification",
+  "webmcpImplementationStatus": "eight-tools-implemented-pending-browser-inspector-verification",
   "webmcpTools": [
     "start_reflection",
     "get_current_question",
@@ -35,6 +35,18 @@
     "answer_reflection_question",
     "review_reflection_answers",
     "complete_reflection",
-    "get_card"
-  ]
+    "get_card",
+    "recommend_card_edition"
+  ],
+  "revisedSpecReconciliation": {
+    "sourceSHA256": "94e4b6df95c3d288486bba1f8ad2e97c78612e9290c42cfc841f794815d8a067",
+    "accepted": "An eighth read-only catalog discovery capability using the real public digital-edition registry.",
+    "rejected": [
+      "fabricated physical-product attributes",
+      "hard-coded or public prices",
+      "direct Stripe payment links",
+      "agent-initiated cart or checkout actions",
+      "the claim that the deployed website has no backend or telemetry"
+    ]
+  }
 }

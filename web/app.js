@@ -1,11 +1,12 @@
 import { RESPONSE_GROUPS, resultCopy, scoreAnswers, supportingPattern } from "./lib/quiz-core.js?v=20260826-3";
 import { createFunnelTracker } from "./lib/analytics.js?v=20260826-3";
-import { installMirrorLoopWebMCP } from "./lib/webmcp.js?v=20260829-1";
+import { installMirrorLoopWebMCP } from "./lib/webmcp.js?v=20260829-2";
 
 const $ = (selector) => document.querySelector(selector);
 const state = {
   quiz: null,
   cards: null,
+  shopCatalog: null,
   index: 0,
   answers: Array(12).fill(null),
   result: null,
@@ -55,6 +56,18 @@ async function loadCards() {
   }
   state.cards = new Map(registry.cards.map((card) => [card.id, card]));
   return state.cards;
+}
+
+async function loadShopCatalog() {
+  if (state.shopCatalog) return state.shopCatalog;
+  const response = await fetch("/data/shop.json", { cache: "no-cache" });
+  if (!response.ok) throw new Error("The public edition catalog could not be loaded.");
+  const catalog = await response.json();
+  if (!Array.isArray(catalog.items) || catalog.items.length !== 28) {
+    throw new Error("The public edition catalog is incomplete.");
+  }
+  state.shopCatalog = catalog.items;
+  return state.shopCatalog;
 }
 
 function optionButton(option, optionIndex) {
@@ -288,6 +301,46 @@ async function getCard({ cardID }) {
   };
 }
 
+async function recommendCardEdition({ arcCode, edition, collectionScope }) {
+  const catalog = await loadShopCatalog();
+  let sku;
+  let basis;
+  if (collectionScope === "arc") {
+    const resolvedArcCode = arcCode || state.result?.dominant;
+    if (!resolvedArcCode) {
+      throw new Error("Provide arc_code or complete the reflection before requesting an ARC edition.");
+    }
+    sku = `arc-${resolvedArcCode}-${edition}`;
+    basis = arcCode
+      ? `ARC ${resolvedArcCode} was explicitly requested.`
+      : `ARC ${resolvedArcCode} matches the completed reflection's primary lens.`;
+  } else {
+    const suffix = collectionScope === "complete_insight" ? "insight" : "visual";
+    sku = `deck-${edition}-${suffix}`;
+    basis = collectionScope === "complete_insight"
+      ? "The complete edition includes all 144 cards and companion reflection prompts."
+      : "The complete visual edition includes all 144 cards.";
+  }
+  const item = catalog.find((candidate) => candidate.sku === sku);
+  if (!item) throw new Error("No matching public card edition is available.");
+  return {
+    found: true,
+    sku: item.sku,
+    title: item.title,
+    subtitle: item.subtitle,
+    description: item.description,
+    edition: item.edition,
+    scope: item.kind,
+    arc_code: item.arcCode ?? null,
+    domain: item.domain ?? null,
+    image: item.image,
+    fulfillment: "digital_download",
+    recommendation_basis: basis,
+    shop_path: "/shop.html",
+    purchase_boundary: "Review the edition and Stripe-hosted price yourself. This tool cannot add items, start checkout, or make a purchase.",
+  };
+}
+
 async function subscribe(event) {
   event.preventDefault();
   elements.formStatus.textContent = "";
@@ -366,6 +419,7 @@ installMirrorLoopWebMCP({
     reviewAnswers,
     completeReflection,
     getCard,
+    recommendCardEdition,
   },
   onStatus({ supported, names }) {
     const status = $("#webmcp-status");

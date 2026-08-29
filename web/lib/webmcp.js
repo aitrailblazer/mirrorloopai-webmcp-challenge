@@ -28,6 +28,7 @@ export const MIRRORLOOP_WEBMCP_TOOL_NAMES = Object.freeze([
   "review_reflection_answers",
   "complete_reflection",
   "get_card",
+  "recommend_card_edition",
 ]);
 
 function asToolResult(value) {
@@ -98,6 +99,29 @@ function checkedCardID(value) {
   return value;
 }
 
+function checkedArcCode(value) {
+  if (value === undefined) return "";
+  if (!CHOICE_CODE_SCHEMA.enum.includes(value)) {
+    throw new Error("arc_code must be a two-digit code from 01 to 12.");
+  }
+  return value;
+}
+
+function checkedEdition(value) {
+  if (!["mono", "color"].includes(value)) {
+    throw new Error("edition must be mono or color.");
+  }
+  return value;
+}
+
+function checkedCollectionScope(value) {
+  if (value === undefined) return "arc";
+  if (!["arc", "complete_visual", "complete_insight"].includes(value)) {
+    throw new Error("collection_scope must be arc, complete_visual, or complete_insight.");
+  }
+  return value;
+}
+
 function defineTools(api) {
   const startReflection = requiredMethod(api, "startReflection");
   const getCurrentQuestion = requiredMethod(api, "getCurrentQuestion");
@@ -106,6 +130,7 @@ function defineTools(api) {
   const reviewAnswers = requiredMethod(api, "reviewAnswers");
   const completeReflection = requiredMethod(api, "completeReflection");
   const getCard = requiredMethod(api, "getCard");
+  const recommendCardEdition = requiredMethod(api, "recommendCardEdition");
 
   return [
     {
@@ -236,6 +261,41 @@ function defineTools(api) {
       run: (value) => {
         const input = checkedKeys(value, ["card_id"]);
         return getCard({ cardID: checkedCardID(input.card_id) });
+      },
+    },
+    {
+      name: "recommend_card_edition",
+      description: "Find a matching digital card edition in the public catalog without showing prices, creating a cart, or starting checkout.",
+      inputSchema: {
+        type: "object",
+        properties: {
+          arc_code: {
+            type: "string",
+            enum: CHOICE_CODE_SCHEMA.enum,
+            description: "Optional ARC code. When omitted for an ARC edition, use the completed reflection's primary lens.",
+          },
+          edition: {
+            type: "string",
+            enum: ["mono", "color"],
+            description: "Preferred visual edition.",
+          },
+          collection_scope: {
+            type: "string",
+            enum: ["arc", "complete_visual", "complete_insight"],
+            description: "Recommend one 12-card ARC, the complete visual deck, or the complete deck with companion reflections.",
+          },
+        },
+        required: ["edition"],
+        additionalProperties: false,
+      },
+      annotations: READ_ONLY,
+      run: (value) => {
+        const input = checkedKeys(value, ["arc_code", "edition", "collection_scope"]);
+        return recommendCardEdition({
+          arcCode: checkedArcCode(input.arc_code),
+          edition: checkedEdition(input.edition),
+          collectionScope: checkedCollectionScope(input.collection_scope),
+        });
       },
     },
   ];

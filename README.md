@@ -35,7 +35,7 @@ go vet ./...
 
 ## WebMCP tools
 
-The page registers seven same-origin tools when `document.modelContext` or the
+The page registers eight same-origin tools when `document.modelContext` or the
 compatible navigator surface is available:
 
 1. `start_reflection`
@@ -45,10 +45,14 @@ compatible navigator surface is available:
 5. `review_reflection_answers`
 6. `complete_reflection`
 7. `get_card`
+8. `recommend_card_edition`
 
 The tools navigate the existing deterministic quiz and mutate only ephemeral
 browser state. Recording an answer requires an explicit human-confirmation
-field. Email submission and checkout are deliberately not exposed as tools.
+field. The catalog recommendation tool reads only the public, price-free
+digital-edition registry. It cannot change the cart, reveal a price, create a
+Checkout Session, or make a purchase. Email submission and checkout are
+deliberately not exposed as tools.
 All schemas reject unknown properties, and no cross-origin `exposedTo` grant is
 configured.
 
@@ -59,7 +63,7 @@ interpretive fields are excluded.
 
 ## Competition status
 
-The repository is private during development. The seven tools are implemented;
+The repository is private during development. The eight tools are implemented;
 Chrome WebMCP Inspector verification on the deployed origin remains required.
 The repository must be security-reviewed and made public before the WebMCP
 Challenge submission deadline.

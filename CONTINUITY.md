@@ -10,12 +10,14 @@ Key decisions:
 - Use `aitrailblazer/mirrorloopai-webmcp-challenge` as the competition repository.
 - Import a sanitized working-tree snapshot rather than attaching a remote to the production repository.
 - Keep the repository private during development; public visibility is a later submission gate.
-- Implement the seven requested reflection tools against the existing validated 12-question quiz rather than the attachment's illustrative or unsupported data.
+- Implement the reflection tools against the existing validated 12-question quiz rather than the attachment's illustrative or unsupported data.
 - Keep WebMCP reflection tools local-only and same-origin; email submission and Stripe checkout remain outside agent tool execution.
 - Expose all 144 cards through a reduced public registry containing only curated public interpretation fields.
+- Reconcile the revised eight-tool proposal to the real digital catalog: expose a read-only `recommend_card_edition` discovery tool, not the proposed `recommend_physical_deck` purchasing tool.
+- Preserve server-owned Stripe Checkout, hidden public prices, and explicit human purchase control. Do not publish fabricated physical-product claims, direct Stripe URLs, or unsupported prices.
 
 State:
-- Seven bounded WebMCP tools and the sanitized 144-card public registry are implemented, locally verified, committed, and pushed.
+- Eight bounded WebMCP tools, the sanitized 144-card registry, and the price-free digital-edition recommendation adapter are implemented and locally verified.
 
 Done:
 - Copied the website, Go API, public data, tests, deployment configuration, documentation, and sanitized QA evidence.
@@ -25,11 +27,14 @@ Done:
 - Registered seven same-origin WebMCP tools with strict schemas and explicit human confirmation for answer mutation.
 - Verified a complete 12-question agent-driven flow and Card 144 lookup in Chrome through a CDP model-context test harness.
 - Pushed implementation commit `b9dddec` to the private GitHub repository.
+- Reconciled revised specification `94e4b6df95c3d288486bba1f8ad2e97c78612e9290c42cfc841f794815d8a067` to the actual digital catalog and Stripe boundary.
+- Added and browser-tested `recommend_card_edition`; Chrome registered eight tools, returned ARC 12 Full-Color and Mono Insight recommendations, rejected missing ARC context, and exposed no price or direct Stripe URL.
 
 Now:
-- Verify native tool discovery through the Chrome WebMCP Inspector before production deployment.
+- Commit and push the fully verified eighth-tool reconciliation.
 
 Next:
+- Verify native tool discovery through the Chrome WebMCP Inspector before production deployment.
 - Deploy the static bundle to the public origin after production review.
 - Verify native discovery with the Chrome WebMCP Inspector.
 - Perform the public-release security review.
