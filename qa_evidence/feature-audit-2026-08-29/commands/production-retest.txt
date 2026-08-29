@@ -1,0 +1,22 @@
+$ production release checks
+root_status=200
+origin_trial=PRESENT
+webmcp_status=PRESENT
+app_bundle=/app.js?v=20260829-3
+result_shop_link=PRESENT
+shop_enabled=shopEnabled: true
+webmcp_import=PRESENT
+answer_revision=PRESENT
+llms_webmcp=PRESENT
+health={"status":"ok"}
+--- security headers ---
+HTTP/2 200 
+content-security-policy: default-src 'self'; script-src 'self' https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; connect-src 'self' https://challenges.cloudflare.com; img-src 'self' data:; style-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
+permissions-policy: camera=(), microphone=(), geolocation=(), payment=()
+referrer-policy: strict-origin-when-cross-origin
+strict-transport-security: max-age=31556926
+x-content-type-options: nosniff
+--- checkout handoff (no payment performed) ---
+checkout_status=201
+checkout_host=checkout.stripe.com
+checkout_protocol=https:

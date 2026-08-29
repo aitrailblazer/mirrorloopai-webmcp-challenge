@@ -1,0 +1,71 @@
+$ npm test
+
+> test
+> node --test web/tests/*.test.mjs
+
+✔ funnel tracker sends only aggregate allowlisted event names (3.099ms)
+✔ session storage suppresses duplicate events after reload (0.164958ms)
+✔ public quiz contains 12 complete questions (0.801625ms)
+✔ public question labels use plain language (0.285375ms)
+✔ scoring matches stable Swift tie-break contract (7.254916ms)
+✔ every archetype has plain-language result copy (0.14275ms)
+✔ response groups provide plain-language scanning help (0.066708ms)
+✔ a zero-count tie is not presented as a supporting pattern (0.847334ms)
+✔ shop exposes 12 ARCs in mono and full color plus four complete decks (0.860458ms)
+✔ public catalog contains no prices or pre-order language (0.201833ms)
+✔ shop is active while Stripe remains the only price and payment surface (0.061ms)
+✔ private source keeps canonical Stripe amounts (0.84475ms)
+✔ every product image exists and checkout explains its boundary (2.263125ms)
+✔ registers exactly eight same-origin bounded tools (1.699542ms)
+✔ marks read operations and local state changes accurately (0.12675ms)
+✔ keeps catalog recommendation read-only and outside checkout (0.332042ms)
+✔ requires explicit human confirmation before recording an answer (0.158084ms)
+✔ passes an explicitly confirmed revision through the bounded answer tool (0.099083ms)
+✔ rejects unknown fields and malformed card identifiers (0.676625ms)
+✔ does not echo the private focus area in the tool result wrapper (0.141416ms)
+✔ prefers the document WebMCP context and supports navigator fallback (0.093125ms)
+ℹ tests 21
+ℹ suites 0
+ℹ pass 21
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 112.381083
+
+$ npm run test:stripe
+
+> test:stripe
+> node --test scripts/tests/*.test.mjs
+
+✔ Stripe CLI inventory retains metadata but never API key material (2.292291ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 107.768792
+
+$ npm run validate
+
+> validate
+> node scripts/validate-site.mjs
+
+site validation: PASS
+
+$ go test ./...
+ok  	mirrorloopai.com/web/api/cmd/analytics-report	(cached)
+ok  	mirrorloopai.com/web/api/cmd/server	(cached)
+ok  	mirrorloopai.com/web/api/internal/analytics	(cached)
+ok  	mirrorloopai.com/web/api/internal/commerce	(cached)
+ok  	mirrorloopai.com/web/api/internal/inbound	(cached)
+ok  	mirrorloopai.com/web/api/internal/subscriber	(cached)
+
+$ go vet ./...
+
+$ go mod verify
+all modules verified
+
+$ git diff --check (excluding canonical CRLF CSV)

@@ -1,5 +1,25 @@
 # Changelog
 
+## 2026-08-29 — Full WebMCP conversion and release audit
+
+- Audited 56 user-visible stories across the landing experience, 12-question
+  reflection, email journey, storefront, Stripe handoff, accessibility,
+  metadata, and eight-tool WebMCP surface.
+- Fixed six tracker-backed failures: stale production assets, disabled
+  storefront checkout, missing public WebMCP discovery, no result-to-product
+  path, incomplete agent metadata, and the inability to revise a prior
+  agent-recorded answer.
+- Added a non-coercive matching-ARC action after the reflection and highlighted
+  both relevant digital editions without exposing prices or starting checkout.
+- Kept exactly eight WebMCP tools while allowing explicitly confirmed answer
+  revisions and continuing to reject skipped future questions.
+- Deployed the audited release to `mirrorloopai.com`; connected Chrome reported
+  eight tools available, and production returned an HTTPS Stripe Checkout
+  handoff without performing a payment.
+- Regenerated the canonical CSV tracker, XLSX and HTML views, QA report, and
+  retained local, production, browser, deployment, and security evidence under
+  `qa_evidence/feature-audit-2026-08-29/`.
+
 ## 2026-08-29 — Truthful eighth WebMCP catalog tool
 
 - Added `recommend_card_edition`, a read-only discovery tool backed by the

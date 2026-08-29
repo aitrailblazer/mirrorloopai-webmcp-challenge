@@ -1,0 +1,43 @@
+{
+  "date": "2026-08-29",
+  "browser": "User Chrome through connected browser extension",
+  "origin": "https://mirrorloopai.com",
+  "release": {
+    "active": "true",
+    "app": "https://mirrorloopai.com/app.js?v=20260829-3",
+    "modelContext": "undefined",
+    "originTrial": "A8ZkCc+Zq1nlFu+s",
+    "shopLink": "Card collection",
+    "status": "AI-guided reflection ready · 8 tools available",
+    "title": "MIRROR//LOOP — See How You Respond"
+  },
+  "quiz": {
+    "resultVisible": true,
+    "resultName": "Horizon Signal",
+    "shopHref": "/shop.html?arc=01#arcs",
+    "shopText": "Explore ARC 01 · Horizon Signal",
+    "status": "AI-guided reflection ready · 8 tools available",
+    "active": "true"
+  },
+  "shop": {
+    "before": {
+      "recommended": 2,
+      "labels": [
+        "MATCHED TO YOUR REFLECTION · ARC 01 · 12 CARDS",
+        "MATCHED TO YOUR REFLECTION · ARC 01 · 12 CARDS"
+      ],
+      "checkoutEnabled": false,
+      "pricesVisible": false
+    },
+    "after": {
+      "cartCount": "1",
+      "checkoutEnabled": true
+    }
+  },
+  "webmcp_native_registration": {
+    "status": "AI-guided reflection ready · 8 tools available",
+    "active": "true",
+    "registered_tool_count": 8,
+    "evidence_boundary": "Page status is set active only after the browser-native modelContext accepts all registrations; no injected modelContext was used in this Chrome tab."
+  }
+}
