@@ -1,0 +1,86 @@
+# Final Devpost audit verification
+captured_utc=2026-08-29T20:52:29Z
+
+> test
+> node --test web/tests/*.test.mjs
+
+✔ funnel tracker sends only aggregate allowlisted event names (3.276583ms)
+✔ session storage suppresses duplicate events after reload (0.145ms)
+✔ public quiz contains 12 complete questions (0.862958ms)
+✔ public question labels use plain language (0.32975ms)
+✔ scoring matches stable Swift tie-break contract (7.123708ms)
+✔ every archetype has plain-language result copy (0.149625ms)
+✔ response groups provide plain-language scanning help (0.0635ms)
+✔ a zero-count tie is not presented as a supporting pattern (0.902625ms)
+✔ shop exposes 12 ARCs in mono and full color plus four complete decks (1.130792ms)
+✔ public catalog contains no prices or pre-order language (0.662709ms)
+✔ shop is active while Stripe remains the only price and payment surface (0.078292ms)
+✔ private source keeps canonical Stripe amounts (0.834208ms)
+✔ every product image exists and checkout explains its boundary (3.476792ms)
+✔ registers exactly eight same-origin bounded tools (1.791666ms)
+✔ marks read operations and local state changes accurately (0.13575ms)
+✔ keeps catalog recommendation read-only and outside checkout (0.366208ms)
+✔ requires explicit human confirmation before recording an answer (0.161292ms)
+✔ passes an explicitly confirmed revision through the bounded answer tool (0.100167ms)
+✔ rejects unknown fields and malformed card identifiers (0.180375ms)
+✔ does not echo the private focus area in the tool result wrapper (0.118416ms)
+✔ prefers the document WebMCP context and supports navigator fallback (0.0735ms)
+ℹ tests 21
+ℹ suites 0
+ℹ pass 21
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 122.74775
+
+> test:stripe
+> node --test scripts/tests/*.test.mjs
+
+✔ Stripe CLI inventory retains metadata but never API key material (2.693625ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 117.2755
+
+> validate
+> node scripts/validate-site.mjs
+
+site validation: PASS
+
+> validate:submission
+> node scripts/validate-submission.mjs
+
+PASS README live URL
+PASS README source URL
+PASS README native registration pattern
+PASS README pre-existing disclosure
+PASS README all eight tools
+PASS Submission four required explanations
+PASS Submission four judging criteria
+PASS Submission demo plan
+PASS Submission challenge-period commits
+PASS Submission freeze plan
+PASS Third-party service inventory
+PASS Top-level MIT license
+PASS Package validation entry point
+
+External gates intentionally not performed by this validator:
+- GitHub repository visibility must be PUBLIC.
+- A Devpost project must be created.
+- A public YouTube demo under three minutes must be supplied.
+- The operator must complete eligibility, ownership, and rights attestations.
+- Actual ChatGPT in-app-browser support remains optional because verified Chrome is accepted.
+
+LOCAL SUBMISSION PACKAGE PASS — external gates remain pending.
+ok  	mirrorloopai.com/web/api/cmd/analytics-report	(cached)
+ok  	mirrorloopai.com/web/api/cmd/server	(cached)
+ok  	mirrorloopai.com/web/api/internal/analytics	(cached)
+ok  	mirrorloopai.com/web/api/internal/commerce	(cached)
+ok  	mirrorloopai.com/web/api/internal/inbound	(cached)
+ok  	mirrorloopai.com/web/api/internal/subscriber	(cached)
+FINAL LOCAL GATES: PASS

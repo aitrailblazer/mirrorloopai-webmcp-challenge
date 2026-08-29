@@ -1,5 +1,26 @@
 # Changelog
 
+## 2026-08-30 — Devpost submission-readiness audit
+
+- Reconciled the live product and repository against the official WebMCP
+  Challenge entry requirements, deadline, judging window, and four equally
+  weighted judging criteria.
+- Added eleven tracker-backed submission stories and retained the failed
+  baselines for repository visibility, missing submission copy, demo video,
+  disclosure, Devpost project state, operator attestations, release freeze,
+  judge orientation, and browser-path guidance.
+- Added a copy-ready Devpost narrative, criterion evidence map, judge test path,
+  pre-existing-versus-new work disclosure, timed 2:35 demo script, final
+  operator checklist, and judging-period freeze procedure.
+- Expanded the README into a reproducible setup and testing guide with the
+  browser-native `modelContext.registerTool(...)` pattern and explicit
+  human/agent authority boundaries.
+- Added third-party service, private-data, and rights notices plus a
+  deterministic `npm run validate:submission` gate.
+- Kept the external blockers explicit: the GitHub repository remains private,
+  no Devpost project exists, no public YouTube demo exists, and entrant
+  eligibility/asset-rights attestations still require the operator.
+
 ## 2026-08-30 — Immediately visible WebMCP identification
 
 - Added a persistent header badge that changes from `Checking WebMCP…` to the

@@ -132,7 +132,8 @@ viewable on YouTube, audible, captioned, and demonstrates the deployed build.
 
 ## Judge test path
 
-1. Open https://mirrorloopai.com/ in Chrome with WebMCP enabled.
+1. In Chrome 149 or later, enable `chrome://flags/#enable-webmcp-testing`,
+   restart Chrome, and open https://mirrorloopai.com/.
 2. Confirm `WebMCP ready · 8 tools`.
 3. Run `start_reflection`, `get_current_question`, and `explain_choice`.
 4. Call `answer_reflection_question` first with

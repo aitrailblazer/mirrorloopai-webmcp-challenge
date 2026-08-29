@@ -22,10 +22,11 @@ Key decisions:
 - Connect the reflection result to a highlighted matching ARC without automatically adding a product or initiating checkout.
 
 State:
-- The 57-story audit is complete: 50 stories passed initially and seven tracker-backed failures were fixed and verified.
+- The product audit plus Devpost readiness audit now covers 68 stories.
 - The audited release is deployed on `mirrorloopai.com`; connected Chrome reports `WebMCP ready · 8 tools` in the persistent header and the production checkout boundary remains unchanged.
 - Follow-up story `WM-013` retains its failed baseline and now has local, responsive, fallback, deployment, and native-production evidence.
-- A Devpost submission-readiness audit is in progress; repository publication, Devpost project creation, public video upload, and final submission remain explicit operator actions.
+- The local submission package, judge narrative, demo script, public/private work disclosure, criterion map, third-party notice, and freeze plan pass deterministic validation.
+- Repository publication, Devpost project creation, public video upload, operator attestations, and final submission remain explicit operator actions.
 
 Done:
 - Copied the website, Go API, public data, tests, deployment configuration, documentation, and sanitized QA evidence.
@@ -44,12 +45,17 @@ Done:
 - Deployed Firebase Hosting and verified the public origin, security headers, API health, Chrome-native WebMCP registration status, and Stripe Checkout handoff.
 - Added the reference-style WebMCP header badge, verified desktop and 390 px mobile layouts without horizontal overflow, and confirmed the direct-use fallback.
 - Redeployed Firebase Hosting and verified the exact production label through connected Chrome's native WebMCP context.
+- Audited all official Devpost submission requirements as `SUB-001` through `SUB-011`.
+- Added `SUBMISSION.md`, `THIRD_PARTY_NOTICES.md`, expanded `README.md`, and added `npm run validate:submission`.
+- Verified the local submission package and retained all external blockers without changing account state.
 
 Now:
-- Add and execute tracker-backed Devpost compliance stories, then repair local documentation and validation gaps.
+- The local competition package is ready; four external gates remain.
 
 Next:
-- Obtain operator confirmation before changing the GitHub repository to public or creating/publishing external submission artifacts.
+- Obtain operator confirmation before changing the GitHub repository to public.
+- Record and publish the under-three-minute YouTube demo.
+- Create the Devpost project, paste the prepared package, complete attestations, and submit before the deadline.
 
 Open questions (UNCONFIRMED if needed):
 - UNCONFIRMED: Final competition title and submission copy.
@@ -76,5 +82,8 @@ Working set (files/ids/commands):
 - `qa_evidence/feature-audit-2026-08-30/commands/firebase-hosting-deploy.txt`
 - `WM-013`
 - `SUB-001` through `SUB-011`
+- `SUBMISSION.md`
+- `THIRD_PARTY_NOTICES.md`
+- `npm run validate:submission`
 - `https://webmcp.devpost.com/`
 - `https://webmcp.devpost.com/rules`

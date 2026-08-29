@@ -4,17 +4,20 @@ Tracker source: `feature_status_tracker.csv`
 
 ## Totals
 
-- Total features discovered: 57
-- Total verified before fixes: 50
-- Total failed before fixes: 7
-- Total fixed: 7
-- Total verified after retest: 57
+- Total features discovered: 68
+- Total verified before fixes: 51
+- Total failed before fixes: 14
+- Total fixed: 13
+- Total verified after retest: 64
 - Total still blocked: 0
 - Total needing product decision: 0
 
 ## Unresolved Critical Or High
 
-- None
+- SUB-002 `Public source repository and license` — Critical — Failed Test
+- SUB-005 `Under-three-minute narrated demo plan` — Critical — Needs Product Decision
+- SUB-007 `Devpost project draft readiness` — Critical — Needs Product Decision
+- SUB-008 `Eligibility, ownership, and third-party rights attestation` — Critical — Needs Product Decision
 
 ## Files Changed Or Audited
 
@@ -65,6 +68,13 @@ Tracker source: `feature_status_tracker.csv`
 - `web/llms.txt; scripts/validate-site.mjs`
 - `web/app.js; web/lib/webmcp.js; web/tests/webmcp.test.mjs`
 - `web/index.html; web/app.js; web/styles.css; scripts/validate-site.mjs; CHANGELOG.md`
+- `README.md; SUBMISSION.md; THIRD_PARTY_NOTICES.md`
+- `README.md; package.json; scripts/validate-submission.mjs`
+- `SUBMISSION.md; scripts/validate-submission.mjs`
+- `README.md; SUBMISSION.md; scripts/validate-submission.mjs`
+- `THIRD_PARTY_NOTICES.md; README.md; SUBMISSION.md; scripts/validate-submission.mjs`
+- `SUBMISSION.md; README.md; scripts/validate-submission.mjs`
+- `README.md; SUBMISSION.md`
 
 ## Commits Recorded In Tracker
 
@@ -74,10 +84,11 @@ Tracker source: `feature_status_tracker.csv`
 - `9740b57`
 - `4d835111b8ee24560deabafe60efc8499dc105ec`
 - `592c08a`
+- `2f08435`
 
 ## Test Evidence
 
-- Test types used: `Automated + browser`, `Automated + integration + production`, `Persona walkthrough + automated + browser`, `Production cache regression`, `Automated Test + Code Review`, `Automated Test + Cross-surface Review`, `Automated Test`, `Automated Test + Accessibility Review`, `Automated Test + Content Review`, `Browser + responsive`, `Browser interaction`, `Browser + automated`, `Automated integration + production smoke`, `Content + link review`, `Automated + security`, `Automated security review`, `Production browser + Inspector`, `Browser + content`, `Automated links + browser`, `Automated content + production smoke`, `Reference comparison + automated + Chrome responsive`
+- Test types used: `Automated + browser`, `Automated + integration + production`, `Persona walkthrough + automated + browser`, `Production cache regression`, `Automated Test + Code Review`, `Automated Test + Cross-surface Review`, `Automated Test`, `Automated Test + Accessibility Review`, `Automated Test + Content Review`, `Browser + responsive`, `Browser interaction`, `Browser + automated`, `Automated integration + production smoke`, `Content + link review`, `Automated + security`, `Automated security review`, `Production browser + Inspector`, `Browser + content`, `Automated links + browser`, `Automated content + production smoke`, `Reference comparison + automated + Chrome responsive`, `Production browser + HTTP`, `GitHub metadata inspection`, `Documentation audit`, `Content audit`, `Artifact + content audit`, `Git + documentation audit`, `Authenticated browser + checklist audit`, `Compliance checklist`, `Operations documentation audit`, `Content + evidence audit`, `Browser compatibility`
 - Commands run are not captured as a dedicated tracker column, so this report only summarizes tracker-backed test evidence.
 
 ## Coverage Gaps
@@ -86,4 +97,4 @@ Tracker source: `feature_status_tracker.csv`
 
 ## Recommended Next Pass
 
-- Continue using the tracker loop for the next repo improvement and regenerate the workbook/report artifacts after changes.
+- Resolve the remaining unresolved critical/high rows before expanding scope.

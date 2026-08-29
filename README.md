@@ -109,7 +109,8 @@ in `9740b57`, and the visible readiness badge in `592c08a`.
 - Go 1.25 or the compatible toolchain declared in [`go.mod`](go.mod)
 - Python 3 for the zero-build static development server
 - Optional: Firebase CLI for deployment
-- Optional: Chrome with WebMCP enabled for native tool inspection
+- Optional: Chrome 149 or later with
+  `chrome://flags/#enable-webmcp-testing` enabled for native tool inspection
 
 No dependency installation is required for the static site tests.
 
@@ -140,7 +141,8 @@ or upload a video.
 
 ### Test native WebMCP
 
-1. Use a Chrome build with WebMCP enabled.
+1. Use Chrome 149 or later, enable
+   `chrome://flags/#enable-webmcp-testing`, and restart Chrome.
 2. Open `https://mirrorloopai.com/`.
 3. Confirm the header reads **WebMCP ready · 8 tools**.
 4. Inspect the page's registered tools.
