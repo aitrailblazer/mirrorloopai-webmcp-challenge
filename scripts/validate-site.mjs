@@ -10,6 +10,8 @@ const app = await readFile(new URL("web/app.js", root), "utf8");
 const webmcp = await readFile(new URL("web/lib/webmcp.js", root), "utf8");
 const shop = await readFile(new URL("web/shop.html", root), "utf8");
 const terms = await readFile(new URL("web/terms.html", root), "utf8");
+const config = await readFile(new URL("web/config.js", root), "utf8");
+const llms = await readFile(new URL("web/llms.txt", root), "utf8");
 const shopCatalog = JSON.parse(await readFile(new URL("web/data/shop.json", root), "utf8"));
 
 assert.equal(quiz.questions.length, 12);
@@ -25,7 +27,11 @@ assert.ok(index.includes('type="checkbox" required'));
 assert.ok(index.includes("No email required to see your result."));
 assert.ok(index.includes("/images/shattered-compass-entry.webp"));
 assert.ok(index.includes('id="webmcp-status"'));
-assert.ok(index.includes('/app.js?v=20260829-2'));
+assert.ok(index.includes('/app.js?v=20260829-3'));
+assert.ok(index.includes('id="result-shop-link"'));
+assert.ok(config.includes("shopEnabled: true"));
+assert.ok(app.includes("shopLink.href ="));
+assert.ok(app.includes("revised: true"));
 assert.ok(app.includes("installMirrorLoopWebMCP"));
 for (const tool of [
   "start_reflection",
@@ -56,6 +62,8 @@ assert.ok(shop.includes('id="cart-panel"'));
 assert.ok(!shop.toLowerCase().includes("pre-order"));
 assert.ok(shop.includes("/terms.html"));
 assert.ok(terms.includes("Digital products"));
+assert.ok(llms.includes("recommend_card_edition"));
+assert.ok(llms.includes("https://mirrorloopai.com/shop"));
 for (const forbidden of ["Rosicrucian_Library", "all_transcriptions.txt", "all_interpretations.txt", "Geneva_Bible_1599"]) {
   assert.ok(!index.includes(forbidden), `private corpus reference leaked: ${forbidden}`);
 }

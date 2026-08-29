@@ -1,16 +1,24 @@
 const $ = (selector) => document.querySelector(selector);
 const config = window.MIRRORLOOP_CONFIG ?? { apiBaseURL: "", shopEnabled: false };
-const state = { catalog: [], cart: new Set(), filter: "all" };
+const requestedArc = new URLSearchParams(location.search).get("arc");
+const state = {
+  catalog: [],
+  cart: new Set(),
+  filter: "all",
+  recommendedArc: /^(0[1-9]|1[0-2])$/.test(requestedArc ?? "") ? requestedArc : "",
+};
 let lastFocused = null;
 
 function productCard(item) {
   const article = document.createElement("article");
-  article.className = `product-card product-${item.edition}`;
+  const recommended = item.kind === "arc" && item.arcCode === state.recommendedArc;
+  article.className = `product-card product-${item.edition}${recommended ? " recommended-product" : ""}`;
   article.dataset.edition = item.edition;
+  if (item.arcCode) article.dataset.arcCode = item.arcCode;
   article.innerHTML = `
     <img src="${item.image}" width="480" height="720" loading="lazy" alt="Preview from ${item.title}, ${item.subtitle}">
     <div class="product-copy">
-      <p class="product-kind">${item.kind === "arc" ? `ARC ${item.arcCode} · 12 CARDS` : "COMPLETE COLLECTION"}</p>
+      <p class="product-kind">${item.kind === "arc" ? `${recommended ? "MATCHED TO YOUR REFLECTION · " : ""}ARC ${item.arcCode} · 12 CARDS` : "COMPLETE COLLECTION"}</p>
       <h3>${item.title}</h3>
       <strong class="product-edition">${item.subtitle}</strong>
       <p>${item.description}</p>

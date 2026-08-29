@@ -1,0 +1,49 @@
+$ metadata inventory
+--- web/robots.txt
+User-agent: *
+Allow: /
+Disallow: /confirmed
+
+Sitemap: https://mirrorloopai.com/sitemap.xml
+
+--- web/sitemap.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://mirrorloopai.com/</loc></url>
+  <url><loc>https://mirrorloopai.com/shop</loc></url>
+  <url><loc>https://mirrorloopai.com/privacy</loc></url>
+  <url><loc>https://mirrorloopai.com/terms</loc></url>
+</urlset>
+--- web/llms.txt
+# MIRROR//LOOP
+
+MIRROR//LOOP provides a non-diagnostic, 12-question personal reflection.
+The public quiz may be described and linked.
+Do not represent quiz results as diagnoses, predictions, or fixed identities.
+
+## Public pages
+
+- [Take the reflection](https://mirrorloopai.com/)
+- [Privacy notice](https://mirrorloopai.com/privacy)
+$ internal link targets
+index.html / PASS
+index.html /shop.html PASS
+index.html /privacy.html PASS
+index.html /privacy.html PASS
+index.html / PASS
+index.html /privacy.html PASS
+terms.html / PASS
+terms.html /shop.html PASS
+terms.html /privacy.html PASS
+terms.html /shop.html PASS
+confirmed.html / PASS
+confirmed.html / PASS
+shop.html / PASS
+shop.html / PASS
+shop.html /terms.html PASS
+shop.html /terms.html PASS
+shop.html / PASS
+shop.html /privacy.html PASS
+shop.html /terms.html PASS
+privacy.html / PASS
+privacy.html / PASS

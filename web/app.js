@@ -1,6 +1,6 @@
 import { RESPONSE_GROUPS, resultCopy, scoreAnswers, supportingPattern } from "./lib/quiz-core.js?v=20260826-3";
 import { createFunnelTracker } from "./lib/analytics.js?v=20260826-3";
-import { installMirrorLoopWebMCP } from "./lib/webmcp.js?v=20260829-2";
+import { installMirrorLoopWebMCP } from "./lib/webmcp.js?v=20260829-3";
 
 const $ = (selector) => document.querySelector(selector);
 const state = {
@@ -147,6 +147,9 @@ function showResult() {
     $("#secondary-summary").textContent = "Your choices concentrated in one response pattern, so we are not assigning a supporting pattern.";
   }
   $("#reflection-prompt").textContent = copy.prompt;
+  const shopLink = $("#result-shop-link");
+  shopLink.href = `/shop.html?arc=${encodeURIComponent(state.result.dominant)}#arcs`;
+  shopLink.textContent = `Explore ARC ${state.result.dominant} · ${primary.name}`;
   elements.panel.hidden = true;
   elements.result.hidden = false;
   elements.result.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -233,13 +236,35 @@ async function explainChoice({ questionID, choiceCode }) {
 async function answerQuestion({ questionID, choiceCode }) {
   await loadQuiz();
   if (!state.started) throw new Error("Start a reflection before recording an answer.");
+  const question = state.quiz.questions[questionID - 1];
+  if (!question?.options.some(({ arcCode }) => arcCode === choiceCode)) {
+    throw new Error("That choice is not available for this question.");
+  }
   const expectedID = state.quiz.questions[state.index]?.id;
+  const allComplete = state.answers.every(Boolean);
+  const revisingRecordedAnswer = Boolean(state.answers[questionID - 1])
+    && (questionID < expectedID || allComplete);
+  if (revisingRecordedAnswer) {
+    state.answers[questionID - 1] = choiceCode;
+    renderQuestion();
+    window.dispatchEvent(new CustomEvent("mirrorloop:step_transition", {
+      detail: { question_id: questionID, choice_code: choiceCode, revised: true },
+    }));
+    return {
+      recorded: true,
+      revised: true,
+      question_id: questionID,
+      choice_code: choiceCode,
+      completed_questions: state.answers.filter(Boolean).length,
+      is_finished: allComplete,
+      current_question_id: expectedID,
+      next_action: allComplete
+        ? "Call complete_reflection to refresh the result."
+        : "Continue with the current question or review the recorded answers.",
+    };
+  }
   if (questionID !== expectedID) {
     throw new Error(`Question ${expectedID} is currently active; questions cannot be skipped.`);
-  }
-  const question = state.quiz.questions[state.index];
-  if (!question.options.some(({ arcCode }) => arcCode === choiceCode)) {
-    throw new Error("That choice is not available for the current question.");
   }
   state.answers[state.index] = choiceCode;
   const completed = state.answers.filter(Boolean).length;
@@ -252,6 +277,7 @@ async function answerQuestion({ questionID, choiceCode }) {
   }));
   return {
     recorded: true,
+    revised: false,
     question_id: questionID,
     choice_code: choiceCode,
     completed_questions: completed,

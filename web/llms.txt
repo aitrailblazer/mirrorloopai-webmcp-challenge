@@ -3,8 +3,28 @@
 MIRROR//LOOP provides a non-diagnostic, 12-question personal reflection.
 The public quiz may be described and linked.
 Do not represent quiz results as diagnoses, predictions, or fixed identities.
+Compatible WebMCP browsers can guide the same reflection through eight
+same-origin tools. Human confirmation is required before an answer is recorded.
+Email submission, cart changes, checkout, and payment are never agent tools.
+
+## WebMCP tools
+
+- start_reflection
+- get_current_question
+- explain_choice
+- answer_reflection_question
+- review_reflection_answers
+- complete_reflection
+- get_card
+- recommend_card_edition
+
+Card lookup and edition recommendations use curated public metadata only. The
+edition tool may identify a matching digital product, but it cannot reveal a
+price, add to a cart, create checkout, or purchase anything.
 
 ## Public pages
 
 - [Take the reflection](https://mirrorloopai.com/)
+- [Browse the digital card collection](https://mirrorloopai.com/shop)
 - [Privacy notice](https://mirrorloopai.com/privacy)
+- [Digital purchase terms](https://mirrorloopai.com/terms)

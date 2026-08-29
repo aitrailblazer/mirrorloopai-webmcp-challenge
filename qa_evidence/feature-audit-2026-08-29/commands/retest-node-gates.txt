@@ -1,0 +1,78 @@
+$ npm test
+
+> test
+> node --test web/tests/*.test.mjs
+
+✔ funnel tracker sends only aggregate allowlisted event names (3.129209ms)
+✔ session storage suppresses duplicate events after reload (0.13ms)
+✔ public quiz contains 12 complete questions (0.80925ms)
+✔ public question labels use plain language (0.270875ms)
+✔ scoring matches stable Swift tie-break contract (7.700875ms)
+✔ every archetype has plain-language result copy (0.464625ms)
+✔ response groups provide plain-language scanning help (0.255417ms)
+✔ a zero-count tie is not presented as a supporting pattern (1.000375ms)
+✔ shop exposes 12 ARCs in mono and full color plus four complete decks (0.861666ms)
+✔ public catalog contains no prices or pre-order language (0.202834ms)
+✔ shop is active while Stripe remains the only price and payment surface (0.064334ms)
+✔ private source keeps canonical Stripe amounts (0.768083ms)
+✔ every product image exists and checkout explains its boundary (2.589292ms)
+✔ registers exactly eight same-origin bounded tools (1.723416ms)
+✔ marks read operations and local state changes accurately (0.129542ms)
+✔ keeps catalog recommendation read-only and outside checkout (0.354042ms)
+✔ requires explicit human confirmation before recording an answer (0.156334ms)
+✔ passes an explicitly confirmed revision through the bounded answer tool (0.682584ms)
+✔ rejects unknown fields and malformed card identifiers (0.16875ms)
+✔ does not echo the private focus area in the tool result wrapper (0.1175ms)
+✔ prefers the document WebMCP context and supports navigator fallback (0.085416ms)
+ℹ tests 21
+ℹ suites 0
+ℹ pass 21
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 126.341042
+
+$ npm run test:stripe
+
+> test:stripe
+> node --test scripts/tests/*.test.mjs
+
+✔ Stripe CLI inventory retains metadata but never API key material (2.218791ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 106.88175
+
+$ npm run validate
+
+> validate
+> node scripts/validate-site.mjs
+
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+
+  assert.ok(llms.includes("/shop.html"))
+
+    at file:///Users/constantinevassilev02/MyLocalDocuments/go-projects/SyntheonArchive/GENI/mirrorloopai-webmcp-challenge/scripts/validate-site.mjs:66:8 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}
+
+Node.js v26.3.0
+
+> validate
+> node scripts/validate-site.mjs
+
+site validation: PASS

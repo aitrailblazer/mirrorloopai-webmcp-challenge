@@ -191,7 +191,7 @@ function defineTools(api) {
     },
     {
       name: "answer_reflection_question",
-      description: "Record a choice the human explicitly confirmed, then advance the visible reflection.",
+      description: "Record or revise a choice the human explicitly confirmed; new answers advance the visible reflection and revisions preserve the current position.",
       inputSchema: {
         type: "object",
         properties: {

@@ -1,0 +1,15 @@
+$ git diff --check (excluding canonical CRLF CSV)
+$ secret scan
+./scripts/stripe-audit-analyze.mjs:347:  const forbidden = [/sk_live_/i, /sk_test_/i, /rk_live_/i, /rk_test_/i, /client_secret/i, /receipt_url/i, /hosted_invoice_url/i, /billing_details/i, /@/];
+./scripts/stripe-audit-collect.mjs:101:  if (key.startsWith("rk_test_") || key.startsWith("sk_test_")) return "test";
+./scripts/stripe-audit-collect.mjs:102:  if (key.startsWith("rk_live_") || key.startsWith("sk_live_")) return "live";
+./scripts/stripe-audit-collect.mjs:540:    /sk_live_/i,
+./scripts/stripe-audit-collect.mjs:541:    /sk_test_/i,
+./api/internal/commerce/webhook_test.go:70:	handler := NewWebhookHandler("whsec_test", mailer, store).(*WebhookHandler)
+./api/internal/commerce/webhook_test.go:86:			signedWebhookRequest(t, body, "whsec_test", now),
+./api/internal/commerce/webhook_test.go:108:		"whsec_test",
+./api/internal/commerce/webhook_test.go:116:		"expired":    signedWebhookRequest(t, body, "whsec_test", now.Add(-6*time.Minute)),
+./api/internal/commerce/webhook_test.go:130:	handler := NewWebhookHandler("whsec_test", mailer, store).(*WebhookHandler)
+./api/internal/commerce/webhook_test.go:143:	handler.ServeHTTP(response, signedWebhookRequest(t, body, "whsec_test", now))
+$ WebMCP commerce boundary scan
+268:      description: "Find a matching digital card edition in the public catalog without showing prices, creating a cart, or starting checkout.",

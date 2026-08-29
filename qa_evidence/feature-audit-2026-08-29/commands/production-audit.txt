@@ -1,0 +1,32 @@
+$ production release and route audit
+/                      status=200 type=text/html; charset=utf-8 bytes=7397
+/shop                  status=200 type=text/html; charset=utf-8 bytes=5174
+/privacy               status=200 type=text/html; charset=utf-8 bytes=2100
+/terms                 status=200 type=text/html; charset=utf-8 bytes=2959
+/confirmed             status=200 type=text/html; charset=utf-8 bytes=718
+/robots.txt            status=200 type=text/plain; charset=utf-8 bytes=92
+/sitemap.xml           status=200 type=application/xml bytes=326
+/llms.txt              status=200 type=text/plain; charset=utf-8 bytes=334
+/api/v1/health         status=200 type=application/json; charset=utf-8 bytes=16
+--- deployed WebMCP markers ---
+origin_trial=MISSING
+webmcp_status=MISSING
+webmcp_import=MISSING
+app_script=/app.js?v=20260826-3
+--- deployed checkout configuration ---
+shop_enabled=shopEnabled: false
+--- checkout session availability (no payment performed) ---
+status=201
+checkout_host=checkout.stripe.com
+--- security headers ---
+content-security-policy: default-src 'self'; script-src 'self' https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; connect-src 'self' https://challenges.cloudflare.com; img-src 'self' data:; style-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
+permissions-policy: camera=(), microphone=(), geolocation=(), payment=()
+referrer-policy: strict-origin-when-cross-origin
+strict-transport-security: max-age=31556926
+x-content-type-options: nosniff
+--- local vs production hashes ---
+ba0568582f06f197d4d011d1b29a097094580cd034a6822aeb8aaedb8ef6071f  web/index.html
+2209dd8975f9052c5075b238f8e134d75680c861fef9b782aa546190380a4fe4  web/app.js
+1dd0bd866e6dcacd6c93d23bb7cf85e6f59e4b0bc9e1937c049c70d014cf0701  web/lib/webmcp.js
+244aea8f56abe65657d3c7638b445285de30ef423e2217b94b369dc7706f8acd  -
+828112a9c51eb130587306b8aaac5e69a2d3193808a558d07dcf45f5cf0f0e04  -

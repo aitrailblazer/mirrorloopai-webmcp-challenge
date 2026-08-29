@@ -123,6 +123,23 @@ test("requires explicit human confirmation before recording an answer", async ()
   assert.deepEqual(calls[0].input, { questionID: 1, choiceCode: "01" });
 });
 
+test("passes an explicitly confirmed revision through the bounded answer tool", async () => {
+  const { registrations, calls, modelContext, api } = fixture();
+  registerMirrorLoopWebMCP(modelContext, api);
+  const answer = registeredTool(registrations, "answer_reflection_question");
+
+  const revised = await answer.execute({
+    question_id: 1,
+    choice_code: "02",
+    confirmed_by_user: true,
+  });
+  assert.equal(revised.isError, undefined);
+  assert.deepEqual(calls[0], {
+    name: "answerQuestion",
+    input: { questionID: 1, choiceCode: "02" },
+  });
+});
+
 test("rejects unknown fields and malformed card identifiers", async () => {
   const { registrations, calls, modelContext, api } = fixture();
   registerMirrorLoopWebMCP(modelContext, api);

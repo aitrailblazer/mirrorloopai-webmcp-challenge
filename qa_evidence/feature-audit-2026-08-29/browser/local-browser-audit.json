@@ -1,0 +1,218 @@
+{
+  "date": "2026-08-29",
+  "browser": "Google Chrome headless via CDP",
+  "origin": "http://127.0.0.1:4173",
+  "landing": {
+    "title": "MIRROR//LOOP — See How You Respond",
+    "h1": "See how you respond when life shifts.",
+    "cta": "Start the free quiz",
+    "hasOverflow": false,
+    "shopLink": "Card collection",
+    "webmcpInitial": "Use the reflection directly, or open it in a WebMCP-enabled browser for AI-guided navigation."
+  },
+  "directQuiz": {
+    "resultVisible": true,
+    "resultName": "Horizon Signal",
+    "resultEvidence": "This response appeared 12 times across your 12 choices.",
+    "boundedAction": "Name the next visible horizon. What is one step that points toward it?",
+    "emailOffer": "Send the result to your inbox",
+    "resultLinks": [
+      "/shop.html?arc=01#arcs",
+      "/privacy.html"
+    ],
+    "shopLinkText": "Explore ARC 01 · Horizon Signal",
+    "focused": "result-name"
+  },
+  "mobileLanding": {
+    "hasOverflow": false,
+    "viewport": 390,
+    "scrollWidth": 390,
+    "heroH1": "See how you respond when life shifts.",
+    "navVisible": "none"
+  },
+  "shop": {
+    "collections": 4,
+    "arcs": 24,
+    "recommended": 2,
+    "recommendedLabels": [
+      "MATCHED TO YOUR REFLECTION · ARC 01 · 12 CARDS",
+      "MATCHED TO YOUR REFLECTION · ARC 01 · 12 CARDS"
+    ],
+    "checkoutDisabled": true,
+    "checkoutStatus": "",
+    "hasPrices": false,
+    "digitalCopy": "A digital collection, not a physical deck.",
+    "hasOverflow": false,
+    "filters": {
+      "mono": {
+        "arcs": 12,
+        "pressed": "true"
+      },
+      "color": {
+        "arcs": 12,
+        "pressed": "true"
+      },
+      "all": {
+        "arcs": 24,
+        "pressed": "true"
+      }
+    },
+    "cart": {
+      "count": "2",
+      "rows": 2,
+      "dialogVisible": true,
+      "expanded": "true",
+      "checkoutDisabled": false,
+      "stored": 2
+    },
+    "restored": {
+      "count": "2",
+      "stored": 2
+    },
+    "cancelled": {
+      "cartCount": "2",
+      "message": "Checkout was cancelled. Your cart is still here.",
+      "open": true
+    },
+    "success": {
+      "cartCount": "0",
+      "message": "Checkout returned from Stripe. If payment completed, Stripe will send your receipt and MIRROR//LOOP will email you while your files are prepared.",
+      "open": true
+    }
+  },
+  "webmcp": {
+    "names": [
+      "start_reflection",
+      "get_current_question",
+      "explain_choice",
+      "answer_reflection_question",
+      "review_reflection_answers",
+      "complete_reflection",
+      "get_card",
+      "recommend_card_edition"
+    ],
+    "status": "AI-guided reflection ready · 8 tools available",
+    "start": {
+      "status": "SESSION_INITIALIZED",
+      "total_questions": 12,
+      "current_question_id": 1,
+      "privacy": "Answers remain in this browser unless the human separately requests email delivery."
+    },
+    "questionOptionCount": 12,
+    "explanationSelected": "NOT_SELECTED",
+    "unconfirmedRejected": true,
+    "revision": {
+      "recorded": true,
+      "revised": true,
+      "question_id": 1,
+      "choice_code": "02",
+      "completed_questions": 2,
+      "is_finished": false,
+      "current_question_id": 3,
+      "next_action": "Continue with the current question or review the recorded answers."
+    },
+    "currentAfterRevision": 3,
+    "futureSkipRejected": true,
+    "review": {
+      "total_answered": 12,
+      "total_questions": 12,
+      "answers": [
+        {
+          "question_id": 1,
+          "choice_code": "02"
+        },
+        {
+          "question_id": 2,
+          "choice_code": "01"
+        },
+        {
+          "question_id": 3,
+          "choice_code": "01"
+        },
+        {
+          "question_id": 4,
+          "choice_code": "01"
+        },
+        {
+          "question_id": 5,
+          "choice_code": "01"
+        },
+        {
+          "question_id": 6,
+          "choice_code": "01"
+        },
+        {
+          "question_id": 7,
+          "choice_code": "01"
+        },
+        {
+          "question_id": 8,
+          "choice_code": "01"
+        },
+        {
+          "question_id": 9,
+          "choice_code": "01"
+        },
+        {
+          "question_id": 10,
+          "choice_code": "01"
+        },
+        {
+          "question_id": 11,
+          "choice_code": "01"
+        },
+        {
+          "question_id": 12,
+          "choice_code": "01"
+        }
+      ]
+    },
+    "complete": {
+      "status": "REFLECTION_COMPLETE",
+      "primary_lens": {
+        "code": "01",
+        "name": "Horizon Signal",
+        "glyph": "◯",
+        "domain": "Finding direction",
+        "observed_count": 11
+      },
+      "supporting_lens": {
+        "code": "02",
+        "name": "Field Architect",
+        "observed_count": 1
+      },
+      "reflection": "You naturally look for a direction worth moving toward.",
+      "bounded_action": "Name the next visible horizon. What is one step that points toward it?",
+      "boundary": "A reflective snapshot, not a diagnosis, prediction, or fixed identity."
+    },
+    "card": {
+      "found": true,
+      "card_id": "144",
+      "code": "ARC12-144",
+      "arc": "12",
+      "arc_name": "Convergence Seal",
+      "title": "Final Integration",
+      "glyph": "Ω",
+      "domain": "Integration",
+      "mirror": "Integration may look like several values, roles, and commitments coordinating for now without becoming one permanent or seamless identity.",
+      "bounded_action": "Optional experiment: test coordination across one meaningful, reversible decision.",
+      "source_scope": "Curated public MIRROR//LOOP card metadata; private source corpora are excluded."
+    },
+    "recommendation": {
+      "found": true,
+      "sku": "arc-01-color",
+      "title": "ARC 01 · Horizon Signal",
+      "subtitle": "Full-Color Edition",
+      "description": "12 high-resolution full-color cards. Future-Pull Mechanics, Cards 001–012.",
+      "edition": "color",
+      "scope": "arc",
+      "arc_code": "01",
+      "domain": "Future-Pull Mechanics",
+      "image": "/images/shop/arc-01-color.webp",
+      "fulfillment": "digital_download",
+      "recommendation_basis": "ARC 01 matches the completed reflection's primary lens.",
+      "shop_path": "/shop.html",
+      "purchase_boundary": "Review the edition and Stripe-hosted price yourself. This tool cannot add items, start checkout, or make a purchase."
+    }
+  }
+}

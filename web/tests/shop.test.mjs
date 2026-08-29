@@ -7,6 +7,7 @@ const catalog = JSON.parse(await readFile(new URL("web/data/shop.json", root), "
 const source = JSON.parse(await readFile(new URL("catalog/shop-source.json", root), "utf8"));
 const shop = await readFile(new URL("web/shop.html", root), "utf8");
 const terms = await readFile(new URL("web/terms.html", root), "utf8");
+const config = await readFile(new URL("web/config.js", root), "utf8");
 
 test("shop exposes 12 ARCs in mono and full color plus four complete decks", () => {
   assert.equal(catalog.items.length, 28);
@@ -29,6 +30,13 @@ test("public catalog contains no prices or pre-order language", () => {
   }
   assert.ok(!shop.match(/\$\d/));
   assert.ok(shop.includes("Stripe will show every price"));
+});
+
+test("shop is active while Stripe remains the only price and payment surface", () => {
+  assert.ok(config.includes("shopEnabled: true"));
+  assert.ok(shop.includes("Stripe will show every price"));
+  assert.ok(!shop.includes("checkout.stripe.com"));
+  assert.ok(!shop.includes("buy.stripe.com"));
 });
 
 test("private source keeps canonical Stripe amounts", () => {

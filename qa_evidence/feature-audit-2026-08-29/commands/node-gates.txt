@@ -1,0 +1,52 @@
+$ npm test
+
+> test
+> node --test web/tests/*.test.mjs
+
+✔ funnel tracker sends only aggregate allowlisted event names (5.755042ms)
+✔ session storage suppresses duplicate events after reload (0.325417ms)
+✔ public quiz contains 12 complete questions (0.843417ms)
+✔ public question labels use plain language (0.282459ms)
+✔ scoring matches stable Swift tie-break contract (8.55125ms)
+✔ every archetype has plain-language result copy (0.21975ms)
+✔ response groups provide plain-language scanning help (0.077125ms)
+✔ a zero-count tie is not presented as a supporting pattern (1.073375ms)
+✔ shop exposes 12 ARCs in mono and full color plus four complete decks (0.856584ms)
+✔ public catalog contains no prices or pre-order language (0.64675ms)
+✔ private source keeps canonical Stripe amounts (1.126084ms)
+✔ every product image exists and checkout explains its boundary (2.128333ms)
+✔ registers exactly eight same-origin bounded tools (1.736625ms)
+✔ marks read operations and local state changes accurately (0.13325ms)
+✔ keeps catalog recommendation read-only and outside checkout (0.3755ms)
+✔ requires explicit human confirmation before recording an answer (0.15825ms)
+✔ rejects unknown fields and malformed card identifiers (0.16125ms)
+✔ does not echo the private focus area in the tool result wrapper (0.175333ms)
+✔ prefers the document WebMCP context and supports navigator fallback (0.079208ms)
+ℹ tests 19
+ℹ suites 0
+ℹ pass 19
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 178.833875
+$ npm run validate
+
+> validate
+> node scripts/validate-site.mjs
+
+site validation: PASS
+$ npm run test:stripe
+
+> test:stripe
+> node --test scripts/tests/*.test.mjs
+
+✔ Stripe CLI inventory retains metadata but never API key material (10.506084ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 239.209417
