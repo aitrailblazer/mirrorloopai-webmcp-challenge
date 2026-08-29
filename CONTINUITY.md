@@ -12,14 +12,16 @@ Key decisions:
 - Keep the repository private during development; public visibility is a later submission gate.
 
 State:
-- Competition workspace assembled locally; verification and GitHub publication are in progress.
+- Private competition repository created, verified, and pushed to GitHub.
 
 Done:
 - Copied the website, Go API, public data, tests, deployment configuration, documentation, and sanitized QA evidence.
 - Excluded local secrets, private corpora, temporary outputs, and unrelated generated artifacts.
+- Passed Node, Stripe-script, site-validation, Go test, Go vet, and secret-pattern gates.
+- Published the initial snapshot to `https://github.com/aitrailblazer/mirrorloopai-webmcp-challenge`.
 
 Now:
-- Run deterministic tests and a secret scan, initialize Git, create the private GitHub repository, and push the initial snapshot.
+- Implement the bounded WebMCP tool layer in the private competition repository.
 
 Next:
 - Implement and test bounded WebMCP tools.
