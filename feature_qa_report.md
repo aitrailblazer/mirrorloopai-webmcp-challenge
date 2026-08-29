@@ -10,7 +10,7 @@ Tracker source: `feature_status_tracker.csv`
 - Total fixed: 6
 - Total verified after retest: 56
 - Total still blocked: 0
-- Total needing product decision: 1
+- Total needing product decision: 0
 
 ## Unresolved Critical Or High
 
