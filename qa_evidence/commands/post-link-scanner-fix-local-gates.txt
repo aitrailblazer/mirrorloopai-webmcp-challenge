@@ -1,0 +1,30 @@
+Wed Aug 26 05:27:32 UTC 2026
+go test ./...
+ok  	mirrorloopai.com/web/api/cmd/server	(cached)
+ok  	mirrorloopai.com/web/api/internal/subscriber	0.340s
+npm test
+
+> test
+> node --test web/tests/*.test.mjs
+
+✔ public quiz contains 12 complete questions (0.8145ms)
+✔ scoring matches stable Swift tie-break contract (6.882334ms)
+✔ every archetype has plain-language result copy (0.13425ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 106.415292
+npm run validate
+
+> validate
+> node scripts/validate-site.mjs
+
+site validation: PASS
+go vet ./...
+ok  	mirrorloopai.com/web/api/cmd/server	(cached)
+ok  	mirrorloopai.com/web/api/internal/subscriber	1.335s
+all modules verified

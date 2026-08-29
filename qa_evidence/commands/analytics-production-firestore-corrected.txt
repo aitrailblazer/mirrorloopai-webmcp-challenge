@@ -1,0 +1,43 @@
+$ authenticated aggregate document field audit (UTC date from totals timestamp)
+{
+  "name": "projects/mirrorloopai-com/databases/(default)/documents/analytics_totals/current",
+  "fields": [
+    "quizCompleted",
+    "quizStarted",
+    "updatedAt"
+  ],
+  "values": {
+    "updatedAt": {
+      "timestampValue": "2026-08-26T06:39:44.397073Z"
+    },
+    "quizStarted": {
+      "integerValue": "1"
+    },
+    "quizCompleted": {
+      "integerValue": "1"
+    }
+  }
+}
+{
+  "name": "projects/mirrorloopai-com/databases/(default)/documents/analytics_daily/2026-08-26",
+  "fields": [
+    "date",
+    "quizCompleted",
+    "quizStarted",
+    "updatedAt"
+  ],
+  "values": {
+    "updatedAt": {
+      "timestampValue": "2026-08-26T06:39:44.397073Z"
+    },
+    "quizCompleted": {
+      "integerValue": "1"
+    },
+    "date": {
+      "stringValue": "2026-08-26"
+    },
+    "quizStarted": {
+      "integerValue": "1"
+    }
+  }
+}

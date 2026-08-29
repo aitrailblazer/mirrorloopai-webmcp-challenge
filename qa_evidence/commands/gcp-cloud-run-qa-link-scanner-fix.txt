@@ -1,0 +1,8 @@
+Deploying container to Cloud Run service [mirrorloopai-subscriber-qa] in project [mirrorloopai-com] region [us-central1]
+Deploying...
+Setting IAM Policy...............done
+Creating Revision.........................................done
+Routing traffic.....done
+Done.
+Service [mirrorloopai-subscriber-qa] revision [mirrorloopai-subscriber-qa-00003-5d5] has been deployed and is serving 100 percent of traffic.
+Service URL: https://mirrorloopai-subscriber-qa-862642267199.us-central1.run.app

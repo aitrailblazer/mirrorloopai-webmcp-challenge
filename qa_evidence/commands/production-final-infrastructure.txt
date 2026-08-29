@@ -1,0 +1,60 @@
+Wed Aug 26 05:37:36 UTC 2026
+--- billing
+billingAccountName: billingAccounts/REDACTED-BILLING-ACCOUNT
+billingEnabled: true
+--- cloud run
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/maxScale: '1'
+        run.googleapis.com/client-name: gcloud
+        run.googleapis.com/client-version: 575.0.0
+        run.googleapis.com/startup-cpu-boost: 'true'
+    spec:
+      containerConcurrency: 40
+      containers:
+      - resources:
+          limits:
+            cpu: '1'
+            memory: 256Mi
+      serviceAccountName: mirrorloopai-subscriber@mirrorloopai-com.iam.gserviceaccount.com
+      timeoutSeconds: 15
+status:
+  conditions:
+  - lastTransitionTime: '2026-08-26T05:30:40.576159Z'
+    status: 'True'
+    type: Ready
+  - lastTransitionTime: '2026-08-26T05:29:42.594742Z'
+    status: 'True'
+    type: ConfigurationsReady
+  - lastTransitionTime: '2026-08-26T05:30:40.530459Z'
+    status: 'True'
+    type: RoutesReady
+  latestReadyRevisionName: mirrorloopai-subscriber-00004-zw4
+--- services
+mirrorloopai-subscriber
+--- firestore ttl
+---
+indexConfig:
+  ancestorField: projects/mirrorloopai-com/databases/(default)/collectionGroups/__default__/fields/*
+  indexes:
+  - fields:
+    - fieldPath: pendingExpiresAt
+      order: ASCENDING
+    queryScope: COLLECTION
+    state: READY
+  - fields:
+    - fieldPath: pendingExpiresAt
+      order: DESCENDING
+    queryScope: COLLECTION
+    state: READY
+  - fields:
+    - arrayConfig: CONTAINS
+      fieldPath: pendingExpiresAt
+    queryScope: COLLECTION
+    state: READY
+  usesAncestorConfig: true
+name: projects/mirrorloopai-com/databases/(default)/collectionGroups/subscribers/fields/pendingExpiresAt
+ttlConfig:
+  state: ACTIVE

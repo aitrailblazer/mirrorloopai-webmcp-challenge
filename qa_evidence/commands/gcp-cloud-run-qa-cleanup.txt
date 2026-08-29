@@ -1,0 +1,7 @@
+Wed Aug 26 05:35:04 UTC 2026
+Deleting [mirrorloopai-subscriber-qa]...
+...............done.
+Deleted service [mirrorloopai-subscriber-qa].
+QA service removed after end-to-end test.
+NAME                     URL
+mirrorloopai-subscriber  https://mirrorloopai-subscriber-36j636qnea-uc.a.run.app

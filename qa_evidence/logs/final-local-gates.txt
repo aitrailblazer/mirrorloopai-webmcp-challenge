@@ -1,0 +1,33 @@
+$ make test
+go test ./...
+ok  	mirrorloopai.com/web/api/cmd/server	(cached)
+ok  	mirrorloopai.com/web/api/internal/subscriber	(cached)
+npm test
+
+> test
+> node --test web/tests/*.test.mjs
+
+✔ public quiz contains 12 complete questions (0.83275ms)
+✔ scoring matches stable Swift tie-break contract (7.401375ms)
+✔ every archetype has plain-language result copy (0.409666ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 113.069
+npm run validate
+
+> validate
+> node scripts/validate-site.mjs
+
+site validation: PASS
+$ make vet
+go vet ./...
+$ go test -race ./...
+ok  	mirrorloopai.com/web/api/cmd/server	(cached)
+ok  	mirrorloopai.com/web/api/internal/subscriber	(cached)
+$ go mod verify
+all modules verified

@@ -1,0 +1,31 @@
+{
+  "schema": "mirrorloop.webmcp.competition.v1",
+  "project": "MIRROR//LOOP",
+  "repository": "aitrailblazer/mirrorloopai-webmcp-challenge",
+  "visibility": "private",
+  "website": "https://mirrorloopai.com/",
+  "competition": "WebMCP Challenge",
+  "snapshotDate": "2026-08-29",
+  "originTrial": {
+    "origin": "https://mirrorloopai.com:443",
+    "feature": "WebMCP",
+    "expiresAt": "2026-11-17T00:00:00Z",
+    "includeSubdomains": true,
+    "thirdParty": true
+  },
+  "included": [
+    "web application",
+    "quiz and curated public data",
+    "Go API",
+    "deployment configuration",
+    "tests and validation",
+    "sanitized QA evidence"
+  ],
+  "excluded": [
+    "credentials and local environment files",
+    "subscriber and production database records",
+    "private research corpora",
+    "temporary outputs and unrelated generated artifacts"
+  ],
+  "webmcpImplementationStatus": "origin-trial-enabled-tools-not-yet-registered"
+}

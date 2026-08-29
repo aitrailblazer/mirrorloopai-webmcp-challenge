@@ -1,0 +1,37 @@
+$ go test ./api/internal/subscriber -run 'TestScoreDoesNotInventZeroCountSupportingPattern|TestConfirmationEmailSetsAccurateExpectationsInHTMLAndText|TestReflectionEmailPreservesResultMeaningAndLaunchListContext|TestReflectionEmailOmitsUnsupportedSecondaryPattern' -count=1
+--- FAIL: TestConfirmationEmailSetsAccurateExpectationsInHTMLAndText (0.00s)
+    mailer_test.go:71: html body missing "review and confirm"
+    mailer_test.go:71: html body missing "launch list"
+    mailer_test.go:71: html body missing "unsubscribe"
+    mailer_test.go:71: text body missing "reflection you requested"
+    mailer_test.go:71: text body missing "review and confirm"
+    mailer_test.go:71: text body missing "launch list"
+    mailer_test.go:71: text body missing "unsubscribe"
+    mailer_test.go:71: text body missing "48 hours"
+    mailer_test.go:71: text body missing "https://mirrorloopai.com/api/v1/subscribers/verify?token=signed%2Btoken"
+    mailer_test.go:76: confirmation HTML is missing a hidden preheader
+--- FAIL: TestReflectionEmailPreservesResultMeaningAndLaunchListContext (0.00s)
+    mailer_test.go:95: subject="Your MIRROR//LOOP reflection"; want the primary result name
+    mailer_test.go:112: html body missing "Finding direction"
+    mailer_test.go:112: html body missing "You naturally look for a direction worth moving toward."
+    mailer_test.go:112: html body missing "Name the next visible horizon."
+    mailer_test.go:112: html body missing "You trust a small action that can create sustained momentum."
+    mailer_test.go:112: html body missing "launch list"
+    mailer_test.go:112: html body missing "App Store"
+    mailer_test.go:112: text body missing "Finding direction"
+    mailer_test.go:112: text body missing "You naturally look for a direction worth moving toward."
+    mailer_test.go:112: text body missing "Name the next visible horizon."
+    mailer_test.go:112: text body missing "Velocity Holder"
+    mailer_test.go:112: text body missing "You trust a small action that can create sustained momentum."
+    mailer_test.go:112: text body missing "launch list"
+    mailer_test.go:112: text body missing "App Store"
+    mailer_test.go:112: text body missing "unsubscribe"
+    mailer_test.go:112: text body missing "not a diagnosis"
+    mailer_test.go:117: reflection HTML is missing a hidden preheader
+--- FAIL: TestReflectionEmailOmitsUnsupportedSecondaryPattern (0.00s)
+    mailer_test.go:136: html body presented an unsupported secondary pattern
+--- FAIL: TestScoreDoesNotInventZeroCountSupportingPattern (0.00s)
+    model_test.go:27: secondary="02"; want no supporting pattern when every other count is zero
+FAIL
+FAIL	mirrorloopai.com/web/api/internal/subscriber	0.368s
+FAIL

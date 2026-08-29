@@ -1,0 +1,25 @@
+MIRROR//LOOP post-quiz email audit — discovery, 2026-08-26
+
+Scope
+- Optional post-result signup confirmation email.
+- Confirmed reflection delivery email.
+- Supporting-pattern scoring used by the delivered email.
+- Accessibility and launch-list expectation content.
+
+Observed implementation before fixes
+- Confirmation email: bare HTML only; no text alternative, preheader, launch-list consequence, unsubscribe expectation, or visible fallback URL.
+- Reflection email: bare HTML only; primary name plus technical domain, unconditional supporting name, generic boundary, and unsubscribe.
+- Reflection email omits the browser result summary, answer frequency, and practical prompt.
+- Backend Score assigns a secondary archetype even when its count is zero.
+- Resend Reply-To is already configured and covered by one payload test.
+- The website consent states “Email me this reflection and occasional MIRROR//LOOP updates. I can unsubscribe at any time.”
+- Confirmation and unsubscribe links already use scanner-safe GET landing pages with explicit POST actions.
+
+Pre-fix tracker stories and test plans
+- EM-001 Confirmation email expectation and consent clarity.
+- EM-002 Reflection email value parity.
+- EM-003 Supporting-pattern evidence honesty.
+- EM-004 Accessible and resilient email rendering.
+- EM-005 Launch-list relationship after delivery.
+
+No product fix was made before these stories and test plans were recorded in feature_status_tracker.csv.

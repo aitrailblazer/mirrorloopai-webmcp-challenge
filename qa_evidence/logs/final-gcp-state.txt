@@ -1,0 +1,37 @@
+$ gcloud firestore fields ttls list
+NAME                                                                                                STATE
+projects/mirrorloopai-com/databases/(default)/collectionGroups/subscribers/fields/pendingExpiresAt
+$ gcloud run services describe
+metadata:
+  name: mirrorloopai-subscriber
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/maxScale: '1'
+        run.googleapis.com/client-name: gcloud
+        run.googleapis.com/client-version: 575.0.0
+        run.googleapis.com/startup-cpu-boost: 'true'
+    spec:
+      containerConcurrency: 40
+      containers:
+      - resources:
+          limits:
+            cpu: '1'
+            memory: 256Mi
+      timeoutSeconds: 15
+status:
+  conditions:
+  - lastTransitionTime: '2026-08-26T05:30:40.576159Z'
+    status: 'True'
+    type: Ready
+  - lastTransitionTime: '2026-08-26T05:29:42.594742Z'
+    status: 'True'
+    type: ConfigurationsReady
+  - lastTransitionTime: '2026-08-26T05:30:40.530459Z'
+    status: 'True'
+    type: RoutesReady
+  latestReadyRevisionName: mirrorloopai-subscriber-00004-zw4
+$ gcloud run services list
+NAME                     URL                                                      LATEST_READY_REVISION_NAME
+mirrorloopai-subscriber  https://mirrorloopai-subscriber-36j636qnea-uc.a.run.app  mirrorloopai-subscriber-00004-zw4

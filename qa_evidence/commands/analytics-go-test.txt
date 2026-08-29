@@ -1,0 +1,5 @@
+$ go test ./...
+ok  	mirrorloopai.com/web/api/cmd/analytics-report	(cached)
+ok  	mirrorloopai.com/web/api/cmd/server	(cached)
+ok  	mirrorloopai.com/web/api/internal/analytics	(cached)
+ok  	mirrorloopai.com/web/api/internal/subscriber	0.430s

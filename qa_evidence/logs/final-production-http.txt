@@ -1,0 +1,29 @@
+$ curl production routes
+200 https://mirrorloopai.com/ bytes=6891
+200 https://mirrorloopai.com/privacy bytes=1691
+200 https://mirrorloopai.com/confirmed bytes=705
+200 https://mirrorloopai.com/api/v1/health bytes=16
+$ curl www redirect
+HTTP/2 301
+location: https://mirrorloopai.com/
+$ security headers
+HTTP/2 200
+content-security-policy: default-src 'self'; script-src 'self' https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; connect-src 'self' https://challenges.cloudflare.com; img-src 'self' data:; style-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
+permissions-policy: camera=(), microphone=(), geolocation=(), payment=()
+referrer-policy: strict-origin-when-cross-origin
+x-content-type-options: nosniff
+$ challenge required
+status=400
+{"error":"Please agree before subscribing."}
+
+$ CORS preflight
+HTTP/2 204
+access-control-allow-methods: GET, POST, OPTIONS
+access-control-allow-origin: https://mirrorloopai.com
+$ challenge required with valid consent envelope
+status=400
+{"error":"Please agree before subscribing."}
+
+$ challenge required with matching consent envelope
+status=400
+{"error":"Please complete the human verification."}

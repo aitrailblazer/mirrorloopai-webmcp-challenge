@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /confirmed
+
+Sitemap: https://mirrorloopai.com/sitemap.xml
+

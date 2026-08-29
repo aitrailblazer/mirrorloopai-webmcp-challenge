@@ -1,0 +1,43 @@
+$ TTL state
+---
+indexConfig:
+  ancestorField: projects/mirrorloopai-com/databases/(default)/collectionGroups/__default__/fields/*
+  indexes:
+  - fields:
+    - fieldPath: pendingExpiresAt
+      order: ASCENDING
+    queryScope: COLLECTION
+    state: READY
+  - fields:
+    - fieldPath: pendingExpiresAt
+      order: DESCENDING
+    queryScope: COLLECTION
+    state: READY
+  - fields:
+    - arrayConfig: CONTAINS
+      fieldPath: pendingExpiresAt
+    queryScope: COLLECTION
+    state: READY
+  usesAncestorConfig: true
+name: projects/mirrorloopai-com/databases/(default)/collectionGroups/subscribers/fields/pendingExpiresAt
+ttlConfig:
+  state: ACTIVE
+$ production budget
+---
+amount:
+  specifiedAmount:
+    currencyCode: USD
+    units: '10'
+displayName: MIRROR LOOP production - 10 USD guardrail
+name: billingAccounts/REDACTED-BILLING-ACCOUNT/budgets/d98741ce-4dbc-4639-ba50-5e1c5f30002a
+thresholdRules:
+- spendBasis: CURRENT_SPEND
+  thresholdPercent: 0.25
+- spendBasis: CURRENT_SPEND
+  thresholdPercent: 0.5
+- spendBasis: CURRENT_SPEND
+  thresholdPercent: 0.8
+- spendBasis: CURRENT_SPEND
+  thresholdPercent: 1.0
+- spendBasis: FORECASTED_SPEND
+  thresholdPercent: 1.0

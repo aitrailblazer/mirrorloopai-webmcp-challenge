@@ -1,0 +1,8 @@
+go run ./api/cmd/analytics-report --project="${PROJECT_ID:-mirrorloopai-com}"
+MIRROR//LOOP aggregate conversion funnel
+Quiz starts: 0
+Quiz completions: 0
+Confirmed subscriptions: 0
+Quiz completion rate: 0.0%
+Completion-to-confirmation rate: 0.0%
+Updated: 2026-08-26 11:18:24 UTC

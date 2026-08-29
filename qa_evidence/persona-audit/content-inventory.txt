@@ -1,0 +1,17 @@
+questions 12
+options_per_question [12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12]
+total_choice_labels 144
+01. Future-Pull Mechanics: When you feel stuck, what do you try to regain first?
+02. Field Creation: Which disruption throws you off the fastest?
+03. Identity Architecture: When clarity dissolves, what do you reach for first?
+04. Emotional Gravity: What shifts your internal state the fastest?
+05. Timeline Intelligence: When you plan, what do you optimize for first?
+06. Decision Physics: Under pressure, what changes in you first?
+07. Paradox Work: When two truths collide, what breaks (or locks) first?
+08. Shadow Contracts: Which pattern do you keep repeating—without meaning to?
+09. Energy Reversal: Where does your energy drain the fastest?
+10. Pattern Collapse: When your structure destabilizes, what breaks first?
+11. Momentum Mechanics: When you're doing well, what keeps you moving?
+12. Integration: What part of your life is ready to unify now?
+
+result copy keys

@@ -1,0 +1,7 @@
+Inspect result written to file: /Users/constantinevassilev02/MyLocalDocuments/go-projects/SyntheonArchive/GENI/mirrorloopai-web/feature_status_tracker.xlsx.inspect.ndjson
+{
+  "outputPath": "/Users/constantinevassilev02/MyLocalDocuments/go-projects/SyntheonArchive/GENI/mirrorloopai-web/feature_status_tracker.xlsx",
+  "previewDir": "/tmp/mirrorloop-persona-audit-preview",
+  "dashboardSummary": "{\"kind\":\"table\",\"sheet\":\"Dashboard\",\"address\":\"A3:E9\",\"rows\":7,\"cols\":5,\"values\":[[\"Metric\",\"Value\",null,\"Severity\",\"Open Count\"],[\"Tracked Features\",28,null,\"Critical\",0],[\"Current Verified\",12,null,\"High\",0],[\"Failed Test\",0,null,\"Medium\",0],[\"Fix In Progress\",0,null,\"Low\",0],[\"Fixed\",16,null,\"Needs Product Decision\",0],[\"Final Verified\",28,null,\"Rows With Commit Hash\",9]]}",
+  "formulaErrors": "{\"kind\":\"notice\",\"message\":\"Cell search matched 0 entries.\"}"
+}

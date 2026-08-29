@@ -1,0 +1,53 @@
+Wed Aug 26 04:50:11 UTC 2026
+--- service files
+.dockerignore
+.env.example
+.firebaserc
+.firebaserc.example
+.gitignore
+Dockerfile
+Makefile
+api/cmd/server/main.go
+api/internal/subscriber/challenge.go
+api/internal/subscriber/firestore_store.go
+api/internal/subscriber/http.go
+api/internal/subscriber/http_test.go
+api/internal/subscriber/mailer.go
+api/internal/subscriber/memory_store.go
+api/internal/subscriber/model.go
+api/internal/subscriber/model_test.go
+api/internal/subscriber/service.go
+api/internal/subscriber/service_test.go
+api/internal/subscriber/token.go
+api/internal/subscriber/token_test.go
+deploy/bootstrap-gcp.sh
+deploy/deploy-api.sh
+deploy/firestore.indexes.json
+deploy/firestore.rules
+docs/MirrorLoopAI_Subscriber_Magnet_Architecture_2026_08_25.html
+firebase.hosting-only.json
+firebase.json
+go.mod
+go.sum
+package.json
+scripts/validate-site.mjs
+web/app.js
+web/config.example.js
+web/config.js
+web/confirmed.html
+web/data/quiz.json
+web/favicon.svg
+web/images/arc01-card-012-arrival.webp
+web/images/arc01-card-012-arrival.webp.receipt.json
+web/index.html
+web/lib/quiz-core.js
+web/llms.txt
+web/privacy.html
+web/robots.txt
+web/sitemap.xml
+web/styles.css
+web/tests/quiz-core.test.mjs
+--- forbidden corpus names
+--- contact
+web/index.html:135:    <div><a href="/privacy.html">Privacy</a><a href="mailto:privacy@mirrorloopai.com">Contact</a></div>
+web/privacy.html:17:    <p>You may use the quiz without subscribing. Every email includes an unsubscribe link. You may request deletion by emailing <a href="mailto:privacy@mirrorloopai.com">privacy@mirrorloopai.com</a>.</p>

@@ -1,0 +1,34 @@
+MIRROR//LOOP multi-persona audit — post-fix retest
+Date: 2026-08-26
+Production target: https://mirrorloopai.com
+Release asset version: 20260826-2
+
+F-021 — PASS
+At 390x844 the product promise, outcome, CTA, and no-email/no-diagnosis boundary appear before Card 012. The card caption now says it is a glimpse of the visual world, not the visitor’s quiz result. Evidence: qa_evidence/screenshots/persona-mobile-landing-after-production.png.
+
+F-022 — PASS
+All 12 public section labels and result domains use ordinary descriptive language. Prediction and diagnosis boundaries remain visible. Automated content tests reject the former loaded labels.
+
+F-023 — PASS
+Each question initially exposes four plain-language response groups and only three choices in the open group instead of 12 simultaneous choices. Exactly one group remains open; selected state is retained; mobile controls remain reachable; the complete 12-question production path reaches a result.
+
+F-024 — PASS
+Before starting, the quiz states that email is optional, choices remain in-browser until email is requested, and only aggregate starts/completions are counted, with a direct Privacy link. Network and storage boundaries from F-020 remain intact.
+
+F-025 — PASS
+Disclosure groups expose expanded/collapsed state in the accessibility tree. Keyboard selection moves focus to Next; advancing moves focus to the next question heading. No horizontal overflow occurred at 390 or 1280 CSS pixels. Lighthouse accessibility remains 100.
+
+F-026 — PASS
+Loaded public section language was replaced with plain terms such as “Conflicting truths,” “Repeating expectations,” and “When plans break.” Result prompts remain nonjudgmental, small, and actionable; diagnosis/prediction/fixed-identity boundaries remain visible.
+
+F-027 — PASS
+The result now reports the primary frequency. A 7/5 sequence explains the supporting pattern and its frequency. A 12/0 sequence states that no second pattern stood out and does not assign the zero-count archetype. Retake resets selected answers, progress, and disabled Next state.
+
+F-028 — PASS
+The HTML references styles.css, config.js, and app.js with release token 20260826-2; app.js imports its dependent modules with the same token. A fresh production load returned four .response-group elements, exactly one open group, three visible answers, and the new plain-language data.
+
+Regression scope F-001–F-020 — PASS
+All automated Go/web/site gates pass. Production landing, privacy, confirmation, quiz JSON, and health routes return 200. Existing analytics and email boundaries remain unchanged. Mobile Lighthouse: 100 accessibility, best practices, SEO, and agentic browsing.
+
+Privacy refinement — PASS
+On release 20260826-3, the initial production page made only first-party requests (HTML, image, versioned CSS/config/app/modules). Cloudflare Turnstile was loaded only after the visitor completed the quiz and reached the optional email form.

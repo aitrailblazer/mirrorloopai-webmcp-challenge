@@ -1,0 +1,24 @@
+Wed Aug 26 05:07:22 UTC 2026
+service_url=https://mirrorloopai-subscriber-36j636qnea-uc.a.run.app
+HTTP/2 404
+content-type: text/html; charset=UTF-8
+referrer-policy: no-referrer
+content-length: 1568
+date: Wed, 26 Aug 2026 05:07:24 GMT
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+
+curl: (56) The requested URL returned error: 404
+
+--- malformed subscriber request
+HTTP/2 400
+cache-control: no-store
+content-type: application/json; charset=utf-8
+referrer-policy: no-referrer
+x-content-type-options: nosniff
+x-cloud-trace-context: 39bad3ce3c87a1285071e0dcec0a0459;o=1
+date: Wed, 26 Aug 2026 05:07:24 GMT
+server: Google Frontend
+content-length: 45
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+
+{"error":"Please agree before subscribing."}

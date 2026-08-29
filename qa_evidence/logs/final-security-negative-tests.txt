@@ -1,0 +1,6 @@
+$ anonymous Firestore access must be denied
+status=403
+PERMISSION_DENIED
+$ invalid signed actions fail closed
+verify status=400 body=This confirmation link is invalid or expired.
+unsubscribe status=400 body=This unsubscribe link is invalid or expired.

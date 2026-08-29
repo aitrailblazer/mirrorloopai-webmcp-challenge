@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MIRROR//LOOP Subscriber Magnet — Architecture and Google Cost Research</title>
+  <style>
+    :root{color-scheme:dark;--bg:#080b15;--panel:#121728;--line:#303850;--ink:#f6f1e7;--muted:#b9b7c4;--gold:#f1bd60;--green:#7ee0ad;--red:#ff948f;font:16px/1.55 Inter,system-ui,sans-serif}
+    *{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 75% 0,#211936,var(--bg) 42rem);color:var(--ink)}
+    a{color:#ffda8d}header,main,footer{width:min(1180px,calc(100% - 2rem));margin:auto}header{padding:5rem 0 3rem;border-bottom:1px solid var(--line)}
+    .eyebrow{color:var(--gold);letter-spacing:.16em;text-transform:uppercase;font-weight:800;font-size:.78rem}h1,h2{font-family:Georgia,serif;line-height:1.06}h1{font-size:clamp(2.8rem,7vw,6rem);max-width:1000px;margin:.5rem 0 1rem}h2{font-size:clamp(1.8rem,4vw,3rem)}h3{margin-bottom:.4rem}.lede{font-size:1.25rem;color:var(--muted);max-width:850px}
+    section{padding:4rem 0;border-bottom:1px solid var(--line)}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}.card{background:#121728dd;border:1px solid var(--line);border-radius:1rem;padding:1.35rem}.card p{color:var(--muted)}.winner{border-color:var(--gold);box-shadow:0 0 50px #f1bd6017}.tag{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:.2rem .6rem;font-size:.75rem}.pass{color:var(--green)}.fail{color:var(--red)}
+    table{width:100%;border-collapse:collapse;background:var(--panel);border:1px solid var(--line)}th,td{text-align:left;vertical-align:top;padding:1rem;border-bottom:1px solid var(--line)}th{color:var(--gold)}code{color:#ffd889}.flow{display:flex;align-items:stretch;gap:.7rem;flex-wrap:wrap}.node{flex:1;min-width:150px;padding:1rem;border:1px solid var(--line);border-radius:.8rem;background:var(--panel)}.arrow{align-self:center;color:var(--gold);font-size:1.5rem}
+    .decision{font-family:Georgia,serif;font-size:1.5rem;border-left:4px solid var(--gold);padding:1rem 1.5rem;background:#171529}.checklist li{margin:.6rem 0}footer{padding:3rem 0;color:var(--muted)}
+    @media(max-width:760px){.grid{grid-template-columns:1fr}.table-wrap{overflow:auto}header{padding-top:3rem}}
+  </style>
+</head>
+<body>
+  <mirrorloop-spec></mirrorloop-spec>
+  <script type="module">
+    import {LitElement, html} from "https://cdn.jsdelivr.net/npm/lit@3.2.1/+esm";
+    class MirrorLoopSpec extends LitElement {
+      createRenderRoot(){return this}
+      render(){return html`
+        <header>
+          <p class="eyebrow">StrategiX visual specification · 2026-08-25</p>
+          <h1>MIRROR//LOOP subscriber magnet</h1>
+          <p class="lede">A branded static quiz that reveals the result before asking for email, then uses explicit consent and double opt-in to create a trustworthy subscriber record.</p>
+        </header>
+        <main>
+          <section>
+            <p class="eyebrow">Decision</p><h2>Use Google’s free allowances—not Google Forms—as the launch architecture.</h2>
+            <p class="decision">Firebase Hosting + Cloud Run + Firestore is the selected path. It preserves the custom experience and verification controls while remaining likely to cost $0 at early traffic. A billing account is still required for Cloud Run, so “within free allowance” is not a hard zero-cost guarantee.</p>
+            <div class="grid">
+              <article class="card winner"><span class="tag pass">Selected</span><h3>Firebase + Cloud Run + Firestore</h3><p>Full brand control, deterministic server validation, double opt-in, strict database boundary, independent scaling.</p></article>
+              <article class="card"><span class="tag">Fallback only</span><h3>Google Forms + Sheets</h3><p>Free and quick, but the supported Forms API cannot submit responses, the embed weakens the branded flow, and email collection is not newsletter verification.</p></article>
+              <article class="card"><span class="tag">Prototype only</span><h3>Apps Script + Sheets</h3><p>Can process requests and send confirmation mail without a Cloud Run bill, but has low mail quotas and weaker production controls.</p></article>
+            </div>
+          </section>
+
+          <section>
+            <p class="eyebrow">Official Google findings</p><h2>What is actually free</h2>
+            <div class="table-wrap"><table>
+              <thead><tr><th>Technology</th><th>Official allowance / behavior</th><th>Implication</th></tr></thead>
+              <tbody>
+                <tr><td>Firebase Hosting</td><td>10 GB stored; approximately 10 GB/month CDN transfer; custom domain and SSL included.</td><td>Excellent static-site host for the quiz.</td></tr>
+                <tr><td>Cloud Run</td><td>Request-based free tier lists 2 million requests, 180,000 vCPU-seconds, and 360,000 GiB-seconds monthly.</td><td>A tiny scale-to-zero Go API should normally remain inside the allowance. Billing must be enabled.</td></tr>
+                <tr><td>Firestore</td><td>Exactly one free database per project; 1 GiB stored; 50,000 reads, 20,000 writes, and 20,000 deletes per day; 10 GiB/month egress.</td><td>Comfortable for an early subscriber list. Use the default database and a dedicated project.</td></tr>
+                <tr><td>Google Forms</td><td>Forms can be embedded and responses can be linked to Sheets. The supported responses API exposes <code>get</code> and <code>list</code>, not response creation.</td><td>Do not post a custom quiz into undocumented Google Forms endpoints.</td></tr>
+                <tr><td>Apps Script</td><td>MailApp recipients: 100/day for consumer accounts or 1,500/day for Workspace; script runtime 6 minutes/execution.</td><td>Useful for a tiny private waitlist, not the preferred public subscriber pipeline.</td></tr>
+                <tr><td>Firebase Trigger Email</td><td>The official extension still requires connection and authentication details for an SMTP server, normally from an external delivery provider.</td><td>It does not remove the need for an email-delivery service, and direct client writes require careful anti-abuse rules.</td></tr>
+              </tbody>
+            </table></div>
+          </section>
+
+          <section>
+            <p class="eyebrow">User journey</p><h2>The email is optional until the user sees value</h2>
+            <div class="flow">
+              <div class="node"><strong>1. Arrive</strong><br>Plain-language promise</div><div class="arrow">→</div>
+              <div class="node"><strong>2. Reflect</strong><br>12 everyday situations</div><div class="arrow">→</div>
+              <div class="node"><strong>3. See result</strong><br>Pattern + practical prompt</div><div class="arrow">→</div>
+              <div class="node"><strong>4. Opt in</strong><br>Email + explicit consent</div><div class="arrow">→</div>
+              <div class="node"><strong>5. Confirm</strong><br>Signed 48-hour review link</div><div class="arrow">→</div>
+              <div class="node"><strong>6. Keep</strong><br>Full reflection + launch-list control</div>
+            </div>
+          </section>
+
+          <section>
+            <p class="eyebrow">Email promise</p><h2>The inbox version must preserve the value of the browser result</h2>
+            <div class="grid">
+              <article class="card"><h3>Confirmation</h3><p>Explain that the visitor requested a reflection, that the link opens a scanner-safe review page, and that deliberate confirmation both delivers the result and joins the occasional launch list. Include the 48-hour expiry, unsubscribe expectation, and a visible fallback URL.</p></article>
+              <article class="card"><h3>Reflection</h3><p>Deliver the primary pattern, plain-language domain, concise meaning, observed frequency, practical prompt, and supporting pattern only when its count is nonzero. Re-state the reflective—not diagnostic—boundary.</p></article>
+              <article class="card"><h3>Resilience</h3><p>Send semantically equivalent HTML and plain-text bodies, use semantic headings and inline email-safe styles, include a hidden preheader, avoid tracking images, and keep Reply-To plus scanner-safe unsubscribe controls.</p></article>
+            </div>
+          </section>
+
+          <section>
+            <p class="eyebrow">Data boundary</p><h2>Store less</h2>
+            <div class="grid">
+              <article class="card"><h3>Stored</h3><p>Email, pending/active/unsubscribed status, consent version and time, source, quiz version, dominant result and count, and a supporting result only when observed; separate aggregate-only daily and total funnel counters.</p></article>
+              <article class="card"><h3>Not stored in analytics</h3><p>Email, the twelve individual answers, IP address, cookie, persistent visitor identifier, device fingerprint, Rosicrucian source text, Geneva Bible source text, private prompts, or birth data.</p></article>
+              <article class="card"><h3>Server authority</h3><p>The API recomputes the compact result from 12 arc codes, derives an HMAC subscriber ID, and never trusts a client-supplied result name.</p></article>
+            </div>
+          </section>
+
+          <section>
+            <p class="eyebrow">Launch controls</p><h2>Required before public traffic</h2>
+            <ul class="checklist">
+              <li>Create a <strong>dedicated GCP/Firebase project</strong>; never deploy into the currently selected unrelated project.</li>
+              <li>Configure a Cloud Billing budget and alerts. A budget alerts; it does not automatically stop spend.</li>
+              <li>Keep Cloud Run at minimum instances 0 and maximum instances 1; review quotas after launch.</li>
+              <li>Create Secret Manager values for two independent HMAC secrets, the email provider key, and Turnstile secret.</li>
+              <li>Verify <code>reflection@mirrorloopai.com</code> with the email provider and publish SPF/DKIM/DMARC DNS records.</li>
+              <li>Add the public Turnstile site key to <code>web/config.js</code>; production API deployment fails closed without a valid challenge.</li>
+              <li>Review the privacy notice for actual launch regions and add a documented deletion-request procedure.</li>
+              <li>Connect <code>mirrorloopai.com</code> and <code>www</code> in Firebase Hosting; use one canonical redirect.</li>
+            </ul>
+          </section>
+
+          <section>
+            <p class="eyebrow">Operations</p><h2>Local and deployment sequence</h2>
+            <ol class="checklist">
+              <li>Copy <code>.env.example</code> to <code>.env</code>, replace both local secrets, then run <code>make run-api</code>. The local Go server serves both the site and API at <code>http://localhost:8080</code>.</li>
+              <li>Run <code>make test</code> and <code>make vet</code>.</li>
+              <li>Create a new GCP project, export <code>PROJECT_ID</code>, <code>BILLING_ACCOUNT_ID</code>, and the explicit bootstrap confirmation, then run <code>deploy/bootstrap-gcp.sh</code>.</li>
+              <li>Create required secrets, configure the email and Turnstile accounts, then run <code>deploy/deploy-api.sh</code>.</li>
+              <li>Install Firebase CLI, copy <code>.firebaserc.example</code> to <code>.firebaserc</code>, and run <code>firebase deploy --only hosting,firestore</code>.</li>
+              <li>Connect the custom domain from Firebase Console and verify TLS, confirmation, result delivery, unsubscribe, mobile layout, and analytics consent boundaries.</li>
+            </ol>
+          </section>
+
+          <section>
+            <p class="eyebrow">Evidence</p><h2>Primary sources reviewed</h2>
+            <ul>
+              <li><a href="https://firebase.google.com/docs/hosting/usage-quotas-pricing">Firebase Hosting usage, quotas, and pricing</a></li>
+              <li><a href="https://firebase.google.com/pricing">Firebase pricing plans</a></li>
+              <li><a href="https://cloud.google.com/run/pricing">Cloud Run pricing and free tier</a></li>
+              <li><a href="https://cloud.google.com/firestore/pricing">Firestore pricing and free quota</a></li>
+              <li><a href="https://developers.google.com/workspace/forms/api/reference/rest">Google Forms API REST reference</a></li>
+              <li><a href="https://developers.google.com/workspace/forms/api/limits">Google Forms API usage limits</a></li>
+              <li><a href="https://support.google.com/docs/answer/2917686">Google Forms response storage in Sheets</a></li>
+              <li><a href="https://developers.google.com/apps-script/guides/services/quotas">Apps Script quotas</a></li>
+              <li><a href="https://firebase.google.com/docs/extensions/official/firestore-send-email">Firebase Trigger Email extension</a></li>
+            </ul>
+          </section>
+        </main>
+        <footer>Canonical architecture artifact · MIRROR//LOOP · local private repository</footer>
+      `}
+    }
+    customElements.define("mirrorloop-spec", MirrorLoopSpec);
+  </script>
+
+  <script type="application/xml" id="strategix-contract">
+    <strategix-visual-spec version="1.0">
+      <artifact id="mirrorloopai-subscriber-magnet-2026-08-25" type="architecture-and-research" status="implemented-production">
+        <title>MIRROR//LOOP Subscriber Magnet</title>
+        <purpose>Define the static quiz, double-opt-in subscriber pipeline, evidence-backed Google hosting choice, data boundary, and production gates.</purpose>
+        <decision selected="firebase-hosting-cloud-run-firestore" cost-mode="free-allowance-not-guaranteed-zero"/>
+        <components>
+          <component id="static-web" owner="firebase-hosting"/>
+          <component id="subscriber-api" owner="cloud-run" runtime="go"/>
+          <component id="subscriber-db" owner="firestore"/>
+          <component id="aggregate-funnel-analytics" owner="cloud-run-and-firestore" identifiers="none"/>
+          <component id="email-delivery" owner="configured-transactional-provider"/>
+          <component id="abuse-check" owner="turnstile"/>
+        </components>
+        <privacy>
+          <stored>email,status,consent,source,quiz-version,compact-result-with-observed-counts,separate-aggregate-funnel-counts</stored>
+          <excluded-from-analytics>email,individual-answers,ip-address,cookie,persistent-visitor-id,device-fingerprint,private-corpora,birth-data</excluded-from-analytics>
+          <law-review required="true"/>
+        </privacy>
+        <alternatives>
+          <alternative id="google-forms" disposition="fallback-only" reason="no-supported-response-create-api,no-double-opt-in,weak-brand-control"/>
+          <alternative id="apps-script-sheets" disposition="prototype-only" reason="mail-quota,operational-and-abuse-limitations"/>
+        </alternatives>
+        <acceptance>
+          <criterion>Quiz result is visible without email.</criterion>
+          <criterion>Consent is explicit and not preselected.</criterion>
+          <criterion>Subscription activates only after signed email confirmation.</criterion>
+          <criterion>Confirmation email explains reflection delivery, launch-list enrollment, expiry, and unsubscribe control in HTML and plain text.</criterion>
+          <criterion>Reflection email preserves the browser result meaning, evidence count, practical prompt, and non-diagnostic boundary in HTML and plain text.</criterion>
+          <criterion>A supporting pattern is delivered only when at least one answer supports it.</criterion>
+          <criterion>Raw quiz answers are not persisted.</criterion>
+          <criterion>Analytics stores only allowlisted aggregate counts for quiz starts, quiz completions, and confirmed subscriptions.</criterion>
+          <criterion>Only the authenticated operator can read aggregate analytics.</criterion>
+          <criterion>Firestore denies direct client access.</criterion>
+          <criterion>Production challenge verification fails closed.</criterion>
+        </acceptance>
+        <deployment provider="google-cloud-run" service="mirrorloopai-subscriber" revision="mirrorloopai-subscriber-00006-nq2" verified="2026-08-26">
+          <health route="https://mirrorloopai.com/api/v1/health" status="pass"/>
+        </deployment>
+        <sources>
+          <source>https://firebase.google.com/docs/hosting/usage-quotas-pricing</source>
+          <source>https://firebase.google.com/pricing</source>
+          <source>https://cloud.google.com/run/pricing</source>
+          <source>https://cloud.google.com/firestore/pricing</source>
+          <source>https://developers.google.com/workspace/forms/api/reference/rest</source>
+          <source>https://developers.google.com/apps-script/guides/services/quotas</source>
+          <source>https://firebase.google.com/docs/extensions/official/firestore-send-email</source>
+        </sources>
+      </artifact>
+    </strategix-visual-spec>
+  </script>
+</body>
+</html>

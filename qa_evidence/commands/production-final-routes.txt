@@ -1,0 +1,76 @@
+Wed Aug 26 05:37:36 UTC 2026
+--- https://mirrorloopai.com/
+HTTP/2 200
+cache-control: max-age=3600
+content-security-policy: default-src 'self'; script-src 'self' https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; connect-src 'self' https://challenges.cloudflare.com; img-src 'self' data:; style-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
+content-type: text/html; charset=utf-8
+etag: "bcae326c9f3dc491d1178bfa90b8085a4eed783f0a553b46390752304b48ba6f"
+last-modified: Wed, 26 Aug 2026 05:30:41 GMT
+permissions-policy: camera=(), microphone=(), geolocation=(), payment=()
+referrer-policy: strict-origin-when-cross-origin
+strict-transport-security: max-age=31556926
+x-content-type-options: nosniff
+accept-ranges: bytes
+date: Wed, 26 Aug 2026 05:37:36 GMT
+x-served-by: cache-pdx12323-PDX
+x-cache: MISS
+--- https://mirrorloopai.com/privacy
+HTTP/2 200
+cache-control: max-age=3600
+content-security-policy: default-src 'self'; script-src 'self' https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; connect-src 'self' https://challenges.cloudflare.com; img-src 'self' data:; style-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
+content-type: text/html; charset=utf-8
+etag: "e0bb30afb737200304e9c888f0a38a1df6e35bc77fc0376b3f344eb51540d2e9"
+last-modified: Wed, 26 Aug 2026 05:30:41 GMT
+permissions-policy: camera=(), microphone=(), geolocation=(), payment=()
+referrer-policy: strict-origin-when-cross-origin
+strict-transport-security: max-age=31556926
+x-content-type-options: nosniff
+accept-ranges: bytes
+date: Wed, 26 Aug 2026 05:37:37 GMT
+x-served-by: cache-pdx12326-PDX
+x-cache: MISS
+--- https://mirrorloopai.com/confirmed
+HTTP/2 200
+cache-control: max-age=3600
+content-security-policy: default-src 'self'; script-src 'self' https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; connect-src 'self' https://challenges.cloudflare.com; img-src 'self' data:; style-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
+content-type: text/html; charset=utf-8
+etag: "42b07cc0e1cc1718500eb769f189fe324cb2257d9b0fd89992251c9239ef676d"
+last-modified: Wed, 26 Aug 2026 05:30:41 GMT
+permissions-policy: camera=(), microphone=(), geolocation=(), payment=()
+referrer-policy: strict-origin-when-cross-origin
+strict-transport-security: max-age=31556926
+x-content-type-options: nosniff
+accept-ranges: bytes
+date: Wed, 26 Aug 2026 05:37:37 GMT
+x-served-by: cache-pdx12324-PDX
+x-cache: MISS
+--- https://mirrorloopai.com/api/v1/health
+HTTP/2 200
+cache-control: no-store
+content-security-policy: default-src 'self'; script-src 'self' https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; connect-src 'self' https://challenges.cloudflare.com; img-src 'self' data:; style-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
+content-type: application/json; charset=utf-8
+permissions-policy: camera=(), microphone=(), geolocation=(), payment=()
+referrer-policy: strict-origin-when-cross-origin
+server: Google Frontend
+strict-transport-security: max-age=31556926
+x-cloud-trace-context: 20c26f270dbfaa02e0d5b5e54c881bb6;o=1
+x-content-type-options: nosniff
+x-country-code: US
+accept-ranges: bytes
+date: Wed, 26 Aug 2026 05:37:37 GMT
+x-served-by: cache-pdx12324-PDX
+--- https://www.mirrorloopai.com/
+HTTP/2 301
+content-security-policy: default-src 'self'; script-src 'self' https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; connect-src 'self' https://challenges.cloudflare.com; img-src 'self' data:; style-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
+location: https://mirrorloopai.com/
+permissions-policy: camera=(), microphone=(), geolocation=(), payment=()
+referrer-policy: strict-origin-when-cross-origin
+x-content-type-options: nosniff
+content-type: text/plain; charset=utf-8
+accept-ranges: bytes
+date: Wed, 26 Aug 2026 05:37:38 GMT
+x-served-by: cache-pdx12328-PDX
+x-cache: MISS
+x-cache-hits: 0
+x-timer: S1787722658.022854,VS0,VE55
+vary: x-fh-requested-host, accept-encoding

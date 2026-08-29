@@ -1,0 +1,40 @@
+$ make test
+go test ./...
+ok  	mirrorloopai.com/web/api/cmd/analytics-report	(cached)
+ok  	mirrorloopai.com/web/api/cmd/server	(cached)
+ok  	mirrorloopai.com/web/api/internal/analytics	(cached)
+ok  	mirrorloopai.com/web/api/internal/subscriber	0.364s
+npm test
+
+> test
+> node --test web/tests/*.test.mjs
+
+✔ funnel tracker sends only aggregate allowlisted event names (3.05775ms)
+✔ session storage suppresses duplicate events after reload (0.157ms)
+✔ public quiz contains 12 complete questions (0.788542ms)
+✔ scoring matches stable Swift tie-break contract (7.027041ms)
+✔ every archetype has plain-language result copy (0.175375ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 104.832292
+npm run validate
+
+> validate
+> node scripts/validate-site.mjs
+
+site validation: PASS
+$ make vet
+go vet ./...
+$ go test -race ./...
+ok  	mirrorloopai.com/web/api/cmd/analytics-report	1.332s
+ok  	mirrorloopai.com/web/api/cmd/server	1.331s
+ok  	mirrorloopai.com/web/api/internal/analytics	1.326s
+ok  	mirrorloopai.com/web/api/internal/subscriber	1.331s
+$ go mod verify
+all modules verified
+$ git diff --check

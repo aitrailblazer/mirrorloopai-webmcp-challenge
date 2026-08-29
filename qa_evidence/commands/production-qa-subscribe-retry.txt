@@ -1,0 +1,5 @@
+Wed Aug 26 05:26:01 UTC 2026
+qa_service=https://mirrorloopai-subscriber-qa-36j636qnea-uc.a.run.app
+email=constantine+mirrorloopqa-[redacted]@aitrailblazer.com
+status=202
+body={"status":"confirmation_required"}

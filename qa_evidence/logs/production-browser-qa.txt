@@ -1,0 +1,34 @@
+Production browser QA — 2026-08-25 America/Los_Angeles
+URL: https://mirrorloopai.com/
+Viewport: 390 × 844, mobile/touch emulation
+
+Quiz completion:
+- 12/12 questions completed.
+- Result: Horizon Signal.
+- Supporting pattern: Field Architect.
+- Optional email card visible only after result.
+- Result heading received focus.
+- Horizontal overflow: 0 px.
+
+Back/edit flow:
+- Question 1 initial selected option index: 0.
+- Navigated to question 2 and back.
+- Prior selection remained selected.
+- Changed question 1 to option index 2, navigated forward and back.
+- Updated selection remained selected.
+- Next remained enabled.
+
+Production subscriber UI:
+- Cloudflare Turnstile iframe loaded with accessible name “Widget containing a Cloudflare security challenge”.
+- Automated browser challenge execution was intentionally not used as production proof; the official Cloudflare always-pass test secret/token was exercised only on a temporary QA Cloud Run service, which was deleted after testing.
+
+Lighthouse snapshot after completing the quiz:
+- Accessibility: 100
+- Best Practices: 100
+- SEO: 100
+- Agentic Browsing: 100
+- Failed audits: 0
+
+Authoritative Lighthouse artifacts:
+- qa_evidence/logs/lighthouse-production-mobile-final.json
+- qa_evidence/logs/lighthouse-production-mobile-final.html

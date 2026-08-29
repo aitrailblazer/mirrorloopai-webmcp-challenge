@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "imported_at": "ISO-8601 timestamp",
+  "source": "~/.config/stripe/config.toml",
+  "account": {
+    "id": "acct_example",
+    "id_fingerprint_sha256_16": "one-way fingerprint",
+    "display_name": "MIRROR//LOOP"
+  },
+  "credentials": {
+    "live": {
+      "key_present": false,
+      "key_kind": "restricted",
+      "key_masked_in_source": false,
+      "key_fingerprint_sha256_16": null,
+      "publishable_key_present": false,
+      "publishable_key_fingerprint_sha256_16": null,
+      "expires_at": null,
+      "status": "unknown"
+    },
+    "test": {
+      "key_present": false,
+      "key_kind": "restricted",
+      "key_masked_in_source": false,
+      "key_fingerprint_sha256_16": null,
+      "publishable_key_present": false,
+      "publishable_key_fingerprint_sha256_16": null,
+      "expires_at": null,
+      "status": "unknown"
+    }
+  },
+  "secret_migration": {
+    "api_keys_copied": false,
+    "destination": "GCP Secret Manager",
+    "required_secret_names": [
+      "mirrorloop-stripe-audit-readonly-key",
+      "mirrorloop-stripe-audit-hash-salt"
+    ],
+    "note": "Create a fresh restricted read-only key. Never commit API keys or webhook secrets."
+  }
+}

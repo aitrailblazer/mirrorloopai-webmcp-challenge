@@ -1,0 +1,5 @@
+Wed Aug 26 05:19:27 UTC 2026
+qa_service=https://mirrorloopai-subscriber-qa-36j636qnea-uc.a.run.app
+email=constantine+mirrorloopqa-[redacted]@aitrailblazer.com
+status=400
+body={"error":"Enter a valid email address."}

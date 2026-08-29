@@ -1,0 +1,23 @@
+Wed Aug 26 05:13:58 UTC 2026
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/maxScale: '1'
+        run.googleapis.com/client-name: gcloud
+        run.googleapis.com/client-version: 575.0.0
+        run.googleapis.com/startup-cpu-boost: 'true'
+    spec:
+      containerConcurrency: 40
+      timeoutSeconds: 15
+status:
+  latestReadyRevisionName: mirrorloopai-subscriber-00002-6c6
+  traffic:
+  - latestRevision: true
+    percent: 100
+    revisionName: mirrorloopai-subscriber-00002-6c6
+    tag: fh-471eff4bdc5f0d81
+    url: https://fh-471eff4bdc5f0d81---mirrorloopai-subscriber-36j636qnea-uc.a.run.app
+--- budget
+DISPLAY_NAME                               UNITS  PROJECTS                   THRESHOLD_RULES
+MIRROR LOOP production - 10 USD guardrail  10     ['projects/862642267199']  [{'spendBasis': 'CURRENT_SPEND', 'thresholdPercent': 0.25}, {'spendBasis': 'CURRENT_SPEND', 'thresholdPercent': 0.5}, {'spendBasis': 'CURRENT_SPEND', 'thresholdPercent': 0.8}, {'spendBasis': 'CURRENT_SPEND', 'thresholdPercent': 1.0}, {'spendBasis': 'FORECASTED_SPEND', 'thresholdPercent': 1.0}]

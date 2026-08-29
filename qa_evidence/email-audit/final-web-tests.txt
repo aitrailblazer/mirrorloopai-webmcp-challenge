@@ -1,0 +1,27 @@
+$ npm test
+
+> test
+> node --test web/tests/*.test.mjs
+
+✔ funnel tracker sends only aggregate allowlisted event names (3.509958ms)
+✔ session storage suppresses duplicate events after reload (0.137625ms)
+✔ public quiz contains 12 complete questions (1.593792ms)
+✔ public question labels use plain language (0.317625ms)
+✔ scoring matches stable Swift tie-break contract (31.399792ms)
+✔ every archetype has plain-language result copy (0.230292ms)
+✔ response groups provide plain-language scanning help (0.269042ms)
+✔ a zero-count tie is not presented as a supporting pattern (2.364584ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 294.7415
+$ npm run validate
+
+> validate
+> node scripts/validate-site.mjs
+
+site validation: PASS

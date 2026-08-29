@@ -1,0 +1,888 @@
+{
+  "version": "2.0.0",
+  "sourceDigest": {
+    "algorithm": "sha256",
+    "value": "510ff3fe26ff2479b66465b35905891ee2c82f1bc2ab4276f3ea7516d42ca65c",
+    "source": "MIRROR//LOOP approved quiz contract"
+  },
+  "questions": [
+    {
+      "id": 1,
+      "title": "When you feel stuck, what do you try to regain first?",
+      "sectionTitle": "Finding direction",
+      "sectionSubtitle": "What moves you forward when everything feels paused.",
+      "options": [
+        {
+          "arcCode": "01",
+          "glyph": "◯",
+          "microIntent": "A destination to move toward"
+        },
+        {
+          "arcCode": "02",
+          "glyph": "△",
+          "microIntent": "Stability in your space/body"
+        },
+        {
+          "arcCode": "03",
+          "glyph": "◇",
+          "microIntent": "A new way to be you"
+        },
+        {
+          "arcCode": "04",
+          "glyph": "□",
+          "microIntent": "Calm enough to choose"
+        },
+        {
+          "arcCode": "05",
+          "glyph": "⌘",
+          "microIntent": "Zoom out to the longer view"
+        },
+        {
+          "arcCode": "06",
+          "glyph": "✦",
+          "microIntent": "One clean fork chosen"
+        },
+        {
+          "arcCode": "07",
+          "glyph": "✿",
+          "microIntent": "Both truths held"
+        },
+        {
+          "arcCode": "08",
+          "glyph": "▣",
+          "microIntent": "The unspoken expectation revealed"
+        },
+        {
+          "arcCode": "09",
+          "glyph": "★",
+          "microIntent": "A spark that changes your state"
+        },
+        {
+          "arcCode": "10",
+          "glyph": "✧",
+          "microIntent": "Name what stopped working"
+        },
+        {
+          "arcCode": "11",
+          "glyph": "↑",
+          "microIntent": "A small step that builds speed"
+        },
+        {
+          "arcCode": "12",
+          "glyph": "Ω",
+          "microIntent": "Everything points one way"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Which kind of disruption throws you off fastest?",
+      "sectionTitle": "Your surroundings",
+      "sectionSubtitle": "How your environment supports or disrupts you.",
+      "options": [
+        {
+          "arcCode": "01",
+          "glyph": "◯",
+          "microIntent": "You can't choose a path"
+        },
+        {
+          "arcCode": "02",
+          "glyph": "△",
+          "microIntent": "Noise or clutter throws you off"
+        },
+        {
+          "arcCode": "03",
+          "glyph": "◇",
+          "microIntent": "\"This isn't me\" hits hard"
+        },
+        {
+          "arcCode": "04",
+          "glyph": "□",
+          "microIntent": "One required condition fails, so action stops"
+        },
+        {
+          "arcCode": "05",
+          "glyph": "⌘",
+          "microIntent": "The unknown spikes you"
+        },
+        {
+          "arcCode": "06",
+          "glyph": "✦",
+          "microIntent": "Pressure to commit = freeze"
+        },
+        {
+          "arcCode": "07",
+          "glyph": "✿",
+          "microIntent": "Two wants, no clean yes"
+        },
+        {
+          "arcCode": "08",
+          "glyph": "▣",
+          "microIntent": "Old obligations take over"
+        },
+        {
+          "arcCode": "09",
+          "glyph": "★",
+          "microIntent": "Timing, wording, or scope makes function deteriorate"
+        },
+        {
+          "arcCode": "10",
+          "glyph": "✧",
+          "microIntent": "Inner compass goes quiet"
+        },
+        {
+          "arcCode": "11",
+          "glyph": "↑",
+          "microIntent": "Stop-start exhaustion"
+        },
+        {
+          "arcCode": "12",
+          "glyph": "Ω",
+          "microIntent": "Too many demands at once"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "When you lose clarity, what do you reach for first?",
+      "sectionTitle": "Sense of self",
+      "sectionSubtitle": "What helps you reconnect with who you are becoming.",
+      "options": [
+        {
+          "arcCode": "01",
+          "glyph": "◯",
+          "microIntent": "Meaning via a future"
+        },
+        {
+          "arcCode": "02",
+          "glyph": "△",
+          "microIntent": "Regulate your state"
+        },
+        {
+          "arcCode": "03",
+          "glyph": "◇",
+          "microIntent": "Rebuild your \"self layout\""
+        },
+        {
+          "arcCode": "04",
+          "glyph": "□",
+          "microIntent": "A preference or limit that still feels true"
+        },
+        {
+          "arcCode": "05",
+          "glyph": "⌘",
+          "microIntent": "Compare possible branches"
+        },
+        {
+          "arcCode": "06",
+          "glyph": "✦",
+          "microIntent": "Commit to one fork"
+        },
+        {
+          "arcCode": "07",
+          "glyph": "✿",
+          "microIntent": "Integrate the split"
+        },
+        {
+          "arcCode": "08",
+          "glyph": "▣",
+          "microIntent": "Name the unspoken rule"
+        },
+        {
+          "arcCode": "09",
+          "glyph": "★",
+          "microIntent": "Change your state to regain traction"
+        },
+        {
+          "arcCode": "10",
+          "glyph": "✧",
+          "microIntent": "Find the failure point"
+        },
+        {
+          "arcCode": "11",
+          "glyph": "↑",
+          "microIntent": "Motion creates clarity"
+        },
+        {
+          "arcCode": "12",
+          "glyph": "Ω",
+          "microIntent": "One principle organizes all"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "What changes your inner state fastest?",
+      "sectionTitle": "Emotional balance",
+      "sectionSubtitle": "What steadies or changes how you feel.",
+      "options": [
+        {
+          "arcCode": "01",
+          "glyph": "◯",
+          "microIntent": "Hope/pressure about the future"
+        },
+        {
+          "arcCode": "02",
+          "glyph": "△",
+          "microIntent": "The room changes your nervous system"
+        },
+        {
+          "arcCode": "03",
+          "glyph": "◇",
+          "microIntent": "Identity update = state update"
+        },
+        {
+          "arcCode": "04",
+          "glyph": "□",
+          "microIntent": "Feelings line up and you stabilize"
+        },
+        {
+          "arcCode": "05",
+          "glyph": "⌘",
+          "microIntent": "Context clicks; confusion drops"
+        },
+        {
+          "arcCode": "06",
+          "glyph": "✦",
+          "microIntent": "Commitment settles you"
+        },
+        {
+          "arcCode": "07",
+          "glyph": "✿",
+          "microIntent": "Both truths held creates calm"
+        },
+        {
+          "arcCode": "08",
+          "glyph": "▣",
+          "microIntent": "The unspoken deal is seen"
+        },
+        {
+          "arcCode": "09",
+          "glyph": "★",
+          "microIntent": "An obligation label suddenly changes what feels possible"
+        },
+        {
+          "arcCode": "10",
+          "glyph": "✧",
+          "microIntent": "Structure breaks; you reorient"
+        },
+        {
+          "arcCode": "11",
+          "glyph": "↑",
+          "microIntent": "Routine locks you in"
+        },
+        {
+          "arcCode": "12",
+          "glyph": "Ω",
+          "microIntent": "The pattern snaps into place"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "When you plan, what do you consider first?",
+      "sectionTitle": "Looking ahead",
+      "sectionSubtitle": "How you weigh the near term and the longer view.",
+      "options": [
+        {
+          "arcCode": "01",
+          "glyph": "◯",
+          "microIntent": "Where this leads over time"
+        },
+        {
+          "arcCode": "02",
+          "glyph": "△",
+          "microIntent": "What keeps you steady"
+        },
+        {
+          "arcCode": "03",
+          "glyph": "◇",
+          "microIntent": "Identity required by the plan"
+        },
+        {
+          "arcCode": "04",
+          "glyph": "□",
+          "microIntent": "What you can truly carry"
+        },
+        {
+          "arcCode": "05",
+          "glyph": "⌘",
+          "microIntent": "Most coherent branch"
+        },
+        {
+          "arcCode": "06",
+          "glyph": "✦",
+          "microIntent": "The irreversible lever"
+        },
+        {
+          "arcCode": "07",
+          "glyph": "✿",
+          "microIntent": "Resolve the split before moving"
+        },
+        {
+          "arcCode": "08",
+          "glyph": "▣",
+          "microIntent": "The deal driving the plan"
+        },
+        {
+          "arcCode": "09",
+          "glyph": "★",
+          "microIntent": "A bounded commitment makes the next steps more consistent"
+        },
+        {
+          "arcCode": "10",
+          "glyph": "✧",
+          "microIntent": "What's ending now"
+        },
+        {
+          "arcCode": "11",
+          "glyph": "↑",
+          "microIntent": "What sustains action daily"
+        },
+        {
+          "arcCode": "12",
+          "glyph": "Ω",
+          "microIntent": "Least friction, most true"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Under pressure, what happens in you first?",
+      "sectionTitle": "Decisions under pressure",
+      "sectionSubtitle": "What you seek when a choice matters.",
+      "options": [
+        {
+          "arcCode": "01",
+          "glyph": "◯",
+          "microIntent": "Your aim shifts"
+        },
+        {
+          "arcCode": "02",
+          "glyph": "△",
+          "microIntent": "Your steadiness wobbles"
+        },
+        {
+          "arcCode": "03",
+          "glyph": "◇",
+          "microIntent": "Who you are reconfigures"
+        },
+        {
+          "arcCode": "04",
+          "glyph": "□",
+          "microIntent": "Competing priorities begin reversing your choice"
+        },
+        {
+          "arcCode": "05",
+          "glyph": "⌘",
+          "microIntent": "Which future feels real changes"
+        },
+        {
+          "arcCode": "06",
+          "glyph": "✦",
+          "microIntent": "How you decide (or freeze)"
+        },
+        {
+          "arcCode": "07",
+          "glyph": "✿",
+          "microIntent": "Opposing wants get louder"
+        },
+        {
+          "arcCode": "08",
+          "glyph": "▣",
+          "microIntent": "Old obligations steer you"
+        },
+        {
+          "arcCode": "09",
+          "glyph": "★",
+          "microIntent": "A recurring threshold or rule takes over the choice"
+        },
+        {
+          "arcCode": "10",
+          "glyph": "✧",
+          "microIntent": "You lose the thread of why"
+        },
+        {
+          "arcCode": "11",
+          "glyph": "↑",
+          "microIntent": "Your pace breaks"
+        },
+        {
+          "arcCode": "12",
+          "glyph": "Ω",
+          "microIntent": "You fragment or cohere"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "When two important truths conflict, what feels hardest to hold?",
+      "sectionTitle": "Conflicting truths",
+      "sectionSubtitle": "How you respond when two important things are both true.",
+      "options": [
+        {
+          "arcCode": "01",
+          "glyph": "◯",
+          "microIntent": "The path narrows—or vanishes"
+        },
+        {
+          "arcCode": "02",
+          "glyph": "△",
+          "microIntent": "Your field gets unstable"
+        },
+        {
+          "arcCode": "03",
+          "glyph": "◇",
+          "microIntent": "You start changing yourself"
+        },
+        {
+          "arcCode": "04",
+          "glyph": "□",
+          "microIntent": "Flood or shutdown"
+        },
+        {
+          "arcCode": "05",
+          "glyph": "⌘",
+          "microIntent": "The future becomes unreadable"
+        },
+        {
+          "arcCode": "06",
+          "glyph": "✦",
+          "microIntent": "You commit to end tension"
+        },
+        {
+          "arcCode": "07",
+          "glyph": "✿",
+          "microIntent": "The contradiction amplifies"
+        },
+        {
+          "arcCode": "08",
+          "glyph": "▣",
+          "microIntent": "Old expectations take over"
+        },
+        {
+          "arcCode": "09",
+          "glyph": "★",
+          "microIntent": "An unstated expectation locks the interaction"
+        },
+        {
+          "arcCode": "10",
+          "glyph": "✧",
+          "microIntent": "True north goes silent"
+        },
+        {
+          "arcCode": "11",
+          "glyph": "↑",
+          "microIntent": "Decision ownership becomes unclear"
+        },
+        {
+          "arcCode": "12",
+          "glyph": "Ω",
+          "microIntent": "Parts of you split apart"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Which expectation do you keep following—even when it no longer helps?",
+      "sectionTitle": "Repeating expectations",
+      "sectionSubtitle": "The unspoken rules that may keep a pattern going.",
+      "options": [
+        {
+          "arcCode": "01",
+          "glyph": "◯",
+          "microIntent": "Wander → lock in → repeat"
+        },
+        {
+          "arcCode": "02",
+          "glyph": "△",
+          "microIntent": "Your state mirrors the space"
+        },
+        {
+          "arcCode": "03",
+          "glyph": "◇",
+          "microIntent": "Reset yourself to feel safe/alive"
+        },
+        {
+          "arcCode": "04",
+          "glyph": "□",
+          "microIntent": "Gravity spirals pull you down"
+        },
+        {
+          "arcCode": "05",
+          "glyph": "⌘",
+          "microIntent": "Two futures compete for you"
+        },
+        {
+          "arcCode": "06",
+          "glyph": "✦",
+          "microIntent": "Cut too early—or delay too long"
+        },
+        {
+          "arcCode": "07",
+          "glyph": "✿",
+          "microIntent": "Both/and becomes a cage"
+        },
+        {
+          "arcCode": "08",
+          "glyph": "▣",
+          "microIntent": "Unspoken obligations reactivate"
+        },
+        {
+          "arcCode": "09",
+          "glyph": "★",
+          "microIntent": "Shift too fast to find your footing"
+        },
+        {
+          "arcCode": "10",
+          "glyph": "✧",
+          "microIntent": "Repeated rebuilding without finding stability"
+        },
+        {
+          "arcCode": "11",
+          "glyph": "↑",
+          "microIntent": "Surge → stall"
+        },
+        {
+          "arcCode": "12",
+          "glyph": "Ω",
+          "microIntent": "Force coherence too early"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "Where do you lose energy fastest?",
+      "sectionTitle": "Energy shifts",
+      "sectionSubtitle": "What drains or restores your energy.",
+      "options": [
+        {
+          "arcCode": "01",
+          "glyph": "◯",
+          "microIntent": "No aim = instant drain"
+        },
+        {
+          "arcCode": "02",
+          "glyph": "△",
+          "microIntent": "Noise/chaos pulls you under"
+        },
+        {
+          "arcCode": "03",
+          "glyph": "◇",
+          "microIntent": "You can't be yourself here"
+        },
+        {
+          "arcCode": "04",
+          "glyph": "□",
+          "microIntent": "An intense start gives way to withdrawal and rebuilding"
+        },
+        {
+          "arcCode": "05",
+          "glyph": "⌘",
+          "microIntent": "Competing futures stall you"
+        },
+        {
+          "arcCode": "06",
+          "glyph": "✦",
+          "microIntent": "Unmade choice burns energy"
+        },
+        {
+          "arcCode": "07",
+          "glyph": "✿",
+          "microIntent": "Split truth = friction"
+        },
+        {
+          "arcCode": "08",
+          "glyph": "▣",
+          "microIntent": "Obligations hijack will"
+        },
+        {
+          "arcCode": "09",
+          "glyph": "★",
+          "microIntent": "Preserving an old role consumes current capacity"
+        },
+        {
+          "arcCode": "10",
+          "glyph": "✧",
+          "microIntent": "No ground, no grip"
+        },
+        {
+          "arcCode": "11",
+          "glyph": "↑",
+          "microIntent": "Stop-start exhaustion"
+        },
+        {
+          "arcCode": "12",
+          "glyph": "Ω",
+          "microIntent": "Too much to integrate at once"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "title": "When a plan starts to come apart, what needs attention first?",
+      "sectionTitle": "When plans break",
+      "sectionSubtitle": "How you respond when something familiar stops working.",
+      "options": [
+        {
+          "arcCode": "01",
+          "glyph": "◯",
+          "microIntent": "Aim disappears"
+        },
+        {
+          "arcCode": "02",
+          "glyph": "△",
+          "microIntent": "Your space becomes unstable"
+        },
+        {
+          "arcCode": "03",
+          "glyph": "◇",
+          "microIntent": "\"Who am I in this?\" blurs"
+        },
+        {
+          "arcCode": "04",
+          "glyph": "□",
+          "microIntent": "A displaced commitment loses its supporting terms"
+        },
+        {
+          "arcCode": "05",
+          "glyph": "⌘",
+          "microIntent": "The future stops making sense"
+        },
+        {
+          "arcCode": "06",
+          "glyph": "✦",
+          "microIntent": "Choices get reactive/avoidant"
+        },
+        {
+          "arcCode": "07",
+          "glyph": "✿",
+          "microIntent": "The split becomes unbearable"
+        },
+        {
+          "arcCode": "08",
+          "glyph": "▣",
+          "microIntent": "You forget what's driving it"
+        },
+        {
+          "arcCode": "09",
+          "glyph": "★",
+          "microIntent": "Battery drops fast"
+        },
+        {
+          "arcCode": "10",
+          "glyph": "✧",
+          "microIntent": "You lose the failure point"
+        },
+        {
+          "arcCode": "11",
+          "glyph": "↑",
+          "microIntent": "Stop-start; can't sustain"
+        },
+        {
+          "arcCode": "12",
+          "glyph": "Ω",
+          "microIntent": "Everything fragments"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "title": "When you are doing well, what helps you keep moving?",
+      "sectionTitle": "Keeping momentum",
+      "sectionSubtitle": "What helps you continue—and what makes you stall.",
+      "options": [
+        {
+          "arcCode": "01",
+          "glyph": "◯",
+          "microIntent": "A future you can feel"
+        },
+        {
+          "arcCode": "02",
+          "glyph": "△",
+          "microIntent": "Steady baseline = steady output"
+        },
+        {
+          "arcCode": "03",
+          "glyph": "◇",
+          "microIntent": "You're acting like yourself"
+        },
+        {
+          "arcCode": "04",
+          "glyph": "□",
+          "microIntent": "Clean feelings → clean action"
+        },
+        {
+          "arcCode": "05",
+          "glyph": "⌘",
+          "microIntent": "This path feels \"right\""
+        },
+        {
+          "arcCode": "06",
+          "glyph": "✦",
+          "microIntent": "Decide once; move forward"
+        },
+        {
+          "arcCode": "07",
+          "glyph": "✿",
+          "microIntent": "Both truths held without wobble"
+        },
+        {
+          "arcCode": "08",
+          "glyph": "▣",
+          "microIntent": "No unspoken expectations draining you"
+        },
+        {
+          "arcCode": "09",
+          "glyph": "★",
+          "microIntent": "Resourced, sparked, alive"
+        },
+        {
+          "arcCode": "10",
+          "glyph": "✧",
+          "microIntent": "You know the steps/system"
+        },
+        {
+          "arcCode": "11",
+          "glyph": "↑",
+          "microIntent": "Daily cadence sustains you"
+        },
+        {
+          "arcCode": "12",
+          "glyph": "Ω",
+          "microIntent": "Everything points one way"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "title": "What part of your life is ready to come together now?",
+      "sectionTitle": "Bringing things together",
+      "sectionSubtitle": "How you align different needs around one direction.",
+      "options": [
+        {
+          "arcCode": "01",
+          "glyph": "◯",
+          "microIntent": "One aim you can commit to"
+        },
+        {
+          "arcCode": "02",
+          "glyph": "△",
+          "microIntent": "Steadier baseline day to day"
+        },
+        {
+          "arcCode": "03",
+          "glyph": "◇",
+          "microIntent": "One self across contexts"
+        },
+        {
+          "arcCode": "04",
+          "glyph": "□",
+          "microIntent": "Feelings that work together"
+        },
+        {
+          "arcCode": "05",
+          "glyph": "⌘",
+          "microIntent": "Choose one future branch"
+        },
+        {
+          "arcCode": "06",
+          "glyph": "✦",
+          "microIntent": "Fewer reversals; cleaner yes/no"
+        },
+        {
+          "arcCode": "07",
+          "glyph": "✿",
+          "microIntent": "Integrate opposing truths"
+        },
+        {
+          "arcCode": "08",
+          "glyph": "▣",
+          "microIntent": "Rewrite unspoken obligations"
+        },
+        {
+          "arcCode": "09",
+          "glyph": "★",
+          "microIntent": "Stabilize swings; build fuel"
+        },
+        {
+          "arcCode": "10",
+          "glyph": "✧",
+          "microIntent": "Name what stopped working and why"
+        },
+        {
+          "arcCode": "11",
+          "glyph": "↑",
+          "microIntent": "Consistent pace without stalls"
+        },
+        {
+          "arcCode": "12",
+          "glyph": "Ω",
+          "microIntent": "Everything lines up at once"
+        }
+      ]
+    }
+  ],
+  "archetypes": {
+    "01": {
+      "name": "Horizon Signal",
+      "domain": "Finding direction",
+      "glyph": "◯"
+    },
+    "02": {
+      "name": "Field Architect",
+      "domain": "Your surroundings",
+      "glyph": "△"
+    },
+    "03": {
+      "name": "Shape-Shifter",
+      "domain": "Sense of self",
+      "glyph": "◇"
+    },
+    "04": {
+      "name": "Silent Gate",
+      "domain": "Emotional balance",
+      "glyph": "□"
+    },
+    "05": {
+      "name": "Temporal Navigator",
+      "domain": "Looking ahead",
+      "glyph": "⌘"
+    },
+    "06": {
+      "name": "Fracture Path",
+      "domain": "Decisions under pressure",
+      "glyph": "✦"
+    },
+    "07": {
+      "name": "Duality Weaver",
+      "domain": "Conflicting truths",
+      "glyph": "✿"
+    },
+    "08": {
+      "name": "Phantom Contract",
+      "domain": "Repeating expectations",
+      "glyph": "▣"
+    },
+    "09": {
+      "name": "Flame of Reversal",
+      "domain": "Energy shifts",
+      "glyph": "★"
+    },
+    "10": {
+      "name": "Shattered Compass",
+      "domain": "When plans break",
+      "glyph": "✧"
+    },
+    "11": {
+      "name": "Velocity Holder",
+      "domain": "Keeping momentum",
+      "glyph": "↑"
+    },
+    "12": {
+      "name": "Convergence Seal",
+      "domain": "Bringing things together",
+      "glyph": "Ω"
+    }
+  }
+}

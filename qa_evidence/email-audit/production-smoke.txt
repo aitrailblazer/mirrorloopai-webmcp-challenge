@@ -1,0 +1,5 @@
+$ curl -fsS https://mirrorloopai.com/api/v1/health
+{"status":"ok"}
+
+$ curl -sS -o /dev/null -w "%{http_code}" https://mirrorloopai.com/api/v1/subscribers
+405

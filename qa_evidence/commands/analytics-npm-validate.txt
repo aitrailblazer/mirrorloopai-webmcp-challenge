@@ -1,0 +1,6 @@
+$ npm run validate
+
+> validate
+> node scripts/validate-site.mjs
+
+site validation: PASS

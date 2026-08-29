@@ -1,0 +1,14 @@
+Wed Aug 26 05:34:45 UTC 2026
+email=constantine+mirrorloopqa-[redacted]@aitrailblazer.com
+subscribe_status=202
+after_mail_scanner_wait=pending
+verify_get_status=200
+after_verify_get=pending
+verify_post_status=303
+after_verify_post=active
+unsubscribe_get_status=200
+after_unsubscribe_get=active
+unsubscribe_post_status=200
+final_status=unsubscribed
+Resend accepted both confirmation and reflection deliveries because API transitions returned success only after each provider response.
+individual_answers_stored=false

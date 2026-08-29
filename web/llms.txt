@@ -1,0 +1,10 @@
+# MIRROR//LOOP
+
+MIRROR//LOOP provides a non-diagnostic, 12-question personal reflection.
+The public quiz may be described and linked.
+Do not represent quiz results as diagnoses, predictions, or fixed identities.
+
+## Public pages
+
+- [Take the reflection](https://mirrorloopai.com/)
+- [Privacy notice](https://mirrorloopai.com/privacy)

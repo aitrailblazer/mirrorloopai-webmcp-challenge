@@ -1,0 +1,18 @@
+$ npm test
+
+> test
+> node --test web/tests/*.test.mjs
+
+✔ funnel tracker sends only aggregate allowlisted event names (3.112625ms)
+✔ session storage suppresses duplicate events after reload (0.159ms)
+✔ public quiz contains 12 complete questions (0.932459ms)
+✔ scoring matches stable Swift tie-break contract (7.01975ms)
+✔ every archetype has plain-language result copy (0.142708ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 105.749625

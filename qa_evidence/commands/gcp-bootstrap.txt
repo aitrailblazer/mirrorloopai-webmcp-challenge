@@ -1,0 +1,40 @@
+billingAccountName: billingAccounts/REDACTED-BILLING-ACCOUNT
+billingEnabled: true
+name: projects/mirrorloopai-com/billingInfo
+projectId: mirrorloopai-com
+Operation "operations/acf.p2-862642267199-4ef91f24-9de3-4f9c-a4f9-bf8f4aa72fe3" finished successfully.
+done: true
+metadata:
+  '@type': type.googleapis.com/google.firestore.admin.v1.CreateDatabaseMetadata
+name: projects/mirrorloopai-com/databases/(default)/operations/gQm3fr7QoK4LSzSyZeAZ-RAqMWxhcnRuZWMtc3ULIgUQAeKdyqgQBtS548oIDAovGg
+response:
+  '@type': type.googleapis.com/google.firestore.admin.v1.Database
+  appEngineIntegrationMode: DISABLED
+  concurrencyMode: PESSIMISTIC
+  createTime: '2026-08-26T04:55:38.474441Z'
+  databaseEdition: STANDARD
+  deleteProtectionState: DELETE_PROTECTION_DISABLED
+  earliestVersionTime: '2026-08-26T04:55:38.474441Z'
+  enhancedTextSearchQueryMode: ENHANCED_QUERY_MODE_ENABLED
+  etag: IKfSv77AvZYDMMmHv77AvZYD
+  freeTier: true
+  locationId: us-central1
+  name: projects/mirrorloopai-com/databases/(default)
+  pointInTimeRecoveryEnablement: POINT_IN_TIME_RECOVERY_DISABLED
+  realtimeUpdatesMode: REALTIME_UPDATES_MODE_ENABLED
+  type: FIRESTORE_NATIVE
+  uid: f919e065-b234-4b0b-aea0-d0be7eb70981
+  updateTime: '2026-08-26T04:55:38.474441Z'
+  versionRetentionPeriod: 3600s
+Request issued for: [pendingExpiresAt]
+Waiting for operation [projects/mirrorloopai-com/databases/(default)/operations/AyBjNzUyODdkYzljYWQtNzJiOS01Y2E0LTJhNGItOWQwMzJhOTUkGnNlbmlsZXBpcAkKMxI] to complete...
+................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................done.
+Updated field [pendingExpiresAt].
+name: projects/mirrorloopai-com/databases/(default)/collectionGroups/subscribers/fields/pendingExpiresAt
+ttlConfig:
+  state: ACTIVE
+Created service account [mirrorloopai-subscriber].
+Service account email: mirrorloopai-subscriber@mirrorloopai-com.iam.gserviceaccount.com
+Updated IAM policy for project [mirrorloopai-com].
+Updated IAM policy for project [mirrorloopai-com].
+Bootstrap complete. Create the four secrets described in docs before deploying.

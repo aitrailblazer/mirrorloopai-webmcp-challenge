@@ -1,0 +1,27 @@
+MIRROR//LOOP multi-persona audit — pre-fix findings
+Date: 2026-08-26
+Production target: https://mirrorloopai.com
+
+F-021 — FAIL (first-time unfamiliar visitor)
+At 390x844 the Card 012 artwork is ordered before the product explanation. It consumes more than the first viewport; the two-minute promise, explanation, and CTA begin below it. Evidence: qa_evidence/screenshots/persona-mobile-landing-before.png.
+
+F-022 — PARTIAL/FAIL (skeptical visitor)
+Diagnosis/prediction boundaries are present and clear, but question section labels use unexplained system language including “Future-Pull Mechanics,” “Field Creation,” “Decision Physics,” “Shadow Contracts,” and “Pattern Collapse.” This makes a reflective exercise appear more technical or esoteric than its actual behavior.
+
+F-023 — FAIL (time-pressed mobile visitor)
+Each of 12 questions renders 12 choices at once (144 choice labels across a run). At 390x844 only the question and part of the first two groups fit; Next is multiple screens below. The two-minute claim is therefore not credible for a scan-heavy mobile visitor. Evidence: content-inventory.txt and browser mobile question capture.
+
+F-024 — PARTIAL/FAIL (privacy-conscious visitor)
+The quiz can be completed without email and analytics payloads are aggregate-only, but the concise analytics disclosure is available only after following the footer Privacy link. The pre-start reassurance says no email/birth data but does not explain that anonymous aggregate start/completion counts are collected.
+
+F-025 — PASS (keyboard and screen-reader user)
+Skip link is first focus target. Quiz start moves focus to the question heading. Tab reaches the first answer. Enter selects it and moves focus to Next. Enter advances and focus moves to the next question heading. Buttons expose aria-pressed; fieldsets and legends group answers; Lighthouse accessibility is 100. The long 12-choice list is a usability burden shared with F-023, not a keyboard-blocking defect.
+
+F-026 — FAIL (emotionally vulnerable visitor)
+Result summaries and action prompts are nonjudgmental and bounded, but section labels such as “Shadow Contracts,” “Pattern Collapse,” and “When your structure destabilizes” can sound ominous or pathologizing during stress. Plain-language equivalents are needed while preserving the underlying question intent.
+
+F-027 — FAIL (returning/comparison-oriented visitor)
+The primary pattern has one sentence and an action, but the supporting pattern is only a name with no explanation. If all 12 answers use one pattern, deterministic tie-breaking still displays another archetype with zero appearances as “Your supporting pattern,” which is materially misleading. Retake resets answers correctly.
+
+Existing F-001–F-020 regression baseline
+PASS — make test, go vet, go test -race ./..., go mod verify, production headers/routes, and mobile Lighthouse (100 accessibility/best-practices/SEO/agentic browsing).

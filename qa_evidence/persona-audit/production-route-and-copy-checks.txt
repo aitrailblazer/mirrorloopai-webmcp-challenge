@@ -1,0 +1,24 @@
+200 https://mirrorloopai.com/ bytes=7350
+200 https://mirrorloopai.com/privacy bytes=2100
+200 https://mirrorloopai.com/confirmed bytes=718
+200 https://mirrorloopai.com/data/quiz.json bytes=23158
+200 https://mirrorloopai.com/api/v1/health bytes=16
+asset versions:
+app.js?v=20260826-2
+config.js?v=20260826-2
+styles.css?v=20260826-2
+plain labels:
+Finding direction
+Your surroundings
+Sense of self
+Emotional balance
+Looking ahead
+Decisions under pressure
+Conflicting truths
+Repeating expectations
+Energy shifts
+When plans break
+Keeping momentum
+Bringing things together
+privacy promise:
+You can finish without sharing an email. Until you request one, your choices stay in this browser. We keep only aggregate counts of starts and completions. 

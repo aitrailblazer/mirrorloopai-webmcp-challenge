@@ -1,0 +1,34 @@
+$ make test after release-version fix
+go test ./...
+ok  	mirrorloopai.com/web/api/cmd/analytics-report	(cached)
+ok  	mirrorloopai.com/web/api/cmd/server	(cached)
+ok  	mirrorloopai.com/web/api/internal/analytics	(cached)
+ok  	mirrorloopai.com/web/api/internal/subscriber	(cached)
+npm test
+
+> test
+> node --test web/tests/*.test.mjs
+
+✔ funnel tracker sends only aggregate allowlisted event names (3.051416ms)
+✔ session storage suppresses duplicate events after reload (0.173667ms)
+✔ public quiz contains 12 complete questions (0.819833ms)
+✔ public question labels use plain language (0.414959ms)
+✔ scoring matches stable Swift tie-break contract (7.303417ms)
+✔ every archetype has plain-language result copy (0.219ms)
+✔ response groups provide plain-language scanning help (0.078ms)
+✔ a zero-count tie is not presented as a supporting pattern (0.857125ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 108.8025
+npm run validate
+
+> validate
+> node scripts/validate-site.mjs
+
+site validation: PASS
+$ git diff --check

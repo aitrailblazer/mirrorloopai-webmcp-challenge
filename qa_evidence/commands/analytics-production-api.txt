@@ -1,0 +1,7 @@
+health status=200 body={"status":"ok"} 
+quiz_started_allowed status=204 body=
+quiz_completed_allowed status=204 body=
+server_only_event_rejected status=400 body={"error":"Unsupported analytics event."} 
+sensitive_field_rejected status=400 body={"error":"The analytics event could not be read."} 
+untrusted_origin_rejected status=403 body={"error":"Analytics origin is not allowed."} 
+anonymous_firestore_read_denied status=403 body={   "error": {     "code": 403,     "message": "Missing or insufficient permissions.",     "status": "PERMISSION_DENIED"   } } 

@@ -1,0 +1,1 @@
+$ gcloud logging read production errors after persona release

@@ -1,0 +1,118 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-05-25T12:00:00Z",
+  "mode": "test",
+  "currency": "usd",
+  "lookback_days": 90,
+  "balances": {
+    "available": [{ "amount": 42000, "currency": "usd" }],
+    "pending": [{ "amount": 18000, "currency": "usd" }]
+  },
+  "payments": [
+    {
+      "anon_payment_id": "pay_001",
+      "anon_customer_id": "cust_001",
+      "source": "substack",
+      "created": "2026-05-20",
+      "amount": 1500,
+      "currency": "usd",
+      "status": "succeeded",
+      "payment_method_type": "card",
+      "fee": 74,
+      "net": 1426,
+      "refunded": false,
+      "disputed": false
+    },
+    {
+      "anon_payment_id": "pay_002",
+      "anon_customer_id": "cust_002",
+      "source": "substack",
+      "created": "2026-04-22",
+      "amount": 3000,
+      "currency": "usd",
+      "status": "succeeded",
+      "payment_method_type": "card",
+      "fee": 117,
+      "net": 2883,
+      "refunded": false,
+      "disputed": false
+    },
+    {
+      "anon_payment_id": "pay_003",
+      "anon_customer_id": "cust_003",
+      "source": "unknown",
+      "created": "2026-03-15",
+      "amount": 10000,
+      "currency": "usd",
+      "status": "succeeded",
+      "payment_method_type": "bank_debit",
+      "fee": 80,
+      "net": 9920,
+      "refunded": false,
+      "disputed": false
+    }
+  ],
+  "payouts": [
+    { "anon_payout_id": "po_001", "created": "2026-05-21", "arrival_date": "2026-05-23", "amount": 12000, "currency": "usd", "status": "paid" },
+    { "anon_payout_id": "po_002", "created": "2026-05-14", "arrival_date": "2026-05-16", "amount": 8000, "currency": "usd", "status": "paid" },
+    { "anon_payout_id": "po_003", "created": "2026-05-07", "arrival_date": "2026-05-10", "amount": 22000, "currency": "usd", "status": "paid" }
+  ],
+  "balance_transactions": [
+    { "anon_balance_transaction_id": "btxn_001", "created": "2026-05-20", "amount": 1500, "fee": 74, "net": 1426, "currency": "usd", "type": "charge", "reporting_category": "charge", "status": "available" }
+  ],
+  "invoices": [
+    {
+      "anon_invoice_id": "inv_001",
+      "anon_customer_id": "cust_004",
+      "created": "2026-05-24",
+      "due_date": "2026-05-28",
+      "amount_due": 1500,
+      "amount_paid": 0,
+      "currency": "usd",
+      "status": "open",
+      "collection_method": "charge_automatically",
+      "attempt_count": 1
+    }
+  ],
+  "failed_payments": [
+    {
+      "anon_payment_id": "pay_004",
+      "anon_customer_id": "cust_005",
+      "created": "2026-05-18",
+      "amount": 1500,
+      "currency": "usd",
+      "failure_reason": "insufficient_funds",
+      "retry_status": "scheduled",
+      "next_retry_date": "2026-05-27"
+    },
+    {
+      "anon_payment_id": "pay_005",
+      "anon_customer_id": "cust_006",
+      "created": "2026-05-17",
+      "amount": 3000,
+      "currency": "usd",
+      "failure_reason": "authentication_required",
+      "retry_status": "unknown",
+      "next_retry_date": null
+    }
+  ],
+  "subscriptions": {
+    "active_count": 2,
+    "mrr": 4500,
+    "records": [
+      { "anon_subscription_id": "sub_001", "anon_customer_id": "cust_001", "status": "active", "current_period_start": "2026-05-01", "current_period_end": "2026-06-01", "amount": 1500, "currency": "usd", "interval": "month", "source": "substack" },
+      { "anon_subscription_id": "sub_002", "anon_customer_id": "cust_002", "status": "active", "current_period_start": "2026-05-01", "current_period_end": "2026-06-01", "amount": 3000, "currency": "usd", "interval": "month", "source": "substack" }
+    ]
+  },
+  "substack": {
+    "source_file": "substack_export_sample.csv",
+    "period_start": "2026-04-22",
+    "period_end": "2026-05-20",
+    "expected_revenue": 4500,
+    "records": [
+      { "anon_substack_record_id": "sst_001", "date": "2026-05-20", "amount": 1500, "currency": "usd", "status": "paid" },
+      { "anon_substack_record_id": "sst_002", "date": "2026-04-22", "amount": 3000, "currency": "usd", "status": "paid" }
+    ]
+  },
+  "collection_warnings": []
+}

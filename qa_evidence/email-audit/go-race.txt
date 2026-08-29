@@ -1,0 +1,2 @@
+$ go test -race ./api/internal/subscriber
+ok  	mirrorloopai.com/web/api/internal/subscriber	1.333s

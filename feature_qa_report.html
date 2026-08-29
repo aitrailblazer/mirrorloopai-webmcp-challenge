@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MIRROR//LOOP Post-Quiz Email Audit</title>
+  <style>
+    :root{color-scheme:dark;--bg:#090812;--panel:#12101d;--line:#322b45;--ink:#f8f4eb;--muted:#bbb3c5;--gold:#f0bc63;--green:#72d6a1;font:16px/1.6 Inter,system-ui,sans-serif}
+    *{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 75% 0,#261b3b,var(--bg) 42rem);color:var(--ink)}
+    header,main,footer{width:min(1100px,calc(100% - 2rem));margin:auto}header{padding:5rem 0 3rem;border-bottom:1px solid var(--line)}
+    .eyebrow{color:var(--gold);font-size:.78rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+    h1,h2{font-family:Georgia,serif;line-height:1.08}h1{margin:.5rem 0 1rem;font-size:clamp(2.6rem,7vw,5.5rem)}h2{font-size:clamp(1.7rem,4vw,2.7rem)}
+    .lede{max-width:800px;color:var(--muted);font-size:1.22rem}section{padding:3rem 0;border-bottom:1px solid var(--line)}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}.card{padding:1.35rem;border:1px solid var(--line);border-radius:1rem;background:#12101ddd}
+    .card strong{display:block;color:var(--gold);font-size:2rem}.card p,li{color:var(--muted)}.pass{color:var(--green)}code{color:#f7d594}
+    table{width:100%;border-collapse:collapse;background:var(--panel)}th,td{padding:1rem;border:1px solid var(--line);text-align:left;vertical-align:top}th{color:var(--gold)}
+    footer{padding:2.5rem 0;color:var(--muted)}@media(max-width:760px){.grid{grid-template-columns:1fr}.table-wrap{overflow:auto}header{padding-top:3rem}}
+  </style>
+</head>
+<body>
+  <mirrorloop-email-audit></mirrorloop-email-audit>
+  <script type="module">
+    import {LitElement, html} from "https://cdn.jsdelivr.net/npm/lit@3.2.1/+esm";
+    class MirrorLoopEmailAudit extends LitElement {
+      createRenderRoot(){return this}
+      render(){return html`
+        <header>
+          <p class="eyebrow">Feature audit · 26 August 2026</p>
+          <h1>The emailed reflection now earns the opt-in.</h1>
+          <p class="lede">The original messages completed the transaction but discarded most of the value shown after the quiz. Five tracker-backed failures were reproduced, corrected, retested, and deployed.</p>
+        </header>
+        <main>
+          <section>
+            <p class="eyebrow">Audit result</p>
+            <div class="grid">
+              <article class="card"><strong>5 / 5</strong><p>New email stories verified after fixes</p></article>
+              <article class="card"><strong>33 / 33</strong><p>Total canonical tracker stories remain verified</p></article>
+              <article class="card"><strong class="pass">PASS</strong><p>Cloud Run revision <code>mirrorloopai-subscriber-00006-nq2</code> is ready and serving production traffic</p></article>
+            </div>
+          </section>
+          <section>
+            <p class="eyebrow">What subscribers now receive</p>
+            <div class="table-wrap"><table>
+              <thead><tr><th>Message</th><th>Before</th><th>Implemented experience</th></tr></thead>
+              <tbody>
+                <tr><td>Confirmation</td><td>Sparse HTML with an ambiguous confirmation link.</td><td>Request context, two explicit consequences, scanner-safe review instruction, 48-hour expiry, unsubscribe expectation, fallback URL, preheader, and full plain-text alternative.</td></tr>
+                <tr><td>Reflection</td><td>Pattern names and technical labels, without the browser interpretation or action.</td><td>Result-bearing subject, plain-language domain, summary, observed frequency, evidence-backed supporting pattern, practical prompt, launch-list expectation, boundary, and unsubscribe control.</td></tr>
+                <tr><td>Supporting pattern</td><td>A second archetype could be emailed even when it appeared zero times.</td><td>The backend stores deterministic counts and omits an unsupported secondary result.</td></tr>
+              </tbody>
+            </table></div>
+          </section>
+          <section>
+            <p class="eyebrow">Audience-building logic</p><h2>Value first, permission second, expectation immediately.</h2>
+            <ol>
+              <li>The visitor sees the complete browser result before email is requested.</li>
+              <li>The confirmation email repeats exactly what is being authorized: reflection delivery plus occasional launch updates.</li>
+              <li>The delivered reflection is useful enough to keep and gives one action to try today.</li>
+              <li>The first delivered message explains future App Store and product updates, while unsubscribe remains one deliberate action away.</li>
+            </ol>
+          </section>
+          <section>
+            <p class="eyebrow">Verification evidence</p><h2>Deterministic gates</h2>
+            <ul>
+              <li><code>go test ./...</code>: pass.</li>
+              <li><code>go test -race ./api/internal/subscriber</code>: pass.</li>
+              <li><code>go vet ./...</code>: pass.</li>
+              <li><code>go mod verify</code>: all modules verified.</li>
+              <li><code>npm test</code>: 8/8 pass; <code>npm run validate</code>: pass.</li>
+              <li><code>govulncheck</code>: unavailable in the local toolchain and recorded as a coverage limitation.</li>
+              <li>Production health: <code>https://mirrorloopai.com/api/v1/health</code> returned <code>{"status":"ok"}</code>.</li>
+            </ul>
+          </section>
+          <section>
+            <p class="eyebrow">Evidence boundary</p><h2>What this pass does not claim</h2>
+            <p class="lede">Automated payload tests verify content, escaping, text alternatives, conditional supporting-pattern behavior, and provider request shape. This pass did not send a fresh message to a real inbox or certify rendering in every email client. The earlier production audit already verified Resend acceptance; a future live inbox check should use an explicitly authorized test address.</p>
+          </section>
+        </main>
+        <footer>Canonical source: <code>feature_status_tracker.csv</code> · Implementation commit: <code>4d83511</code></footer>
+      `}
+    }
+    customElements.define("mirrorloop-email-audit", MirrorLoopEmailAudit);
+  </script>
+  <script type="application/xml" id="strategix-contract">
+    <strategix-visual-spec version="1.0">
+      <artifact id="mirrorloop-post-quiz-email-audit-2026-08-26" type="feature-audit" status="verified-and-deployed">
+        <title>MIRROR//LOOP Post-Quiz Email Audit</title>
+        <purpose>Verify and improve what a subscriber receives after the optional quiz email request.</purpose>
+        <canonical-tracker path="feature_status_tracker.csv" total-stories="33" final-verified="33"/>
+        <scope>
+          <feature id="EM-001" status="verified">Confirmation expectation and consent clarity</feature>
+          <feature id="EM-002" status="verified">Reflection value parity</feature>
+          <feature id="EM-003" status="verified">Supporting-pattern evidence honesty</feature>
+          <feature id="EM-004" status="verified">Accessible and resilient rendering</feature>
+          <feature id="EM-005" status="verified">Launch-list relationship after delivery</feature>
+        </scope>
+        <implementation commit="4d83511"/>
+        <deployment service="mirrorloopai-subscriber" revision="mirrorloopai-subscriber-00006-nq2" traffic-percent="100"/>
+        <verification>
+          <gate name="go-test-all" status="pass"/>
+          <gate name="go-race-subscriber" status="pass"/>
+          <gate name="go-vet" status="pass"/>
+          <gate name="go-mod-verify" status="pass"/>
+          <gate name="npm-test" status="pass" tests="8"/>
+          <gate name="site-validation" status="pass"/>
+          <gate name="govulncheck" status="unavailable"/>
+          <gate name="production-health" status="pass"/>
+          <gate name="fresh-live-inbox-delivery" status="not-performed"/>
+        </verification>
+      </artifact>
+    </strategix-visual-spec>
+  </script>
+</body>
+</html>

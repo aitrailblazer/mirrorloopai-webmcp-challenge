@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Shop all twelve MIRROR//LOOP ARCs and complete 144-card digital editions.">
+  <meta name="theme-color" content="#080b15">
+  <title>MIRROR//LOOP — Card Collection</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css?v=20260828-1">
+  <script src="/config.js?v=20260828-1"></script>
+  <script type="module" src="/shop.js?v=20260828-1"></script>
+</head>
+<body>
+  <a class="skip-link" href="#shop-main">Skip to collection</a>
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="MIRROR//LOOP home">MIRROR<span>//</span>LOOP</a>
+    <nav aria-label="Primary">
+      <a href="/">Reflection quiz</a>
+      <a href="#collections">Complete decks</a>
+      <a href="#arcs">The 12 ARCs</a>
+    </nav>
+    <button class="cart-button" id="cart-button" type="button" aria-controls="cart-panel" aria-expanded="false">
+      Cart <span id="cart-count" aria-label="0 items">0</span>
+    </button>
+  </header>
+
+  <main id="shop-main" class="shop-main">
+    <section class="shop-hero" aria-labelledby="shop-title">
+      <p class="eyebrow">The complete digital collection</p>
+      <h1 id="shop-title">Choose one ARC.<br>Or enter the whole circle.</h1>
+      <p>Each ARC contains 12 finished high-resolution cards. Choose the restrained gold-on-black Mono Edition or the expressive Full-Color Edition. Complete decks contain all 144 cards.</p>
+      <ul class="shop-promises" aria-label="Purchase details">
+        <li>One-time purchase</li>
+        <li>Digital editions</li>
+        <li>Secure Stripe checkout</li>
+      </ul>
+    </section>
+
+    <section class="shop-section" id="collections" aria-labelledby="collections-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">All twelve ARCs</p>
+          <h2 id="collections-title">Complete 144-card editions</h2>
+        </div>
+        <p>Visual editions contain the cards. Insight editions add companion descriptions and reflection prompts.</p>
+      </div>
+      <div class="product-grid collection-grid" id="collection-grid" aria-live="polite"></div>
+    </section>
+
+    <section class="shop-section" id="arcs" aria-labelledby="arcs-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Twelve chapters · twelve cards each</p>
+          <h2 id="arcs-title">Build your own collection</h2>
+        </div>
+        <div class="edition-filter" role="group" aria-label="Filter editions">
+          <button class="filter-button selected" type="button" data-edition="all" aria-pressed="true">All</button>
+          <button class="filter-button" type="button" data-edition="mono" aria-pressed="false">Mono</button>
+          <button class="filter-button" type="button" data-edition="color" aria-pressed="false">Full color</button>
+        </div>
+      </div>
+      <div class="product-grid" id="arc-grid" aria-live="polite"></div>
+    </section>
+
+    <section class="delivery-note" aria-labelledby="delivery-title">
+      <p class="eyebrow">Before you buy</p>
+      <h2 id="delivery-title">A digital collection, not a physical deck.</h2>
+      <p>Your cart is handed to Stripe for secure payment. Stripe shows the final items and total before you confirm. After Stripe confirms payment, MIRROR//LOOP emails a thank-you acknowledgement to the checkout address, followed separately by digital fulfillment.</p>
+      <p>Review the <a href="/terms.html">digital purchase, delivery, and refund terms</a> before checkout.</p>
+      <p>Questions about an existing purchase? <a href="mailto:constantine@aitrailblazer.com">Contact MIRROR//LOOP support.</a></p>
+    </section>
+  </main>
+
+  <aside class="cart-panel" id="cart-panel" aria-labelledby="cart-title" hidden>
+    <div class="cart-backdrop" data-close-cart></div>
+    <div class="cart-sheet" role="dialog" aria-modal="true" aria-labelledby="cart-title">
+      <div class="cart-header">
+        <div><p class="eyebrow">Your selection</p><h2 id="cart-title">Shopping cart</h2></div>
+        <button class="cart-close" type="button" data-close-cart aria-label="Close cart">×</button>
+      </div>
+      <div id="cart-items" class="cart-items"></div>
+      <div class="cart-summary">
+        <p>Stripe will show every price and the final order total before payment.</p>
+        <button class="button button-primary" id="checkout-button" type="button">Continue to secure checkout</button>
+        <p id="checkout-status" class="form-status" role="status"></p>
+        <small>Payment is completed on Stripe. Your card details never pass through this website. By continuing, you agree to the <a href="/terms.html">digital purchase terms</a>.</small>
+      </div>
+    </div>
+  </aside>
+
+  <footer>
+    <a class="brand" href="/">MIRROR<span>//</span>LOOP</a>
+    <p>Reflection tools for clearer choices.</p>
+    <div><a href="/privacy.html">Privacy</a><a href="/terms.html">Purchase terms</a><a href="mailto:constantine@aitrailblazer.com">Support</a></div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,14 @@
+2026-08-26T05:26:21.054Z
+{
+  "document": "projects/mirrorloopai-com/databases/(default)/documents/subscribers/[redacted-id]",
+  "status": "active",
+  "source": "production-qa",
+  "quizVersion": "2.0.0",
+  "result": {
+    "dominantCode": "12",
+    "secondaryCode": "01"
+  },
+  "hasPendingExpiry": false,
+  "hasEmail": true,
+  "individualAnswersStored": false
+}

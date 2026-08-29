@@ -1,0 +1,305 @@
+{
+  "schemaVersion": "1.0",
+  "items": [
+    {
+      "sku": "deck-mono-visual",
+      "title": "Complete 144-Card Deck",
+      "subtitle": "Mono Visual Edition",
+      "description": "All 144 MIRROR//LOOP cards across 12 ARCs in the gold-on-black visual edition.",
+      "edition": "mono",
+      "kind": "collection",
+      "image": "/images/shop/collection-mono-visual.webp"
+    },
+    {
+      "sku": "deck-color-visual",
+      "title": "Complete 144-Card Deck",
+      "subtitle": "Full-Color Visual Edition",
+      "description": "All 144 MIRROR//LOOP cards across 12 ARCs in the full-color visual edition.",
+      "edition": "color",
+      "kind": "collection",
+      "image": "/images/shop/collection-color-visual.webp"
+    },
+    {
+      "sku": "deck-mono-insight",
+      "title": "Complete 144-Card Deck",
+      "subtitle": "Mono Insight Edition",
+      "description": "All 144 gold-on-black cards with the companion descriptions and reflection prompts.",
+      "edition": "mono",
+      "kind": "insight",
+      "image": "/images/shop/collection-mono-insight.webp"
+    },
+    {
+      "sku": "deck-color-insight",
+      "title": "Complete 144-Card Deck",
+      "subtitle": "Full-Color Insight Edition",
+      "description": "All 144 full-color cards with the companion descriptions and reflection prompts.",
+      "edition": "color",
+      "kind": "insight",
+      "image": "/images/shop/collection-color-insight.webp"
+    },
+    {
+      "sku": "arc-01-mono",
+      "title": "ARC 01 \u00b7 Horizon Signal",
+      "subtitle": "Mono Edition",
+      "description": "12 high-resolution gold-on-black cards. Future-Pull Mechanics, Cards 001\u2013012.",
+      "edition": "mono",
+      "kind": "arc",
+      "arcCode": "01",
+      "domain": "Future-Pull Mechanics",
+      "image": "/images/shop/arc-01-mono.webp"
+    },
+    {
+      "sku": "arc-01-color",
+      "title": "ARC 01 \u00b7 Horizon Signal",
+      "subtitle": "Full-Color Edition",
+      "description": "12 high-resolution full-color cards. Future-Pull Mechanics, Cards 001\u2013012.",
+      "edition": "color",
+      "kind": "arc",
+      "arcCode": "01",
+      "domain": "Future-Pull Mechanics",
+      "image": "/images/shop/arc-01-color.webp"
+    },
+    {
+      "sku": "arc-02-mono",
+      "title": "ARC 02 \u00b7 Field Architect",
+      "subtitle": "Mono Edition",
+      "description": "12 high-resolution gold-on-black cards. Field Creation, Cards 013\u2013024.",
+      "edition": "mono",
+      "kind": "arc",
+      "arcCode": "02",
+      "domain": "Field Creation",
+      "image": "/images/shop/arc-02-mono.webp"
+    },
+    {
+      "sku": "arc-02-color",
+      "title": "ARC 02 \u00b7 Field Architect",
+      "subtitle": "Full-Color Edition",
+      "description": "12 high-resolution full-color cards. Field Creation, Cards 013\u2013024.",
+      "edition": "color",
+      "kind": "arc",
+      "arcCode": "02",
+      "domain": "Field Creation",
+      "image": "/images/shop/arc-02-color.webp"
+    },
+    {
+      "sku": "arc-03-mono",
+      "title": "ARC 03 \u00b7 Shape-Shifter",
+      "subtitle": "Mono Edition",
+      "description": "12 high-resolution gold-on-black cards. Identity Architecture, Cards 025\u2013036.",
+      "edition": "mono",
+      "kind": "arc",
+      "arcCode": "03",
+      "domain": "Identity Architecture",
+      "image": "/images/shop/arc-03-mono.webp"
+    },
+    {
+      "sku": "arc-03-color",
+      "title": "ARC 03 \u00b7 Shape-Shifter",
+      "subtitle": "Full-Color Edition",
+      "description": "12 high-resolution full-color cards. Identity Architecture, Cards 025\u2013036.",
+      "edition": "color",
+      "kind": "arc",
+      "arcCode": "03",
+      "domain": "Identity Architecture",
+      "image": "/images/shop/arc-03-color.webp"
+    },
+    {
+      "sku": "arc-04-mono",
+      "title": "ARC 04 \u00b7 Silent Gate",
+      "subtitle": "Mono Edition",
+      "description": "12 high-resolution gold-on-black cards. Emotional Gravity, Cards 037\u2013048.",
+      "edition": "mono",
+      "kind": "arc",
+      "arcCode": "04",
+      "domain": "Emotional Gravity",
+      "image": "/images/shop/arc-04-mono.webp"
+    },
+    {
+      "sku": "arc-04-color",
+      "title": "ARC 04 \u00b7 Silent Gate",
+      "subtitle": "Full-Color Edition",
+      "description": "12 high-resolution full-color cards. Emotional Gravity, Cards 037\u2013048.",
+      "edition": "color",
+      "kind": "arc",
+      "arcCode": "04",
+      "domain": "Emotional Gravity",
+      "image": "/images/shop/arc-04-color.webp"
+    },
+    {
+      "sku": "arc-05-mono",
+      "title": "ARC 05 \u00b7 Temporal Navigator",
+      "subtitle": "Mono Edition",
+      "description": "12 high-resolution gold-on-black cards. Timeline Intelligence, Cards 049\u2013060.",
+      "edition": "mono",
+      "kind": "arc",
+      "arcCode": "05",
+      "domain": "Timeline Intelligence",
+      "image": "/images/shop/arc-05-mono.webp"
+    },
+    {
+      "sku": "arc-05-color",
+      "title": "ARC 05 \u00b7 Temporal Navigator",
+      "subtitle": "Full-Color Edition",
+      "description": "12 high-resolution full-color cards. Timeline Intelligence, Cards 049\u2013060.",
+      "edition": "color",
+      "kind": "arc",
+      "arcCode": "05",
+      "domain": "Timeline Intelligence",
+      "image": "/images/shop/arc-05-color.webp"
+    },
+    {
+      "sku": "arc-06-mono",
+      "title": "ARC 06 \u00b7 Fracture Path",
+      "subtitle": "Mono Edition",
+      "description": "12 high-resolution gold-on-black cards. Decision Physics, Cards 061\u2013072.",
+      "edition": "mono",
+      "kind": "arc",
+      "arcCode": "06",
+      "domain": "Decision Physics",
+      "image": "/images/shop/arc-06-mono.webp"
+    },
+    {
+      "sku": "arc-06-color",
+      "title": "ARC 06 \u00b7 Fracture Path",
+      "subtitle": "Full-Color Edition",
+      "description": "12 high-resolution full-color cards. Decision Physics, Cards 061\u2013072.",
+      "edition": "color",
+      "kind": "arc",
+      "arcCode": "06",
+      "domain": "Decision Physics",
+      "image": "/images/shop/arc-06-color.webp"
+    },
+    {
+      "sku": "arc-07-mono",
+      "title": "ARC 07 \u00b7 Duality Weaver",
+      "subtitle": "Mono Edition",
+      "description": "12 high-resolution gold-on-black cards. Paradox Work, Cards 073\u2013084.",
+      "edition": "mono",
+      "kind": "arc",
+      "arcCode": "07",
+      "domain": "Paradox Work",
+      "image": "/images/shop/arc-07-mono.webp"
+    },
+    {
+      "sku": "arc-07-color",
+      "title": "ARC 07 \u00b7 Duality Weaver",
+      "subtitle": "Full-Color Edition",
+      "description": "12 high-resolution full-color cards. Paradox Work, Cards 073\u2013084.",
+      "edition": "color",
+      "kind": "arc",
+      "arcCode": "07",
+      "domain": "Paradox Work",
+      "image": "/images/shop/arc-07-color.webp"
+    },
+    {
+      "sku": "arc-08-mono",
+      "title": "ARC 08 \u00b7 Phantom Contract",
+      "subtitle": "Mono Edition",
+      "description": "12 high-resolution gold-on-black cards. Shadow Contracts, Cards 085\u2013096.",
+      "edition": "mono",
+      "kind": "arc",
+      "arcCode": "08",
+      "domain": "Shadow Contracts",
+      "image": "/images/shop/arc-08-mono.webp"
+    },
+    {
+      "sku": "arc-08-color",
+      "title": "ARC 08 \u00b7 Phantom Contract",
+      "subtitle": "Full-Color Edition",
+      "description": "12 high-resolution full-color cards. Shadow Contracts, Cards 085\u2013096.",
+      "edition": "color",
+      "kind": "arc",
+      "arcCode": "08",
+      "domain": "Shadow Contracts",
+      "image": "/images/shop/arc-08-color.webp"
+    },
+    {
+      "sku": "arc-09-mono",
+      "title": "ARC 09 \u00b7 Flame of Reversal",
+      "subtitle": "Mono Edition",
+      "description": "12 high-resolution gold-on-black cards. Energy Reversal, Cards 097\u2013108.",
+      "edition": "mono",
+      "kind": "arc",
+      "arcCode": "09",
+      "domain": "Energy Reversal",
+      "image": "/images/shop/arc-09-mono.webp"
+    },
+    {
+      "sku": "arc-09-color",
+      "title": "ARC 09 \u00b7 Flame of Reversal",
+      "subtitle": "Full-Color Edition",
+      "description": "12 high-resolution full-color cards. Energy Reversal, Cards 097\u2013108.",
+      "edition": "color",
+      "kind": "arc",
+      "arcCode": "09",
+      "domain": "Energy Reversal",
+      "image": "/images/shop/arc-09-color.webp"
+    },
+    {
+      "sku": "arc-10-mono",
+      "title": "ARC 10 \u00b7 Shattered Compass",
+      "subtitle": "Mono Edition",
+      "description": "12 high-resolution gold-on-black cards. Pattern Collapse, Cards 109\u2013120.",
+      "edition": "mono",
+      "kind": "arc",
+      "arcCode": "10",
+      "domain": "Pattern Collapse",
+      "image": "/images/shop/arc-10-mono.webp"
+    },
+    {
+      "sku": "arc-10-color",
+      "title": "ARC 10 \u00b7 Shattered Compass",
+      "subtitle": "Full-Color Edition",
+      "description": "12 high-resolution full-color cards. Pattern Collapse, Cards 109\u2013120.",
+      "edition": "color",
+      "kind": "arc",
+      "arcCode": "10",
+      "domain": "Pattern Collapse",
+      "image": "/images/shop/arc-10-color.webp"
+    },
+    {
+      "sku": "arc-11-mono",
+      "title": "ARC 11 \u00b7 Velocity Holder",
+      "subtitle": "Mono Edition",
+      "description": "12 high-resolution gold-on-black cards. Momentum Mechanics, Cards 121\u2013132.",
+      "edition": "mono",
+      "kind": "arc",
+      "arcCode": "11",
+      "domain": "Momentum Mechanics",
+      "image": "/images/shop/arc-11-mono.webp"
+    },
+    {
+      "sku": "arc-11-color",
+      "title": "ARC 11 \u00b7 Velocity Holder",
+      "subtitle": "Full-Color Edition",
+      "description": "12 high-resolution full-color cards. Momentum Mechanics, Cards 121\u2013132.",
+      "edition": "color",
+      "kind": "arc",
+      "arcCode": "11",
+      "domain": "Momentum Mechanics",
+      "image": "/images/shop/arc-11-color.webp"
+    },
+    {
+      "sku": "arc-12-mono",
+      "title": "ARC 12 \u00b7 Convergence Seal",
+      "subtitle": "Mono Edition",
+      "description": "12 high-resolution gold-on-black cards. Integration, Cards 133\u2013144.",
+      "edition": "mono",
+      "kind": "arc",
+      "arcCode": "12",
+      "domain": "Integration",
+      "image": "/images/shop/arc-12-mono.webp"
+    },
+    {
+      "sku": "arc-12-color",
+      "title": "ARC 12 \u00b7 Convergence Seal",
+      "subtitle": "Full-Color Edition",
+      "description": "12 high-resolution full-color cards. Integration, Cards 133\u2013144.",
+      "edition": "color",
+      "kind": "arc",
+      "arcCode": "12",
+      "domain": "Integration",
+      "image": "/images/shop/arc-12-color.webp"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+$ firebase deploy --only hosting,firestore --project mirrorloopai-com
+
+=== Deploying to 'mirrorloopai-com'...
+
+i  deploying firestore, hosting
+i  firestore: reading indexes from deploy/firestore.indexes.json...
+i  cloud.firestore: checking deploy/firestore.rules for compilation errors...
+✔  cloud.firestore: rules file deploy/firestore.rules compiled successfully
+i  hosting: The site mirrorloopai-com will pin rewrites to the current latest revision of service(s) mirrorloopai-subscriber
+i  firestore: deploying indexes...
+i  firestore: latest version of deploy/firestore.rules already up to date, skipping upload...
+✔  firestore: deployed indexes in deploy/firestore.indexes.json successfully for (default) database
+i  hosting[mirrorloopai-com]: beginning deploy...
+i  hosting[mirrorloopai-com]: found 15 files in web
+i  hosting: upload complete
+✔  hosting[mirrorloopai-com]: file upload complete
+✔  firestore: released rules deploy/firestore.rules to cloud.firestore
+i  hosting[mirrorloopai-com]: finalizing version...
+✔  hosting[mirrorloopai-com]: version finalized
+i  hosting[mirrorloopai-com]: releasing new version...
+✔  hosting[mirrorloopai-com]: release complete
+
+✔  Deploy complete!
+
+Project Console: https://console.firebase.google.com/project/mirrorloopai-com/overview
+Hosting URL: https://mirrorloopai-com.web.app

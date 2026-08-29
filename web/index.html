@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A free 12-question MIRROR//LOOP reflection that reveals the response pattern you reach for first.">
+  <meta name="theme-color" content="#080b15">
+  <meta http-equiv="origin-trial" content="A8ZkCc+Zq1nlFu+sh8ayWfHndeVBWzk8cS92CvXiOL5pDben42SRe/MOdaKr+NXirsfIfrAj0qMAQEiJs6lsxggAAAB3eyJvcmlnaW4iOiJodHRwczovL21pcnJvcmxvb3BhaS5jb206NDQzIiwiZmVhdHVyZSI6IldlYk1DUCIsImV4cGlyeSI6MTc5NDg3MzYwMCwiaXNTdWJkb21haW4iOnRydWUsImlzVGhpcmRQYXJ0eSI6dHJ1ZX0=">
+  <title>MIRROR//LOOP — See How You Respond</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="/images/shattered-compass-entry.webp" as="image" type="image/webp">
+  <link rel="stylesheet" href="/styles.css?v=20260828-1">
+  <script src="/config.js?v=20260828-1"></script>
+  <script type="module" src="/app.js?v=20260828-1"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="MIRROR//LOOP home">MIRROR<span>//</span>LOOP</a>
+    <nav aria-label="Primary">
+      <a href="#how-it-works">How it works</a>
+      <a href="#quiz">Take the quiz</a>
+      <a href="/shop.html">Card collection</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">A two-minute personal reflection</p>
+        <h1 id="hero-title">See how you respond when life shifts.</h1>
+        <p class="hero-lede">Answer 12 everyday situations. You will see the pattern you reach for first—and one small way to use it with more choice.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#quiz">Start the free quiz</a>
+          <span>No diagnosis. No birth data. No email required to see your result.</span>
+        </div>
+      </div>
+      <a class="hero-card-link" href="#quiz">
+        <figure class="hero-card">
+          <span class="card-aura" aria-hidden="true"></span>
+          <img
+            src="/images/shattered-compass-entry.webp"
+            width="1536"
+            height="1024"
+            fetchpriority="high"
+            alt="The Shattered Compass entry map: ask what loop you are ready to break, reveal what is repeating, then choose a phrase that opens a new direction."
+          >
+          <figcaption>
+            <span>Your entry into MIRROR//LOOP</span>
+            <strong>The Shattered Compass</strong>
+            <small>Ask what repeats. Reveal the loop. Choose a new direction.</small>
+          </figcaption>
+        </figure>
+      </a>
+    </section>
+
+    <section class="plain-language" id="how-it-works" aria-labelledby="how-title">
+      <p class="eyebrow">What this is</p>
+      <h2 id="how-title">A mirror, not a label.</h2>
+      <div class="steps">
+        <article><strong>1</strong><h3>Choose</h3><p>Pick the response that feels most like your first instinct.</p></article>
+        <article><strong>2</strong><h3>Notice</h3><p>We count which pattern appears most often across your answers.</p></article>
+        <article><strong>3</strong><h3>Reflect</h3><p>Use the result as a prompt for today—not a permanent definition of you.</p></article>
+      </div>
+    </section>
+
+    <section class="quiz-shell" id="quiz" aria-labelledby="quiz-title">
+      <div id="quiz-start" class="quiz-intro">
+        <p class="eyebrow">Your reflection</p>
+        <h2 id="quiz-title">There are no right answers.</h2>
+        <p>Choose what you would most naturally want in each situation. If two answers fit, choose the one that arrives first.</p>
+        <p class="privacy-promise">You can finish without sharing an email. Until you request one, your choices stay in this browser. We keep only aggregate counts of starts and completions. <a href="/privacy.html">Privacy details</a></p>
+        <button class="button button-primary" id="start-button" type="button">Begin question 1 of 12</button>
+      </div>
+
+      <div id="quiz-panel" class="quiz-panel" hidden>
+        <div class="progress-row">
+          <p id="progress-label">Question 1 of 12</p>
+          <div class="progress-track" role="progressbar" aria-label="Quiz progress" aria-valuemin="1" aria-valuemax="12" aria-valuenow="1">
+            <span id="progress-bar"></span>
+          </div>
+        </div>
+        <p class="section-kicker" id="section-kicker"></p>
+        <h2 id="question-title" tabindex="-1"></h2>
+        <p class="question-help">Start with the kind of response, then choose the one answer closest to your first instinct.</p>
+        <div id="answer-groups" class="answer-groups"></div>
+        <div class="quiz-controls">
+          <button class="button button-quiet" id="back-button" type="button">Back</button>
+          <button class="button button-primary" id="next-button" type="button" disabled>Next question</button>
+        </div>
+      </div>
+
+      <div id="result-panel" class="result-panel" hidden aria-live="polite">
+        <p class="eyebrow">Your current response pattern</p>
+        <div class="result-mark" id="result-glyph" aria-hidden="true"></div>
+        <h2 id="result-name"></h2>
+        <p class="result-domain" id="result-domain"></p>
+        <p class="result-summary" id="result-summary"></p>
+        <p class="result-evidence" id="result-evidence"></p>
+        <div class="result-pair">
+          <span id="supporting-label">Also present in your answers</span>
+          <strong id="secondary-name"></strong>
+          <p id="secondary-summary"></p>
+        </div>
+        <div class="reflection-card">
+          <h3>Try this today</h3>
+          <p id="reflection-prompt"></p>
+        </div>
+        <p class="result-boundary">This is a reflective snapshot based on 12 choices. It is not a diagnosis, prediction, or fixed identity.</p>
+
+        <div class="email-card" id="email-card">
+          <p class="eyebrow">Keep your reflection</p>
+          <h3>Send the result to your inbox</h3>
+          <p>We will send a confirmation link first. Your subscription begins only after you confirm.</p>
+          <form id="subscribe-form">
+            <label for="email">Email address</label>
+            <input id="email" name="email" type="email" autocomplete="email" inputmode="email" maxlength="254" required placeholder="you@example.com">
+            <div class="honeypot" aria-hidden="true">
+              <label for="website">Website</label>
+              <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+            </div>
+            <label class="consent-row">
+              <input id="consent" name="consent" type="checkbox" required>
+              <span>Email me this reflection and occasional MIRROR//LOOP updates. I can unsubscribe at any time.</span>
+            </label>
+            <div id="challenge-slot"></div>
+            <button class="button button-primary" id="subscribe-button" type="submit">Email my reflection</button>
+            <p class="form-note">We store your email and compact result—not your individual quiz answers. See our <a href="/privacy.html">privacy notice</a>.</p>
+            <p id="form-status" class="form-status" role="status"></p>
+          </form>
+        </div>
+        <button class="text-button" id="restart-button" type="button">Take the quiz again</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand" href="/">MIRROR<span>//</span>LOOP</a>
+    <p>Reflection tools for clearer choices.</p>
+    <div><a href="/privacy.html">Privacy</a><a href="mailto:constantine@aitrailblazer.com">Contact</a></div>
+  </footer>
+</body>
+</html>

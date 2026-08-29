@@ -1,0 +1,62 @@
+$ make test
+go test ./...
+ok  	mirrorloopai.com/web/api/cmd/analytics-report	(cached)
+ok  	mirrorloopai.com/web/api/cmd/server	(cached)
+ok  	mirrorloopai.com/web/api/internal/analytics	(cached)
+ok  	mirrorloopai.com/web/api/internal/subscriber	(cached)
+npm test
+
+> test
+> node --test web/tests/*.test.mjs
+
+✔ funnel tracker sends only aggregate allowlisted event names (2.907959ms)
+✔ session storage suppresses duplicate events after reload (0.137791ms)
+✔ public quiz contains 12 complete questions (0.83125ms)
+✔ public question labels use plain language (0.263875ms)
+✔ scoring matches stable Swift tie-break contract (7.133167ms)
+✔ every archetype has plain-language result copy (0.169333ms)
+✔ response groups provide plain-language scanning help (0.064667ms)
+✔ a zero-count tie is not presented as a supporting pattern (0.864375ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 105.964667
+npm run validate
+
+> validate
+> node scripts/validate-site.mjs
+
+site validation: PASS
+$ make vet
+go vet ./...
+$ go test -race ./...
+ok  	mirrorloopai.com/web/api/cmd/analytics-report	(cached)
+ok  	mirrorloopai.com/web/api/cmd/server	(cached)
+ok  	mirrorloopai.com/web/api/internal/analytics	(cached)
+ok  	mirrorloopai.com/web/api/internal/subscriber	(cached)
+$ go mod verify
+all modules verified
+$ git diff --check
+$ tracker final-status audit
+28/28 stories Verified
+$ embedded XML validation
+feature_status_tracker.html PASS
+docs/MirrorLoopAI_Subscriber_Magnet_Architecture_2026_08_25.html PASS
+$ final production release markers
+app.js?v=20260826-3
+config.js?v=20260826-3
+styles.css?v=20260826-3
+$ final health
+{"status":"ok"}
+
+$ final Lighthouse scores
+accessibility=100
+best-practices=100
+seo=100
+agentic-browsing=100
+$ diff secret scan
+PASS

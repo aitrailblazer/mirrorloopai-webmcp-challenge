@@ -1,0 +1,22 @@
+.DS_Store
+.firebase/
+.env
+.env.*
+!.env.example
+coverage/
+dist/
+bin/
+*.log
+private/stripe/*.local.json
+artifacts/stripe-audit/
+artifacts/
+output/
+tmp/
+
+# Local credentials and provider state must never enter the competition repo.
+**/.env
+**/.env.*
+!**/.env.example
+**/*credentials*.json
+**/*secret*.json
+**/*private-key*

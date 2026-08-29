@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "1.0",
+  "currency": "usd",
+  "fulfillment": "digital",
+  "collections": [
+    {
+      "sku": "deck-mono-visual",
+      "title": "Complete 144-Card Deck",
+      "subtitle": "Mono Visual Edition",
+      "description": "All 144 MIRROR//LOOP cards across 12 ARCs in the gold-on-black visual edition.",
+      "unitAmount": 19900,
+      "edition": "mono",
+      "kind": "collection",
+      "image": "/images/shop/collection-mono-visual.webp"
+    },
+    {
+      "sku": "deck-color-visual",
+      "title": "Complete 144-Card Deck",
+      "subtitle": "Full-Color Visual Edition",
+      "description": "All 144 MIRROR//LOOP cards across 12 ARCs in the full-color visual edition.",
+      "unitAmount": 24900,
+      "edition": "color",
+      "kind": "collection",
+      "image": "/images/shop/collection-color-visual.webp"
+    },
+    {
+      "sku": "deck-mono-insight",
+      "title": "Complete 144-Card Deck",
+      "subtitle": "Mono Insight Edition",
+      "description": "All 144 gold-on-black cards with the companion descriptions and reflection prompts.",
+      "unitAmount": 34900,
+      "edition": "mono",
+      "kind": "insight",
+      "image": "/images/shop/collection-mono-insight.webp"
+    },
+    {
+      "sku": "deck-color-insight",
+      "title": "Complete 144-Card Deck",
+      "subtitle": "Full-Color Insight Edition",
+      "description": "All 144 full-color cards with the companion descriptions and reflection prompts.",
+      "unitAmount": 39900,
+      "edition": "color",
+      "kind": "insight",
+      "image": "/images/shop/collection-color-insight.webp"
+    }
+  ],
+  "arcs": [
+    {"code":"01","name":"Horizon Signal","domain":"Future-Pull Mechanics","firstCard":1},
+    {"code":"02","name":"Field Architect","domain":"Field Creation","firstCard":13},
+    {"code":"03","name":"Shape-Shifter","domain":"Identity Architecture","firstCard":25},
+    {"code":"04","name":"Silent Gate","domain":"Emotional Gravity","firstCard":37},
+    {"code":"05","name":"Temporal Navigator","domain":"Timeline Intelligence","firstCard":49},
+    {"code":"06","name":"Fracture Path","domain":"Decision Physics","firstCard":61},
+    {"code":"07","name":"Duality Weaver","domain":"Paradox Work","firstCard":73},
+    {"code":"08","name":"Phantom Contract","domain":"Shadow Contracts","firstCard":85},
+    {"code":"09","name":"Flame of Reversal","domain":"Energy Reversal","firstCard":97},
+    {"code":"10","name":"Shattered Compass","domain":"Pattern Collapse","firstCard":109},
+    {"code":"11","name":"Velocity Holder","domain":"Momentum Mechanics","firstCard":121},
+    {"code":"12","name":"Convergence Seal","domain":"Integration","firstCard":133}
+  ],
+  "arcEditions": [
+    {
+      "edition": "mono",
+      "label": "Mono Edition",
+      "description": "12 high-resolution gold-on-black cards.",
+      "unitAmount": 6900
+    },
+    {
+      "edition": "color",
+      "label": "Full-Color Edition",
+      "description": "12 high-resolution full-color cards.",
+      "unitAmount": 7900
+    }
+  ]
+}

@@ -1,0 +1,2 @@
+$ go test ./api/internal/subscriber -count=1
+ok  	mirrorloopai.com/web/api/internal/subscriber	0.289s

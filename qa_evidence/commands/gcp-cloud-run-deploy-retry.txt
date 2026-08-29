@@ -1,0 +1,18 @@
+Deploying from source requires an Artifact Registry Docker repository to store
+built containers. A repository named [cloud-run-source-deploy] in region
+[us-central1] will be created.
+
+Do you want to continue (Y/n)?
+Building using Dockerfile and deploying container to Cloud Run service [mirrorloopai-subscriber] in project [mirrorloopai-com] region [us-central1]
+Building and deploying new service...
+Validating configuration.........done
+Creating Container Repository...........................................................................................................................................done
+Uploading sources....................done
+Building Container............................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................done
+Setting IAM Policy..................done
+Creating Revision...........................................................................................................................................................................................................................................................................done
+Routing traffic.....done
+Done.
+Service [mirrorloopai-subscriber] revision [mirrorloopai-subscriber-00001-nh7] has been deployed and is serving 100 percent of traffic.
+Service URL: https://mirrorloopai-subscriber-862642267199.us-central1.run.app
+Cloud Run deployed. Run firebase deploy --only hosting,firestore from /Users/constantinevassilev02/MyLocalDocuments/go-projects/SyntheonArchive/GENI/mirrorloopai-web after configuring .firebaserc.

@@ -1,0 +1,10 @@
+Production browser audit: https://mirrorloopai.com
+Date: 2026-08-25 America/Los_Angeles (2026-08-26 UTC)
+Browser: Microsoft Edge DevTools
+
+PASS — Fresh page load produced no request to /api/v1/analytics/events.
+PASS — Clicking “Begin question 1 of 12” produced exactly one POST /api/v1/analytics/events with status 204 and body {"event":"quiz_started"}.
+PASS — Completing all 12 questions produced exactly one additional POST with status 204 and body {"event":"quiz_completed"}.
+PASS — sessionStorage contained only two boolean suppression keys: mirrorloop.funnel.quiz_started and mirrorloop.funnel.quiz_completed.
+PASS — Request bodies contained no email, quiz answers, cookie, fingerprint, or persistent visitor identifier.
+PASS — Existing quiz result remained visible: Horizon Signal.

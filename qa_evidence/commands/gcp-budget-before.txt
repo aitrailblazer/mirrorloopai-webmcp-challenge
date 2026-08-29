@@ -1,0 +1,17 @@
+Wed Aug 26 05:00:33 UTC 2026
+API [billingbudgets.googleapis.com] not enabled on project
+[startup-ai-deltasignal]. Would you like to enable and retry (this will take a
+few minutes)? (y/N)?
+ERROR: (gcloud.billing.budgets.list) [constantine@aitrailblazer.com] does not have permission to access billingAccounts instance [REDACTED-BILLING-ACCOUNT] (or it may not exist): Cloud Billing Budget API has not been used in project startup-ai-deltasignal before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/billingbudgets.googleapis.com/overview?project=startup-ai-deltasignal then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. This command is authenticated as constantine@aitrailblazer.com which is the active account specified by the [core/account] property.
+Cloud Billing Budget API has not been used in project startup-ai-deltasignal before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/billingbudgets.googleapis.com/overview?project=startup-ai-deltasignal then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.
+Google developers console API activation
+https://console.developers.google.com/apis/api/billingbudgets.googleapis.com/overview?project=startup-ai-deltasignal
+- '@type': type.googleapis.com/google.rpc.ErrorInfo
+  domain: googleapis.com
+  metadata:
+    activationUrl: https://console.developers.google.com/apis/api/billingbudgets.googleapis.com/overview?project=startup-ai-deltasignal
+    consumer: projects/startup-ai-deltasignal
+    containerInfo: startup-ai-deltasignal
+    service: billingbudgets.googleapis.com
+    serviceTitle: Cloud Billing Budget API
+  reason: SERVICE_DISABLED

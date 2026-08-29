@@ -1,0 +1,50 @@
+{
+  "status": {
+    "conditions": [
+      {
+        "lastTransitionTime": "2026-08-27T04:34:52.934350Z",
+        "status": "True",
+        "type": "Ready"
+      },
+      {
+        "lastTransitionTime": "2026-08-27T04:34:48.659354Z",
+        "status": "True",
+        "type": "ConfigurationsReady"
+      },
+      {
+        "lastTransitionTime": "2026-08-27T04:34:52.892312Z",
+        "status": "True",
+        "type": "RoutesReady"
+      }
+    ],
+    "latestCreatedRevisionName": "mirrorloopai-subscriber-00006-nq2",
+    "latestReadyRevisionName": "mirrorloopai-subscriber-00006-nq2",
+    "traffic": [
+      {
+        "revisionName": "mirrorloopai-subscriber-00002-6c6",
+        "tag": "fh-471eff4bdc5f0d81",
+        "url": "https://fh-471eff4bdc5f0d81---mirrorloopai-subscriber-36j636qnea-uc.a.run.app"
+      },
+      {
+        "revisionName": "mirrorloopai-subscriber-00003-szd",
+        "tag": "fh-63de076cec5856f8",
+        "url": "https://fh-63de076cec5856f8---mirrorloopai-subscriber-36j636qnea-uc.a.run.app"
+      },
+      {
+        "revisionName": "mirrorloopai-subscriber-00004-zw4",
+        "tag": "fh-2826fa53b6d4cd82",
+        "url": "https://fh-2826fa53b6d4cd82---mirrorloopai-subscriber-36j636qnea-uc.a.run.app"
+      },
+      {
+        "revisionName": "mirrorloopai-subscriber-00005-fjv",
+        "tag": "fh-20846750ea0ba64a",
+        "url": "https://fh-20846750ea0ba64a---mirrorloopai-subscriber-36j636qnea-uc.a.run.app"
+      },
+      {
+        "latestRevision": true,
+        "percent": 100,
+        "revisionName": "mirrorloopai-subscriber-00006-nq2"
+      }
+    ]
+  }
+}

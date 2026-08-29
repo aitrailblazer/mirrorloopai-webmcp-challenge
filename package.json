@@ -1,0 +1,17 @@
+{
+  "name": "mirrorloopai-static-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test web/tests/*.test.mjs",
+    "test:stripe": "node --test scripts/tests/*.test.mjs",
+    "validate": "node scripts/validate-site.mjs",
+    "shop:images": "python3 scripts/build-shop-images.py",
+    "stripe:account-import": "node scripts/stripe-account-import.mjs",
+    "stripe:shop:provision": "python3 scripts/stripe-provision-shop.py",
+    "stripe:webhook:provision": "python3 scripts/stripe-provision-webhook.py",
+    "stripe:audit:collect": "node scripts/stripe-audit-collect.mjs",
+    "stripe:mirrorloop:inventory": "python3 scripts/stripe-mirrorloop-inventory.py",
+    "stripe:audit:analyze": "node scripts/stripe-audit-analyze.mjs --input testdata/stripe-audit/sanitized_sample.json --out artifacts/stripe-audit/sample/stripe_audit_analysis.json"
+  }
+}
