@@ -40,10 +40,9 @@ Done:
 - Deployed Firebase Hosting and verified the public origin, security headers, API health, Chrome-native WebMCP registration status, and Stripe Checkout handoff.
 
 Now:
-- Finalize generated tracker views, changelog evidence, and the clean Git handoff.
+- The audited production release and its evidence are complete and pushed through commit `6d6415d`.
 
 Next:
-- Push the completed audit artifacts and release evidence.
 - Prepare the competition description and demonstration video as a separate tracker-backed pass.
 
 Open questions (UNCONFIRMED if needed):
