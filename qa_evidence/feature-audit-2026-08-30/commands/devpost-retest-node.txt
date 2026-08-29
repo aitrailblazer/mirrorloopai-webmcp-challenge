@@ -1,0 +1,72 @@
+
+> test
+> node --test web/tests/*.test.mjs
+
+✔ funnel tracker sends only aggregate allowlisted event names (6.702583ms)
+✔ session storage suppresses duplicate events after reload (0.19125ms)
+✔ public quiz contains 12 complete questions (0.912542ms)
+✔ public question labels use plain language (0.301292ms)
+✔ scoring matches stable Swift tie-break contract (8.485125ms)
+✔ every archetype has plain-language result copy (0.6385ms)
+✔ response groups provide plain-language scanning help (0.233625ms)
+✔ a zero-count tie is not presented as a supporting pattern (1.361291ms)
+✔ shop exposes 12 ARCs in mono and full color plus four complete decks (1.109416ms)
+✔ public catalog contains no prices or pre-order language (0.407792ms)
+✔ shop is active while Stripe remains the only price and payment surface (0.073333ms)
+✔ private source keeps canonical Stripe amounts (1.94725ms)
+✔ every product image exists and checkout explains its boundary (2.63ms)
+✔ registers exactly eight same-origin bounded tools (1.77375ms)
+✔ marks read operations and local state changes accurately (0.278583ms)
+✔ keeps catalog recommendation read-only and outside checkout (0.628792ms)
+✔ requires explicit human confirmation before recording an answer (0.233958ms)
+✔ passes an explicitly confirmed revision through the bounded answer tool (0.197791ms)
+✔ rejects unknown fields and malformed card identifiers (0.635042ms)
+✔ does not echo the private focus area in the tool result wrapper (0.715958ms)
+✔ prefers the document WebMCP context and supports navigator fallback (0.271042ms)
+ℹ tests 21
+ℹ suites 0
+ℹ pass 21
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 146.464667
+
+> test:stripe
+> node --test scripts/tests/*.test.mjs
+
+✔ Stripe CLI inventory retains metadata but never API key material (2.240125ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 197.325334
+
+> validate
+> node scripts/validate-site.mjs
+
+site validation: PASS
+
+> validate:submission
+> node scripts/validate-submission.mjs
+
+file:///Users/constantinevassilev02/MyLocalDocuments/go-projects/SyntheonArchive/GENI/mirrorloopai-webmcp-challenge/scripts/validate-submission.mjs:18
+  ["README all eight tools", manifest.webmcpTools.every((name) => readme.includes(`\\`${name}\\``))],
+                                                                                  ^^^^
+
+SyntaxError: missing ) after argument list
+    at compileSourceTextModule (node:internal/modules/esm/utils:354:16)
+    at ModuleLoader.moduleStrategy (node:internal/modules/esm/translators:90:18)
+    at #translate (node:internal/modules/esm/loader:437:20)
+    at afterLoad (node:internal/modules/esm/loader:505:29)
+    at ModuleLoader.loadAndTranslate (node:internal/modules/esm/loader:510:12)
+    at #getOrCreateModuleJobAfterResolve (node:internal/modules/esm/loader:563:36)
+    at afterResolve (node:internal/modules/esm/loader:610:52)
+    at ModuleLoader.getOrCreateModuleJob (node:internal/modules/esm/loader:616:12)
+    at onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:635:32)
+    at TracingChannel.tracePromise (node:diagnostics_channel:539:22)
+
+Node.js v26.3.0

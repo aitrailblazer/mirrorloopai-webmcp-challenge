@@ -1,0 +1,18 @@
+{
+  "captured_date": "2026-08-30",
+  "devpost_dashboard": {
+    "project_present": false,
+    "observed_text": "Start a Project to begin your submission"
+  },
+  "production_chrome": {
+    "native_webmcp_status": "WebMCP ready · 8 tools",
+    "evidence": "qa_evidence/feature-audit-2026-08-30/browser/production-webmcp-identification.json"
+  },
+  "codex_in_app_browser": {
+    "status": "WebMCP unavailable · direct reflection ready",
+    "interpretation": "This does not establish ChatGPT in-app-browser behavior. The accepted Chrome route is independently verified."
+  },
+  "chatgpt_in_app_browser": {
+    "status": "UNRESOLVED"
+  }
+}

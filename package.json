@@ -6,6 +6,7 @@
     "test": "node --test web/tests/*.test.mjs",
     "test:stripe": "node --test scripts/tests/*.test.mjs",
     "validate": "node scripts/validate-site.mjs",
+    "validate:submission": "node scripts/validate-submission.mjs",
     "shop:images": "python3 scripts/build-shop-images.py",
     "stripe:account-import": "node scripts/stripe-account-import.mjs",
     "stripe:shop:provision": "python3 scripts/stripe-provision-shop.py",

@@ -2,10 +2,10 @@
   "schema": "mirrorloop.webmcp.competition.v1",
   "project": "MIRROR//LOOP",
   "repository": "aitrailblazer/mirrorloopai-webmcp-challenge",
-  "visibility": "private",
+  "visibility": "private-pending-operator-publication",
   "website": "https://mirrorloopai.com/",
   "competition": "WebMCP Challenge",
-  "snapshotDate": "2026-08-29",
+  "snapshotDate": "2026-08-30",
   "originTrial": {
     "origin": "https://mirrorloopai.com:443",
     "feature": "WebMCP",
@@ -27,7 +27,7 @@
     "private research corpora",
     "temporary outputs and unrelated generated artifacts"
   ],
-  "webmcpImplementationStatus": "eight-tools-implemented-pending-browser-inspector-verification",
+  "webmcpImplementationStatus": "eight-tools-implemented-and-verified-in-connected-production-chrome",
   "webmcpTools": [
     "start_reflection",
     "get_current_question",
@@ -38,6 +38,17 @@
     "get_card",
     "recommend_card_edition"
   ],
+  "submissionReadiness": {
+    "localPackage": "ready",
+    "externalGates": [
+      "make repository public after final operator review",
+      "create Devpost project",
+      "publish public YouTube demo under three minutes",
+      "complete entrant eligibility and rights attestations"
+    ],
+    "verifiedBrowserPath": "Chrome with WebMCP",
+    "chatGPTInAppBrowser": "unresolved-optional-alternative"
+  },
   "revisedSpecReconciliation": {
     "sourceSHA256": "94e4b6df95c3d288486bba1f8ad2e97c78612e9290c42cfc841f794815d8a067",
     "accepted": "An eighth read-only catalog discovery capability using the real public digital-edition registry.",

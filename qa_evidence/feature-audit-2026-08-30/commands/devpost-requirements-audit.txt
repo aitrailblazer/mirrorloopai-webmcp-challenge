@@ -1,0 +1,16 @@
+# Devpost official requirements audit
+captured_utc=2026-08-29T20:40:02Z
+sources=https://webmcp.devpost.com/ https://webmcp.devpost.com/rules https://webmcp.devpost.com/resources
+
+Official requirements verified in authenticated browser:
+- Working live URL accessible in ChatGPT in-app browser OR Chrome with WebMCP.
+- English text description covering WebMCP fit, UX improvement, new human-agent collaboration, and implementation.
+- Public YouTube demonstration under three minutes with explanatory audio.
+- Public source repository with necessary source/assets/instructions and visible open-source license.
+- Existing projects must clearly distinguish meaningful WebMCP work completed after August 25, 2026.
+- Authorized third-party services/assets and entrant ownership/eligibility.
+- Free/unrestricted judging access and no submission/repo/live-site alterations after the deadline; use a fork for continued work.
+- Deadline: September 3, 2026 at 1:00 PM PDT. Judging: September 4 at 10:00 AM PDT through September 21 at 5:00 PM PDT.
+- Equal judging criteria: WebMCP Leverage, Execution, Potential Impact, Creativity & Ambition.
+
+Rule precedence note: rules require the demo video; a conflicting FAQ sentence does not waive the explicit requirement.

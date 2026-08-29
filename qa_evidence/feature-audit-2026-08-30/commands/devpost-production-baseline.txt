@@ -1,0 +1,48 @@
+# Production endpoint checks
+captured_utc=2026-08-29T20:40:02Z
+HTTP/2 200 
+cache-control: max-age=3600
+content-security-policy: default-src 'self'; script-src 'self' https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; connect-src 'self' https://challenges.cloudflare.com; img-src 'self' data:; style-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
+content-type: text/html; charset=utf-8
+etag: "ce05a9c5617d1a0c35cddf372763c5b226fc5aced82962d8c8d2270d4b6dde58"
+last-modified: Sat, 29 Aug 2026 20:26:04 GMT
+permissions-policy: camera=(), microphone=(), geolocation=(), payment=()
+referrer-policy: strict-origin-when-cross-origin
+strict-transport-security: max-age=31556926
+x-content-type-options: nosniff
+accept-ranges: bytes
+date: Sat, 29 Aug 2026 20:40:03 GMT
+x-served-by: cache-pdx12322-PDX
+x-cache: HIT
+x-cache-hits: 0
+x-timer: S1788036003.019618,VS0,VE2
+vary: x-fh-requested-host, accept-encoding
+alt-svc: h3=":443";ma=86400,h3-29=":443";ma=86400,h3-27=":443";ma=86400
+content-length: 8302
+
+
+
+
+Registered names in audited source:
+name: "answer_reflection_question"
+name: "complete_reflection"
+name: "explain_choice"
+name: "get_card"
+name: "get_current_question"
+name: "recommend_card_edition"
+name: "review_reflection_answers"
+name: "start_reflection"
+
+Existing connected-Chrome production evidence:
+{
+  "active": "true",
+  "app_bundle": "/app.js?v=20260830-1",
+  "aria_live": "polite",
+  "in_header": true,
+  "role": "status",
+  "status": "WebMCP ready · 8 tools",
+  "stylesheet": "/styles.css?v=20260830-1",
+  "url": "https://mirrorloopai.com/?wm013=20260830",
+  "verified_status": "WebMCP ready · 8 tools",
+  "evidence_boundary": "Connected Chrome reported the live status after native document.modelContext registration; no modelContext shim was injected into this production tab."
+}

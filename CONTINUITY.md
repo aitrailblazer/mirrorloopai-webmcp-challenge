@@ -2,6 +2,7 @@ Goal (incl. success criteria):
 - Complete a tracker-backed audit and implementation pass that makes mirrorloopai.com a first-class WebMCP experience for understandable quiz conversion, secure paid acquisition, and competition readiness.
 - Success requires all user-visible stories to have test evidence, all tracker-backed failures to be fixed and retested, generated tracker views to match the canonical CSV, production to serve the audited release, and the completed pass to be recorded in `CHANGELOG.md`.
 - Match the reference site's immediately recognizable WebMCP identification with a persistent header badge that reports `WebMCP ready · 8 tools` after registration and a truthful direct-use fallback otherwise.
+- Reconcile the finished product against the official WebMCP Challenge rules, submission requirements, and four equally weighted judging criteria before external submission actions.
 
 Constraints/Assumptions:
 - Preserve the existing production repository unchanged.
@@ -24,6 +25,7 @@ State:
 - The 57-story audit is complete: 50 stories passed initially and seven tracker-backed failures were fixed and verified.
 - The audited release is deployed on `mirrorloopai.com`; connected Chrome reports `WebMCP ready · 8 tools` in the persistent header and the production checkout boundary remains unchanged.
 - Follow-up story `WM-013` retains its failed baseline and now has local, responsive, fallback, deployment, and native-production evidence.
+- A Devpost submission-readiness audit is in progress; repository publication, Devpost project creation, public video upload, and final submission remain explicit operator actions.
 
 Done:
 - Copied the website, Go API, public data, tests, deployment configuration, documentation, and sanitized QA evidence.
@@ -44,14 +46,17 @@ Done:
 - Redeployed Firebase Hosting and verified the exact production label through connected Chrome's native WebMCP context.
 
 Now:
-- The `WM-013` implementation, audit, and production verification are complete.
+- Add and execute tracker-backed Devpost compliance stories, then repair local documentation and validation gaps.
 
 Next:
-- Prepare the competition description and demonstration video as a separate tracker-backed pass.
+- Obtain operator confirmation before changing the GitHub repository to public or creating/publishing external submission artifacts.
 
 Open questions (UNCONFIRMED if needed):
 - UNCONFIRMED: Final competition title and submission copy.
 - UNCONFIRMED: Whether a separate screenshot of the Chrome WebMCP Inspector extension panel is desired in addition to the verified browser-native registration status.
+- UNCONFIRMED: Entrant eligibility and authority to grant the required competition license/rights.
+- UNCONFIRMED: Public YouTube demo URL.
+- UNCONFIRMED: Actual ChatGPT in-app-browser WebMCP availability; connected Chrome is already verified and satisfies the rules' alternative browser path.
 
 Working set (files/ids/commands):
 - `/Users/constantinevassilev02/MyLocalDocuments/go-projects/SyntheonArchive/GENI/mirrorloopai-webmcp-challenge`
@@ -70,3 +75,6 @@ Working set (files/ids/commands):
 - `qa_evidence/feature-audit-2026-08-30/commands/production-webmcp-identification.txt`
 - `qa_evidence/feature-audit-2026-08-30/commands/firebase-hosting-deploy.txt`
 - `WM-013`
+- `SUB-001` through `SUB-011`
+- `https://webmcp.devpost.com/`
+- `https://webmcp.devpost.com/rules`

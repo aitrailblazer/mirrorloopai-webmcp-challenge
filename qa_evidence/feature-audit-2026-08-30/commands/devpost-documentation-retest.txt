@@ -1,0 +1,12 @@
+# Submission documentation retest
+captured_utc=2026-08-29T20:44:43Z
+PASS nonempty README.md
+PASS nonempty SUBMISSION.md
+PASS nonempty THIRD_PARTY_NOTICES.md
+PASS nonempty LICENSE
+PASS submission contains the four required explanation headings
+PASS submission contains all four judging-criterion headings
+PASS submission cites challenge-period commits b9dddec, 2e58ce9, 9740b57, and 592c08a
+PASS submission contains the September 3, 2026 deadline and judging-window release freeze
+PASS submission keeps the public YouTube URL visibly pending
+NOTE initial git diff --check exposed CRLF line endings introduced while updating the canonical CSV; the tracker was normalized to LF and the final gate passed in devpost-submission-package-final.txt.
