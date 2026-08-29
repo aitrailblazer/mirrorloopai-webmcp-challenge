@@ -7,14 +7,14 @@ Tracker source: `feature_status_tracker.csv`
 - Total features discovered: 57
 - Total verified before fixes: 50
 - Total failed before fixes: 7
-- Total fixed: 6
-- Total verified after retest: 56
+- Total fixed: 7
+- Total verified after retest: 57
 - Total still blocked: 0
 - Total needing product decision: 0
 
 ## Unresolved Critical Or High
 
-- WM-013 `Immediately visible WebMCP readiness badge` — High — Failed Test
+- None
 
 ## Files Changed Or Audited
 
@@ -64,6 +64,7 @@ Tracker source: `feature_status_tracker.csv`
 - `web/index.html; web/shop.html; web/terms.html; web/privacy.html`
 - `web/llms.txt; scripts/validate-site.mjs`
 - `web/app.js; web/lib/webmcp.js; web/tests/webmcp.test.mjs`
+- `web/index.html; web/app.js; web/styles.css; scripts/validate-site.mjs; CHANGELOG.md`
 
 ## Commits Recorded In Tracker
 
@@ -72,6 +73,7 @@ Tracker source: `feature_status_tracker.csv`
 - `7f06937bcbdb9d91c2c243920f8d68a06784f064`
 - `9740b57`
 - `4d835111b8ee24560deabafe60efc8499dc105ec`
+- `592c08a`
 
 ## Test Evidence
 
@@ -84,4 +86,4 @@ Tracker source: `feature_status_tracker.csv`
 
 ## Recommended Next Pass
 
-- Resolve the remaining unresolved critical/high rows before expanding scope.
+- Continue using the tracker loop for the next repo improvement and regenerate the workbook/report artifacts after changes.
