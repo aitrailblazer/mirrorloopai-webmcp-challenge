@@ -9,7 +9,7 @@ const browser = await chromium.launch({
   headless: true,
 });
 const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
-const evidence = {};
+const evidence = { baseURL };
 
 try {
   await page.goto(`${baseURL}/?f029-test=1`);

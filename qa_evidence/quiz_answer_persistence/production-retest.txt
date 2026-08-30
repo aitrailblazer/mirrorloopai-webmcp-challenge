@@ -1,0 +1,12 @@
+$ MIRRORLOOP_TEST_URL=https://mirrorloopai.com npm run test:quiz:persistence:browser
+
+> test:quiz:persistence:browser
+> node scripts/test-quiz-persistence-browser.mjs
+
+quiz answer persistence browser test: PASS (/Users/constantinevassilev02/MyLocalDocuments/go-projects/SyntheonArchive/GENI/mirrorloopai-webmcp-challenge/qa_evidence/quiz_answer_persistence/browser-retest.json)
+$ production bundle and privacy assertions
+14:  <script type="module" src="/app.js?v=20260830-6"></script>
+141:        <button class="text-button" id="restart-button" type="button">Review or change my answers</button>
+142:        <button class="text-button" id="clear-answers-button" type="button">Start over with blank answers</button>
+14:    <p>Your browser saves only the 12 choice codes on this device so you can return, review them, and change only the answers you reconsider. They are not synchronized to another device. You can remove them at any time with “Start over with blank answers” after viewing a result, or by clearing this site's browser data.</p>
+22:    <p><strong>Effective:</strong> August 29, 2026. This notice must be reviewed for the laws and launch regions selected before production release.</p>
