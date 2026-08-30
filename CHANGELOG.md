@@ -1,5 +1,24 @@
 # Changelog
 
+## 2026-08-30 — Owner quiz diagnostic and manual-fulfillment notification
+
+- Audited the accepted quiz-submission path and confirmed that only the
+  participant confirmation email was generated, leaving no operational
+  evidence for diagnosing or manually completing a requested reflection.
+- Added an idempotent Resend notification to the configured operational
+  mailbox with the participant email, pending-confirmation status, source,
+  quiz version, compact result, and the selected response to each question in
+  Q1–Q12 order.
+- Set Reply-To to the participant address so an authorized operator can
+  respond directly when manual assistance is required.
+- Preserved the data boundary: individual answers are transmitted in the
+  operational email but are not added to the Firestore subscriber record.
+- Added plain-language consent and privacy notices for diagnostic/manual
+  fallback processing without publishing the private operational recipient.
+- Made operational-notification failure non-blocking for the participant and
+  added mailer, lifecycle, idempotency, honeypot, validation, and persistence
+  regression coverage.
+
 ## 2026-08-30 — Cross-device reflection confirmation handoff
 
 - Reopened the confirmation audit after a participant confirmed on another

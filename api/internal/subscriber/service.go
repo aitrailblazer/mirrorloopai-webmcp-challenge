@@ -24,6 +24,7 @@ type Store interface {
 type Mailer interface {
 	SendConfirmation(context.Context, string, string) error
 	SendReflection(context.Context, Record, string) error
+	SendOwnerQuizSubmission(context.Context, OwnerQuizSubmission) error
 }
 
 type ChallengeVerifier interface {
@@ -92,6 +93,10 @@ func (s *Service) Subscribe(ctx context.Context, req SubscribeRequest, remoteIP 
 	if err != nil {
 		return err
 	}
+	answerDetails, err := normalizeAnswerDetails(req.AnswerDetails)
+	if err != nil {
+		return err
+	}
 	now := s.now().UTC()
 	pendingExpiresAt := now.Add(30 * 24 * time.Hour)
 	id := s.subscriberID(email)
@@ -110,6 +115,19 @@ func (s *Service) Subscribe(ctx context.Context, req SubscribeRequest, remoteIP 
 	link := s.publicAPIURL + "/v1/subscribers/verify?token=" + url.QueryEscape(token)
 	if err := s.mailer.SendConfirmation(ctx, email, link); err != nil {
 		return fmt.Errorf("send confirmation: %w", err)
+	}
+	if err := s.mailer.SendOwnerQuizSubmission(ctx, OwnerQuizSubmission{
+		SubmissionID:  id,
+		Email:         email,
+		Source:        record.Source,
+		QuizVersion:   record.QuizVersion,
+		Answers:       append([]string(nil), req.Answers...),
+		AnswerDetails: append([]AnswerDetail(nil), answerDetails...),
+		Result:        result,
+		SubmittedAt:   now,
+	}); err != nil {
+		slog.ErrorContext(ctx, "owner quiz submission notification failed",
+			"subscriber_id", id, "error", err)
 	}
 	return nil
 }

@@ -3,6 +3,7 @@ package subscriber
 import (
 	"bytes"
 	"context"
+	"crypto/sha256"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -22,6 +23,14 @@ func (LogMailer) SendConfirmation(_ context.Context, _ string, link string) erro
 
 func (LogMailer) SendReflection(_ context.Context, record Record, unsubscribeURL string) error {
 	slog.Info("local reflection email generated", "subscriber_id", record.ID, "archetype", record.Result.Dominant.Name, "unsubscribe_link", unsubscribeURL)
+	return nil
+}
+
+func (LogMailer) SendOwnerQuizSubmission(_ context.Context, submission OwnerQuizSubmission) error {
+	slog.Info("local owner quiz submission notification generated",
+		"subscriber_id", submission.SubmissionID,
+		"answer_count", len(submission.Answers),
+		"result_code", submission.Result.DominantCode)
 	return nil
 }
 
@@ -61,6 +70,25 @@ func (m ResendMailer) SendConfirmation(ctx context.Context, email, link string) 
 func (m ResendMailer) SendReflection(ctx context.Context, record Record, unsubscribeURL string) error {
 	message := reflectionEmail(record.Result, unsubscribeURL)
 	return m.send(ctx, record.Email, message)
+}
+
+func (m ResendMailer) SendOwnerQuizSubmission(ctx context.Context, submission OwnerQuizSubmission) error {
+	if strings.TrimSpace(m.OwnerEmail) == "" {
+		return errors.New("quiz notification email is not configured")
+	}
+	answerDigest := sha256.Sum256([]byte(strings.Join(submission.Answers, ",")))
+	idempotencyKey := fmt.Sprintf(
+		"mirrorloop-quiz-%s-%x-owner",
+		submission.SubmissionID,
+		answerDigest[:8],
+	)
+	return m.sendWithKey(
+		ctx,
+		strings.TrimSpace(m.OwnerEmail),
+		ownerQuizSubmissionEmail(submission),
+		idempotencyKey,
+		submission.Email,
+	)
 }
 
 func (m ResendMailer) SendBuyerOrderReceived(
@@ -300,6 +328,103 @@ Files to deliver:
 		html: emailDocument(
 			"A paid MIRROR//LOOP order needs digital fulfillment.",
 			"New paid order",
+			content,
+		),
+		text: text,
+	}
+}
+
+func ownerQuizSubmissionEmail(submission OwnerQuizSubmission) emailMessage {
+	var htmlAnswers strings.Builder
+	var textAnswers strings.Builder
+	for index, code := range submission.Answers {
+		archetype, ok := Archetypes[code]
+		if !ok {
+			archetype = Archetype{Name: "Unknown selection", Domain: "Review required"}
+		}
+		question := fmt.Sprintf("Question %d", index+1)
+		selection := archetype.Name
+		if len(submission.AnswerDetails) == len(submission.Answers) {
+			question = submission.AnswerDetails[index].Question
+			selection = submission.AnswerDetails[index].Selection
+		}
+		number := index + 1
+		fmt.Fprintf(
+			&htmlAnswers,
+			`<li style="margin:0 0 14px"><strong style="color:#ffffff">Q%02d · %s</strong><br><span style="color:#f4cf8b">Selected: %s</span><br><span style="color:#a9a2b7">Code %s · %s — %s</span></li>`,
+			number,
+			html.EscapeString(question),
+			html.EscapeString(selection),
+			html.EscapeString(code),
+			html.EscapeString(archetype.Name),
+			html.EscapeString(archetype.Domain),
+		)
+		fmt.Fprintf(
+			&textAnswers,
+			"Q%02d · %s\nSelected: %s\nCode: %s — %s (%s)\n\n",
+			number,
+			question,
+			selection,
+			code,
+			archetype.Name,
+			archetype.Domain,
+		)
+	}
+	primary := submission.Result.Dominant
+	if canonical, ok := Archetypes[submission.Result.DominantCode]; ok {
+		primary = canonical
+	}
+	content := fmt.Sprintf(`
+<p style="margin:0 0 18px;color:#d8d2e1;font-size:17px;line-height:1.65">A participant submitted the 12-question reflection and was sent a confirmation link.</p>
+<div style="margin:0 0 24px;padding:18px;border:1px solid #38304d;border-radius:14px;background:#151221">
+  <p style="margin:0 0 8px;color:#a9a2b7;font-size:13px">Participant email</p>
+  <p style="margin:0 0 16px;color:#ffffff;font-size:16px">%s</p>
+  <p style="margin:0 0 8px;color:#a9a2b7;font-size:13px">Status</p>
+  <p style="margin:0 0 16px;color:#ffffff;font-size:16px">Pending email confirmation</p>
+  <p style="margin:0 0 8px;color:#a9a2b7;font-size:13px">Compact result</p>
+  <p style="margin:0;color:#ffffff;font-size:16px">%s · %s (%d of 12)</p>
+</div>
+<p style="margin:0 0 8px;color:#a9a2b7;font-size:13px">Quiz version: %s · Source: %s · Submitted: %s</p>
+<p style="margin:22px 0 10px;color:#f0bc63;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase">Ordered answers for manual review</p>
+<ol style="margin:0;padding-left:24px;color:#d8d2e1;font-size:15px;line-height:1.55">%s</ol>
+<p style="margin:22px 0 0;color:#a9a2b7;font-size:13px;line-height:1.55">These individual answers are in this operational notification for manual fulfillment. The subscriber database retains the compact result rather than this ordered list.</p>`,
+		html.EscapeString(submission.Email),
+		html.EscapeString(submission.Result.DominantCode),
+		html.EscapeString(primary.Name),
+		submission.Result.DominantCount,
+		html.EscapeString(submission.QuizVersion),
+		html.EscapeString(submission.Source),
+		html.EscapeString(submission.SubmittedAt.UTC().Format(time.RFC3339)),
+		htmlAnswers.String(),
+	)
+	text := fmt.Sprintf(`MIRROR//LOOP
+
+NEW QUIZ SUBMISSION — MANUAL REVIEW AVAILABLE
+
+Participant email: %s
+Status: Pending email confirmation
+Compact result: %s · %s (%d of 12)
+Quiz version: %s
+Source: %s
+Submitted: %s
+
+Ordered answers:
+%s
+These individual answers are in this operational notification for manual fulfillment. The subscriber database retains the compact result rather than this ordered list.`,
+		submission.Email,
+		submission.Result.DominantCode,
+		primary.Name,
+		submission.Result.DominantCount,
+		submission.QuizVersion,
+		submission.Source,
+		submission.SubmittedAt.UTC().Format(time.RFC3339),
+		textAnswers.String(),
+	)
+	return emailMessage{
+		subject: "MIRROR//LOOP quiz submitted — manual review available",
+		html: emailDocument(
+			"A participant submitted a MIRROR//LOOP reflection.",
+			"New quiz submission",
 			content,
 		),
 		text: text,

@@ -1,0 +1,94 @@
+$ gofmt -w internal/subscriber/*.go cmd/server/main.go
+$ go test ./...
+ok  	mirrorloopai.com/web/api/cmd/analytics-report	(cached)
+ok  	mirrorloopai.com/web/api/cmd/server	0.280s
+ok  	mirrorloopai.com/web/api/internal/analytics	(cached)
+ok  	mirrorloopai.com/web/api/internal/commerce	(cached)
+ok  	mirrorloopai.com/web/api/internal/inbound	(cached)
+ok  	mirrorloopai.com/web/api/internal/subscriber	0.284s
+$ go vet ./...
+$ npm test
+
+> test
+> node --test web/tests/*.test.mjs
+
+✔ funnel tracker sends only aggregate allowlisted event names (3.940541ms)
+✔ session storage suppresses duplicate events after reload (0.204584ms)
+✔ public quiz contains 12 complete questions (0.843708ms)
+✔ public question labels use plain language (0.314291ms)
+✔ scoring matches stable Swift tie-break contract (7.251834ms)
+✔ every archetype has plain-language result copy (0.140583ms)
+✔ response groups provide plain-language scanning help (0.062834ms)
+✔ a zero-count tie is not presented as a supporting pattern (0.860959ms)
+✔ saves and restores answer codes without unrelated personal data (1.713834ms)
+✔ rejects stale, malformed, and impossible saved answers (0.135875ms)
+✔ clears saved answers and tolerates unavailable browser storage (0.092042ms)
+✔ shop exposes 12 ARCs in mono and full color plus four complete decks (0.97925ms)
+✔ public catalog contains no prices or pre-order language (0.877541ms)
+✔ shop is active while Stripe remains the only price and payment surface (0.236542ms)
+✔ private source keeps canonical Stripe amounts (1.374ms)
+✔ every product image exists and checkout explains its boundary (7.858333ms)
+✔ registers exactly eight same-origin bounded tools (2.247583ms)
+✔ marks read operations and local state changes accurately (0.170709ms)
+✔ keeps catalog recommendation read-only and outside checkout (0.395ms)
+✔ requires explicit human confirmation before recording an answer (0.723208ms)
+✔ passes an explicitly confirmed revision through the bounded answer tool (0.146833ms)
+✔ rejects unknown fields and malformed card identifiers (0.189667ms)
+✔ does not echo the private focus area in the tool result wrapper (0.15525ms)
+✔ prefers the document WebMCP context and supports navigator fallback (0.078041ms)
+✔ awaits registration and aborts all partial registrations after rejection (0.439166ms)
+✔ reports ready only after all asynchronous registrations resolve (5.493416ms)
+✔ reports direct-mode fallback after an asynchronous registration failure (1.631042ms)
+✔ keeps names, descriptions, parameters, and outputs within official budgets (0.373125ms)
+ℹ tests 28
+ℹ suites 0
+ℹ pass 28
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 202.706542
+$ npm run validate
+
+> validate
+> node scripts/validate-site.mjs
+
+site validation: PASS
+$ npm run test:webmcp:evals
+
+> test:webmcp:evals
+> node scripts/validate-webmcp-evals.mjs
+
+WebMCP eval corpus: PASS (15 cases, 8 tools, 2 sequences)
+Note: this validates the deterministic expected-call corpus; a host-agent model run is a separate evaluation.
+$ npm run test:stripe
+
+> test:stripe
+> node --test scripts/tests/*.test.mjs
+
+✔ Stripe CLI inventory retains metadata but never API key material (2.925916ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 127.664833
+$ git diff --check
+
+$ npm run validate (refined diagnostic/fallback disclosure)
+
+> validate
+> node scripts/validate-site.mjs
+
+site validation: PASS
+$ go test ./... (final local pass)
+ok  	mirrorloopai.com/web/api/cmd/analytics-report	(cached)
+ok  	mirrorloopai.com/web/api/cmd/server	(cached)
+ok  	mirrorloopai.com/web/api/internal/analytics	(cached)
+ok  	mirrorloopai.com/web/api/internal/commerce	(cached)
+ok  	mirrorloopai.com/web/api/internal/inbound	(cached)
+ok  	mirrorloopai.com/web/api/internal/subscriber	(cached)
+$ go vet ./... (final local pass)
+$ git diff --check (final local pass)

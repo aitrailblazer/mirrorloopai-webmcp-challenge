@@ -62,14 +62,31 @@ type Result struct {
 }
 
 type SubscribeRequest struct {
-	Email          string   `json:"email"`
-	Consent        bool     `json:"consent"`
-	ConsentVersion string   `json:"consentVersion"`
-	Website        string   `json:"website"`
-	Source         string   `json:"source"`
-	QuizVersion    string   `json:"quizVersion"`
-	Answers        []string `json:"answers"`
-	ChallengeToken string   `json:"challengeToken"`
+	Email          string         `json:"email"`
+	Consent        bool           `json:"consent"`
+	ConsentVersion string         `json:"consentVersion"`
+	Website        string         `json:"website"`
+	Source         string         `json:"source"`
+	QuizVersion    string         `json:"quizVersion"`
+	Answers        []string       `json:"answers"`
+	AnswerDetails  []AnswerDetail `json:"answerDetails,omitempty"`
+	ChallengeToken string         `json:"challengeToken"`
+}
+
+type AnswerDetail struct {
+	Question  string `json:"question"`
+	Selection string `json:"selection"`
+}
+
+type OwnerQuizSubmission struct {
+	SubmissionID  string
+	Email         string
+	Source        string
+	QuizVersion   string
+	Answers       []string
+	AnswerDetails []AnswerDetail
+	Result        Result
+	SubmittedAt   time.Time
 }
 
 type Record struct {
@@ -135,4 +152,23 @@ func Score(answers []string) (Result, error) {
 		result.SecondaryCount = counts[codes[1]]
 	}
 	return result, nil
+}
+
+func normalizeAnswerDetails(details []AnswerDetail) ([]AnswerDetail, error) {
+	if len(details) == 0 {
+		return nil, nil
+	}
+	if len(details) != AnswerCount {
+		return nil, fmt.Errorf("exactly %d answer details are required", AnswerCount)
+	}
+	normalized := make([]AnswerDetail, AnswerCount)
+	for index, detail := range details {
+		question := strings.TrimSpace(detail.Question)
+		selection := strings.TrimSpace(detail.Selection)
+		if question == "" || selection == "" || len(question) > 240 || len(selection) > 240 {
+			return nil, fmt.Errorf("answer detail %d is invalid", index+1)
+		}
+		normalized[index] = AnswerDetail{Question: question, Selection: selection}
+	}
+	return normalized, nil
 }

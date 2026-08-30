@@ -7,7 +7,7 @@ Tracker source: `feature_status_tracker.csv`
 - Total features discovered: 88
 - Total verified before fixes: 58
 - Total failed before fixes: 20
-- Total fixed: 24
+- Total fixed: 25
 - Total verified after retest: 82
 - Total still blocked: 0
 - Total needing product decision: 1
@@ -19,7 +19,7 @@ Tracker source: `feature_status_tracker.csv`
 - SUB-007 `Devpost project draft readiness` — Critical — Needs Product Decision
 - SUB-008 `Eligibility, ownership, and third-party rights attestation` — Critical — Needs Product Decision
 - RES-008 `Explicit-confirmation eval oracle consistency` — High — Needs Product Decision
-- F-033 `Owner quiz-submission fulfillment notification` — High — Failed Test
+- F-033 `Owner quiz-submission fulfillment notification` — High — Fixed
 
 ## Files Changed Or Audited
 
@@ -95,7 +95,7 @@ Tracker source: `feature_status_tracker.csv`
 - `api/internal/subscriber/http.go; api/internal/subscriber/http_test.go; CHANGELOG.md; qa_evidence/confirmation_page_design/`
 - `api/internal/subscriber/http.go; api/internal/subscriber/http_test.go; web/confirmation.css; scripts/test-confirmation-page-browser.mjs; scripts/validate-site.mjs; package.json; CHANGELOG.md; qa_evidence/confirmation_page_style_regression/; feature_status_tracker.csv; feature_status_tracker.xlsx; feature_status_tracker.html; feature_qa_report.md`
 - `api/internal/subscriber/service.go; api/internal/subscriber/service_test.go; api/internal/subscriber/http.go; api/internal/subscriber/http_test.go; web/confirmation.css; web/confirmed.html; scripts/test-confirmation-page-browser.mjs; scripts/validate-site.mjs; CHANGELOG.md; qa_evidence/post_confirmation_cross_device/; feature_status_tracker.csv; feature_status_tracker.xlsx; feature_status_tracker.html; feature_qa_report.md`
-- `qa_evidence/owner_quiz_submission_notification/; feature_status_tracker.csv; feature_status_tracker.xlsx; feature_status_tracker.html; feature_qa_report.md`
+- `api/cmd/server/main.go; api/internal/subscriber/model.go; api/internal/subscriber/model_test.go; api/internal/subscriber/service.go; api/internal/subscriber/service_test.go; api/internal/subscriber/mailer.go; api/internal/subscriber/mailer_test.go; web/app.js; web/index.html; web/privacy.html; scripts/validate-site.mjs; CHANGELOG.md; qa_evidence/owner_quiz_submission_notification/; feature_status_tracker.csv; feature_status_tracker.xlsx; feature_status_tracker.html; feature_qa_report.md`
 
 ## Commits Recorded In Tracker
 

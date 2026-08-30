@@ -388,11 +388,17 @@ async function subscribe(event) {
   const payload = {
     email: formData.get("email"),
     consent: formData.get("consent") === "on",
-    consentVersion: "email-reflection-v1-2026-08-25",
+    consentVersion: "email-reflection-owner-review-v2-2026-08-30",
     website: formData.get("website"),
     source: "mirrorloopai.com/quiz",
     quizVersion: state.quiz.version,
     answers: state.answers,
+    answerDetails: state.quiz.questions.map((question, index) => ({
+      question: question.title,
+      selection: question.options.find(
+        (option) => option.arcCode === state.answers[index],
+      )?.microIntent ?? state.answers[index],
+    })),
     challengeToken: window.turnstile?.getResponse?.() ?? "",
   };
   try {

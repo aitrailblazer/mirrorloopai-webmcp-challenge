@@ -3,10 +3,12 @@ package subscriber
 import (
 	"context"
 	"encoding/json"
+	"fmt"
 	"io"
 	"net/http"
 	"strings"
 	"testing"
+	"time"
 )
 
 type roundTripFunc func(*http.Request) (*http.Response, error)
@@ -238,5 +240,87 @@ func TestReflectionEmailUsesCanonicalCopyForOlderStoredResults(t *testing.T) {
 	}
 	if strings.Contains(htmlBody, "Old Name") || strings.Contains(htmlBody, "Future-Pull Mechanics") {
 		t.Fatal("reflection leaked stale stored presentation copy")
+	}
+}
+
+func TestOwnerQuizSubmissionEmailContainsOrderedAnswersAndFulfillmentContext(t *testing.T) {
+	answers := []string{"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"}
+	answerDetails := make([]AnswerDetail, AnswerCount)
+	for index := range answerDetails {
+		answerDetails[index] = AnswerDetail{
+			Question:  fmt.Sprintf("Question text %d?", index+1),
+			Selection: fmt.Sprintf("Selected choice %d", index+1),
+		}
+	}
+	submission := OwnerQuizSubmission{
+		SubmissionID:  "0123456789abcdef0123456789abcdef",
+		Email:         "participant@example.com",
+		Source:        "mirrorloopai.com/quiz",
+		QuizVersion:   "2.0.0",
+		Answers:       answers,
+		AnswerDetails: answerDetails,
+		Result: Result{
+			DominantCode:  "01",
+			Dominant:      Archetypes["01"],
+			DominantCount: 1,
+		},
+		SubmittedAt: time.Date(2026, 8, 30, 7, 45, 0, 0, time.UTC),
+	}
+	var idempotencyKey string
+	var payload map[string]any
+	client := &http.Client{Transport: roundTripFunc(func(req *http.Request) (*http.Response, error) {
+		idempotencyKey = req.Header.Get("Idempotency-Key")
+		if err := json.NewDecoder(req.Body).Decode(&payload); err != nil {
+			t.Fatal(err)
+		}
+		return &http.Response{
+			StatusCode: http.StatusOK,
+			Status:     "200 OK",
+			Body:       io.NopCloser(strings.NewReader(`{"id":"test"}`)),
+			Header:     make(http.Header),
+		}, nil
+	})}
+	mailer := ResendMailer{
+		APIKey:     "test-key",
+		From:       "MIRROR//LOOP <reflection@mirrorloopai.com>",
+		ReplyTo:    "constantine@aitrailblazer.com",
+		OwnerEmail: "constantine@aitrailblazer.com",
+		HTTPClient: client,
+	}
+	if err := mailer.SendOwnerQuizSubmission(context.Background(), submission); err != nil {
+		t.Fatal(err)
+	}
+	recipients, ok := payload["to"].([]any)
+	if !ok || len(recipients) != 1 || recipients[0] != "constantine@aitrailblazer.com" {
+		t.Fatalf("owner recipients=%#v", payload["to"])
+	}
+	if payload["reply_to"] != "participant@example.com" {
+		t.Fatalf("reply_to=%v", payload["reply_to"])
+	}
+	if payload["subject"] != "MIRROR//LOOP quiz submitted — manual review available" {
+		t.Fatalf("subject=%v", payload["subject"])
+	}
+	textBody, _ := payload["text"].(string)
+	for _, expected := range []string{
+		"participant@example.com",
+		"Pending email confirmation",
+		"Quiz version: 2.0.0",
+		"Source: mirrorloopai.com/quiz",
+		"Compact result: 01 · Horizon Signal",
+		"Q01 · Question text 1?",
+		"Selected: Selected choice 1",
+		"Code: 01 — Horizon Signal (Finding direction)",
+		"Q12 · Question text 12?",
+		"Selected: Selected choice 12",
+		"Code: 12 — Convergence Seal (Bringing things together)",
+		"subscriber database retains the compact result",
+	} {
+		if !strings.Contains(textBody, expected) {
+			t.Errorf("owner notification missing %q", expected)
+		}
+	}
+	if !strings.HasPrefix(idempotencyKey, "mirrorloop-quiz-"+submission.SubmissionID+"-") ||
+		!strings.HasSuffix(idempotencyKey, "-owner") {
+		t.Fatalf("idempotency key=%q", idempotencyKey)
 	}
 }

@@ -18,7 +18,7 @@ import (
 	"mirrorloopai.com/web/api/internal/subscriber"
 )
 
-const consentVersion = "email-reflection-v1-2026-08-25"
+const consentVersion = "email-reflection-owner-review-v2-2026-08-30"
 
 func main() {
 	if err := run(); err != nil {
