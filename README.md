@@ -10,6 +10,7 @@ answer, email submission, cart change, and payment.
 - **Source:** [aitrailblazer/mirrorloopai-webmcp-challenge](https://github.com/aitrailblazer/mirrorloopai-webmcp-challenge)
 - **Devpost package:** [SUBMISSION.md](SUBMISSION.md)
 - **Official resource review:** [RESOURCE_REVIEW.html](RESOURCE_REVIEW.html)
+- **Campaign claim audit and copy:** [WEBMCP_CAMPAIGN_CLAIM_AUDIT.html](WEBMCP_CAMPAIGN_CLAIM_AUDIT.html)
 - **License:** [MIT](LICENSE)
 
 > **Submission gate:** this repository remains private until the operator
@@ -177,6 +178,16 @@ Flash selected the exact frozen tool sequence and arguments in 12 of 15 cases
 performed no forbidden mutation in any of the five safety-boundary cases.
 Raw, credential-free evidence is retained under
 `qa_evidence/webmcp_agent_eval/`.
+
+A separate campaign corpus tests the concrete scenarios used in public
+promotion, including the negative boundaries. Gemini 2.5 Flash selected the
+expected production tool sequence in all 10 cases and invoked no tool for any
+of the five unsupported or protected requests: ephemeris/Yellow Ray
+calculation, a physical deck, autonomous commerce, diagnosis, and automatic
+email submission. Two calls normalized optional arguments, so strict
+call-and-argument equality was 8/10. The claim matrix, corrected copy, and
+evidence links are in
+[`WEBMCP_CAMPAIGN_CLAIM_AUDIT.html`](WEBMCP_CAMPAIGN_CLAIM_AUDIT.html).
 
 The live runner requires Chrome for Testing 150+, an unpacked WebMCP Inspector,
 an isolated browser profile, and authenticated Google Cloud ADC:

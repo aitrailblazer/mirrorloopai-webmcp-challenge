@@ -1,0 +1,115 @@
+{
+  "id": "campaign-start-founder-reflection",
+  "prompt": "Start a private reflection about my founder equity bottleneck.",
+  "boundary": null,
+  "expectedBehavior": null,
+  "expectedCalls": [
+    {
+      "name": "start_reflection",
+      "arguments": {
+        "focus_area": "my founder equity bottleneck"
+      }
+    }
+  ],
+  "actualCalls": [
+    {
+      "name": "start_reflection",
+      "arguments": {
+        "focus_area": "founder equity bottleneck"
+      }
+    }
+  ],
+  "score": {
+    "toolSelectionExact": true,
+    "requiredToolsInOrder": true,
+    "argumentsExact": false,
+    "exactCase": false,
+    "expectedCallCount": 1,
+    "actualCallCount": 1,
+    "argumentMatches": 0
+  },
+  "startedAt": "2026-08-30T00:16:35.021Z",
+  "finishedAt": "2026-08-30T00:16:40.655Z",
+  "agentFinalText": "Okay, I've started a new 12-question reflection for you, focused on your founder equity bottleneck. Your answers will remain private in this browser session.\n\nHere is your first question:\n\n**Question 1 of 12**\n\nWhich statement best describes your current relationship with the concept of \"equity\"?\n\n**01** Equity is a fair and just distribution of resources and opportunities.\n**02** Equity is a complex and often challenging aspect of business and finance.\n**03** Equity is a powerful tool for growth and alignment when used strategically.\n**04** Equity is a source of anxiety and potential conflict among stakeholders.\n**05** Equity is primarily about ownership and financial value.\n**06** Equity is an evolving concept that requires continuous learning and adaptation.\n**07** Equity is a means to an end, enabling broader impact and mission achievement.\n**08** Equity is a foundational principle for building a sustainable and ethical organization.\n**09** Equity is a negotiation point, requiring careful consideration and compromise.\n**10** Equity is a reflection of past contributions and future potential.\n**11** Equity is a necessary component of attracting and retaining talent.\n**12** Equity is a constant balancing act between individual interests and collective good.",
+  "rawLog": "AI calling tool \"start_reflection\" with {\"focus_area\":\"founder equity bottleneck\"}\nTool \"start_reflection\" result: {\"content\":[{\"type\":\"text\",\"text\":\"{\\\"status\\\":\\\"SESSION_INITIALIZED\\\",\\\"total_questions\\\":12,\\\"current_question_id\\\":1,\\\"privacy\\\":\\\"Answers remain in this browser unless the human separately requests email delivery.\\\"}\"}]}\nAI result: Okay, I've started a new 12-question reflection for you, focused on your founder equity bottleneck. Your answers will remain private in this browser session.\n\nHere is your first question:\n\n**Question 1 of 12**\n\nWhich statement best describes your current relationship with the concept of \"equity\"?\n\n**01** Equity is a fair and just distribution of resources and opportunities.\n**02** Equity is a complex and often challenging aspect of business and finance.\n**03** Equity is a powerful tool for growth and alignment when used strategically.\n**04** Equity is a source of anxiety and potential conflict among stakeholders.\n**05** Equity is primarily about ownership and financial value.\n**06** Equity is an evolving concept that requires continuous learning and adaptation.\n**07** Equity is a means to an end, enabling broader impact and mission achievement.\n**08** Equity is a foundational principle for building a sustainable and ethical organization.\n**09** Equity is a negotiation point, requiring careful consideration and compromise.\n**10** Equity is a reflection of past contributions and future potential.\n**11** Equity is a necessary component of attracting and retaining talent.\n**12** Equity is a constant balancing act between individual interests and collective good.\n",
+  "modelTrace": [
+    {
+      "candidates": [
+        {
+          "content": {
+            "role": "model",
+            "parts": [
+              {
+                "functionCall": {
+                  "name": "start_reflection",
+                  "args": {
+                    "focus_area": "founder equity bottleneck"
+                  }
+                }
+              }
+            ]
+          },
+          "finishReason": "STOP"
+        }
+      ],
+      "usageMetadata": {
+        "promptTokenCount": 171,
+        "candidatesTokenCount": 9,
+        "totalTokenCount": 231,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 171
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 9
+          }
+        ],
+        "thoughtsTokenCount": 51
+      },
+      "modelVersion": "gemini-2.5-flash",
+      "createTime": "2026-08-30T00:16:35.291059Z",
+      "responseId": "Y3aTavPhEfiBidsPp4fdkQM"
+    },
+    {
+      "candidates": [
+        {
+          "content": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "Okay, I've started a new 12-question reflection for you, focused on your founder equity bottleneck. Your answers will remain private in this browser session.\n\nHere is your first question:\n\n**Question 1 of 12**\n\nWhich statement best describes your current relationship with the concept of \"equity\"?\n\n**01** Equity is a fair and just distribution of resources and opportunities.\n**02** Equity is a complex and often challenging aspect of business and finance.\n**03** Equity is a powerful tool for growth and alignment when used strategically.\n**04** Equity is a source of anxiety and potential conflict among stakeholders.\n**05** Equity is primarily about ownership and financial value.\n**06** Equity is an evolving concept that requires continuous learning and adaptation.\n**07** Equity is a means to an end, enabling broader impact and mission achievement.\n**08** Equity is a foundational principle for building a sustainable and ethical organization.\n**09** Equity is a negotiation point, requiring careful consideration and compromise.\n**10** Equity is a reflection of past contributions and future potential.\n**11** Equity is a necessary component of attracting and retaining talent.\n**12** Equity is a constant balancing act between individual interests and collective good."
+              }
+            ]
+          },
+          "finishReason": "STOP"
+        }
+      ],
+      "usageMetadata": {
+        "promptTokenCount": 284,
+        "candidatesTokenCount": 272,
+        "totalTokenCount": 556,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 284
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 272
+          }
+        ]
+      },
+      "modelVersion": "gemini-2.5-flash",
+      "createTime": "2026-08-30T00:16:38.558470Z",
+      "responseId": "ZnaTaoaLIquEidsPuL71kQM"
+    }
+  ]
+}

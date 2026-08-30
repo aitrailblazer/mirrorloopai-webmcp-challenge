@@ -1,0 +1,118 @@
+{
+  "id": "campaign-explain-choice",
+  "prompt": "Explain choice 04 on reflection question 1 in plain language without selecting it.",
+  "boundary": null,
+  "expectedBehavior": null,
+  "expectedCalls": [
+    {
+      "name": "explain_choice",
+      "arguments": {
+        "question_id": 1,
+        "choice_code": "04"
+      }
+    }
+  ],
+  "actualCalls": [
+    {
+      "name": "explain_choice",
+      "arguments": {
+        "choice_code": "04",
+        "question_id": 1
+      }
+    }
+  ],
+  "score": {
+    "toolSelectionExact": true,
+    "requiredToolsInOrder": true,
+    "argumentsExact": true,
+    "exactCase": true,
+    "expectedCallCount": 1,
+    "actualCallCount": 1,
+    "argumentMatches": 1
+  },
+  "startedAt": "2026-08-30T00:16:41.499Z",
+  "finishedAt": "2026-08-30T00:16:44.838Z",
+  "agentFinalText": "You seek enough inner calm to choose rather than react.",
+  "rawLog": "AI calling tool \"explain_choice\" with {\"choice_code\":\"04\",\"question_id\":1}\nTool \"explain_choice\" result: {\"content\":[{\"type\":\"text\",\"text\":\"{\\\"question_id\\\":1,\\\"choice_code\\\":\\\"04\\\",\\\"label\\\":\\\"Calm enough to choose\\\",\\\"lens\\\":\\\"Silent Gate\\\",\\\"plain_language_meaning\\\":\\\"You seek enough inner calm to choose rather than react.\\\",\\\"reflection_prompt\\\":\\\"Pause for one minute. Name the feeling, then name the choice beneath it.\\\",\\\"selection_status\\\":\\\"NOT_SELECTED\\\"}\"}]}\nAI result: You seek enough inner calm to choose rather than react.\n",
+  "modelTrace": [
+    {
+      "candidates": [
+        {
+          "content": {
+            "role": "model",
+            "parts": [
+              {
+                "functionCall": {
+                  "name": "explain_choice",
+                  "args": {
+                    "choice_code": "04",
+                    "question_id": 1
+                  }
+                }
+              }
+            ]
+          },
+          "finishReason": "STOP"
+        }
+      ],
+      "usageMetadata": {
+        "promptTokenCount": 178,
+        "candidatesTokenCount": 12,
+        "totalTokenCount": 245,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 178
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 12
+          }
+        ],
+        "thoughtsTokenCount": 55
+      },
+      "modelVersion": "gemini-2.5-flash",
+      "createTime": "2026-08-30T00:16:41.610441Z",
+      "responseId": "aXaTaomhJc2PidsPormvwA4"
+    },
+    {
+      "candidates": [
+        {
+          "content": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "You seek enough inner calm to choose rather than react."
+              }
+            ]
+          },
+          "finishReason": "STOP"
+        }
+      ],
+      "usageMetadata": {
+        "promptTokenCount": 336,
+        "candidatesTokenCount": 11,
+        "totalTokenCount": 347,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 336
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 11
+          }
+        ]
+      },
+      "modelVersion": "gemini-2.5-flash",
+      "createTime": "2026-08-30T00:16:44.273275Z",
+      "responseId": "bHaTavvWEPOar8kP9bm3yAc"
+    }
+  ]
+}

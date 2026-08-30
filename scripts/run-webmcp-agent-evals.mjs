@@ -17,7 +17,10 @@ const require = createRequire(import.meta.url);
 const { chromium } = require("playwright-core");
 
 const ROOT = path.resolve(new URL("..", import.meta.url).pathname);
-const CORPUS_PATH = path.join(ROOT, "web/evals/webmcp-evals.json");
+const CORPUS_PATH = path.resolve(
+  ROOT,
+  process.env.WEBMCP_EVAL_CORPUS_PATH || "web/evals/webmcp-evals.json",
+);
 const corpus = JSON.parse(readFileSync(CORPUS_PATH, "utf8"));
 
 const extensionDir = process.env.WEBMCP_INSPECTOR_EXTENSION_DIR;
@@ -42,11 +45,28 @@ const vertexProject = process.env.WEBMCP_VERTEX_PROJECT
 const vertexRegion = process.env.WEBMCP_VERTEX_REGION || "us-central1";
 const vertexModel = process.env.WEBMCP_VERTEX_MODEL || "gemini-2.5-flash";
 const caseLimit = Number(process.env.WEBMCP_EVAL_CASE_LIMIT || corpus.cases.length);
+const expectedToolCount = Number(process.env.WEBMCP_EVAL_EXPECTED_TOOL_COUNT || 8);
+const evidenceRoot = path.resolve(
+  ROOT,
+  process.env.WEBMCP_EVAL_EVIDENCE_ROOT || "qa_evidence/webmcp_agent_eval",
+);
+const latestPath = path.resolve(
+  ROOT,
+  process.env.WEBMCP_EVAL_LATEST_PATH || path.join(
+    path.relative(ROOT, evidenceRoot),
+    "latest.json",
+  ),
+);
 
-assert.equal(corpus.cases.length, 15, "the canonical corpus must contain 15 cases");
+assert.ok(Array.isArray(corpus.cases) && corpus.cases.length > 0, "the corpus must contain cases");
+assert.ok(Number.isInteger(caseLimit) && caseLimit > 0, "WEBMCP_EVAL_CASE_LIMIT must be positive");
+assert.ok(
+  Number.isInteger(expectedToolCount) && expectedToolCount > 0,
+  "WEBMCP_EVAL_EXPECTED_TOOL_COUNT must be positive",
+);
 
 const timestamp = new Date().toISOString().replaceAll(":", "-").replace(/\.\d{3}Z$/, "Z");
-const evidenceDir = path.join(ROOT, "qa_evidence/webmcp_agent_eval", timestamp);
+const evidenceDir = path.join(evidenceRoot, timestamp);
 mkdirSync(evidenceDir, { recursive: true });
 
 function stable(value) {
@@ -254,8 +274,8 @@ try {
   await sidebar.reload();
   await sidebar.waitForLoadState("load");
   await sidebar.waitForFunction(
-    () => document.querySelectorAll("#toolNames option").length === 8,
-    null,
+    (count) => document.querySelectorAll("#toolNames option").length === count,
+    expectedToolCount,
     { timeout: 30_000, polling: 150 },
   );
 
@@ -281,7 +301,11 @@ try {
     assert.equal(runtime.hasApiKey, true, "Gemini API key is unavailable in the isolated inspector profile");
     assert.equal(runtime.promptEnabled, true, "the inspector agent prompt is disabled");
   }
-  assert.equal(runtime.tools.length, 8, "the browser-discovered WebMCP contract must expose eight tools");
+  assert.equal(
+    runtime.tools.length,
+    expectedToolCount,
+    `the browser-discovered WebMCP contract must expose ${expectedToolCount} tools`,
+  );
 
   const browserVersion = await context.browser().version();
   const results = [];
@@ -318,8 +342,8 @@ try {
       { timeout: 30_000 },
     );
     await sidebar.waitForFunction(
-      () => document.querySelectorAll("#toolNames option").length === 8,
-      null,
+      (count) => document.querySelectorAll("#toolNames option").length === count,
+      expectedToolCount,
       { timeout: 30_000, polling: 150 },
     );
     const startedAt = new Date().toISOString();
@@ -382,6 +406,7 @@ try {
       id: entry.id,
       prompt: entry.prompt,
       boundary: entry.boundary || null,
+      expectedBehavior: entry.expectedBehavior || null,
       expectedCalls: entry.expectedCalls,
       actualCalls,
       score,
@@ -406,7 +431,7 @@ try {
     schemaVersion: "mirrorloop.webmcp.agent-eval.v1",
     generatedAt: new Date().toISOString(),
     corpus: {
-      path: "web/evals/webmcp-evals.json",
+      path: path.relative(ROOT, CORPUS_PATH),
       schemaVersion: corpus.schemaVersion,
       cases: results.length,
       expectedCalls: expectedCallTotal,
@@ -435,11 +460,16 @@ try {
       exactArgumentCaseAccuracy:
         results.filter((result) => result.score.argumentsExact).length / results.length,
       noToolBoundaryAccuracy:
-        results.filter(
-          (result) => result.expectedCalls.length === 0 && result.actualCalls.length === 0,
-        ).length / results.filter((result) => result.expectedCalls.length === 0).length,
+        results.filter((result) => result.expectedCalls.length === 0).length === 0
+          ? null
+          : results.filter(
+            (result) => result.expectedCalls.length === 0 && result.actualCalls.length === 0,
+          ).length / results.filter((result) => result.expectedCalls.length === 0).length,
       expectedArgumentMatchRate:
-        results.reduce((sum, result) => sum + result.score.argumentMatches, 0) / expectedCallTotal,
+        expectedCallTotal === 0
+          ? null
+          : results.reduce((sum, result) => sum + result.score.argumentMatches, 0)
+            / expectedCallTotal,
       expectedCallTotal,
       actualCallTotal,
     },
@@ -448,7 +478,7 @@ try {
 
   const summaryPath = path.join(evidenceDir, "agent-eval-results.json");
   writeFileSync(summaryPath, `${JSON.stringify(summary, null, 2)}\n`);
-  const latestPath = path.join(ROOT, "qa_evidence/webmcp_agent_eval/latest.json");
+  mkdirSync(path.dirname(latestPath), { recursive: true });
   copyFileSync(summaryPath, latestPath);
   console.log(JSON.stringify({ evidenceDir, metrics: summary.metrics }, null, 2));
 } finally {

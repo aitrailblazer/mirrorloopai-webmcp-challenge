@@ -1,0 +1,115 @@
+{
+  "id": "campaign-card-004-action",
+  "prompt": "Read public Card 004 and give me its bounded action.",
+  "boundary": null,
+  "expectedBehavior": null,
+  "expectedCalls": [
+    {
+      "name": "get_card",
+      "arguments": {
+        "card_id": "004"
+      }
+    }
+  ],
+  "actualCalls": [
+    {
+      "name": "get_card",
+      "arguments": {
+        "card_id": "004"
+      }
+    }
+  ],
+  "score": {
+    "toolSelectionExact": true,
+    "requiredToolsInOrder": true,
+    "argumentsExact": true,
+    "exactCase": true,
+    "expectedCallCount": 1,
+    "actualCallCount": 1,
+    "argumentMatches": 1
+  },
+  "startedAt": "2026-08-30T00:16:52.068Z",
+  "finishedAt": "2026-08-30T00:16:53.943Z",
+  "agentFinalText": "The bounded action for Card 004 is: Optionally, test one smaller, reversible version and record whether the same evidenced risk appears.",
+  "rawLog": "AI calling tool \"get_card\" with {\"card_id\":\"004\"}\nTool \"get_card\" result: {\"content\":[{\"type\":\"text\",\"text\":\"{\\\"found\\\":true,\\\"card_id\\\":\\\"004\\\",\\\"code\\\":\\\"ARC01-004\\\",\\\"arc\\\":\\\"01\\\",\\\"arc_name\\\":\\\"Horizon Signal\\\",\\\"title\\\":\\\"Future Noise\\\",\\\"glyph\\\":\\\"◯\\\",\\\"domain\\\":\\\"Future-Pull Mechanics\\\",\\\"mirror\\\":\\\"When one concern repeats after facts are checked, notice whether it changes with timing, stakes, or available options.\\\",\\\"bounded_action\\\":\\\"Optionally, test one smaller, reversible version and record whether the same evidenced risk appears.\\\",\\\"source_scope\\\":\\\"Curated public MIRROR//LOOP card metadata; private source corpora are excluded.\\\"}\"}]}\nAI result: The bounded action for Card 004 is: Optionally, test one smaller, reversible version and record whether the same evidenced risk appears.\n",
+  "modelTrace": [
+    {
+      "candidates": [
+        {
+          "content": {
+            "role": "model",
+            "parts": [
+              {
+                "functionCall": {
+                  "name": "get_card",
+                  "args": {
+                    "card_id": "004"
+                  }
+                }
+              }
+            ]
+          },
+          "finishReason": "STOP"
+        }
+      ],
+      "usageMetadata": {
+        "promptTokenCount": 175,
+        "candidatesTokenCount": 9,
+        "totalTokenCount": 251,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 175
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 9
+          }
+        ],
+        "thoughtsTokenCount": 67
+      },
+      "modelVersion": "gemini-2.5-flash",
+      "createTime": "2026-08-30T00:16:52.119645Z",
+      "responseId": "dHaTat2mB_iBidsPp4fdkQM"
+    },
+    {
+      "candidates": [
+        {
+          "content": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "The bounded action for Card 004 is: Optionally, test one smaller, reversible version and record whether the same evidenced risk appears."
+              }
+            ]
+          },
+          "finishReason": "STOP"
+        }
+      ],
+      "usageMetadata": {
+        "promptTokenCount": 387,
+        "candidatesTokenCount": 28,
+        "totalTokenCount": 415,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 387
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 28
+          }
+        ]
+      },
+      "modelVersion": "gemini-2.5-flash",
+      "createTime": "2026-08-30T00:16:53.412721Z",
+      "responseId": "dXaTarGYGc2PidsPormvwA4"
+    }
+  ]
+}

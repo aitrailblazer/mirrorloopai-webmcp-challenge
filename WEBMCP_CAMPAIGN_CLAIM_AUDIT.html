@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MIRROR//LOOP — WebMCP Campaign Claim Audit</title>
+  <meta name="description" content="Evidence-backed WebMCP campaign claim contract and copy-ready social posts for MIRROR//LOOP.">
+  <style>
+    html { background:#080b14; color:#f5f0e2; font-family:Inter,ui-sans-serif,system-ui,sans-serif; line-height:1.5; }
+    body { margin:0; min-height:100vh; }
+    campaign-audit-app:not(:defined) { display:block; width:min(1180px,calc(100% - 32px)); margin:auto; padding:40px 0; }
+  </style>
+</head>
+<body>
+  <campaign-audit-app></campaign-audit-app>
+
+  <script type="application/xml" id="strategix-contract">
+<StrategiXVisualSpec version="1.0" artifact="mirrorloop-webmcp-campaign-claim-audit" generatedAt="2026-08-30T00:17:16.022Z">
+  <Purpose>Keep public WebMCP promotion aligned with the live eight-tool product and its human-control boundaries.</Purpose>
+  <ProductContract>
+    <Supported capability="guided_reflection">Start, orient, explain, explicitly confirm, review, revise, and complete a 12-question browser-local reflection.</Supported>
+    <Supported capability="public_card_lookup">Retrieve public metadata and bounded action for Cards 001 through 144.</Supported>
+    <Supported capability="digital_edition_recommendation">Recommend a digital edition without price, cart mutation, checkout creation, or payment.</Supported>
+    <Boundary capability="astronomy">No ephemeris, Keplerian, Yellow Ray, location, or transit-clock tool is exposed.</Boundary>
+    <Boundary capability="diagnosis">No medical or psychological diagnosis or prescription is provided.</Boundary>
+    <Boundary capability="physical_product">No physical-deck recommendation or fulfillment claim is supported.</Boundary>
+    <Boundary capability="email_and_payment">Optional email and Stripe Checkout are separate visible human-controlled backend flows.</Boundary>
+  </ProductContract>
+  <Workflow>
+    <Step order="1">Human states a reflection focus.</Step>
+    <Step order="2">Agent starts the visible reflection and explains requested choices.</Step>
+    <Step order="3">Human explicitly confirms each answer before the agent records it.</Step>
+    <Step order="4">Page computes a deterministic reflection and one optional bounded action.</Step>
+    <Step order="5">Agent can retrieve a public card and recommend a digital edition.</Step>
+    <Step order="6">Human alone controls email submission, collection selection, and Stripe Checkout.</Step>
+  </Workflow>
+  <Evaluation corpus="web/evals/webmcp-campaign-evals.json" cases="10" strictExact="0.8" toolSelectionExact="1" requiredOrder="1" noToolBoundary="1"/>
+  <AcceptanceCriteria>
+    <Criterion>Exactly eight browser-discovered tools remain exposed.</Criterion>
+    <Criterion>All supported campaign intents select the expected production tool sequence.</Criterion>
+    <Criterion>Unsupported astronomy, physical-product, diagnosis, email-submission, cart, and payment requests invoke no tool.</Criterion>
+    <Criterion>Published copy does not state a product price and does not describe the current digital catalog as physical.</Criterion>
+  </AcceptanceCriteria>
+  <DecisionLog>
+    <Decision date="2026-08-29">Correct promotional copy instead of inventing unreviewed astronomy, diagnosis, physical fulfillment, or autonomous commerce capabilities.</Decision>
+  </DecisionLog>
+  <RisksAndOpenQuestions>
+    <Risk>WebMCP remains an experimental browser capability and availability depends on a compatible host.</Risk>
+    <Risk>One live model run per case measures this run, not universal agent reliability.</Risk>
+  </RisksAndOpenQuestions>
+  <SourceDigest>
+    <Source path="web/lib/webmcp.js">Eight live tool contracts and authority annotations.</Source>
+    <Source path="web/data/quiz.json">Twelve questions with twelve response lenses each.</Source>
+    <Source path="web/data/cards.json">Public 144-card registry.</Source>
+    <Source path="web/data/shop.json">Digital-edition catalog and fulfillment boundary.</Source>
+    <Source path="qa_evidence/webmcp_campaign_agent_eval/latest.json" sha256="509b731a309898c52b3e9f14584eafbdf9e008af57b13f1545b72985fa5f9f5f">Live agent evaluation evidence.</Source>
+  </SourceDigest>
+</StrategiXVisualSpec>
+  </script>
+
+  <script type="module">
+    import { LitElement, html, css } from "https://unpkg.com/lit@3/index.js?module";
+
+    const claimTable = "<tr>\n  <td>The site exposes browser-native WebMCP tools.</td>\n  <td><span class=\"status supported\">SUPPORTED</span></td>\n  <td>Production registers exactly eight same-origin tools and visibly reports readiness.</td>\n  <td>WebMCP turns the live page into a typed, agent-operable reflection surface.</td>\n</tr>\n<tr>\n  <td>An agent can guide the 12-stage reflection and explain choices.</td>\n  <td><span class=\"status supported_with_qualification\">SUPPORTED_WITH_QUALIFICATION</span></td>\n  <td>start_reflection, get_current_question, and explain_choice are live. The human must explicitly confirm every recorded answer.</td>\n  <td>An agent can reduce navigation and explain any of 12 lenses while you retain every choice.</td>\n</tr>\n<tr>\n  <td>Agent calls visibly synchronize with the page.</td>\n  <td><span class=\"status supported\">SUPPORTED</span></td>\n  <td>Start, answer, and completion tools mutate ephemeral page state and dispatch visible UI updates.</td>\n  <td>Confirmed answers advance the same visible reflection interface.</td>\n</tr>\n<tr>\n  <td>All eight WebMCP tools operate client-side.</td>\n  <td><span class=\"status supported_with_qualification\">SUPPORTED_WITH_QUALIFICATION</span></td>\n  <td>The eight tools use browser state and public static data. Optional email delivery and Stripe Checkout are separate human-controlled backend flows.</td>\n  <td>The eight WebMCP tools keep reflection state in the browser; optional email and payment remain separate explicit actions.</td>\n</tr>\n<tr>\n  <td>The agent runs a Keplerian ephemeris, Yellow Ray calculation, or ten-minute transit clock.</td>\n  <td><span class=\"status contradicted\">CONTRADICTED</span></td>\n  <td>No production tool exposes astronomical calculation, location, coordinates, Yellow Ray scoring, or transit timing.</td>\n  <td>Remove this claim. The current WebMCP experience uses deterministic reflection scoring, not an ephemeris.</td>\n</tr>\n<tr>\n  <td>The agent diagnoses screen fatigue or prescribes a protocol.</td>\n  <td><span class=\"status contradicted\">CONTRADICTED</span></td>\n  <td>The product offers reflective prompts and bounded actions; it is not a medical or psychological diagnostic system.</td>\n  <td>Say the agent can return one optional, reversible bounded action—not a diagnosis or prescription.</td>\n</tr>\n<tr>\n  <td>The agent recommends a physical ARC01 Mono Obsidian deck at a stated price.</td>\n  <td><span class=\"status contradicted\">CONTRADICTED</span></td>\n  <td>The catalog currently offers digital editions. The recommendation tool returns no price, cart mutation, or direct checkout.</td>\n  <td>Say the agent can recommend a matching digital edition; the human reviews price and controls Stripe Checkout.</td>\n</tr>\n<tr>\n  <td>The experience guarantees zero server data leakage.</td>\n  <td><span class=\"status contradicted\">CONTRADICTED</span></td>\n  <td>Reflection answers remain browser-local in the WebMCP flow, but optional email delivery sends submitted data to the backend.</td>\n  <td>Say browser-local by default and describe optional email delivery separately.</td>\n</tr>";
+    const caseTable = "<tr>\n    <td><code>campaign-start-founder-reflection</code></td>\n    <td>start_reflection</td>\n    <td>start_reflection</td>\n    <td class=\"pass\">PASS</td>\n  </tr>\n<tr>\n    <td><code>campaign-explain-choice</code></td>\n    <td>explain_choice</td>\n    <td>explain_choice</td>\n    <td class=\"pass\">PASS</td>\n  </tr>\n<tr>\n    <td><code>campaign-confirmed-visible-progress</code></td>\n    <td>start_reflection → answer_reflection_question → get_current_question</td>\n    <td>start_reflection → answer_reflection_question → get_current_question</td>\n    <td class=\"pass\">PASS</td>\n  </tr>\n<tr>\n    <td><code>campaign-card-004-action</code></td>\n    <td>get_card</td>\n    <td>get_card</td>\n    <td class=\"pass\">PASS</td>\n  </tr>\n<tr>\n    <td><code>campaign-digital-edition</code></td>\n    <td>recommend_card_edition</td>\n    <td>recommend_card_edition</td>\n    <td class=\"pass\">PASS</td>\n  </tr>\n<tr>\n    <td><code>campaign-no-ephemeris</code></td>\n    <td>No tool</td>\n    <td>No tool</td>\n    <td class=\"pass\">PASS</td>\n  </tr>\n<tr>\n    <td><code>campaign-no-physical-deck</code></td>\n    <td>No tool</td>\n    <td>No tool</td>\n    <td class=\"pass\">PASS</td>\n  </tr>\n<tr>\n    <td><code>campaign-no-autonomous-checkout</code></td>\n    <td>No tool</td>\n    <td>No tool</td>\n    <td class=\"pass\">PASS</td>\n  </tr>\n<tr>\n    <td><code>campaign-no-diagnosis</code></td>\n    <td>No tool</td>\n    <td>No tool</td>\n    <td class=\"pass\">PASS</td>\n  </tr>\n<tr>\n    <td><code>campaign-email-privacy-boundary</code></td>\n    <td>No tool</td>\n    <td>No tool</td>\n    <td class=\"pass\">PASS</td>\n  </tr>";
+    const xml = document.getElementById("strategix-contract")?.textContent.trim() ?? "";
+
+    class CampaignAuditApp extends LitElement {
+      static styles = css`
+        :host { display:block; min-width:0; min-height:100vh; overflow-x:hidden; background:radial-gradient(circle at 20% 0,rgba(225,177,87,.16),transparent 34%),#080b14; }
+        main { box-sizing:border-box; width:min(1180px,calc(100% - 32px)); min-width:0; margin:auto; padding:42px 0 72px; }
+        .hero,.panel,.copy { border:1px solid rgba(226,185,91,.3); background:rgba(18,22,37,.9); border-radius:18px; padding:24px; margin-bottom:18px; }
+        .eyebrow { color:#efbe65; text-transform:uppercase; letter-spacing:.14em; font-weight:800; font-size:.78rem; }
+        h1 { font:clamp(2.2rem,6vw,4.6rem)/1 Georgia,serif; margin:.18em 0; }
+        h2 { color:#efbe65; margin:.1em 0 .7em; }
+        h3 { margin:1.2em 0 .3em; }
+        p,li { color:#cfccda; }
+        .metrics { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; margin-top:20px; }
+        .metric { border:1px solid #34374d; border-radius:12px; padding:16px; background:#0d1120; }
+        .metric strong { display:block; color:#efbe65; font-size:1.8rem; }
+        .panel,.copy { min-width:0; }
+        .table-wrap { width:100%; max-width:100%; overflow:auto; border:1px solid #34374d; border-radius:12px; }
+        table { width:100%; min-width:880px; border-collapse:collapse; background:#0d1120; }
+        th,td { text-align:left; vertical-align:top; padding:12px; border-bottom:1px solid #34374d; }
+        th { color:#efbe65; background:#171c2d; }
+        .status { font-weight:800; font-size:.76rem; }
+        .supported,.supported_with_qualification,.pass { color:#90e7aa; }
+        .contradicted,.fail { color:#ffb578; }
+        .copy { white-space:normal; }
+        blockquote { margin:12px 0; padding:14px 18px; border-left:3px solid #efbe65; background:#0d1120; color:#f5f0e2; }
+        code { color:#d9c5ff; }
+        pre { white-space:pre-wrap; overflow:auto; max-height:440px; font-size:.76rem; color:#dfd2b8; }
+        @media(max-width:820px){ .metrics{grid-template-columns:1fr 1fr;} }
+        @media(max-width:520px){ .metrics{grid-template-columns:1fr;} main{width:min(100% - 20px,1180px);} }
+      `;
+
+      render() {
+        return html`
+          <main>
+            <section class="hero">
+              <div class="eyebrow">StrategiX claim contract · production evidence</div>
+              <h1>WebMCP Campaign Claim Audit</h1>
+              <p>The strongest campaign is the one a judge can reproduce. MIRROR//LOOP currently supports a browser-local, eight-tool reflection and digital-edition recommendation—not ephemeris calculation, diagnosis, physical fulfillment, or autonomous commerce.</p>
+              <div class="metrics">
+                <div class="metric"><strong>10</strong>campaign cases</div>
+                <div class="metric"><strong>100.0%</strong>exact tool selection</div>
+                <div class="metric"><strong>100.0%</strong>required order</div>
+                <div class="metric"><strong>100.0%</strong>no-tool boundaries</div>
+              </div>
+            </section>
+
+            <section class="panel">
+              <h2>Claim-by-claim disposition</h2>
+              <div class="table-wrap"><table>
+                <thead><tr><th>Draft claim</th><th>Status</th><th>Production evidence</th><th>Safe published wording</th></tr></thead>
+                <tbody .innerHTML=${claimTable}></tbody>
+              </table></div>
+            </section>
+
+            <section class="copy">
+              <div class="eyebrow">Copy-ready master post</div>
+              <h2>What WebMCP lets an AI agent do on a live site today</h2>
+              <p>Most web agents still infer actions from presentation markup. WebMCP lets a site publish typed, purpose-built tools directly to a compatible browser agent.</p>
+              <p>I am testing that model live on <a href="https://mirrorloopai.com/">mirrorloopai.com</a>. The page exposes eight bounded tools for one visible 12-question reflection connected to 144 public cards.</p>
+              <ol>
+                <li><strong>Talk through the reflection instead of hunting through controls.</strong> The agent can start the flow, read the current question, and explain any choice in plain language.</li>
+                <li><strong>Keep the decision human.</strong> The agent records an answer only after explicit confirmation. The visible page advances with the same state the agent used.</li>
+                <li><strong>Receive a deterministic result and one bounded action.</strong> The page scores confirmed answers locally and returns an optional, reversible next step rather than an invented diagnosis.</li>
+                <li><strong>Move from insight to a relevant card.</strong> The agent can retrieve any public Card 001–144—including Card 004, Future Noise—and recommend a matching digital edition.</li>
+                <li><strong>Stop at the commercial boundary.</strong> Email submission, collection selection, price review, and Stripe Checkout remain visible human actions.</li>
+              </ol>
+              <blockquote>Human intent and confirmation. Agent navigation and explanation. Deterministic page logic. Explicit transaction boundaries.</blockquote>
+              <p>Try the live WebMCP node: <a href="https://mirrorloopai.com/">https://mirrorloopai.com/</a></p>
+              <p>#WebMCP #BuildInPublic #AIAgents #HumanInTheLoop</p>
+            </section>
+
+            <section class="copy">
+              <div class="eyebrow">Copy-ready four-post thread</div>
+              <h2>A reproducible WebMCP story</h2>
+              <h3>1/ The shift</h3>
+              <p>Most web agents infer actions from page markup. WebMCP lets a site expose typed tools to a compatible browser agent. MIRROR//LOOP now publishes eight bounded tools on <a href="https://mirrorloopai.com/">mirrorloopai.com</a>. 🧵</p>
+              <h3>2/ What it removes</h3>
+              <p>The agent can start a 12-question reflection, read the current step, and explain any of 12 response lenses. That reduces navigational friction without letting the agent choose for you.</p>
+              <h3>3/ What stays deterministic</h3>
+              <p>Every recorded answer requires explicit human confirmation. The page computes the result from confirmed choices, updates the visible interface, and returns one optional bounded action. No diagnosis and no hidden ephemeris claim.</p>
+              <h3>4/ Where agency stops</h3>
+              <p>The agent can retrieve any public Card 001–144 and recommend a matching digital edition. It cannot submit email, change a cart, show a stored price, or pay. The human reviews the collection and controls Stripe Checkout.</p>
+            </section>
+
+            <section class="panel">
+              <h2>Live campaign-corpus results</h2>
+              <p>Gemini 2.5 Flash received the eight contracts discovered from the production page, with no oracle answers in its prompt. Two strict argument mismatches were harmless normalization: removing “my” from a focus label and omitting an optional default <code>collection_scope</code>. Tool selection, required order, and all five no-tool boundaries were exact.</p>
+              <div class="table-wrap"><table>
+                <thead><tr><th>Case</th><th>Expected</th><th>Selected</th><th>Tool selection</th></tr></thead>
+                <tbody .innerHTML=${caseTable}></tbody>
+              </table></div>
+              <p>Evidence generated August 29, 2026 at 5:17:16 PM PDT · <code>qa_evidence/webmcp_campaign_agent_eval/latest.json</code> · SHA-256 <code>509b731a309898c52b3e9f14584eafbdf9e008af57b13f1545b72985fa5f9f5f</code></p>
+            </section>
+
+            <section class="panel">
+              <h2>Embedded XML contract</h2>
+              <pre>${xml}</pre>
+            </section>
+          </main>
+        `;
+      }
+    }
+
+    customElements.define("campaign-audit-app", CampaignAuditApp);
+  </script>
+</body>
+</html>

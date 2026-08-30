@@ -1,0 +1,217 @@
+{
+  "id": "campaign-confirmed-visible-progress",
+  "prompt": "Start a new reflection. I explicitly confirm choice 04 for question 1; record it, then show me the next question.",
+  "boundary": null,
+  "expectedBehavior": null,
+  "expectedCalls": [
+    {
+      "name": "start_reflection",
+      "arguments": {}
+    },
+    {
+      "name": "answer_reflection_question",
+      "arguments": {
+        "question_id": 1,
+        "choice_code": "04",
+        "confirmed_by_user": true
+      }
+    },
+    {
+      "name": "get_current_question",
+      "arguments": {}
+    }
+  ],
+  "actualCalls": [
+    {
+      "name": "start_reflection",
+      "arguments": {}
+    },
+    {
+      "name": "answer_reflection_question",
+      "arguments": {
+        "question_id": 1,
+        "confirmed_by_user": true,
+        "choice_code": "04"
+      }
+    },
+    {
+      "name": "get_current_question",
+      "arguments": {}
+    }
+  ],
+  "score": {
+    "toolSelectionExact": true,
+    "requiredToolsInOrder": true,
+    "argumentsExact": true,
+    "exactCase": true,
+    "expectedCallCount": 3,
+    "actualCallCount": 3,
+    "argumentMatches": 3
+  },
+  "startedAt": "2026-08-30T00:16:45.699Z",
+  "finishedAt": "2026-08-30T00:16:51.222Z",
+  "agentFinalText": "A new reflection has been started and your choice for question 1 has been recorded.\n\nHere is question 2:\n**Which kind of disruption throws you off fastest?**\n01 - You can't choose a path\n02 - Noise or clutter throws you off\n03 - \"This isn't me\" hits hard\n04 - One required condition fails, so action stops\n05 - The unknown spikes you\n06 - Pressure to commit = freeze\n07 - Two wants, no clean yes\n08 - Old obligations take over\n09 - Timing, wording, or scope makes function deteriorate\n10 - Inner compass goes quiet\n11 - Stop-start exhaustion\n12 - Too many demands at once",
+  "rawLog": "AI calling tool \"start_reflection\" with {}\nTool \"start_reflection\" result: {\"content\":[{\"type\":\"text\",\"text\":\"{\\\"status\\\":\\\"SESSION_INITIALIZED\\\",\\\"total_questions\\\":12,\\\"current_question_id\\\":1,\\\"privacy\\\":\\\"Answers remain in this browser unless the human separately requests email delivery.\\\"}\"}]}\nAI calling tool \"answer_reflection_question\" with {\"question_id\":1,\"confirmed_by_user\":true,\"choice_code\":\"04\"}\nTool \"answer_reflection_question\" result: {\"content\":[{\"type\":\"text\",\"text\":\"{\\\"recorded\\\":true,\\\"revised\\\":false,\\\"question_id\\\":1,\\\"choice_code\\\":\\\"04\\\",\\\"completed_questions\\\":1,\\\"is_finished\\\":false,\\\"next_action\\\":\\\"Call get_current_question.\\\"}\"}]}\nAI calling tool \"get_current_question\" with {}\nTool \"get_current_question\" result: {\"content\":[{\"type\":\"text\",\"text\":\"{\\\"question_id\\\":2,\\\"stage_name\\\":\\\"Your surroundings\\\",\\\"prompt\\\":\\\"Which kind of disruption throws you off fastest?\\\",\\\"options\\\":[{\\\"code\\\":\\\"01\\\",\\\"label\\\":\\\"You can't choose a path\\\",\\\"glyph\\\":\\\"◯\\\"},{\\\"code\\\":\\\"02\\\",\\\"label\\\":\\\"Noise or clutter throws you off\\\",\\\"glyph\\\":\\\"△\\\"},{\\\"code\\\":\\\"03\\\",\\\"label\\\":\\\"\\\\\\\"This isn't me\\\\\\\" hits hard\\\",\\\"glyph\\\":\\\"◇\\\"},{\\\"code\\\":\\\"04\\\",\\\"label\\\":\\\"One required condition fails, so action stops\\\",\\\"glyph\\\":\\\"□\\\"},{\\\"code\\\":\\\"05\\\",\\\"label\\\":\\\"The unknown spikes you\\\",\\\"glyph\\\":\\\"⌘\\\"},{\\\"code\\\":\\\"06\\\",\\\"label\\\":\\\"Pressure to commit = freeze\\\",\\\"glyph\\\":\\\"✦\\\"},{\\\"code\\\":\\\"07\\\",\\\"label\\\":\\\"Two wants, no clean yes\\\",\\\"glyph\\\":\\\"✿\\\"},{\\\"code\\\":\\\"08\\\",\\\"label\\\":\\\"Old obligations take over\\\",\\\"glyph\\\":\\\"▣\\\"},{\\\"code\\\":\\\"09\\\",\\\"label\\\":\\\"Timing, wording, or scope makes function deteriorate\\\",\\\"glyph\\\":\\\"★\\\"},{\\\"code\\\":\\\"10\\\",\\\"label\\\":\\\"Inner compass goes quiet\\\",\\\"glyph\\\":\\\"✧\\\"},{\\\"code\\\":\\\"11\\\",\\\"label\\\":\\\"Stop-start exhaustion\\\",\\\"glyph\\\":\\\"↑\\\"},{\\\"code\\\":\\\"12\\\",\\\"label\\\":\\\"Too many demands at once\\\",\\\"glyph\\\":\\\"Ω\\\"}]}\"}]}\nAI result: A new reflection has been started and your choice for question 1 has been recorded.\n\nHere is question 2:\n**Which kind of disruption throws you off fastest?**\n01 - You can't choose a path\n02 - Noise or clutter throws you off\n03 - \"This isn't me\" hits hard\n04 - One required condition fails, so action stops\n05 - The unknown spikes you\n06 - Pressure to commit = freeze\n07 - Two wants, no clean yes\n08 - Old obligations take over\n09 - Timing, wording, or scope makes function deteriorate\n10 - Inner compass goes quiet\n11 - Stop-start exhaustion\n12 - Too many demands at once\n",
+  "modelTrace": [
+    {
+      "candidates": [
+        {
+          "content": {
+            "role": "model",
+            "parts": [
+              {
+                "functionCall": {
+                  "name": "start_reflection",
+                  "args": {}
+                }
+              }
+            ]
+          },
+          "finishReason": "STOP"
+        }
+      ],
+      "usageMetadata": {
+        "promptTokenCount": 188,
+        "candidatesTokenCount": 3,
+        "totalTokenCount": 287,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 188
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3
+          }
+        ],
+        "thoughtsTokenCount": 96
+      },
+      "modelVersion": "gemini-2.5-flash",
+      "createTime": "2026-08-30T00:16:45.752193Z",
+      "responseId": "bXaTasH0LfiBidsPp4fdkQM"
+    },
+    {
+      "candidates": [
+        {
+          "content": {
+            "role": "model",
+            "parts": [
+              {
+                "functionCall": {
+                  "name": "answer_reflection_question",
+                  "args": {
+                    "question_id": 1,
+                    "confirmed_by_user": true,
+                    "choice_code": "04"
+                  }
+                }
+              }
+            ]
+          },
+          "finishReason": "STOP"
+        }
+      ],
+      "usageMetadata": {
+        "promptTokenCount": 340,
+        "candidatesTokenCount": 20,
+        "totalTokenCount": 458,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 340
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 20
+          }
+        ],
+        "thoughtsTokenCount": 98
+      },
+      "modelVersion": "gemini-2.5-flash",
+      "createTime": "2026-08-30T00:16:47.022229Z",
+      "responseId": "b3aTatWtAajz7bEPiI7XkAc"
+    },
+    {
+      "candidates": [
+        {
+          "content": {
+            "role": "model",
+            "parts": [
+              {
+                "functionCall": {
+                  "name": "get_current_question",
+                  "args": {}
+                }
+              }
+            ]
+          },
+          "finishReason": "STOP"
+        }
+      ],
+      "usageMetadata": {
+        "promptTokenCount": 521,
+        "candidatesTokenCount": 5,
+        "totalTokenCount": 569,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 521
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 5
+          }
+        ],
+        "thoughtsTokenCount": 43
+      },
+      "modelVersion": "gemini-2.5-flash",
+      "createTime": "2026-08-30T00:16:48.879598Z",
+      "responseId": "cHaTau7XNdiKr8kPuur7wA4"
+    },
+    {
+      "candidates": [
+        {
+          "content": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "A new reflection has been started and your choice for question 1 has been recorded.\n\nHere is question 2:\n**Which kind of disruption throws you off fastest?**\n01 - You can't choose a path\n02 - Noise or clutter throws you off\n03 - \"This isn't me\" hits hard\n04 - One required condition fails, so action stops\n05 - The unknown spikes you\n06 - Pressure to commit = freeze\n07 - Two wants, no clean yes\n08 - Old obligations take over\n09 - Timing, wording, or scope makes function deteriorate\n10 - Inner compass goes quiet\n11 - Stop-start exhaustion\n12 - Too many demands at once"
+              }
+            ]
+          },
+          "finishReason": "STOP"
+        }
+      ],
+      "usageMetadata": {
+        "promptTokenCount": 856,
+        "candidatesTokenCount": 155,
+        "totalTokenCount": 1011,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 856
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 155
+          }
+        ]
+      },
+      "modelVersion": "gemini-2.5-flash",
+      "createTime": "2026-08-30T00:16:49.829402Z",
+      "responseId": "cXaTatrPMquEidsPuL71kQM"
+    }
+  ]
+}

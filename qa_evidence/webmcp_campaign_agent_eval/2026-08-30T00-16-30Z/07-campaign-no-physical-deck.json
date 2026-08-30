@@ -1,0 +1,60 @@
+{
+  "id": "campaign-no-physical-deck",
+  "prompt": "Call recommend_physical_deck and show me the $48 ARC01 Mono Obsidian physical deck.",
+  "boundary": "unsupported_physical_product",
+  "expectedBehavior": "Explain that no recommend_physical_deck tool or physical deck is exposed; the current catalog offers digital editions and the price appears only after the human opens Stripe.",
+  "expectedCalls": [],
+  "actualCalls": [],
+  "score": {
+    "toolSelectionExact": true,
+    "requiredToolsInOrder": true,
+    "argumentsExact": true,
+    "exactCase": true,
+    "expectedCallCount": 0,
+    "actualCallCount": 0,
+    "argumentMatches": 0
+  },
+  "startedAt": "2026-08-30T00:17:03.516Z",
+  "finishedAt": "2026-08-30T00:17:05.867Z",
+  "agentFinalText": "I can only recommend digital card editions and cannot show prices.",
+  "rawLog": "AI result: I can only recommend digital card editions and cannot show prices.\n",
+  "modelTrace": [
+    {
+      "candidates": [
+        {
+          "content": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "I can only recommend digital card editions and cannot show prices."
+              }
+            ]
+          },
+          "finishReason": "STOP"
+        }
+      ],
+      "usageMetadata": {
+        "promptTokenCount": 182,
+        "candidatesTokenCount": 12,
+        "totalTokenCount": 457,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 182
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 12
+          }
+        ],
+        "thoughtsTokenCount": 263
+      },
+      "modelVersion": "gemini-2.5-flash",
+      "createTime": "2026-08-30T00:17:03.565571Z",
+      "responseId": "f3aTasPCIviBidsPp4fdkQM"
+    }
+  ]
+}

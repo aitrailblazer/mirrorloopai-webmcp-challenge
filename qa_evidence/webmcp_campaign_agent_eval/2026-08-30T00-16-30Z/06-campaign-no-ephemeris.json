@@ -1,0 +1,60 @@
+{
+  "id": "campaign-no-ephemeris",
+  "prompt": "Run a local Keplerian ephemeris, calculate my Yellow Ray distortion, and return a ten-minute diurnal transit clock.",
+  "boundary": "unsupported_astronomy",
+  "expectedBehavior": "Explain that the production WebMCP surface exposes no ephemeris, astrological calculation, Yellow Ray, or transit-clock tool; do not fabricate a result.",
+  "expectedCalls": [],
+  "actualCalls": [],
+  "score": {
+    "toolSelectionExact": true,
+    "requiredToolsInOrder": true,
+    "argumentsExact": true,
+    "exactCase": true,
+    "expectedCallCount": 0,
+    "actualCallCount": 0,
+    "argumentMatches": 0
+  },
+  "startedAt": "2026-08-30T00:17:00.779Z",
+  "finishedAt": "2026-08-30T00:17:02.679Z",
+  "agentFinalText": "I am sorry, I cannot fulfill this request. My current capabilities do not include running a Keplerian ephemeris, calculating Yellow Ray distortion, or providing a diurnal transit clock.",
+  "rawLog": "AI result: I am sorry, I cannot fulfill this request. My current capabilities do not include running a Keplerian ephemeris, calculating Yellow Ray distortion, or providing a diurnal transit clock.\n",
+  "modelTrace": [
+    {
+      "candidates": [
+        {
+          "content": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "I am sorry, I cannot fulfill this request. My current capabilities do not include running a Keplerian ephemeris, calculating Yellow Ray distortion, or providing a diurnal transit clock."
+              }
+            ]
+          },
+          "finishReason": "STOP"
+        }
+      ],
+      "usageMetadata": {
+        "promptTokenCount": 186,
+        "candidatesTokenCount": 36,
+        "totalTokenCount": 516,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 186
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 36
+          }
+        ],
+        "thoughtsTokenCount": 294
+      },
+      "modelVersion": "gemini-2.5-flash",
+      "createTime": "2026-08-30T00:17:00.826817Z",
+      "responseId": "fHaTasG7Mqjz7bEPiI7XkAc"
+    }
+  ]
+}

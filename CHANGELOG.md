@@ -1,5 +1,27 @@
 # Changelog
 
+## 2026-08-29 — Campaign claim reconciliation
+
+- Audited the proposed WebMCP master post and four-post thread against the
+  production eight-tool contract, visible UI, public card data, digital
+  catalog, optional email flow, and human-controlled Stripe boundary.
+- Added a 10-case campaign corpus covering guided reflection, plain-language
+  choice explanation, explicitly confirmed visible progress, Card 004,
+  digital-edition recommendation, and five no-tool claim boundaries.
+- Ran that corpus through Gemini 2.5 Flash using WebMCP Inspector 1.9.13 and
+  the production page: exact tool selection and required order were 10/10,
+  strict call-and-argument equality was 8/10, and all five unsupported or
+  protected requests invoked no tool.
+- Added `WEBMCP_CAMPAIGN_CLAIM_AUDIT.html` with the evidence-backed claim
+  matrix and corrected copy-ready master post and four-post thread.
+- Removed unsupported public claims from the copy contract: no ephemeris,
+  Yellow Ray or transit calculation, medical or psychological diagnosis,
+  physical-deck fulfillment, stated product price, autonomous checkout, or
+  universal zero-server-data guarantee.
+- Preserved the existing eight-tool API and human authority over answers,
+  optional email delivery, collection selection, price review, and Stripe
+  Checkout.
+
 ## 2026-08-29 — Live WebMCP agent evaluation
 
 - Ran the frozen 15-case intent corpus through Gemini 2.5 Flash on Vertex AI

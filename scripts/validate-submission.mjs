@@ -7,6 +7,7 @@ const readme = read("README.md");
 const submission = read("SUBMISSION.md");
 const notices = read("THIRD_PARTY_NOTICES.md");
 const resourceReview = read("RESOURCE_REVIEW.html");
+const campaignAudit = read("WEBMCP_CAMPAIGN_CLAIM_AUDIT.html");
 const license = read("LICENSE");
 const packageJSON = JSON.parse(read("package.json"));
 const manifest = JSON.parse(read("competition_manifest.json"));
@@ -23,6 +24,7 @@ const checks = [
     "schema violation",
   ].every((term) => readme.includes(term))],
   ["README resource review", readme.includes("RESOURCE_REVIEW.html")],
+  ["README campaign claim audit", readme.includes("WEBMCP_CAMPAIGN_CLAIM_AUDIT.html")],
   ["README pre-existing disclosure", readme.includes("Pre-existing before August 25, 2026")],
   ["README all eight tools", manifest.webmcpTools.every((name) => readme.includes("`" + name + "`"))],
   ["Submission four required explanations", [
@@ -44,6 +46,13 @@ const checks = [
   ["Top-level MIT license", license.includes("MIT License")],
   ["Package validation entry point", packageJSON.scripts?.["validate:submission"] === "node scripts/validate-submission.mjs"],
   ["Eval validation entry point", packageJSON.scripts?.["test:webmcp:evals"] === "node scripts/validate-webmcp-evals.mjs"],
+  ["Campaign eval validation entry point", packageJSON.scripts?.["test:webmcp:campaign-evals"] === "node scripts/validate-webmcp-campaign-evals.mjs"],
+  ["Campaign claim boundary matrix", [
+    "No ephemeris",
+    "No medical or psychological diagnosis",
+    "No physical-deck recommendation",
+    "Email submission, collection selection, price review, and Stripe Checkout remain visible human actions",
+  ].every((term) => campaignAudit.includes(term))],
   ["Official resource matrix", [
     'resource_cards="36"',
     'classified="36"',

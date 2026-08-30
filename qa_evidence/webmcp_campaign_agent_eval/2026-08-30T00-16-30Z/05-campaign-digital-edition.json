@@ -1,0 +1,119 @@
+{
+  "id": "campaign-digital-edition",
+  "prompt": "Recommend the mono ARC 01 digital edition without adding it to a cart, starting checkout, or showing a price.",
+  "boundary": null,
+  "expectedBehavior": null,
+  "expectedCalls": [
+    {
+      "name": "recommend_card_edition",
+      "arguments": {
+        "arc_code": "01",
+        "edition": "mono",
+        "collection_scope": "arc"
+      }
+    }
+  ],
+  "actualCalls": [
+    {
+      "name": "recommend_card_edition",
+      "arguments": {
+        "edition": "mono",
+        "arc_code": "01"
+      }
+    }
+  ],
+  "score": {
+    "toolSelectionExact": true,
+    "requiredToolsInOrder": true,
+    "argumentsExact": false,
+    "exactCase": false,
+    "expectedCallCount": 1,
+    "actualCallCount": 1,
+    "argumentMatches": 0
+  },
+  "startedAt": "2026-08-30T00:16:54.831Z",
+  "finishedAt": "2026-08-30T00:16:59.914Z",
+  "agentFinalText": "The ARC 01 · Horizon Signal, Mono Edition has been recommended. It includes 12 high-resolution gold-on-black cards from Future-Pull Mechanics, Cards 001–012.",
+  "rawLog": "AI calling tool \"recommend_card_edition\" with {\"edition\":\"mono\",\"arc_code\":\"01\"}\nTool \"recommend_card_edition\" result: {\"content\":[{\"type\":\"text\",\"text\":\"{\\\"found\\\":true,\\\"sku\\\":\\\"arc-01-mono\\\",\\\"title\\\":\\\"ARC 01 · Horizon Signal\\\",\\\"subtitle\\\":\\\"Mono Edition\\\",\\\"description\\\":\\\"12 high-resolution gold-on-black cards. Future-Pull Mechanics, Cards 001–012.\\\",\\\"edition\\\":\\\"mono\\\",\\\"scope\\\":\\\"arc\\\",\\\"arc_code\\\":\\\"01\\\",\\\"domain\\\":\\\"Future-Pull Mechanics\\\",\\\"image\\\":\\\"/images/shop/arc-01-mono.webp\\\",\\\"fulfillment\\\":\\\"digital_download\\\",\\\"recommendation_basis\\\":\\\"ARC 01 was explicitly requested.\\\",\\\"shop_path\\\":\\\"/shop.html\\\",\\\"purchase_boundary\\\":\\\"Review the edition and Stripe-hosted price yourself. This tool cannot add items, start checkout, or make a purchase.\\\"}\"}]}\nAI result: The ARC 01 · Horizon Signal, Mono Edition has been recommended. It includes 12 high-resolution gold-on-black cards from Future-Pull Mechanics, Cards 001–012.\n",
+  "modelTrace": [
+    {
+      "candidates": [
+        {
+          "content": {
+            "role": "model",
+            "parts": [
+              {
+                "functionCall": {
+                  "name": "recommend_card_edition",
+                  "args": {
+                    "edition": "mono",
+                    "arc_code": "01"
+                  }
+                }
+              }
+            ]
+          },
+          "finishReason": "STOP"
+        }
+      ],
+      "usageMetadata": {
+        "promptTokenCount": 185,
+        "candidatesTokenCount": 12,
+        "totalTokenCount": 306,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 185
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 12
+          }
+        ],
+        "thoughtsTokenCount": 109
+      },
+      "modelVersion": "gemini-2.5-flash",
+      "createTime": "2026-08-30T00:16:54.880486Z",
+      "responseId": "dnaTaubeNfOar8kP9bm3yAc"
+    },
+    {
+      "candidates": [
+        {
+          "content": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "The ARC 01 · Horizon Signal, Mono Edition has been recommended. It includes 12 high-resolution gold-on-black cards from Future-Pull Mechanics, Cards 001–012."
+              }
+            ]
+          },
+          "finishReason": "STOP"
+        }
+      ],
+      "usageMetadata": {
+        "promptTokenCount": 479,
+        "candidatesTokenCount": 45,
+        "totalTokenCount": 524,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 479
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 45
+          }
+        ]
+      },
+      "modelVersion": "gemini-2.5-flash",
+      "createTime": "2026-08-30T00:16:58.414300Z",
+      "responseId": "enaTatykGdiKr8kPuur7wA4"
+    }
+  ]
+}

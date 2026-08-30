@@ -168,6 +168,14 @@ mutations. See `WEBMCP_AGENT_EVAL_REPORT.html` and
 Every official challenge resource and its implementation decision is recorded
 in `RESOURCE_REVIEW.html`.
 
+Public campaign wording is separately reconciled against the production
+contract in `WEBMCP_CAMPAIGN_CLAIM_AUDIT.html`. Its 10-case live-agent run
+preserved the expected tool selection and order in every case and invoked no
+tool for unsupported astronomy, physical-product, diagnosis, email-submission,
+cart, or payment requests. The submission does not claim an ephemeris,
+physical-deck fulfillment, autonomous purchase, diagnosis, or a universal
+zero-server-data guarantee.
+
 Chrome is the verified path accepted by the rules. Actual ChatGPT in-app
 browser behavior is still unconfirmed. Unsupported hosts retain the full direct
 reflection and display a truthful fallback status.

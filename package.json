@@ -5,9 +5,13 @@
   "scripts": {
     "test": "node --test web/tests/*.test.mjs",
     "test:webmcp:evals": "node scripts/validate-webmcp-evals.mjs",
+    "test:webmcp:campaign-evals": "node scripts/validate-webmcp-campaign-evals.mjs",
     "test:webmcp:agent-evidence": "node scripts/validate-webmcp-agent-evidence.mjs",
+    "test:webmcp:campaign-evidence": "node scripts/validate-webmcp-campaign-agent-evidence.mjs",
     "eval:webmcp:agent": "node scripts/run-webmcp-agent-evals.mjs",
+    "eval:webmcp:campaign": "WEBMCP_EVAL_CORPUS_PATH=web/evals/webmcp-campaign-evals.json WEBMCP_EVAL_EVIDENCE_ROOT=qa_evidence/webmcp_campaign_agent_eval WEBMCP_EVAL_LATEST_PATH=qa_evidence/webmcp_campaign_agent_eval/latest.json node scripts/run-webmcp-agent-evals.mjs",
     "report:webmcp:agent-evals": "node scripts/build-webmcp-agent-eval-report.mjs",
+    "report:webmcp:campaign": "node scripts/build-webmcp-campaign-claim-audit.mjs",
     "test:stripe": "node --test scripts/tests/*.test.mjs",
     "validate": "node scripts/validate-site.mjs",
     "validate:submission": "node scripts/validate-submission.mjs",
