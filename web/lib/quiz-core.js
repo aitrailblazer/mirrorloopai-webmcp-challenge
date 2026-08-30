@@ -44,6 +44,39 @@ export function resultCopy(code) {
   return { summary, prompt };
 }
 
+export function compareQuestionChoices(question, archetypes, choiceA, choiceB) {
+  const optionA = question?.options?.find(({ arcCode }) => arcCode === choiceA);
+  const optionB = question?.options?.find(({ arcCode }) => arcCode === choiceB);
+  const archetypeA = archetypes?.[choiceA];
+  const archetypeB = archetypes?.[choiceB];
+  if (!question || !optionA || !optionB || !archetypeA || !archetypeB) {
+    throw new Error("Both choices must be available for this question.");
+  }
+  if (choiceA === choiceB) {
+    throw new Error("Choose two different choices to compare.");
+  }
+
+  const copyA = resultCopy(choiceA);
+  const copyB = resultCopy(choiceB);
+  const describe = (code, option, archetype, copy) => ({
+    code,
+    label: option.microIntent,
+    lens: archetype.name,
+    focus: archetype.domain,
+    plain_language_meaning: copy.summary,
+  });
+
+  return {
+    question_id: question.id,
+    prompt: question.title,
+    choice_a: describe(choiceA, optionA, archetypeA, copyA),
+    choice_b: describe(choiceB, optionB, archetypeB, copyB),
+    operational_contrast: `${archetypeA.name} centers on “${optionA.microIntent}” through ${archetypeA.domain.toLowerCase()}; ${archetypeB.name} centers on “${optionB.microIntent}” through ${archetypeB.domain.toLowerCase()}. Notice which describes your first instinct in this situation—not which sounds better.`,
+    boundary: "This comparison does not rank, select, or record either choice.",
+    selection_status: "NEITHER_SELECTED",
+  };
+}
+
 export function supportingPattern(result) {
   const count = result?.counts?.[result.secondary] ?? 0;
   return count > 0 ? { code: result.secondary, count } : null;

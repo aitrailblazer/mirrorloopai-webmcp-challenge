@@ -1,0 +1,21 @@
+WM-015 baseline — 2026-08-30
+
+Requested behavior
+- A participant can ask a WebMCP agent to compare two choices on one quiz question.
+- The comparison explains the distinction using public quiz content.
+- It does not rank, recommend, select, or record either choice.
+
+Observed pre-change behavior
+- The registered WebMCP suite contains exactly eight tools.
+- explain_choice accepts only one choice_code.
+- No compare_choices tool or adapter exists.
+- The Agent State HUD hardcodes "8 TOOLS MOUNTED" after a tool completes.
+- Active competition documents and validators describe/freeze an eight-tool surface.
+
+Source evidence
+- web/lib/webmcp.js: MIRRORLOOP_WEBMCP_TOOL_NAMES has eight entries; defineTools has no comparison tool.
+- web/app.js: explainChoice returns one option; install adapter has no compareChoices method; HUD completion text hardcodes eight.
+- web/tests/webmcp.test.mjs: registration test asserts eight.
+- web/data/quiz.json: every question supplies 12 public option labels and the 12 archetype names/domains needed for a bounded comparison.
+
+Baseline result: FAIL — requested user-visible comparison capability is absent.

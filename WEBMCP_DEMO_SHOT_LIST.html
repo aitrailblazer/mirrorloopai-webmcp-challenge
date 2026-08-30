@@ -24,13 +24,13 @@
   <Purpose>Provide a second-by-second recording contract that demonstrates only deployed, reproducible MIRROR//LOOP WebMCP behavior.</Purpose>
   <ProductContract>
     <LiveOrigin>https://mirrorloopai.com/</LiveOrigin>
-    <ToolCount>8</ToolCount>
-    <Tools>start_reflection,get_current_question,explain_choice,answer_reflection_question,review_reflection_answers,complete_reflection,get_card,recommend_card_edition</Tools>
+    <ToolCount>9</ToolCount>
+    <Tools>start_reflection,get_current_question,explain_choice,compare_choices,answer_reflection_question,review_reflection_answers,complete_reflection,get_card,recommend_card_edition</Tools>
     <HumanAuthority>Answers require confirmed_by_user true. Email, cart mutation, Checkout creation, and payment remain human actions.</HumanAuthority>
     <CatalogBoundary>Edition recommendations are read-only, digital, and price-free.</CatalogBoundary>
   </ProductContract>
   <VerifiedCoreRepositoryScope>
-    <Capability id="typed-tools">Eight typed tools use closed JSON Schemas, bounded runtime validation, and structured tool errors.</Capability>
+    <Capability id="typed-tools">Nine typed tools use closed JSON Schemas, bounded runtime validation, and structured tool errors.</Capability>
     <Capability id="human-confirmation">answer_reflection_question requires confirmed_by_user true before recording or revising a choice.</Capability>
     <Capability id="deterministic-scoring">Exactly twelve answers are scored in the browser with stable ascending-code tie-breaking and no cloud computation for scoring.</Capability>
     <Capability id="public-card-matrix">get_card exposes curated public metadata for Cards 001 through 144 without publishing private prompts or corpora.</Capability>
@@ -38,10 +38,10 @@
     <Capability id="chrome-deployment">The production origin includes the WebMCP Origin Trial token, has been observed in Chrome DevTools, and is covered by automated registration and contract gates.</Capability>
   </VerifiedCoreRepositoryScope>
   <Workflow>
-    <Beat start="0:00" end="0:12" tool="none">Open the live origin and show WebMCP ready · 8 tools.</Beat>
-    <Beat start="0:12" end="0:28" tool="none">Open DevTools Application WebMCP and show all eight registered tools.</Beat>
+    <Beat start="0:00" end="0:12" tool="none">Open the live origin and show WebMCP ready · 9 tools.</Beat>
+    <Beat start="0:12" end="0:28" tool="none">Open DevTools Application WebMCP and show all nine registered tools.</Beat>
     <Beat start="0:28" end="0:48" tool="start_reflection,get_current_question">Start the visible reflection and retrieve its current question.</Beat>
-    <Beat start="0:48" end="1:08" tool="explain_choice">Explain one choice in plain language without selecting it.</Beat>
+    <Beat start="0:48" end="1:08" tool="compare_choices">Contrast two plausible choices without ranking, selecting, or recording either one.</Beat>
     <Beat start="1:08" end="1:28" tool="answer_reflection_question">Show rejection when confirmed_by_user is false, then confirm and advance visibly.</Beat>
     <Beat start="1:28" end="1:48" tool="review_reflection_answers,answer_reflection_question">Review and revise one earlier confirmed answer.</Beat>
     <Beat start="1:48" end="2:05" tool="complete_reflection">Use the prepared eleven-answer recording state, confirm the twelfth answer, and complete deterministic scoring.</Beat>
@@ -60,14 +60,14 @@
   <AcceptanceCriteria>
     <Criterion>The final public YouTube video is shorter than three minutes.</Criterion>
     <Criterion>The recording has audible narration and accurate captions.</Criterion>
-    <Criterion>The live page visibly reports WebMCP ready · 8 tools.</Criterion>
-    <Criterion>DevTools displays exactly the eight production tools without schema errors.</Criterion>
+    <Criterion>The live page visibly reports WebMCP ready · 9 tools.</Criterion>
+    <Criterion>DevTools displays exactly the nine production tools without schema errors.</Criterion>
     <Criterion>The unconfirmed answer is rejected and the confirmed answer visibly advances the page.</Criterion>
     <Criterion>No unsupported P2P, astronomy, physical fulfillment, x402, zero-egress, bundle-size, frame-rate, or judge-preference claim appears.</Criterion>
     <Criterion>The public site, source repository, and video open from a signed-out browser before submission.</Criterion>
   </AcceptanceCriteria>
   <DecisionLog>
-    <Decision date="2026-08-30">Use the verified eight-tool production contract as the complete demo scope.</Decision>
+    <Decision date="2026-08-30">Use the verified nine-tool production contract as the complete demo scope.</Decision>
     <Decision date="2026-08-30">Keep proposed P2P, transit-clock, physical-deck, and autonomous-payment concepts out of the submitted build and recording.</Decision>
     <Decision date="2026-08-30">Demonstrate a deliberate rejected mutation because the human-confirmation boundary is more distinctive than an uninterrupted happy path.</Decision>
   </DecisionLog>
@@ -78,7 +78,7 @@
   </RisksAndOpenQuestions>
   <SourceDigest>
     <Source path="SUBMISSION.md">Copy-ready project description and initial 2:35 storyboard.</Source>
-    <Source path="web/lib/webmcp.js">Eight production tool definitions and authority boundaries.</Source>
+    <Source path="web/lib/webmcp.js">Nine production tool definitions and authority boundaries.</Source>
     <Source path="WEBMCP_COMPETITION_HARDENING_AUDIT.html">Claim ledger and competition evidence boundary.</Source>
     <Source path="WEBMCP_AGENT_EVAL_REPORT.html">Preserved live-agent evaluation results.</Source>
     <Source path="feature_status_tracker.csv" feature="SUB-005">Canonical demo readiness story.</Source>
@@ -95,10 +95,10 @@
     import { LitElement, html, css } from "https://unpkg.com/lit@3/index.js?module";
 
     const shots = [
-      { time:"0:00–0:12", tool:"Opening", visual:"Open https://mirrorloopai.com/ in the verified Chrome build. Frame the hero and the “WebMCP ready · 8 tools” badge.", voice:"MIRROR//LOOP turns a 12-question reflection and 144 public cards into a bounded collaboration between a person and an AI agent.", proof:"Live origin and visible readiness badge." },
-      { time:"0:12–0:28", tool:"Chrome DevTools", visual:"Open Application → WebMCP. Pan down the Available Tools list so all eight names are visible.", voice:"The page registers eight typed browser tools. They operate the same visible experience I can use directly.", proof:"Exactly eight registered production tools; no schema errors." },
+      { time:"0:00–0:12", tool:"Opening", visual:"Open https://mirrorloopai.com/ in the verified Chrome build. Frame the hero and the “WebMCP ready · 9 tools” badge.", voice:"MIRROR//LOOP turns a 12-question reflection and 144 public cards into a bounded collaboration between a person and an AI agent.", proof:"Live origin and visible readiness badge." },
+      { time:"0:12–0:28", tool:"Chrome DevTools", visual:"Open Application → WebMCP. Pan down the Available Tools list so all nine names are visible.", voice:"The page registers nine typed browser tools. They operate the same visible experience I can use directly.", proof:"Exactly nine registered production tools; no schema errors." },
       { time:"0:28–0:48", tool:"start_reflection · get_current_question", visual:"Run start_reflection, then get_current_question. Show the quiz open and the first question in both the tool result and page.", voice:"The agent can orient the session and read the current question without scraping controls or replacing the page.", proof:"Tool output and visible question agree." },
-      { time:"0:48–1:08", tool:"explain_choice", visual:"Ask for one choice explanation. Hold on the plain-language explanation before any answer changes.", voice:"It can explain an option in ordinary language, but explanation is not permission to choose for me.", proof:"Choice explanation appears; progress remains unchanged." },
+      { time:"0:48–1:08", tool:"compare_choices", visual:"Contrast Choices 01 and 06 on Question 1. Hold on both plain-language meanings and the no-selection boundary.", voice:"It can clarify two plausible answers without ranking them, choosing for me, or changing the quiz.", proof:"Both choices appear; progress and selection remain unchanged." },
       { time:"1:08–1:28", tool:"answer_reflection_question", visual:"Run once with confirmed_by_user false and show rejection. Run again with true and show the progressbar and focus advance.", voice:"A mutation without explicit confirmation fails. Once I confirm, the same visible interface advances and announces the change.", proof:"Rejected false call, successful true call, visible step transition." },
       { time:"1:28–1:48", tool:"review_reflection_answers · answer_reflection_question", visual:"Review current answers, then revise the first confirmed response. Show that the user can change a prior choice instead of restarting.", voice:"The session remains correctable. I can review and revise a confirmed answer while keeping the rest of my work.", proof:"Review result and changed answer remain consistent." },
       { time:"1:48–2:05", tool:"complete_reflection", visual:"Switch to a prepared state with eleven human-confirmed answers. Confirm answer twelve, then complete and show the deterministic result.", voice:"For recording speed, these earlier choices were already confirmed by me. The twelfth answer unlocks deterministic local scoring; the agent does not invent the result.", proof:"Incomplete completion is gated; twelve confirmed answers complete successfully." },
@@ -118,7 +118,7 @@
     ];
 
     const verifiedCore = [
-      ["Eight typed tools", "Closed JSON Schemas, bounded runtime checks, and structured tool errors."],
+      ["Nine typed tools", "Closed JSON Schemas, bounded runtime checks, and structured tool errors."],
       ["Human confirmation", "confirmed_by_user: true is required before recording or revising a choice."],
       ["Deterministic scoring", "Twelve answers are scored in the browser with stable ascending-code tie-breaking; scoring uses no cloud compute."],
       ["144-card public matrix", "get_card returns curated Cards 001–144 without private prompts or corpora."],
@@ -233,13 +233,13 @@
                 <div class="check"><strong class="pass">During capture</strong>Record at 1080p or better. Hide accounts, email, tokens, payment details, private dashboards, and unrelated tabs.</div>
                 <div class="check"><strong class="pending">Before submission</strong>Publish on YouTube, keep it public and under three minutes, add accurate captions, test audio, and open it while signed out.</div>
               </div>
-              <p><strong>Stop condition:</strong> if the badge does not read <code>WebMCP ready · 8 tools</code>, do not record. Restart the verified Chrome build, reopen the live origin, and recheck Application → WebMCP.</p>
+              <p><strong>Stop condition:</strong> if the badge does not read <code>WebMCP ready · 9 tools</code>, do not record. Restart the verified Chrome build, reopen the live origin, and recheck Application → WebMCP.</p>
             </section>
 
             <section>
               <h2>Acceptance checklist</h2>
               <ul>
-                <li>All eight tools are visible and the demo uses only their deployed contracts.</li>
+                <li>All nine tools are visible and the demo uses only their deployed contracts.</li>
                 <li>The rejected unconfirmed answer and successful confirmed answer both appear.</li>
                 <li>The prepared state is described as previously human-confirmed, not agent-selected.</li>
                 <li>The final recommendation is digital, read-only, and price-free.</li>

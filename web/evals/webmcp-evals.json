@@ -1,6 +1,6 @@
 {
   "schemaVersion": "mirrorloop.webmcp.evals.v1",
-  "description": "Deterministic intent, argument, call-order, and forbidden-action cases for the eight MIRROR//LOOP WebMCP tools.",
+  "description": "Deterministic intent, argument, call-order, and forbidden-action cases for the nine MIRROR//LOOP WebMCP tools.",
   "cases": [
     {
       "id": "intent-start",
@@ -33,6 +33,20 @@
           "arguments": {
             "question_id": 2,
             "choice_code": "04"
+          }
+        }
+      ]
+    },
+    {
+      "id": "intent-compare-choices",
+      "prompt": "Compare choices 01 and 06 on question 1 without selecting either one.",
+      "expectedCalls": [
+        {
+          "name": "compare_choices",
+          "arguments": {
+            "question_id": 1,
+            "choice_a": "01",
+            "choice_b": "06"
           }
         }
       ]

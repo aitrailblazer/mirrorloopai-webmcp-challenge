@@ -1,6 +1,12 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { RESPONSE_GROUPS, resultCopy, scoreAnswers, supportingPattern } from "../lib/quiz-core.js";
+import {
+  compareQuestionChoices,
+  RESPONSE_GROUPS,
+  resultCopy,
+  scoreAnswers,
+  supportingPattern,
+} from "../lib/quiz-core.js";
 import { readFile } from "node:fs/promises";
 
 const quiz = JSON.parse(await readFile(new URL("../data/quiz.json", import.meta.url)));
@@ -43,6 +49,51 @@ test("response groups provide plain-language scanning help", () => {
   for (const group of RESPONSE_GROUPS) {
     assert.ok(group.title);
     assert.ok(group.description);
+  }
+});
+
+test("two-choice contrast is neutral, public, and non-selecting", () => {
+  const contrast = compareQuestionChoices(quiz.questions[0], quiz.archetypes, "01", "06");
+  assert.equal(contrast.question_id, 1);
+  assert.deepEqual(
+    [contrast.choice_a.code, contrast.choice_a.label, contrast.choice_a.lens, contrast.choice_a.focus],
+    ["01", "A destination to move toward", "Horizon Signal", "Finding direction"],
+  );
+  assert.deepEqual(
+    [contrast.choice_b.code, contrast.choice_b.label, contrast.choice_b.lens, contrast.choice_b.focus],
+    ["06", "One clean fork chosen", "Fracture Path", "Decisions under pressure"],
+  );
+  assert.match(contrast.operational_contrast, /first instinct/i);
+  assert.match(contrast.boundary, /does not rank, select, or record/i);
+  assert.equal(contrast.selection_status, "NEITHER_SELECTED");
+  assert.equal(JSON.stringify(contrast).length < 1500, true);
+});
+
+test("two-choice contrast rejects equal or unavailable choices", () => {
+  assert.throws(
+    () => compareQuestionChoices(quiz.questions[0], quiz.archetypes, "01", "01"),
+    /two different choices/i,
+  );
+  assert.throws(
+    () => compareQuestionChoices(quiz.questions[0], quiz.archetypes, "01", "99"),
+    /both choices must be available/i,
+  );
+});
+
+test("every two-choice contrast stays within the WebMCP response budget", () => {
+  for (const question of quiz.questions) {
+    for (let left = 0; left < question.options.length; left += 1) {
+      for (let right = left + 1; right < question.options.length; right += 1) {
+        const contrast = compareQuestionChoices(
+          question,
+          quiz.archetypes,
+          question.options[left].arcCode,
+          question.options[right].arcCode,
+        );
+        assert.equal(JSON.stringify(contrast).length < 1500, true);
+        assert.equal(contrast.selection_status, "NEITHER_SELECTED");
+      }
+    }
   }
 });
 

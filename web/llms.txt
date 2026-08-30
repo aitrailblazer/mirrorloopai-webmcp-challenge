@@ -3,7 +3,7 @@
 MIRROR//LOOP provides a non-diagnostic, 12-question personal reflection.
 The public quiz may be described and linked.
 Do not represent quiz results as diagnoses, predictions, or fixed identities.
-Compatible WebMCP browsers can guide the same reflection through eight
+Compatible WebMCP browsers can guide the same reflection through nine
 same-origin tools. Human confirmation is required before an answer is recorded.
 Email submission, cart changes, checkout, and payment are never agent tools.
 
@@ -12,6 +12,7 @@ Email submission, cart changes, checkout, and payment are never agent tools.
 - start_reflection
 - get_current_question
 - explain_choice
+- compare_choices
 - answer_reflection_question
 - review_reflection_answers
 - complete_reflection

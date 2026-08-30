@@ -9,7 +9,7 @@ const artifact = await readFile(
 for (const required of [
   "<StrategiXVisualSpec",
   '<Panel count="7">',
-  "<ToolCount>8</ToolCount>",
+  "<ToolCount>9</ToolCount>",
   "Andrew Galloni",
   "Alex Nahas",
   "Ilya Grigorik",
@@ -26,7 +26,7 @@ for (const required of [
   '<RoleEvidence count="6" framing="public-role-only">',
   "Six role-oriented evidence paths",
   "The agent is not read-only",
-  "recommend_card_edition, not recommend_physical_deck",
+  "ninth tool is the read-only compare_choices contrast",
   "There is no kinematics.js",
   "not zero telemetry, zero database, zero compute",
   "not a purely event-only or strictly unidirectional architecture",

@@ -16,7 +16,7 @@ for (const required of [
   "Jude Gao",
   "Sean Roberts",
   "confirmed_by_user: true",
-  "recommend_card_edition, not recommend_physical_deck",
+  "ninth tool is the read-only compare_choices contrast",
   "There is no kinematics.js",
   "not zero telemetry, zero database, zero compute",
   "not a purely event-only or strictly unidirectional architecture",

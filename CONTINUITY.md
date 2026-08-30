@@ -1,7 +1,7 @@
 Goal (incl. success criteria):
 - Complete a tracker-backed audit and implementation pass that makes mirrorloopai.com a first-class WebMCP experience for understandable quiz conversion, secure paid acquisition, and competition readiness.
 - Success requires all user-visible stories to have test evidence, all tracker-backed failures to be fixed and retested, generated tracker views to match the canonical CSV, production to serve the audited release, and the completed pass to be recorded in `CHANGELOG.md`.
-- Match the reference site's immediately recognizable WebMCP identification with a persistent header badge that reports `WebMCP ready · 8 tools` after registration and a truthful direct-use fallback otherwise.
+- Match the reference site's immediately recognizable WebMCP identification with a persistent header badge that reports `WebMCP ready · 9 tools` after registration and a truthful direct-use fallback otherwise.
 - Reconcile the finished product against the official WebMCP Challenge rules, submission requirements, and four equally weighted judging criteria before external submission actions.
 
 Constraints/Assumptions:
@@ -16,13 +16,13 @@ Key decisions:
 - Implement the reflection tools against the existing validated 12-question quiz rather than the attachment's illustrative or unsupported data.
 - Keep WebMCP reflection tools local-only and same-origin; email submission and Stripe checkout remain outside agent tool execution.
 - Expose all 144 cards through a reduced public registry containing only curated public interpretation fields.
-- Reconcile the revised eight-tool proposal to the real digital catalog: expose a read-only `recommend_card_edition` discovery tool, not the proposed `recommend_physical_deck` purchasing tool.
+- Reconcile the revised nine-tool proposal to the real digital catalog: expose a read-only `recommend_card_edition` discovery tool, not the proposed `recommend_physical_deck` purchasing tool.
 - Preserve server-owned Stripe Checkout, hidden public prices, and explicit human purchase control. Do not publish fabricated physical-product claims, direct Stripe URLs, or unsupported prices.
-- Keep exactly eight bounded WebMCP tools; use the confirmed answer tool to revise prior answers rather than adding another tool.
+- Keep nine bounded WebMCP tools. `compare_choices` is the reviewed read-only ninth tool; use the confirmed answer tool to revise prior answers rather than adding another mutating tool.
 - Connect the reflection result to a highlighted matching ARC without automatically adding a product or initiating checkout.
 
 State:
-- The product, Devpost readiness, official-resource audit, live-agent evaluation, deadline preflight, and Agent State HUD now cover 90 stories.
+- The product, Devpost readiness, official-resource audit, live-agent evaluation, deadline preflight, Agent State HUD, and choice contrast now cover 91 stories.
 - The frozen 15-case corpus has one completed Gemini 2.5 Flash run: 12/15
   strict exact cases, 14/15 required tool sequences in order, 12/14
   expected-call argument matches, and zero forbidden mutations across five
@@ -31,22 +31,22 @@ State:
   `sequence-orient-before-answer` oracle expects an answer mutation before
   explicit confirmation, while the agent correctly stopped and requested
   confirmation.
-- The audited release is deployed on `mirrorloopai.com`; a fresh isolated Chrome 154 run reports `WebMCP ready · 8 tools` for asset version `20260830-4`, and the production checkout boundary remains unchanged.
+- The eight-tool release is currently deployed on `mirrorloopai.com`; the reviewed nine-tool implementation is pending production deployment and native Chrome retest.
 - Follow-up story `WM-013` retains its failed baseline and now has local, responsive, fallback, deployment, and native-production evidence.
 - The local submission package, judge narrative, demo script, public/private work disclosure, criterion map, third-party notice, and freeze plan pass deterministic validation.
 - The official reminder fixes the deadline at September 3, 2026, 1:00 PM PT.
 - Repository publication, Devpost project creation, public video upload, operator attestations, conditional teammate acceptance, and final submission remain explicit operator actions.
 - Authenticated GitHub reports the competition repository PRIVATE and anonymous API access returns 404. The sanitized rewritten main branch has been force-pushed and synchronized with origin/main.
 - The private repository history has been rewritten and pushed after removing the unnecessary billing-account metadata and synthetic E2E participant alias; current local and remote main are synchronized.
-- The proposed “winning architecture” attachment is evidence material only. Its P2P, astronomical-engine, physical-product, x402, zero-egress, sub-20KB, 60fps, and judge-preference claims are excluded from submission copy because they are not implemented or measured in this repository.
-- `WEBMCP_DEMO_SHOT_LIST.html` now provides the validated 2:35 recording contract for the verified eight-tool build; the public video itself remains pending.
+- The proposed “winning architecture” attachment is evidence material only. Its P2P, astronomical-engine, physical-product, x402, zero-egress, sub-20KB, 60fps, and judge-preference claims are excluded from submission copy because they are not implemented or measured in this repository. Its earlier tool-count freeze is superseded only by tracker-backed `WM-015`, a read-only two-choice contrast with no new persistence, identity, commerce, or payment authority.
+- `WEBMCP_DEMO_SHOT_LIST.html` now provides the 2:35 recording contract being updated for the reviewed nine-tool build; the public video itself remains pending.
 - The six-point verified-core scope is canonical in README, submission copy, and the demo artifact. Its no-cloud claim applies only to deterministic browser scoring.
 - `WM-014` is verified: the deployed page now exposes a collapsible Agent State rail driven by privacy-filtered registration, tool-start, and tool-complete lifecycle events. It shows observed local duration and explicit answer confirmation without exposing private focus text or tool results.
 
 Done:
 - Added and browser-rendered the evidence-bounded 2:35 WebMCP demo shot list; HTML, embedded XML, exact tool inventory, timing, authority boundaries, and submission-package assertions pass.
-- Implemented and deployed the `WM-014` Agent State HUD; 32/32 web tests and desktop/mobile production browser checks pass, including eight-tool registration, real wrapper invocation, keyboard collapse, bounded history, no horizontal overflow, and focus-text redaction.
-- Executed the production-discovered eight-tool WebMCP contract through an
+- Implemented and deployed the `WM-014` Agent State HUD; its prior 32/32 web tests and desktop/mobile production browser checks passed against the then-current eight-tool registration, including real wrapper invocation, keyboard collapse, bounded history, no horizontal overflow, and focus-text redaction.
+- Executed the then-current production-discovered eight-tool WebMCP contract through an
   authenticated Vertex Gemini agent and the Inspector extension’s real browser
   execution path; retained credential-free per-case evidence and a StrategiX
   HTML report.
@@ -58,11 +58,11 @@ Done:
 - Verified a complete 12-question agent-driven flow and Card 144 lookup in Chrome through a CDP model-context test harness.
 - Pushed implementation commit `ba15276` to the private GitHub repository.
 - Reconciled revised specification `94e4b6df95c3d288486bba1f8ad2e97c78612e9290c42cfc841f794815d8a067` to the actual digital catalog and Stripe boundary.
-- Added and browser-tested `recommend_card_edition`; Chrome registered eight tools, returned ARC 12 Full-Color and Mono Insight recommendations, rejected missing ARC context, and exposed no price or direct Stripe URL.
+- Added and browser-tested `recommend_card_edition`; Chrome registered eight tools at that historical pass, returned ARC 12 Full-Color and Mono Insight recommendations, rejected missing ARC context, and exposed no price or direct Stripe URL.
 - Committed and pushed the reconciliation as `8ec0a6f`.
 - Completed discovery and test plans for all 56 user-visible stories before changing behavior.
 - Fixed the six documented failures in implementation commit `b1b5bc3`.
-- Verified local Node, Go, security, responsive browser, 12-question direct, eight-tool WebMCP, confirmed-revision, matching-ARC, and cart flows.
+- Verified local Node, Go, security, responsive browser, 12-question direct, then-current eight-tool WebMCP, confirmed-revision, matching-ARC, and cart flows.
 - Deployed Firebase Hosting and verified the public origin, security headers, API health, Chrome-native WebMCP registration status, and Stripe Checkout handoff.
 - Added the reference-style WebMCP header badge, verified desktop and 390 px mobile layouts without horizontal overflow, and confirmed the direct-use fallback.
 - Redeployed Firebase Hosting and verified the exact production label through connected Chrome's native WebMCP context.
@@ -71,12 +71,12 @@ Done:
 - Verified the local submission package and retained all external blockers without changing account state.
 - Reviewed all 36 official WebMCP Challenge resource links and recorded every availability/relevance decision in `RESOURCE_REVIEW.html`.
 - Hardened asynchronous registration so false-ready state is impossible after a rejected browser registration promise.
-- Enforced documented contract/output budgets and added a 15-case expected-call corpus covering all eight tools, ordering, ambiguity, and forbidden email/cart/payment actions.
+- Enforced documented contract/output budgets and added the original 15-case expected-call corpus covering all eight tools, ordering, ambiguity, and forbidden email/cart/payment actions.
 - Updated README and submission instructions to the current Chrome DevTools Application → WebMCP workflow.
 - Committed the resource-driven implementation as `fcde886`, deployed it to Firebase Hosting, and verified the production bundle plus native eight-tool registration in isolated Chrome.
 
 Now:
-- Finalize the `WM-014` tracker artifacts, commit the production evidence, and push the deployed Agent State HUD audit pass.
+- Complete `WM-015`: verify and deploy the ninth read-only `compare_choices` tool, regenerate active competition artifacts, and record production evidence.
 
 Next:
 - Record and publish the under-three-minute YouTube demo using that artifact.

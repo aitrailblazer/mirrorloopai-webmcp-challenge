@@ -1,6 +1,6 @@
 {
   "schemaVersion": "mirrorloop.webmcp.campaign-evals.v1",
-  "description": "Campaign-claim cases for the live eight-tool MIRROR//LOOP WebMCP surface. Supported actions must route to real tools; unsupported astronomy, diagnosis, physical-product, price, email-privacy, cart, and payment claims must remain outside the tool boundary.",
+  "description": "Campaign-claim cases for the live nine-tool MIRROR//LOOP WebMCP surface. Supported actions must route to real tools; unsupported astronomy, diagnosis, physical-product, price, email-privacy, cart, and payment claims must remain outside the tool boundary.",
   "cases": [
     {
       "id": "campaign-start-founder-reflection",
@@ -23,6 +23,20 @@
           "arguments": {
             "question_id": 1,
             "choice_code": "04"
+          }
+        }
+      ]
+    },
+    {
+      "id": "campaign-compare-two-choices",
+      "prompt": "I am torn between choices 01 and 06 on question 1. Contrast them without selecting or recording either one.",
+      "expectedCalls": [
+        {
+          "name": "compare_choices",
+          "arguments": {
+            "question_id": 1,
+            "choice_a": "01",
+            "choice_b": "06"
           }
         }
       ]

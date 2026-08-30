@@ -1,9 +1,15 @@
-import { RESPONSE_GROUPS, resultCopy, scoreAnswers, supportingPattern } from "./lib/quiz-core.js?v=20260826-3";
+import {
+  compareQuestionChoices,
+  RESPONSE_GROUPS,
+  resultCopy,
+  scoreAnswers,
+  supportingPattern,
+} from "./lib/quiz-core.js?v=20260830-4";
 import { createFunnelTracker } from "./lib/analytics.js?v=20260826-3";
 import {
   installMirrorLoopWebMCP,
   MIRRORLOOP_WEBMCP_EVENTS,
-} from "./lib/webmcp.js?v=20260830-5";
+} from "./lib/webmcp.js?v=20260830-6";
 import { createReflectionStore } from "./lib/reflection-storage.js?v=20260830-1";
 
 const $ = (selector) => document.querySelector(selector);
@@ -32,6 +38,7 @@ const recordFunnelEvent = createFunnelTracker({
   storage: analyticsStorage,
 });
 let turnstileStarted = false;
+let mountedWebMCPToolCount = 0;
 
 const elements = {
   start: $("#quiz-start"), panel: $("#quiz-panel"), result: $("#result-panel"),
@@ -95,6 +102,7 @@ function installAgentStateHUD() {
       return;
     }
     if (phase === "mounted") {
+      mountedWebMCPToolCount = detail.total;
       updateAgentPhase(`${detail.total} TOOLS MOUNTED`, "mounted");
       $("#agent-live-status").textContent = "Ready for a browser agent. Human confirmation still controls every recorded answer.";
       addAgentEvent("READY", `${detail.mounted} tools mounted`, "success");
@@ -116,7 +124,10 @@ function installAgentStateHUD() {
   });
 
   window.addEventListener(MIRRORLOOP_WEBMCP_EVENTS.toolComplete, ({ detail }) => {
-    updateAgentPhase("8 TOOLS MOUNTED", "mounted");
+    updateAgentPhase(
+      mountedWebMCPToolCount > 0 ? `${mountedWebMCPToolCount} TOOLS MOUNTED` : "TOOLS READY",
+      "mounted",
+    );
     $("#agent-active-tool").textContent = detail.tool;
     $("#agent-safe-input").textContent = formatSafeInput(detail.safe_input);
     $("#agent-duration").textContent = Number.isFinite(detail.duration_ms)
@@ -338,6 +349,12 @@ async function explainChoice({ questionID, choiceCode }) {
     reflection_prompt: copy.prompt,
     selection_status: "NOT_SELECTED",
   };
+}
+
+async function compareChoices({ questionID, choiceA, choiceB }) {
+  await loadQuiz();
+  const question = state.quiz.questions[questionID - 1];
+  return compareQuestionChoices(question, state.quiz.archetypes, choiceA, choiceB);
 }
 
 async function answerQuestion({ questionID, choiceCode }) {
@@ -579,6 +596,7 @@ installMirrorLoopWebMCP({
     startReflection,
     getCurrentQuestion: currentQuestion,
     explainChoice,
+    compareChoices,
     answerQuestion,
     reviewAnswers,
     completeReflection,

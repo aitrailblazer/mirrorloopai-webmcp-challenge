@@ -19,9 +19,9 @@ uncertainty into one confirmed next step.
 
 MIRROR//LOOP is a deterministic 12-question reflection connected to a
 144-card library. The useful actions already belong to the page: read the
-current question, explain a choice, record a confirmed answer, review the
+current question, explain or compare choices, record a confirmed answer, review the
 session, reveal a card, and identify a relevant edition. WebMCP exposes those
-actions as eight typed browser tools. The agent does not scrape visual controls
+actions as nine typed browser tools. The agent does not scrape visual controls
 or replace the page with an opaque backend conversation; it collaborates with
 the same interface the person can see and use directly.
 
@@ -30,7 +30,7 @@ the same interface the person can see and use directly.
 The ordinary interface remains complete, while an agent can reduce navigation
 and interpretation effort. A visitor can ask what a choice means, proceed one
 confirmed answer at a time, correct an earlier answer without restarting, and
-retrieve a specific card by number. The page displays `WebMCP ready · 8 tools`
+retrieve a specific card by number. The page displays `WebMCP ready · 9 tools`
 when registration succeeds and an honest direct-use fallback when it does not.
 A collapsible Agent State rail makes each tool start and completion legible on
 the page, including a privacy-filtered input summary, observed local elapsed
@@ -48,11 +48,11 @@ generic DOM automation and is direct with WebMCP.
 
 ### How WebMCP is implemented
 
-`web/lib/webmcp.js` defines eight tools with JSON input schemas,
+`web/lib/webmcp.js` defines nine tools with JSON input schemas,
 `additionalProperties: false`, behavioral annotations, and same-origin
 registration through awaited `modelContext.registerTool(...)` calls. The installer selects
 `document.modelContext` first and supports the compatible navigator surface.
-Three tools change only ephemeral local reflection state; five are read-only.
+Three tools change only ephemeral local reflection state; six are read-only.
 `answer_reflection_question` requires `confirmed_by_user: true`. No tool can
 submit an email address, mutate the cart, create a Checkout Session, or pay.
 Automated tests validate registration, schemas, annotations, malformed inputs,
@@ -61,7 +61,7 @@ ordering, telemetry redaction, and the responsive Agent State rail.
 
 ### Verified core repository scope
 
-- Eight typed tools with closed JSON Schemas, bounded runtime validation, and
+- Nine typed tools with closed JSON Schemas, bounded runtime validation, and
   structured tool errors.
 - Explicit `confirmed_by_user: true` before an answer can be recorded or
   revised.
@@ -78,7 +78,7 @@ The installer reports readiness only after every registration resolves, aborts
 partial registrations after rejection, and preserves the complete direct-use
 experience. Current Chrome character budgets are enforced, including a
 1,500-character result ceiling. An official-style expected-call corpus covers
-all eight tools, ordered flows, ambiguous requests, and no-tool boundaries.
+all nine tools, ordered flows, ambiguous requests, and no-tool boundaries.
 
 The visible browser response is deliberately simple and inspectable: a
 semantic 12-step progressbar updates `aria-valuenow`, its CSS width transition
@@ -94,7 +94,7 @@ compositor-thread claim is made.
 
 ### WebMCP Leverage
 
-- Eight purpose-built tools operate the real page state and deterministic quiz.
+- Nine purpose-built tools operate the real page state and deterministic quiz.
 - Typed schemas replace brittle control inference.
 - An agent can explain, record, review, revise, complete, retrieve, and
   recommend across one coherent session.
@@ -103,7 +103,7 @@ compositor-thread claim is made.
 
 ### Execution
 
-- Live HTTPS production origin with a visible eight-tool readiness state.
+- Live HTTPS production origin with a visible nine-tool readiness state.
 - On-page registration and invocation evidence without requiring DevTools.
 - Strict schemas, read/write annotations, explicit answer confirmation, and
   graceful no-WebMCP fallback.
@@ -142,7 +142,7 @@ Meaningful WebMCP work was added after the challenge began:
 | `ba15276` | 2026-08-29 | Seven secure reflection and card tools |
 | `8ec0a6f` | 2026-08-29 | Eighth read-only edition recommendation tool |
 | `b1b5bc3` | 2026-08-29 | Revision flow, conversion path, metadata, and audited fixes |
-| `828ee7a` | 2026-08-29 | Immediately visible `WebMCP ready · 8 tools` badge |
+| `828ee7a` | 2026-08-29 | Immediately visible `WebMCP ready · 9 tools` badge |
 
 The repository history is the timestamped source of truth. The competition
 entry claims only these documented extensions as challenge-period work.
@@ -158,9 +158,9 @@ list, and publication checklist are in
 
 | Time | Visual | Narration |
 | --- | --- | --- |
-| 0:00–0:15 | Open the live homepage and point to `WebMCP ready · 8 tools`. | “MIRROR//LOOP turns a 12-question reflection and 144 cards into a bounded human-agent collaboration.” |
-| 0:15–0:35 | Expand the Agent State rail, then show the registered tool list. | “The page registers eight typed tools and makes each invocation visible without exposing private text. They operate the visible experience rather than a hidden replacement service.” |
-| 0:35–1:05 | Ask the agent to start, read the question, and explain one choice. | “The agent can orient and explain, but it cannot choose for me.” |
+| 0:00–0:15 | Open the live homepage and point to `WebMCP ready · 9 tools`. | “MIRROR//LOOP turns a 12-question reflection and 144 cards into a bounded human-agent collaboration.” |
+| 0:15–0:35 | Expand the Agent State rail, then show the registered tool list. | “The page registers nine typed tools and makes each invocation visible without exposing private text. They operate the visible experience rather than a hidden replacement service.” |
+| 0:35–1:05 | Ask the agent to start, read the question, and contrast two plausible choices. | “The agent can clarify the difference, but it cannot choose for me or record either option.” |
 | 1:05–1:30 | Confirm an answer, show the visible 12-step progressbar and focus moving to the next question, then revise the earlier answer. | “Every recorded choice requires explicit confirmation. The same semantic progress and focus transition is visible whether I click or the agent invokes the tool, and reduced-motion preferences are respected.” |
 | 1:30–1:55 | Review and complete the reflection. | “Scoring stays deterministic in the page. The agent guides the flow; it does not invent the result.” |
 | 1:55–2:15 | Retrieve Card 012 and request a matching edition. | “The same contract exposes all 144 public cards and a price-free, read-only edition recommendation.” |
@@ -173,20 +173,22 @@ viewable on YouTube, audible, captioned, and demonstrates the deployed build.
 
 1. In Chrome 149 or later, enable `chrome://flags/#enable-webmcp-testing`,
    restart Chrome, and open https://mirrorloopai.com/.
-2. Confirm `WebMCP ready · 8 tools`.
-3. Open DevTools and select **Application → WebMCP**. Confirm eight entries
+2. Confirm `WebMCP ready · 9 tools`.
+3. Open DevTools and select **Application → WebMCP**. Confirm nine entries
    under **Available Tools** and no schema errors.
 4. Select each tool and use **Run tool**; inspect calls and results under
    **Invoked Tools**. Begin with `start_reflection`,
-   `get_current_question`, and `explain_choice`.
-5. Call `answer_reflection_question` first with
+   `get_current_question`, `explain_choice`, and `compare_choices`.
+5. Call `compare_choices` with Question 1, Choices 01 and 06; verify that
+   neither choice is selected or recorded.
+6. Call `answer_reflection_question` first with
    `confirmed_by_user: false` and verify rejection; then use `true`.
-6. Review, revise one prior answer, and complete the session.
-7. Call `get_card` with `012`.
-8. Call `recommend_card_edition` with an ARC and edition.
-9. Add an unknown argument during a manual run and confirm the schema
+7. Review, revise one prior answer, and complete the session.
+8. Call `get_card` with `012`.
+9. Call `recommend_card_edition` with an ARC and edition.
+10. Add an unknown argument during a manual run and confirm the schema
    diagnostic is visible.
-10. Verify no WebMCP tool can submit email, mutate a cart, create Checkout, or
+11. Verify no WebMCP tool can submit email, mutate a cart, create Checkout, or
    make payment.
 
 For a deterministic preflight, run `npm run test:webmcp:evals`. It validates
@@ -212,13 +214,13 @@ zero-server-data guarantee.
 Six concrete operational demo scenarios are available in
 `WEBMCP_OPERATIONAL_USE_CASES.html`. They preserve the founder, operator,
 launch, sprint, team, and workspace contexts while mapping every agent action
-to the production eight-tool contract. A live Gemini/WebMCP Inspector run
-matched all six frozen cases and all eight expected calls exactly.
+to the production nine-tool contract. A live Gemini/WebMCP Inspector run
+matched all six frozen cases and all nine expected calls exactly.
 
 The competition-wide claim matrix, corrected 2:35 storyboard, and copy-ready
 core are in `WEBMCP_COMPETITION_HARDENING_AUDIT.html`. This audit separates
 implemented evidence from future concepts and explicitly excludes invented
-events, a ninth tool, P2P exchange, astronomical calculations, physical
+events, P2P exchange, astronomical calculations, physical
 fulfillment, x402, and autonomous payment from the submitted build.
 
 The confirmed panel roster and six short, role-oriented reproduction paths are

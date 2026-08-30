@@ -37,8 +37,11 @@ for (const entry of evals.cases) {
       assert.ok(Number.isInteger(call.arguments.question_id));
       assert.ok(call.arguments.question_id >= 1 && call.arguments.question_id <= 12);
     }
-    for (const field of ["choice_code", "arc_code"]) {
+    for (const field of ["choice_code", "choice_a", "choice_b", "arc_code"]) {
       if (field in call.arguments) assert.match(call.arguments[field], /^(0[1-9]|1[0-2])$/);
+    }
+    if (call.name === "compare_choices") {
+      assert.notEqual(call.arguments.choice_a, call.arguments.choice_b);
     }
     if ("card_id" in call.arguments) {
       assert.match(call.arguments.card_id, /^\d{3}$/);

@@ -1,0 +1,102 @@
+{
+  "baseURL": "http://127.0.0.1:4173",
+  "desktopComparison": {
+    "before": {
+      "progress": "Question 1 of 12",
+      "selected": 0
+    },
+    "after": {
+      "progress": "Question 1 of 12",
+      "selected": 0
+    },
+    "payload": {
+      "question_id": 1,
+      "prompt": "When you feel stuck, what do you try to regain first?",
+      "choice_a": {
+        "code": "01",
+        "label": "A destination to move toward",
+        "lens": "Horizon Signal",
+        "focus": "Finding direction",
+        "plain_language_meaning": "You naturally look for a direction worth moving toward."
+      },
+      "choice_b": {
+        "code": "06",
+        "label": "One clean fork chosen",
+        "lens": "Fracture Path",
+        "focus": "Decisions under pressure",
+        "plain_language_meaning": "You regain movement by choosing a clear fork and committing to it."
+      },
+      "operational_contrast": "Horizon Signal centers on “A destination to move toward” through finding direction; Fracture Path centers on “One clean fork chosen” through decisions under pressure. Notice which describes your first instinct in this situation—not which sounds better.",
+      "boundary": "This comparison does not rank, select, or record either choice.",
+      "selection_status": "NEITHER_SELECTED"
+    }
+  },
+  "desktop": {
+    "phase": "9 TOOLS MOUNTED",
+    "activeTool": "answer_reflection_question",
+    "safeInput": "question id: 1 · choice code: 01 · confirmed by user: yes",
+    "confirmation": "HUMAN CONFIRMED",
+    "confirmationState": "confirmed",
+    "duration": "0.5 ms observed",
+    "events": [
+      "DONEanswer_reflection_question · Completed",
+      "STARTanswer_reflection_question",
+      "DONEcompare_choices · Completed",
+      "STARTcompare_choices",
+      "DONEstart_reflection · Completed"
+    ],
+    "privateFocusVisible": false,
+    "position": "fixed",
+    "horizontalOverflow": false
+  },
+  "mobileComparison": {
+    "before": {
+      "progress": "Question 1 of 12",
+      "selected": 0
+    },
+    "after": {
+      "progress": "Question 1 of 12",
+      "selected": 0
+    },
+    "payload": {
+      "question_id": 1,
+      "prompt": "When you feel stuck, what do you try to regain first?",
+      "choice_a": {
+        "code": "01",
+        "label": "A destination to move toward",
+        "lens": "Horizon Signal",
+        "focus": "Finding direction",
+        "plain_language_meaning": "You naturally look for a direction worth moving toward."
+      },
+      "choice_b": {
+        "code": "06",
+        "label": "One clean fork chosen",
+        "lens": "Fracture Path",
+        "focus": "Decisions under pressure",
+        "plain_language_meaning": "You regain movement by choosing a clear fork and committing to it."
+      },
+      "operational_contrast": "Horizon Signal centers on “A destination to move toward” through finding direction; Fracture Path centers on “One clean fork chosen” through decisions under pressure. Notice which describes your first instinct in this situation—not which sounds better.",
+      "boundary": "This comparison does not rank, select, or record either choice.",
+      "selection_status": "NEITHER_SELECTED"
+    }
+  },
+  "mobile": {
+    "phase": "9 TOOLS MOUNTED",
+    "activeTool": "answer_reflection_question",
+    "safeInput": "question id: 1 · choice code: 01 · confirmed by user: yes",
+    "confirmation": "HUMAN CONFIRMED",
+    "confirmationState": "confirmed",
+    "duration": "0.5 ms observed",
+    "events": [
+      "DONEanswer_reflection_question · Completed",
+      "STARTanswer_reflection_question",
+      "DONEcompare_choices · Completed",
+      "STARTcompare_choices",
+      "DONEstart_reflection · Completed"
+    ],
+    "privateFocusVisible": false,
+    "position": "relative",
+    "horizontalOverflow": false
+  },
+  "status": "PASS"
+}

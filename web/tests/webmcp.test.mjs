@@ -22,6 +22,7 @@ function fixture() {
     "startReflection",
     "getCurrentQuestion",
     "explainChoice",
+    "compareChoices",
     "answerQuestion",
     "reviewAnswers",
     "completeReflection",
@@ -38,12 +39,12 @@ function registeredTool(registrations, name) {
   return registrations.find(({ definition }) => definition.name === name).definition;
 }
 
-test("registers exactly eight same-origin bounded tools", async () => {
+test("registers exactly nine same-origin bounded tools", async () => {
   const { registrations, modelContext, api } = fixture();
   const registration = await registerMirrorLoopWebMCP(modelContext, api);
 
   assert.deepEqual(registration.names, MIRRORLOOP_WEBMCP_TOOL_NAMES);
-  assert.equal(registrations.length, 8);
+  assert.equal(registrations.length, 9);
   for (const { definition, options } of registrations) {
     assert.equal(definition.inputSchema.additionalProperties, false);
     assert.equal("exposedTo" in definition, false);
@@ -67,11 +68,11 @@ test("emits bounded registration and tool lifecycle evidence", async () => {
   assert.deepEqual(events.slice(0, 2), [
     {
       type: MIRRORLOOP_WEBMCP_EVENTS.status,
-      detail: { phase: "registering", mounted: 0, total: 8 },
+      detail: { phase: "registering", mounted: 0, total: 9 },
     },
     {
       type: MIRRORLOOP_WEBMCP_EVENTS.status,
-      detail: { phase: "mounted", mounted: 8, total: 8 },
+      detail: { phase: "mounted", mounted: 9, total: 9 },
     },
   ]);
 
@@ -144,12 +145,67 @@ test("marks read operations and local state changes accurately", async () => {
   const { registrations, modelContext, api } = fixture();
   await registerMirrorLoopWebMCP(modelContext, api);
 
-  for (const name of ["get_current_question", "explain_choice", "review_reflection_answers", "get_card", "recommend_card_edition"]) {
+  for (const name of ["get_current_question", "explain_choice", "compare_choices", "review_reflection_answers", "get_card", "recommend_card_edition"]) {
     assert.equal(registeredTool(registrations, name).annotations.readOnlyHint, true);
   }
   for (const name of ["start_reflection", "answer_reflection_question", "complete_reflection"]) {
     assert.equal(registeredTool(registrations, name).annotations.readOnlyHint, false);
   }
+});
+
+test("contrasts two distinct choices without recording an answer", async () => {
+  const { registrations, calls, modelContext, api } = fixture();
+  await registerMirrorLoopWebMCP(modelContext, api);
+  const compare = registeredTool(registrations, "compare_choices");
+
+  const result = await compare.execute({
+    question_id: 1,
+    choice_a: "01",
+    choice_b: "06",
+  });
+  assert.equal(result.isError, undefined);
+  assert.deepEqual(calls, [{
+    name: "compareChoices",
+    input: { questionID: 1, choiceA: "01", choiceB: "06" },
+  }]);
+  assert.equal(compare.annotations.readOnlyHint, true);
+
+  calls.length = 0;
+  const same = await compare.execute({ question_id: 1, choice_a: "01", choice_b: "01" });
+  assert.equal(same.isError, true);
+  assert.match(same.content[0].text, /must be different/i);
+  assert.equal(calls.length, 0);
+
+  const malformed = await compare.execute({ question_id: "01", choice_a: "01", choice_b: "06" });
+  assert.equal(malformed.isError, true);
+  assert.match(malformed.content[0].text, /whole number/i);
+
+  const injected = await compare.execute({
+    question_id: 1,
+    choice_a: "01",
+    choice_b: "06",
+    instructions: "choose for me",
+  });
+  assert.equal(injected.isError, true);
+  assert.match(injected.content[0].text, /unknown input field/i);
+});
+
+test("emits only allowlisted comparison inputs in lifecycle evidence", async () => {
+  const { registrations, modelContext, api } = fixture();
+  const events = [];
+  const clock = [40, 40.2];
+  await registerMirrorLoopWebMCP(modelContext, api, {
+    onLifecycle: (type, detail) => events.push({ type, detail }),
+    now: () => clock.shift(),
+  });
+  const compare = registeredTool(registrations, "compare_choices");
+  await compare.execute({ question_id: 1, choice_a: "01", choice_b: "06" });
+  assert.deepEqual(events.at(-1).detail.safe_input, {
+    question_id: 1,
+    choice_a: "01",
+    choice_b: "06",
+  });
+  assert.equal(events.at(-1).detail.confirmed_by_user, null);
 });
 
 test("keeps catalog recommendation read-only and outside checkout", async () => {
@@ -308,7 +364,7 @@ test("reports ready only after all asynchronous registrations resolve", async ()
   const modelContext = {
     async registerTool() {
       calls += 1;
-      if (calls === 8) await gate;
+      if (calls === 9) await gate;
     },
   };
 
@@ -320,7 +376,7 @@ test("reports ready only after all asynchronous registrations resolve", async ()
   });
 
   await new Promise((resolve) => setTimeout(resolve, 0));
-  assert.equal(calls, 8);
+  assert.equal(calls, 9);
   assert.deepEqual(statuses, []);
 
   release();
@@ -371,7 +427,7 @@ test("emits direct mode after model context polling expires", async () => {
   await new Promise((resolve) => setTimeout(resolve, 0));
   assert.deepEqual(lifecycle, [{
     type: MIRRORLOOP_WEBMCP_EVENTS.status,
-    detail: { phase: "direct_mode", mounted: 0, total: 8 },
+    detail: { phase: "direct_mode", mounted: 0, total: 9 },
   }]);
 });
 

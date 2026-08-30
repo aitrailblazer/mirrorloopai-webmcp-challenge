@@ -17,9 +17,9 @@ try {
   await installModelContextHarness(desktop);
   await desktop.goto(`${baseURL}/?wm014-test=1`);
   await desktop.locator("#agent-state-panel").waitFor();
-  await invokeLifecycleSequence(desktop);
+  evidence.desktopComparison = await invokeLifecycleSequence(desktop);
   evidence.desktop = await hudState(desktop);
-  assert.equal(evidence.desktop.phase, "8 TOOLS MOUNTED");
+  assert.equal(evidence.desktop.phase, "9 TOOLS MOUNTED");
   assert.equal(evidence.desktop.activeTool, "answer_reflection_question");
   assert.match(evidence.desktop.safeInput, /question id: 1/);
   assert.match(evidence.desktop.safeInput, /confirmed by user: yes/);
@@ -45,9 +45,9 @@ try {
   await installModelContextHarness(mobile);
   await mobile.goto(`${baseURL}/?wm014-mobile-test=1`);
   await mobile.locator("#agent-state-panel").waitFor();
-  await invokeLifecycleSequence(mobile);
+  evidence.mobileComparison = await invokeLifecycleSequence(mobile);
   evidence.mobile = await hudState(mobile);
-  assert.equal(evidence.mobile.phase, "8 TOOLS MOUNTED");
+  assert.equal(evidence.mobile.phase, "9 TOOLS MOUNTED");
   assert.equal(evidence.mobile.horizontalOverflow, false);
   assert.equal(evidence.mobile.position, "relative");
   await mobile.screenshot({
@@ -82,12 +82,31 @@ async function installModelContextHarness(page) {
 }
 
 async function invokeLifecycleSequence(page) {
-  await page.waitForFunction(() => window.__mirrorloopTestTools?.size === 8);
+  await page.waitForFunction(() => window.__mirrorloopTestTools?.size === 9);
   await page.evaluate(() => {
     return window.__mirrorloopTestTools.get("start_reflection").execute({
       focus_area: "private founder dispute",
     });
   });
+  const comparison = await page.evaluate(async () => {
+    const before = {
+      progress: document.querySelector("#progress-label").textContent,
+      selected: document.querySelectorAll('input[name="answer"]:checked').length,
+    };
+    const result = await window.__mirrorloopTestTools.get("compare_choices").execute({
+      question_id: 1,
+      choice_a: "01",
+      choice_b: "06",
+    });
+    const after = {
+      progress: document.querySelector("#progress-label").textContent,
+      selected: document.querySelectorAll('input[name="answer"]:checked').length,
+    };
+    return { before, after, payload: JSON.parse(result.content[0].text) };
+  });
+  assert.deepEqual(comparison.before, comparison.after);
+  assert.equal(comparison.payload.selection_status, "NEITHER_SELECTED");
+  assert.match(comparison.payload.boundary, /does not rank, select, or record/i);
   await page.evaluate(() => {
     return window.__mirrorloopTestTools.get("answer_reflection_question").execute({
       question_id: 1,
@@ -95,6 +114,7 @@ async function invokeLifecycleSequence(page) {
       confirmed_by_user: true,
     });
   });
+  return comparison;
 }
 
 async function hudState(page) {

@@ -32,6 +32,7 @@ export const MIRRORLOOP_WEBMCP_TOOL_NAMES = Object.freeze([
   "start_reflection",
   "get_current_question",
   "explain_choice",
+  "compare_choices",
   "answer_reflection_question",
   "review_reflection_answers",
   "complete_reflection",
@@ -59,11 +60,15 @@ function safeInputSummary(toolName, value) {
     ? input.question_id
     : "invalid";
   const safeChoiceCode = CHOICE_CODE_SCHEMA.enum.includes(input.choice_code) ? input.choice_code : "invalid";
+  const safeChoiceA = CHOICE_CODE_SCHEMA.enum.includes(input.choice_a) ? input.choice_a : "invalid";
+  const safeChoiceB = CHOICE_CODE_SCHEMA.enum.includes(input.choice_b) ? input.choice_b : "invalid";
   switch (toolName) {
     case "start_reflection":
       return { focus_supplied: typeof input.focus_area === "string" && input.focus_area.trim().length > 0 };
     case "explain_choice":
       return { question_id: safeQuestionID, choice_code: safeChoiceCode };
+    case "compare_choices":
+      return { question_id: safeQuestionID, choice_a: safeChoiceA, choice_b: safeChoiceB };
     case "answer_reflection_question":
       return {
         question_id: safeQuestionID,
@@ -201,6 +206,7 @@ function defineTools(api) {
   const startReflection = requiredMethod(api, "startReflection");
   const getCurrentQuestion = requiredMethod(api, "getCurrentQuestion");
   const explainChoice = requiredMethod(api, "explainChoice");
+  const compareChoices = requiredMethod(api, "compareChoices");
   const answerQuestion = requiredMethod(api, "answerQuestion");
   const reviewAnswers = requiredMethod(api, "reviewAnswers");
   const completeReflection = requiredMethod(api, "completeReflection");
@@ -261,6 +267,39 @@ function defineTools(api) {
         return explainChoice({
           questionID: checkedQuestionID(input.question_id),
           choiceCode: checkedChoiceCode(input.choice_code),
+        });
+      },
+    },
+    {
+      name: "compare_choices",
+      description: "Contrast two choices from one reflection question in plain language without ranking, selecting, or recording either choice.",
+      inputSchema: {
+        type: "object",
+        properties: {
+          question_id: {
+            type: "integer",
+            minimum: 1,
+            maximum: 12,
+            description: "Question number from 1 to 12.",
+          },
+          choice_a: CHOICE_CODE_SCHEMA,
+          choice_b: CHOICE_CODE_SCHEMA,
+        },
+        required: ["question_id", "choice_a", "choice_b"],
+        additionalProperties: false,
+      },
+      annotations: READ_ONLY,
+      run: (value) => {
+        const input = checkedKeys(value, ["question_id", "choice_a", "choice_b"]);
+        const choiceA = checkedChoiceCode(input.choice_a);
+        const choiceB = checkedChoiceCode(input.choice_b);
+        if (choiceA === choiceB) {
+          throw new Error("choice_a and choice_b must be different.");
+        }
+        return compareChoices({
+          questionID: checkedQuestionID(input.question_id),
+          choiceA,
+          choiceB,
         });
       },
     },

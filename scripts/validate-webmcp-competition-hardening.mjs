@@ -8,24 +8,24 @@ const artifact = await readFile(
 
 for (const required of [
   "<StrategiXVisualSpec",
-  "<ToolCount>8</ToolCount>",
+  "<ToolCount>9</ToolCount>",
   "mirrorloop:session_start,mirrorloop:step_transition,mirrorloop:reflection_complete",
   'id="score" status="UNRESOLVED"',
   'id="astronomy" status="CONTRADICTED"',
-  'id="tool9_p2p" status="CONTRADICTED"',
+  'id="p2p" status="CONTRADICTED"',
   'id="physical_products" status="CONTRADICTED"',
   'id="autonomous_payment" status="CONTRADICTED"',
   "Do not self-award judging scores",
   "Corrected 2:35 demo",
   "Stop before Stripe",
-  "Freeze the eight-tool build",
+  "Freeze the reviewed nine-tool build",
   "public repository visibility",
 ]) {
   assert.ok(artifact.includes(required), `missing hardening contract: ${required}`);
 }
 
 for (const prohibited of [
-  "deployed Tool 9",
+  "deployed P2P",
   "unassailable 10/10",
   "zero-XSS guarantee",
   "autonomously purchases",

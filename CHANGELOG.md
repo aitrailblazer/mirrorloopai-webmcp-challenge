@@ -1,5 +1,20 @@
 # Changelog
 
+## 2026-08-30 — Socratic two-choice WebMCP contrast
+
+- Added the read-only `compare_choices` WebMCP tool so an agent can contrast
+  two plausible answers on the same question without ranking, selecting, or
+  recording either one.
+- Kept the contract strict and bounded: one integer question ID, two distinct
+  two-digit choice codes, no unknown fields, public quiz copy only, and a
+  response below the existing 1,500-character tool budget.
+- Updated the Agent State HUD, active tool inventory, manifests, evaluation
+  corpora, competition artifacts, and demo path from eight to nine tools while
+  preserving prior eight-tool evidence as dated history.
+- Added unit coverage for all 792 valid two-choice pairings and browser
+  coverage proving that comparison neither advances the question nor selects
+  an answer.
+
 ## 2026-08-30 — Agent State HUD and WebMCP live event rail
 
 - Added a collapsible, high-contrast Agent State rail that makes WebMCP

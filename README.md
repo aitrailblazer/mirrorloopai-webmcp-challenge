@@ -36,7 +36,7 @@ control of identity or payment.
 
 ## Verified core repository scope
 
-1. **Eight typed tools.** Strict JSON Schemas reject unknown properties, while
+1. **Nine typed tools.** Strict JSON Schemas reject unknown properties, while
    bounded runtime checks validate identifiers, enumerations, lengths, and
    adapter availability before returning structured tool errors.
 2. **Enforced human confirmation.** `answer_reflection_question` records or
@@ -54,18 +54,19 @@ control of identity or payment.
    DevTools, and the repository carries automated registration and contract
    gates.
 
-## Eight bounded tools
+## Nine bounded tools
 
 1. `start_reflection`
 2. `get_current_question`
 3. `explain_choice`
-4. `answer_reflection_question`
-5. `review_reflection_answers`
-6. `complete_reflection`
-7. `get_card`
-8. `recommend_card_edition`
+4. `compare_choices`
+5. `answer_reflection_question`
+6. `review_reflection_answers`
+7. `complete_reflection`
+8. `get_card`
+9. `recommend_card_edition`
 
-The production page visibly reports **WebMCP ready · 8 tools** after native
+The production page visibly reports **WebMCP ready · 9 tools** after native
 registration. Its collapsible **Agent state** rail then makes registration and
 tool execution visible without DevTools: it shows the active tool, an
 allowlisted input summary, observed local elapsed time, outcome, and whether an
@@ -99,7 +100,7 @@ configured. Recording or revising an answer requires an explicit
 price or direct Stripe URL. Email submission, cart mutation, Checkout creation,
 and payment are deliberately not WebMCP tools.
 
-Registration is considered ready only after all eight registration promises
+Registration is considered ready only after all nine registration promises
 resolve. A rejection aborts the partial tool set and activates the normal
 direct-use fallback. Tool names, descriptions, parameter descriptions, and
 individual results are checked against the current Chrome WebMCP character
@@ -116,7 +117,7 @@ current browser invocation, not performance guarantees.
 The human supplies intent and confirms choices. The agent can:
 
 - start or resume the local reflection;
-- read the active question and explain any choice;
+- read the active question, explain any choice, and neutrally contrast two choices;
 - record only a choice the human explicitly confirms;
 - review answers and revise an earlier confirmed choice;
 - complete the deterministic reflection;
@@ -133,10 +134,10 @@ while preserving the page's normal visual flow and human decision points.
 12-question quiz, curated card/shop data, subscriber email flow, Go backend,
 Firebase/Cloud Run deployment, and human-controlled Stripe Checkout.
 
-**Added during the challenge after August 25, 2026:** the eight WebMCP tools,
+**Added during the challenge after August 25, 2026:** the nine WebMCP tools,
 strict schemas and annotations, explicit answer-confirmation boundary, prior
 answer revision, public 144-card lookup, safe edition recommendation, visible
-eight-tool readiness badge, production browser verification, conversion link
+nine-tool readiness badge, production browser verification, conversion link
 from result to the matching ARC, agent discovery metadata, and this submission
 audit/package.
 
@@ -190,11 +191,11 @@ or upload a video.
 1. Use Chrome 149 or later, enable
    `chrome://flags/#enable-webmcp-testing`, and restart Chrome.
 2. Open `https://mirrorloopai.com/`.
-3. Confirm the header reads **WebMCP ready · 8 tools**.
-4. Open DevTools, select **Application → WebMCP**, and confirm all eight tools
+3. Confirm the header reads **WebMCP ready · 9 tools**.
+4. Open DevTools, select **Application → WebMCP**, and confirm all nine tools
    appear under **Available Tools** with no schema errors.
 5. Select a tool and use **Run tool** to invoke `start_reflection`,
-   `get_current_question`, and `explain_choice`; inspect each record under
+   `get_current_question`, `explain_choice`, and `compare_choices`; inspect each record under
    **Invoked Tools**.
 6. Confirm an answer with `confirmed_by_user: true`, then deliberately try an
    unknown field and verify the schema violation is visible.
@@ -204,7 +205,7 @@ or upload a video.
    make a payment.
 
 The machine-readable intent corpus in
-[`web/evals/webmcp-evals.json`](web/evals/webmcp-evals.json) covers all eight
+[`web/evals/webmcp-evals.json`](web/evals/webmcp-evals.json) covers all nine
 tools, ordered flows, ambiguous requests, and no-tool email/cart/payment cases.
 `npm run test:webmcp:evals` validates that corpus deterministically. A live
 host-agent run is recorded in
@@ -217,7 +218,7 @@ Raw, credential-free evidence is retained under
 
 The final competition narrative and 2:35 demo are reconciled in
 `WEBMCP_COMPETITION_HARDENING_AUDIT.html`. It deliberately does not self-award
-judging scores or claim nonexistent browser events, astronomy, Tool 9/P2P,
+judging scores or claim nonexistent browser events, astronomy, P2P exchange,
 physical fulfillment, x402, diagnosis, or autonomous payment.
 
 The confirmed seven-person panel is oriented to the same reproducible evidence
