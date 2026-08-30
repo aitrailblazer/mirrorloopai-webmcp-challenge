@@ -7,8 +7,8 @@ Tracker source: `feature_status_tracker.csv`
 - Total features discovered: 83
 - Total verified before fixes: 56
 - Total failed before fixes: 15
-- Total fixed: 21
-- Total verified after retest: 77
+- Total fixed: 22
+- Total verified after retest: 78
 - Total still blocked: 0
 - Total needing product decision: 1
 
@@ -19,7 +19,6 @@ Tracker source: `feature_status_tracker.csv`
 -  `Devpost project draft readiness` — Critical — Needs Product Decision
 -  `Eligibility, ownership, and third-party rights attestation` — Critical — Needs Product Decision
 -  `Explicit-confirmation eval oracle consistency` — High — Needs Product Decision
--  `Production email-reflection submission routing` — Critical — Failed Test
 
 ## Files Changed Or Audited
 
@@ -90,7 +89,7 @@ Tracker source: `feature_status_tracker.csv`
 - `WEBMCP_JUDGE_PANEL_BRIEF.html; scripts/build-webmcp-judge-panel-brief.mjs; scripts/validate-webmcp-judge-panel-brief.mjs; scripts/validate-submission.mjs; package.json; README.md; SUBMISSION.md; CHANGELOG.md; qa_evidence/webmcp_judge_panel/**; feature_status_tracker.csv`
 - `WEBMCP_JUDGE_PANEL_BRIEF.html; scripts/build-webmcp-judge-panel-brief.mjs; scripts/validate-webmcp-judge-panel-brief.mjs; scripts/validate-webmcp-chrome-ux.mjs; scripts/validate-submission.mjs; SUBMISSION.md; README.md; package.json; CHANGELOG.md; qa_evidence/webmcp_chrome_ux/**; feature_status_tracker.csv`
 - `WEBMCP_JUDGE_PANEL_BRIEF.html; scripts/build-webmcp-judge-panel-brief.mjs; scripts/validate-webmcp-judge-panel-brief.mjs; scripts/validate-webmcp-six-role-claims.mjs; scripts/validate-submission.mjs; README.md; SUBMISSION.md; package.json; CHANGELOG.md; qa_evidence/webmcp_six_role_claims/**; feature_status_tracker.csv`
-- `feature_status_tracker.csv; feature_status_tracker.xlsx; feature_status_tracker.html; feature_qa_report.md; qa_evidence/subscriber_route_recovery/baseline.txt`
+- `web/index.html; web/app.js; scripts/validate-site.mjs; CHANGELOG.md; qa_evidence/subscriber_route_recovery/**; feature_status_tracker.csv; feature_status_tracker.xlsx; feature_status_tracker.html; feature_qa_report.md`
 
 ## Commits Recorded In Tracker
 
@@ -109,6 +108,7 @@ Tracker source: `feature_status_tracker.csv`
 - `7a91f15`
 - `c6e7d4d`
 - `fe40fe4`
+- `825e1a6`
 
 ## Test Evidence
 

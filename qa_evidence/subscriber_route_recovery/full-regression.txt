@@ -1,0 +1,99 @@
+
+> test:webmcp:evals
+> node scripts/validate-webmcp-evals.mjs
+
+WebMCP eval corpus: PASS (15 cases, 8 tools, 2 sequences)
+Note: this validates the deterministic expected-call corpus; a host-agent model run is a separate evaluation.
+
+> test:webmcp:campaign-evals
+> node scripts/validate-webmcp-campaign-evals.mjs
+
+WebMCP campaign corpus: PASS (10 cases, 6 supported tools, 5 claim boundaries)
+
+> test:webmcp:operational-use-cases
+> node scripts/validate-webmcp-operational-use-cases.mjs
+
+WebMCP operational use cases: PASS (6 cases, 4 production tools)
+
+> test:webmcp:competition-hardening
+> node scripts/validate-webmcp-competition-hardening.mjs
+
+WebMCP competition hardening audit: PASS
+
+> test:webmcp:judge-panel
+> node scripts/validate-webmcp-judge-panel-brief.mjs
+
+WebMCP judge panel brief: PASS
+
+> test:webmcp:chrome-ux
+> node scripts/validate-webmcp-chrome-ux.mjs
+
+WebMCP Chrome UX claim contract: PASS
+
+> test:webmcp:six-role-claims
+> node scripts/validate-webmcp-six-role-claims.mjs
+
+WebMCP six-role claim contract: PASS
+
+> test:webmcp:agent-evidence
+> node scripts/validate-webmcp-agent-evidence.mjs
+
+Live WebMCP agent evidence: PASS (strict 12/15, ordered 14/15, arguments 12/14, literal no-tool 4/5, forbidden mutations 0)
+
+> test:webmcp:campaign-evidence
+> node scripts/validate-webmcp-campaign-agent-evidence.mjs
+
+Live WebMCP campaign evidence: PASS (strict 8/10, selection 10/10, ordered 10/10, no-tool 5/5, forbidden calls 0)
+
+> test:webmcp:operational-evidence
+> node scripts/validate-webmcp-operational-evidence.mjs
+
+Live WebMCP operational evidence: PASS (6/6 exact cases, 8/8 calls)
+
+> validate:submission
+> node scripts/validate-submission.mjs
+
+PASS README live URL
+PASS README source URL
+PASS README native registration pattern
+PASS README current DevTools judge path
+PASS README resource review
+PASS README campaign claim audit
+PASS README operational use cases
+PASS README competition hardening
+PASS README judge panel brief
+PASS README pre-existing disclosure
+PASS README all eight tools
+PASS Submission four required explanations
+PASS Submission four judging criteria
+PASS Submission demo plan
+PASS Submission challenge-period commits
+PASS Submission freeze plan
+PASS Third-party service inventory
+PASS Top-level MIT license
+PASS Package validation entry point
+PASS Chrome UX validation entry point
+PASS Six-role validation entry point
+PASS Eval validation entry point
+PASS Campaign eval validation entry point
+PASS Campaign claim boundary matrix
+PASS Six bounded operational use cases
+PASS Competition claim hardening
+PASS Evidence-bounded judge panel brief
+PASS Official resource matrix
+
+External gates intentionally not performed by this validator:
+- GitHub repository visibility must be PUBLIC.
+- A Devpost project must be created.
+- A public YouTube demo under three minutes must be supplied.
+- The operator must complete eligibility, ownership, and rights attestations.
+- Actual ChatGPT in-app-browser support remains optional because verified Chrome is accepted.
+
+LOCAL SUBMISSION PACKAGE PASS — external gates remain pending.
+
+--- production asset and routing ---
+/app.js?v=20260830-5
+health=200 application/json; charset=utf-8
+subscriber_boundary=400 application/json; charset=utf-8
+{"error":"Please complete the human verification."}
+
