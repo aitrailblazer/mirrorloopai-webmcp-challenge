@@ -6,6 +6,7 @@
 - Redacted the cloud billing-account identifier and synthetic E2E participant address from every reachable commit and blob.
 - Repaired current submission, README, validation, tracker, report-source, continuity, and QA references to use the rewritten commit identities.
 - Re-ran complete-history credential-signature checks; no recognized Stripe, Resend, Google, GitHub, or private-key signatures were detected.
+- Force-pushed the rewritten history with an exact lease guard and verified immediate local/remote parity at 0/0.
 - Kept GitHub visibility private pending the separate publication action.
 
 ## 2026-08-30 — Deadline eligibility preflight

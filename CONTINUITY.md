@@ -36,7 +36,7 @@ State:
 - The local submission package, judge narrative, demo script, public/private work disclosure, criterion map, third-party notice, and freeze plan pass deterministic validation.
 - The official reminder fixes the deadline at September 3, 2026, 1:00 PM PT.
 - Repository publication, Devpost project creation, public video upload, operator attestations, conditional teammate acceptance, and final submission remain explicit operator actions.
-- Authenticated GitHub reports the competition repository PRIVATE; anonymous API access returns 404; local main is 29 commits ahead of origin/main.
+- Authenticated GitHub reports the competition repository PRIVATE and anonymous API access returns 404. The sanitized rewritten main branch has been force-pushed and synchronized with origin/main.
 - A current-and-history signature scan found no common credentials, but unnecessary billing-account metadata and a synthetic E2E participant alias remain in tracked history and need a publication decision.
 
 Done:
@@ -74,7 +74,7 @@ Now:
 
 Next:
 - Decide whether to sanitize/rewrite the private repository history or explicitly accept the identified operational metadata before publication.
-- Push the 29 local commits, change the GitHub repository to public, and verify anonymous access plus MIT detection.
+- Change the GitHub repository to public and verify anonymous access plus MIT detection.
 - Record and publish the under-three-minute YouTube demo.
 - Create the Devpost project, paste the prepared package, resolve solo-versus-team attribution, complete attestations, and submit before September 3, 2026 at 1:00 PM PT.
 
