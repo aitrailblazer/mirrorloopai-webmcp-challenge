@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "url": "https://mirrorloopai.com/api/v1/subscribers/verify?token=[invalid-test-token-redacted]",
+  "documentStatus": 400,
+  "cssResponses": [
+    {
+      "status": 200,
+      "contentType": "text/css; charset=utf-8"
+    }
+  ],
+  "state": {
+    "title": "This link is no longer active — MIRROR//LOOP",
+    "stylesheetCount": 1,
+    "bodyBackground": "radial-gradient(circle at 70% 0px, rgb(33, 25, 54) 0px, rgb(8, 11, 21) 608px)",
+    "bodyColor": "rgb(245, 240, 230)",
+    "cardRadius": "32px",
+    "horizontalOverflow": false,
+    "hasInlineStyle": false
+  },
+  "resourceFailures": [],
+  "note": "The invalid-link document intentionally returns HTTP 400; resource failures are evaluated separately."
+}

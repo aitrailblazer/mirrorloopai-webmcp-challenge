@@ -11,7 +11,7 @@ Evidence:
 Repository evidence before repair:
 - The API response embeds all confirmation CSS in an inline <style> block.
 - The API CSP permits inline style, but Firebase Hosting's global CSP permits only same-origin styles (style-src 'self').
-- Multiple CSP policies are enforced conjunctively by browsers; an inline style allowed by one policy remains blocked by another policy that omits 'unsafe-inline'.
+- The production browser did not apply the inline style. The captured API response alone does not prove which browser/runtime layer suppressed it; moving the design to a same-origin stylesheet removes that inline-style dependency and matches the hosting policy.
 
 Baseline result: FAIL
 

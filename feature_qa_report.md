@@ -5,10 +5,10 @@ Tracker source: `feature_status_tracker.csv`
 ## Totals
 
 - Total features discovered: 86
-- Total verified before fixes: 56
+- Total verified before fixes: 57
 - Total failed before fixes: 18
-- Total fixed: 25
-- Total verified after retest: 80
+- Total fixed: 24
+- Total verified after retest: 81
 - Total still blocked: 0
 - Total needing product decision: 1
 
@@ -19,7 +19,6 @@ Tracker source: `feature_status_tracker.csv`
 - SUB-007 `Devpost project draft readiness` — Critical — Needs Product Decision
 - SUB-008 `Eligibility, ownership, and third-party rights attestation` — Critical — Needs Product Decision
 - RES-008 `Explicit-confirmation eval oracle consistency` — High — Needs Product Decision
-- F-031 `CSP-compatible confirmation page styling` — High — Fixed
 
 ## Files Changed Or Audited
 
@@ -115,6 +114,7 @@ Tracker source: `feature_status_tracker.csv`
 - `825e1a6`
 - `cfc9a70`
 - `068a91f; dc43eb2`
+- `b03a86c; 2ab3824`
 
 ## Test Evidence
 

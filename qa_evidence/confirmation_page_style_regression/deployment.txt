@@ -1,0 +1,8 @@
+F-031 deployment — 2026-08-30
+Cloud Run latest ready revision: mirrorloopai-subscriber-00014-x2t
+Cloud Run reported traffic: 100%
+Firebase Hosting deployment: PASS
+Production stylesheet: HTTP 200, text/css; charset=utf-8
+Production invalid-link document: intentional HTTP 400, same-origin stylesheet loaded HTTP 200
+Production browser computed style: radial-gradient background, 32px card radius, no inline style, no horizontal overflow, no failed resource requests
+Evidence: production_headers_after.txt, production_browser_results.json, production_verified.png

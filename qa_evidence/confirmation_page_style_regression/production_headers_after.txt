@@ -1,0 +1,46 @@
+=== production confirmation stylesheet ===
+HTTP/2 200 
+cache-control: max-age=3600
+content-security-policy: default-src 'self'; script-src 'self' https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; connect-src 'self' https://challenges.cloudflare.com; img-src 'self' data:; style-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
+content-type: text/css; charset=utf-8
+etag: "49e26f33dc2fed506768fca3cc25a1d8fdd98a492b83b3d9eb4cd1a3863092c0"
+last-modified: Sun, 30 Aug 2026 07:14:26 GMT
+permissions-policy: camera=(), microphone=(), geolocation=(), payment=()
+referrer-policy: strict-origin-when-cross-origin
+strict-transport-security: max-age=31556926
+x-content-type-options: nosniff
+accept-ranges: bytes
+date: Sun, 30 Aug 2026 07:15:01 GMT
+x-served-by: cache-pdx12333-PDX
+x-cache: MISS
+x-cache-hits: 0
+x-timer: S1788074101.257415,VS0,VE49
+vary: x-fh-requested-host, accept-encoding
+alt-svc: h3=":443";ma=86400,h3-29=":443";ma=86400,h3-27=":443";ma=86400
+content-length: 3771
+
+
+=== production invalid confirmation response ===
+HTTP/2 400 
+cache-control: no-store
+content-security-policy: default-src 'none'; style-src 'self'; form-action 'self'; base-uri 'none'; frame-ancestors 'none'
+content-type: text/html; charset=utf-8
+referrer-policy: no-referrer
+server: Google Frontend
+x-cloud-trace-context: 9ded4046c2b44d2d21dc913638b2c9ef;o=1
+x-content-type-options: nosniff
+accept-ranges: bytes
+date: Sun, 30 Aug 2026 07:15:01 GMT
+x-served-by: cache-pdx12323-PDX
+x-cache: MISS
+x-cache-hits: 0
+x-timer: S1788074101.396843,VS0,VE100
+vary: x-fh-requested-host, accept-encoding
+alt-svc: h3=":443";ma=86400,h3-29=":443";ma=86400,h3-27=":443";ma=86400
+content-length: 1252
+
+
+=== HTML asset markers ===
+8:  <title>This link is no longer active — MIRROR//LOOP</title>
+9:  <link rel="stylesheet" href="/confirmation.css?v=20260830-1">
+18:        <h1 id="page-title">This link is no longer active</h1>
