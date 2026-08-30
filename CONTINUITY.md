@@ -68,9 +68,9 @@ Done:
 - Committed the resource-driven implementation as `2d84634`, deployed it to Firebase Hosting, and verified the production bundle plus native eight-tool registration in isolated Chrome.
 
 Now:
-- The live WebMCP agent evaluation is complete locally and its evidence,
-  strict metrics, and benchmark-policy conflict are recorded. Generated tracker
-  views and repository gates are the remaining closeout steps for this pass.
+- The live WebMCP agent evaluation is complete, recorded in all tracker views,
+  and committed as `9d39b92`; all Node, Go, evidence-integrity, HTML/XML, secret,
+  dependency-audit, and repository-diff gates pass.
 
 Next:
 - Obtain operator confirmation before changing the GitHub repository to public.
