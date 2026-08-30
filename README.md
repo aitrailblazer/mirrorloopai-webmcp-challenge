@@ -173,6 +173,7 @@ manual experience.
 ### Verify
 
 ```bash
+npm run test:webmcp
 npm test
 npm run test:webmcp:evals
 npm run test:webmcp:agent-evidence
@@ -183,6 +184,25 @@ npm run validate:submission
 go test ./...
 go vet ./...
 ```
+
+`npm run test:webmcp` is the judge-facing one-command benchmark. It starts an
+ephemeral local static server, launches headless Chrome, mounts the eleven
+tools through a `navigator.modelContext` harness, validates the current
+18-case intent corpus, and exercises the browser contracts for:
+
+- native tool registration and Chrome character budgets;
+- rejection of an unconfirmed answer without changing the saved session;
+- rejection of completion after only 11 answers;
+- successful completion after all 12 confirmed answers; and
+- the read-only commerce boundary, including an unchanged cart and no
+  state-changing or third-party commerce request.
+
+The receipt is written to the ignored
+`artifacts/webmcp-eval/latest.json`. Set `WEBMCP_EVAL_OUTPUT` to preserve it
+elsewhere or `MIRRORLOOP_TEST_URL=https://mirrorloopai.com` to run the browser
+checks against production. `npm run test:webmcp-eval` is an equivalent alias.
+WebMCP is not an HTTP transport: rejected invocations return a bounded
+`isError: true` tool result rather than an invented HTTP 400 response.
 
 `validate:submission` validates the local judge package and reports external
 gates separately. It does not publish the repository, create a Devpost project,
@@ -211,7 +231,9 @@ or upload a video.
 The machine-readable intent corpus in
 [`web/evals/webmcp-evals.json`](web/evals/webmcp-evals.json) covers all eleven
 tools, ordered flows, ambiguous requests, and no-tool email/cart/payment cases.
-`npm run test:webmcp:evals` validates that corpus deterministically. A live
+It currently contains 18 cases. `npm run test:webmcp` validates that corpus and
+the live browser safety contracts together; `npm run test:webmcp:evals`
+validates only the corpus structure. A live
 host-agent run is recorded in
 [`WEBMCP_AGENT_EVAL_REPORT.html`](WEBMCP_AGENT_EVAL_REPORT.html). Gemini 2.5
 Flash selected the exact frozen tool sequence and arguments in 12 of 15 cases

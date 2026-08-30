@@ -177,7 +177,7 @@ viewable on YouTube, audible, captioned, and demonstrates the deployed build.
 1. In Chrome 149 or later, enable `chrome://flags/#enable-webmcp-testing`,
    restart Chrome, and open https://mirrorloopai.com/.
 2. Confirm `WebMCP ready · 11 tools`.
-3. Open DevTools and select **Application → WebMCP**. Confirm ten entries
+3. Open DevTools and select **Application → WebMCP**. Confirm eleven entries
    under **Available Tools** and no schema errors.
 4. Select each tool and use **Run tool**; inspect calls and results under
    **Invoked Tools**. Begin with `start_reflection`,
@@ -197,9 +197,13 @@ viewable on YouTube, audible, captioned, and demonstrates the deployed build.
 11. Verify no WebMCP tool can submit email, mutate a cart, create Checkout, or
    make payment.
 
-For a deterministic preflight, run `npm run test:webmcp:evals`. It validates
-the expected intent-to-tool, arguments, ordering, and no-tool cases in
-`web/evals/webmcp-evals.json`. A separate live Gemini 2.5 Flash run used the
+For a deterministic judge preflight, run `npm run test:webmcp`. It starts its
+own local server and headless Chrome, mounts all eleven tools through
+`navigator.modelContext`, validates the current 18-case corpus, and proves the
+confirmation, premature-completion, output-budget, and no-checkout boundaries.
+The `npm run test:webmcp-eval` alias runs the same gate. A rejected tool call is
+a structured `isError: true` WebMCP result—not an HTTP 400 response. A separate
+live Gemini 2.5 Flash run used the
 browser-discovered production contracts and real WebMCP execution path: 12/15
 cases matched the frozen call-and-argument oracle exactly, 14/15 preserved the
 required tool order, and all five protected boundary cases avoided forbidden

@@ -1,0 +1,24 @@
+
+> test:webmcp
+> node scripts/test-webmcp-eval.mjs
+
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+0 !== 11
+
+    at runBrowserEvaluation (file://<repo>/scripts/test-webmcp-eval.mjs:201:12)
+    at async file://<repo>/scripts/test-webmcp-eval.mjs:304:25 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: 0,
+  expected: 11,
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v26.3.0
+exit_code=1

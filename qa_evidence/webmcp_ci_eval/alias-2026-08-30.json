@@ -1,0 +1,397 @@
+{
+  "schema_version": "mirrorloop.webmcp.ci-eval.v1",
+  "generated_at": "2026-08-30T22:34:59.261Z",
+  "target": "temporary_local_server",
+  "base_url": "http://127.0.0.1:57204",
+  "chrome_executable": "Google Chrome",
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "deterministic intent corpus",
+      "status": "PASS",
+      "case_count": 18,
+      "command": "node scripts/validate-webmcp-evals.mjs",
+      "output": "WebMCP eval corpus: PASS (18 cases, 11 tools, 2 sequences)\nNote: this validates the deterministic expected-call corpus; a host-agent model run is a separate evaluation."
+    },
+    {
+      "name": "navigator.modelContext registration and character budgets",
+      "status": "PASS",
+      "tool_count": 11,
+      "surface": "navigator.modelContext"
+    },
+    {
+      "name": "explicit human-confirmation rejection",
+      "status": "PASS",
+      "transport": "WebMCP structured tool result",
+      "rejected_contract": "isError=true",
+      "answers_after_rejection": 0
+    },
+    {
+      "name": "premature completion rejection",
+      "status": "PASS",
+      "answers_recorded": 11,
+      "result_hidden": true,
+      "rejected_contract": "isError=true"
+    },
+    {
+      "name": "read-only commerce boundary",
+      "status": "PASS",
+      "prohibited_tool_count": 0,
+      "cart_unchanged": true,
+      "navigation_unchanged": true,
+      "observed_requests": [
+        {
+          "method": "GET",
+          "url": "http://127.0.0.1:57204/data/shop.json"
+        }
+      ],
+      "unsafe_requests": []
+    },
+    {
+      "name": "complete 12-answer browser flow",
+      "status": "PASS",
+      "result_status": "REFLECTION_COMPLETE",
+      "result_visible": true
+    },
+    {
+      "name": "observed tool-output character budgets",
+      "status": "PASS",
+      "maximum_observed": 563,
+      "limit": 1500,
+      "observed_result_count": 18
+    }
+  ],
+  "browser": "152.0.7977.65",
+  "registration": {
+    "surface": "navigator.modelContext",
+    "tools": [
+      {
+        "name": "start_reflection",
+        "description": "Start or reset the private 12-question MIRROR//LOOP reflection in this page.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "focus_area": {
+              "type": "string",
+              "maxLength": 300,
+              "description": "Optional private focus for this browser session."
+            }
+          },
+          "additionalProperties": false
+        },
+        "readOnlyHint": false
+      },
+      {
+        "name": "get_current_question",
+        "description": "Read the current reflection question and its available choices.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {},
+          "additionalProperties": false
+        },
+        "readOnlyHint": true
+      },
+      {
+        "name": "explain_choice",
+        "description": "Explain one choice from a reflection question in plain language without selecting it.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "question_id": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 12,
+              "description": "Question number from 1 to 12."
+            },
+            "choice_code": {
+              "type": "string",
+              "enum": [
+                "01",
+                "02",
+                "03",
+                "04",
+                "05",
+                "06",
+                "07",
+                "08",
+                "09",
+                "10",
+                "11",
+                "12"
+              ],
+              "description": "Two-digit response code shown for the current question."
+            }
+          },
+          "required": [
+            "question_id",
+            "choice_code"
+          ],
+          "additionalProperties": false
+        },
+        "readOnlyHint": true
+      },
+      {
+        "name": "compare_choices",
+        "description": "Contrast two choices from one reflection question in plain language without ranking, selecting, or recording either choice.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "question_id": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 12,
+              "description": "Question number from 1 to 12."
+            },
+            "choice_a": {
+              "type": "string",
+              "enum": [
+                "01",
+                "02",
+                "03",
+                "04",
+                "05",
+                "06",
+                "07",
+                "08",
+                "09",
+                "10",
+                "11",
+                "12"
+              ],
+              "description": "Two-digit response code shown for the current question."
+            },
+            "choice_b": {
+              "type": "string",
+              "enum": [
+                "01",
+                "02",
+                "03",
+                "04",
+                "05",
+                "06",
+                "07",
+                "08",
+                "09",
+                "10",
+                "11",
+                "12"
+              ],
+              "description": "Two-digit response code shown for the current question."
+            }
+          },
+          "required": [
+            "question_id",
+            "choice_a",
+            "choice_b"
+          ],
+          "additionalProperties": false
+        },
+        "readOnlyHint": true
+      },
+      {
+        "name": "preview_answer_impact",
+        "description": "Preview how one hypothetical answer change would affect a completed reflection without saving or selecting it.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "question_id": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 12,
+              "description": "Previously answered question number from 1 to 12."
+            },
+            "hypothetical_choice": {
+              "type": "string",
+              "enum": [
+                "01",
+                "02",
+                "03",
+                "04",
+                "05",
+                "06",
+                "07",
+                "08",
+                "09",
+                "10",
+                "11",
+                "12"
+              ],
+              "description": "Two-digit choice code to simulate without recording."
+            }
+          },
+          "required": [
+            "question_id",
+            "hypothetical_choice"
+          ],
+          "additionalProperties": false
+        },
+        "readOnlyHint": true
+      },
+      {
+        "name": "answer_reflection_question",
+        "description": "Record or revise a choice the human explicitly confirmed; new answers advance the visible reflection and revisions preserve the current position.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "question_id": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 12,
+              "description": "Current question number from 1 to 12."
+            },
+            "choice_code": {
+              "type": "string",
+              "enum": [
+                "01",
+                "02",
+                "03",
+                "04",
+                "05",
+                "06",
+                "07",
+                "08",
+                "09",
+                "10",
+                "11",
+                "12"
+              ],
+              "description": "Two-digit response code shown for the current question."
+            },
+            "confirmed_by_user": {
+              "type": "boolean",
+              "description": "Must be true only after the human confirms the choice."
+            }
+          },
+          "required": [
+            "question_id",
+            "choice_code",
+            "confirmed_by_user"
+          ],
+          "additionalProperties": false
+        },
+        "readOnlyHint": false
+      },
+      {
+        "name": "review_reflection_answers",
+        "description": "Review choices already recorded in the current private browser session.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {},
+          "additionalProperties": false
+        },
+        "readOnlyHint": true
+      },
+      {
+        "name": "complete_reflection",
+        "description": "Calculate and display the reflection after all 12 human-confirmed choices are recorded.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {},
+          "additionalProperties": false
+        },
+        "readOnlyHint": false
+      },
+      {
+        "name": "export_reflection_dossier",
+        "description": "Download the completed reflection and all 12 choices as a local Markdown or JSON file after explicit human confirmation.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "format": {
+              "type": "string",
+              "enum": [
+                "markdown",
+                "json"
+              ],
+              "description": "Portable local file format."
+            },
+            "card_id": {
+              "type": "string",
+              "pattern": "^[0-9]{3}$",
+              "description": "Optional public card from 001 to 144; otherwise use a representative card from the primary ARC."
+            },
+            "confirmed_by_user": {
+              "type": "boolean",
+              "description": "Must be true only after the human approves the local download."
+            }
+          },
+          "required": [
+            "format",
+            "confirmed_by_user"
+          ],
+          "additionalProperties": false
+        },
+        "readOnlyHint": false
+      },
+      {
+        "name": "get_card",
+        "description": "Read bounded public metadata for a MIRROR//LOOP card identifier.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "card_id": {
+              "type": "string",
+              "pattern": "^[0-9]{3}$",
+              "description": "Three-digit card identifier from 001 to 144."
+            }
+          },
+          "required": [
+            "card_id"
+          ],
+          "additionalProperties": false
+        },
+        "readOnlyHint": true
+      },
+      {
+        "name": "recommend_card_edition",
+        "description": "Find a matching digital card edition in the public catalog without showing prices, creating a cart, or starting checkout.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "arc_code": {
+              "type": "string",
+              "enum": [
+                "01",
+                "02",
+                "03",
+                "04",
+                "05",
+                "06",
+                "07",
+                "08",
+                "09",
+                "10",
+                "11",
+                "12"
+              ],
+              "description": "Optional ARC code. When omitted for an ARC edition, use the completed reflection's primary lens."
+            },
+            "edition": {
+              "type": "string",
+              "enum": [
+                "mono",
+                "color"
+              ],
+              "description": "Preferred visual edition."
+            },
+            "collection_scope": {
+              "type": "string",
+              "enum": [
+                "arc",
+                "complete_visual",
+                "complete_insight"
+              ],
+              "description": "Recommend one 12-card ARC, the complete visual deck, or the complete deck with companion reflections."
+            }
+          },
+          "required": [
+            "edition"
+          ],
+          "additionalProperties": false
+        },
+        "readOnlyHint": true
+      }
+    ]
+  },
+  "maximum_observed_output_characters": 563
+}

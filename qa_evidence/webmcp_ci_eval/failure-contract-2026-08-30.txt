@@ -1,0 +1,10 @@
+
+> test:webmcp
+> node scripts/test-webmcp-eval.mjs
+
+WebMCP one-command evaluation: FAIL (page.goto: net::ERR_UNSAFE_PORT at http://127.0.0.1:1/?webmcp-ci-eval=1
+Call log:
+[2m  - navigating to "http://127.0.0.1:1/?webmcp-ci-eval=1", waiting until "networkidle"[22m
+)
+Evidence: /tmp/mirrorloop-webmcp-expected-failure.json
+exit_code=1

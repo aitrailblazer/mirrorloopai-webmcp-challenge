@@ -7,6 +7,8 @@
     "test:confirmation:browser": "node scripts/test-confirmation-page-browser.mjs",
     "test:quiz:persistence:browser": "node scripts/test-quiz-persistence-browser.mjs",
     "test:webmcp:evals": "node scripts/validate-webmcp-evals.mjs",
+    "test:webmcp": "node scripts/test-webmcp-eval.mjs",
+    "test:webmcp-eval": "npm run test:webmcp",
     "test:webmcp:campaign-evals": "node scripts/validate-webmcp-campaign-evals.mjs",
     "test:webmcp:operational-use-cases": "node scripts/validate-webmcp-operational-use-cases.mjs",
     "test:webmcp:competition-hardening": "node scripts/validate-webmcp-competition-hardening.mjs",

@@ -15,6 +15,7 @@ const demoShotList = read("WEBMCP_DEMO_SHOT_LIST.html");
 const license = read("LICENSE");
 const packageJSON = JSON.parse(read("package.json"));
 const manifest = JSON.parse(read("competition_manifest.json"));
+const webmcpWorkflow = read(".github/workflows/webmcp-eval.yml");
 
 const checks = [
   ["README live URL", readme.includes("https://mirrorloopai.com/")],
@@ -77,6 +78,13 @@ const checks = [
   ["Chrome UX validation entry point", packageJSON.scripts?.["test:webmcp:chrome-ux"] === "node scripts/validate-webmcp-chrome-ux.mjs"],
   ["Six-role validation entry point", packageJSON.scripts?.["test:webmcp:six-role-claims"] === "node scripts/validate-webmcp-six-role-claims.mjs"],
   ["Eval validation entry point", packageJSON.scripts?.["test:webmcp:evals"] === "node scripts/validate-webmcp-evals.mjs"],
+  ["One-command WebMCP evaluation entry point", packageJSON.scripts?.["test:webmcp"] === "node scripts/test-webmcp-eval.mjs"],
+  ["Named WebMCP evaluation alias", packageJSON.scripts?.["test:webmcp-eval"] === "npm run test:webmcp"],
+  ["WebMCP evaluation CI workflow", [
+    "browser-actions/setup-chrome@v1",
+    "npm run test:webmcp",
+    "artifacts/webmcp-eval/latest.json",
+  ].every((term) => webmcpWorkflow.includes(term))],
   ["Campaign eval validation entry point", packageJSON.scripts?.["test:webmcp:campaign-evals"] === "node scripts/validate-webmcp-campaign-evals.mjs"],
   ["Campaign claim boundary matrix", [
     "No ephemeris",

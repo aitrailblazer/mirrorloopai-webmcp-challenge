@@ -1,0 +1,6 @@
+
+> test:webmcp
+> node scripts/test-webmcp-eval.mjs
+
+WebMCP one-command evaluation: PASS (7 checks, 18 corpus cases, 11 tools)
+Evidence: qa_evidence/webmcp_ci_eval/local-2026-08-30.json

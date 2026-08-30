@@ -1,5 +1,21 @@
 # Changelog
 
+## 2026-08-30 — One-command WebMCP CI evaluation
+
+- Added `npm run test:webmcp` and the `test:webmcp-eval` alias as a
+  self-contained judge/developer benchmark with an ephemeral local server and
+  headless Chrome.
+- The runner mounts the eleven production contracts through
+  `navigator.modelContext`, validates the current 18-case corpus and character
+  budgets, rejects unconfirmed answers, rejects completion at question 11,
+  completes the 12-answer path, and proves that the recommendation tool cannot
+  mutate a cart or initiate commerce.
+- Kept WebMCP failure semantics accurate: rejected calls use a structured
+  `isError: true` result rather than an HTTP status.
+- Added a secret-free GitHub Actions workflow that installs locked
+  dependencies, provisions Chrome, runs the same command, and uploads its
+  machine-readable receipt.
+
 ## 2026-08-30 — Zero-egress reflection dossier export
 
 - Added the confirmed `export_reflection_dossier` WebMCP tool so a participant
