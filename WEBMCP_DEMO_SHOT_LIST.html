@@ -29,6 +29,14 @@
     <HumanAuthority>Answers require confirmed_by_user true. Email, cart mutation, Checkout creation, and payment remain human actions.</HumanAuthority>
     <CatalogBoundary>Edition recommendations are read-only, digital, and price-free.</CatalogBoundary>
   </ProductContract>
+  <VerifiedCoreRepositoryScope>
+    <Capability id="typed-tools">Eight typed tools use closed JSON Schemas, bounded runtime validation, and structured tool errors.</Capability>
+    <Capability id="human-confirmation">answer_reflection_question requires confirmed_by_user true before recording or revising a choice.</Capability>
+    <Capability id="deterministic-scoring">Exactly twelve answers are scored in the browser with stable ascending-code tie-breaking and no cloud computation for scoring.</Capability>
+    <Capability id="public-card-matrix">get_card exposes curated public metadata for Cards 001 through 144 without publishing private prompts or corpora.</Capability>
+    <Capability id="commerce-boundary">recommend_card_edition is read-only and exposes no price, cart mutation, Checkout creation, or payment action.</Capability>
+    <Capability id="chrome-deployment">The production origin includes the WebMCP Origin Trial token, has been observed in Chrome DevTools, and is covered by automated registration and contract gates.</Capability>
+  </VerifiedCoreRepositoryScope>
   <Workflow>
     <Beat start="0:00" end="0:12" tool="none">Open the live origin and show WebMCP ready · 8 tools.</Beat>
     <Beat start="0:12" end="0:28" tool="none">Open DevTools Application WebMCP and show all eight registered tools.</Beat>
@@ -109,6 +117,15 @@
       ["Judge preference profiles", "Public roles may organize evidence; private preferences are not inferred."]
     ];
 
+    const verifiedCore = [
+      ["Eight typed tools", "Closed JSON Schemas, bounded runtime checks, and structured tool errors."],
+      ["Human confirmation", "confirmed_by_user: true is required before recording or revising a choice."],
+      ["Deterministic scoring", "Twelve answers are scored in the browser with stable ascending-code tie-breaking; scoring uses no cloud compute."],
+      ["144-card public matrix", "get_card returns curated Cards 001–144 without private prompts or corpora."],
+      ["Safe commerce boundary", "Digital-edition discovery is read-only; email, cart, Checkout, and payment remain human actions."],
+      ["Verified Chrome path", "Production Origin Trial token, observed DevTools discovery, and automated contract gates."]
+    ];
+
     const xml = document.getElementById("strategix-contract")?.textContent.trim() ?? "";
 
     class DemoShotList extends LitElement {
@@ -170,6 +187,15 @@
                 <div class="node"><strong>Human</strong>Supplies intent, interprets meaning, confirms every answer, and controls email and purchases.</div>
                 <div class="node"><strong>WebMCP agent</strong>Starts, reads, explains, records confirmed choices, reviews, completes, and retrieves.</div>
                 <div class="node boundary"><strong>Hard boundary</strong>Email submission, cart mutation, Checkout creation, and payment are not WebMCP tools.</div>
+              </div>
+            </section>
+
+            <section>
+              <h2>Verified core repository scope</h2>
+              <div class="checks">
+                ${verifiedCore.map(([title, detail]) => html`
+                  <div class="check"><strong>${title}</strong>${detail}</div>
+                `)}
               </div>
             </section>
 

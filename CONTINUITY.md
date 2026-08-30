@@ -40,6 +40,7 @@ State:
 - The private repository history has been rewritten and pushed after removing the unnecessary billing-account metadata and synthetic E2E participant alias; current local and remote main are synchronized.
 - The proposed “winning architecture” attachment is evidence material only. Its P2P, astronomical-engine, physical-product, x402, zero-egress, sub-20KB, 60fps, and judge-preference claims are excluded from submission copy because they are not implemented or measured in this repository.
 - `WEBMCP_DEMO_SHOT_LIST.html` now provides the validated 2:35 recording contract for the verified eight-tool build; the public video itself remains pending.
+- The six-point verified-core scope is canonical in README, submission copy, and the demo artifact. Its no-cloud claim applies only to deterministic browser scoring.
 
 Done:
 - Added and browser-rendered the evidence-bounded 2:35 WebMCP demo shot list; HTML, embedded XML, exact tool inventory, timing, authority boundaries, and submission-package assertions pass.
@@ -73,7 +74,7 @@ Done:
 - Committed the resource-driven implementation as `fcde886`, deployed it to Firebase Hosting, and verified the production bundle plus native eight-tool registration in isolated Chrome.
 
 Now:
-- Regenerate the canonical tracker views, commit the validated demo-preparation pass, and push it to the private competition repository.
+- Validate the six-point verified-core scope, update the canonical tracker views, commit, and push.
 
 Next:
 - Record and publish the under-three-minute YouTube demo using that artifact.

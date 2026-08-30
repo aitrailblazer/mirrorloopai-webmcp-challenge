@@ -1,5 +1,16 @@
 # Changelog
 
+## 2026-08-30 — Verified core repository scope
+
+- Added a six-capability summary of the deployed WebMCP core to the README,
+  submission package, and visual demo artifact.
+- Scoped the no-cloud statement narrowly to deterministic reflection scoring;
+  the website's separate email and commerce services are not described as
+  zero-cloud.
+- Added deterministic submission checks for typed tools, human confirmation,
+  stable scoring, the 144-card public matrix, commerce boundaries, and the
+  verified Chrome path.
+
 ## 2026-08-30 — Evidence-bounded demo recording package
 
 - Reconciled the proposed competition architecture against the deployed

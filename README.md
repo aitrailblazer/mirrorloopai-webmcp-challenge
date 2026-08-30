@@ -34,6 +34,26 @@ natural language, proceed one confirmed choice at a time, revisit an earlier
 answer, and move from reflection to a relevant card without surrendering
 control of identity or payment.
 
+## Verified core repository scope
+
+1. **Eight typed tools.** Strict JSON Schemas reject unknown properties, while
+   bounded runtime checks validate identifiers, enumerations, lengths, and
+   adapter availability before returning structured tool errors.
+2. **Enforced human confirmation.** `answer_reflection_question` records or
+   revises a choice only when `confirmed_by_user: true`.
+3. **Deterministic browser scoring.** Exactly 12 answers produce dominant and
+   supporting archetypes with stable ascending-code tie-breaking. This scoring
+   path performs no cloud computation.
+4. **Complete 144-card public matrix.** `get_card` exposes curated public
+   metadata for Cards 001–144 without publishing private prompts or corpora.
+5. **Safe commerce boundary.** `recommend_card_edition` maps a reflection to a
+   real digital edition but returns no price, cart mutation, Checkout Session,
+   or payment action.
+6. **Verified Chrome deployment.** The production document contains the WebMCP
+   Origin Trial token, native registration has been observed in Chrome
+   DevTools, and the repository carries automated registration and contract
+   gates.
+
 ## Eight bounded tools
 
 1. `start_reflection`

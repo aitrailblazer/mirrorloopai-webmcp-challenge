@@ -55,6 +55,21 @@ submit an email address, mutate the cart, create a Checkout Session, or pay.
 Automated tests validate registration, schemas, annotations, malformed inputs,
 confirmation, revision, card lookup, and commerce isolation.
 
+### Verified core repository scope
+
+- Eight typed tools with closed JSON Schemas, bounded runtime validation, and
+  structured tool errors.
+- Explicit `confirmed_by_user: true` before an answer can be recorded or
+  revised.
+- Deterministic browser-side scoring of 12 answers with stable ascending-code tie-breaking;
+  this scoring path performs no cloud computation.
+- Curated public metadata for Cards 001–144 without publishing private prompt
+  engineering or source corpora.
+- Read-only digital-edition recommendations with email, cart, Checkout, and
+  payment kept outside WebMCP authority.
+- A production Origin Trial token, observed Chrome DevTools discovery, and
+  automated registration and contract gates.
+
 The installer reports readiness only after every registration resolves, aborts
 partial registrations after rejection, and preserves the complete direct-use
 experience. Current Chrome character budgets are enforced, including a
