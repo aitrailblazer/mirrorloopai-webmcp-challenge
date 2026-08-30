@@ -1,5 +1,21 @@
 # Changelog
 
+## 2026-08-30 — Evidence-backed autonomous-agent rationale
+
+- Added `Why Autonomous Agents Co-Pilot This Node` to the public README with
+  six bounded reasons: deterministic state, selective retrieval, authoritative
+  public meanings, structured output, enforced human authority, and
+  browser-local-by-default privacy with explicit email and analytics
+  exceptions.
+- Strengthened the 18-case evaluation contract so ambiguity is resolved through
+  `explain_choice` before a separately confirmed answer, while an instruction
+  to choose autonomously still produces no tool call.
+- Reworked Act I of the 2:35 demo to contrast chat-only coordination burden with
+  the site-owned WebMCP contract without claiming a measured standalone-model
+  failure.
+- Corrected stale eight- and nine-tool labels in the demo artifact to the
+  verified eleven-tool production scope.
+
 ## 2026-08-30 — One-command WebMCP CI evaluation
 
 - Added `npm run test:webmcp` and the `test:webmcp-eval` alias as a

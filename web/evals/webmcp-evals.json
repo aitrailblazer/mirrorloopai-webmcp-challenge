@@ -139,7 +139,7 @@
     },
     {
       "id": "sequence-orient-before-answer",
-      "prompt": "Start, tell me the first question, explain choice 01, then record it after I confirm.",
+      "prompt": "Start the reflection and show question 1. I am torn between choices 01 and 06, so explain choice 01 without selecting it. After I explicitly confirm choice 01, record that answer.",
       "expectedCalls": [
         {
           "name": "start_reflection",

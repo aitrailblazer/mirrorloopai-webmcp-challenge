@@ -1,0 +1,183 @@
+Sun Aug 30 22:47:01 UTC 2026
+--- npm run test:webmcp:evals ---
+
+> test:webmcp:evals
+> node scripts/validate-webmcp-evals.mjs
+
+WebMCP eval corpus: PASS (18 cases, 11 tools, 2 sequences)
+Note: this validates the deterministic expected-call corpus; a host-agent model run is a separate evaluation.
+--- npm run test:webmcp ---
+
+> test:webmcp
+> node scripts/test-webmcp-eval.mjs
+
+WebMCP one-command evaluation: PASS (7 checks, 18 corpus cases, 11 tools)
+Evidence: artifacts/webmcp-eval/latest.json
+--- npm test ---
+
+> test
+> node --test web/tests/*.test.mjs
+
+✔ funnel tracker sends only aggregate allowlisted event names (3.106625ms)
+✔ session storage suppresses duplicate events after reload (0.141292ms)
+✔ builds a complete portable Markdown dossier without private session data (1.220833ms)
+✔ builds JSON with an explicitly requested public card and ordered answers (0.161ms)
+✔ rejects an incomplete reflection or unsupported format (0.22425ms)
+✔ public quiz contains 12 complete questions (0.834ms)
+✔ public question labels use plain language (0.270833ms)
+✔ scoring matches stable Swift tie-break contract (7.136167ms)
+✔ every archetype has plain-language result copy (0.174333ms)
+✔ response groups provide plain-language scanning help (0.075417ms)
+✔ two-choice contrast is neutral, public, and non-selecting (0.955792ms)
+✔ two-choice contrast rejects equal or unavailable choices (0.247375ms)
+✔ every two-choice contrast stays within the WebMCP response budget (3.11025ms)
+✔ answer-impact preview applies one hypothetical change without mutating answers (0.273958ms)
+✔ answer-impact preview rejects incomplete, unchanged, or invalid simulations (0.164959ms)
+✔ a zero-count tie is not presented as a supporting pattern (0.139584ms)
+✔ saves and restores answer codes without unrelated personal data (1.655292ms)
+✔ rejects stale, malformed, and impossible saved answers (0.130792ms)
+✔ clears saved answers and tolerates unavailable browser storage (0.087875ms)
+✔ shop exposes 12 ARCs in mono and full color plus four complete decks (0.832583ms)
+✔ public catalog contains no prices or pre-order language (0.197416ms)
+✔ shop is active while Stripe remains the only price and payment surface (0.065708ms)
+✔ private source keeps canonical Stripe amounts (0.772292ms)
+✔ every product image exists and checkout explains its boundary (2.862458ms)
+✔ registers exactly eleven same-origin bounded tools (2.659834ms)
+✔ emits bounded registration and tool lifecycle evidence (0.501709ms)
+✔ redacts private focus text from lifecycle events (0.217542ms)
+✔ replaces malformed known-field values in lifecycle evidence (0.223083ms)
+✔ marks read operations and local state changes accurately (0.142709ms)
+✔ requires confirmation and validates the local dossier export contract (1.400875ms)
+✔ emits only allowlisted dossier inputs and human confirmation (0.167333ms)
+✔ contrasts two distinct choices without recording an answer (0.344333ms)
+✔ emits only allowlisted comparison inputs in lifecycle evidence (0.159041ms)
+✔ previews one answer impact through a read-only strict contract (0.214958ms)
+✔ emits only allowlisted impact-preview inputs in lifecycle evidence (0.125958ms)
+✔ keeps catalog recommendation read-only and outside checkout (0.246291ms)
+✔ requires explicit human confirmation before recording an answer (0.155333ms)
+✔ passes an explicitly confirmed revision through the bounded answer tool (0.070208ms)
+✔ rejects unknown fields and malformed card identifiers (0.103666ms)
+✔ does not echo the private focus area in the tool result wrapper (0.097292ms)
+✔ prefers the document WebMCP context and supports navigator fallback (0.063333ms)
+✔ awaits registration and aborts all partial registrations after rejection (0.334125ms)
+✔ reports ready only after all asynchronous registrations resolve (5.70725ms)
+✔ reports direct-mode fallback after an asynchronous registration failure (0.46925ms)
+✔ emits direct mode after model context polling expires (1.538208ms)
+✔ keeps names, descriptions, parameters, and outputs within official budgets (0.244ms)
+ℹ tests 46
+ℹ suites 0
+ℹ pass 46
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 111.71825
+--- npm run validate ---
+
+> validate
+> node scripts/validate-site.mjs
+
+site validation: PASS
+--- npm run validate:submission ---
+
+> validate:submission
+> node scripts/validate-submission.mjs
+
+PASS README live URL
+PASS README source URL
+PASS README native registration pattern
+PASS README current DevTools judge path
+PASS README resource review
+PASS README campaign claim audit
+PASS README operational use cases
+PASS README competition hardening
+PASS README judge panel brief
+PASS README demo shot list
+PASS README pre-existing disclosure
+PASS README all eleven tools
+FAIL README autonomous-agent rationale
+PASS Submission four required explanations
+PASS Submission four judging criteria
+PASS Submission demo plan
+PASS Verified core repository scope
+PASS Evidence-bounded demo recording contract
+PASS Submission challenge-period commits
+PASS Submission freeze plan
+PASS Third-party service inventory
+PASS Top-level MIT license
+PASS Package validation entry point
+PASS Chrome UX validation entry point
+PASS Six-role validation entry point
+PASS Eval validation entry point
+PASS One-command WebMCP evaluation entry point
+PASS Named WebMCP evaluation alias
+PASS WebMCP evaluation CI workflow
+PASS Campaign eval validation entry point
+PASS Campaign claim boundary matrix
+PASS Six bounded operational use cases
+PASS Competition claim hardening
+PASS Evidence-bounded judge panel brief
+PASS Official resource matrix
+
+External gates intentionally not performed by this validator:
+- GitHub repository visibility must be PUBLIC.
+- A Devpost project must be created.
+- A public YouTube demo under three minutes must be supplied.
+- The operator must complete eligibility, ownership, and rights attestations.
+- Actual ChatGPT in-app-browser support remains optional because verified Chrome is accepted.
+
+Submission package validation failed: README autonomous-agent rationale
+--- demo artifact static contract ---
+Demo artifact static contract: PASS
+Sun Aug 30 22:47:31 UTC 2026
+
+> validate:submission
+> node scripts/validate-submission.mjs
+
+PASS README live URL
+PASS README source URL
+PASS README native registration pattern
+PASS README current DevTools judge path
+PASS README resource review
+PASS README campaign claim audit
+PASS README operational use cases
+PASS README competition hardening
+PASS README judge panel brief
+PASS README demo shot list
+PASS README pre-existing disclosure
+PASS README all eleven tools
+PASS README autonomous-agent rationale
+PASS Submission four required explanations
+PASS Submission four judging criteria
+PASS Submission demo plan
+PASS Verified core repository scope
+PASS Evidence-bounded demo recording contract
+PASS Submission challenge-period commits
+PASS Submission freeze plan
+PASS Third-party service inventory
+PASS Top-level MIT license
+PASS Package validation entry point
+PASS Chrome UX validation entry point
+PASS Six-role validation entry point
+PASS Eval validation entry point
+PASS One-command WebMCP evaluation entry point
+PASS Named WebMCP evaluation alias
+PASS WebMCP evaluation CI workflow
+PASS Campaign eval validation entry point
+PASS Campaign claim boundary matrix
+PASS Six bounded operational use cases
+PASS Competition claim hardening
+PASS Evidence-bounded judge panel brief
+PASS Official resource matrix
+
+External gates intentionally not performed by this validator:
+- GitHub repository visibility must be PUBLIC.
+- A Devpost project must be created.
+- A public YouTube demo under three minutes must be supplied.
+- The operator must complete eligibility, ownership, and rights attestations.
+- Actual ChatGPT in-app-browser support remains optional because verified Chrome is accepted.
+
+LOCAL SUBMISSION PACKAGE PASS — external gates remain pending.
+--- rendered demo artifact inspection ---
+PASS — Lit surface rendered 10 timeline shots at 1440px; metrics were 2:35, 11 tools, and 0 agent payment actions; Act I displayed the chat-only burden versus site-owned WebMCP contract; no horizontal overflow was observed.
+Screenshot: qa_evidence/webmcp_agent_copilot_rationale/demo-shot-list-desktop.png

@@ -38,10 +38,10 @@
     <Capability id="chrome-deployment">The production origin includes the WebMCP Origin Trial token, has been observed in Chrome DevTools, and is covered by automated registration and contract gates.</Capability>
   </VerifiedCoreRepositoryScope>
   <Workflow>
-    <Beat start="0:00" end="0:12" tool="none">Open the live origin and show WebMCP ready · 11 tools.</Beat>
-    <Beat start="0:12" end="0:28" tool="none">Open DevTools Application WebMCP and show all eleven registered tools.</Beat>
-    <Beat start="0:28" end="0:48" tool="start_reflection,get_current_question">Start the visible reflection and retrieve its current question.</Beat>
-    <Beat start="0:48" end="1:08" tool="compare_choices">Contrast two plausible choices without ranking, selecting, or recording either one.</Beat>
+    <Beat start="0:00" end="0:14" tool="none">Show a split title card: a chat-only path must carry twelve-step state and a 144-card catalog; the WebMCP path requests only the current question or exact card from the page-owned contract.</Beat>
+    <Beat start="0:14" end="0:30" tool="none">Open the live origin, show WebMCP ready · 11 tools, then open DevTools Application WebMCP and show all eleven registered tools.</Beat>
+    <Beat start="0:30" end="0:48" tool="start_reflection,get_current_question">Start the visible reflection and retrieve its current question.</Beat>
+    <Beat start="0:48" end="1:08" tool="explain_choice,compare_choices">Explain one unfamiliar choice and contrast it with another without ranking, selecting, or recording either one.</Beat>
     <Beat start="1:08" end="1:28" tool="answer_reflection_question">Show rejection when confirmed_by_user is false, then confirm and advance visibly.</Beat>
     <Beat start="1:28" end="1:48" tool="complete_reflection">Use the prepared eleven-answer recording state, confirm the twelfth answer, and complete deterministic scoring.</Beat>
     <Beat start="1:48" end="2:05" tool="preview_answer_impact">Preview one hypothetical answer change and show that the completed answers and visible result remain unchanged.</Beat>
@@ -61,7 +61,8 @@
     <Criterion>The final public YouTube video is shorter than three minutes.</Criterion>
     <Criterion>The recording has audible narration and accurate captions.</Criterion>
     <Criterion>The live page visibly reports WebMCP ready · 11 tools.</Criterion>
-    <Criterion>DevTools displays exactly the nine production tools without schema errors.</Criterion>
+    <Criterion>DevTools displays exactly the eleven production tools without schema errors.</Criterion>
+    <Criterion>Act I contrasts coordination burden rather than claiming that a standalone model was measured and failed.</Criterion>
     <Criterion>The unconfirmed answer is rejected and the confirmed answer visibly advances the page.</Criterion>
     <Criterion>No unsupported P2P, astronomy, physical fulfillment, x402, zero-egress, bundle-size, frame-rate, or judge-preference claim appears.</Criterion>
     <Criterion>The public site, source repository, and video open from a signed-out browser before submission.</Criterion>
@@ -78,7 +79,7 @@
   </RisksAndOpenQuestions>
   <SourceDigest>
     <Source path="SUBMISSION.md">Copy-ready project description and initial 2:35 storyboard.</Source>
-    <Source path="web/lib/webmcp.js">Nine production tool definitions and authority boundaries.</Source>
+    <Source path="web/lib/webmcp.js">Eleven production tool definitions and authority boundaries.</Source>
     <Source path="WEBMCP_COMPETITION_HARDENING_AUDIT.html">Claim ledger and competition evidence boundary.</Source>
     <Source path="WEBMCP_AGENT_EVAL_REPORT.html">Preserved live-agent evaluation results.</Source>
     <Source path="feature_status_tracker.csv" feature="SUB-005">Canonical demo readiness story.</Source>
@@ -95,10 +96,10 @@
     import { LitElement, html, css } from "https://unpkg.com/lit@3/index.js?module";
 
     const shots = [
-      { time:"0:00–0:12", tool:"Opening", visual:"Open https://mirrorloopai.com/ in the verified Chrome build. Frame the hero and the “WebMCP ready · 11 tools” badge.", voice:"MIRROR//LOOP turns a 12-question reflection and 144 public cards into a bounded collaboration between a person and an AI agent.", proof:"Live origin and visible readiness badge." },
-      { time:"0:12–0:28", tool:"Chrome DevTools", visual:"Open Application → WebMCP. Pan down the Available Tools list so all eleven names are visible.", voice:"The page registers eleven typed browser tools. They operate the same visible experience I can use directly.", proof:"Exactly eleven registered production tools; no schema errors." },
-      { time:"0:28–0:48", tool:"start_reflection · get_current_question", visual:"Run start_reflection, then get_current_question. Show the quiz open and the first question in both the tool result and page.", voice:"The agent can orient the session and read the current question without scraping controls or replacing the page.", proof:"Tool output and visible question agree." },
-      { time:"0:48–1:08", tool:"compare_choices", visual:"Contrast Choices 01 and 06 on Question 1. Hold on both plain-language meanings and the no-selection boundary.", voice:"It can clarify two plausible answers without ranking them, choosing for me, or changing the quiz.", proof:"Both choices appear; progress and selection remain unchanged." },
+      { time:"0:00–0:14", tool:"Act I · contrast", visual:"Show a clean split title card. Left: “Chat-only burden” with 12-step state and 144-card catalog. Right: “Site-owned WebMCP contract” with current-question and exact-card retrieval.", voice:"A chat can discuss the reflection, but carrying every step and all 144 records inside the conversation adds coordination burden. WebMCP lets the page remain the authority.", proof:"This is an architectural contrast, not a claim that a standalone model was measured and failed." },
+      { time:"0:14–0:30", tool:"Live origin · Chrome DevTools", visual:"Open https://mirrorloopai.com/ in the verified Chrome build, frame the “WebMCP ready · 11 tools” badge, then open Application → WebMCP and show all eleven names.", voice:"The live page exposes eleven typed tools over the same visible experience a person can use directly.", proof:"Live origin, readiness badge, and exactly eleven registered tools with no schema errors." },
+      { time:"0:30–0:48", tool:"start_reflection · get_current_question", visual:"Run start_reflection, then get_current_question. Show the quiz open and the first question in both the tool result and page.", voice:"The agent requests only the active state; it does not need to scrape controls or carry the entire catalog.", proof:"Tool output and visible question agree." },
+      { time:"0:48–1:08", tool:"explain_choice · compare_choices", visual:"Explain Choice 01, then contrast Choices 01 and 06 on Question 1. Hold on the plain-language meanings and no-selection boundary.", voice:"The site supplies its authoritative public language. The agent can clarify ambiguity without ranking the options, choosing for me, or changing the quiz.", proof:"Both meanings appear; progress and selection remain unchanged." },
       { time:"1:08–1:28", tool:"answer_reflection_question", visual:"Run once with confirmed_by_user false and show rejection. Run again with true and show the progressbar and focus advance.", voice:"A mutation without explicit confirmation fails. Once I confirm, the same visible interface advances and announces the change.", proof:"Rejected false call, successful true call, visible step transition." },
       { time:"1:28–1:48", tool:"complete_reflection", visual:"Switch to a prepared state with eleven human-confirmed answers. Confirm answer twelve, then complete and show the deterministic result.", voice:"For recording speed, these earlier choices were already confirmed by me. The twelfth answer unlocks deterministic local scoring; the agent does not invent the result.", proof:"Incomplete completion is gated; twelve confirmed answers complete successfully." },
       { time:"1:48–2:05", tool:"preview_answer_impact", visual:"Preview Question 4 with another choice. Show the current and projected patterns and the PROVISIONAL_PREVIEW boundary.", voice:"Before changing anything, the agent can simulate one answer. It shows the score difference without saving the hypothetical choice or altering my visible result.", proof:"Review state and visible result remain byte-for-byte unchanged." },
@@ -176,7 +177,7 @@
               <p class="lead">A 2:35 walkthrough of the deployed MIRROR//LOOP experience. Every beat maps to a production tool, visible state change, or explicit human-authority boundary.</p>
               <div class="metrics">
                 <div class="metric"><strong>2:35</strong>target duration</div>
-                <div class="metric"><strong>8</strong>production tools</div>
+                <div class="metric"><strong>11</strong>production tools</div>
                 <div class="metric"><strong>0</strong>agent payment actions</div>
               </div>
             </section>

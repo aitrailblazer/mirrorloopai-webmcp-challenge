@@ -1,0 +1,56 @@
+Sun Aug 30 22:45:00 UTC 2026
+--- baseline eval corpus ---
+
+> test:webmcp:evals
+> node scripts/validate-webmcp-evals.mjs
+
+WebMCP eval corpus: PASS (18 cases, 11 tools, 2 sequences)
+Note: this validates the deterministic expected-call corpus; a host-agent model run is a separate evaluation.
+--- baseline submission ---
+
+> validate:submission
+> node scripts/validate-submission.mjs
+
+PASS README live URL
+PASS README source URL
+PASS README native registration pattern
+PASS README current DevTools judge path
+PASS README resource review
+PASS README campaign claim audit
+PASS README operational use cases
+PASS README competition hardening
+PASS README judge panel brief
+PASS README demo shot list
+PASS README pre-existing disclosure
+PASS README all eleven tools
+PASS Submission four required explanations
+PASS Submission four judging criteria
+PASS Submission demo plan
+PASS Verified core repository scope
+PASS Evidence-bounded demo recording contract
+PASS Submission challenge-period commits
+PASS Submission freeze plan
+PASS Third-party service inventory
+PASS Top-level MIT license
+PASS Package validation entry point
+PASS Chrome UX validation entry point
+PASS Six-role validation entry point
+PASS Eval validation entry point
+PASS One-command WebMCP evaluation entry point
+PASS Named WebMCP evaluation alias
+PASS WebMCP evaluation CI workflow
+PASS Campaign eval validation entry point
+PASS Campaign claim boundary matrix
+PASS Six bounded operational use cases
+PASS Competition claim hardening
+PASS Evidence-bounded judge panel brief
+PASS Official resource matrix
+
+External gates intentionally not performed by this validator:
+- GitHub repository visibility must be PUBLIC.
+- A Devpost project must be created.
+- A public YouTube demo under three minutes must be supplied.
+- The operator must complete eligibility, ownership, and rights attestations.
+- Actual ChatGPT in-app-browser support remains optional because verified Chrome is accepted.
+
+LOCAL SUBMISSION PACKAGE PASS — external gates remain pending.

@@ -34,6 +34,41 @@ natural language, proceed one confirmed choice at a time, revisit an earlier
 answer, and move from reflection to a relevant card without surrendering
 control of identity or payment.
 
+## Why Autonomous Agents Co-Pilot This Node
+
+An agent does not need MIRROR//LOOP to replace conversation. It uses the node
+when a site-owned contract is more reliable and economical than carrying the
+entire reflection system inside a chat:
+
+1. **Deterministic state and scoring.** The browser, rather than the model,
+   retains the twelve confirmed answers and applies one stable scoring and
+   tie-breaking implementation. The agent can mediate the conversation without
+   becoming the authority for the result.
+2. **Selective context instead of corpus loading.** `get_current_question`
+   returns only the active question, while `get_card` retrieves one exact
+   public record from Cards 001–144. The agent need not place the full question
+   and card catalog in every working context.
+3. **Authoritative public meanings.** `explain_choice` and `compare_choices`
+   return the site's curated choice language. They clarify or contrast without
+   selecting, ranking, or inventing a definition for the participant.
+4. **A bounded deliverable.** `complete_reflection` returns a compact result and
+   next action; `export_reflection_dossier` can create a human-confirmed local
+   Markdown or JSON receipt. The output is structured for use beyond another
+   open-ended chat response.
+5. **Human authority is enforced by the tool boundary.**
+   `answer_reflection_question` requires `confirmed_by_user: true`, and local
+   dossier creation requires a separate confirmation. No WebMCP tool submits
+   email, changes a cart, creates Checkout, or makes a payment.
+6. **Private by default, with explicit exceptions.** Individual quiz choices
+   remain in the browser during the normal reflection and local-export paths.
+   Optional email delivery is a separate request: the service processes the
+   ordered answers for that operational message. The site also records
+   disclosed aggregate conversion events without personal identifiers.
+
+These are bounded implementation properties, not a claim that a standalone
+model always fails, that hallucination is impossible, or that the entire site
+has zero network egress.
+
 ## Verified core repository scope
 
 1. **Eleven typed tools.** Strict JSON Schemas reject unknown properties, while

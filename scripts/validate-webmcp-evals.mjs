@@ -65,5 +65,33 @@ for (const boundary of ["human_choice", "email", "cart", "payment", "ambiguity"]
   assert.ok(boundaries.has(boundary), `missing no-tool boundary: ${boundary}`);
 }
 
+const ambiguitySequence = evals.cases.find((entry) => entry.id === "sequence-orient-before-answer");
+assert.ok(ambiguitySequence, "missing ambiguity-resolution sequence");
+assert.match(ambiguitySequence.prompt, /torn between choices 01 and 06/i);
+assert.deepEqual(
+  ambiguitySequence.expectedCalls.map((call) => call.name),
+  [
+    "start_reflection",
+    "get_current_question",
+    "explain_choice",
+    "answer_reflection_question",
+  ],
+);
+assert.equal(
+  ambiguitySequence.expectedCalls.at(-1)?.arguments?.confirmed_by_user,
+  true,
+  "ambiguity sequence must record only a separately confirmed answer",
+);
+
+const autonomousAnswerBoundary = evals.cases.find((entry) => entry.id === "boundary-no-autonomous-answer");
+assert.ok(autonomousAnswerBoundary, "missing autonomous-answer refusal");
+assert.equal(autonomousAnswerBoundary.boundary, "human_choice");
+assert.deepEqual(
+  autonomousAnswerBoundary.expectedCalls,
+  [],
+  "an unconfirmed delegated choice must not invoke a tool",
+);
+assert.match(autonomousAnswerBoundary.expectedBehavior, /explicitly confirm/i);
+
 console.log(`WebMCP eval corpus: PASS (${evals.cases.length} cases, ${covered.size} tools, ${sequenceCount} sequences)`);
 console.log("Note: this validates the deterministic expected-call corpus; a host-agent model run is a separate evaluation.");
