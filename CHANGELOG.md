@@ -1,5 +1,19 @@
 # Changelog
 
+## 2026-08-29 — Branded confirmation and unsubscribe pages
+
+- Audited the scanner-safe email confirmation step after a participant reached
+  an unstyled browser-default form.
+- Replaced the raw form with a self-contained MIRROR//LOOP dark-violet and gold
+  experience that matches the public site on desktop and mobile.
+- Restated the two confirmation consequences before the participant acts,
+  clarified that nothing changes on page load, and provided a return path.
+- Preserved the side-effect-free GET and explicit POST security boundary,
+  strict no-store/no-referrer headers, escaped action URL, keyboard focus,
+  reduced-motion behavior, and no external page assets.
+- Applied the same visual system to unsubscribe, success, invalid, and expired
+  link states so subscribers are never dropped into unstyled server text.
+
 ## 2026-08-29 — Saved and editable repeat-quiz choices
 
 - Audited the returning-participant flow and confirmed that starting or

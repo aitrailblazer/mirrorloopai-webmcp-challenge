@@ -8,6 +8,7 @@ import (
 	"net/http"
 	"net/http/httptest"
 	"net/url"
+	"os"
 	"strings"
 	"testing"
 	"time"
@@ -170,8 +171,33 @@ func TestConfirmationGETDoesNotActivateSubscription(t *testing.T) {
 	get := httptest.NewRequest(http.MethodGet, verificationURL.RequestURI(), nil)
 	getResponse := httptest.NewRecorder()
 	handler.ServeHTTP(getResponse, get)
-	if getResponse.Code != http.StatusOK || !strings.Contains(getResponse.Body.String(), "Confirm my email") {
+	body := getResponse.Body.String()
+	if getResponse.Code != http.StatusOK || !strings.Contains(body, "Confirm and send my reflection") {
 		t.Fatalf("GET status=%d body=%q", getResponse.Code, getResponse.Body.String())
+	}
+	for _, expected := range []string{
+		"MIRROR<span>//</span>LOOP",
+		"Confirming does two things:",
+		"Your saved MIRROR//LOOP reflection is sent to your inbox.",
+		"occasional App Store release and product updates",
+		"Return without confirming",
+		"prefers-reduced-motion:reduce",
+		`method="post"`,
+	} {
+		if !strings.Contains(body, expected) {
+			t.Errorf("confirmation page missing %q", expected)
+		}
+	}
+	if strings.Contains(body, "<script") || strings.Contains(body, "http://") || strings.Contains(body, "https://") {
+		t.Error("confirmation page must not contain scripts or external assets")
+	}
+	if csp := getResponse.Header().Get("Content-Security-Policy"); !strings.Contains(csp, "form-action 'self'") || !strings.Contains(csp, "frame-ancestors 'none'") {
+		t.Fatalf("confirmation CSP=%q", csp)
+	}
+	if output := os.Getenv("MIRRORLOOP_CONFIRMATION_HTML_OUT"); output != "" {
+		if err := os.WriteFile(output, getResponse.Body.Bytes(), 0o600); err != nil {
+			t.Fatal(err)
+		}
 	}
 	if mailer.reflections != 0 {
 		t.Fatal("GET confirmation caused a reflection side effect")
@@ -187,6 +213,55 @@ func TestConfirmationGETDoesNotActivateSubscription(t *testing.T) {
 	handler.ServeHTTP(postResponse, post)
 	if postResponse.Code != http.StatusSeeOther || mailer.reflections != 1 {
 		t.Fatalf("POST status=%d reflections=%d", postResponse.Code, mailer.reflections)
+	}
+}
+
+func TestInvalidConfirmationUsesBrandedRecoveryPage(t *testing.T) {
+	signer, _ := NewTokenSigner("01234567890123456789012345678901")
+	service, _ := NewService(NewMemoryStore(), &captureMailer{}, AllowChallenge{}, signer, ServiceConfig{
+		SubscriberIDSecret: "abcdefghijklmnopqrstuvwxyz123456",
+		PublicAPIURL:       "https://api.example.com", ConfirmedURL: "https://example.com/confirmed", ConsentVersion: "v1",
+	})
+	request := httptest.NewRequest(http.MethodGet, "/v1/subscribers/verify?token=invalid", nil)
+	response := httptest.NewRecorder()
+	NewHTTPHandler(service, nil).ServeHTTP(response, request)
+
+	body := response.Body.String()
+	if response.Code != http.StatusBadRequest {
+		t.Fatalf("status=%d body=%q", response.Code, body)
+	}
+	for _, expected := range []string{
+		"MIRROR<span>//</span>LOOP",
+		"This link is no longer active",
+		"Request a new reflection from the quiz",
+		"No subscription was activated.",
+		"Return to MIRROR//LOOP",
+	} {
+		if !strings.Contains(body, expected) {
+			t.Errorf("invalid-link page missing %q", expected)
+		}
+	}
+	if strings.Contains(body, "<form") {
+		t.Error("invalid-link page must not render an action form")
+	}
+}
+
+func TestActionPageEscapesRequestURI(t *testing.T) {
+	request := httptest.NewRequest(http.MethodGet, `/v1/subscribers/verify?token=%22%3E%3Cscript%3Ealert(1)%3C/script%3E`, nil)
+	response := httptest.NewRecorder()
+	renderActionPage(response, request, actionPage{
+		Kind:      "confirm",
+		Eyebrow:   "Review",
+		Title:     "Confirm",
+		Message:   "Continue deliberately.",
+		Button:    "Confirm",
+		Footnote:  "No change before confirmation.",
+		LinkLabel: "Return",
+		LinkURL:   "/",
+	})
+	body := response.Body.String()
+	if strings.Contains(body, "<script>alert") || !strings.Contains(body, "%3Cscript%3E") {
+		t.Fatalf("unsafe action rendering: %q", body)
 	}
 }
 
