@@ -1,0 +1,14 @@
+Feature F-030 baseline — branded confirmation review page
+Captured: 2026-08-29
+
+User-visible evidence:
+Screenshot: /var/folders/ys/51stpkg918s_87622n6hhmm40000gn/T/codex-clipboard-224b8dd3-1fd8-4c3a-975b-8530301f8d2c.png
+Observed: browser-default serif heading, plain paragraph, default blue button, white canvas, no MIRROR//LOOP brand, no visual hierarchy, no explanation of the two confirmation consequences, and no recovery/navigation affordance.
+
+Source evidence:
+112:		renderActionPage(w, r, "Confirm your email", "Confirm my email", "Your subscription begins only after you press the button below.")
+134:		renderActionPage(w, r, "Unsubscribe from MIRROR//LOOP", "Unsubscribe me", "You will stop receiving MIRROR//LOOP updates after you press the button below.")
+149:func renderActionPage(w http.ResponseWriter, r *http.Request, title, button, message string) {
+151:	w.Header().Set("Content-Security-Policy", "default-src 'none'; form-action 'self'; base-uri 'none'; frame-ancestors 'none'")
+
+Expected: same dark-violet/gold identity as mirrorloopai.com, responsive centered confirmation card, explicit reflection + launch-list consent summary, accessible focus state, scanner-safe POST, safe invalid/expired page, and no token exposure outside the form action.
