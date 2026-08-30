@@ -3,6 +3,7 @@
   "h1": "Confirm your reflection",
   "button": "Confirm and send my reflection",
   "brand": "MIRROR//LOOP",
+  "reviewWindow": true,
   "scrollWidth": 390,
   "clientWidth": 390,
   "bodyBackground": "radial-gradient(circle at 70% 0px, rgb(33, 25, 54) 0px, rgb(8, 11, 21) 608px)"

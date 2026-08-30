@@ -128,7 +128,7 @@ func (h *HTTPHandler) verify(w http.ResponseWriter, r *http.Request) {
 			},
 			ReviewTitle: "Confirming does two things:",
 			Button:      "Confirm and send my reflection",
-			Footnote:    "Nothing changes until you choose confirm. You can unsubscribe at any time.",
+			Footnote:    "This link gives you a 48-hour review window. Nothing changes until you choose confirm, and you can unsubscribe at any time.",
 			LinkLabel:   "Return without confirming",
 			LinkURL:     "/",
 		})

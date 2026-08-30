@@ -180,6 +180,7 @@ func TestConfirmationGETDoesNotActivateSubscription(t *testing.T) {
 		"Confirming does two things:",
 		"Your saved MIRROR//LOOP reflection is sent to your inbox.",
 		"occasional App Store release and product updates",
+		"48-hour review window",
 		"Return without confirming",
 		"prefers-reduced-motion:reduce",
 		`method="post"`,
