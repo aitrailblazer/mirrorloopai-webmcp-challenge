@@ -1,9 +1,13 @@
 import assert from "node:assert/strict";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { resolve } from "node:path";
+import { pathToFileURL } from "node:url";
 import { chromium } from "playwright-core";
 
 const baseURL = process.env.MIRRORLOOP_TEST_URL ?? "http://127.0.0.1:4173";
-const evidenceDir = new URL("../qa_evidence/webmcp_glass_cockpit/", import.meta.url);
+const evidenceDir = process.env.MIRRORLOOP_EVIDENCE_DIR
+  ? pathToFileURL(`${resolve(process.env.MIRRORLOOP_EVIDENCE_DIR)}/`)
+  : new URL("../qa_evidence/webmcp_glass_cockpit/", import.meta.url);
 await mkdir(evidenceDir, { recursive: true });
 
 const browser = await chromium.launch({

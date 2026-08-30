@@ -1,0 +1,116 @@
+Sun Aug 30 22:14:21 UTC 2026
+--- https://mirrorloopai.com/?wm017=1
+HTTP/2 200 
+cache-control: max-age=3600
+content-security-policy: default-src 'self'; script-src 'self' https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; connect-src 'self' https://challenges.cloudflare.com; img-src 'self' data:; style-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
+content-type: text/html; charset=utf-8
+etag: "20299781028b749a262ef01bc9a884483b198d0416696f5c123f860c4039d096"
+last-modified: Sun, 30 Aug 2026 22:13:59 GMT
+permissions-policy: camera=(), microphone=(), geolocation=(), payment=()
+referrer-policy: strict-origin-when-cross-origin
+strict-transport-security: max-age=31556926
+x-content-type-options: nosniff
+accept-ranges: bytes
+date: Sun, 30 Aug 2026 22:14:21 GMT
+x-served-by: cache-pdx12322-PDX
+x-cache: MISS
+x-cache-hits: 0
+x-timer: S1788128062.927225,VS0,VE57
+vary: x-fh-requested-host, accept-encoding
+alt-svc: h3=":443";ma=86400,h3-29=":443";ma=86400,h3-27=":443";ma=86400
+content-length: 10402
+
+   10402 /tmp/wm017_asset
+--- https://mirrorloopai.com/app.js?v=20260830-11
+HTTP/2 200 
+cache-control: max-age=3600
+content-security-policy: default-src 'self'; script-src 'self' https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; connect-src 'self' https://challenges.cloudflare.com; img-src 'self' data:; style-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
+content-type: text/javascript; charset=utf-8
+etag: "72ac1187049113d2f67cf0d794bc697a4acb5e318dcc41b87ecbc8274b296632"
+last-modified: Sun, 30 Aug 2026 22:13:59 GMT
+permissions-policy: camera=(), microphone=(), geolocation=(), payment=()
+referrer-policy: strict-origin-when-cross-origin
+strict-transport-security: max-age=31556926
+x-content-type-options: nosniff
+accept-ranges: bytes
+date: Sun, 30 Aug 2026 22:14:22 GMT
+x-served-by: cache-pdx12322-PDX
+x-cache: MISS
+x-cache-hits: 0
+x-timer: S1788128062.081113,VS0,VE75
+vary: x-fh-requested-host, accept-encoding
+alt-svc: h3=":443";ma=86400,h3-29=":443";ma=86400,h3-27=":443";ma=86400
+content-length: 27503
+
+   27503 /tmp/wm017_asset
+WebMCP ready · ${names.length} tools`
+--- https://mirrorloopai.com/lib/webmcp.js?v=20260830-8
+HTTP/2 200 
+cache-control: max-age=3600
+content-security-policy: default-src 'self'; script-src 'self' https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; connect-src 'self' https://challenges.cloudflare.com; img-src 'self' data:; style-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
+content-type: text/javascript; charset=utf-8
+etag: "77fedb71ab32abb773a93b0f3186bf1b6b4326962ce139267a12a7050a090d79"
+last-modified: Sun, 30 Aug 2026 22:13:59 GMT
+permissions-policy: camera=(), microphone=(), geolocation=(), payment=()
+referrer-policy: strict-origin-when-cross-origin
+strict-transport-security: max-age=31556926
+x-content-type-options: nosniff
+accept-ranges: bytes
+date: Sun, 30 Aug 2026 22:14:22 GMT
+x-served-by: cache-pdx12331-PDX
+x-cache: MISS
+x-cache-hits: 0
+x-timer: S1788128062.258112,VS0,VE79
+vary: x-fh-requested-host, accept-encoding
+alt-svc: h3=":443";ma=86400,h3-29=":443";ma=86400,h3-27=":443";ma=86400
+content-length: 21428
+
+   21428 /tmp/wm017_asset
+export_reflection_dossier
+export_reflection_dossier
+export_reflection_dossier
+--- https://mirrorloopai.com/lib/dossier.js?v=20260830-1
+HTTP/2 200 
+cache-control: max-age=3600
+content-security-policy: default-src 'self'; script-src 'self' https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; connect-src 'self' https://challenges.cloudflare.com; img-src 'self' data:; style-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
+content-type: text/javascript; charset=utf-8
+etag: "f8db72ac3b3abd0efd7ddf31efc7cfb04b55290f53b8fd2b78cdb7b75d3f0a4b"
+last-modified: Sun, 30 Aug 2026 22:13:59 GMT
+permissions-policy: camera=(), microphone=(), geolocation=(), payment=()
+referrer-policy: strict-origin-when-cross-origin
+strict-transport-security: max-age=31556926
+x-content-type-options: nosniff
+accept-ranges: bytes
+date: Sun, 30 Aug 2026 22:14:22 GMT
+x-served-by: cache-pdx12322-PDX
+x-cache: MISS
+x-cache-hits: 0
+x-timer: S1788128062.442137,VS0,VE85
+vary: x-fh-requested-host, accept-encoding
+alt-svc: h3=":443";ma=86400,h3-29=":443";ma=86400,h3-27=":443";ma=86400
+content-length: 5494
+
+    5494 /tmp/wm017_asset
+--- https://mirrorloopai.com/llms.txt
+HTTP/2 200 
+cache-control: max-age=3600
+content-security-policy: default-src 'self'; script-src 'self' https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; connect-src 'self' https://challenges.cloudflare.com; img-src 'self' data:; style-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
+content-type: text/plain; charset=utf-8
+etag: "8fcab3ea5d8909a0ead37267c694da96a448038d55afea94101042b9958553fe"
+last-modified: Sun, 30 Aug 2026 22:13:59 GMT
+permissions-policy: camera=(), microphone=(), geolocation=(), payment=()
+referrer-policy: strict-origin-when-cross-origin
+strict-transport-security: max-age=31556926
+x-content-type-options: nosniff
+accept-ranges: bytes
+date: Sun, 30 Aug 2026 22:14:22 GMT
+x-served-by: cache-pdx12326-PDX
+x-cache: MISS
+x-cache-hits: 0
+x-timer: S1788128063.618618,VS0,VE35
+vary: x-fh-requested-host, accept-encoding
+alt-svc: h3=":443";ma=86400,h3-29=":443";ma=86400,h3-27=":443";ma=86400
+content-length: 1168
+
+    1168 /tmp/wm017_asset
+export_reflection_dossier

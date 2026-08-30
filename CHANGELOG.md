@@ -1,5 +1,24 @@
 # Changelog
 
+## 2026-08-30 — Zero-egress reflection dossier export
+
+- Added the confirmed `export_reflection_dossier` WebMCP tool so a participant
+  can preserve a completed reflection as Markdown or JSON without entering an
+  email address or creating an account.
+- The browser-generated dossier includes the primary and supporting lenses,
+  all observed frequencies, all 12 ordered choices, the bounded action, and
+  curated public card metadata. A default card is explicitly labeled as
+  representative of the primary ARC rather than user-selected.
+- Kept the side effect human-controlled with `confirmed_by_user: true`, strict
+  schemas, safe lifecycle fields, and a compact result below the WebMCP output
+  budget.
+- Added deterministic dossier tests and real desktop/mobile download tests.
+  The production test observed no fetch, XHR, or beacon call during export and
+  confirmed the 3,341-byte dossier contained all 12 answers.
+- Updated the public inventory, discovery file, evaluator corpora, manifests,
+  judge artifacts, and demo references from ten to eleven tools, deployed to
+  Firebase Hosting, and verified the production flow at `mirrorloopai.com`.
+
 ## 2026-08-30 — Provisional answer-impact WebMCP preview
 
 - Added the read-only `preview_answer_impact` tool so a participant can inspect

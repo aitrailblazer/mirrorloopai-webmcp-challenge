@@ -1,0 +1,5 @@
+
+> test:webmcp:hud:browser
+> node scripts/test-webmcp-hud-browser.mjs
+
+WebMCP Agent State HUD browser test: PASS (/Users/constantinevassilev02/MyLocalDocuments/go-projects/SyntheonArchive/GENI/mirrorloopai-webmcp-challenge/qa_evidence/webmcp_reflection_dossier/production-browser/)
