@@ -1,7 +1,7 @@
 Goal (incl. success criteria):
 - Complete a tracker-backed audit and implementation pass that makes mirrorloopai.com a first-class WebMCP experience for understandable quiz conversion, secure paid acquisition, and competition readiness.
 - Success requires all user-visible stories to have test evidence, all tracker-backed failures to be fixed and retested, generated tracker views to match the canonical CSV, production to serve the audited release, and the completed pass to be recorded in `CHANGELOG.md`.
-- Match the reference site's immediately recognizable WebMCP identification with a persistent header badge that reports `WebMCP ready · 9 tools` after registration and a truthful direct-use fallback otherwise.
+- Match the reference site's immediately recognizable WebMCP identification with a persistent header badge that reports `WebMCP ready · 10 tools` after registration and a truthful direct-use fallback otherwise.
 - Reconcile the finished product against the official WebMCP Challenge rules, submission requirements, and four equally weighted judging criteria before external submission actions.
 
 Constraints/Assumptions:
@@ -18,7 +18,8 @@ Key decisions:
 - Expose all 144 cards through a reduced public registry containing only curated public interpretation fields.
 - Reconcile the revised nine-tool proposal to the real digital catalog: expose a read-only `recommend_card_edition` discovery tool, not the proposed `recommend_physical_deck` purchasing tool.
 - Preserve server-owned Stripe Checkout, hidden public prices, and explicit human purchase control. Do not publish fabricated physical-product claims, direct Stripe URLs, or unsupported prices.
-- Keep nine bounded WebMCP tools. `compare_choices` is the reviewed read-only ninth tool; use the confirmed answer tool to revise prior answers rather than adding another mutating tool.
+- Keep ten bounded WebMCP tools. `compare_choices` and `preview_answer_impact`
+  are read-only; only the confirmed answer tool may revise prior answers.
 - Connect the reflection result to a highlighted matching ARC without automatically adding a product or initiating checkout.
 
 State:
@@ -31,7 +32,8 @@ State:
   `sequence-orient-before-answer` oracle expects an answer mutation before
   explicit confirmation, while the agent correctly stopped and requested
   confirmation.
-- The reviewed nine-tool release is deployed on `mirrorloopai.com`; desktop and mobile production browser checks invoked `compare_choices`, preserved Question 1 with no selection, and reported `9 TOOLS MOUNTED`.
+- The reviewed nine-tool release remains the deployed baseline while the
+  tracker-backed ten-tool release is under local verification.
 - Follow-up story `WM-013` retains its failed baseline and now has local, responsive, fallback, deployment, and native-production evidence.
 - The local submission package, judge narrative, demo script, public/private work disclosure, criterion map, third-party notice, and freeze plan pass deterministic validation.
 - The official reminder fixes the deadline at September 3, 2026, 1:00 PM PT.
@@ -39,10 +41,13 @@ State:
 - Authenticated GitHub reports the competition repository PRIVATE and anonymous API access returns 404. The sanitized rewritten main branch has been force-pushed and synchronized with origin/main.
 - The private repository history has been rewritten and pushed after removing the unnecessary billing-account metadata and synthetic E2E participant alias; current local and remote main are synchronized.
 - The proposed “winning architecture” attachment is evidence material only. Its P2P, astronomical-engine, physical-product, x402, zero-egress, sub-20KB, 60fps, and judge-preference claims are excluded from submission copy because they are not implemented or measured in this repository. Its earlier tool-count freeze is superseded only by tracker-backed `WM-015`, a read-only two-choice contrast with no new persistence, identity, commerce, or payment authority.
-- `WEBMCP_DEMO_SHOT_LIST.html` now provides the 2:35 recording contract being updated for the reviewed nine-tool build; the public video itself remains pending.
+- `WEBMCP_DEMO_SHOT_LIST.html` provides the recording contract being updated for the reviewed ten-tool build; the public video itself remains pending.
 - The six-point verified-core scope is canonical in README, submission copy, and the demo artifact. Its no-cloud claim applies only to deterministic browser scoring.
 - `WM-014` is verified: the deployed page now exposes a collapsible Agent State rail driven by privacy-filtered registration, tool-start, and tool-complete lifecycle events. It shows observed local duration and explicit answer confirmation without exposing private focus text or tool results.
 - `WM-015` is verified: `compare_choices` returns a neutral, public-data-only contrast for two choices and explicitly leaves both unselected.
+- `WM-016` is in implementation: `preview_answer_impact` simulates one changed
+  answer only after all 12 are complete, returns aggregate score differences,
+  and does not save the hypothetical answer.
 
 Done:
 - Added and browser-rendered the evidence-bounded 2:35 WebMCP demo shot list; HTML, embedded XML, exact tool inventory, timing, authority boundaries, and submission-package assertions pass.
@@ -78,7 +83,7 @@ Done:
 - Committed the resource-driven implementation as `fcde886`, deployed it to Firebase Hosting, and verified the production bundle plus native eight-tool registration in isolated Chrome.
 
 Now:
-- Use the deployed nine-tool release to complete the external submission gates and refresh the host-agent corpus when practical.
+- Deploy and verify the ten-tool release, then complete the external submission gates and refresh the host-agent corpus when practical.
 
 Next:
 - Record and publish the under-three-minute YouTube demo using that artifact.

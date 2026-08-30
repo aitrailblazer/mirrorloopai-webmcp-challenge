@@ -33,6 +33,7 @@ export const MIRRORLOOP_WEBMCP_TOOL_NAMES = Object.freeze([
   "get_current_question",
   "explain_choice",
   "compare_choices",
+  "preview_answer_impact",
   "answer_reflection_question",
   "review_reflection_answers",
   "complete_reflection",
@@ -62,6 +63,9 @@ function safeInputSummary(toolName, value) {
   const safeChoiceCode = CHOICE_CODE_SCHEMA.enum.includes(input.choice_code) ? input.choice_code : "invalid";
   const safeChoiceA = CHOICE_CODE_SCHEMA.enum.includes(input.choice_a) ? input.choice_a : "invalid";
   const safeChoiceB = CHOICE_CODE_SCHEMA.enum.includes(input.choice_b) ? input.choice_b : "invalid";
+  const safeHypotheticalChoice = CHOICE_CODE_SCHEMA.enum.includes(input.hypothetical_choice)
+    ? input.hypothetical_choice
+    : "invalid";
   switch (toolName) {
     case "start_reflection":
       return { focus_supplied: typeof input.focus_area === "string" && input.focus_area.trim().length > 0 };
@@ -69,6 +73,8 @@ function safeInputSummary(toolName, value) {
       return { question_id: safeQuestionID, choice_code: safeChoiceCode };
     case "compare_choices":
       return { question_id: safeQuestionID, choice_a: safeChoiceA, choice_b: safeChoiceB };
+    case "preview_answer_impact":
+      return { question_id: safeQuestionID, hypothetical_choice: safeHypotheticalChoice };
     case "answer_reflection_question":
       return {
         question_id: safeQuestionID,
@@ -207,6 +213,7 @@ function defineTools(api) {
   const getCurrentQuestion = requiredMethod(api, "getCurrentQuestion");
   const explainChoice = requiredMethod(api, "explainChoice");
   const compareChoices = requiredMethod(api, "compareChoices");
+  const previewImpact = requiredMethod(api, "previewImpact");
   const answerQuestion = requiredMethod(api, "answerQuestion");
   const reviewAnswers = requiredMethod(api, "reviewAnswers");
   const completeReflection = requiredMethod(api, "completeReflection");
@@ -300,6 +307,35 @@ function defineTools(api) {
           questionID: checkedQuestionID(input.question_id),
           choiceA,
           choiceB,
+        });
+      },
+    },
+    {
+      name: "preview_answer_impact",
+      description: "Preview how one hypothetical answer change would affect a completed reflection without saving or selecting it.",
+      inputSchema: {
+        type: "object",
+        properties: {
+          question_id: {
+            type: "integer",
+            minimum: 1,
+            maximum: 12,
+            description: "Previously answered question number from 1 to 12.",
+          },
+          hypothetical_choice: {
+            ...CHOICE_CODE_SCHEMA,
+            description: "Two-digit choice code to simulate without recording.",
+          },
+        },
+        required: ["question_id", "hypothetical_choice"],
+        additionalProperties: false,
+      },
+      annotations: READ_ONLY,
+      run: (value) => {
+        const input = checkedKeys(value, ["question_id", "hypothetical_choice"]);
+        return previewImpact({
+          questionID: checkedQuestionID(input.question_id),
+          hypotheticalChoice: checkedChoiceCode(input.hypothetical_choice),
         });
       },
     },

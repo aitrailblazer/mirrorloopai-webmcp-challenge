@@ -17,14 +17,14 @@ try {
   await installModelContextHarness(desktop);
   await desktop.goto(`${baseURL}/?wm014-test=1`);
   await desktop.locator("#agent-state-panel").waitFor();
-  evidence.desktopComparison = await invokeLifecycleSequence(desktop);
+  evidence.desktopPreview = await invokeLifecycleSequence(desktop);
   evidence.desktop = await hudState(desktop);
-  assert.equal(evidence.desktop.phase, "9 TOOLS MOUNTED");
-  assert.equal(evidence.desktop.activeTool, "answer_reflection_question");
-  assert.match(evidence.desktop.safeInput, /question id: 1/);
-  assert.match(evidence.desktop.safeInput, /confirmed by user: yes/);
-  assert.equal(evidence.desktop.confirmation, "HUMAN CONFIRMED");
-  assert.equal(evidence.desktop.confirmationState, "confirmed");
+  assert.equal(evidence.desktop.phase, "10 TOOLS MOUNTED");
+  assert.equal(evidence.desktop.activeTool, "preview_answer_impact");
+  assert.match(evidence.desktop.safeInput, /question id: 4/);
+  assert.match(evidence.desktop.safeInput, /hypothetical choice: 08/);
+  assert.equal(evidence.desktop.confirmation, "NOT REQUIRED");
+  assert.equal(evidence.desktop.confirmationState, "neutral");
   assert.match(evidence.desktop.duration, /^\d+\.\d ms observed$/);
   assert.equal(evidence.desktop.events.length <= 5, true);
   assert.equal(evidence.desktop.privateFocusVisible, false);
@@ -45,9 +45,9 @@ try {
   await installModelContextHarness(mobile);
   await mobile.goto(`${baseURL}/?wm014-mobile-test=1`);
   await mobile.locator("#agent-state-panel").waitFor();
-  evidence.mobileComparison = await invokeLifecycleSequence(mobile);
+  evidence.mobilePreview = await invokeLifecycleSequence(mobile);
   evidence.mobile = await hudState(mobile);
-  assert.equal(evidence.mobile.phase, "9 TOOLS MOUNTED");
+  assert.equal(evidence.mobile.phase, "10 TOOLS MOUNTED");
   assert.equal(evidence.mobile.horizontalOverflow, false);
   assert.equal(evidence.mobile.position, "relative");
   await mobile.screenshot({
@@ -82,7 +82,7 @@ async function installModelContextHarness(page) {
 }
 
 async function invokeLifecycleSequence(page) {
-  await page.waitForFunction(() => window.__mirrorloopTestTools?.size === 9);
+  await page.waitForFunction(() => window.__mirrorloopTestTools?.size === 10);
   await page.evaluate(() => {
     return window.__mirrorloopTestTools.get("start_reflection").execute({
       focus_area: "private founder dispute",
@@ -107,14 +107,56 @@ async function invokeLifecycleSequence(page) {
   assert.deepEqual(comparison.before, comparison.after);
   assert.equal(comparison.payload.selection_status, "NEITHER_SELECTED");
   assert.match(comparison.payload.boundary, /does not rank, select, or record/i);
+  const answers = ["01", "01", "01", "01", "01", "01", "08", "08", "08", "08", "08", "02"];
+  for (const [index, choiceCode] of answers.entries()) {
+    await page.evaluate(({ questionID, choiceCode: selectedChoice }) => {
+      return window.__mirrorloopTestTools.get("answer_reflection_question").execute({
+        question_id: questionID,
+        choice_code: selectedChoice,
+        confirmed_by_user: true,
+      });
+    }, { questionID: index + 1, choiceCode });
+  }
   await page.evaluate(() => {
-    return window.__mirrorloopTestTools.get("answer_reflection_question").execute({
-      question_id: 1,
-      choice_code: "01",
-      confirmed_by_user: true,
-    });
+    return window.__mirrorloopTestTools.get("complete_reflection").execute({});
   });
-  return comparison;
+  const preview = await page.evaluate(async () => {
+    const reviewTool = window.__mirrorloopTestTools.get("review_reflection_answers");
+    const before = JSON.parse((await reviewTool.execute({})).content[0].text);
+    const visibleBefore = {
+      resultHidden: document.querySelector("#result-panel").hidden,
+      resultText: document.querySelector("#result-panel").textContent,
+    };
+    const result = await window.__mirrorloopTestTools.get("preview_answer_impact").execute({
+      question_id: 4,
+      hypothetical_choice: "08",
+    });
+    const after = JSON.parse((await reviewTool.execute({})).content[0].text);
+    const visibleAfter = {
+      resultHidden: document.querySelector("#result-panel").hidden,
+      resultText: document.querySelector("#result-panel").textContent,
+    };
+    await window.__mirrorloopTestTools.get("preview_answer_impact").execute({
+      question_id: 4,
+      hypothetical_choice: "08",
+    });
+    return {
+      before,
+      after,
+      visibleBefore,
+      visibleAfter,
+      payload: JSON.parse(result.content[0].text),
+    };
+  });
+  assert.deepEqual(preview.before, preview.after);
+  assert.deepEqual(preview.visibleBefore, preview.visibleAfter);
+  assert.equal(preview.payload.status, "PROVISIONAL_PREVIEW");
+  assert.equal(preview.payload.current_dominant.code, "01");
+  assert.equal(preview.payload.projected_dominant.code, "08");
+  assert.equal(preview.payload.dominant_changed, true);
+  assert.deepEqual(preview.payload.frequency_delta, { "01": -1, "08": 1 });
+  assert.match(preview.payload.boundary, /does not save, select, or revise/i);
+  return { comparison, preview };
 }
 
 async function hudState(page) {

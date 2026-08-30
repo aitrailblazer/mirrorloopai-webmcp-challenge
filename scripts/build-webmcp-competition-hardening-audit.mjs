@@ -22,7 +22,7 @@ const combinedHash = sourceDigest.digest("hex");
 
 const claims = [
   ["Self-awarded 10/10 judging scores", "UNRESOLVED", "Only judges can assign competition scores. Replace scores with reproducible evidence."],
-  ["Typed WebMCP actions reduce navigation burden", "SUPPORTED_WITH_QUALIFICATION", "Nine typed tools replace brittle control inference for the bounded reflection and card flows; compare_choices neutrally distinguishes two options without recording either."],
+  ["Typed WebMCP actions reduce navigation burden", "SUPPORTED_WITH_QUALIFICATION", "Ten typed tools replace brittle control inference for the bounded reflection and card flows; compare_choices neutrally distinguishes two options and preview_answer_impact simulates one changed answer without recording it."],
   ["Three-Voice framing", "SUPPORTED_WITH_QUALIFICATION", "Useful as a narrative design metaphor; it is not a browser protocol or measured outcome."],
   ["canvas_spin_init, lens_pulse, dial_step, lock_active_card events", "CONTRADICTED", "The app emits session_start, step_transition, and reflection_complete."],
   ["Sub-millisecond LST, Keplerian, or VSOP87 engine", "CONTRADICTED", "No public astronomical engine or benchmark exists in this repository."],
@@ -57,8 +57,8 @@ const html = `<!doctype html>
 <StrategiXVisualSpec version="1.0" artifact="mirrorloop-webmcp-competition-hardening" generatedAt="2026-08-29">
   <Purpose>Replace unsupported perfect-score, architecture, security, science, product, and payment claims with a judge-reproducible competition narrative.</Purpose>
   <ProductContract>
-    <ToolCount>9</ToolCount>
-    <Tools>start_reflection,get_current_question,explain_choice,compare_choices,answer_reflection_question,review_reflection_answers,complete_reflection,get_card,recommend_card_edition</Tools>
+    <ToolCount>10</ToolCount>
+    <Tools>start_reflection,get_current_question,explain_choice,compare_choices,preview_answer_impact,answer_reflection_question,review_reflection_answers,complete_reflection,get_card,recommend_card_edition</Tools>
     <BrowserEvents>mirrorloop:session_start,mirrorloop:step_transition,mirrorloop:reflection_complete</BrowserEvents>
     <HumanAuthority>Answers require explicit confirmation. Email, cart mutation, Checkout creation, and payment remain human actions.</HumanAuthority>
     <Catalog>Digital editions only; recommendations expose neither price nor direct Stripe URL.</Catalog>
@@ -66,7 +66,7 @@ const html = `<!doctype html>
   </ProductContract>
   <ClaimLedger>
     <Claim id="score" status="UNRESOLVED">Self-awarded 10/10 scores are removed.</Claim>
-    <Claim id="typed_navigation" status="SUPPORTED_WITH_QUALIFICATION">Nine typed tools support the bounded experience.</Claim>
+    <Claim id="typed_navigation" status="SUPPORTED_WITH_QUALIFICATION">Ten typed tools support the bounded experience.</Claim>
     <Claim id="invented_events" status="CONTRADICTED">Four proposed event names do not exist.</Claim>
     <Claim id="astronomy" status="CONTRADICTED">No public LST, Keplerian, VSOP87, transit, or ray engine is claimed.</Claim>
     <Claim id="focus_xss" status="NOT_APPLICABLE">Focus text is bounded, private browser state and is not rendered or returned.</Claim>
@@ -83,7 +83,7 @@ const html = `<!doctype html>
     <Run name="operational" cases="6" exact_cases="6" exact_calls="8"/>
   </Evidence>
   <DemoContract duration_target="2:35" maximum="3:00">
-    <Beat order="1">Show the live page and WebMCP ready · 9 tools.</Beat>
+    <Beat order="1">Show the live page and WebMCP ready · 10 tools.</Beat>
     <Beat order="2">Start a reflection, read the current question, and compare two choices without selecting either.</Beat>
     <Beat order="3">Demonstrate failed unconfirmed recording, then explicit confirmation and visible step transition.</Beat>
     <Beat order="4">Use a prepared eleven-answer state, confirm the twelfth answer, and complete deterministic local scoring.</Beat>
@@ -93,12 +93,12 @@ const html = `<!doctype html>
   </DemoContract>
   <DecisionLog>
     <Decision date="2026-08-29">Freeze the then-submitted eight-tool architecture instead of adding an unreviewed ninth tool or changing privacy, payment, or data-flow boundaries.</Decision>
-    <Decision date="2026-08-30">Supersede only that tool-count freeze after tracker-backed review of compare_choices as a read-only ninth tool with no persistence, identity, commerce, or payment authority.</Decision>
+    <Decision date="2026-08-30">Supersede the earlier tool-count freezes after tracker-backed review of compare_choices and preview_answer_impact as read-only tools with no persistence, identity, commerce, or payment authority.</Decision>
     <Decision date="2026-08-29">Do not self-award judging scores; organize evidence under the four published judging criteria.</Decision>
   </DecisionLog>
   <AcceptanceCriteria>
     <Criterion>Every public capability in the corrected narrative maps to inspected code or preserved execution evidence.</Criterion>
-    <Criterion>The demo remains under three minutes and uses only the nine production tools.</Criterion>
+    <Criterion>The demo remains under three minutes and uses only the ten production tools.</Criterion>
     <Criterion>No public copy claims ephemeris, physical fulfillment, autonomous payment, diagnosis, or a zero-risk privacy guarantee.</Criterion>
     <Criterion>External submission gates remain explicit until performed by the operator.</Criterion>
   </AcceptanceCriteria>
@@ -148,9 +148,9 @@ const html = `<!doctype html>
             <section>
               <div class="eyebrow">Evidence-bounded submission control</div>
               <h1>Competition Claim Hardening</h1>
-              <p class="verdict"><strong>The strongest submission is the reproducible one—not the one that declares itself perfect.</strong> Show the real nine-tool experience, including neutral two-choice contrast, and exclude invented events, engines, products, and payment authority.</p>
+              <p class="verdict"><strong>The strongest submission is the reproducible one—not the one that declares itself perfect.</strong> Show the real ten-tool experience, including neutral two-choice contrast and provisional answer-impact preview, and exclude invented events, engines, products, and payment authority.</p>
               <div class="metrics">
-                <div class="metric"><strong>9 tools</strong>production contract</div>
+                <div class="metric"><strong>10 tools</strong>production contract</div>
                 <div class="metric"><strong>3 events</strong>actual UI synchronization</div>
                 <div class="metric"><strong>0</strong>agent payment authority</div>
               </div>
@@ -162,7 +162,7 @@ const html = `<!doctype html>
             <section>
               <h2>Judge-facing evidence, not self-scoring</h2>
               <div class="criteria">
-                <div class="criterion"><strong>WebMCP Leverage</strong><p>Nine purpose-built tools operate the same visible reflection and card surfaces that people use; the ninth resolves two-option ambiguity without taking the decision.</p></div>
+                <div class="criterion"><strong>WebMCP Leverage</strong><p>Ten purpose-built tools operate the same visible reflection and card surfaces that people use; two read-only analytical tools clarify ambiguity and simulate one hypothetical change without taking the decision.</p></div>
                 <div class="criterion"><strong>Execution</strong><p>Strict schemas, confirmation gates, partial-registration rollback, character budgets, and three preserved live evaluation sets.</p></div>
                 <div class="criterion"><strong>Potential Impact</strong><p>Natural-language guidance reduces navigation work while keeping private reflection local and consequential actions human-controlled.</p></div>
                 <div class="criterion"><strong>Creativity &amp; Ambition</strong><p>A 144-card reflection system becomes agent-navigable without turning the browser agent into an identity, email, cart, or payment authority.</p></div>
@@ -176,7 +176,7 @@ const html = `<!doctype html>
             <section>
               <h2>Corrected 2:35 demo</h2>
               <div class="beats">
-                <div class="beat"><strong>0:00–0:18</strong><p>Open the live site. Show “WebMCP ready · 9 tools” and the visible experience.</p></div>
+                <div class="beat"><strong>0:00–0:18</strong><p>Open the live site. Show “WebMCP ready · 10 tools” and the visible experience.</p></div>
                 <div class="beat"><strong>0:18–0:48</strong><p>Start the reflection, read the current question, and ask the agent to contrast two choices without selecting either.</p></div>
                 <div class="beat"><strong>0:48–1:18</strong><p>Show that an unconfirmed answer is rejected. Confirm it and show the visible step transition.</p></div>
                 <div class="beat"><strong>1:18–1:48</strong><p>Load a prepared eleven-answer state, confirm answer twelve, and complete deterministic local scoring.</p></div>
@@ -186,7 +186,7 @@ const html = `<!doctype html>
             </section>
             <section>
               <h2>Copy-ready Devpost core</h2>
-              <div class="copy">MIRROR//LOOP turns a deterministic 12-question, 144-card reflection experience into a typed browser capability for AI agents. Nine WebMCP tools let an agent start or resume a reflection, explain one choice, neutrally contrast two choices, record only explicitly confirmed answers, review and revise the current browser session, complete local deterministic scoring, retrieve public cards, and recommend a digital edition.
+              <div class="copy">MIRROR//LOOP turns a deterministic 12-question, 144-card reflection experience into a typed browser capability for AI agents. Ten WebMCP tools let an agent start or resume a reflection, explain one choice, neutrally contrast two choices, preview one hypothetical answer change without saving it, record only explicitly confirmed answers, review and revise the current browser session, complete local deterministic scoring, retrieve public cards, and recommend a digital edition.
 
 The browser page remains the authority for state and visible outcomes. Private source corpora are not exposed. Email submission, cart changes, Stripe Checkout, and payment remain visible human actions. This is not an ephemeris, diagnosis, physical-product fulfillment system, or autonomous commerce agent.
 
@@ -194,7 +194,7 @@ The submitted evidence includes a 15-case baseline, a 10-case campaign boundary 
             </section>
             <section>
               <h2>Release decision</h2>
-              <p><strong>Freeze the reviewed nine-tool build.</strong> Do not add P2P exchange, an astronomical engine, physical fulfillment, or x402 before submission. Those features change privacy, consent, data-flow, product, or payment boundaries and require separate design and testing.</p>
+              <p><strong>Freeze the reviewed ten-tool build.</strong> Do not add P2P exchange, an astronomical engine, physical fulfillment, or x402 before submission. Those features change privacy, consent, data-flow, product, or payment boundaries and require separate design and testing.</p>
               <p>Still external: public repository visibility, Devpost publication, a public captioned YouTube demo, anonymous-access checks, and operator rights/eligibility attestations.</p>
             </section>
             <section><h2>Embedded XML contract</h2><pre>\${xml}</pre></section>

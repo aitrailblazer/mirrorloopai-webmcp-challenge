@@ -16,7 +16,7 @@
 
   <script type="application/xml" id="strategix-contract">
 <StrategiXVisualSpec version="1.0" artifact="mirrorloop-webmcp-operational-use-cases" generatedAt="2026-08-30T00:30:27.427Z">
-  <Purpose>Define six concrete operational examples that a judge or visitor can reproduce with the live nine-tool MIRROR//LOOP WebMCP contract.</Purpose>
+  <Purpose>Define six concrete operational examples that a judge or visitor can reproduce with the live ten-tool MIRROR//LOOP WebMCP contract.</Purpose>
   <ProductContract>
     <Rule>Every described agent action must map to a production tool and public data.</Rule>
     <Rule>Human confirmation remains mandatory before recording any answer.</Rule>
@@ -50,13 +50,13 @@
     <Risk>A single model run demonstrates observed compatibility, not universal agent reliability.</Risk>
   </RisksAndOpenQuestions>
   <SourceDigest>
-    <Source path="web/lib/webmcp.js">Production nine-tool contract.</Source>
+    <Source path="web/lib/webmcp.js">Production ten-tool contract.</Source>
     <Source path="web/data/cards.json">Public 144-card metadata.</Source>
     <Source path="web/data/shop.json">Digital catalog boundary.</Source>
     <Source path="web/evals/webmcp-operational-use-cases.json">Frozen six-case oracle.</Source>
     <Source path="qa_evidence/webmcp_operational_use_case_eval/latest.json" sha256="84e2fe1069d45228b85ec59d337529d4898c9b4fafee8cb7b908d33d5f9477e7">Live model evidence.</Source>
   </SourceDigest>
-  <ImplementationNotes>The public tool count is nine; compare_choices adds read-only differentiation without new persistence, identity, commerce, or payment authority.</ImplementationNotes>
+  <ImplementationNotes>The public tool count is ten; compare_choices adds read-only differentiation and preview_answer_impact adds provisional score simulation without new persistence, identity, commerce, or payment authority.</ImplementationNotes>
 </StrategiXVisualSpec>
   </script>
 
@@ -98,7 +98,7 @@
             <section class="hero">
               <div class="eyebrow">Production-reproducible scenario contract</div>
               <h1>Six Operational WebMCP Use Cases</h1>
-              <p>Each scenario retains the real operational dilemma while using only public card metadata and the nine bounded tools. Symbolic material is presented as a reflection lens—not as diagnosis, astronomy, legal authority, or hidden evidence.</p>
+              <p>Each scenario retains the real operational dilemma while using only public card metadata and the ten bounded tools. Symbolic material is presented as a reflection lens—not as diagnosis, astronomy, legal authority, or hidden evidence.</p>
               <div class="metrics">
                 <div class="metric"><strong>6</strong>operational contexts</div>
                 <div class="metric"><strong>6 / 6</strong>exact live cases</div>
@@ -111,7 +111,7 @@
             </section>
             <section class="panel">
               <h2>Live-agent evidence</h2>
-              <p>The preserved Gemini 2.5 Flash run received the prior eight contracts discovered from production. All six cases matched that frozen sequence and arguments exactly; compare_choices is covered by the current deterministic and browser suites pending a refreshed external-agent run.</p>
+              <p>The preserved Gemini 2.5 Flash run received the prior eight contracts discovered from production. All six cases matched that frozen sequence and arguments exactly; compare_choices and preview_answer_impact are covered by the current deterministic and browser suites pending a refreshed external-agent run.</p>
               <div class="table-wrap"><table>
                 <thead><tr><th>Scenario</th><th>Expected</th><th>Selected</th><th>Result</th></tr></thead>
                 <tbody .innerHTML=${results}></tbody>

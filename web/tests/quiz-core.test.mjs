@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import {
   compareQuestionChoices,
+  previewAnswerImpact,
   RESPONSE_GROUPS,
   resultCopy,
   scoreAnswers,
@@ -95,6 +96,47 @@ test("every two-choice contrast stays within the WebMCP response budget", () => 
       }
     }
   }
+});
+
+test("answer-impact preview applies one hypothetical change without mutating answers", () => {
+  const answers = ["01", "01", "01", "01", "01", "01", "08", "08", "08", "08", "08", "02"];
+  const original = [...answers];
+  const preview = previewAnswerImpact(answers, quiz.archetypes, 4, "08");
+
+  assert.deepEqual(answers, original);
+  assert.equal(preview.status, "PROVISIONAL_PREVIEW");
+  assert.deepEqual(preview.current_choice, { code: "01", name: "Horizon Signal" });
+  assert.deepEqual(preview.hypothetical_choice, { code: "08", name: "Phantom Contract" });
+  assert.deepEqual(preview.current_dominant, {
+    code: "01",
+    name: "Horizon Signal",
+    frequency: 6,
+  });
+  assert.deepEqual(preview.projected_dominant, {
+    code: "08",
+    name: "Phantom Contract",
+    frequency: 6,
+  });
+  assert.equal(preview.dominant_changed, true);
+  assert.deepEqual(preview.frequency_delta, { "01": -1, "08": 1 });
+  assert.match(preview.boundary, /does not save, select, or revise/i);
+  assert.equal(JSON.stringify(preview).length < 1500, true);
+});
+
+test("answer-impact preview rejects incomplete, unchanged, or invalid simulations", () => {
+  const complete = ["01", "01", "01", "01", "01", "01", "08", "08", "08", "08", "08", "02"];
+  assert.throws(
+    () => previewAnswerImpact(complete.slice(0, 11), quiz.archetypes, 4, "08"),
+    /complete all 12 questions/i,
+  );
+  assert.throws(
+    () => previewAnswerImpact(complete, quiz.archetypes, 4, "01"),
+    /already recorded/i,
+  );
+  assert.throws(
+    () => previewAnswerImpact(complete, quiz.archetypes, 4, "99"),
+    /not available/i,
+  );
 });
 
 test("a zero-count tie is not presented as a supporting pattern", () => {

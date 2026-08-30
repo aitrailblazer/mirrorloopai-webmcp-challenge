@@ -36,7 +36,7 @@ control of identity or payment.
 
 ## Verified core repository scope
 
-1. **Nine typed tools.** Strict JSON Schemas reject unknown properties, while
+1. **Ten typed tools.** Strict JSON Schemas reject unknown properties, while
    bounded runtime checks validate identifiers, enumerations, lengths, and
    adapter availability before returning structured tool errors.
 2. **Enforced human confirmation.** `answer_reflection_question` records or
@@ -54,19 +54,20 @@ control of identity or payment.
    DevTools, and the repository carries automated registration and contract
    gates.
 
-## Nine bounded tools
+## Ten bounded tools
 
 1. `start_reflection`
 2. `get_current_question`
 3. `explain_choice`
 4. `compare_choices`
-5. `answer_reflection_question`
-6. `review_reflection_answers`
-7. `complete_reflection`
-8. `get_card`
-9. `recommend_card_edition`
+5. `preview_answer_impact`
+6. `answer_reflection_question`
+7. `review_reflection_answers`
+8. `complete_reflection`
+9. `get_card`
+10. `recommend_card_edition`
 
-The production page visibly reports **WebMCP ready · 9 tools** after native
+The production page visibly reports **WebMCP ready · 10 tools** after native
 registration. Its collapsible **Agent state** rail then makes registration and
 tool execution visible without DevTools: it shows the active tool, an
 allowlisted input summary, observed local elapsed time, outcome, and whether an
@@ -100,7 +101,7 @@ configured. Recording or revising an answer requires an explicit
 price or direct Stripe URL. Email submission, cart mutation, Checkout creation,
 and payment are deliberately not WebMCP tools.
 
-Registration is considered ready only after all nine registration promises
+Registration is considered ready only after all ten registration promises
 resolve. A rejection aborts the partial tool set and activates the normal
 direct-use fallback. Tool names, descriptions, parameter descriptions, and
 individual results are checked against the current Chrome WebMCP character
@@ -137,7 +138,7 @@ Firebase/Cloud Run deployment, and human-controlled Stripe Checkout.
 **Added during the challenge after August 25, 2026:** the nine WebMCP tools,
 strict schemas and annotations, explicit answer-confirmation boundary, prior
 answer revision, public 144-card lookup, safe edition recommendation, visible
-nine-tool readiness badge, production browser verification, conversion link
+ten-tool readiness badge, production browser verification, conversion link
 from result to the matching ARC, agent discovery metadata, and this submission
 audit/package.
 
@@ -191,21 +192,23 @@ or upload a video.
 1. Use Chrome 149 or later, enable
    `chrome://flags/#enable-webmcp-testing`, and restart Chrome.
 2. Open `https://mirrorloopai.com/`.
-3. Confirm the header reads **WebMCP ready · 9 tools**.
-4. Open DevTools, select **Application → WebMCP**, and confirm all nine tools
+3. Confirm the header reads **WebMCP ready · 10 tools**.
+4. Open DevTools, select **Application → WebMCP**, and confirm all ten tools
    appear under **Available Tools** with no schema errors.
 5. Select a tool and use **Run tool** to invoke `start_reflection`,
-   `get_current_question`, `explain_choice`, and `compare_choices`; inspect each record under
+   `get_current_question`, `explain_choice`, `compare_choices`, and
+   `preview_answer_impact`; inspect each record under
    **Invoked Tools**.
 6. Confirm an answer with `confirmed_by_user: true`, then deliberately try an
    unknown field and verify the schema violation is visible.
-7. Complete the reflection, call `get_card`, and call
+7. Complete the reflection, preview one changed answer without saving it, call
+   `get_card`, and call
    `recommend_card_edition`.
 8. Verify that no tool can submit email, mutate the cart, create Checkout, or
    make a payment.
 
 The machine-readable intent corpus in
-[`web/evals/webmcp-evals.json`](web/evals/webmcp-evals.json) covers all nine
+[`web/evals/webmcp-evals.json`](web/evals/webmcp-evals.json) covers all ten
 tools, ordered flows, ambiguous requests, and no-tool email/cart/payment cases.
 `npm run test:webmcp:evals` validates that corpus deterministically. A live
 host-agent run is recorded in

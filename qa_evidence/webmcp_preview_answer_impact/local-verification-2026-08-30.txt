@@ -1,0 +1,43 @@
+WM-016 local verification — 2026-08-30
+
+PASS npm test
+  41 tests passed, including pure preview scoring, strict WebMCP schema,
+  adapter isolation, lifecycle redaction, output budget, and unchanged-answer
+  assertions.
+
+PASS npm run test:webmcp:evals
+  17 deterministic cases cover all 10 tools.
+
+PASS npm run test:webmcp:campaign-evals
+  12 campaign cases include the provisional preview and five protected
+  no-tool boundaries.
+
+PASS npm run test:webmcp:hud:browser
+  Desktop and 390px browser runs mounted 10 tools, completed 12 confirmed
+  answers, previewed Question 4 as Choice 08, and proved that the ordered
+  answer review and visible result were unchanged. The HUD displayed only
+  question_id and hypothetical_choice, marked confirmation NOT REQUIRED,
+  retained at most five events, omitted private focus text, and had no
+  horizontal overflow.
+
+PASS npm run validate
+PASS npm run validate:submission
+PASS npm run test:webmcp:operational-use-cases
+PASS npm run test:webmcp:competition-hardening
+PASS npm run test:webmcp:judge-panel
+PASS npm run test:webmcp:chrome-ux
+PASS npm run test:webmcp:six-role-claims
+PASS npm run test:webmcp:agent-evidence
+PASS npm run test:webmcp:campaign-evidence
+PASS npm run test:webmcp:operational-evidence
+PASS npm run test:stripe
+PASS npm run test:confirmation:browser
+PASS npm run test:quiz:persistence:browser
+PASS go test ./...
+PASS go vet ./...
+PASS git diff --check
+
+Browser artifacts:
+- local-browser/browser-retest.json
+- local-browser/desktop-retest.png
+- local-browser/mobile-retest.png

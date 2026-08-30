@@ -1,15 +1,16 @@
 import {
   compareQuestionChoices,
+  previewAnswerImpact,
   RESPONSE_GROUPS,
   resultCopy,
   scoreAnswers,
   supportingPattern,
-} from "./lib/quiz-core.js?v=20260830-4";
+} from "./lib/quiz-core.js?v=20260830-5";
 import { createFunnelTracker } from "./lib/analytics.js?v=20260826-3";
 import {
   installMirrorLoopWebMCP,
   MIRRORLOOP_WEBMCP_EVENTS,
-} from "./lib/webmcp.js?v=20260830-6";
+} from "./lib/webmcp.js?v=20260830-7";
 import { createReflectionStore } from "./lib/reflection-storage.js?v=20260830-1";
 
 const $ = (selector) => document.querySelector(selector);
@@ -357,6 +358,20 @@ async function compareChoices({ questionID, choiceA, choiceB }) {
   return compareQuestionChoices(question, state.quiz.archetypes, choiceA, choiceB);
 }
 
+async function previewImpact({ questionID, hypotheticalChoice }) {
+  await loadQuiz();
+  const question = state.quiz.questions[questionID - 1];
+  if (!question?.options.some(({ arcCode }) => arcCode === hypotheticalChoice)) {
+    throw new Error("That hypothetical choice is not available for this question.");
+  }
+  return previewAnswerImpact(
+    state.answers,
+    state.quiz.archetypes,
+    questionID,
+    hypotheticalChoice,
+  );
+}
+
 async function answerQuestion({ questionID, choiceCode }) {
   await loadQuiz();
   if (!state.started) throw new Error("Start a reflection before recording an answer.");
@@ -597,6 +612,7 @@ installMirrorLoopWebMCP({
     getCurrentQuestion: currentQuestion,
     explainChoice,
     compareChoices,
+    previewImpact,
     answerQuestion,
     reviewAnswers,
     completeReflection,

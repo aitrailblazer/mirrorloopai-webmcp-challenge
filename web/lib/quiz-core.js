@@ -77,6 +77,60 @@ export function compareQuestionChoices(question, archetypes, choiceA, choiceB) {
   };
 }
 
+export function previewAnswerImpact(answers, archetypes, questionID, hypotheticalChoice) {
+  if (!Array.isArray(answers) || answers.length !== 12 || answers.some((code) => !code)) {
+    throw new Error("Complete all 12 questions before previewing an answer change.");
+  }
+  if (!Number.isInteger(questionID) || questionID < 1 || questionID > 12) {
+    throw new Error("question_id must be a whole number from 1 to 12.");
+  }
+  if (!archetypes || !(hypotheticalChoice in archetypes)) {
+    throw new Error("The hypothetical choice is not available.");
+  }
+
+  const currentChoice = answers[questionID - 1];
+  if (!(currentChoice in archetypes)) {
+    throw new Error(`Question ${questionID} does not have a recorded answer.`);
+  }
+  if (currentChoice === hypotheticalChoice) {
+    throw new Error("The hypothetical choice is already recorded for this question.");
+  }
+
+  const projectedAnswers = [...answers];
+  projectedAnswers[questionID - 1] = hypotheticalChoice;
+  const current = scoreAnswers(answers, archetypes);
+  const projected = scoreAnswers(projectedAnswers, archetypes);
+
+  return {
+    status: "PROVISIONAL_PREVIEW",
+    question_id: questionID,
+    current_choice: {
+      code: currentChoice,
+      name: archetypes[currentChoice].name,
+    },
+    hypothetical_choice: {
+      code: hypotheticalChoice,
+      name: archetypes[hypotheticalChoice].name,
+    },
+    current_dominant: {
+      code: current.dominant,
+      name: archetypes[current.dominant].name,
+      frequency: current.counts[current.dominant],
+    },
+    projected_dominant: {
+      code: projected.dominant,
+      name: archetypes[projected.dominant].name,
+      frequency: projected.counts[projected.dominant],
+    },
+    dominant_changed: current.dominant !== projected.dominant,
+    frequency_delta: {
+      [currentChoice]: -1,
+      [hypotheticalChoice]: 1,
+    },
+    boundary: "This preview does not save, select, or revise any answer.",
+  };
+}
+
 export function supportingPattern(result) {
   const count = result?.counts?.[result.secondary] ?? 0;
   return count > 0 ? { code: result.secondary, count } : null;

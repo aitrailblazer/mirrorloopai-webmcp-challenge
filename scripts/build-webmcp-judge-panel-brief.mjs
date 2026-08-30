@@ -47,7 +47,7 @@ const evidenceLenses = [
   {
     title: "Typed WebMCP contract",
     audience: "MCP and agent-tooling reviewers",
-    evidence: "Nine bounded tools use strict JSON schemas, additionalProperties: false, behavioral annotations, awaited registration, and bounded results.",
+    evidence: "Ten bounded tools use strict JSON schemas, additionalProperties: false, behavioral annotations, awaited registration, and bounded results.",
     reproduce: "Use Application → WebMCP to inspect Available Tools, run a valid call, then add an unknown property.",
   },
   {
@@ -59,14 +59,14 @@ const evidenceLenses = [
   {
     title: "Measured lightweight modules",
     audience: "Web-performance reviewers",
-    evidence: "The audited source sizes are app.js 18,532 bytes raw / 5,504 gzip and webmcp.js 12,264 bytes raw / 3,171 gzip. No total-bundle or frame-rate claim is made.",
+    evidence: "The audited source sizes are app.js 25,231 bytes raw / 7,252 gzip and webmcp.js 19,254 raw / 4,496 gzip. No total-bundle or frame-rate claim is made.",
     reproduce: "Run wc -c and gzip -c on the two source files; run the browser-responsive and Node gates.",
   },
   {
     title: "Privacy boundary, not a zero-telemetry slogan",
     audience: "Edge, privacy, and trust reviewers",
     evidence: "Reflection answers remain in browser state during WebMCP use. Separate optional email, aggregate analytics, and Stripe flows are disclosed rather than described as zero egress.",
-    reproduce: "Inspect the nine tool handlers and verify that no email, analytics, cart, or payment handler is registered as a WebMCP tool.",
+    reproduce: "Inspect the ten tool handlers and verify that no email, analytics, cart, or payment handler is registered as a WebMCP tool.",
   },
   {
     title: "Applied product path",
@@ -92,21 +92,21 @@ const roleEvidence = [
   {
     name: "Justin Rushing",
     lens: "Human-agent authority and safe browser execution",
-    supported: "The agent may read and explain, and may mutate only ephemeral reflection state. Every answer requires confirmed_by_user: true. Email, cart, Checkout, and payment remain outside the nine-tool contract.",
+    supported: "The agent may read, explain, and preview one hypothetical score change, and may mutate only ephemeral reflection state. Every answer requires confirmed_by_user: true. Email, cart, Checkout, and payment remain outside the ten-tool contract.",
     correction: "The agent is not read-only: start, answer, and completion tools intentionally mutate local state. Completion returns a bounded reflective prompt, not a guaranteed physical test or hard Return Line.",
     reproduce: "Reject an unconfirmed answer, accept a confirmed answer, then verify that no registered tool can submit email, alter the cart, or create payment.",
   },
   {
     name: "Alex Nahas",
     lens: "Typed browser-tool contracts and state gating",
-    supported: "All nine tools use bounded JSON schemas, additionalProperties: false, explicit required fields, runtime validators, annotations, awaited registration, and a 1,500-character result limit. Completion rejects fewer than 12 answers.",
-    correction: "The ninth tool is the read-only compare_choices contrast, while recommend_card_edition remains price-free and read-only. Validation does not auto-pad identifiers, and errors use the WebMCP isError text envelope rather than an invented structured INCOMPLETE_SESSION payload.",
+    supported: "All ten tools use bounded JSON schemas, additionalProperties: false, explicit required fields, runtime validators, annotations, awaited registration, and a 1,500-character result limit. Completion and answer-impact preview reject fewer than 12 answers.",
+    correction: "The tenth tool is the read-only preview_answer_impact simulation, while recommend_card_edition remains price-free and read-only. Validation does not auto-pad identifiers, and errors use the WebMCP isError text envelope rather than an invented structured INCOMPLETE_SESSION payload.",
     reproduce: "Inspect Available Tools, pass an unknown field, pass card_id 4 instead of 004, and call complete_reflection before question 12.",
   },
   {
     name: "Ilya Grigorik",
     lens: "Measured delivery and network behavior",
-    supported: "Audited source modules measure app.js at 18,532 bytes raw / 5,504 gzip and webmcp.js at 12,264 raw / 3,171 gzip. Reflection tool execution uses in-page state after required public data loads.",
+    supported: "Audited source modules measure app.js at 25,231 bytes raw / 7,252 gzip and webmcp.js at 19,254 raw / 4,496 gzip. Reflection tool execution uses in-page state after required public data loads.",
     correction: "There is no kinematics.js, VSOP87/Keplerian solver, LST benchmark, under-20KB total-transfer proof, or zero-request session. The page loads public JSON and records two allowlisted aggregate funnel events.",
     reproduce: "Run wc and gzip on the two modules, then inspect Network while loading the quiz and starting/completing a reflection.",
   },
@@ -205,8 +205,8 @@ const html = `<!doctype html>
     ${panel.map(([name, title]) => `<Judge name="${escapeHTML(name)}" title="${escapeHTML(title)}"/>`).join("\n    ")}
   </Panel>
   <ProductContract>
-    <ToolCount>9</ToolCount>
-    <Tools>start_reflection,get_current_question,explain_choice,compare_choices,answer_reflection_question,review_reflection_answers,complete_reflection,get_card,recommend_card_edition</Tools>
+    <ToolCount>10</ToolCount>
+    <Tools>start_reflection,get_current_question,explain_choice,compare_choices,preview_answer_impact,answer_reflection_question,review_reflection_answers,complete_reflection,get_card,recommend_card_edition</Tools>
     <BrowserEvents>mirrorloop:session_start,mirrorloop:step_transition,mirrorloop:reflection_complete</BrowserEvents>
     <HumanAuthority>Every answer requires explicit confirmation. Email, cart mutation, Checkout creation, and payment remain human actions.</HumanAuthority>
     <PrivacyBoundary>Reflection answers remain browser-local in the WebMCP flow. Optional aggregate analytics, email delivery, and Stripe are separate disclosed network flows.</PrivacyBoundary>
@@ -299,7 +299,7 @@ const html = `<!doctype html>
               <h1>Judge Panel Evidence Brief</h1>
               <p class="verdict"><strong>Do not guess what a judge “hates” or promise a perfect score.</strong> Give every reviewer a short path from the official scoring criteria to working code, visible browser behavior, and preserved test evidence.</p>
               <div class="metrics">
-                <div class="metric"><strong>9 tools</strong>deployed browser contract</div>
+                <div class="metric"><strong>10 tools</strong>deployed browser contract</div>
                 <div class="metric"><strong>3 eval suites</strong>31 preserved agent cases</div>
                 <div class="metric"><strong>0</strong>agent payment actions</div>
               </div>
@@ -330,7 +330,7 @@ const html = `<!doctype html>
             <section>
               <h2>Three-minute narrative priority</h2>
               <ol>
-                <li>Show <strong>WebMCP ready · 9 tools</strong> and the native Chrome tool list.</li>
+                <li>Show <strong>WebMCP ready · 10 tools</strong> and the native Chrome tool list.</li>
                 <li>Demonstrate explanation, rejected unconfirmed mutation, confirmed answer, and the same visible progress and focus transition a person receives.</li>
                 <li>Complete deterministic scoring, retrieve one public card, and request a digital-edition recommendation.</li>
                 <li>Stop before email, cart, or Stripe and state that consequential actions remain human-controlled.</li>

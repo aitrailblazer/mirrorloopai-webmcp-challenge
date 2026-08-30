@@ -1,6 +1,6 @@
 {
   "schemaVersion": "mirrorloop.webmcp.evals.v1",
-  "description": "Deterministic intent, argument, call-order, and forbidden-action cases for the nine MIRROR//LOOP WebMCP tools.",
+  "description": "Deterministic intent, argument, call-order, and forbidden-action cases for the ten MIRROR//LOOP WebMCP tools.",
   "cases": [
     {
       "id": "intent-start",
@@ -47,6 +47,19 @@
             "question_id": 1,
             "choice_a": "01",
             "choice_b": "06"
+          }
+        }
+      ]
+    },
+    {
+      "id": "intent-preview-answer-impact",
+      "prompt": "Before I revise question 4, preview what would change if I used choice 08. Do not save it.",
+      "expectedCalls": [
+        {
+          "name": "preview_answer_impact",
+          "arguments": {
+            "question_id": 4,
+            "hypothetical_choice": "08"
           }
         }
       ]

@@ -1,0 +1,55 @@
+$ git rev-parse HEAD
+506abaa8ec20b8f49d6eafcba515edd1418f670a
+$ rg preview_answer_impact
+$ current tool names
+  toolOutput: 1500,
+});
+
+export const MIRRORLOOP_WEBMCP_TOOL_NAMES = Object.freeze([
+  "start_reflection",
+  "get_current_question",
+  "explain_choice",
+  "compare_choices",
+  "answer_reflection_question",
+  "review_reflection_answers",
+  "complete_reflection",
+  "get_card",
+  "recommend_card_edition",
+]);
+
+export const MIRRORLOOP_WEBMCP_EVENTS = Object.freeze({
+  status: "mirrorloop:webmcp_status",
+  toolStart: "mirrorloop:tool_start",
+  toolComplete: "mirrorloop:tool_complete",
+});
+
+$ current tool-count references
+README.md:69:The production page visibly reports **WebMCP ready · 9 tools** after native
+README.md:194:3. Confirm the header reads **WebMCP ready · 9 tools**.
+README.md:195:4. Open DevTools, select **Application → WebMCP**, and confirm all nine tools
+SUBMISSION.md:33:retrieve a specific card by number. The page displays `WebMCP ready · 9 tools`
+SUBMISSION.md:51:`web/lib/webmcp.js` defines nine tools with JSON input schemas,
+SUBMISSION.md:81:all nine tools, ordered flows, ambiguous requests, and no-tool boundaries.
+SUBMISSION.md:145:| `828ee7a` | 2026-08-29 | Immediately visible `WebMCP ready · 9 tools` badge |
+SUBMISSION.md:161:| 0:00–0:15 | Open the live homepage and point to `WebMCP ready · 9 tools`. | “MIRROR//LOOP turns a 12-question reflection and 144 cards into a bounded human-agent collaboration.” |
+SUBMISSION.md:176:2. Confirm `WebMCP ready · 9 tools`.
+scripts/build-webmcp-judge-panel-brief.mjs:102:    supported: "All nine tools use bounded JSON schemas, additionalProperties: false, explicit required fields, runtime validators, annotations, awaited registration, and a 1,500-character result limit. Completion rejects fewer than 12 answers.",
+scripts/build-webmcp-judge-panel-brief.mjs:208:    <ToolCount>9</ToolCount>
+scripts/build-webmcp-judge-panel-brief.mjs:302:                <div class="metric"><strong>9 tools</strong>deployed browser contract</div>
+scripts/build-webmcp-judge-panel-brief.mjs:333:                <li>Show <strong>WebMCP ready · 9 tools</strong> and the native Chrome tool list.</li>
+scripts/validate-submission.mjs:37:  ["README all nine tools", manifest.webmcpTools.length === 9 && manifest.webmcpTools.every((name) => readme.includes("`" + name + "`"))],
+scripts/validate-submission.mjs:62:    "<ToolCount>9</ToolCount>",
+scripts/validate-submission.mjs:96:    "<ToolCount>9</ToolCount>",
+scripts/validate-submission.mjs:105:    "<ToolCount>9</ToolCount>",
+scripts/build-webmcp-competition-hardening-audit.mjs:60:    <ToolCount>9</ToolCount>
+scripts/build-webmcp-competition-hardening-audit.mjs:86:    <Beat order="1">Show the live page and WebMCP ready · 9 tools.</Beat>
+scripts/build-webmcp-competition-hardening-audit.mjs:153:                <div class="metric"><strong>9 tools</strong>production contract</div>
+scripts/build-webmcp-competition-hardening-audit.mjs:179:                <div class="beat"><strong>0:00–0:18</strong><p>Open the live site. Show “WebMCP ready · 9 tools” and the visible experience.</p></div>
+scripts/validate-webmcp-judge-panel-brief.mjs:12:  "<ToolCount>9</ToolCount>",
+scripts/validate-webmcp-campaign-evals.mjs:65:assert.equal(MIRRORLOOP_WEBMCP_TOOL_NAMES.length, 9);
+scripts/validate-webmcp-competition-hardening.mjs:11:  "<ToolCount>9</ToolCount>",
+scripts/test-webmcp-hud-browser.mjs:22:  assert.equal(evidence.desktop.phase, "9 TOOLS MOUNTED");
+scripts/test-webmcp-hud-browser.mjs:50:  assert.equal(evidence.mobile.phase, "9 TOOLS MOUNTED");
+scripts/test-webmcp-hud-browser.mjs:85:  await page.waitForFunction(() => window.__mirrorloopTestTools?.size === 9);
+web/tests/webmcp.test.mjs:47:  assert.equal(registrations.length, 9);
+scripts/build-webmcp-campaign-claim-audit.mjs:42:    evidence: "The nine tools use browser state and public static data. Optional email delivery and Stripe Checkout are separate human-controlled backend flows.",

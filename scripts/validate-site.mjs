@@ -33,7 +33,7 @@ assert.ok(index.includes('id="webmcp-status"'));
 assert.ok(index.includes('role="status" aria-live="polite"'));
 assert.ok(index.indexOf('id="webmcp-status"') < index.indexOf("<main"));
 assert.ok(index.includes('/styles.css?v=20260830-2'));
-assert.ok(index.includes('/app.js?v=20260830-9'));
+assert.ok(index.includes('/app.js?v=20260830-10'));
 assert.ok(index.includes('class="agent-state-hud"'));
 assert.ok(index.includes('id="agent-state-panel" open'));
 assert.ok(index.includes('id="agent-event-list"'));
@@ -60,6 +60,7 @@ for (const tool of [
   "get_current_question",
   "explain_choice",
   "compare_choices",
+  "preview_answer_impact",
   "answer_reflection_question",
   "review_reflection_answers",
   "complete_reflection",
@@ -103,6 +104,7 @@ assert.ok(confirmed.includes("open it on any device"));
 assert.ok(confirmed.includes("are not synchronized to another computer"));
 assert.ok(llms.includes("recommend_card_edition"));
 assert.ok(llms.includes("compare_choices"));
+assert.ok(llms.includes("preview_answer_impact"));
 assert.ok(llms.includes("https://mirrorloopai.com/shop"));
 assert.ok(confirmationCSS.includes(".card"));
 assert.ok(confirmationCSS.includes("@media (max-width: 560px)"));

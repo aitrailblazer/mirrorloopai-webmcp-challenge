@@ -27,12 +27,13 @@
     "private research corpora",
     "temporary outputs and unrelated generated artifacts"
   ],
-  "webmcpImplementationStatus": "nine-tools-implemented-deployed-and-browser-verified",
+  "webmcpImplementationStatus": "ten-tools-implemented-local-verification-pending-production",
   "webmcpTools": [
     "start_reflection",
     "get_current_question",
     "explain_choice",
     "compare_choices",
+    "preview_answer_impact",
     "answer_reflection_question",
     "review_reflection_answers",
     "complete_reflection",

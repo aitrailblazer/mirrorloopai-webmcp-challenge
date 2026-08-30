@@ -9,7 +9,7 @@ const evals = JSON.parse(await readFile(
 ));
 
 assert.equal(evals.schemaVersion, "mirrorloop.webmcp.campaign-evals.v1");
-assert.equal(evals.cases.length, 11);
+assert.equal(evals.cases.length, 12);
 
 const ids = new Set();
 const coveredTools = new Set();
@@ -45,6 +45,7 @@ for (const tool of [
   "start_reflection",
   "explain_choice",
   "compare_choices",
+  "preview_answer_impact",
   "answer_reflection_question",
   "get_current_question",
   "get_card",
@@ -62,7 +63,7 @@ for (const boundary of [
   assert.ok(boundaries.has(boundary), `missing campaign boundary: ${boundary}`);
 }
 
-assert.equal(MIRRORLOOP_WEBMCP_TOOL_NAMES.length, 9);
+assert.equal(MIRRORLOOP_WEBMCP_TOOL_NAMES.length, 10);
 console.log(
   `WebMCP campaign corpus: PASS (${evals.cases.length} cases, `
   + `${coveredTools.size} supported tools, ${boundaries.size} claim boundaries)`,

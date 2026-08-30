@@ -21,14 +21,14 @@ const claims = [
   {
     claim: "The site exposes browser-native WebMCP tools.",
     state: "SUPPORTED",
-    evidence: "Production registers exactly nine same-origin tools and visibly reports readiness.",
+    evidence: "Production registers exactly ten same-origin tools and visibly reports readiness.",
     publish: "WebMCP turns the live page into a typed, agent-operable reflection surface.",
   },
   {
     claim: "An agent can guide the 12-stage reflection and explain choices.",
     state: "SUPPORTED_WITH_QUALIFICATION",
-    evidence: "start_reflection, get_current_question, explain_choice, and compare_choices are live. Comparison is read-only; the human must explicitly confirm every recorded answer.",
-    publish: "An agent can reduce navigation, explain one lens, or contrast two plausible answers while you retain every choice.",
+    evidence: "start_reflection, get_current_question, explain_choice, compare_choices, and preview_answer_impact are live. Comparison and preview are read-only; the human must explicitly confirm every recorded answer.",
+    publish: "An agent can reduce navigation, explain one lens, contrast two plausible answers, or preview one hypothetical score change while you retain every choice.",
   },
   {
     claim: "Agent calls visibly synchronize with the page.",
@@ -37,10 +37,10 @@ const claims = [
     publish: "Confirmed answers advance the same visible reflection interface.",
   },
   {
-    claim: "All nine WebMCP tools operate client-side.",
+    claim: "All ten WebMCP tools operate client-side.",
     state: "SUPPORTED_WITH_QUALIFICATION",
-    evidence: "The nine tools use browser state and public static data. Optional email delivery and Stripe Checkout are separate human-controlled backend flows.",
-    publish: "The nine WebMCP tools keep reflection state in the browser; optional email and payment remain separate explicit actions.",
+    evidence: "The ten tools use browser state and public static data. Optional email delivery and Stripe Checkout are separate human-controlled backend flows.",
+    publish: "The ten WebMCP tools keep reflection state in the browser; optional email and payment remain separate explicit actions.",
   },
   {
     claim: "The agent runs a Keplerian ephemeris, Yellow Ray calculation, or ten-minute transit clock.",
@@ -110,7 +110,7 @@ const htmlDocument = `<!doctype html>
 
   <script type="application/xml" id="strategix-contract">
 <StrategiXVisualSpec version="1.0" artifact="mirrorloop-webmcp-campaign-claim-audit" generatedAt="${escapeHTML(evaluation.generatedAt)}">
-  <Purpose>Keep public WebMCP promotion aligned with the live nine-tool product and its human-control boundaries.</Purpose>
+  <Purpose>Keep public WebMCP promotion aligned with the live ten-tool product and its human-control boundaries.</Purpose>
   <ProductContract>
     <Supported capability="guided_reflection">Start, orient, explain one choice, neutrally contrast two choices, explicitly confirm, review, revise, and complete a 12-question browser-local reflection.</Supported>
     <Supported capability="public_card_lookup">Retrieve public metadata and bounded action for Cards 001 through 144.</Supported>
@@ -130,7 +130,7 @@ const htmlDocument = `<!doctype html>
   </Workflow>
   <Evaluation corpus="web/evals/webmcp-campaign-evals.json" cases="${evaluation.corpus.cases}" strictExact="${evaluation.metrics.exactCaseAccuracy}" toolSelectionExact="${evaluation.metrics.exactToolSelectionAccuracy}" requiredOrder="${evaluation.metrics.requiredToolsInOrderAccuracy}" noToolBoundary="${evaluation.metrics.noToolBoundaryAccuracy}"/>
   <AcceptanceCriteria>
-    <Criterion>Exactly nine browser-discovered tools remain exposed.</Criterion>
+    <Criterion>Exactly ten browser-discovered tools remain exposed.</Criterion>
     <Criterion>All supported campaign intents select the expected production tool sequence.</Criterion>
     <Criterion>Unsupported astronomy, physical-product, diagnosis, email-submission, cart, and payment requests invoke no tool.</Criterion>
     <Criterion>Published copy does not state a product price and does not describe the current digital catalog as physical.</Criterion>
@@ -143,7 +143,7 @@ const htmlDocument = `<!doctype html>
     <Risk>One live model run per case measures this run, not universal agent reliability.</Risk>
   </RisksAndOpenQuestions>
   <SourceDigest>
-    <Source path="web/lib/webmcp.js">Nine live tool contracts and authority annotations.</Source>
+    <Source path="web/lib/webmcp.js">Ten live tool contracts and authority annotations.</Source>
     <Source path="web/data/quiz.json">Twelve questions with twelve response lenses each.</Source>
     <Source path="web/data/cards.json">Public 144-card registry.</Source>
     <Source path="web/data/shop.json">Digital-edition catalog and fulfillment boundary.</Source>
@@ -194,7 +194,7 @@ const htmlDocument = `<!doctype html>
             <section class="hero">
               <div class="eyebrow">StrategiX claim contract · production evidence</div>
               <h1>WebMCP Campaign Claim Audit</h1>
-              <p>The strongest campaign is the one a judge can reproduce. MIRROR//LOOP currently supports a browser-local, nine-tool reflection and digital-edition recommendation—not ephemeris calculation, diagnosis, physical fulfillment, or autonomous commerce.</p>
+              <p>The strongest campaign is the one a judge can reproduce. MIRROR//LOOP currently supports a browser-local, ten-tool reflection and digital-edition recommendation—not ephemeris calculation, diagnosis, physical fulfillment, or autonomous commerce.</p>
               <div class="metrics">
                 <div class="metric"><strong>${evaluation.corpus.cases}</strong>campaign cases</div>
                 <div class="metric"><strong>${percent(evaluation.metrics.exactToolSelectionAccuracy)}</strong>exact tool selection</div>
@@ -215,7 +215,7 @@ const htmlDocument = `<!doctype html>
               <div class="eyebrow">Copy-ready master post</div>
               <h2>What WebMCP lets an AI agent do on a live site today</h2>
               <p>Most web agents still infer actions from presentation markup. WebMCP lets a site publish typed, purpose-built tools directly to a compatible browser agent.</p>
-              <p>I am testing that model live on <a href="https://mirrorloopai.com/">mirrorloopai.com</a>. The page exposes nine bounded tools for one visible 12-question reflection connected to 144 public cards.</p>
+              <p>I am testing that model live on <a href="https://mirrorloopai.com/">mirrorloopai.com</a>. The page exposes ten bounded tools for one visible 12-question reflection connected to 144 public cards.</p>
               <ol>
                 <li><strong>Talk through the reflection instead of hunting through controls.</strong> The agent can start the flow, read the current question, and explain any choice in plain language.</li>
                 <li><strong>Keep the decision human.</strong> The agent records an answer only after explicit confirmation. The visible page advances with the same state the agent used.</li>
@@ -232,7 +232,7 @@ const htmlDocument = `<!doctype html>
               <div class="eyebrow">Copy-ready four-post thread</div>
               <h2>A reproducible WebMCP story</h2>
               <h3>1/ The shift</h3>
-              <p>Most web agents infer actions from page markup. WebMCP lets a site expose typed tools to a compatible browser agent. MIRROR//LOOP now publishes nine bounded tools on <a href="https://mirrorloopai.com/">mirrorloopai.com</a>. 🧵</p>
+              <p>Most web agents infer actions from page markup. WebMCP lets a site expose typed tools to a compatible browser agent. MIRROR//LOOP now publishes ten bounded tools on <a href="https://mirrorloopai.com/">mirrorloopai.com</a>. 🧵</p>
               <h3>2/ What it removes</h3>
               <p>The agent can start a 12-question reflection, read the current step, and explain any of 12 response lenses. That reduces navigational friction without letting the agent choose for you.</p>
               <h3>3/ What stays deterministic</h3>
@@ -243,7 +243,7 @@ const htmlDocument = `<!doctype html>
 
             <section class="panel">
               <h2>Live campaign-corpus results</h2>
-              <p>The preserved Gemini 2.5 Flash campaign run evaluated the prior eight-tool production contract, with no oracle answers in its prompt. The ninth compare_choices contract is covered by the current deterministic corpus and browser tests pending a refreshed external-agent run.</p>
+              <p>The preserved Gemini 2.5 Flash campaign run evaluated the prior eight-tool production contract, with no oracle answers in its prompt. The later compare_choices and preview_answer_impact contracts are covered by the current deterministic corpus and browser tests pending a refreshed external-agent run.</p>
               <div class="table-wrap"><table>
                 <thead><tr><th>Case</th><th>Expected</th><th>Selected</th><th>Tool selection</th></tr></thead>
                 <tbody .innerHTML=\${caseTable}></tbody>

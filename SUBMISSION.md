@@ -21,7 +21,7 @@ MIRROR//LOOP is a deterministic 12-question reflection connected to a
 144-card library. The useful actions already belong to the page: read the
 current question, explain or compare choices, record a confirmed answer, review the
 session, reveal a card, and identify a relevant edition. WebMCP exposes those
-actions as nine typed browser tools. The agent does not scrape visual controls
+actions as ten typed browser tools. The agent does not scrape visual controls
 or replace the page with an opaque backend conversation; it collaborates with
 the same interface the person can see and use directly.
 
@@ -30,7 +30,9 @@ the same interface the person can see and use directly.
 The ordinary interface remains complete, while an agent can reduce navigation
 and interpretation effort. A visitor can ask what a choice means, proceed one
 confirmed answer at a time, correct an earlier answer without restarting, and
-retrieve a specific card by number. The page displays `WebMCP ready · 9 tools`
+retrieve a specific card by number, or preview how one hypothetical answer
+would affect a completed result without saving it. The page displays
+`WebMCP ready · 10 tools`
 when registration succeeds and an honest direct-use fallback when it does not.
 A collapsible Agent State rail makes each tool start and completion legible on
 the page, including a privacy-filtered input summary, observed local elapsed
@@ -48,11 +50,11 @@ generic DOM automation and is direct with WebMCP.
 
 ### How WebMCP is implemented
 
-`web/lib/webmcp.js` defines nine tools with JSON input schemas,
+`web/lib/webmcp.js` defines ten tools with JSON input schemas,
 `additionalProperties: false`, behavioral annotations, and same-origin
 registration through awaited `modelContext.registerTool(...)` calls. The installer selects
 `document.modelContext` first and supports the compatible navigator surface.
-Three tools change only ephemeral local reflection state; six are read-only.
+Three tools change only ephemeral local reflection state; seven are read-only.
 `answer_reflection_question` requires `confirmed_by_user: true`. No tool can
 submit an email address, mutate the cart, create a Checkout Session, or pay.
 Automated tests validate registration, schemas, annotations, malformed inputs,
@@ -61,7 +63,7 @@ ordering, telemetry redaction, and the responsive Agent State rail.
 
 ### Verified core repository scope
 
-- Nine typed tools with closed JSON Schemas, bounded runtime validation, and
+- Ten typed tools with closed JSON Schemas, bounded runtime validation, and
   structured tool errors.
 - Explicit `confirmed_by_user: true` before an answer can be recorded or
   revised.
@@ -78,7 +80,7 @@ The installer reports readiness only after every registration resolves, aborts
 partial registrations after rejection, and preserves the complete direct-use
 experience. Current Chrome character budgets are enforced, including a
 1,500-character result ceiling. An official-style expected-call corpus covers
-all nine tools, ordered flows, ambiguous requests, and no-tool boundaries.
+all ten tools, ordered flows, ambiguous requests, and no-tool boundaries.
 
 The visible browser response is deliberately simple and inspectable: a
 semantic 12-step progressbar updates `aria-valuenow`, its CSS width transition
@@ -103,7 +105,7 @@ compositor-thread claim is made.
 
 ### Execution
 
-- Live HTTPS production origin with a visible nine-tool readiness state.
+- Live HTTPS production origin with a visible ten-tool readiness state.
 - On-page registration and invocation evidence without requiring DevTools.
 - Strict schemas, read/write annotations, explicit answer confirmation, and
   graceful no-WebMCP fallback.
@@ -158,8 +160,8 @@ list, and publication checklist are in
 
 | Time | Visual | Narration |
 | --- | --- | --- |
-| 0:00–0:15 | Open the live homepage and point to `WebMCP ready · 9 tools`. | “MIRROR//LOOP turns a 12-question reflection and 144 cards into a bounded human-agent collaboration.” |
-| 0:15–0:35 | Expand the Agent State rail, then show the registered tool list. | “The page registers nine typed tools and makes each invocation visible without exposing private text. They operate the visible experience rather than a hidden replacement service.” |
+| 0:00–0:15 | Open the live homepage and point to `WebMCP ready · 10 tools`. | “MIRROR//LOOP turns a 12-question reflection and 144 cards into a bounded human-agent collaboration.” |
+| 0:15–0:35 | Expand the Agent State rail, then show the registered tool list. | “The page registers ten typed tools and makes each invocation visible without exposing private text. They operate the visible experience rather than a hidden replacement service.” |
 | 0:35–1:05 | Ask the agent to start, read the question, and contrast two plausible choices. | “The agent can clarify the difference, but it cannot choose for me or record either option.” |
 | 1:05–1:30 | Confirm an answer, show the visible 12-step progressbar and focus moving to the next question, then revise the earlier answer. | “Every recorded choice requires explicit confirmation. The same semantic progress and focus transition is visible whether I click or the agent invokes the tool, and reduced-motion preferences are respected.” |
 | 1:30–1:55 | Review and complete the reflection. | “Scoring stays deterministic in the page. The agent guides the flow; it does not invent the result.” |
@@ -173,20 +175,23 @@ viewable on YouTube, audible, captioned, and demonstrates the deployed build.
 
 1. In Chrome 149 or later, enable `chrome://flags/#enable-webmcp-testing`,
    restart Chrome, and open https://mirrorloopai.com/.
-2. Confirm `WebMCP ready · 9 tools`.
-3. Open DevTools and select **Application → WebMCP**. Confirm nine entries
+2. Confirm `WebMCP ready · 10 tools`.
+3. Open DevTools and select **Application → WebMCP**. Confirm ten entries
    under **Available Tools** and no schema errors.
 4. Select each tool and use **Run tool**; inspect calls and results under
    **Invoked Tools**. Begin with `start_reflection`,
-   `get_current_question`, `explain_choice`, and `compare_choices`.
+   `get_current_question`, `explain_choice`, `compare_choices`, and
+   `preview_answer_impact`.
 5. Call `compare_choices` with Question 1, Choices 01 and 06; verify that
    neither choice is selected or recorded.
 6. Call `answer_reflection_question` first with
    `confirmed_by_user: false` and verify rejection; then use `true`.
-7. Review, revise one prior answer, and complete the session.
-8. Call `get_card` with `012`.
-9. Call `recommend_card_edition` with an ARC and edition.
-10. Add an unknown argument during a manual run and confirm the schema
+7. Review and complete the session, then call `preview_answer_impact` and
+   verify the result and saved answers remain unchanged.
+8. Revise one prior answer with explicit confirmation.
+9. Call `get_card` with `012`.
+10. Call `recommend_card_edition` with an ARC and edition.
+11. Add an unknown argument during a manual run and confirm the schema
    diagnostic is visible.
 11. Verify no WebMCP tool can submit email, mutate a cart, create Checkout, or
    make payment.

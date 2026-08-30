@@ -1,6 +1,6 @@
 {
   "schemaVersion": "mirrorloop.webmcp.campaign-evals.v1",
-  "description": "Campaign-claim cases for the live nine-tool MIRROR//LOOP WebMCP surface. Supported actions must route to real tools; unsupported astronomy, diagnosis, physical-product, price, email-privacy, cart, and payment claims must remain outside the tool boundary.",
+  "description": "Campaign-claim cases for the live ten-tool MIRROR//LOOP WebMCP surface. Supported actions must route to real tools; unsupported astronomy, diagnosis, physical-product, price, email-privacy, cart, and payment claims must remain outside the tool boundary.",
   "cases": [
     {
       "id": "campaign-start-founder-reflection",
@@ -37,6 +37,19 @@
             "question_id": 1,
             "choice_a": "01",
             "choice_b": "06"
+          }
+        }
+      ]
+    },
+    {
+      "id": "campaign-preview-answer-impact",
+      "prompt": "My reflection is complete. Preview how its dominant pattern would change if question 4 used choice 08, but do not revise my saved answer.",
+      "expectedCalls": [
+        {
+          "name": "preview_answer_impact",
+          "arguments": {
+            "question_id": 4,
+            "hypothetical_choice": "08"
           }
         }
       ]
