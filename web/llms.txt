@@ -14,6 +14,7 @@ Email submission, cart changes, checkout, and payment are never agent tools.
 - explain_choice
 - compare_choices
 - preview_answer_impact
+- export_reflection_dossier
 - answer_reflection_question
 - review_reflection_answers
 - complete_reflection

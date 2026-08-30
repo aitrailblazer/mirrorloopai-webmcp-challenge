@@ -34,7 +34,7 @@ const checks = [
   ["README judge panel brief", readme.includes("WEBMCP_JUDGE_PANEL_BRIEF.html")],
   ["README demo shot list", readme.includes("WEBMCP_DEMO_SHOT_LIST.html")],
   ["README pre-existing disclosure", readme.includes("Pre-existing before August 25, 2026")],
-  ["README all ten tools", manifest.webmcpTools.length === 10 && manifest.webmcpTools.every((name) => readme.includes("`" + name + "`"))],
+  ["README all eleven tools", manifest.webmcpTools.length === 11 && manifest.webmcpTools.every((name) => readme.includes("`" + name + "`"))],
   ["Submission four required explanations", [
     "Why this is a strong fit for WebMCP",
     "How WebMCP improves the user experience",
@@ -49,7 +49,7 @@ const checks = [
   ].every((criterion) => submission.includes(criterion))],
   ["Submission demo plan", submission.includes("target 2:35") && submission.includes("under three minutes")],
   ["Verified core repository scope", [
-    "Ten typed tools",
+    "Eleven typed tools",
     "confirmed_by_user: true",
     "stable ascending-code tie-breaking",
     "Cards 001–144",
@@ -59,7 +59,7 @@ const checks = [
   ["Evidence-bounded demo recording contract", [
     'artifact="mirrorloop-webmcp-demo-shot-list"',
     '<Duration target="155" maximum="180" unit="seconds"/>',
-    "<ToolCount>10</ToolCount>",
+    "<ToolCount>11</ToolCount>",
     "confirmed_by_user false",
     "Public YouTube upload",
     "Claims excluded from the recording",
@@ -93,16 +93,16 @@ const checks = [
     "Digital workspace reference",
   ].every((term) => operationalUseCases.includes(term))],
   ["Competition claim hardening", [
-    "<ToolCount>10</ToolCount>",
+    "<ToolCount>11</ToolCount>",
     'id="score" status="UNRESOLVED"',
     'id="astronomy" status="CONTRADICTED"',
     'id="p2p" status="CONTRADICTED"',
     "Corrected 2:35 demo",
-    "Freeze the reviewed ten-tool build",
+    "Freeze the reviewed eleven-tool build",
   ].every((term) => competitionHardening.includes(term))],
   ["Evidence-bounded judge panel brief", [
     '<Panel count="7">',
-    "<ToolCount>10</ToolCount>",
+    "<ToolCount>11</ToolCount>",
     "Andrew Galloni",
     "Alex Nahas",
     "Ilya Grigorik",
@@ -115,7 +115,7 @@ const checks = [
     "Chrome motion and accessibility claim ledger",
     "Zero-flag Chrome setup",
     '<RoleEvidence count="6" framing="public-role-only">',
-    "tenth tool is the read-only preview_answer_impact simulation",
+    "eleventh tool is the confirmed local-only export_reflection_dossier action",
   ].every((term) => judgePanelBrief.includes(term))],
   ["Official resource matrix", [
     'resource_cards="36"',

@@ -1,0 +1,26 @@
+WM-017 baseline — Zero-egress reflection dossier export — 2026-08-30
+
+User story: As a participant who completed the reflection, I want to download a portable Markdown or JSON receipt on my device, so that I can keep the result and full choices without entering an email address or creating an account.
+
+Baseline findings:
+- MIRRORLOOP_WEBMCP_TOOL_NAMES contains 10 tools and no export_reflection_dossier.
+- No Blob, URL.createObjectURL, download attribute, or dossier builder exists in web/app.js or web/lib/.
+- complete_reflection returns the primary lens, supporting lens, primary count, summary, and bounded action, but not a portable receipt.
+- review_reflection_answers exposes only question IDs and choice codes.
+- get_card can supply curated public card metadata, but the completed session does not currently designate a card.
+
+Resolved contract decisions before implementation:
+- The export is an explicit local file side effect, so confirmed_by_user: true is required even though no answer, email, cart, or payment state changes.
+- format is strictly markdown or json.
+- card_id is optional. When omitted, the dossier uses the first public card in the dominant ARC and labels it representative rather than user-selected.
+- The dossier includes all 12 question/answer labels, aggregate frequencies, primary/supporting lenses, public card metadata, and the bounded action. It excludes focus_area, email, storage keys, private corpora, and internal prompts.
+- The export call itself must issue no fetch/XHR/beacon and must build a local Blob/object URL only. This is a zero-egress export path, not a claim that the entire website has zero network activity.
+- The tool returns bounded receipt metadata, not the full dossier content, to stay below the 1,500-character WebMCP result budget.
+
+Planned tests:
+1. Assert exactly 11 tools and strict format/card/confirmation schema.
+2. Reject incomplete or not-yet-completed sessions, malformed format/card IDs, unknown fields, and missing/false confirmation before adapter execution.
+3. Verify deterministic Markdown and JSON contain primary/supporting lenses, all frequencies, 12 ordered answers, representative/explicit card metadata, bounded action, and privacy boundary.
+4. Verify focus_area and private/internal fields are absent.
+5. Capture a real browser download, verify filename/MIME/content, and prove no network request is created by the export invocation.
+6. Retest existing human-confirmation, preview non-mutation, commerce, email, and direct-mode boundaries.

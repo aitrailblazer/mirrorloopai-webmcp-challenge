@@ -1,6 +1,6 @@
 {
   "schemaVersion": "mirrorloop.webmcp.evals.v1",
-  "description": "Deterministic intent, argument, call-order, and forbidden-action cases for the ten MIRROR//LOOP WebMCP tools.",
+  "description": "Deterministic intent, argument, call-order, and forbidden-action cases for the eleven MIRROR//LOOP WebMCP tools.",
   "cases": [
     {
       "id": "intent-start",
@@ -106,6 +106,19 @@
           "name": "get_card",
           "arguments": {
             "card_id": "012"
+          }
+        }
+      ]
+    },
+    {
+      "id": "intent-export-dossier",
+      "prompt": "I confirm that you may download my completed reflection as Markdown, using representative card metadata.",
+      "expectedCalls": [
+        {
+          "name": "export_reflection_dossier",
+          "arguments": {
+            "format": "markdown",
+            "confirmed_by_user": true
           }
         }
       ]

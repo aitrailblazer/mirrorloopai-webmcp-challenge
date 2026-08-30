@@ -21,7 +21,7 @@ MIRROR//LOOP is a deterministic 12-question reflection connected to a
 144-card library. The useful actions already belong to the page: read the
 current question, explain or compare choices, record a confirmed answer, review the
 session, reveal a card, and identify a relevant edition. WebMCP exposes those
-actions as ten typed browser tools. The agent does not scrape visual controls
+actions as eleven typed browser tools. The agent does not scrape visual controls
 or replace the page with an opaque backend conversation; it collaborates with
 the same interface the person can see and use directly.
 
@@ -30,9 +30,10 @@ the same interface the person can see and use directly.
 The ordinary interface remains complete, while an agent can reduce navigation
 and interpretation effort. A visitor can ask what a choice means, proceed one
 confirmed answer at a time, correct an earlier answer without restarting, and
-retrieve a specific card by number, or preview how one hypothetical answer
-would affect a completed result without saving it. The page displays
-`WebMCP ready · 10 tools`
+retrieve a specific card by number, preview how one hypothetical answer
+would affect a completed result without saving it, or download the completed
+result and all 12 choices locally after explicit confirmation. The page displays
+`WebMCP ready · 11 tools`
 when registration succeeds and an honest direct-use fallback when it does not.
 A collapsible Agent State rail makes each tool start and completion legible on
 the page, including a privacy-filtered input summary, observed local elapsed
@@ -63,7 +64,7 @@ ordering, telemetry redaction, and the responsive Agent State rail.
 
 ### Verified core repository scope
 
-- Ten typed tools with closed JSON Schemas, bounded runtime validation, and
+- Eleven typed tools with closed JSON Schemas, bounded runtime validation, and
   structured tool errors.
 - Explicit `confirmed_by_user: true` before an answer can be recorded or
   revised.
@@ -80,7 +81,7 @@ The installer reports readiness only after every registration resolves, aborts
 partial registrations after rejection, and preserves the complete direct-use
 experience. Current Chrome character budgets are enforced, including a
 1,500-character result ceiling. An official-style expected-call corpus covers
-all ten tools, ordered flows, ambiguous requests, and no-tool boundaries.
+all eleven tools, ordered flows, ambiguous requests, and no-tool boundaries.
 
 The visible browser response is deliberately simple and inspectable: a
 semantic 12-step progressbar updates `aria-valuenow`, its CSS width transition
@@ -105,7 +106,7 @@ compositor-thread claim is made.
 
 ### Execution
 
-- Live HTTPS production origin with a visible ten-tool readiness state.
+- Live HTTPS production origin with a visible eleven-tool readiness state.
 - On-page registration and invocation evidence without requiring DevTools.
 - Strict schemas, read/write annotations, explicit answer confirmation, and
   graceful no-WebMCP fallback.
@@ -160,8 +161,8 @@ list, and publication checklist are in
 
 | Time | Visual | Narration |
 | --- | --- | --- |
-| 0:00–0:15 | Open the live homepage and point to `WebMCP ready · 10 tools`. | “MIRROR//LOOP turns a 12-question reflection and 144 cards into a bounded human-agent collaboration.” |
-| 0:15–0:35 | Expand the Agent State rail, then show the registered tool list. | “The page registers ten typed tools and makes each invocation visible without exposing private text. They operate the visible experience rather than a hidden replacement service.” |
+| 0:00–0:15 | Open the live homepage and point to `WebMCP ready · 11 tools`. | “MIRROR//LOOP turns a 12-question reflection and 144 cards into a bounded human-agent collaboration.” |
+| 0:15–0:35 | Expand the Agent State rail, then show the registered tool list. | “The page registers eleven typed tools and makes each invocation visible without exposing private text. They operate the visible experience rather than a hidden replacement service.” |
 | 0:35–1:05 | Ask the agent to start, read the question, and contrast two plausible choices. | “The agent can clarify the difference, but it cannot choose for me or record either option.” |
 | 1:05–1:30 | Confirm an answer, show the visible 12-step progressbar and focus moving to the next question, then revise the earlier answer. | “Every recorded choice requires explicit confirmation. The same semantic progress and focus transition is visible whether I click or the agent invokes the tool, and reduced-motion preferences are respected.” |
 | 1:30–1:55 | Review and complete the reflection. | “Scoring stays deterministic in the page. The agent guides the flow; it does not invent the result.” |
@@ -175,7 +176,7 @@ viewable on YouTube, audible, captioned, and demonstrates the deployed build.
 
 1. In Chrome 149 or later, enable `chrome://flags/#enable-webmcp-testing`,
    restart Chrome, and open https://mirrorloopai.com/.
-2. Confirm `WebMCP ready · 10 tools`.
+2. Confirm `WebMCP ready · 11 tools`.
 3. Open DevTools and select **Application → WebMCP**. Confirm ten entries
    under **Available Tools** and no schema errors.
 4. Select each tool and use **Run tool**; inspect calls and results under

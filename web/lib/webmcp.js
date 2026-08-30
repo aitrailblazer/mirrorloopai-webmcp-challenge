@@ -37,6 +37,7 @@ export const MIRRORLOOP_WEBMCP_TOOL_NAMES = Object.freeze([
   "answer_reflection_question",
   "review_reflection_answers",
   "complete_reflection",
+  "export_reflection_dossier",
   "get_card",
   "recommend_card_edition",
 ]);
@@ -79,6 +80,16 @@ function safeInputSummary(toolName, value) {
       return {
         question_id: safeQuestionID,
         choice_code: safeChoiceCode,
+        confirmed_by_user: input.confirmed_by_user === true,
+      };
+    case "export_reflection_dossier":
+      return {
+        format: ["markdown", "json"].includes(input.format) ? input.format : "invalid",
+        card_id: input.card_id === undefined
+          ? "representative"
+          : (/^\d{3}$/.test(input.card_id) && Number(input.card_id) >= 1 && Number(input.card_id) <= 144
+            ? input.card_id
+            : "invalid"),
         confirmed_by_user: input.confirmed_by_user === true,
       };
     case "get_card":
@@ -208,6 +219,13 @@ function checkedCollectionScope(value) {
   return value;
 }
 
+function checkedDossierFormat(value) {
+  if (!["markdown", "json"].includes(value)) {
+    throw new Error("format must be markdown or json.");
+  }
+  return value;
+}
+
 function defineTools(api) {
   const startReflection = requiredMethod(api, "startReflection");
   const getCurrentQuestion = requiredMethod(api, "getCurrentQuestion");
@@ -217,6 +235,7 @@ function defineTools(api) {
   const answerQuestion = requiredMethod(api, "answerQuestion");
   const reviewAnswers = requiredMethod(api, "reviewAnswers");
   const completeReflection = requiredMethod(api, "completeReflection");
+  const exportReflectionDossier = requiredMethod(api, "exportReflectionDossier");
   const getCard = requiredMethod(api, "getCard");
   const recommendCardEdition = requiredMethod(api, "recommendCardEdition");
 
@@ -393,6 +412,42 @@ function defineTools(api) {
       },
     },
     {
+      name: "export_reflection_dossier",
+      description: "Download the completed reflection and all 12 choices as a local Markdown or JSON file after explicit human confirmation.",
+      inputSchema: {
+        type: "object",
+        properties: {
+          format: {
+            type: "string",
+            enum: ["markdown", "json"],
+            description: "Portable local file format.",
+          },
+          card_id: {
+            type: "string",
+            pattern: "^[0-9]{3}$",
+            description: "Optional public card from 001 to 144; otherwise use a representative card from the primary ARC.",
+          },
+          confirmed_by_user: {
+            type: "boolean",
+            description: "Must be true only after the human approves the local download.",
+          },
+        },
+        required: ["format", "confirmed_by_user"],
+        additionalProperties: false,
+      },
+      annotations: LOCAL_MUTATION,
+      run: (value) => {
+        const input = checkedKeys(value, ["format", "card_id", "confirmed_by_user"]);
+        if (input.confirmed_by_user !== true) {
+          throw new Error("The human must explicitly confirm before the dossier is downloaded.");
+        }
+        return exportReflectionDossier({
+          format: checkedDossierFormat(input.format),
+          cardID: input.card_id === undefined ? "" : checkedCardID(input.card_id),
+        });
+      },
+    },
+    {
       name: "get_card",
       description: "Read bounded public metadata for a MIRROR//LOOP card identifier.",
       inputSchema: {
@@ -475,7 +530,7 @@ export async function registerMirrorLoopWebMCP(modelContext, api, options = {}) 
         ...definition,
         async execute(input) {
           const safeInput = safeInputSummary(definition.name, input);
-          const confirmedByUser = definition.name === "answer_reflection_question"
+          const confirmedByUser = ["answer_reflection_question", "export_reflection_dossier"].includes(definition.name)
             ? safeInput.confirmed_by_user === true
             : null;
           const startedAt = now();

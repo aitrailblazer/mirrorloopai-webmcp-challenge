@@ -104,7 +104,7 @@ const html = `<!doctype html>
 
   <script type="application/xml" id="strategix-contract">
 <StrategiXVisualSpec version="1.0" artifact="mirrorloop-webmcp-operational-use-cases" generatedAt="${evaluation.generatedAt}">
-  <Purpose>Define six concrete operational examples that a judge or visitor can reproduce with the live ten-tool MIRROR//LOOP WebMCP contract.</Purpose>
+  <Purpose>Define six concrete operational examples that a judge or visitor can reproduce with the live eleven-tool MIRROR//LOOP WebMCP contract.</Purpose>
   <ProductContract>
     <Rule>Every described agent action must map to a production tool and public data.</Rule>
     <Rule>Human confirmation remains mandatory before recording any answer.</Rule>
@@ -138,7 +138,7 @@ const html = `<!doctype html>
     <Risk>A single model run demonstrates observed compatibility, not universal agent reliability.</Risk>
   </RisksAndOpenQuestions>
   <SourceDigest>
-    <Source path="web/lib/webmcp.js">Production ten-tool contract.</Source>
+    <Source path="web/lib/webmcp.js">Production eleven-tool contract.</Source>
     <Source path="web/data/cards.json">Public 144-card metadata.</Source>
     <Source path="web/data/shop.json">Digital catalog boundary.</Source>
     <Source path="web/evals/webmcp-operational-use-cases.json">Frozen six-case oracle.</Source>

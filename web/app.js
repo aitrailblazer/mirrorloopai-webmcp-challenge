@@ -6,11 +6,12 @@ import {
   scoreAnswers,
   supportingPattern,
 } from "./lib/quiz-core.js?v=20260830-5";
+import { buildReflectionDossier } from "./lib/dossier.js?v=20260830-1";
 import { createFunnelTracker } from "./lib/analytics.js?v=20260826-3";
 import {
   installMirrorLoopWebMCP,
   MIRRORLOOP_WEBMCP_EVENTS,
-} from "./lib/webmcp.js?v=20260830-7";
+} from "./lib/webmcp.js?v=20260830-8";
 import { createReflectionStore } from "./lib/reflection-storage.js?v=20260830-1";
 
 const $ = (selector) => document.querySelector(selector);
@@ -439,7 +440,7 @@ async function reviewAnswers() {
 }
 
 async function completeReflection() {
-  await loadQuiz();
+  await Promise.all([loadQuiz(), loadCards()]);
   const answered = state.answers.filter(Boolean).length;
   if (answered !== state.quiz.questions.length) {
     throw new Error(`Complete all 12 questions first; ${answered} are currently answered.`);
@@ -447,6 +448,66 @@ async function completeReflection() {
   const result = showResult();
   window.dispatchEvent(new CustomEvent("mirrorloop:reflection_complete", { detail: result }));
   return result;
+}
+
+function localISODate(date) {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+}
+
+async function exportReflectionDossier({ format, cardID }) {
+  await loadQuiz();
+  const cards = await loadCards();
+  if (!state.result || state.answers.some((choice) => !choice)) {
+    throw new Error("Call complete_reflection after answering all 12 questions before exporting.");
+  }
+  const representativeID = `${(Number(state.result.dominant) - 1) * 12 + 1}`.padStart(3, "0");
+  const resolvedCardID = cardID || representativeID;
+  const card = cards.get(resolvedCardID);
+  if (!card) throw new Error(`Card ${resolvedCardID} is not available in the public registry.`);
+  const now = new Date();
+  const copy = resultCopy(state.result.dominant);
+  const artifact = buildReflectionDossier({
+    format,
+    generatedAt: now.toISOString(),
+    localDate: localISODate(now),
+    quiz: state.quiz,
+    answers: [...state.answers],
+    result: {
+      ...state.result,
+      summary: copy.summary,
+      boundedAction: copy.prompt,
+    },
+    card,
+    cardRelationship: cardID ? "explicit" : "representative_of_primary_arc",
+  });
+  const blob = new Blob([artifact.content], { type: artifact.mimeType });
+  const objectURL = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = objectURL;
+  link.download = artifact.filename;
+  link.hidden = true;
+  document.body.append(link);
+  link.click();
+  link.remove();
+  setTimeout(() => URL.revokeObjectURL(objectURL), 1000);
+  return {
+    status: "DOWNLOAD_REQUESTED",
+    format,
+    filename: artifact.filename,
+    mime_type: artifact.mimeType,
+    bytes: new TextEncoder().encode(artifact.content).byteLength,
+    included_answers: 12,
+    card: {
+      card_id: card.id,
+      title: card.title,
+      relationship: cardID ? "explicit" : "representative_of_primary_arc",
+    },
+    egress: "NONE_DURING_EXPORT",
+    boundary: "The file was assembled in this browser. No email, account, cart, checkout, payment, or upload was used.",
+  };
 }
 
 async function getCard({ cardID }) {
@@ -616,6 +677,7 @@ installMirrorLoopWebMCP({
     answerQuestion,
     reviewAnswers,
     completeReflection,
+    exportReflectionDossier,
     getCard,
     recommendCardEdition,
   },

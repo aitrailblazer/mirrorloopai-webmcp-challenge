@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { mkdir, writeFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { chromium } from "playwright-core";
 
 const baseURL = process.env.MIRRORLOOP_TEST_URL ?? "http://127.0.0.1:4173";
@@ -19,12 +19,12 @@ try {
   await desktop.locator("#agent-state-panel").waitFor();
   evidence.desktopPreview = await invokeLifecycleSequence(desktop);
   evidence.desktop = await hudState(desktop);
-  assert.equal(evidence.desktop.phase, "10 TOOLS MOUNTED");
-  assert.equal(evidence.desktop.activeTool, "preview_answer_impact");
-  assert.match(evidence.desktop.safeInput, /question id: 4/);
-  assert.match(evidence.desktop.safeInput, /hypothetical choice: 08/);
-  assert.equal(evidence.desktop.confirmation, "NOT REQUIRED");
-  assert.equal(evidence.desktop.confirmationState, "neutral");
+  assert.equal(evidence.desktop.phase, "11 TOOLS MOUNTED");
+  assert.equal(evidence.desktop.activeTool, "export_reflection_dossier");
+  assert.match(evidence.desktop.safeInput, /format: markdown/);
+  assert.match(evidence.desktop.safeInput, /card id: representative/);
+  assert.equal(evidence.desktop.confirmation, "HUMAN CONFIRMED");
+  assert.equal(evidence.desktop.confirmationState, "confirmed");
   assert.match(evidence.desktop.duration, /^\d+\.\d ms observed$/);
   assert.equal(evidence.desktop.events.length <= 5, true);
   assert.equal(evidence.desktop.privateFocusVisible, false);
@@ -47,7 +47,7 @@ try {
   await mobile.locator("#agent-state-panel").waitFor();
   evidence.mobilePreview = await invokeLifecycleSequence(mobile);
   evidence.mobile = await hudState(mobile);
-  assert.equal(evidence.mobile.phase, "10 TOOLS MOUNTED");
+  assert.equal(evidence.mobile.phase, "11 TOOLS MOUNTED");
   assert.equal(evidence.mobile.horizontalOverflow, false);
   assert.equal(evidence.mobile.position, "relative");
   await mobile.screenshot({
@@ -82,7 +82,7 @@ async function installModelContextHarness(page) {
 }
 
 async function invokeLifecycleSequence(page) {
-  await page.waitForFunction(() => window.__mirrorloopTestTools?.size === 10);
+  await page.waitForFunction(() => window.__mirrorloopTestTools?.size === 11);
   await page.evaluate(() => {
     return window.__mirrorloopTestTools.get("start_reflection").execute({
       focus_area: "private founder dispute",
@@ -156,7 +156,63 @@ async function invokeLifecycleSequence(page) {
   assert.equal(preview.payload.dominant_changed, true);
   assert.deepEqual(preview.payload.frequency_delta, { "01": -1, "08": 1 });
   assert.match(preview.payload.boundary, /does not save, select, or revise/i);
-  return { comparison, preview };
+  await page.evaluate(() => {
+    window.__exportEgressCalls = [];
+    window.__originalExportFetch = window.fetch;
+    window.fetch = (...args) => {
+      window.__exportEgressCalls.push({ type: "fetch", target: String(args[0]) });
+      return window.__originalExportFetch(...args);
+    };
+    window.__originalExportXHROpen = XMLHttpRequest.prototype.open;
+    XMLHttpRequest.prototype.open = function trackedOpen(method, target, ...rest) {
+      window.__exportEgressCalls.push({ type: "xhr", method, target: String(target) });
+      return window.__originalExportXHROpen.call(this, method, target, ...rest);
+    };
+    window.__originalExportBeacon = navigator.sendBeacon?.bind(navigator);
+    if (window.__originalExportBeacon) {
+      navigator.sendBeacon = (...args) => {
+        window.__exportEgressCalls.push({ type: "beacon", target: String(args[0]) });
+        return window.__originalExportBeacon(...args);
+      };
+    }
+  });
+  const downloadPromise = page.waitForEvent("download");
+  const exportResult = await page.evaluate(() => {
+    return window.__mirrorloopTestTools.get("export_reflection_dossier").execute({
+      format: "markdown",
+      confirmed_by_user: true,
+    });
+  });
+  const download = await downloadPromise;
+  const downloadPath = new URL(`download-${Date.now()}.md`, evidenceDir).pathname;
+  await download.saveAs(downloadPath);
+  const content = await readFile(downloadPath, "utf8");
+  const exportEgressCalls = await page.evaluate(() => {
+    const calls = [...window.__exportEgressCalls];
+    window.fetch = window.__originalExportFetch;
+    XMLHttpRequest.prototype.open = window.__originalExportXHROpen;
+    if (window.__originalExportBeacon) navigator.sendBeacon = window.__originalExportBeacon;
+    return calls;
+  });
+  const exportPayload = JSON.parse(exportResult.content[0].text);
+  assert.equal(exportPayload.status, "DOWNLOAD_REQUESTED");
+  assert.equal(exportPayload.egress, "NONE_DURING_EXPORT");
+  assert.equal(exportPayload.included_answers, 12);
+  assert.equal(exportPayload.card.relationship, "representative_of_primary_arc");
+  assert.match(download.suggestedFilename(), /^mirrorloop-reflection-\d{4}-\d{2}-\d{2}\.md$/);
+  assert.match(content, /# MIRROR\/\/LOOP Reflection Dossier/);
+  assert.equal((content.match(/^### \d+\./gm) ?? []).length, 12);
+  assert.deepEqual(exportEgressCalls, []);
+  return {
+    comparison,
+    preview,
+    dossier: {
+      payload: exportPayload,
+      suggestedFilename: download.suggestedFilename(),
+      bytes: Buffer.byteLength(content),
+      exportEgressCalls,
+    },
+  };
 }
 
 async function hudState(page) {

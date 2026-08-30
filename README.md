@@ -36,7 +36,7 @@ control of identity or payment.
 
 ## Verified core repository scope
 
-1. **Ten typed tools.** Strict JSON Schemas reject unknown properties, while
+1. **Eleven typed tools.** Strict JSON Schemas reject unknown properties, while
    bounded runtime checks validate identifiers, enumerations, lengths, and
    adapter availability before returning structured tool errors.
 2. **Enforced human confirmation.** `answer_reflection_question` records or
@@ -54,7 +54,7 @@ control of identity or payment.
    DevTools, and the repository carries automated registration and contract
    gates.
 
-## Ten bounded tools
+## Eleven bounded tools
 
 1. `start_reflection`
 2. `get_current_question`
@@ -64,14 +64,15 @@ control of identity or payment.
 6. `answer_reflection_question`
 7. `review_reflection_answers`
 8. `complete_reflection`
-9. `get_card`
-10. `recommend_card_edition`
+9. `export_reflection_dossier`
+10. `get_card`
+11. `recommend_card_edition`
 
-The production page visibly reports **WebMCP ready · 10 tools** after native
+The production page visibly reports **WebMCP ready · 11 tools** after native
 registration. Its collapsible **Agent state** rail then makes registration and
 tool execution visible without DevTools: it shows the active tool, an
 allowlisted input summary, observed local elapsed time, outcome, and whether an
-answer carried explicit human confirmation. It never displays private focus
+answer or local download carried explicit human confirmation. It never displays private focus
 text or tool results. The implementation uses the browser-native registration
 pattern:
 
@@ -101,7 +102,7 @@ configured. Recording or revising an answer requires an explicit
 price or direct Stripe URL. Email submission, cart mutation, Checkout creation,
 and payment are deliberately not WebMCP tools.
 
-Registration is considered ready only after all ten registration promises
+Registration is considered ready only after all eleven registration promises
 resolve. A rejection aborts the partial tool set and activates the normal
 direct-use fallback. Tool names, descriptions, parameter descriptions, and
 individual results are checked against the current Chrome WebMCP character
@@ -138,7 +139,7 @@ Firebase/Cloud Run deployment, and human-controlled Stripe Checkout.
 **Added during the challenge after August 25, 2026:** the nine WebMCP tools,
 strict schemas and annotations, explicit answer-confirmation boundary, prior
 answer revision, public 144-card lookup, safe edition recommendation, visible
-ten-tool readiness badge, production browser verification, conversion link
+eleven-tool readiness badge, production browser verification, conversion link
 from result to the matching ARC, agent discovery metadata, and this submission
 audit/package.
 
@@ -192,8 +193,8 @@ or upload a video.
 1. Use Chrome 149 or later, enable
    `chrome://flags/#enable-webmcp-testing`, and restart Chrome.
 2. Open `https://mirrorloopai.com/`.
-3. Confirm the header reads **WebMCP ready · 10 tools**.
-4. Open DevTools, select **Application → WebMCP**, and confirm all ten tools
+3. Confirm the header reads **WebMCP ready · 11 tools**.
+4. Open DevTools, select **Application → WebMCP**, and confirm all eleven tools
    appear under **Available Tools** with no schema errors.
 5. Select a tool and use **Run tool** to invoke `start_reflection`,
    `get_current_question`, `explain_choice`, `compare_choices`, and
@@ -208,7 +209,7 @@ or upload a video.
    make a payment.
 
 The machine-readable intent corpus in
-[`web/evals/webmcp-evals.json`](web/evals/webmcp-evals.json) covers all ten
+[`web/evals/webmcp-evals.json`](web/evals/webmcp-evals.json) covers all eleven
 tools, ordered flows, ambiguous requests, and no-tool email/cart/payment cases.
 `npm run test:webmcp:evals` validates that corpus deterministically. A live
 host-agent run is recorded in

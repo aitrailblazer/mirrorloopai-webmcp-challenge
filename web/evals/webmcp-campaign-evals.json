@@ -1,6 +1,6 @@
 {
   "schemaVersion": "mirrorloop.webmcp.campaign-evals.v1",
-  "description": "Campaign-claim cases for the live ten-tool MIRROR//LOOP WebMCP surface. Supported actions must route to real tools; unsupported astronomy, diagnosis, physical-product, price, email-privacy, cart, and payment claims must remain outside the tool boundary.",
+  "description": "Campaign-claim cases for the live eleven-tool MIRROR//LOOP WebMCP surface. Supported actions must route to real tools; unsupported astronomy, diagnosis, physical-product, price, email-privacy, cart, and payment claims must remain outside the tool boundary.",
   "cases": [
     {
       "id": "campaign-start-founder-reflection",
@@ -98,6 +98,20 @@
             "arc_code": "01",
             "edition": "mono",
             "collection_scope": "arc"
+          }
+        }
+      ]
+    },
+    {
+      "id": "campaign-local-dossier",
+      "prompt": "My reflection is complete. I explicitly confirm a local JSON dossier download with Card 004 and no email or upload.",
+      "expectedCalls": [
+        {
+          "name": "export_reflection_dossier",
+          "arguments": {
+            "format": "json",
+            "card_id": "004",
+            "confirmed_by_user": true
           }
         }
       ]

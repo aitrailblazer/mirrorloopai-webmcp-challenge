@@ -1,0 +1,614 @@
+$ npm test
+
+> test
+> node --test web/tests/*.test.mjs
+
+✔ funnel tracker sends only aggregate allowlisted event names (3.298709ms)
+✔ session storage suppresses duplicate events after reload (0.14875ms)
+✔ builds a complete portable Markdown dossier without private session data (1.27925ms)
+✔ builds JSON with an explicitly requested public card and ordered answers (0.258625ms)
+✔ rejects an incomplete reflection or unsupported format (0.332084ms)
+✔ public quiz contains 12 complete questions (0.862208ms)
+✔ public question labels use plain language (0.295792ms)
+✔ scoring matches stable Swift tie-break contract (7.134167ms)
+✔ every archetype has plain-language result copy (0.215292ms)
+✔ response groups provide plain-language scanning help (0.114459ms)
+✔ two-choice contrast is neutral, public, and non-selecting (1.23025ms)
+✔ two-choice contrast rejects equal or unavailable choices (0.255542ms)
+✔ every two-choice contrast stays within the WebMCP response budget (3.391292ms)
+✔ answer-impact preview applies one hypothetical change without mutating answers (0.316375ms)
+✔ answer-impact preview rejects incomplete, unchanged, or invalid simulations (0.185792ms)
+✔ a zero-count tie is not presented as a supporting pattern (0.142208ms)
+✔ saves and restores answer codes without unrelated personal data (1.693166ms)
+✔ rejects stale, malformed, and impossible saved answers (0.13875ms)
+✔ clears saved answers and tolerates unavailable browser storage (0.090666ms)
+✔ shop exposes 12 ARCs in mono and full color plus four complete decks (0.87075ms)
+✔ public catalog contains no prices or pre-order language (0.208791ms)
+✔ shop is active while Stripe remains the only price and payment surface (0.061667ms)
+✔ private source keeps canonical Stripe amounts (0.824583ms)
+✔ every product image exists and checkout explains its boundary (2.35625ms)
+✔ registers exactly eleven same-origin bounded tools (2.474666ms)
+✔ emits bounded registration and tool lifecycle evidence (0.4295ms)
+✔ redacts private focus text from lifecycle events (0.21425ms)
+✔ replaces malformed known-field values in lifecycle evidence (0.199166ms)
+✔ marks read operations and local state changes accurately (0.127208ms)
+✔ requires confirmation and validates the local dossier export contract (1.394ms)
+✔ emits only allowlisted dossier inputs and human confirmation (0.162333ms)
+✔ contrasts two distinct choices without recording an answer (0.332833ms)
+✔ emits only allowlisted comparison inputs in lifecycle evidence (0.156583ms)
+✔ previews one answer impact through a read-only strict contract (0.32275ms)
+✔ emits only allowlisted impact-preview inputs in lifecycle evidence (0.223416ms)
+✔ keeps catalog recommendation read-only and outside checkout (0.302375ms)
+✔ requires explicit human confirmation before recording an answer (0.150209ms)
+✔ passes an explicitly confirmed revision through the bounded answer tool (0.075666ms)
+✔ rejects unknown fields and malformed card identifiers (0.105834ms)
+✔ does not echo the private focus area in the tool result wrapper (0.113333ms)
+✔ prefers the document WebMCP context and supports navigator fallback (0.061125ms)
+✔ awaits registration and aborts all partial registrations after rejection (0.350875ms)
+✔ reports ready only after all asynchronous registrations resolve (6.244333ms)
+✔ reports direct-mode fallback after an asynchronous registration failure (0.37475ms)
+✔ emits direct mode after model context polling expires (1.392167ms)
+✔ keeps names, descriptions, parameters, and outputs within official budgets (0.284667ms)
+ℹ tests 46
+ℹ suites 0
+ℹ pass 46
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 115.323584
+$ npm run validate
+
+> validate
+> node scripts/validate-site.mjs
+
+site validation: PASS
+$ npm run validate:submission
+
+> validate:submission
+> node scripts/validate-submission.mjs
+
+PASS README live URL
+PASS README source URL
+PASS README native registration pattern
+PASS README current DevTools judge path
+PASS README resource review
+PASS README campaign claim audit
+PASS README operational use cases
+PASS README competition hardening
+PASS README judge panel brief
+PASS README demo shot list
+PASS README pre-existing disclosure
+PASS README all eleven tools
+PASS Submission four required explanations
+PASS Submission four judging criteria
+PASS Submission demo plan
+PASS Verified core repository scope
+PASS Evidence-bounded demo recording contract
+PASS Submission challenge-period commits
+PASS Submission freeze plan
+PASS Third-party service inventory
+PASS Top-level MIT license
+PASS Package validation entry point
+PASS Chrome UX validation entry point
+PASS Six-role validation entry point
+PASS Eval validation entry point
+PASS Campaign eval validation entry point
+PASS Campaign claim boundary matrix
+PASS Six bounded operational use cases
+PASS Competition claim hardening
+PASS Evidence-bounded judge panel brief
+PASS Official resource matrix
+
+External gates intentionally not performed by this validator:
+- GitHub repository visibility must be PUBLIC.
+- A Devpost project must be created.
+- A public YouTube demo under three minutes must be supplied.
+- The operator must complete eligibility, ownership, and rights attestations.
+- Actual ChatGPT in-app-browser support remains optional because verified Chrome is accepted.
+
+LOCAL SUBMISSION PACKAGE PASS — external gates remain pending.
+$ npm run test:webmcp:evals
+
+> test:webmcp:evals
+> node scripts/validate-webmcp-evals.mjs
+
+WebMCP eval corpus: PASS (18 cases, 11 tools, 2 sequences)
+Note: this validates the deterministic expected-call corpus; a host-agent model run is a separate evaluation.
+$ npm run test:webmcp:campaign-evals
+
+> test:webmcp:campaign-evals
+> node scripts/validate-webmcp-campaign-evals.mjs
+
+WebMCP campaign corpus: PASS (13 cases, 9 supported tools, 5 claim boundaries)
+$ npm run test:webmcp:operational-use-cases
+
+> test:webmcp:operational-use-cases
+> node scripts/validate-webmcp-operational-use-cases.mjs
+
+WebMCP operational use cases: PASS (6 cases, 4 production tools)
+$ npm run test:webmcp:competition-hardening
+
+> test:webmcp:competition-hardening
+> node scripts/validate-webmcp-competition-hardening.mjs
+
+WebMCP competition hardening audit: PASS
+$ npm run test:webmcp:judge-panel
+
+> test:webmcp:judge-panel
+> node scripts/validate-webmcp-judge-panel-brief.mjs
+
+WebMCP judge panel brief: PASS
+$ npm run test:webmcp:chrome-ux
+
+> test:webmcp:chrome-ux
+> node scripts/validate-webmcp-chrome-ux.mjs
+
+WebMCP Chrome UX claim contract: PASS
+$ npm run test:webmcp:six-role-claims
+
+> test:webmcp:six-role-claims
+> node scripts/validate-webmcp-six-role-claims.mjs
+
+WebMCP six-role claim contract: PASS
+$ npm run test:stripe
+
+> test:stripe
+> node --test scripts/tests/*.test.mjs
+
+✔ Stripe CLI inventory retains metadata but never API key material (2.076042ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 106.215041
+$ go test ./...
+ok  	mirrorloopai.com/web/api/cmd/analytics-report	(cached)
+ok  	mirrorloopai.com/web/api/cmd/server	(cached)
+ok  	mirrorloopai.com/web/api/internal/analytics	(cached)
+ok  	mirrorloopai.com/web/api/internal/commerce	(cached)
+ok  	mirrorloopai.com/web/api/internal/inbound	(cached)
+ok  	mirrorloopai.com/web/api/internal/subscriber	(cached)
+$ go vet ./...
+$ browser evidence
+{
+  "baseURL": "http://127.0.0.1:4173",
+  "desktopPreview": {
+    "comparison": {
+      "before": {
+        "progress": "Question 1 of 12",
+        "selected": 0
+      },
+      "after": {
+        "progress": "Question 1 of 12",
+        "selected": 0
+      },
+      "payload": {
+        "question_id": 1,
+        "prompt": "When you feel stuck, what do you try to regain first?",
+        "choice_a": {
+          "code": "01",
+          "label": "A destination to move toward",
+          "lens": "Horizon Signal",
+          "focus": "Finding direction",
+          "plain_language_meaning": "You naturally look for a direction worth moving toward."
+        },
+        "choice_b": {
+          "code": "06",
+          "label": "One clean fork chosen",
+          "lens": "Fracture Path",
+          "focus": "Decisions under pressure",
+          "plain_language_meaning": "You regain movement by choosing a clear fork and committing to it."
+        },
+        "operational_contrast": "Horizon Signal centers on “A destination to move toward” through finding direction; Fracture Path centers on “One clean fork chosen” through decisions under pressure. Notice which describes your first instinct in this situation—not which sounds better.",
+        "boundary": "This comparison does not rank, select, or record either choice.",
+        "selection_status": "NEITHER_SELECTED"
+      }
+    },
+    "preview": {
+      "before": {
+        "total_answered": 12,
+        "total_questions": 12,
+        "answers": [
+          {
+            "question_id": 1,
+            "choice_code": "01"
+          },
+          {
+            "question_id": 2,
+            "choice_code": "01"
+          },
+          {
+            "question_id": 3,
+            "choice_code": "01"
+          },
+          {
+            "question_id": 4,
+            "choice_code": "01"
+          },
+          {
+            "question_id": 5,
+            "choice_code": "01"
+          },
+          {
+            "question_id": 6,
+            "choice_code": "01"
+          },
+          {
+            "question_id": 7,
+            "choice_code": "08"
+          },
+          {
+            "question_id": 8,
+            "choice_code": "08"
+          },
+          {
+            "question_id": 9,
+            "choice_code": "08"
+          },
+          {
+            "question_id": 10,
+            "choice_code": "08"
+          },
+          {
+            "question_id": 11,
+            "choice_code": "08"
+          },
+          {
+            "question_id": 12,
+            "choice_code": "02"
+          }
+        ]
+      },
+      "after": {
+        "total_answered": 12,
+        "total_questions": 12,
+        "answers": [
+          {
+            "question_id": 1,
+            "choice_code": "01"
+          },
+          {
+            "question_id": 2,
+            "choice_code": "01"
+          },
+          {
+            "question_id": 3,
+            "choice_code": "01"
+          },
+          {
+            "question_id": 4,
+            "choice_code": "01"
+          },
+          {
+            "question_id": 5,
+            "choice_code": "01"
+          },
+          {
+            "question_id": 6,
+            "choice_code": "01"
+          },
+          {
+            "question_id": 7,
+            "choice_code": "08"
+          },
+          {
+            "question_id": 8,
+            "choice_code": "08"
+          },
+          {
+            "question_id": 9,
+            "choice_code": "08"
+          },
+          {
+            "question_id": 10,
+            "choice_code": "08"
+          },
+          {
+            "question_id": 11,
+            "choice_code": "08"
+          },
+          {
+            "question_id": 12,
+            "choice_code": "02"
+          }
+        ]
+      },
+      "visibleBefore": {
+        "resultHidden": false,
+        "resultText": "\n        Your current response pattern\n        ◯\n        Horizon Signal\n        Finding direction\n        You naturally look for a direction worth moving toward.\n        This response appeared 6 times across your 12 choices.\n        \n          Also present in your answers\n          Phantom Contract\n          You look for the unspoken expectation or agreement shaping the moment. It appeared 5 times.\n        \n        \n          Try this today\n          Name the next visible horizon. What is one step that points toward it?\n        \n        This is a reflective snapshot based on 12 choices. It is not a diagnosis, prediction, or fixed identity.\n\n        \n          Continue with this pattern\n          Explore the matching 12-card ARC\n          See the Mono and Full-Color digital editions connected to your current response pattern. Buying is optional, and Stripe shows the price before payment.\n          Explore ARC 01 · Horizon Signal\n        \n\n        \n          Keep your reflection\n          Send the result to your inbox\n          We will send a confirmation link first. Your subscription begins only after you confirm.\n          \n            Email address\n            \n            \n              Website\n              \n            \n            \n              \n              Email me this reflection and occasional MIRROR//LOOP updates. I understand my email and quiz selections are processed to generate and deliver my result, including diagnostic review if automated delivery needs help. I can unsubscribe at any time.\n            \n            \n            Email my reflection\n            \n            The subscriber database stores your email and compact result—not the 12 individual answers. Your selections may be reviewed only to diagnose or complete a result when automated delivery needs help. See our privacy notice.\n          \n        \n        Review or change my answers\n        Start over with blank answers\n      "
+      },
+      "visibleAfter": {
+        "resultHidden": false,
+        "resultText": "\n        Your current response pattern\n        ◯\n        Horizon Signal\n        Finding direction\n        You naturally look for a direction worth moving toward.\n        This response appeared 6 times across your 12 choices.\n        \n          Also present in your answers\n          Phantom Contract\n          You look for the unspoken expectation or agreement shaping the moment. It appeared 5 times.\n        \n        \n          Try this today\n          Name the next visible horizon. What is one step that points toward it?\n        \n        This is a reflective snapshot based on 12 choices. It is not a diagnosis, prediction, or fixed identity.\n\n        \n          Continue with this pattern\n          Explore the matching 12-card ARC\n          See the Mono and Full-Color digital editions connected to your current response pattern. Buying is optional, and Stripe shows the price before payment.\n          Explore ARC 01 · Horizon Signal\n        \n\n        \n          Keep your reflection\n          Send the result to your inbox\n          We will send a confirmation link first. Your subscription begins only after you confirm.\n          \n            Email address\n            \n            \n              Website\n              \n            \n            \n              \n              Email me this reflection and occasional MIRROR//LOOP updates. I understand my email and quiz selections are processed to generate and deliver my result, including diagnostic review if automated delivery needs help. I can unsubscribe at any time.\n            \n            \n            Email my reflection\n            \n            The subscriber database stores your email and compact result—not the 12 individual answers. Your selections may be reviewed only to diagnose or complete a result when automated delivery needs help. See our privacy notice.\n          \n        \n        Review or change my answers\n        Start over with blank answers\n      "
+      },
+      "payload": {
+        "status": "PROVISIONAL_PREVIEW",
+        "question_id": 4,
+        "current_choice": {
+          "code": "01",
+          "name": "Horizon Signal"
+        },
+        "hypothetical_choice": {
+          "code": "08",
+          "name": "Phantom Contract"
+        },
+        "current_dominant": {
+          "code": "01",
+          "name": "Horizon Signal",
+          "frequency": 6
+        },
+        "projected_dominant": {
+          "code": "08",
+          "name": "Phantom Contract",
+          "frequency": 6
+        },
+        "dominant_changed": true,
+        "frequency_delta": {
+          "01": -1,
+          "08": 1
+        },
+        "boundary": "This preview does not save, select, or revise any answer."
+      }
+    },
+    "dossier": {
+      "payload": {
+        "status": "DOWNLOAD_REQUESTED",
+        "format": "markdown",
+        "filename": "mirrorloop-reflection-2026-08-30.md",
+        "mime_type": "text/markdown;charset=utf-8",
+        "bytes": 3341,
+        "included_answers": 12,
+        "card": {
+          "card_id": "001",
+          "title": "Future-First Thinking",
+          "relationship": "representative_of_primary_arc"
+        },
+        "egress": "NONE_DURING_EXPORT",
+        "boundary": "The file was assembled in this browser. No email, account, cart, checkout, payment, or upload was used."
+      },
+      "suggestedFilename": "mirrorloop-reflection-2026-08-30.md",
+      "bytes": 3341,
+      "exportEgressCalls": []
+    }
+  },
+  "desktop": {
+    "phase": "11 TOOLS MOUNTED",
+    "activeTool": "export_reflection_dossier",
+    "safeInput": "format: markdown · card id: representative · confirmed by user: yes",
+    "confirmation": "HUMAN CONFIRMED",
+    "confirmationState": "confirmed",
+    "duration": "1.2 ms observed",
+    "events": [
+      "DONEexport_reflection_dossier · Completed",
+      "STARTexport_reflection_dossier",
+      "DONEpreview_answer_impact · Completed",
+      "STARTpreview_answer_impact",
+      "DONEreview_reflection_answers · Completed"
+    ],
+    "privateFocusVisible": false,
+    "position": "fixed",
+    "horizontalOverflow": false
+  },
+  "mobilePreview": {
+    "comparison": {
+      "before": {
+        "progress": "Question 1 of 12",
+        "selected": 0
+      },
+      "after": {
+        "progress": "Question 1 of 12",
+        "selected": 0
+      },
+      "payload": {
+        "question_id": 1,
+        "prompt": "When you feel stuck, what do you try to regain first?",
+        "choice_a": {
+          "code": "01",
+          "label": "A destination to move toward",
+          "lens": "Horizon Signal",
+          "focus": "Finding direction",
+          "plain_language_meaning": "You naturally look for a direction worth moving toward."
+        },
+        "choice_b": {
+          "code": "06",
+          "label": "One clean fork chosen",
+          "lens": "Fracture Path",
+          "focus": "Decisions under pressure",
+          "plain_language_meaning": "You regain movement by choosing a clear fork and committing to it."
+        },
+        "operational_contrast": "Horizon Signal centers on “A destination to move toward” through finding direction; Fracture Path centers on “One clean fork chosen” through decisions under pressure. Notice which describes your first instinct in this situation—not which sounds better.",
+        "boundary": "This comparison does not rank, select, or record either choice.",
+        "selection_status": "NEITHER_SELECTED"
+      }
+    },
+    "preview": {
+      "before": {
+        "total_answered": 12,
+        "total_questions": 12,
+        "answers": [
+          {
+            "question_id": 1,
+            "choice_code": "01"
+          },
+          {
+            "question_id": 2,
+            "choice_code": "01"
+          },
+          {
+            "question_id": 3,
+            "choice_code": "01"
+          },
+          {
+            "question_id": 4,
+            "choice_code": "01"
+          },
+          {
+            "question_id": 5,
+            "choice_code": "01"
+          },
+          {
+            "question_id": 6,
+            "choice_code": "01"
+          },
+          {
+            "question_id": 7,
+            "choice_code": "08"
+          },
+          {
+            "question_id": 8,
+            "choice_code": "08"
+          },
+          {
+            "question_id": 9,
+            "choice_code": "08"
+          },
+          {
+            "question_id": 10,
+            "choice_code": "08"
+          },
+          {
+            "question_id": 11,
+            "choice_code": "08"
+          },
+          {
+            "question_id": 12,
+            "choice_code": "02"
+          }
+        ]
+      },
+      "after": {
+        "total_answered": 12,
+        "total_questions": 12,
+        "answers": [
+          {
+            "question_id": 1,
+            "choice_code": "01"
+          },
+          {
+            "question_id": 2,
+            "choice_code": "01"
+          },
+          {
+            "question_id": 3,
+            "choice_code": "01"
+          },
+          {
+            "question_id": 4,
+            "choice_code": "01"
+          },
+          {
+            "question_id": 5,
+            "choice_code": "01"
+          },
+          {
+            "question_id": 6,
+            "choice_code": "01"
+          },
+          {
+            "question_id": 7,
+            "choice_code": "08"
+          },
+          {
+            "question_id": 8,
+            "choice_code": "08"
+          },
+          {
+            "question_id": 9,
+            "choice_code": "08"
+          },
+          {
+            "question_id": 10,
+            "choice_code": "08"
+          },
+          {
+            "question_id": 11,
+            "choice_code": "08"
+          },
+          {
+            "question_id": 12,
+            "choice_code": "02"
+          }
+        ]
+      },
+      "visibleBefore": {
+        "resultHidden": false,
+        "resultText": "\n        Your current response pattern\n        ◯\n        Horizon Signal\n        Finding direction\n        You naturally look for a direction worth moving toward.\n        This response appeared 6 times across your 12 choices.\n        \n          Also present in your answers\n          Phantom Contract\n          You look for the unspoken expectation or agreement shaping the moment. It appeared 5 times.\n        \n        \n          Try this today\n          Name the next visible horizon. What is one step that points toward it?\n        \n        This is a reflective snapshot based on 12 choices. It is not a diagnosis, prediction, or fixed identity.\n\n        \n          Continue with this pattern\n          Explore the matching 12-card ARC\n          See the Mono and Full-Color digital editions connected to your current response pattern. Buying is optional, and Stripe shows the price before payment.\n          Explore ARC 01 · Horizon Signal\n        \n\n        \n          Keep your reflection\n          Send the result to your inbox\n          We will send a confirmation link first. Your subscription begins only after you confirm.\n          \n            Email address\n            \n            \n              Website\n              \n            \n            \n              \n              Email me this reflection and occasional MIRROR//LOOP updates. I understand my email and quiz selections are processed to generate and deliver my result, including diagnostic review if automated delivery needs help. I can unsubscribe at any time.\n            \n            \n            Email my reflection\n            \n            The subscriber database stores your email and compact result—not the 12 individual answers. Your selections may be reviewed only to diagnose or complete a result when automated delivery needs help. See our privacy notice.\n          \n        \n        Review or change my answers\n        Start over with blank answers\n      "
+      },
+      "visibleAfter": {
+        "resultHidden": false,
+        "resultText": "\n        Your current response pattern\n        ◯\n        Horizon Signal\n        Finding direction\n        You naturally look for a direction worth moving toward.\n        This response appeared 6 times across your 12 choices.\n        \n          Also present in your answers\n          Phantom Contract\n          You look for the unspoken expectation or agreement shaping the moment. It appeared 5 times.\n        \n        \n          Try this today\n          Name the next visible horizon. What is one step that points toward it?\n        \n        This is a reflective snapshot based on 12 choices. It is not a diagnosis, prediction, or fixed identity.\n\n        \n          Continue with this pattern\n          Explore the matching 12-card ARC\n          See the Mono and Full-Color digital editions connected to your current response pattern. Buying is optional, and Stripe shows the price before payment.\n          Explore ARC 01 · Horizon Signal\n        \n\n        \n          Keep your reflection\n          Send the result to your inbox\n          We will send a confirmation link first. Your subscription begins only after you confirm.\n          \n            Email address\n            \n            \n              Website\n              \n            \n            \n              \n              Email me this reflection and occasional MIRROR//LOOP updates. I understand my email and quiz selections are processed to generate and deliver my result, including diagnostic review if automated delivery needs help. I can unsubscribe at any time.\n            \n            \n            Email my reflection\n            \n            The subscriber database stores your email and compact result—not the 12 individual answers. Your selections may be reviewed only to diagnose or complete a result when automated delivery needs help. See our privacy notice.\n          \n        \n        Review or change my answers\n        Start over with blank answers\n      "
+      },
+      "payload": {
+        "status": "PROVISIONAL_PREVIEW",
+        "question_id": 4,
+        "current_choice": {
+          "code": "01",
+          "name": "Horizon Signal"
+        },
+        "hypothetical_choice": {
+          "code": "08",
+          "name": "Phantom Contract"
+        },
+        "current_dominant": {
+          "code": "01",
+          "name": "Horizon Signal",
+          "frequency": 6
+        },
+        "projected_dominant": {
+          "code": "08",
+          "name": "Phantom Contract",
+          "frequency": 6
+        },
+        "dominant_changed": true,
+        "frequency_delta": {
+          "01": -1,
+          "08": 1
+        },
+        "boundary": "This preview does not save, select, or revise any answer."
+      }
+    },
+    "dossier": {
+      "payload": {
+        "status": "DOWNLOAD_REQUESTED",
+        "format": "markdown",
+        "filename": "mirrorloop-reflection-2026-08-30.md",
+        "mime_type": "text/markdown;charset=utf-8",
+        "bytes": 3341,
+        "included_answers": 12,
+        "card": {
+          "card_id": "001",
+          "title": "Future-First Thinking",
+          "relationship": "representative_of_primary_arc"
+        },
+        "egress": "NONE_DURING_EXPORT",
+        "boundary": "The file was assembled in this browser. No email, account, cart, checkout, payment, or upload was used."
+      },
+      "suggestedFilename": "mirrorloop-reflection-2026-08-30.md",
+      "bytes": 3341,
+      "exportEgressCalls": []
+    }
+  },
+  "mobile": {
+    "phase": "11 TOOLS MOUNTED",
+    "activeTool": "export_reflection_dossier",
+    "safeInput": "format: markdown · card id: representative · confirmed by user: yes",
+    "confirmation": "HUMAN CONFIRMED",
+    "confirmationState": "confirmed",
+    "duration": "1.1 ms observed",
+    "events": [
+      "DONEexport_reflection_dossier · Completed",
+      "STARTexport_reflection_dossier",
+      "DONEpreview_answer_impact · Completed",
+      "STARTpreview_answer_impact",
+      "DONEreview_reflection_answers · Completed"
+    ],
+    "privateFocusVisible": false,
+    "position": "relative",
+    "horizontalOverflow": false
+  },
+  "status": "PASS"
+}

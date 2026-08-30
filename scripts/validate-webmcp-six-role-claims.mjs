@@ -16,7 +16,7 @@ for (const required of [
   "Jude Gao",
   "Sean Roberts",
   "confirmed_by_user: true",
-  "tenth tool is the read-only preview_answer_impact simulation",
+  "eleventh tool is the confirmed local-only export_reflection_dossier action",
   "There is no kinematics.js",
   "not zero telemetry, zero database, zero compute",
   "not a purely event-only or strictly unidirectional architecture",

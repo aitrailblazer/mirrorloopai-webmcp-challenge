@@ -27,6 +27,7 @@ function fixture() {
     "answerQuestion",
     "reviewAnswers",
     "completeReflection",
+    "exportReflectionDossier",
     "getCard",
     "recommendCardEdition",
   ].map((name) => [name, async (input) => {
@@ -40,12 +41,12 @@ function registeredTool(registrations, name) {
   return registrations.find(({ definition }) => definition.name === name).definition;
 }
 
-test("registers exactly ten same-origin bounded tools", async () => {
+test("registers exactly eleven same-origin bounded tools", async () => {
   const { registrations, modelContext, api } = fixture();
   const registration = await registerMirrorLoopWebMCP(modelContext, api);
 
   assert.deepEqual(registration.names, MIRRORLOOP_WEBMCP_TOOL_NAMES);
-  assert.equal(registrations.length, 10);
+  assert.equal(registrations.length, 11);
   for (const { definition, options } of registrations) {
     assert.equal(definition.inputSchema.additionalProperties, false);
     assert.equal("exposedTo" in definition, false);
@@ -69,11 +70,11 @@ test("emits bounded registration and tool lifecycle evidence", async () => {
   assert.deepEqual(events.slice(0, 2), [
     {
       type: MIRRORLOOP_WEBMCP_EVENTS.status,
-      detail: { phase: "registering", mounted: 0, total: 10 },
+      detail: { phase: "registering", mounted: 0, total: 11 },
     },
     {
       type: MIRRORLOOP_WEBMCP_EVENTS.status,
-      detail: { phase: "mounted", mounted: 10, total: 10 },
+      detail: { phase: "mounted", mounted: 11, total: 11 },
     },
   ]);
 
@@ -149,9 +150,57 @@ test("marks read operations and local state changes accurately", async () => {
   for (const name of ["get_current_question", "explain_choice", "compare_choices", "preview_answer_impact", "review_reflection_answers", "get_card", "recommend_card_edition"]) {
     assert.equal(registeredTool(registrations, name).annotations.readOnlyHint, true);
   }
-  for (const name of ["start_reflection", "answer_reflection_question", "complete_reflection"]) {
+  for (const name of ["start_reflection", "answer_reflection_question", "complete_reflection", "export_reflection_dossier"]) {
     assert.equal(registeredTool(registrations, name).annotations.readOnlyHint, false);
   }
+});
+
+test("requires confirmation and validates the local dossier export contract", async () => {
+  const { registrations, calls, modelContext, api } = fixture();
+  await registerMirrorLoopWebMCP(modelContext, api);
+  const tool = registeredTool(registrations, "export_reflection_dossier");
+
+  const accepted = await tool.execute({
+    format: "markdown",
+    card_id: "012",
+    confirmed_by_user: true,
+  });
+  assert.equal(accepted.isError, undefined);
+  assert.deepEqual(calls, [{
+    name: "exportReflectionDossier",
+    input: { format: "markdown", cardID: "012" },
+  }]);
+  assert.equal(tool.annotations.readOnlyHint, false);
+
+  calls.length = 0;
+  for (const invalid of [
+    { format: "markdown", confirmed_by_user: false },
+    { format: "pdf", confirmed_by_user: true },
+    { format: "json", card_id: "12", confirmed_by_user: true },
+    { format: "json", confirmed_by_user: true, email: "x@example.com" },
+  ]) {
+    const rejected = await tool.execute(invalid);
+    assert.equal(rejected.isError, true);
+  }
+  assert.equal(calls.length, 0);
+});
+
+test("emits only allowlisted dossier inputs and human confirmation", async () => {
+  const { registrations, modelContext, api } = fixture();
+  const events = [];
+  const clock = [60, 60.2];
+  await registerMirrorLoopWebMCP(modelContext, api, {
+    onLifecycle: (type, detail) => events.push({ type, detail }),
+    now: () => clock.shift(),
+  });
+  const tool = registeredTool(registrations, "export_reflection_dossier");
+  await tool.execute({ format: "json", confirmed_by_user: true });
+  assert.deepEqual(events.at(-1).detail.safe_input, {
+    format: "json",
+    card_id: "representative",
+    confirmed_by_user: true,
+  });
+  assert.equal(events.at(-1).detail.confirmed_by_user, true);
 });
 
 test("contrasts two distinct choices without recording an answer", async () => {
@@ -410,7 +459,7 @@ test("reports ready only after all asynchronous registrations resolve", async ()
   const modelContext = {
     async registerTool() {
       calls += 1;
-      if (calls === 10) await gate;
+      if (calls === 11) await gate;
     },
   };
 
@@ -422,7 +471,7 @@ test("reports ready only after all asynchronous registrations resolve", async ()
   });
 
   await new Promise((resolve) => setTimeout(resolve, 0));
-  assert.equal(calls, 10);
+  assert.equal(calls, 11);
   assert.deepEqual(statuses, []);
 
   release();
@@ -473,7 +522,7 @@ test("emits direct mode after model context polling expires", async () => {
   await new Promise((resolve) => setTimeout(resolve, 0));
   assert.deepEqual(lifecycle, [{
     type: MIRRORLOOP_WEBMCP_EVENTS.status,
-    detail: { phase: "direct_mode", mounted: 0, total: 10 },
+    detail: { phase: "direct_mode", mounted: 0, total: 11 },
   }]);
 });
 

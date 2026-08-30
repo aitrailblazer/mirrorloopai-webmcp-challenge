@@ -9,7 +9,7 @@ const evals = JSON.parse(await readFile(
 ));
 
 assert.equal(evals.schemaVersion, "mirrorloop.webmcp.campaign-evals.v1");
-assert.equal(evals.cases.length, 12);
+assert.equal(evals.cases.length, 13);
 
 const ids = new Set();
 const coveredTools = new Set();
@@ -32,6 +32,9 @@ for (const entry of evals.cases) {
     if (call.name === "answer_reflection_question") {
       assert.equal(call.arguments.confirmed_by_user, true);
     }
+    if (call.name === "export_reflection_dossier") {
+      assert.equal(call.arguments.confirmed_by_user, true);
+    }
   }
 
   if (entry.expectedCalls.length === 0) {
@@ -50,6 +53,7 @@ for (const tool of [
   "get_current_question",
   "get_card",
   "recommend_card_edition",
+  "export_reflection_dossier",
 ]) {
   assert.ok(coveredTools.has(tool), `missing advertised supported tool: ${tool}`);
 }
@@ -63,7 +67,7 @@ for (const boundary of [
   assert.ok(boundaries.has(boundary), `missing campaign boundary: ${boundary}`);
 }
 
-assert.equal(MIRRORLOOP_WEBMCP_TOOL_NAMES.length, 10);
+assert.equal(MIRRORLOOP_WEBMCP_TOOL_NAMES.length, 11);
 console.log(
   `WebMCP campaign corpus: PASS (${evals.cases.length} cases, `
   + `${coveredTools.size} supported tools, ${boundaries.size} claim boundaries)`,

@@ -8,7 +8,7 @@ const artifact = await readFile(
 
 for (const required of [
   "<StrategiXVisualSpec",
-  "<ToolCount>10</ToolCount>",
+  "<ToolCount>11</ToolCount>",
   "mirrorloop:session_start,mirrorloop:step_transition,mirrorloop:reflection_complete",
   'id="score" status="UNRESOLVED"',
   'id="astronomy" status="CONTRADICTED"',
@@ -18,7 +18,7 @@ for (const required of [
   "Do not self-award judging scores",
   "Corrected 2:35 demo",
   "Stop before Stripe",
-  "Freeze the reviewed ten-tool build",
+  "Freeze the reviewed eleven-tool build",
   "public repository visibility",
 ]) {
   assert.ok(artifact.includes(required), `missing hardening contract: ${required}`);

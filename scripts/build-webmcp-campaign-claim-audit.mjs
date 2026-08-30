@@ -21,7 +21,7 @@ const claims = [
   {
     claim: "The site exposes browser-native WebMCP tools.",
     state: "SUPPORTED",
-    evidence: "Production registers exactly ten same-origin tools and visibly reports readiness.",
+    evidence: "Production registers exactly eleven same-origin tools and visibly reports readiness.",
     publish: "WebMCP turns the live page into a typed, agent-operable reflection surface.",
   },
   {
@@ -37,10 +37,10 @@ const claims = [
     publish: "Confirmed answers advance the same visible reflection interface.",
   },
   {
-    claim: "All ten WebMCP tools operate client-side.",
+    claim: "All eleven WebMCP tools operate client-side.",
     state: "SUPPORTED_WITH_QUALIFICATION",
-    evidence: "The ten tools use browser state and public static data. Optional email delivery and Stripe Checkout are separate human-controlled backend flows.",
-    publish: "The ten WebMCP tools keep reflection state in the browser; optional email and payment remain separate explicit actions.",
+    evidence: "The eleven tools use browser state and public static data. Optional email delivery and Stripe Checkout are separate human-controlled backend flows.",
+    publish: "The eleven WebMCP tools keep reflection state in the browser; optional email and payment remain separate explicit actions.",
   },
   {
     claim: "The agent runs a Keplerian ephemeris, Yellow Ray calculation, or ten-minute transit clock.",
@@ -110,7 +110,7 @@ const htmlDocument = `<!doctype html>
 
   <script type="application/xml" id="strategix-contract">
 <StrategiXVisualSpec version="1.0" artifact="mirrorloop-webmcp-campaign-claim-audit" generatedAt="${escapeHTML(evaluation.generatedAt)}">
-  <Purpose>Keep public WebMCP promotion aligned with the live ten-tool product and its human-control boundaries.</Purpose>
+  <Purpose>Keep public WebMCP promotion aligned with the live eleven-tool product and its human-control boundaries.</Purpose>
   <ProductContract>
     <Supported capability="guided_reflection">Start, orient, explain one choice, neutrally contrast two choices, explicitly confirm, review, revise, and complete a 12-question browser-local reflection.</Supported>
     <Supported capability="public_card_lookup">Retrieve public metadata and bounded action for Cards 001 through 144.</Supported>
@@ -194,7 +194,7 @@ const htmlDocument = `<!doctype html>
             <section class="hero">
               <div class="eyebrow">StrategiX claim contract · production evidence</div>
               <h1>WebMCP Campaign Claim Audit</h1>
-              <p>The strongest campaign is the one a judge can reproduce. MIRROR//LOOP currently supports a browser-local, ten-tool reflection and digital-edition recommendation—not ephemeris calculation, diagnosis, physical fulfillment, or autonomous commerce.</p>
+              <p>The strongest campaign is the one a judge can reproduce. MIRROR//LOOP currently supports a browser-local, eleven-tool reflection, local dossier export, and digital-edition recommendation—not ephemeris calculation, diagnosis, physical fulfillment, or autonomous commerce.</p>
               <div class="metrics">
                 <div class="metric"><strong>${evaluation.corpus.cases}</strong>campaign cases</div>
                 <div class="metric"><strong>${percent(evaluation.metrics.exactToolSelectionAccuracy)}</strong>exact tool selection</div>
