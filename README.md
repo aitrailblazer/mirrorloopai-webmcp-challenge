@@ -11,6 +11,7 @@ answer, email submission, cart change, and payment.
 - **Devpost package:** [SUBMISSION.md](SUBMISSION.md)
 - **Official resource review:** [RESOURCE_REVIEW.html](RESOURCE_REVIEW.html)
 - **Campaign claim audit and copy:** [WEBMCP_CAMPAIGN_CLAIM_AUDIT.html](WEBMCP_CAMPAIGN_CLAIM_AUDIT.html)
+- **Six operational scenarios:** [WEBMCP_OPERATIONAL_USE_CASES.html](WEBMCP_OPERATIONAL_USE_CASES.html)
 - **License:** [MIT](LICENSE)
 
 > **Submission gate:** this repository remains private until the operator
@@ -188,6 +189,15 @@ email submission. Two calls normalized optional arguments, so strict
 call-and-argument equality was 8/10. The claim matrix, corrected copy, and
 evidence links are in
 [`WEBMCP_CAMPAIGN_CLAIM_AUDIT.html`](WEBMCP_CAMPAIGN_CLAIM_AUDIT.html).
+
+Six business-oriented examples for founder governance, over-simulation,
+product-launch inertia, explicit sprint framing, current-session review, and a
+digital workspace reference are specified in
+[`WEBMCP_OPERATIONAL_USE_CASES.html`](WEBMCP_OPERATIONAL_USE_CASES.html).
+All six matched their exact production tool sequence and arguments in a live
+Gemini/WebMCP Inspector run. These examples explicitly exclude diagnostic,
+astronomical, legal, private-corpus, physical-product, price, cart, and payment
+claims.
 
 The live runner requires Chrome for Testing 150+, an unpacked WebMCP Inspector,
 an isolated browser profile, and authenticated Google Cloud ADC:

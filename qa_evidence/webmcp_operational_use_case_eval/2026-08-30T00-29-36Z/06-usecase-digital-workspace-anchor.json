@@ -1,0 +1,121 @@
+{
+  "id": "usecase-digital-workspace-anchor",
+  "prompt": "Recommend the mono ARC 01 digital edition as an optional workspace reference. Do not call it a physical deck, state a price, add it to a cart, or start Stripe Checkout.",
+  "boundary": null,
+  "expectedBehavior": "Recommend the real digital catalog item and leave price review and checkout to the human.",
+  "expectedCalls": [
+    {
+      "name": "recommend_card_edition",
+      "arguments": {
+        "arc_code": "01",
+        "edition": "mono",
+        "collection_scope": "arc"
+      }
+    }
+  ],
+  "actualCalls": [
+    {
+      "name": "recommend_card_edition",
+      "arguments": {
+        "edition": "mono",
+        "arc_code": "01",
+        "collection_scope": "arc"
+      }
+    }
+  ],
+  "score": {
+    "toolSelectionExact": true,
+    "requiredToolsInOrder": true,
+    "argumentsExact": true,
+    "exactCase": true,
+    "expectedCallCount": 1,
+    "actualCallCount": 1,
+    "argumentMatches": 1
+  },
+  "startedAt": "2026-08-30T00:30:21.397Z",
+  "finishedAt": "2026-08-30T00:30:26.675Z",
+  "agentFinalText": "The ARC 01 · Horizon Signal, Mono Edition, a 12 high-resolution gold-on-black digital card set focusing on Future-Pull Mechanics, is available as an optional workspace reference.",
+  "rawLog": "AI calling tool \"recommend_card_edition\" with {\"edition\":\"mono\",\"arc_code\":\"01\",\"collection_scope\":\"arc\"}\nTool \"recommend_card_edition\" result: {\"content\":[{\"type\":\"text\",\"text\":\"{\\\"found\\\":true,\\\"sku\\\":\\\"arc-01-mono\\\",\\\"title\\\":\\\"ARC 01 · Horizon Signal\\\",\\\"subtitle\\\":\\\"Mono Edition\\\",\\\"description\\\":\\\"12 high-resolution gold-on-black cards. Future-Pull Mechanics, Cards 001–012.\\\",\\\"edition\\\":\\\"mono\\\",\\\"scope\\\":\\\"arc\\\",\\\"arc_code\\\":\\\"01\\\",\\\"domain\\\":\\\"Future-Pull Mechanics\\\",\\\"image\\\":\\\"/images/shop/arc-01-mono.webp\\\",\\\"fulfillment\\\":\\\"digital_download\\\",\\\"recommendation_basis\\\":\\\"ARC 01 was explicitly requested.\\\",\\\"shop_path\\\":\\\"/shop.html\\\",\\\"purchase_boundary\\\":\\\"Review the edition and Stripe-hosted price yourself. This tool cannot add items, start checkout, or make a purchase.\\\"}\"}]}\nAI result: The ARC 01 · Horizon Signal, Mono Edition, a 12 high-resolution gold-on-black digital card set focusing on Future-Pull Mechanics, is available as an optional workspace reference.\n",
+  "modelTrace": [
+    {
+      "candidates": [
+        {
+          "content": {
+            "role": "model",
+            "parts": [
+              {
+                "functionCall": {
+                  "name": "recommend_card_edition",
+                  "args": {
+                    "edition": "mono",
+                    "arc_code": "01",
+                    "collection_scope": "arc"
+                  }
+                }
+              }
+            ]
+          },
+          "finishReason": "STOP"
+        }
+      ],
+      "usageMetadata": {
+        "promptTokenCount": 199,
+        "candidatesTokenCount": 16,
+        "totalTokenCount": 373,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 199
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 16
+          }
+        ],
+        "thoughtsTokenCount": 158
+      },
+      "modelVersion": "gemini-2.5-flash",
+      "createTime": "2026-08-30T00:30:21.443502Z",
+      "responseId": "nXmTau6IG6uqmecPmt_0uAE"
+    },
+    {
+      "candidates": [
+        {
+          "content": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "The ARC 01 · Horizon Signal, Mono Edition, a 12 high-resolution gold-on-black digital card set focusing on Future-Pull Mechanics, is available as an optional workspace reference."
+              }
+            ]
+          },
+          "finishReason": "STOP"
+        }
+      ],
+      "usageMetadata": {
+        "promptTokenCount": 546,
+        "candidatesTokenCount": 42,
+        "totalTokenCount": 588,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 546
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 42
+          }
+        ]
+      },
+      "modelVersion": "gemini-2.5-flash",
+      "createTime": "2026-08-30T00:30:26.079253Z",
+      "responseId": "onmTapXrBPr1ld8Pz_GB8Ag"
+    }
+  ]
+}

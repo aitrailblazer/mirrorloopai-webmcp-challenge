@@ -1,0 +1,843 @@
+{
+  "schemaVersion": "mirrorloop.webmcp.agent-eval.v1",
+  "generatedAt": "2026-08-30T00:30:27.427Z",
+  "corpus": {
+    "path": "web/evals/webmcp-operational-use-cases.json",
+    "schemaVersion": "mirrorloop.webmcp.operational-use-cases.v1",
+    "cases": 6,
+    "expectedCalls": 8,
+    "noToolBoundaryCases": 0
+  },
+  "runtime": {
+    "agent": "WebMCP - Model Context Tool Inspector",
+    "extensionVersion": "1.9.13",
+    "extensionId": "gbpdfapgefenggkahomfgkhfehlcenpd",
+    "backend": "vertex",
+    "model": "gemini-2.5-flash",
+    "vertexProject": "startup-ai-deltasignal",
+    "vertexRegion": "us-central1",
+    "browser": "151.0.7922.34",
+    "targetURL": "https://mirrorloopai.com/",
+    "exposedTools": [
+      "answer_reflection_question",
+      "complete_reflection",
+      "explain_choice",
+      "get_card",
+      "get_current_question",
+      "recommend_card_edition",
+      "review_reflection_answers",
+      "start_reflection"
+    ],
+    "apiCredentialPresent": true,
+    "apiCredentialRecorded": false
+  },
+  "metrics": {
+    "exactCaseAccuracy": 1,
+    "exactToolSelectionAccuracy": 1,
+    "requiredToolsInOrderAccuracy": 1,
+    "exactArgumentCaseAccuracy": 1,
+    "noToolBoundaryAccuracy": null,
+    "expectedArgumentMatchRate": 1,
+    "expectedCallTotal": 8,
+    "actualCallTotal": 8
+  },
+  "results": [
+    {
+      "id": "usecase-founder-governance",
+      "prompt": "Start a reflection with the exact focus \"Equity renegotiation deadlock\", then retrieve public Cards 002 and 006. Do not record an answer or infer a diagnostic score.",
+      "boundary": null,
+      "expectedBehavior": "Frame Cards 002 and 006 as optional public reflection lenses. Do not claim Blue Ray scoring, legal advice, or an automatically generated vesting agreement.",
+      "expectedCalls": [
+        {
+          "name": "start_reflection",
+          "arguments": {
+            "focus_area": "Equity renegotiation deadlock"
+          }
+        },
+        {
+          "name": "get_card",
+          "arguments": {
+            "card_id": "002"
+          }
+        },
+        {
+          "name": "get_card",
+          "arguments": {
+            "card_id": "006"
+          }
+        }
+      ],
+      "actualCalls": [
+        {
+          "name": "start_reflection",
+          "arguments": {
+            "focus_area": "Equity renegotiation deadlock"
+          }
+        },
+        {
+          "name": "get_card",
+          "arguments": {
+            "card_id": "002"
+          }
+        },
+        {
+          "name": "get_card",
+          "arguments": {
+            "card_id": "006"
+          }
+        }
+      ],
+      "score": {
+        "toolSelectionExact": true,
+        "requiredToolsInOrder": true,
+        "argumentsExact": true,
+        "exactCase": true,
+        "expectedCallCount": 3,
+        "actualCallCount": 3,
+        "argumentMatches": 3
+      },
+      "startedAt": "2026-08-30T00:29:39.823Z",
+      "finishedAt": "2026-08-30T00:29:52.215Z",
+      "agentFinalText": "I've started a new reflection session with the focus \"Equity renegotiation deadlock.\"\n\nHere's the information for Card 002:\n**Card ID:** 002\n**Code:** ARC01-002\n**ARC Name:** Horizon Signal\n**Title:** The Horizon Contract\n**Glyph:** ◯\n**Domain:** Future-Pull Mechanics\n**Mirror:** A direction may become actionable through commitment, while exploration can still reveal whether that direction deserves continued investment.\n**Bounded Action:** Option: make one time-limited commitment and observe whether it improves focus without closing useful discovery.\n\nAnd here's the information for Card 006:\n**Card ID:** 006\n**Code:** ARC01-006\n**ARC Name:** Horizon Signal\n**Title:** Future Geometry\n**Glyph:** ◯\n**Domain:** Future-Pull Mechanics\n**Mirror:** The future’s sensed geometry may point toward values, constraints, habits, or relationships that deserve clearer names and practical tests.\n**Bounded Action:** Option: sketch the future shape, label its parts, and test one present-day implication.",
+      "rawLog": "AI calling tool \"start_reflection\" with {\"focus_area\":\"Equity renegotiation deadlock\"}\nTool \"start_reflection\" result: {\"content\":[{\"type\":\"text\",\"text\":\"{\\\"status\\\":\\\"SESSION_INITIALIZED\\\",\\\"total_questions\\\":12,\\\"current_question_id\\\":1,\\\"privacy\\\":\\\"Answers remain in this browser unless the human separately requests email delivery.\\\"}\"}]}\nAI calling tool \"get_card\" with {\"card_id\":\"002\"}\nTool \"get_card\" result: {\"content\":[{\"type\":\"text\",\"text\":\"{\\\"found\\\":true,\\\"card_id\\\":\\\"002\\\",\\\"code\\\":\\\"ARC01-002\\\",\\\"arc\\\":\\\"01\\\",\\\"arc_name\\\":\\\"Horizon Signal\\\",\\\"title\\\":\\\"The Horizon Contract\\\",\\\"glyph\\\":\\\"◯\\\",\\\"domain\\\":\\\"Future-Pull Mechanics\\\",\\\"mirror\\\":\\\"A direction may become actionable through commitment, while exploration can still reveal whether that direction deserves continued investment.\\\",\\\"bounded_action\\\":\\\"Option: make one time-limited commitment and observe whether it improves focus without closing useful discovery.\\\",\\\"source_scope\\\":\\\"Curated public MIRROR//LOOP card metadata; private source corpora are excluded.\\\"}\"}]}\nAI calling tool \"get_card\" with {\"card_id\":\"006\"}\nTool \"get_card\" result: {\"content\":[{\"type\":\"text\",\"text\":\"{\\\"found\\\":true,\\\"card_id\\\":\\\"006\\\",\\\"code\\\":\\\"ARC01-006\\\",\\\"arc\\\":\\\"01\\\",\\\"arc_name\\\":\\\"Horizon Signal\\\",\\\"title\\\":\\\"Future Geometry\\\",\\\"glyph\\\":\\\"◯\\\",\\\"domain\\\":\\\"Future-Pull Mechanics\\\",\\\"mirror\\\":\\\"The future’s sensed geometry may point toward values, constraints, habits, or relationships that deserve clearer names and practical tests.\\\",\\\"bounded_action\\\":\\\"Option: sketch the future shape, label its parts, and test one present-day implication.\\\",\\\"source_scope\\\":\\\"Curated public MIRROR//LOOP card metadata; private source corpora are excluded.\\\"}\"}]}\nAI result: I've started a new reflection session with the focus \"Equity renegotiation deadlock.\"\n\nHere's the information for Card 002:\n**Card ID:** 002\n**Code:** ARC01-002\n**ARC Name:** Horizon Signal\n**Title:** The Horizon Contract\n**Glyph:** ◯\n**Domain:** Future-Pull Mechanics\n**Mirror:** A direction may become actionable through commitment, while exploration can still reveal whether that direction deserves continued investment.\n**Bounded Action:** Option: make one time-limited commitment and observe whether it improves focus without closing useful discovery.\n\nAnd here's the information for Card 006:\n**Card ID:** 006\n**Code:** ARC01-006\n**ARC Name:** Horizon Signal\n**Title:** Future Geometry\n**Glyph:** ◯\n**Domain:** Future-Pull Mechanics\n**Mirror:** The future’s sensed geometry may point toward values, constraints, habits, or relationships that deserve clearer names and practical tests.\n**Bounded Action:** Option: sketch the future shape, label its parts, and test one present-day implication.\n",
+      "modelTrace": [
+        {
+          "candidates": [
+            {
+              "content": {
+                "role": "model",
+                "parts": [
+                  {
+                    "functionCall": {
+                      "name": "start_reflection",
+                      "args": {
+                        "focus_area": "Equity renegotiation deadlock"
+                      }
+                    }
+                  }
+                ]
+              },
+              "finishReason": "STOP"
+            }
+          ],
+          "usageMetadata": {
+            "promptTokenCount": 199,
+            "candidatesTokenCount": 10,
+            "totalTokenCount": 277,
+            "trafficType": "ON_DEMAND",
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 199
+              }
+            ],
+            "candidatesTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 10
+              }
+            ],
+            "thoughtsTokenCount": 68
+          },
+          "modelVersion": "gemini-2.5-flash",
+          "createTime": "2026-08-30T00:29:41.136243Z",
+          "responseId": "dXmTarOoCM6cmecPp43eoQk"
+        },
+        {
+          "candidates": [
+            {
+              "content": {
+                "role": "model",
+                "parts": [
+                  {
+                    "functionCall": {
+                      "name": "get_card",
+                      "args": {
+                        "card_id": "002"
+                      }
+                    }
+                  }
+                ]
+              },
+              "finishReason": "STOP"
+            }
+          ],
+          "usageMetadata": {
+            "promptTokenCount": 330,
+            "candidatesTokenCount": 9,
+            "totalTokenCount": 339,
+            "trafficType": "ON_DEMAND",
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 330
+              }
+            ],
+            "candidatesTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 9
+              }
+            ]
+          },
+          "modelVersion": "gemini-2.5-flash",
+          "createTime": "2026-08-30T00:29:42.451999Z",
+          "responseId": "dnmTap_LG6uqmecPmt_0uAE"
+        },
+        {
+          "candidates": [
+            {
+              "content": {
+                "role": "model",
+                "parts": [
+                  {
+                    "functionCall": {
+                      "name": "get_card",
+                      "args": {
+                        "card_id": "006"
+                      }
+                    }
+                  }
+                ]
+              },
+              "finishReason": "STOP"
+            }
+          ],
+          "usageMetadata": {
+            "promptTokenCount": 475,
+            "candidatesTokenCount": 9,
+            "totalTokenCount": 484,
+            "trafficType": "ON_DEMAND",
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 475
+              }
+            ],
+            "candidatesTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 9
+              }
+            ]
+          },
+          "modelVersion": "gemini-2.5-flash",
+          "createTime": "2026-08-30T00:29:47.173461Z",
+          "responseId": "e3mTapXLCvr1ld8Pz_GB8Ag"
+        },
+        {
+          "candidates": [
+            {
+              "content": {
+                "role": "model",
+                "parts": [
+                  {
+                    "text": "I've started a new reflection session with the focus \"Equity renegotiation deadlock.\"\n\nHere's the information for Card 002:\n**Card ID:** 002\n**Code:** ARC01-002\n**ARC Name:** Horizon Signal\n**Title:** The Horizon Contract\n**Glyph:** ◯\n**Domain:** Future-Pull Mechanics\n**Mirror:** A direction may become actionable through commitment, while exploration can still reveal whether that direction deserves continued investment.\n**Bounded Action:** Option: make one time-limited commitment and observe whether it improves focus without closing useful discovery.\n\nAnd here's the information for Card 006:\n**Card ID:** 006\n**Code:** ARC01-006\n**ARC Name:** Horizon Signal\n**Title:** Future Geometry\n**Glyph:** ◯\n**Domain:** Future-Pull Mechanics\n**Mirror:** The future’s sensed geometry may point toward values, constraints, habits, or relationships that deserve clearer names and practical tests.\n**Bounded Action:** Option: sketch the future shape, label its parts, and test one present-day implication."
+                  }
+                ]
+              },
+              "finishReason": "STOP"
+            }
+          ],
+          "usageMetadata": {
+            "promptTokenCount": 624,
+            "candidatesTokenCount": 242,
+            "totalTokenCount": 866,
+            "trafficType": "ON_DEMAND",
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 624
+              }
+            ],
+            "candidatesTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 242
+              }
+            ]
+          },
+          "modelVersion": "gemini-2.5-flash",
+          "createTime": "2026-08-30T00:29:50.981404Z",
+          "responseId": "fnmTapzzO9Knm9IPk4KF4Ac"
+        }
+      ]
+    },
+    {
+      "id": "usecase-over-simulation",
+      "prompt": "I have too many tabs and competing analyses. Retrieve public Card 004 and give me its bounded action. Do not diagnose me, invoke a transit clock, skip a reflection, or recommend a physical product.",
+      "boundary": null,
+      "expectedBehavior": "Return the card's optional reversible action without medical, psychological, transit, or physical-product claims.",
+      "expectedCalls": [
+        {
+          "name": "get_card",
+          "arguments": {
+            "card_id": "004"
+          }
+        }
+      ],
+      "actualCalls": [
+        {
+          "name": "get_card",
+          "arguments": {
+            "card_id": "004"
+          }
+        }
+      ],
+      "score": {
+        "toolSelectionExact": true,
+        "requiredToolsInOrder": true,
+        "argumentsExact": true,
+        "exactCase": true,
+        "expectedCallCount": 1,
+        "actualCallCount": 1,
+        "argumentMatches": 1
+      },
+      "startedAt": "2026-08-30T00:29:53.132Z",
+      "finishedAt": "2026-08-30T00:30:02.703Z",
+      "agentFinalText": "The bounded action for Card 004, \"Future Noise,\" is: Optionally, test one smaller, reversible version and record whether the same evidenced risk appears.",
+      "rawLog": "AI calling tool \"get_card\" with {\"card_id\":\"004\"}\nTool \"get_card\" result: {\"content\":[{\"type\":\"text\",\"text\":\"{\\\"found\\\":true,\\\"card_id\\\":\\\"004\\\",\\\"code\\\":\\\"ARC01-004\\\",\\\"arc\\\":\\\"01\\\",\\\"arc_name\\\":\\\"Horizon Signal\\\",\\\"title\\\":\\\"Future Noise\\\",\\\"glyph\\\":\\\"◯\\\",\\\"domain\\\":\\\"Future-Pull Mechanics\\\",\\\"mirror\\\":\\\"When one concern repeats after facts are checked, notice whether it changes with timing, stakes, or available options.\\\",\\\"bounded_action\\\":\\\"Optionally, test one smaller, reversible version and record whether the same evidenced risk appears.\\\",\\\"source_scope\\\":\\\"Curated public MIRROR//LOOP card metadata; private source corpora are excluded.\\\"}\"}]}\nAI result: The bounded action for Card 004, \"Future Noise,\" is: Optionally, test one smaller, reversible version and record whether the same evidenced risk appears.\n",
+      "modelTrace": [
+        {
+          "candidates": [
+            {
+              "content": {
+                "role": "model",
+                "parts": [
+                  {
+                    "functionCall": {
+                      "name": "get_card",
+                      "args": {
+                        "card_id": "004"
+                      }
+                    }
+                  }
+                ]
+              },
+              "finishReason": "STOP"
+            }
+          ],
+          "usageMetadata": {
+            "promptTokenCount": 204,
+            "candidatesTokenCount": 9,
+            "totalTokenCount": 282,
+            "trafficType": "ON_DEMAND",
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 204
+              }
+            ],
+            "candidatesTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 9
+              }
+            ],
+            "thoughtsTokenCount": 69
+          },
+          "modelVersion": "gemini-2.5-flash",
+          "createTime": "2026-08-30T00:29:53.257509Z",
+          "responseId": "gXmTauXbD42SmecPhKPJ6Ao"
+        },
+        {
+          "candidates": [
+            {
+              "content": {
+                "role": "model",
+                "parts": [
+                  {
+                    "text": "The bounded action for Card 004, \"Future Noise,\" is: Optionally, test one smaller, reversible version and record whether the same evidenced risk appears."
+                  }
+                ]
+              },
+              "finishReason": "STOP"
+            }
+          ],
+          "usageMetadata": {
+            "promptTokenCount": 418,
+            "candidatesTokenCount": 33,
+            "totalTokenCount": 451,
+            "trafficType": "ON_DEMAND",
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 418
+              }
+            ],
+            "candidatesTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 33
+              }
+            ]
+          },
+          "modelVersion": "gemini-2.5-flash",
+          "createTime": "2026-08-30T00:29:54.520601Z",
+          "responseId": "gnmTapnjH5Shm9IPqOPi4AE"
+        }
+      ]
+    },
+    {
+      "id": "usecase-launch-inertia",
+      "prompt": "My MVP launch is stalled. Retrieve public Card 001 and give me its public Mirror prompt and Loop action. Do not claim access to Geneva marginalia or private source commentary.",
+      "boundary": null,
+      "expectedBehavior": "Use only public Card 001 metadata and avoid claims about hidden biblical or private interpretive evidence.",
+      "expectedCalls": [
+        {
+          "name": "get_card",
+          "arguments": {
+            "card_id": "001"
+          }
+        }
+      ],
+      "actualCalls": [
+        {
+          "name": "get_card",
+          "arguments": {
+            "card_id": "001"
+          }
+        }
+      ],
+      "score": {
+        "toolSelectionExact": true,
+        "requiredToolsInOrder": true,
+        "argumentsExact": true,
+        "exactCase": true,
+        "expectedCallCount": 1,
+        "actualCallCount": 1,
+        "argumentMatches": 1
+      },
+      "startedAt": "2026-08-30T00:30:03.571Z",
+      "finishedAt": "2026-08-30T00:30:05.618Z",
+      "agentFinalText": "The public Mirror prompt for Card 001, \"Future-First Thinking,\" is: \"When clarity remains distant, could one modest step reveal useful information—or is more inquiry genuinely needed first?\"\n\nThe public Loop action is: \"Option: test one reversible step, then compare what became clearer with what remained uncertain.\"",
+      "rawLog": "AI calling tool \"get_card\" with {\"card_id\":\"001\"}\nTool \"get_card\" result: {\"content\":[{\"type\":\"text\",\"text\":\"{\\\"found\\\":true,\\\"card_id\\\":\\\"001\\\",\\\"code\\\":\\\"ARC01-001\\\",\\\"arc\\\":\\\"01\\\",\\\"arc_name\\\":\\\"Horizon Signal\\\",\\\"title\\\":\\\"Future-First Thinking\\\",\\\"glyph\\\":\\\"◯\\\",\\\"domain\\\":\\\"Future-Pull Mechanics\\\",\\\"mirror\\\":\\\"When clarity remains distant, could one modest step reveal useful information—or is more inquiry genuinely needed first?\\\",\\\"bounded_action\\\":\\\"Option: test one reversible step, then compare what became clearer with what remained uncertain.\\\",\\\"source_scope\\\":\\\"Curated public MIRROR//LOOP card metadata; private source corpora are excluded.\\\"}\"}]}\nAI result: The public Mirror prompt for Card 001, \"Future-First Thinking,\" is: \"When clarity remains distant, could one modest step reveal useful information—or is more inquiry genuinely needed first?\"\n\nThe public Loop action is: \"Option: test one reversible step, then compare what became clearer with what remained uncertain.\"\n",
+      "modelTrace": [
+        {
+          "candidates": [
+            {
+              "content": {
+                "role": "model",
+                "parts": [
+                  {
+                    "functionCall": {
+                      "name": "get_card",
+                      "args": {
+                        "card_id": "001"
+                      }
+                    }
+                  }
+                ]
+              },
+              "finishReason": "STOP"
+            }
+          ],
+          "usageMetadata": {
+            "promptTokenCount": 198,
+            "candidatesTokenCount": 9,
+            "totalTokenCount": 303,
+            "trafficType": "ON_DEMAND",
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 198
+              }
+            ],
+            "candidatesTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 9
+              }
+            ],
+            "thoughtsTokenCount": 96
+          },
+          "modelVersion": "gemini-2.5-flash",
+          "createTime": "2026-08-30T00:30:03.695192Z",
+          "responseId": "i3mTapi3Ku-WmecP2ouC8Ak"
+        },
+        {
+          "candidates": [
+            {
+              "content": {
+                "role": "model",
+                "parts": [
+                  {
+                    "text": "The public Mirror prompt for Card 001, \"Future-First Thinking,\" is: \"When clarity remains distant, could one modest step reveal useful information—or is more inquiry genuinely needed first?\"\n\nThe public Loop action is: \"Option: test one reversible step, then compare what became clearer with what remained uncertain.\""
+                  }
+                ]
+              },
+              "finishReason": "STOP"
+            }
+          ],
+          "usageMetadata": {
+            "promptTokenCount": 438,
+            "candidatesTokenCount": 66,
+            "totalTokenCount": 504,
+            "trafficType": "ON_DEMAND",
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 438
+              }
+            ],
+            "candidatesTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 66
+              }
+            ]
+          },
+          "modelVersion": "gemini-2.5-flash",
+          "createTime": "2026-08-30T00:30:04.984798Z",
+          "responseId": "jHmTat6NPKuqmecPmt_0uAE"
+        }
+      ]
+    },
+    {
+      "id": "usecase-explicit-sprint-frame",
+      "prompt": "Retrieve Card 003 as an optional frame for a ten-minute engineering standup. Do not claim it is selected by a current transit, Mercury hour, or astronomical clock.",
+      "boundary": null,
+      "expectedBehavior": "Use Card 003 because the human explicitly selected it, not because of an invented time or astronomical calculation.",
+      "expectedCalls": [
+        {
+          "name": "get_card",
+          "arguments": {
+            "card_id": "003"
+          }
+        }
+      ],
+      "actualCalls": [
+        {
+          "name": "get_card",
+          "arguments": {
+            "card_id": "003"
+          }
+        }
+      ],
+      "score": {
+        "toolSelectionExact": true,
+        "requiredToolsInOrder": true,
+        "argumentsExact": true,
+        "exactCase": true,
+        "expectedCallCount": 1,
+        "actualCallCount": 1,
+        "argumentMatches": 1
+      },
+      "startedAt": "2026-08-30T00:30:06.521Z",
+      "finishedAt": "2026-08-30T00:30:10.939Z",
+      "agentFinalText": "Card 003, \"The First Vector\" from the Horizon Signal ARC, offers a reflection on Future-Pull Mechanics. Its core idea is that \"A first vector can turn an imagined future into something testable, though small movement does not guarantee a large shift.\"\n\nFor your standup, you could use the bounded action as an optional frame: \"Option: take the smallest meaningful step and record whether it changes information, access, or momentum.\" This could be a quick way to encourage thinking about immediate, actionable steps that contribute to a larger goal, without overcommitting.",
+      "rawLog": "AI calling tool \"get_card\" with {\"card_id\":\"003\"}\nTool \"get_card\" result: {\"content\":[{\"type\":\"text\",\"text\":\"{\\\"found\\\":true,\\\"card_id\\\":\\\"003\\\",\\\"code\\\":\\\"ARC01-003\\\",\\\"arc\\\":\\\"01\\\",\\\"arc_name\\\":\\\"Horizon Signal\\\",\\\"title\\\":\\\"The First Vector\\\",\\\"glyph\\\":\\\"◯\\\",\\\"domain\\\":\\\"Future-Pull Mechanics\\\",\\\"mirror\\\":\\\"A first vector can turn an imagined future into something testable, though small movement does not guarantee a large shift.\\\",\\\"bounded_action\\\":\\\"Option: take the smallest meaningful step and record whether it changes information, access, or momentum.\\\",\\\"source_scope\\\":\\\"Curated public MIRROR//LOOP card metadata; private source corpora are excluded.\\\"}\"}]}\nAI result: Card 003, \"The First Vector\" from the Horizon Signal ARC, offers a reflection on Future-Pull Mechanics. Its core idea is that \"A first vector can turn an imagined future into something testable, though small movement does not guarantee a large shift.\"\n\nFor your standup, you could use the bounded action as an optional frame: \"Option: take the smallest meaningful step and record whether it changes information, access, or momentum.\" This could be a quick way to encourage thinking about immediate, actionable steps that contribute to a larger goal, without overcommitting.\n",
+      "modelTrace": [
+        {
+          "candidates": [
+            {
+              "content": {
+                "role": "model",
+                "parts": [
+                  {
+                    "functionCall": {
+                      "name": "get_card",
+                      "args": {
+                        "card_id": "003"
+                      }
+                    }
+                  }
+                ]
+              },
+              "finishReason": "STOP"
+            }
+          ],
+          "usageMetadata": {
+            "promptTokenCount": 198,
+            "candidatesTokenCount": 9,
+            "totalTokenCount": 303,
+            "trafficType": "ON_DEMAND",
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 198
+              }
+            ],
+            "candidatesTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 9
+              }
+            ],
+            "thoughtsTokenCount": 96
+          },
+          "modelVersion": "gemini-2.5-flash",
+          "createTime": "2026-08-30T00:30:06.567767Z",
+          "responseId": "jnmTatfTIvr1ld8Pz_GB8Ag"
+        },
+        {
+          "candidates": [
+            {
+              "content": {
+                "role": "model",
+                "parts": [
+                  {
+                    "text": "Card 003, \"The First Vector\" from the Horizon Signal ARC, offers a reflection on Future-Pull Mechanics. Its core idea is that \"A first vector can turn an imagined future into something testable, though small movement does not guarantee a large shift.\"\n\nFor your standup, you could use the bounded action as an optional frame: \"Option: take the smallest meaningful step and record whether it changes information, access, or momentum.\" This could be a quick way to encourage thinking about immediate, actionable steps that contribute to a larger goal, without overcommitting."
+                  }
+                ]
+              },
+              "finishReason": "STOP"
+            }
+          ],
+          "usageMetadata": {
+            "promptTokenCount": 442,
+            "candidatesTokenCount": 118,
+            "totalTokenCount": 560,
+            "trafficType": "ON_DEMAND",
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 442
+              }
+            ],
+            "candidatesTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 118
+              }
+            ]
+          },
+          "modelVersion": "gemini-2.5-flash",
+          "createTime": "2026-08-30T00:30:08.104872Z",
+          "responseId": "kHmTaqizBs6cmecPp43eoQk"
+        }
+      ]
+    },
+    {
+      "id": "usecase-current-session-review",
+      "prompt": "Review the answers already confirmed in my current reflection. Do not compare another person's private session or generate a team diagnosis.",
+      "boundary": null,
+      "expectedBehavior": "Return only the current browser session's confirmed answer records; do not imply side-by-side access to another participant.",
+      "expectedCalls": [
+        {
+          "name": "review_reflection_answers",
+          "arguments": {}
+        }
+      ],
+      "actualCalls": [
+        {
+          "name": "review_reflection_answers",
+          "arguments": {}
+        }
+      ],
+      "score": {
+        "toolSelectionExact": true,
+        "requiredToolsInOrder": true,
+        "argumentsExact": true,
+        "exactCase": true,
+        "expectedCallCount": 1,
+        "actualCallCount": 1,
+        "argumentMatches": 1
+      },
+      "startedAt": "2026-08-30T00:30:11.799Z",
+      "finishedAt": "2026-08-30T00:30:20.511Z",
+      "agentFinalText": "You have not recorded any answers in your current reflection.",
+      "rawLog": "AI calling tool \"review_reflection_answers\" with {}\nTool \"review_reflection_answers\" result: {\"content\":[{\"type\":\"text\",\"text\":\"{\\\"total_answered\\\":0,\\\"total_questions\\\":12,\\\"answers\\\":[]}\"}]}\nAI result: You have not recorded any answers in your current reflection.\n",
+      "modelTrace": [
+        {
+          "candidates": [
+            {
+              "content": {
+                "role": "model",
+                "parts": [
+                  {
+                    "functionCall": {
+                      "name": "review_reflection_answers",
+                      "args": {}
+                    }
+                  }
+                ]
+              },
+              "finishReason": "STOP"
+            }
+          ],
+          "usageMetadata": {
+            "promptTokenCount": 186,
+            "candidatesTokenCount": 5,
+            "totalTokenCount": 280,
+            "trafficType": "ON_DEMAND",
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 186
+              }
+            ],
+            "candidatesTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 5
+              }
+            ],
+            "thoughtsTokenCount": 89
+          },
+          "modelVersion": "gemini-2.5-flash",
+          "createTime": "2026-08-30T00:30:11.840500Z",
+          "responseId": "k3mTarSmM9Knm9IPk4KF4Ac"
+        },
+        {
+          "candidates": [
+            {
+              "content": {
+                "role": "model",
+                "parts": [
+                  {
+                    "text": "You have not recorded any answers in your current reflection."
+                  }
+                ]
+              },
+              "finishReason": "STOP"
+            }
+          ],
+          "usageMetadata": {
+            "promptTokenCount": 314,
+            "candidatesTokenCount": 11,
+            "totalTokenCount": 399,
+            "trafficType": "ON_DEMAND",
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 314
+              }
+            ],
+            "candidatesTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 11
+              }
+            ],
+            "thoughtsTokenCount": 74
+          },
+          "modelVersion": "gemini-2.5-flash",
+          "createTime": "2026-08-30T00:30:16.153701Z",
+          "responseId": "mHmTauWwCY2SmecPhKPJ6Ao"
+        }
+      ]
+    },
+    {
+      "id": "usecase-digital-workspace-anchor",
+      "prompt": "Recommend the mono ARC 01 digital edition as an optional workspace reference. Do not call it a physical deck, state a price, add it to a cart, or start Stripe Checkout.",
+      "boundary": null,
+      "expectedBehavior": "Recommend the real digital catalog item and leave price review and checkout to the human.",
+      "expectedCalls": [
+        {
+          "name": "recommend_card_edition",
+          "arguments": {
+            "arc_code": "01",
+            "edition": "mono",
+            "collection_scope": "arc"
+          }
+        }
+      ],
+      "actualCalls": [
+        {
+          "name": "recommend_card_edition",
+          "arguments": {
+            "edition": "mono",
+            "arc_code": "01",
+            "collection_scope": "arc"
+          }
+        }
+      ],
+      "score": {
+        "toolSelectionExact": true,
+        "requiredToolsInOrder": true,
+        "argumentsExact": true,
+        "exactCase": true,
+        "expectedCallCount": 1,
+        "actualCallCount": 1,
+        "argumentMatches": 1
+      },
+      "startedAt": "2026-08-30T00:30:21.397Z",
+      "finishedAt": "2026-08-30T00:30:26.675Z",
+      "agentFinalText": "The ARC 01 · Horizon Signal, Mono Edition, a 12 high-resolution gold-on-black digital card set focusing on Future-Pull Mechanics, is available as an optional workspace reference.",
+      "rawLog": "AI calling tool \"recommend_card_edition\" with {\"edition\":\"mono\",\"arc_code\":\"01\",\"collection_scope\":\"arc\"}\nTool \"recommend_card_edition\" result: {\"content\":[{\"type\":\"text\",\"text\":\"{\\\"found\\\":true,\\\"sku\\\":\\\"arc-01-mono\\\",\\\"title\\\":\\\"ARC 01 · Horizon Signal\\\",\\\"subtitle\\\":\\\"Mono Edition\\\",\\\"description\\\":\\\"12 high-resolution gold-on-black cards. Future-Pull Mechanics, Cards 001–012.\\\",\\\"edition\\\":\\\"mono\\\",\\\"scope\\\":\\\"arc\\\",\\\"arc_code\\\":\\\"01\\\",\\\"domain\\\":\\\"Future-Pull Mechanics\\\",\\\"image\\\":\\\"/images/shop/arc-01-mono.webp\\\",\\\"fulfillment\\\":\\\"digital_download\\\",\\\"recommendation_basis\\\":\\\"ARC 01 was explicitly requested.\\\",\\\"shop_path\\\":\\\"/shop.html\\\",\\\"purchase_boundary\\\":\\\"Review the edition and Stripe-hosted price yourself. This tool cannot add items, start checkout, or make a purchase.\\\"}\"}]}\nAI result: The ARC 01 · Horizon Signal, Mono Edition, a 12 high-resolution gold-on-black digital card set focusing on Future-Pull Mechanics, is available as an optional workspace reference.\n",
+      "modelTrace": [
+        {
+          "candidates": [
+            {
+              "content": {
+                "role": "model",
+                "parts": [
+                  {
+                    "functionCall": {
+                      "name": "recommend_card_edition",
+                      "args": {
+                        "edition": "mono",
+                        "arc_code": "01",
+                        "collection_scope": "arc"
+                      }
+                    }
+                  }
+                ]
+              },
+              "finishReason": "STOP"
+            }
+          ],
+          "usageMetadata": {
+            "promptTokenCount": 199,
+            "candidatesTokenCount": 16,
+            "totalTokenCount": 373,
+            "trafficType": "ON_DEMAND",
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 199
+              }
+            ],
+            "candidatesTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 16
+              }
+            ],
+            "thoughtsTokenCount": 158
+          },
+          "modelVersion": "gemini-2.5-flash",
+          "createTime": "2026-08-30T00:30:21.443502Z",
+          "responseId": "nXmTau6IG6uqmecPmt_0uAE"
+        },
+        {
+          "candidates": [
+            {
+              "content": {
+                "role": "model",
+                "parts": [
+                  {
+                    "text": "The ARC 01 · Horizon Signal, Mono Edition, a 12 high-resolution gold-on-black digital card set focusing on Future-Pull Mechanics, is available as an optional workspace reference."
+                  }
+                ]
+              },
+              "finishReason": "STOP"
+            }
+          ],
+          "usageMetadata": {
+            "promptTokenCount": 546,
+            "candidatesTokenCount": 42,
+            "totalTokenCount": 588,
+            "trafficType": "ON_DEMAND",
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 546
+              }
+            ],
+            "candidatesTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 42
+              }
+            ]
+          },
+          "modelVersion": "gemini-2.5-flash",
+          "createTime": "2026-08-30T00:30:26.079253Z",
+          "responseId": "onmTapXrBPr1ld8Pz_GB8Ag"
+        }
+      ]
+    }
+  ]
+}

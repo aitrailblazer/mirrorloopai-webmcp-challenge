@@ -1,0 +1,115 @@
+{
+  "id": "usecase-explicit-sprint-frame",
+  "prompt": "Retrieve Card 003 as an optional frame for a ten-minute engineering standup. Do not claim it is selected by a current transit, Mercury hour, or astronomical clock.",
+  "boundary": null,
+  "expectedBehavior": "Use Card 003 because the human explicitly selected it, not because of an invented time or astronomical calculation.",
+  "expectedCalls": [
+    {
+      "name": "get_card",
+      "arguments": {
+        "card_id": "003"
+      }
+    }
+  ],
+  "actualCalls": [
+    {
+      "name": "get_card",
+      "arguments": {
+        "card_id": "003"
+      }
+    }
+  ],
+  "score": {
+    "toolSelectionExact": true,
+    "requiredToolsInOrder": true,
+    "argumentsExact": true,
+    "exactCase": true,
+    "expectedCallCount": 1,
+    "actualCallCount": 1,
+    "argumentMatches": 1
+  },
+  "startedAt": "2026-08-30T00:30:06.521Z",
+  "finishedAt": "2026-08-30T00:30:10.939Z",
+  "agentFinalText": "Card 003, \"The First Vector\" from the Horizon Signal ARC, offers a reflection on Future-Pull Mechanics. Its core idea is that \"A first vector can turn an imagined future into something testable, though small movement does not guarantee a large shift.\"\n\nFor your standup, you could use the bounded action as an optional frame: \"Option: take the smallest meaningful step and record whether it changes information, access, or momentum.\" This could be a quick way to encourage thinking about immediate, actionable steps that contribute to a larger goal, without overcommitting.",
+  "rawLog": "AI calling tool \"get_card\" with {\"card_id\":\"003\"}\nTool \"get_card\" result: {\"content\":[{\"type\":\"text\",\"text\":\"{\\\"found\\\":true,\\\"card_id\\\":\\\"003\\\",\\\"code\\\":\\\"ARC01-003\\\",\\\"arc\\\":\\\"01\\\",\\\"arc_name\\\":\\\"Horizon Signal\\\",\\\"title\\\":\\\"The First Vector\\\",\\\"glyph\\\":\\\"◯\\\",\\\"domain\\\":\\\"Future-Pull Mechanics\\\",\\\"mirror\\\":\\\"A first vector can turn an imagined future into something testable, though small movement does not guarantee a large shift.\\\",\\\"bounded_action\\\":\\\"Option: take the smallest meaningful step and record whether it changes information, access, or momentum.\\\",\\\"source_scope\\\":\\\"Curated public MIRROR//LOOP card metadata; private source corpora are excluded.\\\"}\"}]}\nAI result: Card 003, \"The First Vector\" from the Horizon Signal ARC, offers a reflection on Future-Pull Mechanics. Its core idea is that \"A first vector can turn an imagined future into something testable, though small movement does not guarantee a large shift.\"\n\nFor your standup, you could use the bounded action as an optional frame: \"Option: take the smallest meaningful step and record whether it changes information, access, or momentum.\" This could be a quick way to encourage thinking about immediate, actionable steps that contribute to a larger goal, without overcommitting.\n",
+  "modelTrace": [
+    {
+      "candidates": [
+        {
+          "content": {
+            "role": "model",
+            "parts": [
+              {
+                "functionCall": {
+                  "name": "get_card",
+                  "args": {
+                    "card_id": "003"
+                  }
+                }
+              }
+            ]
+          },
+          "finishReason": "STOP"
+        }
+      ],
+      "usageMetadata": {
+        "promptTokenCount": 198,
+        "candidatesTokenCount": 9,
+        "totalTokenCount": 303,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 198
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 9
+          }
+        ],
+        "thoughtsTokenCount": 96
+      },
+      "modelVersion": "gemini-2.5-flash",
+      "createTime": "2026-08-30T00:30:06.567767Z",
+      "responseId": "jnmTatfTIvr1ld8Pz_GB8Ag"
+    },
+    {
+      "candidates": [
+        {
+          "content": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "Card 003, \"The First Vector\" from the Horizon Signal ARC, offers a reflection on Future-Pull Mechanics. Its core idea is that \"A first vector can turn an imagined future into something testable, though small movement does not guarantee a large shift.\"\n\nFor your standup, you could use the bounded action as an optional frame: \"Option: take the smallest meaningful step and record whether it changes information, access, or momentum.\" This could be a quick way to encourage thinking about immediate, actionable steps that contribute to a larger goal, without overcommitting."
+              }
+            ]
+          },
+          "finishReason": "STOP"
+        }
+      ],
+      "usageMetadata": {
+        "promptTokenCount": 442,
+        "candidatesTokenCount": 118,
+        "totalTokenCount": 560,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 442
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 118
+          }
+        ]
+      },
+      "modelVersion": "gemini-2.5-flash",
+      "createTime": "2026-08-30T00:30:08.104872Z",
+      "responseId": "kHmTaqizBs6cmecPp43eoQk"
+    }
+  ]
+}

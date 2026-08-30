@@ -1,0 +1,115 @@
+{
+  "id": "usecase-launch-inertia",
+  "prompt": "My MVP launch is stalled. Retrieve public Card 001 and give me its public Mirror prompt and Loop action. Do not claim access to Geneva marginalia or private source commentary.",
+  "boundary": null,
+  "expectedBehavior": "Use only public Card 001 metadata and avoid claims about hidden biblical or private interpretive evidence.",
+  "expectedCalls": [
+    {
+      "name": "get_card",
+      "arguments": {
+        "card_id": "001"
+      }
+    }
+  ],
+  "actualCalls": [
+    {
+      "name": "get_card",
+      "arguments": {
+        "card_id": "001"
+      }
+    }
+  ],
+  "score": {
+    "toolSelectionExact": true,
+    "requiredToolsInOrder": true,
+    "argumentsExact": true,
+    "exactCase": true,
+    "expectedCallCount": 1,
+    "actualCallCount": 1,
+    "argumentMatches": 1
+  },
+  "startedAt": "2026-08-30T00:30:03.571Z",
+  "finishedAt": "2026-08-30T00:30:05.618Z",
+  "agentFinalText": "The public Mirror prompt for Card 001, \"Future-First Thinking,\" is: \"When clarity remains distant, could one modest step reveal useful information—or is more inquiry genuinely needed first?\"\n\nThe public Loop action is: \"Option: test one reversible step, then compare what became clearer with what remained uncertain.\"",
+  "rawLog": "AI calling tool \"get_card\" with {\"card_id\":\"001\"}\nTool \"get_card\" result: {\"content\":[{\"type\":\"text\",\"text\":\"{\\\"found\\\":true,\\\"card_id\\\":\\\"001\\\",\\\"code\\\":\\\"ARC01-001\\\",\\\"arc\\\":\\\"01\\\",\\\"arc_name\\\":\\\"Horizon Signal\\\",\\\"title\\\":\\\"Future-First Thinking\\\",\\\"glyph\\\":\\\"◯\\\",\\\"domain\\\":\\\"Future-Pull Mechanics\\\",\\\"mirror\\\":\\\"When clarity remains distant, could one modest step reveal useful information—or is more inquiry genuinely needed first?\\\",\\\"bounded_action\\\":\\\"Option: test one reversible step, then compare what became clearer with what remained uncertain.\\\",\\\"source_scope\\\":\\\"Curated public MIRROR//LOOP card metadata; private source corpora are excluded.\\\"}\"}]}\nAI result: The public Mirror prompt for Card 001, \"Future-First Thinking,\" is: \"When clarity remains distant, could one modest step reveal useful information—or is more inquiry genuinely needed first?\"\n\nThe public Loop action is: \"Option: test one reversible step, then compare what became clearer with what remained uncertain.\"\n",
+  "modelTrace": [
+    {
+      "candidates": [
+        {
+          "content": {
+            "role": "model",
+            "parts": [
+              {
+                "functionCall": {
+                  "name": "get_card",
+                  "args": {
+                    "card_id": "001"
+                  }
+                }
+              }
+            ]
+          },
+          "finishReason": "STOP"
+        }
+      ],
+      "usageMetadata": {
+        "promptTokenCount": 198,
+        "candidatesTokenCount": 9,
+        "totalTokenCount": 303,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 198
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 9
+          }
+        ],
+        "thoughtsTokenCount": 96
+      },
+      "modelVersion": "gemini-2.5-flash",
+      "createTime": "2026-08-30T00:30:03.695192Z",
+      "responseId": "i3mTapi3Ku-WmecP2ouC8Ak"
+    },
+    {
+      "candidates": [
+        {
+          "content": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "The public Mirror prompt for Card 001, \"Future-First Thinking,\" is: \"When clarity remains distant, could one modest step reveal useful information—or is more inquiry genuinely needed first?\"\n\nThe public Loop action is: \"Option: test one reversible step, then compare what became clearer with what remained uncertain.\""
+              }
+            ]
+          },
+          "finishReason": "STOP"
+        }
+      ],
+      "usageMetadata": {
+        "promptTokenCount": 438,
+        "candidatesTokenCount": 66,
+        "totalTokenCount": 504,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 438
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 66
+          }
+        ]
+      },
+      "modelVersion": "gemini-2.5-flash",
+      "createTime": "2026-08-30T00:30:04.984798Z",
+      "responseId": "jHmTat6NPKuqmecPmt_0uAE"
+    }
+  ]
+}

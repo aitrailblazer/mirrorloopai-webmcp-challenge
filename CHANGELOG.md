@@ -1,5 +1,23 @@
 # Changelog
 
+## 2026-08-29 — Six operational WebMCP use cases
+
+- Reconciled six proposed founder, operator, launch, sprint, team, and
+  workspace scenarios against the live eight-tool contract.
+- Preserved the practical dilemmas while removing invented transit-clock,
+  Blue Ray, forced-completion, private Geneva, multi-user comparison,
+  physical-deck, fixed-price, cart, and payment claims.
+- Corrected Card 006 from the proposed “Fracture Path” label to its public
+  title, `Future Geometry`, and routed card interpretation through `get_card`
+  rather than `explain_choice`.
+- Added a frozen six-case operational corpus and ran it through Gemini 2.5
+  Flash using the production-discovered WebMCP contracts and WebMCP Inspector
+  execution path.
+- Recorded 6/6 exact cases, 8/8 exact calls, complete argument agreement, and
+  zero invented tool calls.
+- Added `WEBMCP_OPERATIONAL_USE_CASES.html` with the corrected, reproducible
+  workflows, evidence boundaries, live results, and embedded XML contract.
+
 ## 2026-08-29 — Campaign claim reconciliation
 
 - Audited the proposed WebMCP master post and four-post thread against the

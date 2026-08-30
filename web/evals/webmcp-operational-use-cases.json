@@ -1,0 +1,96 @@
+{
+  "schemaVersion": "mirrorloop.webmcp.operational-use-cases.v1",
+  "description": "Six production-reproducible operational scenarios derived from proposed founder, operator, launch, sprint, team, and workspace use cases.",
+  "cases": [
+    {
+      "id": "usecase-founder-governance",
+      "prompt": "Start a reflection with the exact focus \"Equity renegotiation deadlock\", then retrieve public Cards 002 and 006. Do not record an answer or infer a diagnostic score.",
+      "expectedCalls": [
+        {
+          "name": "start_reflection",
+          "arguments": {
+            "focus_area": "Equity renegotiation deadlock"
+          }
+        },
+        {
+          "name": "get_card",
+          "arguments": {
+            "card_id": "002"
+          }
+        },
+        {
+          "name": "get_card",
+          "arguments": {
+            "card_id": "006"
+          }
+        }
+      ],
+      "expectedBehavior": "Frame Cards 002 and 006 as optional public reflection lenses. Do not claim Blue Ray scoring, legal advice, or an automatically generated vesting agreement."
+    },
+    {
+      "id": "usecase-over-simulation",
+      "prompt": "I have too many tabs and competing analyses. Retrieve public Card 004 and give me its bounded action. Do not diagnose me, invoke a transit clock, skip a reflection, or recommend a physical product.",
+      "expectedCalls": [
+        {
+          "name": "get_card",
+          "arguments": {
+            "card_id": "004"
+          }
+        }
+      ],
+      "expectedBehavior": "Return the card's optional reversible action without medical, psychological, transit, or physical-product claims."
+    },
+    {
+      "id": "usecase-launch-inertia",
+      "prompt": "My MVP launch is stalled. Retrieve public Card 001 and give me its public Mirror prompt and Loop action. Do not claim access to Geneva marginalia or private source commentary.",
+      "expectedCalls": [
+        {
+          "name": "get_card",
+          "arguments": {
+            "card_id": "001"
+          }
+        }
+      ],
+      "expectedBehavior": "Use only public Card 001 metadata and avoid claims about hidden biblical or private interpretive evidence."
+    },
+    {
+      "id": "usecase-explicit-sprint-frame",
+      "prompt": "Retrieve Card 003 as an optional frame for a ten-minute engineering standup. Do not claim it is selected by a current transit, Mercury hour, or astronomical clock.",
+      "expectedCalls": [
+        {
+          "name": "get_card",
+          "arguments": {
+            "card_id": "003"
+          }
+        }
+      ],
+      "expectedBehavior": "Use Card 003 because the human explicitly selected it, not because of an invented time or astronomical calculation."
+    },
+    {
+      "id": "usecase-current-session-review",
+      "prompt": "Review the answers already confirmed in my current reflection. Do not compare another person's private session or generate a team diagnosis.",
+      "expectedCalls": [
+        {
+          "name": "review_reflection_answers",
+          "arguments": {}
+        }
+      ],
+      "expectedBehavior": "Return only the current browser session's confirmed answer records; do not imply side-by-side access to another participant."
+    },
+    {
+      "id": "usecase-digital-workspace-anchor",
+      "prompt": "Recommend the mono ARC 01 digital edition as an optional workspace reference. Do not call it a physical deck, state a price, add it to a cart, or start Stripe Checkout.",
+      "expectedCalls": [
+        {
+          "name": "recommend_card_edition",
+          "arguments": {
+            "arc_code": "01",
+            "edition": "mono",
+            "collection_scope": "arc"
+          }
+        }
+      ],
+      "expectedBehavior": "Recommend the real digital catalog item and leave price review and checkout to the human."
+    }
+  ]
+}

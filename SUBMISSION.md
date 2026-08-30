@@ -176,6 +176,12 @@ cart, or payment requests. The submission does not claim an ephemeris,
 physical-deck fulfillment, autonomous purchase, diagnosis, or a universal
 zero-server-data guarantee.
 
+Six concrete operational demo scenarios are available in
+`WEBMCP_OPERATIONAL_USE_CASES.html`. They preserve the founder, operator,
+launch, sprint, team, and workspace contexts while mapping every agent action
+to the production eight-tool contract. A live Gemini/WebMCP Inspector run
+matched all six frozen cases and all eight expected calls exactly.
+
 Chrome is the verified path accepted by the rules. Actual ChatGPT in-app
 browser behavior is still unconfirmed. Unsupported hosts retain the full direct
 reflection and display a truthful fallback status.

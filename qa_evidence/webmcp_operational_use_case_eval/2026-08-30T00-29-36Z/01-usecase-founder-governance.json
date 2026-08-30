@@ -1,0 +1,221 @@
+{
+  "id": "usecase-founder-governance",
+  "prompt": "Start a reflection with the exact focus \"Equity renegotiation deadlock\", then retrieve public Cards 002 and 006. Do not record an answer or infer a diagnostic score.",
+  "boundary": null,
+  "expectedBehavior": "Frame Cards 002 and 006 as optional public reflection lenses. Do not claim Blue Ray scoring, legal advice, or an automatically generated vesting agreement.",
+  "expectedCalls": [
+    {
+      "name": "start_reflection",
+      "arguments": {
+        "focus_area": "Equity renegotiation deadlock"
+      }
+    },
+    {
+      "name": "get_card",
+      "arguments": {
+        "card_id": "002"
+      }
+    },
+    {
+      "name": "get_card",
+      "arguments": {
+        "card_id": "006"
+      }
+    }
+  ],
+  "actualCalls": [
+    {
+      "name": "start_reflection",
+      "arguments": {
+        "focus_area": "Equity renegotiation deadlock"
+      }
+    },
+    {
+      "name": "get_card",
+      "arguments": {
+        "card_id": "002"
+      }
+    },
+    {
+      "name": "get_card",
+      "arguments": {
+        "card_id": "006"
+      }
+    }
+  ],
+  "score": {
+    "toolSelectionExact": true,
+    "requiredToolsInOrder": true,
+    "argumentsExact": true,
+    "exactCase": true,
+    "expectedCallCount": 3,
+    "actualCallCount": 3,
+    "argumentMatches": 3
+  },
+  "startedAt": "2026-08-30T00:29:39.823Z",
+  "finishedAt": "2026-08-30T00:29:52.215Z",
+  "agentFinalText": "I've started a new reflection session with the focus \"Equity renegotiation deadlock.\"\n\nHere's the information for Card 002:\n**Card ID:** 002\n**Code:** ARC01-002\n**ARC Name:** Horizon Signal\n**Title:** The Horizon Contract\n**Glyph:** ◯\n**Domain:** Future-Pull Mechanics\n**Mirror:** A direction may become actionable through commitment, while exploration can still reveal whether that direction deserves continued investment.\n**Bounded Action:** Option: make one time-limited commitment and observe whether it improves focus without closing useful discovery.\n\nAnd here's the information for Card 006:\n**Card ID:** 006\n**Code:** ARC01-006\n**ARC Name:** Horizon Signal\n**Title:** Future Geometry\n**Glyph:** ◯\n**Domain:** Future-Pull Mechanics\n**Mirror:** The future’s sensed geometry may point toward values, constraints, habits, or relationships that deserve clearer names and practical tests.\n**Bounded Action:** Option: sketch the future shape, label its parts, and test one present-day implication.",
+  "rawLog": "AI calling tool \"start_reflection\" with {\"focus_area\":\"Equity renegotiation deadlock\"}\nTool \"start_reflection\" result: {\"content\":[{\"type\":\"text\",\"text\":\"{\\\"status\\\":\\\"SESSION_INITIALIZED\\\",\\\"total_questions\\\":12,\\\"current_question_id\\\":1,\\\"privacy\\\":\\\"Answers remain in this browser unless the human separately requests email delivery.\\\"}\"}]}\nAI calling tool \"get_card\" with {\"card_id\":\"002\"}\nTool \"get_card\" result: {\"content\":[{\"type\":\"text\",\"text\":\"{\\\"found\\\":true,\\\"card_id\\\":\\\"002\\\",\\\"code\\\":\\\"ARC01-002\\\",\\\"arc\\\":\\\"01\\\",\\\"arc_name\\\":\\\"Horizon Signal\\\",\\\"title\\\":\\\"The Horizon Contract\\\",\\\"glyph\\\":\\\"◯\\\",\\\"domain\\\":\\\"Future-Pull Mechanics\\\",\\\"mirror\\\":\\\"A direction may become actionable through commitment, while exploration can still reveal whether that direction deserves continued investment.\\\",\\\"bounded_action\\\":\\\"Option: make one time-limited commitment and observe whether it improves focus without closing useful discovery.\\\",\\\"source_scope\\\":\\\"Curated public MIRROR//LOOP card metadata; private source corpora are excluded.\\\"}\"}]}\nAI calling tool \"get_card\" with {\"card_id\":\"006\"}\nTool \"get_card\" result: {\"content\":[{\"type\":\"text\",\"text\":\"{\\\"found\\\":true,\\\"card_id\\\":\\\"006\\\",\\\"code\\\":\\\"ARC01-006\\\",\\\"arc\\\":\\\"01\\\",\\\"arc_name\\\":\\\"Horizon Signal\\\",\\\"title\\\":\\\"Future Geometry\\\",\\\"glyph\\\":\\\"◯\\\",\\\"domain\\\":\\\"Future-Pull Mechanics\\\",\\\"mirror\\\":\\\"The future’s sensed geometry may point toward values, constraints, habits, or relationships that deserve clearer names and practical tests.\\\",\\\"bounded_action\\\":\\\"Option: sketch the future shape, label its parts, and test one present-day implication.\\\",\\\"source_scope\\\":\\\"Curated public MIRROR//LOOP card metadata; private source corpora are excluded.\\\"}\"}]}\nAI result: I've started a new reflection session with the focus \"Equity renegotiation deadlock.\"\n\nHere's the information for Card 002:\n**Card ID:** 002\n**Code:** ARC01-002\n**ARC Name:** Horizon Signal\n**Title:** The Horizon Contract\n**Glyph:** ◯\n**Domain:** Future-Pull Mechanics\n**Mirror:** A direction may become actionable through commitment, while exploration can still reveal whether that direction deserves continued investment.\n**Bounded Action:** Option: make one time-limited commitment and observe whether it improves focus without closing useful discovery.\n\nAnd here's the information for Card 006:\n**Card ID:** 006\n**Code:** ARC01-006\n**ARC Name:** Horizon Signal\n**Title:** Future Geometry\n**Glyph:** ◯\n**Domain:** Future-Pull Mechanics\n**Mirror:** The future’s sensed geometry may point toward values, constraints, habits, or relationships that deserve clearer names and practical tests.\n**Bounded Action:** Option: sketch the future shape, label its parts, and test one present-day implication.\n",
+  "modelTrace": [
+    {
+      "candidates": [
+        {
+          "content": {
+            "role": "model",
+            "parts": [
+              {
+                "functionCall": {
+                  "name": "start_reflection",
+                  "args": {
+                    "focus_area": "Equity renegotiation deadlock"
+                  }
+                }
+              }
+            ]
+          },
+          "finishReason": "STOP"
+        }
+      ],
+      "usageMetadata": {
+        "promptTokenCount": 199,
+        "candidatesTokenCount": 10,
+        "totalTokenCount": 277,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 199
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 10
+          }
+        ],
+        "thoughtsTokenCount": 68
+      },
+      "modelVersion": "gemini-2.5-flash",
+      "createTime": "2026-08-30T00:29:41.136243Z",
+      "responseId": "dXmTarOoCM6cmecPp43eoQk"
+    },
+    {
+      "candidates": [
+        {
+          "content": {
+            "role": "model",
+            "parts": [
+              {
+                "functionCall": {
+                  "name": "get_card",
+                  "args": {
+                    "card_id": "002"
+                  }
+                }
+              }
+            ]
+          },
+          "finishReason": "STOP"
+        }
+      ],
+      "usageMetadata": {
+        "promptTokenCount": 330,
+        "candidatesTokenCount": 9,
+        "totalTokenCount": 339,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 330
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 9
+          }
+        ]
+      },
+      "modelVersion": "gemini-2.5-flash",
+      "createTime": "2026-08-30T00:29:42.451999Z",
+      "responseId": "dnmTap_LG6uqmecPmt_0uAE"
+    },
+    {
+      "candidates": [
+        {
+          "content": {
+            "role": "model",
+            "parts": [
+              {
+                "functionCall": {
+                  "name": "get_card",
+                  "args": {
+                    "card_id": "006"
+                  }
+                }
+              }
+            ]
+          },
+          "finishReason": "STOP"
+        }
+      ],
+      "usageMetadata": {
+        "promptTokenCount": 475,
+        "candidatesTokenCount": 9,
+        "totalTokenCount": 484,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 475
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 9
+          }
+        ]
+      },
+      "modelVersion": "gemini-2.5-flash",
+      "createTime": "2026-08-30T00:29:47.173461Z",
+      "responseId": "e3mTapXLCvr1ld8Pz_GB8Ag"
+    },
+    {
+      "candidates": [
+        {
+          "content": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "I've started a new reflection session with the focus \"Equity renegotiation deadlock.\"\n\nHere's the information for Card 002:\n**Card ID:** 002\n**Code:** ARC01-002\n**ARC Name:** Horizon Signal\n**Title:** The Horizon Contract\n**Glyph:** ◯\n**Domain:** Future-Pull Mechanics\n**Mirror:** A direction may become actionable through commitment, while exploration can still reveal whether that direction deserves continued investment.\n**Bounded Action:** Option: make one time-limited commitment and observe whether it improves focus without closing useful discovery.\n\nAnd here's the information for Card 006:\n**Card ID:** 006\n**Code:** ARC01-006\n**ARC Name:** Horizon Signal\n**Title:** Future Geometry\n**Glyph:** ◯\n**Domain:** Future-Pull Mechanics\n**Mirror:** The future’s sensed geometry may point toward values, constraints, habits, or relationships that deserve clearer names and practical tests.\n**Bounded Action:** Option: sketch the future shape, label its parts, and test one present-day implication."
+              }
+            ]
+          },
+          "finishReason": "STOP"
+        }
+      ],
+      "usageMetadata": {
+        "promptTokenCount": 624,
+        "candidatesTokenCount": 242,
+        "totalTokenCount": 866,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 624
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 242
+          }
+        ]
+      },
+      "modelVersion": "gemini-2.5-flash",
+      "createTime": "2026-08-30T00:29:50.981404Z",
+      "responseId": "fnmTapzzO9Knm9IPk4KF4Ac"
+    }
+  ]
+}

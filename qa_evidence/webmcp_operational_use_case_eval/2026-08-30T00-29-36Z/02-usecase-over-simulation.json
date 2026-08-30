@@ -1,0 +1,115 @@
+{
+  "id": "usecase-over-simulation",
+  "prompt": "I have too many tabs and competing analyses. Retrieve public Card 004 and give me its bounded action. Do not diagnose me, invoke a transit clock, skip a reflection, or recommend a physical product.",
+  "boundary": null,
+  "expectedBehavior": "Return the card's optional reversible action without medical, psychological, transit, or physical-product claims.",
+  "expectedCalls": [
+    {
+      "name": "get_card",
+      "arguments": {
+        "card_id": "004"
+      }
+    }
+  ],
+  "actualCalls": [
+    {
+      "name": "get_card",
+      "arguments": {
+        "card_id": "004"
+      }
+    }
+  ],
+  "score": {
+    "toolSelectionExact": true,
+    "requiredToolsInOrder": true,
+    "argumentsExact": true,
+    "exactCase": true,
+    "expectedCallCount": 1,
+    "actualCallCount": 1,
+    "argumentMatches": 1
+  },
+  "startedAt": "2026-08-30T00:29:53.132Z",
+  "finishedAt": "2026-08-30T00:30:02.703Z",
+  "agentFinalText": "The bounded action for Card 004, \"Future Noise,\" is: Optionally, test one smaller, reversible version and record whether the same evidenced risk appears.",
+  "rawLog": "AI calling tool \"get_card\" with {\"card_id\":\"004\"}\nTool \"get_card\" result: {\"content\":[{\"type\":\"text\",\"text\":\"{\\\"found\\\":true,\\\"card_id\\\":\\\"004\\\",\\\"code\\\":\\\"ARC01-004\\\",\\\"arc\\\":\\\"01\\\",\\\"arc_name\\\":\\\"Horizon Signal\\\",\\\"title\\\":\\\"Future Noise\\\",\\\"glyph\\\":\\\"◯\\\",\\\"domain\\\":\\\"Future-Pull Mechanics\\\",\\\"mirror\\\":\\\"When one concern repeats after facts are checked, notice whether it changes with timing, stakes, or available options.\\\",\\\"bounded_action\\\":\\\"Optionally, test one smaller, reversible version and record whether the same evidenced risk appears.\\\",\\\"source_scope\\\":\\\"Curated public MIRROR//LOOP card metadata; private source corpora are excluded.\\\"}\"}]}\nAI result: The bounded action for Card 004, \"Future Noise,\" is: Optionally, test one smaller, reversible version and record whether the same evidenced risk appears.\n",
+  "modelTrace": [
+    {
+      "candidates": [
+        {
+          "content": {
+            "role": "model",
+            "parts": [
+              {
+                "functionCall": {
+                  "name": "get_card",
+                  "args": {
+                    "card_id": "004"
+                  }
+                }
+              }
+            ]
+          },
+          "finishReason": "STOP"
+        }
+      ],
+      "usageMetadata": {
+        "promptTokenCount": 204,
+        "candidatesTokenCount": 9,
+        "totalTokenCount": 282,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 204
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 9
+          }
+        ],
+        "thoughtsTokenCount": 69
+      },
+      "modelVersion": "gemini-2.5-flash",
+      "createTime": "2026-08-30T00:29:53.257509Z",
+      "responseId": "gXmTauXbD42SmecPhKPJ6Ao"
+    },
+    {
+      "candidates": [
+        {
+          "content": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "The bounded action for Card 004, \"Future Noise,\" is: Optionally, test one smaller, reversible version and record whether the same evidenced risk appears."
+              }
+            ]
+          },
+          "finishReason": "STOP"
+        }
+      ],
+      "usageMetadata": {
+        "promptTokenCount": 418,
+        "candidatesTokenCount": 33,
+        "totalTokenCount": 451,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 418
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 33
+          }
+        ]
+      },
+      "modelVersion": "gemini-2.5-flash",
+      "createTime": "2026-08-30T00:29:54.520601Z",
+      "responseId": "gnmTapnjH5Shm9IPqOPi4AE"
+    }
+  ]
+}
