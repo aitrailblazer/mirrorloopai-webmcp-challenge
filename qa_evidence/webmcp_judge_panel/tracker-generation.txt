@@ -1,0 +1,9 @@
+Inspect result written to file: /Users/constantinevassilev02/MyLocalDocuments/go-projects/SyntheonArchive/GENI/mirrorloopai-webmcp-challenge/feature_status_tracker.xlsx.inspect.ndjson
+{
+  "outputPath": "/Users/constantinevassilev02/MyLocalDocuments/go-projects/SyntheonArchive/GENI/mirrorloopai-webmcp-challenge/feature_status_tracker.xlsx",
+  "previewDir": "/tmp/mirrorloop-feature-tracker-preview",
+  "dashboardSummary": "{\"kind\":\"table\",\"sheet\":\"Dashboard\",\"address\":\"A3:E9\",\"rows\":7,\"cols\":5,\"values\":[[\"Metric\",\"Value\",null,\"Severity\",\"Open Count\"],[\"Tracked Features\",80,null,\"Critical\",4],[\"Current Verified\",56,null,\"High\",1],[\"Failed Test\",1,null,\"Medium\",0],[\"Fix In Progress\",0,null,\"Low\",0],[\"Fixed\",19,null,\"Needs Product Decision\",1],[\"Final Verified\",75,null,\"Rows With Commit Hash\",48]]}",
+  "formulaErrors": "{\"kind\":\"notice\",\"message\":\"Cell search matched 0 entries.\"}"
+}
+/Users/constantinevassilev02/MyLocalDocuments/go-projects/SyntheonArchive/GENI/mirrorloopai-webmcp-challenge/feature_status_tracker.html
+/Users/constantinevassilev02/MyLocalDocuments/go-projects/SyntheonArchive/GENI/mirrorloopai-webmcp-challenge/feature_qa_report.md
