@@ -1,0 +1,32 @@
+$ curl production invalid confirmation page
+status=400
+HTTP/2 400 
+cache-control: no-store
+content-security-policy: default-src 'none'; style-src 'unsafe-inline'; form-action 'self'; base-uri 'none'; frame-ancestors 'none'
+content-type: text/html; charset=utf-8
+referrer-policy: no-referrer
+server: Google Frontend
+x-cloud-trace-context: 2792d5563784ea7195ccd1afc8a2b20b;o=1
+x-content-type-options: nosniff
+accept-ranges: bytes
+date: Sun, 30 Aug 2026 06:48:31 GMT
+x-served-by: cache-pdx12322-PDX
+x-cache: MISS
+x-cache-hits: 0
+x-timer: S1788072511.996839,VS0,VE95
+vary: x-fh-requested-host, accept-encoding
+alt-svc: h3=":443";ma=86400,h3-29=":443";ma=86400,h3-27=":443";ma=86400
+content-length: 4298
+
+
+8:  <title>This link is no longer active — MIRROR//LOOP</title>
+23:    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}.button:hover{transform:none}}
+28:    <header><a class="brand" href="/" aria-label="MIRROR LOOP home">MIRROR<span>//</span>LOOP</a><span>Reflection tools for clearer choices.</span></header>
+33:        <h1 id="page-title">This link is no longer active</h1>
+34:        <p class="lede">The confirmation link is invalid or has expired. Request a new reflection from the quiz to continue.</p>
+37:        <p class="footnote">No subscription was activated.</p>
+38:        <a class="secondary" href="/">Return to MIRROR//LOOP</a>
+41:    <footer><a class="brand" href="/">MIRROR<span>//</span>LOOP</a><span>Private by design. Human confirmation required.</span></footer>
+
+$ current Cloud Run revision
+mirrorloopai-subscriber-00012-pwz	
