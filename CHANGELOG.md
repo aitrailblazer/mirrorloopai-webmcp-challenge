@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-08-30 — Valid confirmation-page production evidence
+
+- Recorded a user-supplied production screenshot of a valid confirmation link.
+- Confirmed that the live page now renders the MIRROR//LOOP dark-violet and gold design, readable consent consequences, primary confirmation action, and safe return path.
+- Preserved the screenshot without the email URL or confirmation token.
+
 ## 2026-08-30 — Automated quiz-email lifecycle test
 
 - Completed all 12 production quiz questions in Chrome and verified the
