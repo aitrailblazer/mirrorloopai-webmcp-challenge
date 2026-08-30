@@ -108,9 +108,9 @@ eight-tool readiness badge, production browser verification, conversion link
 from result to the matching ARC, agent discovery metadata, and this submission
 audit/package.
 
-Timestamped evidence begins with commit `b9dddec` on August 29, 2026. The
-edition recommendation was added in `2e58ce9`, the broader audited experience
-in `9740b57`, and the visible readiness badge in `592c08a`.
+Timestamped evidence begins with commit `ba15276` on August 29, 2026. The
+edition recommendation was added in `8ec0a6f`, the broader audited experience
+in `b1b5bc3`, and the visible readiness badge in `828ee7a`.
 
 ## Local setup
 

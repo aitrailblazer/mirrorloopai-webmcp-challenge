@@ -119,10 +119,10 @@ Meaningful WebMCP work was added after the challenge began:
 
 | Commit | Date | Challenge-period work |
 | --- | --- | --- |
-| `b9dddec` | 2026-08-29 | Seven secure reflection and card tools |
-| `2e58ce9` | 2026-08-29 | Eighth read-only edition recommendation tool |
-| `9740b57` | 2026-08-29 | Revision flow, conversion path, metadata, and audited fixes |
-| `592c08a` | 2026-08-29 | Immediately visible `WebMCP ready · 8 tools` badge |
+| `ba15276` | 2026-08-29 | Seven secure reflection and card tools |
+| `8ec0a6f` | 2026-08-29 | Eighth read-only edition recommendation tool |
+| `b1b5bc3` | 2026-08-29 | Revision flow, conversion path, metadata, and audited fixes |
+| `828ee7a` | 2026-08-29 | Immediately visible `WebMCP ready · 8 tools` badge |
 
 The repository history is the timestamped source of truth. The competition
 entry claims only these documented extensions as challenge-period work.

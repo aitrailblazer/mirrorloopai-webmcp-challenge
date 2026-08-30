@@ -46,7 +46,7 @@ const checks = [
     "Creativity & Ambition",
   ].every((criterion) => submission.includes(criterion))],
   ["Submission demo plan", submission.includes("target 2:35") && submission.includes("under three minutes")],
-  ["Submission challenge-period commits", ["b9dddec", "2e58ce9", "9740b57", "592c08a"].every((hash) => submission.includes(hash))],
+  ["Submission challenge-period commits", ["ba15276", "8ec0a6f", "b1b5bc3", "828ee7a"].every((hash) => submission.includes(hash))],
   ["Submission freeze plan", submission.includes("Judging-window release freeze") && submission.includes("webmcp-challenge-submission")],
   ["Third-party service inventory", ["Google Cloud", "Cloudflare Turnstile", "Resend", "Stripe"].every((name) => notices.includes(name))],
   ["Top-level MIT license", license.includes("MIT License")],

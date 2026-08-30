@@ -1,0 +1,19 @@
+MIRROR//LOOP — Private Repository History Sanitization
+
+Date: 2026-08-30
+Scope: every commit and reachable blob in the private competition repository.
+
+Redactions applied:
+- Cloud billing-account identifier -> REDACTED-BILLING-ACCOUNT
+- Synthetic E2E participant address -> redacted-e2e-participant@example.invalid
+
+Safety controls:
+- A complete pre-rewrite Git bundle was created outside the repository before mutation.
+- The two original values are absent from every reachable post-rewrite blob.
+- The current tree and complete reachable history contain no recognized Stripe secret-key, Resend key, Google API key, GitHub token, or private-key signature.
+- Public support/contact email addresses remain intentionally present.
+- Commit references in the current README, submission package, tracker, generated report source, validation script, and current QA evidence were remapped to the rewritten commit identities.
+
+Boundary:
+- GitHub visibility remains PRIVATE.
+- Publication is a separate operator action.

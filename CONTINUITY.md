@@ -50,12 +50,12 @@ Done:
 - Published the initial snapshot to `https://github.com/aitrailblazer/mirrorloopai-webmcp-challenge`.
 - Registered seven same-origin WebMCP tools with strict schemas and explicit human confirmation for answer mutation.
 - Verified a complete 12-question agent-driven flow and Card 144 lookup in Chrome through a CDP model-context test harness.
-- Pushed implementation commit `b9dddec` to the private GitHub repository.
+- Pushed implementation commit `ba15276` to the private GitHub repository.
 - Reconciled revised specification `94e4b6df95c3d288486bba1f8ad2e97c78612e9290c42cfc841f794815d8a067` to the actual digital catalog and Stripe boundary.
 - Added and browser-tested `recommend_card_edition`; Chrome registered eight tools, returned ARC 12 Full-Color and Mono Insight recommendations, rejected missing ARC context, and exposed no price or direct Stripe URL.
-- Committed and pushed the reconciliation as `2e58ce9`.
+- Committed and pushed the reconciliation as `8ec0a6f`.
 - Completed discovery and test plans for all 56 user-visible stories before changing behavior.
-- Fixed the six documented failures in implementation commit `9740b57`.
+- Fixed the six documented failures in implementation commit `b1b5bc3`.
 - Verified local Node, Go, security, responsive browser, 12-question direct, eight-tool WebMCP, confirmed-revision, matching-ARC, and cart flows.
 - Deployed Firebase Hosting and verified the public origin, security headers, API health, Chrome-native WebMCP registration status, and Stripe Checkout handoff.
 - Added the reference-style WebMCP header badge, verified desktop and 390 px mobile layouts without horizontal overflow, and confirmed the direct-use fallback.
@@ -67,7 +67,7 @@ Done:
 - Hardened asynchronous registration so false-ready state is impossible after a rejected browser registration promise.
 - Enforced documented contract/output budgets and added a 15-case expected-call corpus covering all eight tools, ordering, ambiguity, and forbidden email/cart/payment actions.
 - Updated README and submission instructions to the current Chrome DevTools Application → WebMCP workflow.
-- Committed the resource-driven implementation as `2d84634`, deployed it to Firebase Hosting, and verified the production bundle plus native eight-tool registration in isolated Chrome.
+- Committed the resource-driven implementation as `fcde886`, deployed it to Firebase Hosting, and verified the production bundle plus native eight-tool registration in isolated Chrome.
 
 Now:
 - The September 3 deadline preflight is recorded in all tracker views. Local Node, Go, site, WebMCP corpus, and submission-package gates pass.
@@ -116,5 +116,5 @@ Working set (files/ids/commands):
 - `qa_evidence/feature-audit-2026-08-30/commands/webmcp-resources-link-audit.json`
 - `qa_evidence/feature-audit-2026-08-30/commands/webmcp-resources-final-gates.txt`
 - `qa_evidence/feature-audit-2026-08-30/browser/production-webmcp-resource-audit-isolated.json`
-- Implementation commit `2d84634`
-- Audit/evidence commit `4ec5121`
+- Implementation commit `fcde886`
+- Audit/evidence commit `aee0332`

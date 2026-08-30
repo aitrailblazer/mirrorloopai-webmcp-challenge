@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-08-30 — Private history sanitization
+
+- Created an external full-history recovery bundle before rewriting the competition repository.
+- Redacted the cloud billing-account identifier and synthetic E2E participant address from every reachable commit and blob.
+- Repaired current submission, README, validation, tracker, report-source, continuity, and QA references to use the rewritten commit identities.
+- Re-ran complete-history credential-signature checks; no recognized Stripe, Resend, Google, GitHub, or private-key signatures were detected.
+- Kept GitHub visibility private pending the separate publication action.
+
 ## 2026-08-30 — Deadline eligibility preflight
 
 - Converted the official September 3, 1:00 PM PT reminder into a tracker-backed submission preflight without retaining tracking links or recipient data.
