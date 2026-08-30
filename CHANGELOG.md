@@ -1,5 +1,24 @@
 # Changelog
 
+## 2026-08-30 — Provisional answer-impact WebMCP preview
+
+- Added the read-only `preview_answer_impact` tool so a participant can inspect
+  how one hypothetical answer would affect a completed reflection before
+  deciding whether to revise it.
+- Reused the canonical deterministic scorer and stable tie-break logic; the
+  preview clones the 12-answer array, returns only aggregate current/projected
+  pattern data and a sparse frequency delta, and never saves the hypothetical
+  choice.
+- Required a complete reflection, a valid question-specific choice, and a
+  choice different from the recorded answer; malformed or incomplete requests
+  fail before the application adapter runs.
+- Updated the Agent State HUD, manifests, evaluation corpora, judge artifacts,
+  demo plan, and public discovery text from nine to ten tools.
+- Added unit and desktop/mobile browser coverage proving that saved answers and
+  the visible result remain unchanged. Deployed the ten-tool release to
+  Firebase Hosting and repeated the complete production flow at
+  `mirrorloopai.com`.
+
 ## 2026-08-30 — Socratic two-choice WebMCP contrast
 
 - Added the read-only `compare_choices` WebMCP tool so an agent can contrast

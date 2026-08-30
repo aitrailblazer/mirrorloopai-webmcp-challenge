@@ -1,0 +1,10 @@
+checked_at_utc=2026-08-30T21:49:49Z
+200 https://mirrorloopai.com/ bytes=10402
+200 https://mirrorloopai.com/app.js?v=20260830-10 bytes=25231
+200 https://mirrorloopai.com/lib/webmcp.js?v=20260830-7 bytes=19254
+200 https://mirrorloopai.com/llms.txt bytes=1140
+  <script type="module" src="/app.js?v=20260830-10"></script>
+  "preview_answer_impact",
+    case "preview_answer_impact":
+      name: "preview_answer_impact",
+- preview_answer_impact

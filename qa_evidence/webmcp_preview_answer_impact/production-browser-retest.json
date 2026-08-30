@@ -1,0 +1,398 @@
+{
+  "baseURL": "https://mirrorloopai.com",
+  "desktopPreview": {
+    "comparison": {
+      "before": {
+        "progress": "Question 1 of 12",
+        "selected": 0
+      },
+      "after": {
+        "progress": "Question 1 of 12",
+        "selected": 0
+      },
+      "payload": {
+        "question_id": 1,
+        "prompt": "When you feel stuck, what do you try to regain first?",
+        "choice_a": {
+          "code": "01",
+          "label": "A destination to move toward",
+          "lens": "Horizon Signal",
+          "focus": "Finding direction",
+          "plain_language_meaning": "You naturally look for a direction worth moving toward."
+        },
+        "choice_b": {
+          "code": "06",
+          "label": "One clean fork chosen",
+          "lens": "Fracture Path",
+          "focus": "Decisions under pressure",
+          "plain_language_meaning": "You regain movement by choosing a clear fork and committing to it."
+        },
+        "operational_contrast": "Horizon Signal centers on “A destination to move toward” through finding direction; Fracture Path centers on “One clean fork chosen” through decisions under pressure. Notice which describes your first instinct in this situation—not which sounds better.",
+        "boundary": "This comparison does not rank, select, or record either choice.",
+        "selection_status": "NEITHER_SELECTED"
+      }
+    },
+    "preview": {
+      "before": {
+        "total_answered": 12,
+        "total_questions": 12,
+        "answers": [
+          {
+            "question_id": 1,
+            "choice_code": "01"
+          },
+          {
+            "question_id": 2,
+            "choice_code": "01"
+          },
+          {
+            "question_id": 3,
+            "choice_code": "01"
+          },
+          {
+            "question_id": 4,
+            "choice_code": "01"
+          },
+          {
+            "question_id": 5,
+            "choice_code": "01"
+          },
+          {
+            "question_id": 6,
+            "choice_code": "01"
+          },
+          {
+            "question_id": 7,
+            "choice_code": "08"
+          },
+          {
+            "question_id": 8,
+            "choice_code": "08"
+          },
+          {
+            "question_id": 9,
+            "choice_code": "08"
+          },
+          {
+            "question_id": 10,
+            "choice_code": "08"
+          },
+          {
+            "question_id": 11,
+            "choice_code": "08"
+          },
+          {
+            "question_id": 12,
+            "choice_code": "02"
+          }
+        ]
+      },
+      "after": {
+        "total_answered": 12,
+        "total_questions": 12,
+        "answers": [
+          {
+            "question_id": 1,
+            "choice_code": "01"
+          },
+          {
+            "question_id": 2,
+            "choice_code": "01"
+          },
+          {
+            "question_id": 3,
+            "choice_code": "01"
+          },
+          {
+            "question_id": 4,
+            "choice_code": "01"
+          },
+          {
+            "question_id": 5,
+            "choice_code": "01"
+          },
+          {
+            "question_id": 6,
+            "choice_code": "01"
+          },
+          {
+            "question_id": 7,
+            "choice_code": "08"
+          },
+          {
+            "question_id": 8,
+            "choice_code": "08"
+          },
+          {
+            "question_id": 9,
+            "choice_code": "08"
+          },
+          {
+            "question_id": 10,
+            "choice_code": "08"
+          },
+          {
+            "question_id": 11,
+            "choice_code": "08"
+          },
+          {
+            "question_id": 12,
+            "choice_code": "02"
+          }
+        ]
+      },
+      "visibleBefore": {
+        "resultHidden": false,
+        "resultText": "\n        Your current response pattern\n        ◯\n        Horizon Signal\n        Finding direction\n        You naturally look for a direction worth moving toward.\n        This response appeared 6 times across your 12 choices.\n        \n          Also present in your answers\n          Phantom Contract\n          You look for the unspoken expectation or agreement shaping the moment. It appeared 5 times.\n        \n        \n          Try this today\n          Name the next visible horizon. What is one step that points toward it?\n        \n        This is a reflective snapshot based on 12 choices. It is not a diagnosis, prediction, or fixed identity.\n\n        \n          Continue with this pattern\n          Explore the matching 12-card ARC\n          See the Mono and Full-Color digital editions connected to your current response pattern. Buying is optional, and Stripe shows the price before payment.\n          Explore ARC 01 · Horizon Signal\n        \n\n        \n          Keep your reflection\n          Send the result to your inbox\n          We will send a confirmation link first. Your subscription begins only after you confirm.\n          \n            Email address\n            \n            \n              Website\n              \n            \n            \n              \n              Email me this reflection and occasional MIRROR//LOOP updates. I understand my email and quiz selections are processed to generate and deliver my result, including diagnostic review if automated delivery needs help. I can unsubscribe at any time.\n            \n            \n            Email my reflection\n            \n            The subscriber database stores your email and compact result—not the 12 individual answers. Your selections may be reviewed only to diagnose or complete a result when automated delivery needs help. See our privacy notice.\n          \n        \n        Review or change my answers\n        Start over with blank answers\n      "
+      },
+      "visibleAfter": {
+        "resultHidden": false,
+        "resultText": "\n        Your current response pattern\n        ◯\n        Horizon Signal\n        Finding direction\n        You naturally look for a direction worth moving toward.\n        This response appeared 6 times across your 12 choices.\n        \n          Also present in your answers\n          Phantom Contract\n          You look for the unspoken expectation or agreement shaping the moment. It appeared 5 times.\n        \n        \n          Try this today\n          Name the next visible horizon. What is one step that points toward it?\n        \n        This is a reflective snapshot based on 12 choices. It is not a diagnosis, prediction, or fixed identity.\n\n        \n          Continue with this pattern\n          Explore the matching 12-card ARC\n          See the Mono and Full-Color digital editions connected to your current response pattern. Buying is optional, and Stripe shows the price before payment.\n          Explore ARC 01 · Horizon Signal\n        \n\n        \n          Keep your reflection\n          Send the result to your inbox\n          We will send a confirmation link first. Your subscription begins only after you confirm.\n          \n            Email address\n            \n            \n              Website\n              \n            \n            \n              \n              Email me this reflection and occasional MIRROR//LOOP updates. I understand my email and quiz selections are processed to generate and deliver my result, including diagnostic review if automated delivery needs help. I can unsubscribe at any time.\n            \n            \n            Email my reflection\n            \n            The subscriber database stores your email and compact result—not the 12 individual answers. Your selections may be reviewed only to diagnose or complete a result when automated delivery needs help. See our privacy notice.\n          \n        \n        Review or change my answers\n        Start over with blank answers\n      "
+      },
+      "payload": {
+        "status": "PROVISIONAL_PREVIEW",
+        "question_id": 4,
+        "current_choice": {
+          "code": "01",
+          "name": "Horizon Signal"
+        },
+        "hypothetical_choice": {
+          "code": "08",
+          "name": "Phantom Contract"
+        },
+        "current_dominant": {
+          "code": "01",
+          "name": "Horizon Signal",
+          "frequency": 6
+        },
+        "projected_dominant": {
+          "code": "08",
+          "name": "Phantom Contract",
+          "frequency": 6
+        },
+        "dominant_changed": true,
+        "frequency_delta": {
+          "01": -1,
+          "08": 1
+        },
+        "boundary": "This preview does not save, select, or revise any answer."
+      }
+    }
+  },
+  "desktop": {
+    "phase": "10 TOOLS MOUNTED",
+    "activeTool": "preview_answer_impact",
+    "safeInput": "question id: 4 · hypothetical choice: 08",
+    "confirmation": "NOT REQUIRED",
+    "confirmationState": "neutral",
+    "duration": "0.1 ms observed",
+    "events": [
+      "DONEpreview_answer_impact · Completed",
+      "STARTpreview_answer_impact",
+      "DONEreview_reflection_answers · Completed",
+      "STARTreview_reflection_answers",
+      "DONEpreview_answer_impact · Completed"
+    ],
+    "privateFocusVisible": false,
+    "position": "fixed",
+    "horizontalOverflow": false
+  },
+  "mobilePreview": {
+    "comparison": {
+      "before": {
+        "progress": "Question 1 of 12",
+        "selected": 0
+      },
+      "after": {
+        "progress": "Question 1 of 12",
+        "selected": 0
+      },
+      "payload": {
+        "question_id": 1,
+        "prompt": "When you feel stuck, what do you try to regain first?",
+        "choice_a": {
+          "code": "01",
+          "label": "A destination to move toward",
+          "lens": "Horizon Signal",
+          "focus": "Finding direction",
+          "plain_language_meaning": "You naturally look for a direction worth moving toward."
+        },
+        "choice_b": {
+          "code": "06",
+          "label": "One clean fork chosen",
+          "lens": "Fracture Path",
+          "focus": "Decisions under pressure",
+          "plain_language_meaning": "You regain movement by choosing a clear fork and committing to it."
+        },
+        "operational_contrast": "Horizon Signal centers on “A destination to move toward” through finding direction; Fracture Path centers on “One clean fork chosen” through decisions under pressure. Notice which describes your first instinct in this situation—not which sounds better.",
+        "boundary": "This comparison does not rank, select, or record either choice.",
+        "selection_status": "NEITHER_SELECTED"
+      }
+    },
+    "preview": {
+      "before": {
+        "total_answered": 12,
+        "total_questions": 12,
+        "answers": [
+          {
+            "question_id": 1,
+            "choice_code": "01"
+          },
+          {
+            "question_id": 2,
+            "choice_code": "01"
+          },
+          {
+            "question_id": 3,
+            "choice_code": "01"
+          },
+          {
+            "question_id": 4,
+            "choice_code": "01"
+          },
+          {
+            "question_id": 5,
+            "choice_code": "01"
+          },
+          {
+            "question_id": 6,
+            "choice_code": "01"
+          },
+          {
+            "question_id": 7,
+            "choice_code": "08"
+          },
+          {
+            "question_id": 8,
+            "choice_code": "08"
+          },
+          {
+            "question_id": 9,
+            "choice_code": "08"
+          },
+          {
+            "question_id": 10,
+            "choice_code": "08"
+          },
+          {
+            "question_id": 11,
+            "choice_code": "08"
+          },
+          {
+            "question_id": 12,
+            "choice_code": "02"
+          }
+        ]
+      },
+      "after": {
+        "total_answered": 12,
+        "total_questions": 12,
+        "answers": [
+          {
+            "question_id": 1,
+            "choice_code": "01"
+          },
+          {
+            "question_id": 2,
+            "choice_code": "01"
+          },
+          {
+            "question_id": 3,
+            "choice_code": "01"
+          },
+          {
+            "question_id": 4,
+            "choice_code": "01"
+          },
+          {
+            "question_id": 5,
+            "choice_code": "01"
+          },
+          {
+            "question_id": 6,
+            "choice_code": "01"
+          },
+          {
+            "question_id": 7,
+            "choice_code": "08"
+          },
+          {
+            "question_id": 8,
+            "choice_code": "08"
+          },
+          {
+            "question_id": 9,
+            "choice_code": "08"
+          },
+          {
+            "question_id": 10,
+            "choice_code": "08"
+          },
+          {
+            "question_id": 11,
+            "choice_code": "08"
+          },
+          {
+            "question_id": 12,
+            "choice_code": "02"
+          }
+        ]
+      },
+      "visibleBefore": {
+        "resultHidden": false,
+        "resultText": "\n        Your current response pattern\n        ◯\n        Horizon Signal\n        Finding direction\n        You naturally look for a direction worth moving toward.\n        This response appeared 6 times across your 12 choices.\n        \n          Also present in your answers\n          Phantom Contract\n          You look for the unspoken expectation or agreement shaping the moment. It appeared 5 times.\n        \n        \n          Try this today\n          Name the next visible horizon. What is one step that points toward it?\n        \n        This is a reflective snapshot based on 12 choices. It is not a diagnosis, prediction, or fixed identity.\n\n        \n          Continue with this pattern\n          Explore the matching 12-card ARC\n          See the Mono and Full-Color digital editions connected to your current response pattern. Buying is optional, and Stripe shows the price before payment.\n          Explore ARC 01 · Horizon Signal\n        \n\n        \n          Keep your reflection\n          Send the result to your inbox\n          We will send a confirmation link first. Your subscription begins only after you confirm.\n          \n            Email address\n            \n            \n              Website\n              \n            \n            \n              \n              Email me this reflection and occasional MIRROR//LOOP updates. I understand my email and quiz selections are processed to generate and deliver my result, including diagnostic review if automated delivery needs help. I can unsubscribe at any time.\n            \n            \n            Email my reflection\n            \n            The subscriber database stores your email and compact result—not the 12 individual answers. Your selections may be reviewed only to diagnose or complete a result when automated delivery needs help. See our privacy notice.\n          \n        \n        Review or change my answers\n        Start over with blank answers\n      "
+      },
+      "visibleAfter": {
+        "resultHidden": false,
+        "resultText": "\n        Your current response pattern\n        ◯\n        Horizon Signal\n        Finding direction\n        You naturally look for a direction worth moving toward.\n        This response appeared 6 times across your 12 choices.\n        \n          Also present in your answers\n          Phantom Contract\n          You look for the unspoken expectation or agreement shaping the moment. It appeared 5 times.\n        \n        \n          Try this today\n          Name the next visible horizon. What is one step that points toward it?\n        \n        This is a reflective snapshot based on 12 choices. It is not a diagnosis, prediction, or fixed identity.\n\n        \n          Continue with this pattern\n          Explore the matching 12-card ARC\n          See the Mono and Full-Color digital editions connected to your current response pattern. Buying is optional, and Stripe shows the price before payment.\n          Explore ARC 01 · Horizon Signal\n        \n\n        \n          Keep your reflection\n          Send the result to your inbox\n          We will send a confirmation link first. Your subscription begins only after you confirm.\n          \n            Email address\n            \n            \n              Website\n              \n            \n            \n              \n              Email me this reflection and occasional MIRROR//LOOP updates. I understand my email and quiz selections are processed to generate and deliver my result, including diagnostic review if automated delivery needs help. I can unsubscribe at any time.\n            \n            \n            Email my reflection\n            \n            The subscriber database stores your email and compact result—not the 12 individual answers. Your selections may be reviewed only to diagnose or complete a result when automated delivery needs help. See our privacy notice.\n          \n        \n        Review or change my answers\n        Start over with blank answers\n      "
+      },
+      "payload": {
+        "status": "PROVISIONAL_PREVIEW",
+        "question_id": 4,
+        "current_choice": {
+          "code": "01",
+          "name": "Horizon Signal"
+        },
+        "hypothetical_choice": {
+          "code": "08",
+          "name": "Phantom Contract"
+        },
+        "current_dominant": {
+          "code": "01",
+          "name": "Horizon Signal",
+          "frequency": 6
+        },
+        "projected_dominant": {
+          "code": "08",
+          "name": "Phantom Contract",
+          "frequency": 6
+        },
+        "dominant_changed": true,
+        "frequency_delta": {
+          "01": -1,
+          "08": 1
+        },
+        "boundary": "This preview does not save, select, or revise any answer."
+      }
+    }
+  },
+  "mobile": {
+    "phase": "10 TOOLS MOUNTED",
+    "activeTool": "preview_answer_impact",
+    "safeInput": "question id: 4 · hypothetical choice: 08",
+    "confirmation": "NOT REQUIRED",
+    "confirmationState": "neutral",
+    "duration": "0.0 ms observed",
+    "events": [
+      "DONEpreview_answer_impact · Completed",
+      "STARTpreview_answer_impact",
+      "DONEreview_reflection_answers · Completed",
+      "STARTreview_reflection_answers",
+      "DONEpreview_answer_impact · Completed"
+    ],
+    "privateFocusVisible": false,
+    "position": "relative",
+    "horizontalOverflow": false
+  },
+  "status": "PASS"
+}

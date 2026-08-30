@@ -32,8 +32,10 @@ State:
   `sequence-orient-before-answer` oracle expects an answer mutation before
   explicit confirmation, while the agent correctly stopped and requested
   confirmation.
-- The reviewed nine-tool release remains the deployed baseline while the
-  tracker-backed ten-tool release is under local verification.
+- The reviewed ten-tool release is deployed on `mirrorloopai.com`; desktop and
+  mobile production browser checks completed 12 answers, invoked
+  `preview_answer_impact`, and preserved both saved answers and the visible
+  result.
 - Follow-up story `WM-013` retains its failed baseline and now has local, responsive, fallback, deployment, and native-production evidence.
 - The local submission package, judge narrative, demo script, public/private work disclosure, criterion map, third-party notice, and freeze plan pass deterministic validation.
 - The official reminder fixes the deadline at September 3, 2026, 1:00 PM PT.
@@ -45,9 +47,9 @@ State:
 - The six-point verified-core scope is canonical in README, submission copy, and the demo artifact. Its no-cloud claim applies only to deterministic browser scoring.
 - `WM-014` is verified: the deployed page now exposes a collapsible Agent State rail driven by privacy-filtered registration, tool-start, and tool-complete lifecycle events. It shows observed local duration and explicit answer confirmation without exposing private focus text or tool results.
 - `WM-015` is verified: `compare_choices` returns a neutral, public-data-only contrast for two choices and explicitly leaves both unselected.
-- `WM-016` is in implementation: `preview_answer_impact` simulates one changed
-  answer only after all 12 are complete, returns aggregate score differences,
-  and does not save the hypothetical answer.
+- `WM-016` is verified: `preview_answer_impact` simulates one changed answer
+  only after all 12 are complete, returns aggregate score differences, and
+  does not save the hypothetical answer.
 
 Done:
 - Added and browser-rendered the evidence-bounded 2:35 WebMCP demo shot list; HTML, embedded XML, exact tool inventory, timing, authority boundaries, and submission-package assertions pass.
@@ -83,7 +85,8 @@ Done:
 - Committed the resource-driven implementation as `fcde886`, deployed it to Firebase Hosting, and verified the production bundle plus native eight-tool registration in isolated Chrome.
 
 Now:
-- Deploy and verify the ten-tool release, then complete the external submission gates and refresh the host-agent corpus when practical.
+- Complete the external submission gates and refresh the host-agent corpus
+  against the ten-tool release when practical.
 
 Next:
 - Record and publish the under-three-minute YouTube demo using that artifact.
