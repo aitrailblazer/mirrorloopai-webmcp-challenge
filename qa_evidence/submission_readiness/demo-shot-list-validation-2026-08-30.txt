@@ -1,0 +1,9 @@
+PASS HTMLParser feed
+PASS exactly one embedded XML contract
+PASS xmllint
+PASS all eight production tools present
+PASS 155-second target and 180-second maximum
+PASS confirmation and publication boundaries present
+PASS browser render via http://127.0.0.1:8766/WEBMCP_DEMO_SHOT_LIST.html
+PASS responsive visual surface rendered all timeline, boundary, publication, acceptance, and XML sections
+NOTE browser reported only a missing optional resource (favicon); document rendering completed

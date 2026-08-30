@@ -37,7 +37,8 @@ State:
 - The official reminder fixes the deadline at September 3, 2026, 1:00 PM PT.
 - Repository publication, Devpost project creation, public video upload, operator attestations, conditional teammate acceptance, and final submission remain explicit operator actions.
 - Authenticated GitHub reports the competition repository PRIVATE and anonymous API access returns 404. The sanitized rewritten main branch has been force-pushed and synchronized with origin/main.
-- A current-and-history signature scan found no common credentials, but unnecessary billing-account metadata and a synthetic E2E participant alias remain in tracked history and need a publication decision.
+- The private repository history has been rewritten and pushed after removing the unnecessary billing-account metadata and synthetic E2E participant alias; current local and remote main are synchronized.
+- The proposed “winning architecture” attachment is evidence material only. Its P2P, astronomical-engine, physical-product, x402, zero-egress, sub-20KB, 60fps, and judge-preference claims are excluded from submission copy because they are not implemented or measured in this repository.
 
 Done:
 - Executed the production-discovered eight-tool WebMCP contract through an
@@ -70,21 +71,20 @@ Done:
 - Committed the resource-driven implementation as `fcde886`, deployed it to Firebase Hosting, and verified the production bundle plus native eight-tool registration in isolated Chrome.
 
 Now:
-- The September 3 deadline preflight is recorded in all tracker views. Local Node, Go, site, WebMCP corpus, and submission-package gates pass.
+- Build a self-contained StrategiX HTML recording shot list from the verified eight-tool production contract, then update SUB-005, generated tracker views, the QA report, and the changelog.
 
 Next:
-- Decide whether to sanitize/rewrite the private repository history or explicitly accept the identified operational metadata before publication.
+- Validate and commit the evidence-bounded demo-preparation artifact.
+- Record and publish the under-three-minute YouTube demo using that artifact.
 - Change the GitHub repository to public and verify anonymous access plus MIT detection.
-- Record and publish the under-three-minute YouTube demo.
 - Create the Devpost project, paste the prepared package, resolve solo-versus-team attribution, complete attestations, and submit before September 3, 2026 at 1:00 PM PT.
 
 Open questions (UNCONFIRMED if needed):
-- UNCONFIRMED: Final competition title and submission copy.
+- UNCONFIRMED: Final operator approval of the prepared competition title and submission copy.
 - UNCONFIRMED: Whether a separate screenshot of the Chrome WebMCP Inspector extension panel is desired in addition to the verified browser-native registration status.
 - UNCONFIRMED: Entrant eligibility and authority to grant the required competition license/rights.
 - UNCONFIRMED: Public YouTube demo URL.
 - UNCONFIRMED: Whether this is a solo entry or teammate invitations must be sent and accepted.
-- UNCONFIRMED: Whether to rewrite publication history to remove unnecessary operational identifiers or explicitly accept their disclosure.
 - UNCONFIRMED: Actual ChatGPT in-app-browser WebMCP availability; connected Chrome is already verified and satisfies the rules' alternative browser path.
 
 Working set (files/ids/commands):
@@ -107,6 +107,7 @@ Working set (files/ids/commands):
 - `WM-013`
 - `SUB-001` through `SUB-012`
 - `SUBMISSION.md`
+- `WEBMCP_DEMO_SHOT_LIST.html`
 - `RESOURCE_REVIEW.html`
 - `THIRD_PARTY_NOTICES.md`
 - `npm run validate:submission`

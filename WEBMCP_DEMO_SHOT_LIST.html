@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MIRROR//LOOP — WebMCP Demo Shot List</title>
+  <meta name="description" content="Evidence-bounded 2:35 recording plan for the MIRROR//LOOP WebMCP Challenge demo.">
+  <style>
+    html { background:#070a12; color:#f6f0e2; font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; line-height:1.5; }
+    body { margin:0; min-height:100vh; }
+    demo-shot-list:not(:defined) { display:block; width:min(1180px,calc(100% - 32px)); margin:auto; padding:40px 0; }
+  </style>
+</head>
+<body>
+  <demo-shot-list></demo-shot-list>
+
+  <script id="strategix-contract" type="application/xml">
+<StrategiXVisualSpec version="1.0" artifact="mirrorloop-webmcp-demo-shot-list" generatedAt="2026-08-30" status="recording-ready">
+  <CanonicalArtifact>
+    <Path>WEBMCP_DEMO_SHOT_LIST.html</Path>
+    <Owner>MIRROR//LOOP</Owner>
+    <Duration target="155" maximum="180" unit="seconds"/>
+  </CanonicalArtifact>
+  <Purpose>Provide a second-by-second recording contract that demonstrates only deployed, reproducible MIRROR//LOOP WebMCP behavior.</Purpose>
+  <ProductContract>
+    <LiveOrigin>https://mirrorloopai.com/</LiveOrigin>
+    <ToolCount>8</ToolCount>
+    <Tools>start_reflection,get_current_question,explain_choice,answer_reflection_question,review_reflection_answers,complete_reflection,get_card,recommend_card_edition</Tools>
+    <HumanAuthority>Answers require confirmed_by_user true. Email, cart mutation, Checkout creation, and payment remain human actions.</HumanAuthority>
+    <CatalogBoundary>Edition recommendations are read-only, digital, and price-free.</CatalogBoundary>
+  </ProductContract>
+  <Workflow>
+    <Beat start="0:00" end="0:12" tool="none">Open the live origin and show WebMCP ready · 8 tools.</Beat>
+    <Beat start="0:12" end="0:28" tool="none">Open DevTools Application WebMCP and show all eight registered tools.</Beat>
+    <Beat start="0:28" end="0:48" tool="start_reflection,get_current_question">Start the visible reflection and retrieve its current question.</Beat>
+    <Beat start="0:48" end="1:08" tool="explain_choice">Explain one choice in plain language without selecting it.</Beat>
+    <Beat start="1:08" end="1:28" tool="answer_reflection_question">Show rejection when confirmed_by_user is false, then confirm and advance visibly.</Beat>
+    <Beat start="1:28" end="1:48" tool="review_reflection_answers,answer_reflection_question">Review and revise one earlier confirmed answer.</Beat>
+    <Beat start="1:48" end="2:05" tool="complete_reflection">Use the prepared eleven-answer recording state, confirm the twelfth answer, and complete deterministic scoring.</Beat>
+    <Beat start="2:05" end="2:20" tool="get_card">Retrieve Card 004 and show its public prompt and bounded action.</Beat>
+    <Beat start="2:20" end="2:30" tool="recommend_card_edition">Recommend a matching digital edition without returning price or checkout authority.</Beat>
+    <Beat start="2:30" end="2:35" tool="none">Close on the human authority boundary and public evidence links.</Beat>
+  </Workflow>
+  <DataOrAPIContract>
+    <InputBoundary>Use only non-sensitive demonstration text and enumerated tool arguments.</InputBoundary>
+    <OutputBoundary>Do not show email addresses, tokens, payment details, secret dashboards, or private corpora.</OutputBoundary>
+    <BrowserState>The demonstrated reflection state is ephemeral browser state.</BrowserState>
+  </DataOrAPIContract>
+  <Diagrams>
+    <Diagram id="authority-flow">Human intent to WebMCP tool to visible page state, with email, cart, Checkout, and payment outside agent authority.</Diagram>
+  </Diagrams>
+  <AcceptanceCriteria>
+    <Criterion>The final public YouTube video is shorter than three minutes.</Criterion>
+    <Criterion>The recording has audible narration and accurate captions.</Criterion>
+    <Criterion>The live page visibly reports WebMCP ready · 8 tools.</Criterion>
+    <Criterion>DevTools displays exactly the eight production tools without schema errors.</Criterion>
+    <Criterion>The unconfirmed answer is rejected and the confirmed answer visibly advances the page.</Criterion>
+    <Criterion>No unsupported P2P, astronomy, physical fulfillment, x402, zero-egress, bundle-size, frame-rate, or judge-preference claim appears.</Criterion>
+    <Criterion>The public site, source repository, and video open from a signed-out browser before submission.</Criterion>
+  </AcceptanceCriteria>
+  <DecisionLog>
+    <Decision date="2026-08-30">Use the verified eight-tool production contract as the complete demo scope.</Decision>
+    <Decision date="2026-08-30">Keep proposed P2P, transit-clock, physical-deck, and autonomous-payment concepts out of the submitted build and recording.</Decision>
+    <Decision date="2026-08-30">Demonstrate a deliberate rejected mutation because the human-confirmation boundary is more distinctive than an uninterrupted happy path.</Decision>
+  </DecisionLog>
+  <RisksAndOpenQuestions>
+    <Risk>Public YouTube upload, captions, playback, and final duration remain operator actions.</Risk>
+    <Risk>WebMCP availability is browser-session dependent; verify Chrome and the Application WebMCP panel immediately before recording.</Risk>
+    <Risk>A prepared eleven-answer state must not imply that the agent chose the answers; narration must state that the choices were previously confirmed by the demonstrator.</Risk>
+  </RisksAndOpenQuestions>
+  <SourceDigest>
+    <Source path="SUBMISSION.md">Copy-ready project description and initial 2:35 storyboard.</Source>
+    <Source path="web/lib/webmcp.js">Eight production tool definitions and authority boundaries.</Source>
+    <Source path="WEBMCP_COMPETITION_HARDENING_AUDIT.html">Claim ledger and competition evidence boundary.</Source>
+    <Source path="WEBMCP_AGENT_EVAL_REPORT.html">Preserved live-agent evaluation results.</Source>
+    <Source path="feature_status_tracker.csv" feature="SUB-005">Canonical demo readiness story.</Source>
+  </SourceDigest>
+  <ImplementationNotes>
+    <Note>Record at 1920 by 1080 or higher and keep the cursor slow enough to follow.</Note>
+    <Note>Prepare the eleven-answer state before recording the completion segment to stay under three minutes.</Note>
+    <Note>Pause after each tool call so the visible page response can be read.</Note>
+  </ImplementationNotes>
+</StrategiXVisualSpec>
+  </script>
+
+  <script type="module">
+    import { LitElement, html, css } from "https://unpkg.com/lit@3/index.js?module";
+
+    const shots = [
+      { time:"0:00–0:12", tool:"Opening", visual:"Open https://mirrorloopai.com/ in the verified Chrome build. Frame the hero and the “WebMCP ready · 8 tools” badge.", voice:"MIRROR//LOOP turns a 12-question reflection and 144 public cards into a bounded collaboration between a person and an AI agent.", proof:"Live origin and visible readiness badge." },
+      { time:"0:12–0:28", tool:"Chrome DevTools", visual:"Open Application → WebMCP. Pan down the Available Tools list so all eight names are visible.", voice:"The page registers eight typed browser tools. They operate the same visible experience I can use directly.", proof:"Exactly eight registered production tools; no schema errors." },
+      { time:"0:28–0:48", tool:"start_reflection · get_current_question", visual:"Run start_reflection, then get_current_question. Show the quiz open and the first question in both the tool result and page.", voice:"The agent can orient the session and read the current question without scraping controls or replacing the page.", proof:"Tool output and visible question agree." },
+      { time:"0:48–1:08", tool:"explain_choice", visual:"Ask for one choice explanation. Hold on the plain-language explanation before any answer changes.", voice:"It can explain an option in ordinary language, but explanation is not permission to choose for me.", proof:"Choice explanation appears; progress remains unchanged." },
+      { time:"1:08–1:28", tool:"answer_reflection_question", visual:"Run once with confirmed_by_user false and show rejection. Run again with true and show the progressbar and focus advance.", voice:"A mutation without explicit confirmation fails. Once I confirm, the same visible interface advances and announces the change.", proof:"Rejected false call, successful true call, visible step transition." },
+      { time:"1:28–1:48", tool:"review_reflection_answers · answer_reflection_question", visual:"Review current answers, then revise the first confirmed response. Show that the user can change a prior choice instead of restarting.", voice:"The session remains correctable. I can review and revise a confirmed answer while keeping the rest of my work.", proof:"Review result and changed answer remain consistent." },
+      { time:"1:48–2:05", tool:"complete_reflection", visual:"Switch to a prepared state with eleven human-confirmed answers. Confirm answer twelve, then complete and show the deterministic result.", voice:"For recording speed, these earlier choices were already confirmed by me. The twelfth answer unlocks deterministic local scoring; the agent does not invent the result.", proof:"Incomplete completion is gated; twelve confirmed answers complete successfully." },
+      { time:"2:05–2:20", tool:"get_card", visual:"Retrieve Card 004. Show its title, public Mirror prompt, and bounded Loop action.", voice:"The same contract can retrieve any of the 144 public cards as a concrete reflection prompt and bounded action.", proof:"Card 004 returns the curated public record." },
+      { time:"2:20–2:30", tool:"recommend_card_edition", visual:"Request a matching digital ARC edition and highlight that the result contains no price and performs no purchase.", voice:"It can identify a relevant digital edition, but it cannot add to cart, create Checkout, or pay.", proof:"Read-only, price-free recommendation." },
+      { time:"2:30–2:35", tool:"Boundary close", visual:"Return to the live page and end on the site and source URLs.", voice:"The agent helps navigate. The person keeps authority over meaning, email, cart, and payment.", proof:"Human-authority boundary stated without unsupported claims." }
+    ];
+
+    const excluded = [
+      ["P2P / WebRTC / evaluateDyad", "Not deployed in this repository."],
+      ["Keplerian, VSOP87, LST, or transit clock", "No public engine or benchmark exists in the submitted build."],
+      ["Physical 350gsm deck fulfillment", "The WebMCP catalog contract is digital and read-only."],
+      ["x402 or autonomous payment", "Stripe remains a separate human-controlled flow."],
+      ["Zero telemetry, zero egress, or zero knowledge", "Absolute infrastructure and privacy guarantees are not established."],
+      ["Under 20KB or 60fps", "No qualifying bundle or frame-rate benchmark supports these claims."],
+      ["Judge preference profiles", "Public roles may organize evidence; private preferences are not inferred."]
+    ];
+
+    const xml = document.getElementById("strategix-contract")?.textContent.trim() ?? "";
+
+    class DemoShotList extends LitElement {
+      static styles = css`
+        :host { display:block; min-width:0; min-height:100vh; overflow-x:hidden; background:radial-gradient(circle at 16% 0,rgba(233,183,84,.18),transparent 30%),radial-gradient(circle at 86% 18%,rgba(139,76,204,.13),transparent 26%),#070a12; }
+        * { box-sizing:border-box; }
+        main { width:min(1180px,calc(100% - 32px)); margin:auto; padding:42px 0 72px; }
+        section { margin-bottom:18px; padding:24px; border:1px solid rgba(235,190,99,.28); border-radius:18px; background:rgba(14,19,33,.94); box-shadow:0 22px 70px rgba(0,0,0,.2); }
+        .eyebrow { color:#efbd61; text-transform:uppercase; letter-spacing:.16em; font-size:.75rem; font-weight:850; }
+        h1 { max-width:900px; margin:.18em 0 .2em; font:clamp(2.4rem,6vw,5rem)/.98 Georgia,serif; }
+        h2 { margin:0 0 14px; color:#efbd61; font-size:1.25rem; }
+        h3 { margin:0; color:#f6f0e2; }
+        p,li,td { color:#d0cddd; }
+        .lead { max-width:860px; font-size:1.12rem; }
+        .metrics,.authority,.checks { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; margin-top:20px; }
+        .metric,.node,.check { padding:15px; border:1px solid #33394e; border-radius:12px; background:#0a1020; }
+        .metric strong { display:block; color:#efbd61; font-size:1.8rem; }
+        .node strong,.check strong { display:block; color:#efbd61; margin-bottom:5px; }
+        .node.boundary { border-color:#b16774; }
+        .arrow { align-self:center; justify-self:center; color:#efbd61; font-weight:900; }
+        .timeline { display:grid; gap:12px; }
+        .shot { display:grid; grid-template-columns:105px 190px minmax(0,1fr); gap:15px; padding:18px; border-left:3px solid #efbd61; border-radius:0 12px 12px 0; background:#0a1020; }
+        .time { color:#efbd61; font-weight:900; font-variant-numeric:tabular-nums; }
+        .tool { color:#e7dbfa; font-weight:800; overflow-wrap:anywhere; }
+        .shot p { margin:.25rem 0; }
+        .label { color:#9ca3b8; font-size:.72rem; font-weight:850; letter-spacing:.08em; text-transform:uppercase; }
+        .table-wrap { overflow:auto; border:1px solid #33394e; border-radius:12px; }
+        table { width:100%; min-width:720px; border-collapse:collapse; background:#0a1020; }
+        th,td { padding:12px; text-align:left; vertical-align:top; border-bottom:1px solid #2c3245; }
+        th { color:#efbd61; background:#151b2d; }
+        .pass { color:#a7edbc; }
+        .pending { color:#ffe09a; }
+        pre { max-height:430px; overflow:auto; white-space:pre-wrap; color:#dfd3ba; font-size:.76rem; }
+        code { color:#dbc8ff; overflow-wrap:anywhere; }
+        @media(max-width:820px) {
+          .metrics,.authority,.checks { grid-template-columns:1fr; }
+          .shot { grid-template-columns:1fr; }
+          .arrow { transform:rotate(90deg); }
+        }
+      `;
+
+      render() {
+        return html`
+          <main>
+            <section>
+              <div class="eyebrow">Recording contract · evidence bounded</div>
+              <h1>WebMCP Demo Shot List</h1>
+              <p class="lead">A 2:35 walkthrough of the deployed MIRROR//LOOP experience. Every beat maps to a production tool, visible state change, or explicit human-authority boundary.</p>
+              <div class="metrics">
+                <div class="metric"><strong>2:35</strong>target duration</div>
+                <div class="metric"><strong>8</strong>production tools</div>
+                <div class="metric"><strong>0</strong>agent payment actions</div>
+              </div>
+            </section>
+
+            <section>
+              <h2>Authority flow</h2>
+              <div class="authority">
+                <div class="node"><strong>Human</strong>Supplies intent, interprets meaning, confirms every answer, and controls email and purchases.</div>
+                <div class="node"><strong>WebMCP agent</strong>Starts, reads, explains, records confirmed choices, reviews, completes, and retrieves.</div>
+                <div class="node boundary"><strong>Hard boundary</strong>Email submission, cart mutation, Checkout creation, and payment are not WebMCP tools.</div>
+              </div>
+            </section>
+
+            <section>
+              <h2>Second-by-second recording plan</h2>
+              <div class="timeline">
+                ${shots.map(shot => html`
+                  <article class="shot">
+                    <div class="time">${shot.time}</div>
+                    <div class="tool">${shot.tool}</div>
+                    <div>
+                      <div class="label">Visual</div><p>${shot.visual}</p>
+                      <div class="label">Narration</div><p>${shot.voice}</p>
+                      <div class="label">Proof on screen</div><p>${shot.proof}</p>
+                    </div>
+                  </article>
+                `)}
+              </div>
+            </section>
+
+            <section>
+              <h2>Claims excluded from the recording</h2>
+              <div class="table-wrap">
+                <table>
+                  <thead><tr><th>Do not claim</th><th>Evidence disposition</th></tr></thead>
+                  <tbody>${excluded.map(([claim, reason]) => html`<tr><td>${claim}</td><td>${reason}</td></tr>`)}</tbody>
+                </table>
+              </div>
+            </section>
+
+            <section>
+              <h2>Recording and publication gate</h2>
+              <div class="checks">
+                <div class="check"><strong class="pass">Before capture</strong>Use a fresh Chrome profile with WebMCP enabled. Confirm the badge and Application → WebMCP tool list before speaking.</div>
+                <div class="check"><strong class="pass">During capture</strong>Record at 1080p or better. Hide accounts, email, tokens, payment details, private dashboards, and unrelated tabs.</div>
+                <div class="check"><strong class="pending">Before submission</strong>Publish on YouTube, keep it public and under three minutes, add accurate captions, test audio, and open it while signed out.</div>
+              </div>
+              <p><strong>Stop condition:</strong> if the badge does not read <code>WebMCP ready · 8 tools</code>, do not record. Restart the verified Chrome build, reopen the live origin, and recheck Application → WebMCP.</p>
+            </section>
+
+            <section>
+              <h2>Acceptance checklist</h2>
+              <ul>
+                <li>All eight tools are visible and the demo uses only their deployed contracts.</li>
+                <li>The rejected unconfirmed answer and successful confirmed answer both appear.</li>
+                <li>The prepared state is described as previously human-confirmed, not agent-selected.</li>
+                <li>The final recommendation is digital, read-only, and price-free.</li>
+                <li>The closing sentence preserves human control of meaning, email, cart, and payment.</li>
+                <li>The public video, repository, and live site work from a signed-out browser.</li>
+              </ul>
+            </section>
+
+            <section>
+              <h2>Embedded XML contract</h2>
+              <pre>${xml}</pre>
+            </section>
+          </main>
+        `;
+      }
+    }
+
+    customElements.define("demo-shot-list", DemoShotList);
+  </script>
+</body>
+</html>

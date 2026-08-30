@@ -14,6 +14,7 @@ answer, email submission, cart change, and payment.
 - **Six operational scenarios:** [WEBMCP_OPERATIONAL_USE_CASES.html](WEBMCP_OPERATIONAL_USE_CASES.html)
 - **Competition claim hardening:** [WEBMCP_COMPETITION_HARDENING_AUDIT.html](WEBMCP_COMPETITION_HARDENING_AUDIT.html)
 - **Judge panel evidence brief:** [WEBMCP_JUDGE_PANEL_BRIEF.html](WEBMCP_JUDGE_PANEL_BRIEF.html)
+- **2:35 recording shot list:** [WEBMCP_DEMO_SHOT_LIST.html](WEBMCP_DEMO_SHOT_LIST.html)
 - **License:** [MIT](LICENSE)
 
 > **Submission gate:** this repository remains private until the operator

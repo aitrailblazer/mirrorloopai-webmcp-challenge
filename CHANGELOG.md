@@ -1,5 +1,18 @@
 # Changelog
 
+## 2026-08-30 — Evidence-bounded demo recording package
+
+- Reconciled the proposed competition architecture against the deployed
+  eight-tool WebMCP contract and excluded undeployed P2P, astronomical,
+  physical-product, x402, zero-egress, bundle-size, frame-rate, and
+  judge-preference claims.
+- Added a self-contained StrategiX visual shot list with a 2:35 timeline,
+  exact tools, narration, on-screen proof, recording safeguards, acceptance
+  checks, and an embedded XML contract.
+- Linked the canonical recording artifact from the README and submission
+  package while keeping the public YouTube upload as an explicit operator
+  action.
+
 ## 2026-08-30 — Private history sanitization
 
 - Created an external full-history recovery bundle before rewriting the competition repository.

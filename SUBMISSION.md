@@ -132,6 +132,9 @@ entry claims only these documented extensions as challenge-period work.
 Use screen narration only or music for which the entrant owns all necessary
 rights. Do not show secret dashboards, email addresses, payment details, or
 third-party trademarks beyond what is necessary to demonstrate ordinary use.
+The canonical second-by-second recording contract, evidence map, excluded-claim
+list, and publication checklist are in
+[`WEBMCP_DEMO_SHOT_LIST.html`](WEBMCP_DEMO_SHOT_LIST.html).
 
 | Time | Visual | Narration |
 | --- | --- | --- |
