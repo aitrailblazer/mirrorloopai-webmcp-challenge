@@ -1,0 +1,24 @@
+F-031 baseline — 2026-08-30
+
+Observed production behavior:
+- The revised confirmation copy and MIRROR//LOOP labels are present.
+- The page renders with browser-default white background, serif typography, blue link/button styling, and no intended layout.
+- Therefore the HTML deployed, but the branded CSS did not apply in the user's Chrome Dev session.
+
+Evidence:
+- qa_evidence/confirmation_page_style_regression/production_unstyled_confirmation.png
+
+Repository evidence before repair:
+- The API response embeds all confirmation CSS in an inline <style> block.
+- The API CSP permits inline style, but Firebase Hosting's global CSP permits only same-origin styles (style-src 'self').
+- Multiple CSP policies are enforced conjunctively by browsers; an inline style allowed by one policy remains blocked by another policy that omits 'unsafe-inline'.
+
+Baseline result: FAIL
+
+Planned verification:
+1. Replace inline CSS with a same-origin /confirmation.css asset.
+2. Require style-src 'self' and remove the inline-style exception from the API response.
+3. Verify the stylesheet returns 200 with text/css.
+4. Verify computed desktop and mobile styles in a browser with no horizontal overflow.
+5. Preserve side-effect-free GET and POST-only confirmation semantics.
+6. Verify invalid-link recovery and security headers in production.
