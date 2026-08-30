@@ -4,6 +4,7 @@
   "type": "module",
   "scripts": {
     "test": "node --test web/tests/*.test.mjs",
+    "test:quiz:persistence:browser": "node scripts/test-quiz-persistence-browser.mjs",
     "test:webmcp:evals": "node scripts/validate-webmcp-evals.mjs",
     "test:webmcp:campaign-evals": "node scripts/validate-webmcp-campaign-evals.mjs",
     "test:webmcp:operational-use-cases": "node scripts/validate-webmcp-operational-use-cases.mjs",

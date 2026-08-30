@@ -1,5 +1,19 @@
 # Changelog
 
+## 2026-08-29 — Saved and editable repeat-quiz choices
+
+- Audited the returning-participant flow and confirmed that starting or
+  repeating the quiz discarded all 12 previous choices.
+- Added versioned browser-local choice storage with strict quiz-version,
+  answer-count, and valid-choice checks; malformed or stale data is discarded.
+- Restored saved selections after reload and when reviewing a completed
+  reflection, while keeping every answer editable.
+- Added an explicit “Start over with blank answers” control and privacy copy
+  explaining that choice codes remain on the device and are not stored by the
+  subscriber backend.
+- Added unit and headless-Chrome coverage for save, reload, review, change,
+  clear, unavailable storage, and malformed-storage behavior.
+
 ## 2026-08-29 — Production email-reflection route recovery
 
 - Audited the completed-quiz email action after a participant received no

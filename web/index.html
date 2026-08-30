@@ -11,7 +11,7 @@
   <link rel="preload" href="/images/shattered-compass-entry.webp" as="image" type="image/webp">
   <link rel="stylesheet" href="/styles.css?v=20260830-1">
   <script src="/config.js?v=20260829-1"></script>
-  <script type="module" src="/app.js?v=20260830-5"></script>
+  <script type="module" src="/app.js?v=20260830-6"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -83,7 +83,8 @@
         </div>
         <p class="section-kicker" id="section-kicker"></p>
         <h2 id="question-title" tabindex="-1"></h2>
-        <p class="question-help">Start with the kind of response, then choose the one answer closest to your first instinct.</p>
+        <p class="question-help">Start with the kind of response, then choose the one answer closest to your first instinct. Your choices are saved only in this browser, so you can return and change them.</p>
+        <p class="form-status" id="quiz-save-status" role="status" aria-live="polite"></p>
         <div id="answer-groups" class="answer-groups"></div>
         <div class="quiz-controls">
           <button class="button button-quiet" id="back-button" type="button">Back</button>
@@ -137,7 +138,8 @@
             <p class="form-note">We store your email and compact result—not your individual quiz answers. See our <a href="/privacy.html">privacy notice</a>.</p>
           </form>
         </div>
-        <button class="text-button" id="restart-button" type="button">Take the quiz again</button>
+        <button class="text-button" id="restart-button" type="button">Review or change my answers</button>
+        <button class="text-button" id="clear-answers-button" type="button">Start over with blank answers</button>
       </div>
     </section>
   </main>

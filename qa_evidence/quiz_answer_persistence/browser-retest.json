@@ -1,0 +1,54 @@
+{
+  "initial": {
+    "progress": "Question 2 of 12",
+    "saved": {
+      "schema": 1,
+      "quizVersion": "2.0.0",
+      "answers": [
+        "01",
+        "02",
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  },
+  "restoredQuestion1": {
+    "progress": "Question 1 of 12",
+    "selectedCode": "01",
+    "nextDisabled": false,
+    "saveStatus": "2 saved choices restored. Keep each one or select a different answer."
+  },
+  "restoredQuestion2": {
+    "progress": "Question 2 of 12",
+    "selectedCode": "02",
+    "nextDisabled": false,
+    "saveStatus": "2 saved choices restored. Keep each one or select a different answer."
+  },
+  "review": {
+    "progress": "Question 1 of 12",
+    "selectedCode": "01",
+    "nextDisabled": false,
+    "saveStatus": "Your saved choices are selected. Keep each one or choose a different answer."
+  },
+  "cleared": {
+    "progress": "Question 1 of 12",
+    "selectedCode": null,
+    "nextDisabled": true,
+    "saveStatus": "Saved choices cleared. Question 1 is ready for a fresh start."
+  },
+  "staleRejected": {
+    "progress": "Question 1 of 12",
+    "selectedCode": null,
+    "nextDisabled": true,
+    "saveStatus": ""
+  },
+  "status": "PASS"
+}

@@ -1,6 +1,7 @@
 import { RESPONSE_GROUPS, resultCopy, scoreAnswers, supportingPattern } from "./lib/quiz-core.js?v=20260826-3";
 import { createFunnelTracker } from "./lib/analytics.js?v=20260826-3";
 import { installMirrorLoopWebMCP } from "./lib/webmcp.js?v=20260830-4";
+import { createReflectionStore } from "./lib/reflection-storage.js?v=20260830-1";
 
 const $ = (selector) => document.querySelector(selector);
 const state = {
@@ -15,11 +16,14 @@ const state = {
 };
 const config = window.MIRRORLOOP_CONFIG ?? { apiBaseURL: "" };
 let analyticsStorage = null;
+let reflectionStorage = null;
 try {
   analyticsStorage = window.sessionStorage;
+  reflectionStorage = window.localStorage;
 } catch {
   // Some private browsing modes disable storage.
 }
+const reflectionStore = createReflectionStore(reflectionStorage);
 const recordFunnelEvent = createFunnelTracker({
   apiBaseURL: config.apiBaseURL,
   storage: analyticsStorage,
@@ -81,6 +85,7 @@ function optionButton(option, optionIndex) {
   button.innerHTML = `<span class="answer-glyph" aria-hidden="true">${option.glyph}</span><span>${option.microIntent}</span>`;
   button.addEventListener("click", () => {
     state.answers[state.index] = option.arcCode;
+    reflectionStore.save(state.quiz, state.answers);
     renderQuestion();
     elements.next.focus();
   });
@@ -178,8 +183,9 @@ function showResult() {
 
 async function startReflection({ focusArea = "" } = {}) {
   await loadQuiz();
+  state.answers = reflectionStore.load(state.quiz);
+  const restoredAnswers = state.answers.filter(Boolean).length;
   state.index = 0;
-  state.answers.fill(null);
   state.result = null;
   state.focusArea = focusArea;
   state.started = true;
@@ -188,13 +194,17 @@ async function startReflection({ focusArea = "" } = {}) {
   elements.panel.hidden = false;
   recordFunnelEvent("quiz_started");
   renderQuestion();
+  $("#quiz-save-status").textContent = restoredAnswers
+    ? `${restoredAnswers} saved ${restoredAnswers === 1 ? "choice" : "choices"} restored. Keep each one or select a different answer.`
+    : "";
   elements.question.focus();
   window.dispatchEvent(new CustomEvent("mirrorloop:session_start"));
   return {
     status: "SESSION_INITIALIZED",
     total_questions: state.quiz.questions.length,
     current_question_id: 1,
-    privacy: "Answers remain in this browser unless the human separately requests email delivery.",
+    restored_answers: restoredAnswers,
+    privacy: "Choice codes are saved only in this browser so the human can review, change, or clear them. They are sent only if the human separately requests email delivery.",
   };
 }
 
@@ -246,6 +256,7 @@ async function answerQuestion({ questionID, choiceCode }) {
     && (questionID < expectedID || allComplete);
   if (revisingRecordedAnswer) {
     state.answers[questionID - 1] = choiceCode;
+    reflectionStore.save(state.quiz, state.answers);
     renderQuestion();
     window.dispatchEvent(new CustomEvent("mirrorloop:step_transition", {
       detail: { question_id: questionID, choice_code: choiceCode, revised: true },
@@ -267,6 +278,7 @@ async function answerQuestion({ questionID, choiceCode }) {
     throw new Error(`Question ${expectedID} is currently active; questions cannot be skipped.`);
   }
   state.answers[state.index] = choiceCode;
+  reflectionStore.save(state.quiz, state.answers);
   const completed = state.answers.filter(Boolean).length;
   const finished = completed === state.quiz.questions.length;
   if (!finished) state.index += 1;
@@ -437,11 +449,23 @@ elements.next.addEventListener("click", () => {
 
 $("#restart-button").addEventListener("click", () => {
   state.index = 0;
+  state.result = null;
+  elements.result.hidden = true;
+  elements.panel.hidden = false;
+  renderQuestion();
+  $("#quiz-save-status").textContent = "Your saved choices are selected. Keep each one or choose a different answer.";
+  elements.question.focus();
+});
+
+$("#clear-answers-button").addEventListener("click", () => {
+  reflectionStore.clear();
+  state.index = 0;
   state.answers.fill(null);
   state.result = null;
   elements.result.hidden = true;
   elements.panel.hidden = false;
   renderQuestion();
+  $("#quiz-save-status").textContent = "Saved choices cleared. Question 1 is ready for a fresh start.";
   elements.question.focus();
 });
 
