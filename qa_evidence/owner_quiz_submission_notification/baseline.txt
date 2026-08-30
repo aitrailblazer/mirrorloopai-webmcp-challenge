@@ -1,0 +1,21 @@
+F-033 baseline — 2026-08-30
+
+Current behavior:
+- An accepted quiz submission stores email, consent metadata, and only the compact result in Firestore.
+- Resend sends a confirmation email to the participant.
+- No owner notification is generated for the quiz submission.
+- The 12 answer codes remain browser-local and are discarded by the backend after scoring.
+- Current public copy says individual answers are not stored, but it does not disclose an owner fulfillment email containing those answers.
+
+Requested behavior:
+- Send constantine@aitrailblazer.com an owner notification after an accepted, human-verified quiz submission.
+- Include the submitter email, submission status (pending confirmation), quiz version/source, compact result, and all 12 answers in order with stable code, archetype name, and domain.
+- Use the participant email as Reply-To for manual follow-up.
+- Preserve the database boundary: do not add the 12 individual answers to the subscriber Record or Firestore document.
+- Disclose the owner-email processing in the consent row and privacy notice.
+- Use deterministic idempotency based on subscriber plus ordered answers so exact retries do not create duplicate owner notices while changed submissions can create a new notice.
+
+Failure policy:
+- A participant confirmation email is the primary user action. If the internal owner notification fails, log the operational failure without falsely telling the participant that their confirmation request failed.
+
+Baseline result: FAIL
