@@ -10,6 +10,7 @@ const resourceReview = read("RESOURCE_REVIEW.html");
 const campaignAudit = read("WEBMCP_CAMPAIGN_CLAIM_AUDIT.html");
 const operationalUseCases = read("WEBMCP_OPERATIONAL_USE_CASES.html");
 const competitionHardening = read("WEBMCP_COMPETITION_HARDENING_AUDIT.html");
+const judgePanelBrief = read("WEBMCP_JUDGE_PANEL_BRIEF.html");
 const license = read("LICENSE");
 const packageJSON = JSON.parse(read("package.json"));
 const manifest = JSON.parse(read("competition_manifest.json"));
@@ -29,6 +30,7 @@ const checks = [
   ["README campaign claim audit", readme.includes("WEBMCP_CAMPAIGN_CLAIM_AUDIT.html")],
   ["README operational use cases", readme.includes("WEBMCP_OPERATIONAL_USE_CASES.html")],
   ["README competition hardening", readme.includes("WEBMCP_COMPETITION_HARDENING_AUDIT.html")],
+  ["README judge panel brief", readme.includes("WEBMCP_JUDGE_PANEL_BRIEF.html")],
   ["README pre-existing disclosure", readme.includes("Pre-existing before August 25, 2026")],
   ["README all eight tools", manifest.webmcpTools.every((name) => readme.includes("`" + name + "`"))],
   ["Submission four required explanations", [
@@ -73,6 +75,19 @@ const checks = [
     "Corrected 2:35 demo",
     "Freeze the eight-tool build",
   ].every((term) => competitionHardening.includes(term))],
+  ["Evidence-bounded judge panel brief", [
+    '<Panel count="7">',
+    "<ToolCount>8</ToolCount>",
+    "Andrew Galloni",
+    "Alex Nahas",
+    "Ilya Grigorik",
+    "Jude Gao",
+    "Justin Rushing",
+    "Sarah Drasner",
+    "Sean Roberts",
+    "Personal psychographic claims about judges",
+    "Self-awarded competition scores",
+  ].every((term) => judgePanelBrief.includes(term))],
   ["Official resource matrix", [
     'resource_cards="36"',
     'classified="36"',

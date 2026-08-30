@@ -13,6 +13,7 @@ answer, email submission, cart change, and payment.
 - **Campaign claim audit and copy:** [WEBMCP_CAMPAIGN_CLAIM_AUDIT.html](WEBMCP_CAMPAIGN_CLAIM_AUDIT.html)
 - **Six operational scenarios:** [WEBMCP_OPERATIONAL_USE_CASES.html](WEBMCP_OPERATIONAL_USE_CASES.html)
 - **Competition claim hardening:** [WEBMCP_COMPETITION_HARDENING_AUDIT.html](WEBMCP_COMPETITION_HARDENING_AUDIT.html)
+- **Judge panel evidence brief:** [WEBMCP_JUDGE_PANEL_BRIEF.html](WEBMCP_JUDGE_PANEL_BRIEF.html)
 - **License:** [MIT](LICENSE)
 
 > **Submission gate:** this repository remains private until the operator
@@ -185,6 +186,10 @@ The final competition narrative and 2:35 demo are reconciled in
 `WEBMCP_COMPETITION_HARDENING_AUDIT.html`. It deliberately does not self-award
 judging scores or claim nonexistent browser events, astronomy, Tool 9/P2P,
 physical fulfillment, x402, diagnosis, or autonomous payment.
+
+The confirmed seven-person panel is oriented to the same reproducible evidence
+in `WEBMCP_JUDGE_PANEL_BRIEF.html`. That brief uses public roles only to
+organize inspection paths; it does not attribute private preferences to judges.
 
 A separate campaign corpus tests the concrete scenarios used in public
 promotion, including the negative boundaries. Gemini 2.5 Flash selected the

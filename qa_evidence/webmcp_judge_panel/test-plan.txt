@@ -1,0 +1,22 @@
+RES-012 TEST PLAN — created before implementation
+
+User outcome
+A competition judge can understand and reproduce the strongest implemented MIRROR//LOOP evidence without being asked to trust personality profiling, self-awarded scores, or undeployed capabilities.
+
+Discovery checks
+1. Capture the official challenge judging criteria and any official judge roster available on the challenge surface.
+2. Compare the supplied judge names/titles with that official surface; preserve unresolved discrepancies.
+3. Inventory the real WebMCP tool count, names, mutation boundaries, browser events, catalog type, analytics behavior, and evidence suites.
+4. Classify every claim in the supplied draft as supported, qualified, contradicted, or unresolved.
+
+Baseline test
+1. Search current submission artifacts for a panel-oriented evidence map.
+2. Verify whether the proposed astronomy, P2P, zero-telemetry, physical-deck, bundle-size, and sub-0.2 ms claims exist in production evidence.
+3. Record gaps before implementation.
+
+Retest
+1. Generate one self-contained StrategiX HTML brief with embedded XML.
+2. Parse HTML and XML deterministically.
+3. Validate that all seven supplied judge names appear, psychographic assertions do not, and unsupported claims are explicitly excluded.
+4. Run npm WebMCP/evidence/site/submission/Stripe gates plus go test and go vet.
+5. Regenerate feature_status_tracker.xlsx, feature_status_tracker.html, and feature_qa_report.md from the canonical CSV.

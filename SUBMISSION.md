@@ -188,6 +188,12 @@ implemented evidence from future concepts and explicitly excludes invented
 events, a ninth tool, P2P exchange, astronomical calculations, physical
 fulfillment, x402, and autonomous payment from the submitted build.
 
+The confirmed panel roster and six short, role-oriented reproduction paths are
+in `WEBMCP_JUDGE_PANEL_BRIEF.html`. The brief uses public titles to organize
+evidence; it does not infer judges' private preferences. It also rejects
+undeployed astronomy, P2P, physical-product, universal zero-telemetry,
+unmeasured bundle-performance, and self-awarded score claims.
+
 Chrome is the verified path accepted by the rules. Actual ChatGPT in-app
 browser behavior is still unconfirmed. Unsupported hosts retain the full direct
 reflection and display a truthful fallback status.

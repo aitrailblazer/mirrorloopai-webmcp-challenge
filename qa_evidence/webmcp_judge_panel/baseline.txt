@@ -1,0 +1,36 @@
+# RES-012 baseline claim audit
+2026-08-30T00:57:14Z
+\n## Existing panel brief
+\n## Actual tools
+start_reflection
+get_current_question
+explain_choice
+answer_reflection_question
+review_reflection_answers
+complete_reflection
+get_card
+recommend_card_edition
+\n## Unsupported proposal implementation search
+get_current_transit_clock: scripts/validate-webmcp-operational-use-cases.mjs 
+evaluateDyad: 
+WebRTC: 
+VSOP87: scripts/build-webmcp-competition-hardening-audit.mjs 
+Keplerian: scripts/build-webmcp-competition-hardening-audit.mjs scripts/build-webmcp-campaign-claim-audit.mjs 
+recommend_physical_deck: scripts/validate-site.mjs scripts/validate-webmcp-operational-use-cases.mjs 
+\n## Public product fulfillment values
+\n## Analytics event code
+2:import { createFunnelTracker } from "./lib/analytics.js?v=20260826-3";
+17:let analyticsStorage = null;
+19:  analyticsStorage = window.sessionStorage;
+25:  storage: analyticsStorage,
+128:  recordFunnelEvent("quiz_completed");
+189:  recordFunnelEvent("quiz_started");
+\n## Existing panel-oriented submission language
+
+## Baseline verdict
+FAIL — no panel-oriented brief exists. The supplied draft contains unsupported production claims: LST/Keplerian/VSOP87 runtime and <0.2 ms benchmark; dyadic/P2P/WebRTC exchange; universal zero egress/zero telemetry; physical 350gsm deck recommendation and fixed price; under-20KB gzip bundle; and invented personal psychographic assertions. The verified build has eight tools, three actual UI events, digital products, browser-local reflection state, and separate aggregate analytics/email/Stripe flows.
+
+## Public shop
+items=28
+kinds=collection,insight,arc
+fulfillment field count=0

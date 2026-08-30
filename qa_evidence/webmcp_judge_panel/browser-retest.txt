@@ -1,0 +1,2 @@
+desktop {"title":"MIRROR//LOOP — WebMCP Judge Panel Evidence Brief","h1":"Judge Panel Evidence Brief","scrollWidth":1440,"clientWidth":1440,"panelRows":7} errors []
+mobile {"title":"MIRROR//LOOP — WebMCP Judge Panel Evidence Brief","h1":"Judge Panel Evidence Brief","scrollWidth":390,"clientWidth":390,"panelRows":7} errors []

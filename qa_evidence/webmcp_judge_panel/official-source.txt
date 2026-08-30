@@ -1,0 +1,24 @@
+# Official challenge source capture
+2026-08-30T00:57:13Z
+\n## https://webmcp.devpost.com/
+HTTP/2 200 
+sha256=611a5f02f128011ccbbdee63e4dc73acd1a5d15a2fbe7dd96d549409c5b53fc6
+Alex Nahas
+Andrew Galloni
+Creativity &amp; Ambition
+Execution
+Ilya Grigorik
+Jude Gao
+Justin Rushing
+Potential Impact
+Sarah Drasner
+Sean Roberts
+WebMCP Leverage
+\n## https://webmcp.devpost.com/rules
+HTTP/2 200 
+sha256=e68eaff2a81d584144f19cd9e01773b5ab3f4e2ef1835aa030897808b92209b1
+Creativity &amp; Ambition
+Execution
+Potential Impact
+WebMCP Leverage
+execution

@@ -314,3 +314,13 @@
 - Corrected subscriber-card text contrast; the final mobile Lighthouse audit scored 100 in accessibility, best practices, SEO, and agentic browsing.
 - Completed a temporary, isolated Cloudflare test-key end-to-end run through pending, confirmation, reflection delivery, and unsubscribe; removed the QA service and test records afterward.
 - Declared the active Firestore `pendingExpiresAt` TTL field override and its existing index modes so complete Hosting-and-Firestore deployments remain noninteractive and repeatable.
+## 2026-08-29 — Evidence-bounded judge panel orientation
+
+- Verified the seven supplied judge names and titles against the official
+  WebMCP Challenge home page and preserved the source digest.
+- Added a self-contained StrategiX panel brief that organizes reproducible
+  evidence by public engineering role without assigning private preferences.
+- Rejected undeployed astronomy, P2P/WebRTC, physical-deck, universal
+  zero-telemetry, unmeasured bundle/frame-performance, and perfect-score claims.
+- Added measured source-module sizes, six concise judge reproduction paths,
+  deterministic artifact validation, and submission-package links.

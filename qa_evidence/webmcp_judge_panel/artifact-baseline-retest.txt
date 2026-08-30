@@ -1,0 +1,550 @@
+
+> report:webmcp:judge-panel
+> node scripts/build-webmcp-judge-panel-brief.mjs
+
+WebMCP judge panel brief: /Users/constantinevassilev02/MyLocalDocuments/go-projects/SyntheonArchive/GENI/mirrorloopai-webmcp-challenge/WEBMCP_JUDGE_PANEL_BRIEF.html
+Combined source SHA-256: 03d733e47ec4b04f15debc605c8ad838ec27ca91bd4e44d5168040f466c60b4b
+
+> test:webmcp:judge-panel
+> node scripts/validate-webmcp-judge-panel-brief.mjs
+
+  <judge-panel-brief></judge-panel-brief>
+                    ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:18: HTML parser error : Unexpected end tag : purpose
+/LOOP evidence without psychographic claims or undeployed capabilities.</Purpose
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:28: HTML parser error : Unexpected end tag : panel
+  </Panel>
+          ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:30: HTML parser error : Unexpected end tag : toolcount
+    <ToolCount>8</ToolCount>
+                            ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:31: HTML parser error : Unexpected end tag : tools
+ew_reflection_answers,complete_reflection,get_card,recommend_card_edition</Tools
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:32: HTML parser error : Unexpected end tag : browserevents
+n_start,mirrorloop:step_transition,mirrorloop:reflection_complete</BrowserEvents
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:33: HTML parser error : Unexpected end tag : humanauthority
+t mutation, Checkout creation, and payment remain human actions.</HumanAuthority
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:34: HTML parser error : Unexpected end tag : privacyboundary
+mail delivery, and Stripe are separate disclosed network flows.</PrivacyBoundary
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:35: HTML parser error : Unexpected end tag : catalog
+. Agent recommendations expose neither price nor a direct checkout URL.</Catalog
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:36: HTML parser error : Unexpected end tag : productcontract
+  </ProductContract>
+                    ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:43: HTML parser error : Unexpected end tag : evidence
+  </Evidence>
+             ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:45: HTML parser error : Unexpected end tag : excluded
+cluded>Astronomical or ephemeris runtime and sub-millisecond benchmark</Excluded
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:46: HTML parser error : Unexpected end tag : excluded
+    <Excluded>Dyadic, WebRTC, or P2P synthesis</Excluded>
+                                                         ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:47: HTML parser error : Unexpected end tag : excluded
+    <Excluded>Universal zero-egress or zero-telemetry guarantee</Excluded>
+                                                                          ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:48: HTML parser error : Unexpected end tag : excluded
+    <Excluded>Physical-deck fulfillment or autonomous checkout</Excluded>
+                                                                         ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:49: HTML parser error : Unexpected end tag : excluded
+    <Excluded>Total-bundle and frame-rate claims without measurements</Excluded>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:50: HTML parser error : Unexpected end tag : excluded
+    <Excluded>Personal psychographic claims about judges</Excluded>
+                                                                   ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:51: HTML parser error : Unexpected end tag : excluded
+    <Excluded>Self-awarded competition scores</Excluded>
+                                                        ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:52: HTML parser error : Unexpected end tag : claimboundary
+  </ClaimBoundary>
+                  ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:54: HTML parser error : Unexpected end tag : criterion
+fficial titles are traceable to the captured official challenge page.</Criterion
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:55: HTML parser error : Unexpected end tag : criterion
+y positive capability maps to source or preserved execution evidence.</Criterion
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:56: HTML parser error : Unexpected end tag : criterion
+   <Criterion>Every supplied undeployed claim is explicitly excluded.</Criterion
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:57: HTML parser error : Unexpected end tag : criterion
+ is oriented by relevant public role, not alleged private preference.</Criterion
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:58: HTML parser error : Unexpected end tag : acceptancecriteria
+  </AcceptanceCriteria>
+                       ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:68: HTML parser error : Unexpected end tag : sourcedigest
+  </SourceDigest>
+                 ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:69: HTML parser error : Unexpected end tag : strategixvisualspec
+</StrategiXVisualSpec>
+                      ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:73: HTML parser error : Unexpected end tag : td
+    const panelRows = "\n  <tr><td>Andrew Galloni</td><td>VP Research &amp; Inno
+                                                      ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:73: HTML parser error : Unexpected end tag : td
+\n  <tr><td>Andrew Galloni</td><td>VP Research &amp; Innovation, Cloudflare</td>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:73: HTML parser error : Unexpected end tag : td
+h &amp; Innovation, Cloudflare</td><td>Privacy and system-boundary evidence</td>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:73: HTML parser error : Unexpected end tag : tr
+p; Innovation, Cloudflare</td><td>Privacy and system-boundary evidence</td></tr>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:73: HTML parser error : Unexpected end tag : td
+><td>Privacy and system-boundary evidence</td></tr>\n\n  <tr><td>Alex Nahas</td>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:73: HTML parser error : Unexpected end tag : td
+oundary evidence</td></tr>\n\n  <tr><td>Alex Nahas</td><td>Creator of MCP-B</td>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:73: HTML parser error : Unexpected end tag : td
+td><td>Creator of MCP-B</td><td>Tool-contract and state-transition evidence</td>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:73: HTML parser error : Unexpected end tag : tr
+d>Creator of MCP-B</td><td>Tool-contract and state-transition evidence</td></tr>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:73: HTML parser error : Unexpected end tag : td
+contract and state-transition evidence</td></tr>\n\n  <tr><td>Ilya Grigorik</td>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:73: HTML parser error : Unexpected end tag : td
+td></tr>\n\n  <tr><td>Ilya Grigorik</td><td>Distinguished Engineer, Shopify</td>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:73: HTML parser error : Unexpected end tag : td
+tinguished Engineer, Shopify</td><td>Measured delivery and runtime evidence</td>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:73: HTML parser error : Unexpected end tag : tr
+ished Engineer, Shopify</td><td>Measured delivery and runtime evidence</td></tr>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:73: HTML parser error : Unexpected end tag : td
+><td>Measured delivery and runtime evidence</td></tr>\n\n  <tr><td>Jude Gao</td>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:73: HTML parser error : Unexpected end tag : td
+<td>Jude Gao</td><td>Member of Technical Staff, Vercel · Next.js Core Team</td>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:73: HTML parser error : Unexpected end tag : td
+el · Next.js Core Team</td><td>Web architecture and implementation clarity</td>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:73: HTML parser error : Unexpected end tag : tr
+ Next.js Core Team</td><td>Web architecture and implementation clarity</td></tr>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:73: HTML parser error : Unexpected end tag : td
+chitecture and implementation clarity</td></tr>\n\n  <tr><td>Justin Rushing</td>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:73: HTML parser error : Unexpected end tag : td
+/td></tr>\n\n  <tr><td>Justin Rushing</td><td>Browser Platform Lead, OpenAI</td>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:73: HTML parser error : Unexpected end tag : td
+ser Platform Lead, OpenAI</td><td>Human-agent authority and safety evidence</td>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:73: HTML parser error : Unexpected end tag : tr
+latform Lead, OpenAI</td><td>Human-agent authority and safety evidence</td></tr>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:73: HTML parser error : Unexpected end tag : td
+an-agent authority and safety evidence</td></tr>\n\n  <tr><td>Sarah Drasner</td>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:73: HTML parser error : Unexpected end tag : td
+>\n\n  <tr><td>Sarah Drasner</td><td>Distinguished Engineer, Chrome, Google</td>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:73: HTML parser error : Unexpected end tag : td
+, Chrome, Google</td><td>Browser-native integration and visible UX evidence</td>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:73: HTML parser error : Unexpected end tag : tr
+ome, Google</td><td>Browser-native integration and visible UX evidence</td></tr>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:73: HTML parser error : Unexpected end tag : td
+ive integration and visible UX evidence</td></tr>\n\n  <tr><td>Sean Roberts</td>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:73: HTML parser error : Unexpected end tag : td
+dence</td></tr>\n\n  <tr><td>Sean Roberts</td><td>VP of Applied AI, Netlify</td>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:73: HTML parser error : Unexpected end tag : td
+pplied AI, Netlify</td><td>Applied utility and conversion-boundary evidence</td>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:73: HTML parser error : Unexpected end tag : tr
+d AI, Netlify</td><td>Applied utility and conversion-boundary evidence</td></tr>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:74: HTML parser error : Unexpected end tag : span
+t lensCards = "\n  <article class=\"lens\">\n    <span class=\"index\">01</span>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:74: HTML parser error : Unexpected end tag : h3
+lens\">\n    <span class=\"index\">01</span>\n    <h3>Human-agent authority</h3>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:74: HTML parser error : Unexpected end tag : p
+t authority</h3>\n    <p class=\"audience\">Browser and applied-AI reviewers</p>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:74: HTML parser error : Unexpected end tag : p
+rmed_by_user: true. Email, cart, Checkout, and payment are not WebMCP tools.</p>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:74: HTML parser error : Unexpected end tag : strong
+ not WebMCP tools.</p>\n    <p class=\"reproduce\"><strong>Judge check:</strong>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:74: HTML parser error : Unexpected end tag : p
+n_question with false, then true; inspect the rejected and accepted results.</p>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:74: HTML parser error : Unexpected end tag : article
+h false, then true; inspect the rejected and accepted results.</p>\n  </article>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:74: HTML parser error : Unexpected end tag : span
+n  </article>\n\n  <article class=\"lens\">\n    <span class=\"index\">02</span>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:74: HTML parser error : Unexpected end tag : h3
+lens\">\n    <span class=\"index\">02</span>\n    <h3>Typed WebMCP contract</h3>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:74: HTML parser error : Unexpected end tag : p
+MCP contract</h3>\n    <p class=\"audience\">MCP and agent-tooling reviewers</p>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:74: HTML parser error : Unexpected end tag : p
+s: false, behavioral annotations, awaited registration, and bounded results.</p>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:74: HTML parser error : Unexpected end tag : strong
+d bounded results.</p>\n    <p class=\"reproduce\"><strong>Judge check:</strong>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:74: HTML parser error : Unexpected end tag : p
+ to inspect Available Tools, run a valid call, then add an unknown property.</p>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:74: HTML parser error : Unexpected end tag : article
+ailable Tools, run a valid call, then add an unknown property.</p>\n  </article>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:74: HTML parser error : Unexpected end tag : span
+n  </article>\n\n  <article class=\"lens\">\n    <span class=\"index\">03</span>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:74: HTML parser error : Unexpected end tag : h3
+\n    <span class=\"index\">03</span>\n    <h3>Browser-native visible state</h3>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:74: HTML parser error : Unexpected end tag : p
+ible state</h3>\n    <p class=\"audience\">Chrome and web-platform reviewers</p>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:74: HTML parser error : Unexpected end tag : p
+registrations resolve; tool mutations update the same visible reflection UI.</p>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:74: HTML parser error : Unexpected end tag : strong
+ble reflection UI.</p>\n    <p class=\"reproduce\"><strong>Judge check:</strong>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:74: HTML parser error : Unexpected end tag : p
+nswer, and observe the visible question transition and Invoked Tools record.</p>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:74: HTML parser error : Unexpected end tag : article
+erve the visible question transition and Invoked Tools record.</p>\n  </article>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:74: HTML parser error : Unexpected end tag : span
+n  </article>\n\n  <article class=\"lens\">\n    <span class=\"index\">04</span>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:74: HTML parser error : Unexpected end tag : h3
+\n    <span class=\"index\">04</span>\n    <h3>Measured lightweight modules</h3>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:74: HTML parser error : Unexpected end tag : p
+ightweight modules</h3>\n    <p class=\"audience\">Web-performance reviewers</p>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:74: HTML parser error : Unexpected end tag : p
+ 12,264 bytes raw / 3,171 gzip. No total-bundle or frame-rate claim is made.</p>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:74: HTML parser error : Unexpected end tag : strong
+ate claim is made.</p>\n    <p class=\"reproduce\"><strong>Judge check:</strong>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:74: HTML parser error : Unexpected end tag : p
+ gzip -c on the two source files; run the browser-responsive and Node gates.</p>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:74: HTML parser error : Unexpected end tag : article
+e two source files; run the browser-responsive and Node gates.</p>\n  </article>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:74: HTML parser error : Unexpected end tag : span
+n  </article>\n\n  <article class=\"lens\">\n    <span class=\"index\">05</span>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:74: HTML parser error : Unexpected end tag : h3
+=\"index\">05</span>\n    <h3>Privacy boundary, not a zero-telemetry slogan</h3>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:74: HTML parser error : Unexpected end tag : p
+ry slogan</h3>\n    <p class=\"audience\">Edge, privacy, and trust reviewers</p>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:74: HTML parser error : Unexpected end tag : p
+lytics, and Stripe flows are disclosed rather than described as zero egress.</p>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:74: HTML parser error : Unexpected end tag : strong
+ed as zero egress.</p>\n    <p class=\"reproduce\"><strong>Judge check:</strong>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:74: HTML parser error : Unexpected end tag : p
+o email, analytics, cart, or payment handler is registered as a WebMCP tool.</p>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:74: HTML parser error : Unexpected end tag : article
+tics, cart, or payment handler is registered as a WebMCP tool.</p>\n  </article>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:74: HTML parser error : Unexpected end tag : span
+n  </article>\n\n  <article class=\"lens\">\n    <span class=\"index\">06</span>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:74: HTML parser error : Unexpected end tag : h3
+"lens\">\n    <span class=\"index\">06</span>\n    <h3>Applied product path</h3>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:74: HTML parser error : Unexpected end tag : p
+roduct path</h3>\n    <p class=\"audience\">Product and commercial reviewers</p>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:74: HTML parser error : Unexpected end tag : p
+thority; the person must review the collection and initiate Stripe Checkout.</p>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:74: HTML parser error : Unexpected end tag : strong
+e Stripe Checkout.</p>\n    <p class=\"reproduce\"><strong>Judge check:</strong>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:74: HTML parser error : Unexpected end tag : p
+its price-free result, and stop before the human-controlled collection flow.</p>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:74: HTML parser error : Unexpected end tag : article
+ result, and stop before the human-controlled collection flow.</p>\n  </article>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:75: HTML parser error : Unexpected end tag : td
+ = "\n  <tr><td>Sub-millisecond Keplerian, VSOP87, LST, or ephemeris engine</td>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:75: HTML parser error : Unexpected end tag : span
+SOP87, LST, or ephemeris engine</td><td><span class=\"excluded\">EXCLUDED</span>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:75: HTML parser error : Unexpected end tag : td
+, LST, or ephemeris engine</td><td><span class=\"excluded\">EXCLUDED</span></td>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:75: HTML parser error : Unexpected end tag : td
+DED</span></td><td>Not implemented or benchmarked in the public submission.</td>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:75: HTML parser error : Unexpected end tag : tr
+span></td><td>Not implemented or benchmarked in the public submission.</td></tr>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:75: HTML parser error : Unexpected end tag : td
+bmission.</td></tr>\n\n  <tr><td>Dyadic URL token, WebRTC, or P2P synthesis</td>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:75: HTML parser error : Unexpected end tag : span
+token, WebRTC, or P2P synthesis</td><td><span class=\"excluded\">EXCLUDED</span>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:75: HTML parser error : Unexpected end tag : td
+, WebRTC, or P2P synthesis</td><td><span class=\"excluded\">EXCLUDED</span></td>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:75: HTML parser error : Unexpected end tag : td
+">EXCLUDED</span></td><td>No ninth tool or multi-user exchange is deployed.</td>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:75: HTML parser error : Unexpected end tag : tr
+LUDED</span></td><td>No ninth tool or multi-user exchange is deployed.</td></tr>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:75: HTML parser error : Unexpected end tag : td
+is deployed.</td></tr>\n\n  <tr><td>Universal zero egress or zero telemetry</td>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:75: HTML parser error : Unexpected end tag : span
+l zero egress or zero telemetry</td><td><span class=\"excluded\">EXCLUDED</span>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:75: HTML parser error : Unexpected end tag : td
+o egress or zero telemetry</td><td><span class=\"excluded\">EXCLUDED</span></td>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:75: HTML parser error : Unexpected end tag : td
+analytics, email delivery, and Stripe are separate disclosed network flows.</td>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:75: HTML parser error : Unexpected end tag : tr
+tics, email delivery, and Stripe are separate disclosed network flows.</td></tr>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:75: HTML parser error : Unexpected end tag : td
+k flows.</td></tr>\n\n  <tr><td>Physical 350gsm deck and fixed WebMCP price</td>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:75: HTML parser error : Unexpected end tag : span
+gsm deck and fixed WebMCP price</td><td><span class=\"excluded\">EXCLUDED</span>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:75: HTML parser error : Unexpected end tag : td
+eck and fixed WebMCP price</td><td><span class=\"excluded\">EXCLUDED</span></td>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:75: HTML parser error : Unexpected end tag : td
+contains digital editions; the tool returns neither price nor checkout URL.</td>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:75: HTML parser error : Unexpected end tag : tr
+ins digital editions; the tool returns neither price nor checkout URL.</td></tr>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:75: HTML parser error : Unexpected end tag : td
+ut URL.</td></tr>\n\n  <tr><td>Under-20KB total bundle or guaranteed 60 fps</td>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:75: HTML parser error : Unexpected end tag : span
+tal bundle or guaranteed 60 fps</td><td><span class=\"excluded\">EXCLUDED</span>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:75: HTML parser error : Unexpected end tag : td
+undle or guaranteed 60 fps</td><td><span class=\"excluded\">EXCLUDED</span></td>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:75: HTML parser error : Unexpected end tag : td
+><td>No total-transfer or frame-performance evidence supports those claims.</td>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:75: HTML parser error : Unexpected end tag : tr
+No total-transfer or frame-performance evidence supports those claims.</td></tr>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:75: HTML parser error : Unexpected end tag : td
+those claims.</td></tr>\n\n  <tr><td>Personal judge preferences or dislikes</td>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:75: HTML parser error : Unexpected end tag : span
+l judge preferences or dislikes</td><td><span class=\"excluded\">EXCLUDED</span>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:75: HTML parser error : Unexpected end tag : td
+ge preferences or dislikes</td><td><span class=\"excluded\">EXCLUDED</span></td>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:75: HTML parser error : Unexpected end tag : td
+an organize evidence; it cannot establish a person’s private motivations.</td>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:75: HTML parser error : Unexpected end tag : tr
+ganize evidence; it cannot establish a person’s private motivations.</td></tr>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:75: HTML parser error : Unexpected end tag : td
+erson’s private motivations.</td></tr>\n\n  <tr><td>Unanimous 10/10 score</td>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:75: HTML parser error : Unexpected end tag : span
+  <tr><td>Unanimous 10/10 score</td><td><span class=\"excluded\">EXCLUDED</span>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:75: HTML parser error : Unexpected end tag : td
+><td>Unanimous 10/10 score</td><td><span class=\"excluded\">EXCLUDED</span></td>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:75: HTML parser error : Unexpected end tag : td
+ass=\"excluded\">EXCLUDED</span></td><td>Only the judges can assign scores.</td>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:75: HTML parser error : Unexpected end tag : tr
+"excluded\">EXCLUDED</span></td><td>Only the judges can assign scores.</td></tr>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:106: HTML parser error : Unexpected end tag : div
+     <div class="eyebrow">Role-oriented · evidence-bounded · reproducible</div
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:107: HTML parser error : Unexpected end tag : h1
+              <h1>Judge Panel Evidence Brief</h1>
+                                                 ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:108: HTML parser error : Unexpected end tag : strong
+trong>Do not guess what a judge “hates” or promise a perfect score.</strong>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:108: HTML parser error : Unexpected end tag : p
+teria to working code, visible browser behavior, and preserved test evidence.</p
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:110: HTML parser error : Unexpected end tag : strong
+                <div class="metric"><strong>8 tools</strong>deployed browser con
+                                                            ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:110: HTML parser error : Unexpected end tag : div
+      <div class="metric"><strong>8 tools</strong>deployed browser contract</div
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:111: HTML parser error : Unexpected end tag : strong
+                <div class="metric"><strong>3 eval suites</strong>31 preserved a
+                                                                  ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:111: HTML parser error : Unexpected end tag : div
+ <div class="metric"><strong>3 eval suites</strong>31 preserved agent cases</div
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:112: HTML parser error : Unexpected end tag : strong
+                <div class="metric"><strong>0</strong>agent payment actions</div
+                                                      ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:112: HTML parser error : Unexpected end tag : div
+                <div class="metric"><strong>0</strong>agent payment actions</div
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:113: HTML parser error : Unexpected end tag : div
+              </div>
+                    ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:114: HTML parser error : Unexpected end tag : section
+            </section>
+                      ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:116: HTML parser error : Unexpected end tag : h2
+              <h2>Confirmed panel</h2>
+                                      ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:117: HTML parser error : Unexpected end tag : p
+n lens inferred from the public role—not a claim about private preferences.</p
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:118: HTML parser error : Unexpected end tag : th
+              <div class="table-wrap"><table><thead><tr><th>Judge</th><th>Offici
+                                                                      ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:118: HTML parser error : Unexpected end tag : th
+ <div class="table-wrap"><table><thead><tr><th>Judge</th><th>Official title</th>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:118: HTML parser error : Unexpected end tag : th
+><thead><tr><th>Judge</th><th>Official title</th><th>Relevant evidence lens</th>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:118: HTML parser error : Unexpected end tag : tr
+ad><tr><th>Judge</th><th>Official title</th><th>Relevant evidence lens</th></tr>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:118: HTML parser error : Unexpected end tag : thead
+th>Judge</th><th>Official title</th><th>Relevant evidence lens</th></tr></thead>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:118: HTML parser error : Unexpected end tag : tbody
+>Relevant evidence lens</th></tr></thead><tbody .innerHTML=${panelRows}></tbody>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:118: HTML parser error : Unexpected end tag : table
+t evidence lens</th></tr></thead><tbody .innerHTML=${panelRows}></tbody></table>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:118: HTML parser error : Unexpected end tag : div
+dence lens</th></tr></thead><tbody .innerHTML=${panelRows}></tbody></table></div
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:119: HTML parser error : Unexpected end tag : section
+            </section>
+                      ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:121: HTML parser error : Unexpected end tag : h2
+              <h2>Six evidence paths</h2>
+                                         ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:122: HTML parser error : Unexpected end tag : div
+              <div class="lenses" .innerHTML=${lensCards}></div>
+                                                                ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:123: HTML parser error : Unexpected end tag : section
+            </section>
+                      ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:125: HTML parser error : Unexpected end tag : h2
+              <h2>Claims excluded from the submission</h2>
+                                                          ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:126: HTML parser error : Unexpected end tag : th
+              <div class="table-wrap"><table><thead><tr><th>Proposed claim</th><
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:126: HTML parser error : Unexpected end tag : th
+<div class="table-wrap"><table><thead><tr><th>Proposed claim</th><th>Status</th>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:126: HTML parser error : Unexpected end tag : th
+le-wrap"><table><thead><tr><th>Proposed claim</th><th>Status</th><th>Reason</th>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:126: HTML parser error : Unexpected end tag : tr
+ap"><table><thead><tr><th>Proposed claim</th><th>Status</th><th>Reason</th></tr>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:126: HTML parser error : Unexpected end tag : thead
+le><thead><tr><th>Proposed claim</th><th>Status</th><th>Reason</th></tr></thead>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:126: HTML parser error : Unexpected end tag : tbody
+atus</th><th>Reason</th></tr></thead><tbody .innerHTML=${exclusionRows}></tbody>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:126: HTML parser error : Unexpected end tag : table
+><th>Reason</th></tr></thead><tbody .innerHTML=${exclusionRows}></tbody></table>
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:126: HTML parser error : Unexpected end tag : div
+Reason</th></tr></thead><tbody .innerHTML=${exclusionRows}></tbody></table></div
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:127: HTML parser error : Unexpected end tag : section
+            </section>
+                      ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:129: HTML parser error : Unexpected end tag : h2
+              <h2>Three-minute narrative priority</h2>
+                                                      ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:131: HTML parser error : Unexpected end tag : strong
+                <li>Show <strong>WebMCP ready · 8 tools</strong> and the native
+                                                                 ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:131: HTML parser error : Unexpected end tag : li
+ow <strong>WebMCP ready · 8 tools</strong> and the native Chrome tool list.</li
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:132: HTML parser error : Unexpected end tag : li
+jected unconfirmed mutation, confirmed answer, and visible state transition.</li
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:133: HTML parser error : Unexpected end tag : li
+ing, retrieve one public card, and request a digital-edition recommendation.</li
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:134: HTML parser error : Unexpected end tag : li
+art, or Stripe and state that consequential actions remain human-controlled.</li
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:135: HTML parser error : Unexpected end tag : li
+    <li>Close on the preserved live-agent metrics, not a self-awarded score.</li
+                                                                               ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:136: HTML parser error : Unexpected end tag : ol
+              </ol>
+                   ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:137: HTML parser error : Unexpected end tag : section
+            </section>
+                      ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:138: HTML parser error : Unexpected end tag : h2
+            <section><h2>Embedded XML contract</h2><pre>${xml}</pre></section>
+                                                   ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:138: HTML parser error : Unexpected end tag : pre
+            <section><h2>Embedded XML contract</h2><pre>${xml}</pre></section>
+                                                                    ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:138: HTML parser error : Unexpected end tag : section
+            <section><h2>Embedded XML contract</h2><pre>${xml}</pre></section>
+                                                                              ^
+WEBMCP_JUDGE_PANEL_BRIEF.html:139: HTML parser error : Unexpected end tag : main
+          </main>
+                 ^
+embedded XML: PASS StrategiXVisualSpec {'version': '1.0', 'artifact': 'mirrorloop-webmcp-judge-panel-brief', 'generatedAt': '2026-08-29'}
