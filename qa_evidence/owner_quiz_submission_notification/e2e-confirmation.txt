@@ -1,0 +1,5 @@
+verification_get_http_status=200
+verification_get_branded=2
+verification_post_http_status=200
+verification_post_result=1
+verification_post_second_email_copy=2

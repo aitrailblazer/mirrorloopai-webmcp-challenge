@@ -1,5 +1,26 @@
 # Changelog
 
+## 2026-08-30 — Automated quiz-email lifecycle test
+
+- Completed all 12 production quiz questions in Chrome and verified the
+  expected Horizon Signal result and email form.
+- Confirmed that production Turnstile rejects the automated browser fingerprint
+  rather than allowing scripted public submission.
+- Exercised the remaining production-backed lifecycle through a temporary,
+  IAM-protected Cloud Run revision with challenge verification disabled only
+  for that isolated service: pending subscriber write, confirmation request,
+  owner diagnostic notification request, confirmation GET, confirmation POST,
+  compact result rendering, reflection-email request, and unsubscribe cleanup.
+- Verified HTTP 202 for submission, branded HTTP 200 confirmation review,
+  HTTP 200 activation with the expected compact result, no owner-notification
+  failure log, and HTTP 200 cleanup.
+- Deleted the temporary service after the test. Production configuration and
+  Turnstile remained unchanged.
+- Resend accepted all application sends, but the expected messages were not
+  observable in the connected Google Workspace mailbox. F-033 was therefore
+  reopened as `Retest Failed`; provider delivery/bounce visibility is required
+  before inbox delivery can be marked verified.
+
 ## 2026-08-30 — Owner quiz diagnostic and manual-fulfillment notification
 
 - Audited the accepted quiz-submission path and confirmed that only the

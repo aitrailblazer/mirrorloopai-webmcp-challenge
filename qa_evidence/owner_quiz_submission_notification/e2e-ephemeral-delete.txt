@@ -1,0 +1,3 @@
+Deleting [mirrorloopai-subscriber-e2e]...
+....................done.
+Deleted service [mirrorloopai-subscriber-e2e].

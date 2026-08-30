@@ -1,0 +1,18 @@
+Automated production-loop evidence (secrets/tokens omitted)
+browser_quiz_questions_completed=12
+browser_result=Horizon Signal
+production_turnstile_automation=BLOCKED_AS_DESIGNED
+isolated_e2e_service_auth=IAM_REQUIRED
+submission_http_status=202
+{"status":"confirmation_required"}
+test_email=redacted-e2e-participant@example.invalid
+verification_get_http_status=200
+verification_get_branded=2
+verification_post_http_status=200
+verification_post_result=1
+verification_post_second_email_copy=2
+owner_notification_failure_logs=0
+resend_acceptance_confirmation=PASS (submission returned 202)
+resend_acceptance_owner_notice=PASS_WITH_QUALIFICATION (no failure log; owner send is non-blocking)
+resend_acceptance_reflection=PASS (confirmation POST returned 200)
+gmail_inbox_delivery_observed=NO
