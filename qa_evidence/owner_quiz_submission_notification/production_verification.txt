@@ -1,0 +1,11 @@
+$ gcloud run services describe mirrorloopai-subscriber (bounded fields)
+mirrorloopai-subscriber-00016-mjt	100
+$ configured operational recipient
+constantine@aitrailblazer.com
+$ curl production health
+{"status":"ok"}
+
+$ verify production site bundle and disclosure
+  <script type="module" src="/app.js?v=20260830-7"></script>
+    answerDetails: state.quiz.questions.map((question, index) => ({
+    <p>After an accepted submission, your email address, each question, and your 12 selected responses in question order are processed in an operational notification. An authorized MIRROR//LOOP operator may use it only to diagnose or complete your requested result when automated delivery needs help. The notification may be retained by our email provider and operational mailbox under their retention settings.</p>

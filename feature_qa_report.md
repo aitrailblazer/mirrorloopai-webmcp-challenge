@@ -5,10 +5,10 @@ Tracker source: `feature_status_tracker.csv`
 ## Totals
 
 - Total features discovered: 88
-- Total verified before fixes: 58
+- Total verified before fixes: 59
 - Total failed before fixes: 20
-- Total fixed: 25
-- Total verified after retest: 82
+- Total fixed: 24
+- Total verified after retest: 83
 - Total still blocked: 0
 - Total needing product decision: 1
 
@@ -19,7 +19,6 @@ Tracker source: `feature_status_tracker.csv`
 - SUB-007 `Devpost project draft readiness` — Critical — Needs Product Decision
 - SUB-008 `Eligibility, ownership, and third-party rights attestation` — Critical — Needs Product Decision
 - RES-008 `Explicit-confirmation eval oracle consistency` — High — Needs Product Decision
-- F-033 `Owner quiz-submission fulfillment notification` — High — Fixed
 
 ## Files Changed Or Audited
 
@@ -119,6 +118,7 @@ Tracker source: `feature_status_tracker.csv`
 - `068a91f; dc43eb2`
 - `b03a86c; 2ab3824`
 - `16bb41c; 75ace45`
+- `7d43acc`
 
 ## Test Evidence
 
