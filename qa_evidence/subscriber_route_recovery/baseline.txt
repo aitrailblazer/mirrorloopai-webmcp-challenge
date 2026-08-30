@@ -1,0 +1,8 @@
+# Baseline subscriber-route failure — 2026-08-29
+UTC 2026-08-30T05:17:34Z
+$ curl -sS -o /dev/null -w ... https://mirrorloopai.com/api/v1/health
+health status=404 content_type=text/html; charset=utf-8
+$ curl POST /api/v1/subscribers with non-sensitive invalid fixture
+subscribe status=404 content_type=text/html; charset=utf-8
+body_prefix= <!doctype html> <html>   <head>     <title>Page Not Found</title>     <link hre
+Expected: /api/v1/health routes to Cloud Run and returns JSON 200; subscriber POST reaches API and returns bounded JSON rather than Firebase 404 HTML.
