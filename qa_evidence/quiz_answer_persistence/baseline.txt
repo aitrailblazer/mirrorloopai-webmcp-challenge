@@ -1,0 +1,11 @@
+Feature F-029 baseline — saved editable quiz choices
+Captured: 2026-08-29
+
+Observed implementation:
+web/index.html:140:        <button class="text-button" id="restart-button" type="button">Take the quiz again</button>
+web/app.js:182:  state.answers.fill(null);
+web/app.js:438:$("#restart-button").addEventListener("click", () => {
+web/app.js:440:  state.answers.fill(null);
+
+Finding: startReflection and the result restart action clear all 12 choices; no browser-local answer persistence exists.
+Expected: previous choices survive reload and repeat, remain selected and editable, can be explicitly cleared, and are never persisted by the backend.
