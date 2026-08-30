@@ -182,17 +182,17 @@ func TestConfirmationGETDoesNotActivateSubscription(t *testing.T) {
 		"occasional App Store release and product updates",
 		"48-hour review window",
 		"Return without confirming",
-		"prefers-reduced-motion:reduce",
+		`rel="stylesheet" href="/confirmation.css?v=20260830-1"`,
 		`method="post"`,
 	} {
 		if !strings.Contains(body, expected) {
 			t.Errorf("confirmation page missing %q", expected)
 		}
 	}
-	if strings.Contains(body, "<script") || strings.Contains(body, "http://") || strings.Contains(body, "https://") {
+	if strings.Contains(body, "<script") || strings.Contains(body, "<style") || strings.Contains(body, "http://") || strings.Contains(body, "https://") {
 		t.Error("confirmation page must not contain scripts or external assets")
 	}
-	if csp := getResponse.Header().Get("Content-Security-Policy"); !strings.Contains(csp, "form-action 'self'") || !strings.Contains(csp, "frame-ancestors 'none'") {
+	if csp := getResponse.Header().Get("Content-Security-Policy"); !strings.Contains(csp, "style-src 'self'") || strings.Contains(csp, "'unsafe-inline'") || !strings.Contains(csp, "form-action 'self'") || !strings.Contains(csp, "frame-ancestors 'none'") {
 		t.Fatalf("confirmation CSP=%q", csp)
 	}
 	if output := os.Getenv("MIRRORLOOP_CONFIRMATION_HTML_OUT"); output != "" {

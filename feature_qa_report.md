@@ -7,7 +7,7 @@ Tracker source: `feature_status_tracker.csv`
 - Total features discovered: 86
 - Total verified before fixes: 56
 - Total failed before fixes: 18
-- Total fixed: 24
+- Total fixed: 25
 - Total verified after retest: 80
 - Total still blocked: 0
 - Total needing product decision: 1
@@ -19,7 +19,7 @@ Tracker source: `feature_status_tracker.csv`
 - SUB-007 `Devpost project draft readiness` — Critical — Needs Product Decision
 - SUB-008 `Eligibility, ownership, and third-party rights attestation` — Critical — Needs Product Decision
 - RES-008 `Explicit-confirmation eval oracle consistency` — High — Needs Product Decision
-- F-031 `CSP-compatible confirmation page styling` — High — Failed Test
+- F-031 `CSP-compatible confirmation page styling` — High — Fixed
 
 ## Files Changed Or Audited
 
@@ -93,7 +93,7 @@ Tracker source: `feature_status_tracker.csv`
 - `web/index.html; web/app.js; scripts/validate-site.mjs; CHANGELOG.md; qa_evidence/subscriber_route_recovery/**; feature_status_tracker.csv; feature_status_tracker.xlsx; feature_status_tracker.html; feature_qa_report.md`
 - `web/lib/reflection-storage.js; web/tests/reflection-storage.test.mjs; web/app.js; web/index.html; web/privacy.html; scripts/test-quiz-persistence-browser.mjs; scripts/validate-site.mjs; package.json; CHANGELOG.md; qa_evidence/quiz_answer_persistence/`
 - `api/internal/subscriber/http.go; api/internal/subscriber/http_test.go; CHANGELOG.md; qa_evidence/confirmation_page_design/`
-- `qa_evidence/confirmation_page_style_regression/; feature_status_tracker.csv; feature_status_tracker.xlsx; feature_status_tracker.html; feature_qa_report.md`
+- `api/internal/subscriber/http.go; api/internal/subscriber/http_test.go; web/confirmation.css; scripts/test-confirmation-page-browser.mjs; scripts/validate-site.mjs; package.json; CHANGELOG.md; qa_evidence/confirmation_page_style_regression/; feature_status_tracker.csv; feature_status_tracker.xlsx; feature_status_tracker.html; feature_qa_report.md`
 
 ## Commits Recorded In Tracker
 

@@ -1,5 +1,21 @@
 # Changelog
 
+## 2026-08-30 — CSP-compatible confirmation page styling
+
+- Reopened the confirmation-page audit after a production Chrome screenshot
+  showed the revised content rendering without any MIRROR//LOOP styling.
+- Replaced the API response's inline stylesheet with a versioned same-origin
+  `/confirmation.css` asset that is compatible with both the API and Firebase
+  Hosting Content Security Policies.
+- Tightened the API policy from `style-src 'unsafe-inline'` to
+  `style-src 'self'` while preserving the side-effect-free GET and explicit
+  POST confirmation boundary.
+- Added a repeatable headless-Chrome test that loads the page and stylesheet
+  through an HTTP origin, checks computed styles, console errors, and
+  horizontal overflow, and captures desktop and mobile evidence.
+- Revalidated Go handlers and vet, 28 web tests, site validation, the 15-case
+  WebMCP corpus, Stripe inventory, and both confirmation viewports.
+
 ## 2026-08-29 — Branded confirmation and unsubscribe pages
 
 - Audited the scanner-safe email confirmation step after a participant reached

@@ -12,6 +12,7 @@ const shop = await readFile(new URL("web/shop.html", root), "utf8");
 const terms = await readFile(new URL("web/terms.html", root), "utf8");
 const config = await readFile(new URL("web/config.js", root), "utf8");
 const llms = await readFile(new URL("web/llms.txt", root), "utf8");
+const confirmationCSS = await readFile(new URL("web/confirmation.css", root), "utf8");
 const shopCatalog = JSON.parse(await readFile(new URL("web/data/shop.json", root), "utf8"));
 
 assert.equal(quiz.questions.length, 12);
@@ -80,6 +81,9 @@ assert.ok(shop.includes("/terms.html"));
 assert.ok(terms.includes("Digital products"));
 assert.ok(llms.includes("recommend_card_edition"));
 assert.ok(llms.includes("https://mirrorloopai.com/shop"));
+assert.ok(confirmationCSS.includes(".card"));
+assert.ok(confirmationCSS.includes("@media (max-width: 560px)"));
+assert.ok(confirmationCSS.includes("@media (prefers-reduced-motion: reduce)"));
 for (const forbidden of ["Rosicrucian_Library", "all_transcriptions.txt", "all_interpretations.txt", "Geneva_Bible_1599"]) {
   assert.ok(!index.includes(forbidden), `private corpus reference leaked: ${forbidden}`);
 }

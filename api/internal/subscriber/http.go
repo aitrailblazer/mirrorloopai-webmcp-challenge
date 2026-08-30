@@ -223,7 +223,7 @@ func renderActionPage(w http.ResponseWriter, r *http.Request, page actionPage) {
 
 func renderMessagePage(w http.ResponseWriter, status int, page actionPage) {
 	w.Header().Set("Content-Type", "text/html; charset=utf-8")
-	w.Header().Set("Content-Security-Policy", "default-src 'none'; style-src 'unsafe-inline'; form-action 'self'; base-uri 'none'; frame-ancestors 'none'")
+	w.Header().Set("Content-Security-Policy", "default-src 'none'; style-src 'self'; form-action 'self'; base-uri 'none'; frame-ancestors 'none'")
 	w.WriteHeader(status)
 	if err := actionPageTemplate.Execute(w, page); err != nil {
 		slog.Error("render subscriber action page", "error", err)
@@ -238,22 +238,7 @@ var actionPageTemplate = template.Must(template.New("subscriber-action").Parse(`
   <meta name="robots" content="noindex,nofollow">
   <meta name="theme-color" content="#080b15">
   <title>{{.Title}} — MIRROR//LOOP</title>
-  <style>
-    :root{color-scheme:dark;--ink:#f5f0e6;--muted:#b9b6c4;--night:#080b15;--panel:#111526;--line:#303752;--gold:#f1be61;--gold2:#ffe1a0;--focus:#fff3bf;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-    *{box-sizing:border-box}html,body{min-height:100%}body{margin:0;color:var(--ink);background:radial-gradient(circle at 70% 0,#211936 0,var(--night) 38rem);line-height:1.55}
-    body::before{position:fixed;inset:0;pointer-events:none;content:"";background:linear-gradient(115deg,transparent 15%,#8d73d610 50%,transparent 78%)}
-    .shell{position:relative;width:min(1120px,calc(100% - 2rem));min-height:100vh;margin:auto;display:grid;grid-template-rows:auto 1fr auto}
-    header,footer{display:flex;align-items:center;justify-content:space-between;padding:1.25rem 0}.brand{color:var(--ink);text-decoration:none;font-weight:850;letter-spacing:.08em}.brand span,.eyebrow{color:var(--gold)}
-    main{display:grid;place-items:center;padding:3rem 0 5rem}.card{position:relative;overflow:hidden;width:min(680px,100%);padding:clamp(1.5rem,6vw,4rem);border:1px solid var(--line);border-radius:2rem;background:linear-gradient(145deg,#151a2eee,#0c0f1cf5);box-shadow:0 30px 100px #0008,0 0 70px #8d73d617}
-    .card::after{position:absolute;right:-5rem;top:-6rem;width:15rem;aspect-ratio:1;border-radius:50%;content:"";background:radial-gradient(circle,#f1be6129,transparent 68%)}
-    .mark{display:grid;place-items:center;width:4.2rem;aspect-ratio:1;margin-bottom:1.5rem;border:1px solid #f1be6180;border-radius:50%;color:var(--gold);font:2rem Georgia,serif;box-shadow:0 0 40px #f1be6120}
-    .eyebrow{margin:0 0 .75rem;font-size:.76rem;font-weight:850;letter-spacing:.18em;text-transform:uppercase}h1{max-width:570px;margin:0 0 1rem;font:clamp(2.6rem,8vw,4.7rem)/.98 Georgia,serif;letter-spacing:-.04em}.lede{max-width:560px;margin:0 0 1.5rem;color:var(--muted);font-size:1.08rem}
-    .review{margin:1.6rem 0;padding:1.2rem;border:1px solid var(--line);border-radius:1rem;background:#171b2e}.review strong{display:block;margin-bottom:.65rem;color:var(--gold2)}ol{margin:0;padding-left:1.35rem}li+li{margin-top:.65rem}
-    form{margin-top:1.6rem}.button{min-height:50px;padding:.8rem 1.3rem;border:1px solid transparent;border-radius:999px;background:linear-gradient(135deg,var(--gold2),var(--gold));box-shadow:0 10px 40px #e5ac4130;color:#1b1204;font:inherit;font-weight:850;cursor:pointer}.button:hover{filter:brightness(1.05);transform:translateY(-1px)}.button:focus-visible,.secondary:focus-visible{outline:3px solid var(--focus);outline-offset:4px}
-    .footnote{margin:1.25rem 0 .65rem;color:var(--muted);font-size:.9rem}.secondary{color:var(--gold2);text-underline-offset:.2rem}footer{border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
-    @media(max-width:560px){main{padding:1rem 0 3rem}.card{border-radius:1.35rem}.shell>header>span,.shell>footer>span{display:none}.button{width:100%}}
-    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}.button:hover{transform:none}}
-  </style>
+  <link rel="stylesheet" href="/confirmation.css?v=20260830-1">
 </head>
 <body>
   <div class="shell">
