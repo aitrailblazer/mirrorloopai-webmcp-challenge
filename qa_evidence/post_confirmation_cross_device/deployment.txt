@@ -1,0 +1,8 @@
+F-032 deployment — 2026-08-30
+Cloud Run revision: mirrorloopai-subscriber-00015-lvd
+Cloud Run latest-revision traffic: 100%
+Firebase Hosting deployment: PASS
+Production health: PASS
+Static /confirmed fallback: second-email, any-device, and non-synchronized-choice explanations present
+Production invalid-token GET: safe branded HTTP 400
+Personalized success POST: verified locally with the production handler/template and deterministic stored record; not invoked against production because that would require a real subscriber token and would resend email.
