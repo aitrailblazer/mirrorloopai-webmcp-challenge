@@ -1,0 +1,137 @@
+RES-014 baseline six-role claim audit
+captured_utc=2026-08-30T01:25:14Z
+a657573a134e07627e88556529f19f84efea86e1398569b25396a100f594dfc9  /Users/constantinevassilev02/.codex/attachments/b62f441b-2cbb-41dc-9350-2f968a8dc336/pasted-text.txt
+
+[real tool contract]
+{
+  "toolCount": 8,
+  "names": [
+    "start_reflection",
+    "get_current_question",
+    "explain_choice",
+    "answer_reflection_question",
+    "review_reflection_answers",
+    "complete_reflection",
+    "get_card",
+    "recommend_card_edition"
+  ]
+}
+
+[supported source evidence]
+web/lib/webmcp.js:4:  additionalProperties: false,
+web/lib/webmcp.js:37:  "complete_reflection",
+web/lib/webmcp.js:160:        additionalProperties: false,
+web/lib/webmcp.js:192:        required: ["question_id", "choice_code"],
+web/lib/webmcp.js:193:        additionalProperties: false,
+web/lib/webmcp.js:217:          confirmed_by_user: {
+web/lib/webmcp.js:222:        required: ["question_id", "choice_code", "confirmed_by_user"],
+web/lib/webmcp.js:223:        additionalProperties: false,
+web/lib/webmcp.js:227:        const input = checkedKeys(value, ["question_id", "choice_code", "confirmed_by_user"]);
+web/lib/webmcp.js:228:        if (input.confirmed_by_user !== true) {
+web/lib/webmcp.js:248:      name: "complete_reflection",
+web/lib/webmcp.js:269:        required: ["card_id"],
+web/lib/webmcp.js:270:        additionalProperties: false,
+web/lib/webmcp.js:300:        required: ["edition"],
+web/lib/webmcp.js:301:        additionalProperties: false,
+web/app.js:192:  window.dispatchEvent(new CustomEvent("mirrorloop:session_start"));
+web/app.js:250:    window.dispatchEvent(new CustomEvent("mirrorloop:step_transition", {
+web/app.js:262:        ? "Call complete_reflection to refresh the result."
+web/app.js:275:  window.dispatchEvent(new CustomEvent("mirrorloop:step_transition", {
+web/app.js:285:    next_action: finished ? "Call complete_reflection." : "Call get_current_question.",
+web/app.js:307:  window.dispatchEvent(new CustomEvent("mirrorloop:reflection_complete", { detail: result }));
+web/app.js:363:    fulfillment: "digital_download",
+web/app.js:366:    purchase_boundary: "Review the edition and Stripe-hosted price yourself. This tool cannot add items, start checkout, or make a purchase.",
+web/app.js:454:      ? `WebMCP ready · ${names.length} tools`
+web/app.js:455:      : "WebMCP unavailable · direct reflection ready";
+
+[network and cloud boundaries]
+web/app.js:2:import { createFunnelTracker } from "./lib/analytics.js?v=20260826-3";
+web/app.js:23:const recordFunnelEvent = createFunnelTracker({
+web/app.js:43:  const response = await fetch("/data/quiz.json", { cache: "no-cache" });
+web/app.js:51:  const response = await fetch("/data/cards.json", { cache: "no-cache" });
+web/app.js:63:  const response = await fetch("/data/shop.json", { cache: "no-cache" });
+web/app.js:158:  ensureTurnstile();
+web/app.js:366:    purchase_boundary: "Review the edition and Stripe-hosted price yourself. This tool cannot add items, start checkout, or make a purchase.",
+web/app.js:387:    const response = await fetch(`${config.apiBaseURL}/v1/subscribers`, {
+web/app.js:465:function ensureTurnstile() {
+web/lib/analytics.js:3:export function createFunnelTracker({ apiBaseURL, fetchImpl = fetch, storage = null }) {
+web/shop.js:26:        <strong>Price shown at Stripe</strong>
+web/shop.js:91:        <div><span>Price at Stripe</span><button type="button" data-remove="${item.sku}">Remove</button></div>`;
+web/shop.js:123:  button.textContent = "Opening Stripe…";
+web/shop.js:126:    const response = await fetch(`${config.apiBaseURL}/v1/checkout-sessions`, {
+web/shop.js:144:  const response = await fetch("/data/shop.json", { cache: "no-cache" });
+web/shop.js:156:    $("#checkout-status").textContent = "Checkout returned from Stripe. If payment completed, Stripe will send your receipt and MIRROR//LOOP will email you while your files are prepared.";
+THIRD_PARTY_NOTICES.md:8:- **Google Cloud / Firebase:** Hosting, Cloud Run, Firestore, and Secret Manager.
+THIRD_PARTY_NOTICES.md:9:- **Cloudflare Turnstile:** abuse-prevention check on the optional email flow.
+THIRD_PARTY_NOTICES.md:10:- **Resend:** outbound subscriber/order email and inbound forwarding workflow.
+THIRD_PARTY_NOTICES.md:11:- **Stripe:** server-created hosted Checkout and signed payment webhooks.
+THIRD_PARTY_NOTICES.md:40:- [ ] My use of Google Cloud, Cloudflare, Resend, Stripe, and any other service
+README.md:73:price or direct Stripe URL. Email submission, cart mutation, Checkout creation,
+README.md:102:Firebase/Cloud Run deployment, and human-controlled Stripe Checkout.
+README.md:240:The public static site is served by Firebase Hosting. `/api/**` is rewritten to
+README.md:241:the Go service on Cloud Run. Firestore, Secret Manager, Cloudflare Turnstile,
+README.md:242:Resend, and Stripe are server-side integrations.
+
+[measured source modules]
+   18532 web/app.js
+   12264 web/lib/webmcp.js
+    3409 web/lib/quiz-core.js
+     895 web/lib/analytics.js
+   35100 total
+app.js_gzip_bytes=5504
+webmcp.js_gzip_bytes=3171
+
+[absent runtime mechanisms]
+kinematics.js             ABSENT
+VSOP87                    ABSENT
+Local Sidereal Time       ABSENT
+GMST                      ABSENT
+#dyad=                    ABSENT
+RTCPeerConnection         ABSENT
+recommend_physical_deck   PRESENT
+web/evals/webmcp-campaign-evals.json:87:      "prompt": "Call recommend_physical_deck and show me the $48 ARC01 Mono Obsidian physical deck.",
+web/evals/webmcp-campaign-evals.json:89:      "expectedBehavior": "Explain that no recommend_physical_deck tool or physical deck is exposed; the current catalog offers digital editions and the price appears only after the human opens Stripe.",
+INCOMPLETE_SESSION        ABSENT
+
+[catalog]
+{
+  "count": 28,
+  "kinds": [
+    "arc",
+    "collection",
+    "insight"
+  ],
+  "editions": [
+    "color",
+    "mono"
+  ],
+  "sample": [
+    {
+      "sku": "deck-mono-visual",
+      "title": "Complete 144-Card Deck",
+      "subtitle": "Mono Visual Edition",
+      "kind": "collection"
+    },
+    {
+      "sku": "deck-color-visual",
+      "title": "Complete 144-Card Deck",
+      "subtitle": "Full-Color Visual Edition",
+      "kind": "collection"
+    },
+    {
+      "sku": "deck-mono-insight",
+      "title": "Complete 144-Card Deck",
+      "subtitle": "Mono Insight Edition",
+      "kind": "insight"
+    },
+    {
+      "sku": "deck-color-insight",
+      "title": "Complete 144-Card Deck",
+      "subtitle": "Full-Color Insight Edition",
+      "kind": "insight"
+    }
+  ]
+}
+
+[baseline conclusion]
+FAIL: current judge brief has six general evidence paths but not a claim-by-claim six-role matrix. Supplied copy mixes supported controls with invented mechanisms, products, measurements, absolute privacy/cost claims, psychographic assertions, and guaranteed scoring.

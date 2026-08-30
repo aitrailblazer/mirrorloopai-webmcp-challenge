@@ -23,6 +23,14 @@ for (const required of [
   "webmcp.js 12,264 bytes raw / 3,171 gzip",
   "31 preserved agent cases",
   "Chrome motion and accessibility claim ledger",
+  '<RoleEvidence count="6" framing="public-role-only">',
+  "Six role-oriented evidence paths",
+  "The agent is not read-only",
+  "recommend_card_edition, not recommend_physical_deck",
+  "There is no kinematics.js",
+  "not zero telemetry, zero database, zero compute",
+  "not a purely event-only or strictly unidirectional architecture",
+  "current catalog is digital delivery",
   "A 250 ms CSS width transition updates with aria-valuenow",
   "prefers-reduced-motion disables the transition",
   "144-sector animated SVG dial",
@@ -48,6 +56,7 @@ for (const prohibited of [
 }
 
 assert.equal((artifact.match(/<Judge name=/g) ?? []).length, 7);
-assert.equal((artifact.match(/<Excluded>/g) ?? []).length, 8);
+assert.equal((artifact.match(/<Excluded>/g) ?? []).length, 10);
 assert.equal((artifact.match(/<Qualified>/g) ?? []).length, 1);
+assert.equal((artifact.match(/<Role name=/g) ?? []).length, 6);
 console.log("WebMCP judge panel brief: PASS");

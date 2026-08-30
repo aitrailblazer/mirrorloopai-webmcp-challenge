@@ -203,7 +203,10 @@ in `WEBMCP_JUDGE_PANEL_BRIEF.html`. The brief uses public titles to organize
 evidence; it does not infer judges' private preferences. It also rejects
 undeployed astronomy, P2P, physical-product, universal zero-telemetry,
 unmeasured bundle-performance, invented SVG/compositor behavior, zero-setup
-claims, and self-awarded score claims.
+claims, and self-awarded score claims. Its role-oriented verification matrix
+gives technical reviewers a direct source-and-runtime path for agent
+authority, schema discipline, measured delivery, disclosed data boundaries,
+modular frontend structure, and human-controlled digital commerce.
 
 Chrome is the verified path accepted by the rules. Actual ChatGPT in-app
 browser behavior is still unconfirmed. Unsupported hosts retain the full direct

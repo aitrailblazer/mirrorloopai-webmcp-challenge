@@ -52,6 +52,7 @@ const checks = [
   ["Top-level MIT license", license.includes("MIT License")],
   ["Package validation entry point", packageJSON.scripts?.["validate:submission"] === "node scripts/validate-submission.mjs"],
   ["Chrome UX validation entry point", packageJSON.scripts?.["test:webmcp:chrome-ux"] === "node scripts/validate-webmcp-chrome-ux.mjs"],
+  ["Six-role validation entry point", packageJSON.scripts?.["test:webmcp:six-role-claims"] === "node scripts/validate-webmcp-six-role-claims.mjs"],
   ["Eval validation entry point", packageJSON.scripts?.["test:webmcp:evals"] === "node scripts/validate-webmcp-evals.mjs"],
   ["Campaign eval validation entry point", packageJSON.scripts?.["test:webmcp:campaign-evals"] === "node scripts/validate-webmcp-campaign-evals.mjs"],
   ["Campaign claim boundary matrix", [
@@ -90,6 +91,8 @@ const checks = [
     "Self-awarded competition scores",
     "Chrome motion and accessibility claim ledger",
     "Zero-flag Chrome setup",
+    '<RoleEvidence count="6" framing="public-role-only">',
+    "recommend_card_edition, not recommend_physical_deck",
   ].every((term) => judgePanelBrief.includes(term))],
   ["Official resource matrix", [
     'resource_cards="36"',

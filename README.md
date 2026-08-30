@@ -194,6 +194,11 @@ Its Chrome UX ledger documents the actual semantic progressbar, live regions,
 focus changes, reduced-motion behavior, Origin Trial token, and direct-use
 fallback. It explicitly rejects invented SVG, `requestAnimationFrame`,
 compositor, frame-rate, zero-paint, zero-setup, and total-dependency claims.
+The same brief includes a six-role, role-oriented verification matrix for
+human-agent authority, typed tool contracts, measured delivery, privacy
+boundaries, frontend architecture, and commercial utility. Each path contains
+supported evidence, a correction to the supplied overclaim, and a reproducible
+judge check; none attributes private preferences or predicts a score.
 
 A separate campaign corpus tests the concrete scenarios used in public
 promotion, including the negative boundaries. Gemini 2.5 Flash selected the

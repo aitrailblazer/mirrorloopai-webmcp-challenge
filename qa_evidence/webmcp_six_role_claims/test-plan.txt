@@ -1,0 +1,24 @@
+RES-014 TEST PLAN — created before implementation
+
+User outcome
+A technical judge can follow a role-relevant evidence path without relying on alleged personal preferences, invented features, or unsupported performance/privacy/commercial claims.
+
+Discovery
+1. Inventory every claim in the supplied six-judge profile.
+2. Check tool names, schemas, state mutation, completion behavior, error shapes, input normalization, and DOM/event coupling in source.
+3. Measure only the source modules already included in the audited size statement; inspect runtime network boundaries and deployment architecture.
+4. Check analytics, email, Stripe, catalog product type, prices, P2P/hash tokens, kinematics/astronomy, and external dependencies.
+5. Treat official public titles as orientation only; exclude alleged likes, dislikes, and guaranteed scores.
+
+Baseline tests
+1. Compare every proposed Justin/Alex/Ilya/Andrew/Jude/Sean callout with source and preserved runtime evidence.
+2. Classify each claim as supported, qualified, contradicted, unmeasured, or excluded.
+3. Verify the current brief does not yet contain the complete six-role claim matrix.
+
+Retest
+1. Generate an evidence-bounded six-role matrix in the self-contained StrategiX judge brief and embedded XML.
+2. Add concise, accurate README and submission guidance without expanding runtime authority.
+3. Validate prohibited claims are not presented affirmatively.
+4. Run all WebMCP, web, Stripe, site, submission, and Go regression gates.
+5. Render desktop/mobile, check XML, overflow, and console output.
+6. Regenerate canonical CSV-derived XLSX, HTML, and QA report.

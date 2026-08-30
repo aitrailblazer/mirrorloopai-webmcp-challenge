@@ -1,0 +1,156 @@
+RES-014 final regression
+started_utc=2026-08-30T01:30:37Z
+
+> test
+> node --test web/tests/*.test.mjs
+
+✔ funnel tracker sends only aggregate allowlisted event names (5.549084ms)
+✔ session storage suppresses duplicate events after reload (0.15675ms)
+✔ public quiz contains 12 complete questions (0.839166ms)
+✔ public question labels use plain language (0.292667ms)
+✔ scoring matches stable Swift tie-break contract (9.020542ms)
+✔ every archetype has plain-language result copy (0.155166ms)
+✔ response groups provide plain-language scanning help (0.078583ms)
+✔ a zero-count tie is not presented as a supporting pattern (0.851292ms)
+✔ shop exposes 12 ARCs in mono and full color plus four complete decks (0.877875ms)
+✔ public catalog contains no prices or pre-order language (0.226208ms)
+✔ shop is active while Stripe remains the only price and payment surface (0.064291ms)
+✔ private source keeps canonical Stripe amounts (0.772375ms)
+✔ every product image exists and checkout explains its boundary (2.074834ms)
+✔ registers exactly eight same-origin bounded tools (1.867875ms)
+✔ marks read operations and local state changes accurately (0.157375ms)
+✔ keeps catalog recommendation read-only and outside checkout (0.374041ms)
+✔ requires explicit human confirmation before recording an answer (0.261916ms)
+✔ passes an explicitly confirmed revision through the bounded answer tool (0.140458ms)
+✔ rejects unknown fields and malformed card identifiers (0.178666ms)
+✔ does not echo the private focus area in the tool result wrapper (0.159583ms)
+✔ prefers the document WebMCP context and supports navigator fallback (0.090875ms)
+✔ awaits registration and aborts all partial registrations after rejection (0.442458ms)
+✔ reports ready only after all asynchronous registrations resolve (4.491ms)
+✔ reports direct-mode fallback after an asynchronous registration failure (0.918458ms)
+✔ keeps names, descriptions, parameters, and outputs within official budgets (0.291125ms)
+ℹ tests 25
+ℹ suites 0
+ℹ pass 25
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 130.756917
+
+> test:webmcp:evals
+> node scripts/validate-webmcp-evals.mjs
+
+WebMCP eval corpus: PASS (15 cases, 8 tools, 2 sequences)
+Note: this validates the deterministic expected-call corpus; a host-agent model run is a separate evaluation.
+
+> test:webmcp:campaign-evals
+> node scripts/validate-webmcp-campaign-evals.mjs
+
+WebMCP campaign corpus: PASS (10 cases, 6 supported tools, 5 claim boundaries)
+
+> test:webmcp:operational-use-cases
+> node scripts/validate-webmcp-operational-use-cases.mjs
+
+WebMCP operational use cases: PASS (6 cases, 4 production tools)
+
+> test:webmcp:competition-hardening
+> node scripts/validate-webmcp-competition-hardening.mjs
+
+WebMCP competition hardening audit: PASS
+
+> test:webmcp:judge-panel
+> node scripts/validate-webmcp-judge-panel-brief.mjs
+
+WebMCP judge panel brief: PASS
+
+> test:webmcp:chrome-ux
+> node scripts/validate-webmcp-chrome-ux.mjs
+
+WebMCP Chrome UX claim contract: PASS
+
+> test:webmcp:six-role-claims
+> node scripts/validate-webmcp-six-role-claims.mjs
+
+WebMCP six-role claim contract: PASS
+
+> test:webmcp:agent-evidence
+> node scripts/validate-webmcp-agent-evidence.mjs
+
+Live WebMCP agent evidence: PASS (strict 12/15, ordered 14/15, arguments 12/14, literal no-tool 4/5, forbidden mutations 0)
+
+> test:webmcp:campaign-evidence
+> node scripts/validate-webmcp-campaign-agent-evidence.mjs
+
+Live WebMCP campaign evidence: PASS (strict 8/10, selection 10/10, ordered 10/10, no-tool 5/5, forbidden calls 0)
+
+> test:webmcp:operational-evidence
+> node scripts/validate-webmcp-operational-evidence.mjs
+
+Live WebMCP operational evidence: PASS (6/6 exact cases, 8/8 calls)
+
+> test:stripe
+> node --test scripts/tests/*.test.mjs
+
+✔ Stripe CLI inventory retains metadata but never API key material (2.411166ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 109.436709
+
+> validate
+> node scripts/validate-site.mjs
+
+site validation: PASS
+
+> validate:submission
+> node scripts/validate-submission.mjs
+
+PASS README live URL
+PASS README source URL
+PASS README native registration pattern
+PASS README current DevTools judge path
+PASS README resource review
+PASS README campaign claim audit
+PASS README operational use cases
+PASS README competition hardening
+PASS README judge panel brief
+PASS README pre-existing disclosure
+PASS README all eight tools
+PASS Submission four required explanations
+PASS Submission four judging criteria
+PASS Submission demo plan
+PASS Submission challenge-period commits
+PASS Submission freeze plan
+PASS Third-party service inventory
+PASS Top-level MIT license
+PASS Package validation entry point
+PASS Chrome UX validation entry point
+PASS Six-role validation entry point
+PASS Eval validation entry point
+PASS Campaign eval validation entry point
+PASS Campaign claim boundary matrix
+PASS Six bounded operational use cases
+PASS Competition claim hardening
+PASS Evidence-bounded judge panel brief
+PASS Official resource matrix
+
+External gates intentionally not performed by this validator:
+- GitHub repository visibility must be PUBLIC.
+- A Devpost project must be created.
+- A public YouTube demo under three minutes must be supplied.
+- The operator must complete eligibility, ownership, and rights attestations.
+- Actual ChatGPT in-app-browser support remains optional because verified Chrome is accepted.
+
+LOCAL SUBMISSION PACKAGE PASS — external gates remain pending.
+ok  	mirrorloopai.com/web/api/cmd/analytics-report	(cached)
+ok  	mirrorloopai.com/web/api/cmd/server	(cached)
+ok  	mirrorloopai.com/web/api/internal/analytics	(cached)
+ok  	mirrorloopai.com/web/api/internal/commerce	(cached)
+ok  	mirrorloopai.com/web/api/internal/inbound	(cached)
+ok  	mirrorloopai.com/web/api/internal/subscriber	(cached)
+completed_utc=2026-08-30T01:30:41Z

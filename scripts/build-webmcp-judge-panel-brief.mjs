@@ -10,7 +10,9 @@ const sourcePaths = [
   "web/index.html",
   "web/styles.css",
   "web/lib/webmcp.js",
+  "web/lib/analytics.js",
   "web/app.js",
+  "web/shop.js",
   "web/data/cards.json",
   "web/data/shop.json",
   "web/evals/webmcp-evals.json",
@@ -86,6 +88,51 @@ const chromeClaims = [
   ["A judge's private preferences or dislikes", "EXCLUDED", "A public role can organize an inspection path; it cannot establish a person's private motivations."],
 ];
 
+const roleEvidence = [
+  {
+    name: "Justin Rushing",
+    lens: "Human-agent authority and safe browser execution",
+    supported: "The agent may read and explain, and may mutate only ephemeral reflection state. Every answer requires confirmed_by_user: true. Email, cart, Checkout, and payment remain outside the eight-tool contract.",
+    correction: "The agent is not read-only: start, answer, and completion tools intentionally mutate local state. Completion returns a bounded reflective prompt, not a guaranteed physical test or hard Return Line.",
+    reproduce: "Reject an unconfirmed answer, accept a confirmed answer, then verify that no registered tool can submit email, alter the cart, or create payment.",
+  },
+  {
+    name: "Alex Nahas",
+    lens: "Typed browser-tool contracts and state gating",
+    supported: "All eight tools use bounded JSON schemas, additionalProperties: false, explicit required fields, runtime validators, annotations, awaited registration, and a 1,500-character result limit. Completion rejects fewer than 12 answers.",
+    correction: "The eighth tool is recommend_card_edition, not recommend_physical_deck. Validation does not auto-pad identifiers, and errors use the WebMCP isError text envelope rather than an invented structured INCOMPLETE_SESSION payload.",
+    reproduce: "Inspect Available Tools, pass an unknown field, pass card_id 4 instead of 004, and call complete_reflection before question 12.",
+  },
+  {
+    name: "Ilya Grigorik",
+    lens: "Measured delivery and network behavior",
+    supported: "Audited source modules measure app.js at 18,532 bytes raw / 5,504 gzip and webmcp.js at 12,264 raw / 3,171 gzip. Reflection tool execution uses in-page state after required public data loads.",
+    correction: "There is no kinematics.js, VSOP87/Keplerian solver, LST benchmark, under-20KB total-transfer proof, or zero-request session. The page loads public JSON and records two allowlisted aggregate funnel events.",
+    reproduce: "Run wc and gzip on the two modules, then inspect Network while loading the quiz and starting/completing a reflection.",
+  },
+  {
+    name: "Andrew Galloni",
+    lens: "Privacy and infrastructure boundaries",
+    supported: "The 12 answers and optional focus stay in browser state during WebMCP use. Only aggregate quiz-start/completion event names are recorded; email and Stripe are separate, disclosed, human-initiated flows.",
+    correction: "The production system is not zero telemetry, zero database, zero compute, or Cloudflare Pages. It uses Firebase Hosting, Cloud Run, Firestore, Turnstile, Resend, and Stripe. No dyadic hash token, encryption handshake, WebRTC, or P2P exchange is deployed.",
+    reproduce: "Inspect the analytics payload and privacy notice, confirm the WebMCP handlers do not transmit answers, and inspect the documented service inventory.",
+  },
+  {
+    name: "Jude Gao",
+    lens: "Web architecture and maintainable client state",
+    supported: "The public frontend uses native ESM modules with separated quiz scoring, analytics, WebMCP registration, and shop orchestration. The project avoids a production UI framework and bundler.",
+    correction: "The tools call application adapters that update visible DOM state and also dispatch CustomEvents; this is not a purely event-only or strictly unidirectional architecture. The repository has Playwright as a development dependency, so only the public runtime—not the entire repository—is framework-free.",
+    reproduce: "Inspect imports and adapter calls in app.js and webmcp.js, then trace one answer from tool execution through renderQuestion and mirrorloop:step_transition.",
+  },
+  {
+    name: "Sean Roberts",
+    lens: "Applied utility and human-controlled conversion",
+    supported: "A Firebase-hosted static frontend offers a free reflection, optional double-opt-in email, 28 digital products, and server-created Stripe Checkout. Agent recommendations are price-free and read-only; the person chooses the product and starts Checkout.",
+    correction: "The current catalog is digital delivery, not physical 350gsm decks or fixed $48–$64 offers. The site still uses a Go Cloud Run API, Firestore, Resend, Turnstile, and Stripe, so zero server maintenance or zero compute would be inaccurate.",
+    reproduce: "Complete the reflection, request an edition recommendation, inspect its digital_download and purchase boundary, then manually open the collection and stop before Checkout.",
+  },
+];
+
 const exclusions = [
   ["Sub-millisecond Keplerian, VSOP87, LST, or ephemeris engine", "Not implemented or benchmarked in the public submission."],
   ["Dyadic URL token, WebRTC, or P2P synthesis", "No ninth tool or multi-user exchange is deployed."],
@@ -122,6 +169,16 @@ const exclusionRows = exclusions.map(([claim, reason]) => `
 
 const chromeClaimRows = chromeClaims.map(([claim, status, evidence]) => `
   <tr><td>${escapeHTML(claim)}</td><td><span class="claim-status ${status.toLowerCase()}">${escapeHTML(status)}</span></td><td>${escapeHTML(evidence)}</td></tr>
+`).join("");
+
+const roleCards = roleEvidence.map(({ name, lens, supported, correction, reproduce }) => `
+  <article class="role-card">
+    <p class="audience">${escapeHTML(name)}</p>
+    <h3>${escapeHTML(lens)}</h3>
+    <p><strong>Supported:</strong> ${escapeHTML(supported)}</p>
+    <p><strong>Correction:</strong> ${escapeHTML(correction)}</p>
+    <p class="reproduce"><strong>Judge check:</strong> ${escapeHTML(reproduce)}</p>
+  </article>
 `).join("");
 
 const html = `<!doctype html>
@@ -165,6 +222,13 @@ const html = `<!doctype html>
     <MeasuredAsset path="web/app.js" rawBytes="18532" gzipBytes="5504"/>
     <MeasuredAsset path="web/lib/webmcp.js" rawBytes="12264" gzipBytes="3171"/>
   </Evidence>
+  <RoleEvidence count="6" framing="public-role-only">
+    ${roleEvidence.map(({ name, lens, supported, correction, reproduce }) => `<Role name="${escapeHTML(name)}" lens="${escapeHTML(lens)}">
+      <Supported>${escapeHTML(supported)}</Supported>
+      <Correction>${escapeHTML(correction)}</Correction>
+      <Reproduce>${escapeHTML(reproduce)}</Reproduce>
+    </Role>`).join("\n    ")}
+  </RoleEvidence>
   <ClaimBoundary>
     <Excluded>Astronomical or ephemeris runtime and sub-millisecond benchmark</Excluded>
     <Excluded>Dyadic, WebRTC, or P2P synthesis</Excluded>
@@ -174,6 +238,8 @@ const html = `<!doctype html>
     <Excluded>Personal psychographic claims about judges</Excluded>
     <Excluded>Self-awarded competition scores</Excluded>
     <Excluded>Invented 144-sector SVG, requestAnimationFrame, CSS angle, compositor-only, zero-paint, or guaranteed 60-fps claims</Excluded>
+    <Excluded>Private judge likes, dislikes, or guaranteed scores</Excluded>
+    <Excluded>Kinematics, LST, dyadic/P2P, zero-network, zero-telemetry, zero-database, zero-compute, and physical-product claims</Excluded>
     <Qualified>Vanilla ESM core does not mean the optional external-service flows are dependency-free.</Qualified>
   </ClaimBoundary>
   <AcceptanceCriteria>
@@ -193,6 +259,7 @@ const html = `<!doctype html>
     const lensCards = ${JSON.stringify(lensCards)};
     const exclusionRows = ${JSON.stringify(exclusionRows)};
     const chromeClaimRows = ${JSON.stringify(chromeClaimRows)};
+    const roleCards = ${JSON.stringify(roleCards)};
     const xml = document.getElementById("strategix-contract")?.textContent.trim() ?? "";
     class JudgePanelBrief extends LitElement {
       static styles = css\`
@@ -205,8 +272,8 @@ const html = `<!doctype html>
         h3 { margin:.25rem 0; color:#f4efe4; }
         p,li { color:#d1ceda; }
         .verdict { font-size:1.12rem; border-left:4px solid #efbe65; padding-left:14px; }
-        .metrics,.lenses { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; }
-        .metric,.lens { min-width:0; padding:16px; border:1px solid #34394d; border-radius:12px; background:#0c1120; }
+        .metrics,.lenses,.roles { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; }
+        .metric,.lens,.role-card { min-width:0; padding:16px; border:1px solid #34394d; border-radius:12px; background:#0c1120; }
         .metric strong,.index { display:block; color:#efbe65; font-weight:900; }
         .metric strong { font-size:1.8rem; }
         .audience { color:#efbe65; font-size:.8rem; text-transform:uppercase; letter-spacing:.08em; }
@@ -221,7 +288,7 @@ const html = `<!doctype html>
         .contradicted,.excluded { color:#ffc2c2; background:#482020; }
         .unmeasured,.unresolved,.qualified { color:#ffe5a9; background:#51401d; }
         pre { max-height:420px; overflow:auto; white-space:pre-wrap; color:#dfd2b8; font-size:.76rem; }
-        @media(max-width:820px){ .metrics,.lenses{grid-template-columns:1fr;} section{padding:18px;} }
+        @media(max-width:820px){ .metrics,.lenses,.roles{grid-template-columns:1fr;} section{padding:18px;} }
         @media(prefers-reduced-motion:reduce){ *,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important;} }
       \`;
       render() {
@@ -254,6 +321,11 @@ const html = `<!doctype html>
               <h2>Chrome motion and accessibility claim ledger</h2>
               <p>This is the honest platform story: semantic visible progress, explicit focus, polite announcements, reduced-motion support, awaited WebMCP registration, and a graceful direct-use fallback. It is not an invented SVG performance demo.</p>
               <div class="table-wrap"><table><thead><tr><th>Claim</th><th>Status</th><th>Reproducible evidence or boundary</th></tr></thead><tbody .innerHTML=\${chromeClaimRows}></tbody></table></div>
+            </section>
+            <section>
+              <h2>Six role-oriented evidence paths</h2>
+              <p>These paths use the remaining judges’ official public roles to shorten verification. They do not claim knowledge of anyone’s preferences, pet peeves, or likely score.</p>
+              <div class="roles" .innerHTML=\${roleCards}></div>
             </section>
             <section>
               <h2>Three-minute narrative priority</h2>

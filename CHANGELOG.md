@@ -1,5 +1,25 @@
 # Changelog
 
+## 2026-08-29 — Six-role judge claim reconciliation
+
+- Audited the supplied Justin Rushing, Alex Nahas, Ilya Grigorik, Andrew
+  Galloni, Jude Gao, and Sean Roberts profiles against the production
+  eight-tool contract, source modules, data boundaries, deployment, and
+  digital catalog.
+- Added six role-oriented evidence paths with one supported claim set, one
+  correction, and one reproducible judge check per public role.
+- Preserved the real strengths: explicit answer and transaction authority,
+  strict schemas, completion gating, measured source-module sizes,
+  browser-local reflection state, disclosed aggregate analytics, modular
+  vanilla ESM, and a human-controlled digital-commerce funnel.
+- Rejected private-preference and guaranteed-score claims plus undeployed
+  physical-deck tooling, astronomy, dyadic/P2P exchange, structured error
+  envelopes, zero-network/telemetry/database/compute assertions, and
+  unmeasured performance promises.
+- Added `test:webmcp:six-role-claims` and validated the generated StrategiX
+  brief at desktop and mobile widths with six visible cards, six XML role
+  records, zero overflow, and no console errors.
+
 ## 2026-08-29 — Chrome motion and accessibility claim audit
 
 - Audited the proposed judge-specific SVG, compositor, Origin Trial,

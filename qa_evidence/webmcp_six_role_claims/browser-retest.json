@@ -1,0 +1,38 @@
+{
+  "desktop": {
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "roleCards": 6,
+    "roleNames": [
+      "Justin Rushing",
+      "Alex Nahas",
+      "Ilya Grigorik",
+      "Andrew Galloni",
+      "Jude Gao",
+      "Sean Roberts"
+    ],
+    "overflow": 0,
+    "xmlRoles": 6,
+    "consoleErrors": []
+  },
+  "mobile": {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "roleCards": 6,
+    "roleNames": [
+      "Justin Rushing",
+      "Alex Nahas",
+      "Ilya Grigorik",
+      "Andrew Galloni",
+      "Jude Gao",
+      "Sean Roberts"
+    ],
+    "overflow": 0,
+    "xmlRoles": 6,
+    "consoleErrors": []
+  }
+}
