@@ -31,7 +31,7 @@ State:
   `sequence-orient-before-answer` oracle expects an answer mutation before
   explicit confirmation, while the agent correctly stopped and requested
   confirmation.
-- The eight-tool release is currently deployed on `mirrorloopai.com`; the reviewed nine-tool implementation is pending production deployment and native Chrome retest.
+- The reviewed nine-tool release is deployed on `mirrorloopai.com`; desktop and mobile production browser checks invoked `compare_choices`, preserved Question 1 with no selection, and reported `9 TOOLS MOUNTED`.
 - Follow-up story `WM-013` retains its failed baseline and now has local, responsive, fallback, deployment, and native-production evidence.
 - The local submission package, judge narrative, demo script, public/private work disclosure, criterion map, third-party notice, and freeze plan pass deterministic validation.
 - The official reminder fixes the deadline at September 3, 2026, 1:00 PM PT.
@@ -42,9 +42,11 @@ State:
 - `WEBMCP_DEMO_SHOT_LIST.html` now provides the 2:35 recording contract being updated for the reviewed nine-tool build; the public video itself remains pending.
 - The six-point verified-core scope is canonical in README, submission copy, and the demo artifact. Its no-cloud claim applies only to deterministic browser scoring.
 - `WM-014` is verified: the deployed page now exposes a collapsible Agent State rail driven by privacy-filtered registration, tool-start, and tool-complete lifecycle events. It shows observed local duration and explicit answer confirmation without exposing private focus text or tool results.
+- `WM-015` is verified: `compare_choices` returns a neutral, public-data-only contrast for two choices and explicitly leaves both unselected.
 
 Done:
 - Added and browser-rendered the evidence-bounded 2:35 WebMCP demo shot list; HTML, embedded XML, exact tool inventory, timing, authority boundaries, and submission-package assertions pass.
+- Implemented, deployed, and browser-tested `compare_choices` as the ninth read-only tool; all 792 valid two-choice pairings stay within the result budget, and production comparison leaves progress and selection unchanged.
 - Implemented and deployed the `WM-014` Agent State HUD; its prior 32/32 web tests and desktop/mobile production browser checks passed against the then-current eight-tool registration, including real wrapper invocation, keyboard collapse, bounded history, no horizontal overflow, and focus-text redaction.
 - Executed the then-current production-discovered eight-tool WebMCP contract through an
   authenticated Vertex Gemini agent and the Inspector extension’s real browser
@@ -76,7 +78,7 @@ Done:
 - Committed the resource-driven implementation as `fcde886`, deployed it to Firebase Hosting, and verified the production bundle plus native eight-tool registration in isolated Chrome.
 
 Now:
-- Complete `WM-015`: verify and deploy the ninth read-only `compare_choices` tool, regenerate active competition artifacts, and record production evidence.
+- Use the deployed nine-tool release to complete the external submission gates and refresh the host-agent corpus when practical.
 
 Next:
 - Record and publish the under-three-minute YouTube demo using that artifact.

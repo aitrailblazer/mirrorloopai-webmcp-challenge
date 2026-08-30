@@ -14,6 +14,9 @@
 - Added unit coverage for all 792 valid two-choice pairings and browser
   coverage proving that comparison neither advances the question nor selects
   an answer.
+- Deployed the nine-tool release to Firebase Hosting and repeated the
+  comparison/state-preservation check against `mirrorloopai.com` at desktop
+  and mobile widths.
 
 ## 2026-08-30 — Agent State HUD and WebMCP live event rail
 

@@ -5,10 +5,10 @@ Tracker source: `feature_status_tracker.csv`
 ## Totals
 
 - Total features discovered: 91
-- Total verified before fixes: 60
-- Total failed before fixes: 21
+- Total verified before fixes: 61
+- Total failed before fixes: 20
 - Total fixed: 24
-- Total verified after retest: 84
+- Total verified after retest: 85
 - Total still blocked: 0
 - Total needing product decision: 1
 
@@ -99,7 +99,7 @@ Tracker source: `feature_status_tracker.csv`
 - `api/cmd/server/main.go; api/internal/subscriber/model.go; api/internal/subscriber/model_test.go; api/internal/subscriber/service.go; api/internal/subscriber/service_test.go; api/internal/subscriber/mailer.go; api/internal/subscriber/mailer_test.go; web/app.js; web/index.html; web/privacy.html; scripts/validate-site.mjs; CHANGELOG.md; qa_evidence/owner_quiz_submission_notification/; feature_status_tracker.csv; feature_status_tracker.xlsx; feature_status_tracker.html; feature_qa_report.md`
 - `feature_status_tracker.csv; feature_status_tracker.xlsx; feature_status_tracker.html; feature_qa_report.md; CHANGELOG.md; qa_evidence/submission_readiness/deadline-preflight-2026-08-30.txt`
 - `web/lib/webmcp.js; web/app.js; web/index.html; web/styles.css; web/tests/webmcp.test.mjs; scripts/test-webmcp-hud-browser.mjs; scripts/validate-site.mjs; package.json; README.md; SUBMISSION.md; CHANGELOG.md; qa_evidence/webmcp_glass_cockpit/`
-- `qa_evidence/webmcp_compare_choices/baseline-2026-08-30.txt; feature_status_tracker.csv; feature_status_tracker.xlsx; feature_status_tracker.html; feature_qa_report.md`
+- `web/lib/quiz-core.js; web/lib/webmcp.js; web/app.js; web/tests/quiz-core.test.mjs; web/tests/webmcp.test.mjs; scripts/test-webmcp-hud-browser.mjs; web/evals/webmcp-evals.json; web/evals/webmcp-campaign-evals.json; competition_manifest.json; README.md; SUBMISSION.md; CONTINUITY.md; CHANGELOG.md; active WebMCP generators/artifacts; qa_evidence/webmcp_compare_choices/; feature_status_tracker.csv; feature_status_tracker.xlsx; feature_status_tracker.html; feature_qa_report.md`
 
 ## Commits Recorded In Tracker
 
@@ -126,6 +126,7 @@ Tracker source: `feature_status_tracker.csv`
 - `2e4116f; b52b3b4`
 - `103ed7e`
 - `60762af`
+- `1df9bff`
 
 ## Test Evidence
 

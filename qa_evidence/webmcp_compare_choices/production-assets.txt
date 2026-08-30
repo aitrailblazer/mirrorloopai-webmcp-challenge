@@ -1,0 +1,14 @@
+$ curl production assets and contract markers
+index status: 200
+app status: 200
+webmcp status: 200
+llms status: 200
+  <script type="module" src="/app.js?v=20260830-9"></script>
+  "compare_choices",
+    case "compare_choices":
+      name: "compare_choices",
+- compare_choices
+HTTP/2 200 
+content-security-policy: default-src 'self'; script-src 'self' https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; connect-src 'self' https://challenges.cloudflare.com; img-src 'self' data:; style-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
+permissions-policy: camera=(), microphone=(), geolocation=(), payment=()
+x-content-type-options: nosniff
