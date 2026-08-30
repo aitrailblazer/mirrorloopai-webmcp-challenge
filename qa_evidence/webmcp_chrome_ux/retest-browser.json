@@ -1,0 +1,82 @@
+{
+  "app_desktop": {
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "reducedMotion": "reduce",
+    "startFocus": "question-title",
+    "focus": "question-title",
+    "progressNow": "2",
+    "progressWidth": "16.6667%",
+    "progressTransition": "0s",
+    "liveRegions": [
+      {
+        "id": "webmcp-status",
+        "live": "polite"
+      },
+      {
+        "id": "result-panel",
+        "live": "polite"
+      }
+    ],
+    "svgCount": 0,
+    "canvasCount": 0,
+    "overflow": 0,
+    "originTrial": true,
+    "modelContext": false,
+    "status": "Checking WebMCP…",
+    "consoleErrors": []
+  },
+  "app_mobile": {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "reducedMotion": "reduce",
+    "startFocus": "question-title",
+    "focus": "question-title",
+    "progressNow": "2",
+    "progressWidth": "16.6667%",
+    "progressTransition": "0s",
+    "liveRegions": [
+      {
+        "id": "webmcp-status",
+        "live": "polite"
+      },
+      {
+        "id": "result-panel",
+        "live": "polite"
+      }
+    ],
+    "svgCount": 0,
+    "canvasCount": 0,
+    "overflow": 0,
+    "originTrial": true,
+    "modelContext": false,
+    "status": "Checking WebMCP…",
+    "consoleErrors": []
+  },
+  "brief_desktop": {
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "title": "MIRROR//LOOP — WebMCP Judge Panel Evidence Brief",
+    "contract": true,
+    "ledgerText": true,
+    "overflow": 0,
+    "consoleErrors": []
+  },
+  "brief_mobile": {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "title": "MIRROR//LOOP — WebMCP Judge Panel Evidence Brief",
+    "contract": true,
+    "ledgerText": true,
+    "overflow": 0,
+    "consoleErrors": []
+  }
+}

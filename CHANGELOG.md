@@ -1,5 +1,24 @@
 # Changelog
 
+## 2026-08-29 — Chrome motion and accessibility claim audit
+
+- Audited the proposed judge-specific SVG, compositor, Origin Trial,
+  accessibility, and performance language against the public source and
+  browser behavior.
+- Preserved the real Chrome UX evidence: an Origin Trial token, awaited
+  WebMCP registration and direct-use fallback, semantic 12-step progress,
+  polite status/result regions, focus movement, three browser events, and
+  reduced-motion handling.
+- Rejected an undeployed 144-sector SVG dial and unsupported
+  `requestAnimationFrame`, CSS-angle, compositor-only, zero-paint,
+  guaranteed-60-fps, zero-setup, and total-dependency claims.
+- Added a Chrome motion/accessibility claim ledger to
+  `WEBMCP_JUDGE_PANEL_BRIEF.html`, corrected the demo script, and added a
+  deterministic `test:webmcp:chrome-ux` validation gate.
+- Verified desktop and 390 px mobile behavior with reduced motion enabled,
+  zero horizontal overflow, correct question focus and progress semantics,
+  and no browser console errors.
+
 ## 2026-08-29 — Competition claim hardening
 
 - Audited the proposed perfect-score strategy, architecture, security claims,

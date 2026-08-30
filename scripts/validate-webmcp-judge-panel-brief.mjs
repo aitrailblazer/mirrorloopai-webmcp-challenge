@@ -22,6 +22,13 @@ for (const required of [
   "app.js 18,532 bytes raw / 5,504 gzip",
   "webmcp.js 12,264 bytes raw / 3,171 gzip",
   "31 preserved agent cases",
+  "Chrome motion and accessibility claim ledger",
+  "A 250 ms CSS width transition updates with aria-valuenow",
+  "prefers-reduced-motion disables the transition",
+  "144-sector animated SVG dial",
+  "requestAnimationFrame, --active-angle, compositor-only, zero-paint, or guaranteed 60 fps",
+  "Zero-flag Chrome setup",
+  "The core page is vanilla ESM",
   "Personal psychographic claims about judges",
   "Self-awarded competition scores",
 ]) {
@@ -41,5 +48,6 @@ for (const prohibited of [
 }
 
 assert.equal((artifact.match(/<Judge name=/g) ?? []).length, 7);
-assert.equal((artifact.match(/<Excluded>/g) ?? []).length, 7);
+assert.equal((artifact.match(/<Excluded>/g) ?? []).length, 8);
+assert.equal((artifact.match(/<Qualified>/g) ?? []).length, 1);
 console.log("WebMCP judge panel brief: PASS");

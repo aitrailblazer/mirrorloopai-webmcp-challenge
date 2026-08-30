@@ -1,0 +1,121 @@
+RES-013 baseline source audit
+captured_utc=2026-08-30T01:12:14Z
+
+[proposed-copy source]
+393e7a810411ae9cbfc707521db31bb99818f7ba20529831ad657d921f0acadb  /Users/constantinevassilev02/.codex/attachments/87a148fc-08ec-4b08-9241-4fe5490b5290/pasted-text.txt
+
+[implemented positive evidence]
+8:  <meta http-equiv="origin-trial" content="A8ZkCc+Zq1nlFu+sh8ayWfHndeVBWzk8cS92CvXiOL5pDben42SRe/MOdaKr+NXirsfIfrAj0qMAQEiJs6lsxggAAAB3eyJvcmlnaW4iOiJodHRwczovL21pcnJvcmxvb3BhaS5jb206NDQzIiwiZmVhdHVyZSI6IldlYk1DUCIsImV4cGlyeSI6MTc5NDg3MzYwMCwiaXNTdWJkb21haW4iOnRydWUsImlzVGhpcmRQYXJ0eSI6dHJ1ZX0=">
+20:    <p class="webmcp-status" id="webmcp-status" role="status" aria-live="polite">Checking WebMCP…</p>
+80:          <div class="progress-track" role="progressbar" aria-label="Quiz progress" aria-valuemin="1" aria-valuemax="12" aria-valuenow="1">
+94:      <div id="result-panel" class="result-panel" hidden aria-live="polite">
+85:    elements.next.focus();
+155:  elements.result.scrollIntoView({ behavior: "smooth", block: "start" });
+157:  $("#result-name").focus({ preventScroll: true });
+191:  elements.question.focus();
+192:  window.dispatchEvent(new CustomEvent("mirrorloop:session_start"));
+250:    window.dispatchEvent(new CustomEvent("mirrorloop:step_transition", {
+274:  elements.question.focus();
+275:  window.dispatchEvent(new CustomEvent("mirrorloop:step_transition", {
+307:  window.dispatchEvent(new CustomEvent("mirrorloop:reflection_complete", { detail: result }));
+416:  elements.question.focus();
+424:  elements.question.focus();
+434:  elements.question.focus();
+71:.progress-track span { height: 100%; width: 8.33%; display: block; background: var(--gold); transition: width .25s ease; }
+174:@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation: none !important; transition: none !important; } }
+
+[proposed mechanisms absent from public source]
+requestAnimationFrame: ABSENT
+--: PRESENT
+web/styles.css:3:  --ink: #f5f0e6;
+web/styles.css:4:  --muted: #b9b6c4;
+web/styles.css:5:  --night: #080b15;
+web/styles.css:6:  --panel: #111526;
+web/styles.css:7:  --panel-2: #171b2e;
+web/styles.css:8:  --line: #303752;
+web/styles.css:9:  --gold: #f1be61;
+web/styles.css:10:  --gold-2: #ffe1a0;
+web/styles.css:11:  --violet: #8d73d6;
+web/styles.css:12:  --focus: #fff3bf;
+web/styles.css:17:body { margin: 0; color: var(--ink); background: radial-gradient(circle at 70% 0, #211936 0, var(--night) 38rem); line-height: 1.55; }
+web/styles.css:19:a { color: var(--gold-2); }
+web/styles.css:21:.skip-link:focus { left: 1rem; background: var(--ink); color: var(--night); padding: .7rem 1rem; border-radius: .5rem; }
+web/styles.css:24:.brand { color: var(--ink); text-decoration: none; font-weight: 850; letter-spacing: .08em; }
+web/styles.css:25:.brand span { color: var(--gold); }
+web/styles.css:27:nav a, footer a { color: var(--muted); text-decoration: none; }
+web/styles.css:28:nav a:hover, nav a:focus-visible, footer a:hover, footer a:focus-visible { color: var(--ink); }
+web/styles.css:32:.eyebrow { color: var(--gold); font-size: .78rem; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; }
+web/styles.css:36:.hero-lede { color: var(--muted); font-size: clamp(1.1rem, 2vw, 1.35rem); max-width: 700px; }
+web/styles.css:38:.hero-actions span { color: var(--muted); font-size: .9rem; max-width: 330px; }
+web/styles.css:40:.button-primary { background: linear-gradient(135deg, var(--gold-2), var(--gold)); color: #1b1204; box-shadow: 0 10px 40px #e5ac4130; }
+web/styles.css:41:.button-quiet { color: var(--ink); background: transparent; border-color: var(--line); }
+web/styles.css:43:.button:focus-visible, .answer:focus-visible, input:focus-visible, .text-button:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+web/styles.css:48:.hero-card-link:focus-visible { outline: 3px solid var(--focus); outline-offset: 8px; border-radius: 1.2rem; }
+web/styles.css:51:.hero-card figcaption span { color: var(--gold); font-size: .68rem; letter-spacing: .14em; text-transform: uppercase; font-weight: 800; }
+web/styles.css:53:.hero-card figcaption small { color: var(--muted); }
+web/styles.css:54:.plain-language { padding: 6rem 0; border-top: 1px solid var(--line); }
+web/styles.css:56:.steps article { background: #111526aa; border: 1px solid var(--line); border-radius: 1.2rem; padding: 1.5rem; }
+web/styles.css:57:.steps strong { display: grid; place-items: center; width: 2.2rem; aspect-ratio: 1; border-radius: 50%; color: #1b1204; background: var(--gold); margin-bottom: 1.2rem; }
+web/styles.css:59:.steps p { color: var(--muted); margin: 0; }
+web/styles.css:60:.quiz-shell { min-height: 700px; padding: 5rem clamp(1rem, 5vw, 4.5rem); margin-bottom: 6rem; background: linear-gradient(145deg, #12172aee, #0c0f1cee); border: 1px solid var(--line); border-radius: 2rem; box-shadow: 0 30px 100px #0006; }
+web/styles.css:62:.quiz-intro p:not(.eyebrow) { color: var(--muted); font-size: 1.1rem; }
+web/styles.css:63:.quiz-intro .privacy-promise { max-width: 610px; margin: 1.5rem auto; padding: 1rem; border: 1px solid var(--line); border-radius: .9rem; font-size: .9rem; }
+web/styles.css:64:.webmcp-status { justify-self: center; display: inline-flex; align-items: center; gap: .5rem; margin: 0; padding: .38rem .68rem; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); background: #111526b8; font-size: .72rem; font-weight: 750; white-space: nowrap; }
+web/styles.css:66:.webmcp-status[data-active="true"] { color: var(--gold-2); border-color: #f1be6166; }
+web/styles.css:67:.webmcp-status[data-active="true"]::before { background: var(--gold); box-shadow: 0 0 0 3px #f1be6128; }
+web/styles.css:68:.progress-row { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 1rem; color: var(--muted); font-size: .9rem; }
+web/styles.css:71:.progress-track span { height: 100%; width: 8.33%; display: block; background: var(--gold); transition: width .25s ease; }
+web/styles.css:72:.section-kicker { color: var(--gold); margin-top: 2.8rem; font-weight: 750; }
+web/styles.css:75:.question-help { color: var(--muted); }
+web/styles.css:77:.response-group { border: 1px solid var(--line); border-radius: 1rem; padding: .25rem 1rem 1rem; min-width: 0; background: #11152688; }
+web/styles.css:79:.response-summary { color: var(--gold-2); padding: .85rem .15rem; font-weight: 750; cursor: pointer; }
+web/styles.css:80:.response-summary::marker { color: var(--gold); }
+web/styles.css:82:.response-summary small { color: var(--muted); margin: .25rem 0 0 1.05rem; font-size: .8rem; font-weight: 500; line-height: 1.35; }
+web/styles.css:84:.answer { width: 100%; display: flex; align-items: center; gap: .8rem; text-align: left; color: var(--ink); background: var(--panel-2); border: 1px solid transparent; border-radius: .75rem; padding: .8rem; cursor: pointer; }
+web/styles.css:86:.answer.selected { border-color: var(--gold); background: #2b2432; }
+web/styles.css:87:.answer-glyph { color: var(--gold); width: 1.6rem; text-align: center; font-size: 1.2rem; }
+web/styles.css:90:.result-mark { display: grid; place-items: center; width: 7rem; aspect-ratio: 1; margin: 1rem auto; border-radius: 50%; border: 1px solid var(--gold); color: var(--gold); font-size: 3.5rem; box-shadow: 0 0 60px #f1be6122; }
+web/styles.css:92:.result-domain { color: var(--gold); font-weight: 750; }
+web/styles.css:94:.result-pair, .reflection-card { text-align: left; background: var(--panel-2); border: 1px solid var(--line); border-radius: 1rem; padding: 1.2rem; margin: 1rem 0; }
+web/styles.css:97:.result-pair span, .result-boundary, .result-evidence, .form-note { color: var(--muted); }
+web/styles.css:99:.reflection-card h3 { color: var(--gold-2); margin-bottom: .35rem; }
+web/styles.css:117:.text-button { color: var(--gold-2); background: none; border: 0; text-decoration: underline; cursor: pointer; margin-top: 2rem; }
+web/styles.css:118:footer { border-top: 1px solid var(--line); color: var(--muted); }
+web/styles.css:120:.cart-button { min-height: 42px; padding: .55rem .85rem; border: 1px solid var(--line); border-radius: 999px; color: var(--ink); background: var(--panel); font-weight: 800; cursor: pointer; }
+web/styles.css:121:.cart-button span { display: inline-grid; place-items: center; min-width: 1.7rem; height: 1.7rem; margin-left: .35rem; padding: 0 .35rem; border-radius: 99px; color: var(--night); background: var(--gold); }
+web/styles.css:126:.shop-hero > p:not(.eyebrow) { max-width: 760px; color: var(--muted); font-size: 1.2rem; }
+web/styles.css:128:.shop-promises li { padding: .45rem .75rem; border: 1px solid var(--line); border-radius: 99px; color: var(--gold-2); font-size: .84rem; }
+web/styles.css:129:.shop-section { padding: 5rem 0; border-top: 1px solid var(--line); }
+web/styles.css:132:.section-heading > p { max-width: 480px; margin-bottom: .4rem; color: var(--muted); }
+web/styles.css:135:.product-card { overflow: hidden; display: flex; flex-direction: column; min-width: 0; border: 1px solid var(--line); border-radius: 1.15rem; background: linear-gradient(155deg, #171b2e, #0e1120); box-shadow: 0 18px 55px #0004; }
+web/styles.css:140:.product-copy > p:not(.product-kind) { color: var(--muted); font-size: .88rem; }
+web/styles.css:141:.product-kind { margin: 0; color: var(--gold); font-size: .67rem; font-weight: 850; letter-spacing: .12em; }
+web/styles.css:142:.product-edition { color: var(--gold-2); font-size: .82rem; }
+web/styles.css:143:.product-action { display: flex; align-items: center; justify-content: space-between; gap: .65rem; margin-top: auto; padding-top: .6rem; border-top: 1px solid var(--line); }
+web/styles.css:146:.add-button.selected { color: var(--night); border-color: var(--gold); background: var(--gold); }
+web/styles.css:147:.edition-filter { display: flex; gap: .4rem; padding: .3rem; border: 1px solid var(--line); border-radius: 99px; background: var(--panel); }
+web/styles.css:148:.filter-button { min-height: 38px; padding: .4rem .8rem; border: 0; border-radius: 99px; color: var(--muted); background: transparent; cursor: pointer; }
+web/styles.css:149:.filter-button.selected { color: var(--night); background: var(--gold); font-weight: 800; }
+web/styles.css:150:.delivery-note { margin-bottom: 6rem; padding: clamp(1.5rem, 5vw, 3.5rem); border: 1px solid var(--line); border-radius: 1.4rem; background: var(--panel); }
+web/styles.css:152:.delivery-note p:not(.eyebrow) { max-width: 760px; color: var(--muted); }
+web/styles.css:156:.cart-sheet { position: absolute; top: 0; right: 0; display: flex; flex-direction: column; width: min(480px, 100%); height: 100%; padding: 1.25rem; background: #0d1120; border-left: 1px solid var(--line); box-shadow: -30px 0 90px #000b; }
+web/styles.css:157:.cart-header { display: flex; justify-content: space-between; gap: 1rem; border-bottom: 1px solid var(--line); }
+web/styles.css:159:.cart-close { align-self: start; width: 44px; height: 44px; border: 1px solid var(--line); border-radius: 50%; color: var(--ink); background: transparent; font-size: 1.8rem; cursor: pointer; }
+web/styles.css:161:.cart-item { display: grid; grid-template-columns: 64px 1fr auto; gap: .8rem; align-items: center; padding: .75rem 0; border-bottom: 1px solid var(--line); }
+web/styles.css:164:.cart-item span { color: var(--muted); font-size: .82rem; }
+web/styles.css:166:.cart-item button { padding: 0; border: 0; color: var(--gold-2); background: transparent; text-decoration: underline; cursor: pointer; }
+web/styles.css:167:.empty-cart { padding: 4rem 1rem; text-align: center; color: var(--muted); }
+web/styles.css:168:.empty-cart strong { color: var(--ink); }
+web/styles.css:169:.cart-summary { padding-top: 1rem; border-top: 1px solid var(--line); }
+web/styles.css:172:.cart-summary small { display: block; margin-top: .8rem; color: var(--muted); }
+web/styles.css:186:  .quiz-controls { position: sticky; z-index: 4; bottom: .5rem; margin-inline: -.35rem; padding: .65rem; border: 1px solid var(--line); border-radius: 999px; background: #0c0f1ef2; box-shadow: 0 12px 32px #0009; }
+--active-angle: ABSENT
+<svg: ABSENT
+<canvas: ABSENT
+
+[source module sizes]
+   18532 web/app.js
+   12264 web/lib/webmcp.js
+   30796 total
+app.js_gzip_bytes=5504
+webmcp.js_gzip_bytes=3171

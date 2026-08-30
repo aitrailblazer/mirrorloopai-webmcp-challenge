@@ -190,6 +190,10 @@ physical fulfillment, x402, diagnosis, or autonomous payment.
 The confirmed seven-person panel is oriented to the same reproducible evidence
 in `WEBMCP_JUDGE_PANEL_BRIEF.html`. That brief uses public roles only to
 organize inspection paths; it does not attribute private preferences to judges.
+Its Chrome UX ledger documents the actual semantic progressbar, live regions,
+focus changes, reduced-motion behavior, Origin Trial token, and direct-use
+fallback. It explicitly rejects invented SVG, `requestAnimationFrame`,
+compositor, frame-rate, zero-paint, zero-setup, and total-dependency claims.
 
 A separate campaign corpus tests the concrete scenarios used in public
 promotion, including the negative boundaries. Gemini 2.5 Flash selected the

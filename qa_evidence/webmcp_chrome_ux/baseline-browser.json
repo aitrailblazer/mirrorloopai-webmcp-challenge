@@ -1,0 +1,41 @@
+{
+  "url": "http://127.0.0.1:8000/",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "reducedMotion": "reduce",
+  "before": {
+    "role": "progressbar",
+    "label": "Quiz progress",
+    "now": "1",
+    "min": "1",
+    "max": "12"
+  },
+  "focusAfterStart": "start-button",
+  "after": {
+    "now": "2",
+    "width": "16.6667%",
+    "transition": "0s"
+  },
+  "focusAfterAdvance": "question-title",
+  "liveRegions": [
+    {
+      "id": "webmcp-status",
+      "live": "polite"
+    },
+    {
+      "id": "result-panel",
+      "live": "polite"
+    }
+  ],
+  "overflow": {
+    "scrollWidth": 390,
+    "clientWidth": 390
+  },
+  "svgCount": 0,
+  "canvasCount": 0,
+  "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 501 (Unsupported method ('POST'))"
+  ]
+}

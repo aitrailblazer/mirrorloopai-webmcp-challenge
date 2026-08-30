@@ -7,6 +7,8 @@ import path from "node:path";
 const root = path.resolve(new URL("..", import.meta.url).pathname);
 const outputPath = path.join(root, "WEBMCP_JUDGE_PANEL_BRIEF.html");
 const sourcePaths = [
+  "web/index.html",
+  "web/styles.css",
   "web/lib/webmcp.js",
   "web/app.js",
   "web/data/cards.json",
@@ -49,8 +51,8 @@ const evidenceLenses = [
   {
     title: "Browser-native visible state",
     audience: "Chrome and web-platform reviewers",
-    evidence: "The live header reports WebMCP readiness only after all registrations resolve; tool mutations update the same visible reflection UI.",
-    reproduce: "Start the reflection, confirm one answer, and observe the visible question transition and Invoked Tools record.",
+    evidence: "The live header reports WebMCP readiness only after all registrations resolve. Confirmed tool mutations update the same visible question, semantic progressbar, and focus target used by a person.",
+    reproduce: "Start the reflection, confirm one answer, and inspect aria-valuenow, question-title focus, the visible progress transition, and the Invoked Tools record.",
   },
   {
     title: "Measured lightweight modules",
@@ -70,6 +72,18 @@ const evidenceLenses = [
     evidence: "A read-only tool recommends a real digital edition without price or checkout authority; the person must review the collection and initiate Stripe Checkout.",
     reproduce: "Call recommend_card_edition, inspect its price-free result, and stop before the human-controlled collection flow.",
   },
+];
+
+const chromeClaims = [
+  ["Origin Trial token in the production document", "SUPPORTED", "web/index.html contains the WebMCP Origin Trial meta token. The documented Chrome 149 testing flag remains the verified judge path until no-flag access is reproduced."],
+  ["Graceful browser feature detection and fallback", "SUPPORTED", "The installer checks document.modelContext, then navigator.modelContext, awaits registration, and preserves the complete direct reflection when WebMCP is unavailable."],
+  ["Accessible visible reflection progress", "SUPPORTED", "The page exposes a named progressbar with min/max/current values, polite status and result regions, question/result focus movement, and reduced-motion CSS."],
+  ["Tool-driven browser events", "SUPPORTED", "The page emits mirrorloop:session_start, mirrorloop:step_transition, and mirrorloop:reflection_complete; these events accompany real visible state changes."],
+  ["144-sector animated SVG dial", "CONTRADICTED", "The public competition page contains no SVG or canvas dial. Its real motion is a 250 ms CSS width transition on the 12-step progress indicator."],
+  ["requestAnimationFrame, --active-angle, compositor-only, zero-paint, or guaranteed 60 fps", "UNMEASURED", "Those mechanisms and performance receipts are absent. The submission makes no frame-rate, paint, or compositor-thread claim."],
+  ["Zero-flag Chrome setup", "UNRESOLVED", "The token is present, but the reproducible judge path still documents Chrome 149 with the WebMCP testing flag. Do not promise zero setup."],
+  ["Dependency-free total experience", "QUALIFIED", "The core page is vanilla ESM, but optional Turnstile, email, analytics, and Stripe flows are disclosed external integrations."],
+  ["A judge's private preferences or dislikes", "EXCLUDED", "A public role can organize an inspection path; it cannot establish a person's private motivations."],
 ];
 
 const exclusions = [
@@ -106,6 +120,10 @@ const exclusionRows = exclusions.map(([claim, reason]) => `
   <tr><td>${escapeHTML(claim)}</td><td><span class="excluded">EXCLUDED</span></td><td>${escapeHTML(reason)}</td></tr>
 `).join("");
 
+const chromeClaimRows = chromeClaims.map(([claim, status, evidence]) => `
+  <tr><td>${escapeHTML(claim)}</td><td><span class="claim-status ${status.toLowerCase()}">${escapeHTML(status)}</span></td><td>${escapeHTML(evidence)}</td></tr>
+`).join("");
+
 const html = `<!doctype html>
 <html lang="en">
 <head>
@@ -136,6 +154,9 @@ const html = `<!doctype html>
     <HumanAuthority>Every answer requires explicit confirmation. Email, cart mutation, Checkout creation, and payment remain human actions.</HumanAuthority>
     <PrivacyBoundary>Reflection answers remain browser-local in the WebMCP flow. Optional aggregate analytics, email delivery, and Stripe are separate disclosed network flows.</PrivacyBoundary>
     <Catalog>Digital editions only. Agent recommendations expose neither price nor a direct checkout URL.</Catalog>
+    <VisibleProgress role="progressbar" minimum="1" maximum="12">A 250 ms CSS width transition updates with aria-valuenow; prefers-reduced-motion disables the transition.</VisibleProgress>
+    <Accessibility>Status and result regions use aria-live polite. Question and result headings receive focus as state advances.</Accessibility>
+    <OriginTrial qualification="verified-flag-path">The token is embedded, while the documented reproducible test path retains the Chrome 149 WebMCP testing flag.</OriginTrial>
   </ProductContract>
   <Evidence>
     <Run name="baseline" cases="15" strictExact="12" requiredOrder="14" protectedCases="5" forbiddenMutations="0"/>
@@ -152,6 +173,8 @@ const html = `<!doctype html>
     <Excluded>Total-bundle and frame-rate claims without measurements</Excluded>
     <Excluded>Personal psychographic claims about judges</Excluded>
     <Excluded>Self-awarded competition scores</Excluded>
+    <Excluded>Invented 144-sector SVG, requestAnimationFrame, CSS angle, compositor-only, zero-paint, or guaranteed 60-fps claims</Excluded>
+    <Qualified>Vanilla ESM core does not mean the optional external-service flows are dependency-free.</Qualified>
   </ClaimBoundary>
   <AcceptanceCriteria>
     <Criterion>All seven judges and official titles are traceable to the captured official challenge page.</Criterion>
@@ -169,6 +192,7 @@ const html = `<!doctype html>
     const panelRows = ${JSON.stringify(panelRows)};
     const lensCards = ${JSON.stringify(lensCards)};
     const exclusionRows = ${JSON.stringify(exclusionRows)};
+    const chromeClaimRows = ${JSON.stringify(chromeClaimRows)};
     const xml = document.getElementById("strategix-contract")?.textContent.trim() ?? "";
     class JudgePanelBrief extends LitElement {
       static styles = css\`
@@ -192,8 +216,13 @@ const html = `<!doctype html>
         th,td { padding:12px; text-align:left; vertical-align:top; border-bottom:1px solid #34394d; }
         th { color:#efbe65; background:#171c2d; }
         .excluded { display:inline-block; padding:4px 8px; border-radius:999px; color:#ffc2c2; background:#482020; font-size:.7rem; font-weight:900; }
+        .claim-status { display:inline-block; padding:4px 8px; border-radius:999px; font-size:.7rem; font-weight:900; }
+        .supported { color:#c9ffd8; background:#17462a; }
+        .contradicted,.excluded { color:#ffc2c2; background:#482020; }
+        .unmeasured,.unresolved,.qualified { color:#ffe5a9; background:#51401d; }
         pre { max-height:420px; overflow:auto; white-space:pre-wrap; color:#dfd2b8; font-size:.76rem; }
         @media(max-width:820px){ .metrics,.lenses{grid-template-columns:1fr;} section{padding:18px;} }
+        @media(prefers-reduced-motion:reduce){ *,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important;} }
       \`;
       render() {
         return html\`
@@ -222,13 +251,18 @@ const html = `<!doctype html>
               <div class="table-wrap"><table><thead><tr><th>Proposed claim</th><th>Status</th><th>Reason</th></tr></thead><tbody .innerHTML=\${exclusionRows}></tbody></table></div>
             </section>
             <section>
+              <h2>Chrome motion and accessibility claim ledger</h2>
+              <p>This is the honest platform story: semantic visible progress, explicit focus, polite announcements, reduced-motion support, awaited WebMCP registration, and a graceful direct-use fallback. It is not an invented SVG performance demo.</p>
+              <div class="table-wrap"><table><thead><tr><th>Claim</th><th>Status</th><th>Reproducible evidence or boundary</th></tr></thead><tbody .innerHTML=\${chromeClaimRows}></tbody></table></div>
+            </section>
+            <section>
               <h2>Three-minute narrative priority</h2>
               <ol>
                 <li>Show <strong>WebMCP ready · 8 tools</strong> and the native Chrome tool list.</li>
-                <li>Demonstrate explanation, rejected unconfirmed mutation, confirmed answer, and visible state transition.</li>
+                <li>Demonstrate explanation, rejected unconfirmed mutation, confirmed answer, and the same visible progress and focus transition a person receives.</li>
                 <li>Complete deterministic scoring, retrieve one public card, and request a digital-edition recommendation.</li>
                 <li>Stop before email, cart, or Stripe and state that consequential actions remain human-controlled.</li>
-                <li>Close on the preserved live-agent metrics, not a self-awarded score.</li>
+                <li>Close on preserved live-agent metrics and reduced-motion/accessibility evidence—not invented SVG or self-awarded performance claims.</li>
               </ol>
             </section>
             <section><h2>Embedded XML contract</h2><pre>\${xml}</pre></section>

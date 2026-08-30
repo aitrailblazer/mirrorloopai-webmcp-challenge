@@ -1,0 +1,26 @@
+captured_utc=2026-08-30T01:18:52Z
+HTTP/2 200 
+cache-control: max-age=3600
+content-security-policy: default-src 'self'; script-src 'self' https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; connect-src 'self' https://challenges.cloudflare.com; img-src 'self' data:; style-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
+content-type: text/html; charset=utf-8
+etag: "6b5f4b1c446b342629eeefc99706d75bb78fe92a39116f35daecc94358b94886"
+last-modified: Sat, 29 Aug 2026 22:09:48 GMT
+permissions-policy: camera=(), microphone=(), geolocation=(), payment=()
+referrer-policy: strict-origin-when-cross-origin
+strict-transport-security: max-age=31556926
+x-content-type-options: nosniff
+accept-ranges: bytes
+date: Sun, 30 Aug 2026 01:18:52 GMT
+x-served-by: cache-pdx12320-PDX
+x-cache: HIT
+x-cache-hits: 0
+x-timer: S1788052732.405501,VS0,VE12
+vary: x-fh-requested-host, accept-encoding
+alt-svc: h3=":443";ma=86400,h3-29=":443";ma=86400,h3-27=":443";ma=86400
+content-length: 8302
+
+
+8:  <meta http-equiv="origin-trial" content="A8ZkCc+Zq1nlFu+sh8ayWfHndeVBWzk8cS92CvXiOL5pDben42SRe/MOdaKr+NXirsfIfrAj0qMAQEiJs6lsxggAAAB3eyJvcmlnaW4iOiJodHRwczovL21pcnJvcmxvb3BhaS5jb206NDQzIiwiZmVhdHVyZSI6IldlYk1DUCIsImV4cGlyeSI6MTc5NDg3MzYwMCwiaXNTdWJkb21haW4iOnRydWUsImlzVGhpcmRQYXJ0eSI6dHJ1ZX0=">
+20:    <p class="webmcp-status" id="webmcp-status" role="status" aria-live="polite">Checking WebMCP…</p>
+80:          <div class="progress-track" role="progressbar" aria-label="Quiz progress" aria-valuemin="1" aria-valuemax="12" aria-valuenow="1">
+94:      <div id="result-panel" class="result-panel" hidden aria-live="polite">

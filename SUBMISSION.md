@@ -61,6 +61,16 @@ experience. Current Chrome character budgets are enforced, including a
 1,500-character result ceiling. An official-style expected-call corpus covers
 all eight tools, ordered flows, ambiguous requests, and no-tool boundaries.
 
+The visible browser response is deliberately simple and inspectable: a
+semantic 12-step progressbar updates `aria-valuenow`, its CSS width transition
+tracks the current question, polite live regions report WebMCP and result
+state, and focus moves to the active question or completed result. The
+reduced-motion preference disables transitions and smooth scrolling. The
+production document contains the WebMCP Origin Trial token and the runtime
+feature-detects the supported model-context surface before falling back to the
+complete manual experience. No SVG dial, frame-rate, zero-paint, or
+compositor-thread claim is made.
+
 ## Judging criteria map
 
 ### WebMCP Leverage
@@ -128,7 +138,7 @@ third-party trademarks beyond what is necessary to demonstrate ordinary use.
 | 0:00–0:15 | Open the live homepage and point to `WebMCP ready · 8 tools`. | “MIRROR//LOOP turns a 12-question reflection and 144 cards into a bounded human-agent collaboration.” |
 | 0:15–0:35 | Show the registered tool list. | “The page registers eight typed tools. They operate the visible experience rather than a hidden replacement service.” |
 | 0:35–1:05 | Ask the agent to start, read the question, and explain one choice. | “The agent can orient and explain, but it cannot choose for me.” |
-| 1:05–1:30 | Confirm an answer, advance, then revise the earlier answer. | “Every recorded choice requires explicit confirmation, and I can correct a prior answer without restarting.” |
+| 1:05–1:30 | Confirm an answer, show the visible 12-step progressbar and focus moving to the next question, then revise the earlier answer. | “Every recorded choice requires explicit confirmation. The same semantic progress and focus transition is visible whether I click or the agent invokes the tool, and reduced-motion preferences are respected.” |
 | 1:30–1:55 | Review and complete the reflection. | “Scoring stays deterministic in the page. The agent guides the flow; it does not invent the result.” |
 | 1:55–2:15 | Retrieve Card 012 and request a matching edition. | “The same contract exposes all 144 public cards and a price-free, read-only edition recommendation.” |
 | 2:15–2:35 | Open the collection page manually and stop before checkout. | “Email, cart changes, and payment remain human actions. WebMCP adds assistance without taking control.” |
@@ -192,7 +202,8 @@ The confirmed panel roster and six short, role-oriented reproduction paths are
 in `WEBMCP_JUDGE_PANEL_BRIEF.html`. The brief uses public titles to organize
 evidence; it does not infer judges' private preferences. It also rejects
 undeployed astronomy, P2P, physical-product, universal zero-telemetry,
-unmeasured bundle-performance, and self-awarded score claims.
+unmeasured bundle-performance, invented SVG/compositor behavior, zero-setup
+claims, and self-awarded score claims.
 
 Chrome is the verified path accepted by the rules. Actual ChatGPT in-app
 browser behavior is still unconfirmed. Unsupported hosts retain the full direct

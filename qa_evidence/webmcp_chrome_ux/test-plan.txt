@@ -1,0 +1,23 @@
+RES-013 TEST PLAN — created before implementation
+
+User outcome
+A Chrome-platform reviewer can reproduce the real browser UX, accessibility, and Origin Trial behavior without relying on invented SVG/compositor claims.
+
+Discovery
+1. Search production HTML/CSS/JS for SVG dial markup, requestAnimationFrame, CSS custom angle properties, transforms, and emitted custom events.
+2. Inventory progressbar, status/live-region, focus, semantic heading, and reduced-motion behavior.
+3. Confirm the Origin Trial token in source and production; do not claim no-flag access until tested in a supported unflagged Chrome profile.
+4. Record current source-module sizes and reject unmeasured total-bundle, 60-fps, zero-paint, and compositor-thread assertions.
+
+Baseline tests
+1. Load the reflection and advance one question; inspect progress semantics and focus target.
+2. Inspect reduced-motion CSS and browser behavior.
+3. Verify no 144-sector SVG exists in the public competition site.
+4. Compare the attached proposed copy with source and browser observations.
+
+Retest
+1. Update only evidence-backed judge/demo text and generated StrategiX contract.
+2. Validate the claim ledger and submission package.
+3. Run web, WebMCP, site, Stripe, and Go regression gates.
+4. Render desktop/mobile and verify no overflow or browser errors.
+5. Regenerate tracker CSV-derived XLSX, HTML, and report.

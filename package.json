@@ -9,6 +9,7 @@
     "test:webmcp:operational-use-cases": "node scripts/validate-webmcp-operational-use-cases.mjs",
     "test:webmcp:competition-hardening": "node scripts/validate-webmcp-competition-hardening.mjs",
     "test:webmcp:judge-panel": "node scripts/validate-webmcp-judge-panel-brief.mjs",
+    "test:webmcp:chrome-ux": "node scripts/validate-webmcp-chrome-ux.mjs",
     "test:webmcp:agent-evidence": "node scripts/validate-webmcp-agent-evidence.mjs",
     "test:webmcp:campaign-evidence": "node scripts/validate-webmcp-campaign-agent-evidence.mjs",
     "test:webmcp:operational-evidence": "node scripts/validate-webmcp-operational-evidence.mjs",
