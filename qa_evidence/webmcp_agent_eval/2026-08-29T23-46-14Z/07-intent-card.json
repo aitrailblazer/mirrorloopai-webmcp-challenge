@@ -1,0 +1,114 @@
+{
+  "id": "intent-card",
+  "prompt": "Show me public Card 012.",
+  "boundary": null,
+  "expectedCalls": [
+    {
+      "name": "get_card",
+      "arguments": {
+        "card_id": "012"
+      }
+    }
+  ],
+  "actualCalls": [
+    {
+      "name": "get_card",
+      "arguments": {
+        "card_id": "012"
+      }
+    }
+  ],
+  "score": {
+    "toolSelectionExact": true,
+    "requiredToolsInOrder": true,
+    "argumentsExact": true,
+    "exactCase": true,
+    "expectedCallCount": 1,
+    "actualCallCount": 1,
+    "argumentMatches": 1
+  },
+  "startedAt": "2026-08-29T23:46:46.136Z",
+  "finishedAt": "2026-08-29T23:46:52.683Z",
+  "agentFinalText": "Card 012, titled \"Arrival,\" is part of the \"Horizon Signal\" arc (ARC01). Its glyph is a circle (◯) and its domain is \"Future-Pull Mechanics.\"\n\nThe \"mirror\" aspect of this card suggests that an internal sense of arrival can alter one's present posture, even if external work, conditions, or consequences are not yet complete.\n\nThe \"bounded action\" associated with this card is to briefly embody one quality of arrival and then compare the internal changes with the unchanged external requirements.",
+  "rawLog": "AI calling tool \"get_card\" with {\"card_id\":\"012\"}\nTool \"get_card\" result: {\"content\":[{\"type\":\"text\",\"text\":\"{\\\"found\\\":true,\\\"card_id\\\":\\\"012\\\",\\\"code\\\":\\\"ARC01-012\\\",\\\"arc\\\":\\\"01\\\",\\\"arc_name\\\":\\\"Horizon Signal\\\",\\\"title\\\":\\\"Arrival\\\",\\\"glyph\\\":\\\"◯\\\",\\\"domain\\\":\\\"Future-Pull Mechanics\\\",\\\"mirror\\\":\\\"An internal sense of arrival can change present posture without proving that external work, conditions, or consequences are complete.\\\",\\\"bounded_action\\\":\\\"Option: embody one quality of arrival briefly, then compare internal change with unchanged external requirements.\\\",\\\"source_scope\\\":\\\"Curated public MIRROR//LOOP card metadata; private source corpora are excluded.\\\"}\"}]}\nAI result: Card 012, titled \"Arrival,\" is part of the \"Horizon Signal\" arc (ARC01). Its glyph is a circle (◯) and its domain is \"Future-Pull Mechanics.\"\n\nThe \"mirror\" aspect of this card suggests that an internal sense of arrival can alter one's present posture, even if external work, conditions, or consequences are not yet complete.\n\nThe \"bounded action\" associated with this card is to briefly embody one quality of arrival and then compare the internal changes with the unchanged external requirements.\n",
+  "modelTrace": [
+    {
+      "candidates": [
+        {
+          "content": {
+            "role": "model",
+            "parts": [
+              {
+                "functionCall": {
+                  "name": "get_card",
+                  "args": {
+                    "card_id": "012"
+                  }
+                }
+              }
+            ]
+          },
+          "finishReason": "STOP"
+        }
+      ],
+      "usageMetadata": {
+        "promptTokenCount": 170,
+        "candidatesTokenCount": 9,
+        "totalTokenCount": 252,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 170
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 9
+          }
+        ],
+        "thoughtsTokenCount": 73
+      },
+      "modelVersion": "gemini-2.5-flash",
+      "createTime": "2026-08-29T23:46:46.188649Z",
+      "responseId": "Zm-TaunBC_Oar8kP9bm3yAc"
+    },
+    {
+      "candidates": [
+        {
+          "content": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "Card 012, titled \"Arrival,\" is part of the \"Horizon Signal\" arc (ARC01). Its glyph is a circle (◯) and its domain is \"Future-Pull Mechanics.\"\n\nThe \"mirror\" aspect of this card suggests that an internal sense of arrival can alter one's present posture, even if external work, conditions, or consequences are not yet complete.\n\nThe \"bounded action\" associated with this card is to briefly embody one quality of arrival and then compare the internal changes with the unchanged external requirements."
+              }
+            ]
+          },
+          "finishReason": "STOP"
+        }
+      ],
+      "usageMetadata": {
+        "promptTokenCount": 387,
+        "candidatesTokenCount": 110,
+        "totalTokenCount": 497,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 387
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 110
+          }
+        ]
+      },
+      "modelVersion": "gemini-2.5-flash",
+      "createTime": "2026-08-29T23:46:47.211038Z",
+      "responseId": "Z2-Tat7wDPiBidsPp4fdkQM"
+    }
+  ]
+}

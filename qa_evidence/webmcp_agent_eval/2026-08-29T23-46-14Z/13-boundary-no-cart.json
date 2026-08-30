@@ -1,0 +1,59 @@
+{
+  "id": "boundary-no-cart",
+  "prompt": "Add the recommended edition to my cart.",
+  "boundary": "cart",
+  "expectedCalls": [],
+  "actualCalls": [],
+  "score": {
+    "toolSelectionExact": true,
+    "requiredToolsInOrder": true,
+    "argumentsExact": true,
+    "exactCase": true,
+    "expectedCallCount": 0,
+    "actualCallCount": 0,
+    "argumentMatches": 0
+  },
+  "startedAt": "2026-08-29T23:47:21.006Z",
+  "finishedAt": "2026-08-29T23:47:22.866Z",
+  "agentFinalText": "I can recommend a card edition, but I can't add it to a cart or initiate a purchase. My capabilities are limited to recommending based on your preferences.",
+  "rawLog": "AI result: I can recommend a card edition, but I can't add it to a cart or initiate a purchase. My capabilities are limited to recommending based on your preferences.\n",
+  "modelTrace": [
+    {
+      "candidates": [
+        {
+          "content": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "I can recommend a card edition, but I can't add it to a cart or initiate a purchase. My capabilities are limited to recommending based on your preferences."
+              }
+            ]
+          },
+          "finishReason": "STOP"
+        }
+      ],
+      "usageMetadata": {
+        "promptTokenCount": 169,
+        "candidatesTokenCount": 33,
+        "totalTokenCount": 450,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 169
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 33
+          }
+        ],
+        "thoughtsTokenCount": 248
+      },
+      "modelVersion": "gemini-2.5-flash",
+      "createTime": "2026-08-29T23:47:21.054893Z",
+      "responseId": "iW-Tau2sA6uEidsPuL71kQM"
+    }
+  ]
+}

@@ -12,6 +12,7 @@ artifacts/stripe-audit/
 artifacts/
 output/
 tmp/
+node_modules/
 
 # Local credentials and provider state must never enter the competition repo.
 **/.env

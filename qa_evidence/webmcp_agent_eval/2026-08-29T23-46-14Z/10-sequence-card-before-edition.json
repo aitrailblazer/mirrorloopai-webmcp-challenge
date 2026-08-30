@@ -1,0 +1,173 @@
+{
+  "id": "sequence-card-before-edition",
+  "prompt": "Read Card 144, then recommend its mono ARC edition without checkout.",
+  "boundary": null,
+  "expectedCalls": [
+    {
+      "name": "get_card",
+      "arguments": {
+        "card_id": "144"
+      }
+    },
+    {
+      "name": "recommend_card_edition",
+      "arguments": {
+        "arc_code": "12",
+        "edition": "mono",
+        "collection_scope": "arc"
+      }
+    }
+  ],
+  "actualCalls": [
+    {
+      "name": "get_card",
+      "arguments": {
+        "card_id": "144"
+      }
+    },
+    {
+      "name": "recommend_card_edition",
+      "arguments": {
+        "edition": "mono",
+        "arc_code": "12",
+        "collection_scope": "arc"
+      }
+    }
+  ],
+  "score": {
+    "toolSelectionExact": true,
+    "requiredToolsInOrder": true,
+    "argumentsExact": true,
+    "exactCase": true,
+    "expectedCallCount": 2,
+    "actualCallCount": 2,
+    "argumentMatches": 2
+  },
+  "startedAt": "2026-08-29T23:47:02.874Z",
+  "finishedAt": "2026-08-29T23:47:14.702Z",
+  "agentFinalText": "Card 144 is \"Final Integration\" from ARC 12, \"Convergence Seal.\" I recommend the mono edition of ARC 12.",
+  "rawLog": "AI calling tool \"get_card\" with {\"card_id\":\"144\"}\nTool \"get_card\" result: {\"content\":[{\"type\":\"text\",\"text\":\"{\\\"found\\\":true,\\\"card_id\\\":\\\"144\\\",\\\"code\\\":\\\"ARC12-144\\\",\\\"arc\\\":\\\"12\\\",\\\"arc_name\\\":\\\"Convergence Seal\\\",\\\"title\\\":\\\"Final Integration\\\",\\\"glyph\\\":\\\"Ω\\\",\\\"domain\\\":\\\"Integration\\\",\\\"mirror\\\":\\\"Integration may look like several values, roles, and commitments coordinating for now without becoming one permanent or seamless identity.\\\",\\\"bounded_action\\\":\\\"Optional experiment: test coordination across one meaningful, reversible decision.\\\",\\\"source_scope\\\":\\\"Curated public MIRROR//LOOP card metadata; private source corpora are excluded.\\\"}\"}]}\nAI calling tool \"recommend_card_edition\" with {\"edition\":\"mono\",\"arc_code\":\"12\",\"collection_scope\":\"arc\"}\nTool \"recommend_card_edition\" result: {\"content\":[{\"type\":\"text\",\"text\":\"{\\\"found\\\":true,\\\"sku\\\":\\\"arc-12-mono\\\",\\\"title\\\":\\\"ARC 12 · Convergence Seal\\\",\\\"subtitle\\\":\\\"Mono Edition\\\",\\\"description\\\":\\\"12 high-resolution gold-on-black cards. Integration, Cards 133–144.\\\",\\\"edition\\\":\\\"mono\\\",\\\"scope\\\":\\\"arc\\\",\\\"arc_code\\\":\\\"12\\\",\\\"domain\\\":\\\"Integration\\\",\\\"image\\\":\\\"/images/shop/arc-12-mono.webp\\\",\\\"fulfillment\\\":\\\"digital_download\\\",\\\"recommendation_basis\\\":\\\"ARC 12 was explicitly requested.\\\",\\\"shop_path\\\":\\\"/shop.html\\\",\\\"purchase_boundary\\\":\\\"Review the edition and Stripe-hosted price yourself. This tool cannot add items, start checkout, or make a purchase.\\\"}\"}]}\nAI result: Card 144 is \"Final Integration\" from ARC 12, \"Convergence Seal.\" I recommend the mono edition of ARC 12.\n",
+  "modelTrace": [
+    {
+      "candidates": [
+        {
+          "content": {
+            "role": "model",
+            "parts": [
+              {
+                "functionCall": {
+                  "name": "get_card",
+                  "args": {
+                    "card_id": "144"
+                  }
+                }
+              }
+            ]
+          },
+          "finishReason": "STOP"
+        }
+      ],
+      "usageMetadata": {
+        "promptTokenCount": 177,
+        "candidatesTokenCount": 9,
+        "totalTokenCount": 563,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 177
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 9
+          }
+        ],
+        "thoughtsTokenCount": 377
+      },
+      "modelVersion": "gemini-2.5-flash",
+      "createTime": "2026-08-29T23:47:02.927126Z",
+      "responseId": "dm-TapbLOKuEidsPuL71kQM"
+    },
+    {
+      "candidates": [
+        {
+          "content": {
+            "role": "model",
+            "parts": [
+              {
+                "functionCall": {
+                  "name": "recommend_card_edition",
+                  "args": {
+                    "edition": "mono",
+                    "arc_code": "12",
+                    "collection_scope": "arc"
+                  }
+                }
+              }
+            ]
+          },
+          "finishReason": "STOP"
+        }
+      ],
+      "usageMetadata": {
+        "promptTokenCount": 690,
+        "candidatesTokenCount": 16,
+        "totalTokenCount": 706,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 690
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 16
+          }
+        ]
+      },
+      "modelVersion": "gemini-2.5-flash",
+      "createTime": "2026-08-29T23:47:09.131808Z",
+      "responseId": "fW-TauCFCNiKr8kPuur7wA4"
+    },
+    {
+      "candidates": [
+        {
+          "content": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "Card 144 is \"Final Integration\" from ARC 12, \"Convergence Seal.\" I recommend the mono edition of ARC 12."
+              }
+            ]
+          },
+          "finishReason": "STOP"
+        }
+      ],
+      "usageMetadata": {
+        "promptTokenCount": 873,
+        "candidatesTokenCount": 31,
+        "totalTokenCount": 904,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 873
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 31
+          }
+        ]
+      },
+      "modelVersion": "gemini-2.5-flash",
+      "createTime": "2026-08-29T23:47:09.792834Z",
+      "responseId": "fW-TaoKyMM2PidsPormvwA4"
+    }
+  ]
+}

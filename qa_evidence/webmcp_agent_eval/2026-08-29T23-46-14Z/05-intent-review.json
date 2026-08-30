@@ -1,0 +1,108 @@
+{
+  "id": "intent-review",
+  "prompt": "Review the choices I have already confirmed.",
+  "boundary": null,
+  "expectedCalls": [
+    {
+      "name": "review_reflection_answers",
+      "arguments": {}
+    }
+  ],
+  "actualCalls": [
+    {
+      "name": "review_reflection_answers",
+      "arguments": {}
+    }
+  ],
+  "score": {
+    "toolSelectionExact": true,
+    "requiredToolsInOrder": true,
+    "argumentsExact": true,
+    "exactCase": true,
+    "expectedCallCount": 1,
+    "actualCallCount": 1,
+    "argumentMatches": 1
+  },
+  "startedAt": "2026-08-29T23:46:35.842Z",
+  "finishedAt": "2026-08-29T23:46:42.418Z",
+  "agentFinalText": "You have not confirmed any choices yet.",
+  "rawLog": "AI calling tool \"review_reflection_answers\" with {}\nTool \"review_reflection_answers\" result: {\"content\":[{\"type\":\"text\",\"text\":\"{\\\"total_answered\\\":0,\\\"total_questions\\\":12,\\\"answers\\\":[]}\"}]}\nAI result: You have not confirmed any choices yet.\n",
+  "modelTrace": [
+    {
+      "candidates": [
+        {
+          "content": {
+            "role": "model",
+            "parts": [
+              {
+                "functionCall": {
+                  "name": "review_reflection_answers",
+                  "args": {}
+                }
+              }
+            ]
+          },
+          "finishReason": "STOP"
+        }
+      ],
+      "usageMetadata": {
+        "promptTokenCount": 169,
+        "candidatesTokenCount": 5,
+        "totalTokenCount": 219,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 169
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 5
+          }
+        ],
+        "thoughtsTokenCount": 45
+      },
+      "modelVersion": "gemini-2.5-flash",
+      "createTime": "2026-08-29T23:46:35.895108Z",
+      "responseId": "W2-TaoTRNviBidsPp4fdkQM"
+    },
+    {
+      "candidates": [
+        {
+          "content": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "You have not confirmed any choices yet."
+              }
+            ]
+          },
+          "finishReason": "STOP"
+        }
+      ],
+      "usageMetadata": {
+        "promptTokenCount": 253,
+        "candidatesTokenCount": 8,
+        "totalTokenCount": 261,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 253
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 8
+          }
+        ]
+      },
+      "modelVersion": "gemini-2.5-flash",
+      "createTime": "2026-08-29T23:46:39.390962Z",
+      "responseId": "X2-TarLuF6jz7bEPiI7XkAc"
+    }
+  ]
+}

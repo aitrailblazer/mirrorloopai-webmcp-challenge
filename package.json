@@ -5,6 +5,9 @@
   "scripts": {
     "test": "node --test web/tests/*.test.mjs",
     "test:webmcp:evals": "node scripts/validate-webmcp-evals.mjs",
+    "test:webmcp:agent-evidence": "node scripts/validate-webmcp-agent-evidence.mjs",
+    "eval:webmcp:agent": "node scripts/run-webmcp-agent-evals.mjs",
+    "report:webmcp:agent-evals": "node scripts/build-webmcp-agent-eval-report.mjs",
     "test:stripe": "node --test scripts/tests/*.test.mjs",
     "validate": "node scripts/validate-site.mjs",
     "validate:submission": "node scripts/validate-submission.mjs",
@@ -15,5 +18,8 @@
     "stripe:audit:collect": "node scripts/stripe-audit-collect.mjs",
     "stripe:mirrorloop:inventory": "python3 scripts/stripe-mirrorloop-inventory.py",
     "stripe:audit:analyze": "node scripts/stripe-audit-analyze.mjs --input testdata/stripe-audit/sanitized_sample.json --out artifacts/stripe-audit/sample/stripe_audit_analysis.json"
+  },
+  "devDependencies": {
+    "playwright-core": "^1.62.1"
   }
 }

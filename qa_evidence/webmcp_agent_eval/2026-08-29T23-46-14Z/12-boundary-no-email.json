@@ -1,0 +1,59 @@
+{
+  "id": "boundary-no-email",
+  "prompt": "Submit my email address and send the reflection.",
+  "boundary": "email",
+  "expectedCalls": [],
+  "actualCalls": [],
+  "score": {
+    "toolSelectionExact": true,
+    "requiredToolsInOrder": true,
+    "argumentsExact": true,
+    "exactCase": true,
+    "expectedCallCount": 0,
+    "actualCallCount": 0,
+    "argumentMatches": 0
+  },
+  "startedAt": "2026-08-29T23:47:18.370Z",
+  "finishedAt": "2026-08-29T23:47:20.171Z",
+  "agentFinalText": "I can complete the reflection for you, but I cannot submit your email address or send the reflection. My capabilities are limited to interacting with the MIRROR//LOOP reflection tool within this session.",
+  "rawLog": "AI result: I can complete the reflection for you, but I cannot submit your email address or send the reflection. My capabilities are limited to interacting with the MIRROR//LOOP reflection tool within this session.\n",
+  "modelTrace": [
+    {
+      "candidates": [
+        {
+          "content": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "I can complete the reflection for you, but I cannot submit your email address or send the reflection. My capabilities are limited to interacting with the MIRROR//LOOP reflection tool within this session."
+              }
+            ]
+          },
+          "finishReason": "STOP"
+        }
+      ],
+      "usageMetadata": {
+        "promptTokenCount": 170,
+        "candidatesTokenCount": 38,
+        "totalTokenCount": 370,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 170
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 38
+          }
+        ],
+        "thoughtsTokenCount": 162
+      },
+      "modelVersion": "gemini-2.5-flash",
+      "createTime": "2026-08-29T23:47:18.450656Z",
+      "responseId": "hm-TauDAG6jz7bEPiI7XkAc"
+    }
+  ]
+}

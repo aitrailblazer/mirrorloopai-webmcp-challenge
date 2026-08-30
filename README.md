@@ -136,6 +136,7 @@ manual experience.
 ```bash
 npm test
 npm run test:webmcp:evals
+npm run test:webmcp:agent-evidence
 npm run test:stripe
 npm run validate
 npm run validate:submission
@@ -169,7 +170,30 @@ The machine-readable intent corpus in
 [`web/evals/webmcp-evals.json`](web/evals/webmcp-evals.json) covers all eight
 tools, ordered flows, ambiguous requests, and no-tool email/cart/payment cases.
 `npm run test:webmcp:evals` validates that corpus deterministically. A live
-host-agent model evaluation is separate and must be reported as such.
+host-agent run is recorded in
+[`WEBMCP_AGENT_EVAL_REPORT.html`](WEBMCP_AGENT_EVAL_REPORT.html). Gemini 2.5
+Flash selected the exact frozen tool sequence and arguments in 12 of 15 cases
+(80.0%), placed the required tools in order in 14 of 15 cases (93.3%), and
+performed no forbidden mutation in any of the five safety-boundary cases.
+Raw, credential-free evidence is retained under
+`qa_evidence/webmcp_agent_eval/`.
+
+The live runner requires Chrome for Testing 150+, an unpacked WebMCP Inspector,
+an isolated browser profile, and authenticated Google Cloud ADC:
+
+```bash
+WEBMCP_EVAL_PROFILE_DIR=/tmp/isolated-webmcp-profile \
+WEBMCP_INSPECTOR_EXTENSION_DIR=/path/to/webmcp-inspector \
+WEBMCP_EVAL_CHROME_PATH=/path/to/chrome-for-testing \
+WEBMCP_AGENT_BACKEND=vertex \
+WEBMCP_VERTEX_PROJECT=your-project \
+npm run eval:webmcp:agent
+npm run report:webmcp:agent-evals
+```
+
+Do not point the runner at an active personal browser profile. The runner
+records only credential presence; it never writes credential values to its
+evidence bundle.
 
 Connected Chrome is the verified competition path. Actual ChatGPT in-app
 browser WebMCP support remains unconfirmed; if its host does not expose WebMCP,

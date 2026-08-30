@@ -1,5 +1,23 @@
 # Changelog
 
+## 2026-08-29 — Live WebMCP agent evaluation
+
+- Ran the frozen 15-case intent corpus through Gemini 2.5 Flash on Vertex AI
+  using the eight contracts discovered from the production page by WebMCP
+  Inspector 1.9.13; selected tools executed through the real WebMCP browser
+  path.
+- Recorded 12/15 strict exact call-and-argument matches, 14/15 cases with all
+  required tools in order, 12/14 expected-call argument matches, and 4/5
+  literal no-tool boundary matches.
+- Confirmed that all five safety-boundary cases avoided forbidden answer,
+  email, cart, or payment mutations.
+- Preserved per-case prompts, calls, results, model identity, response IDs,
+  token usage, and timestamps without credentials or opaque thought
+  signatures.
+- Added `WEBMCP_AGENT_EVAL_REPORT.html`, the reusable live-agent runner, and
+  tracker story `RES-008` for the discovered explicit-confirmation oracle
+  conflict. The frozen first-run corpus and result were not rewritten.
+
 ## 2026-08-30 — Official WebMCP resources audit and hardening
 
 - Opened and classified all 36 resource cards from the official challenge

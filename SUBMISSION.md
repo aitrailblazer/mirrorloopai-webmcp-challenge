@@ -158,8 +158,12 @@ viewable on YouTube, audible, captioned, and demonstrates the deployed build.
 
 For a deterministic preflight, run `npm run test:webmcp:evals`. It validates
 the expected intent-to-tool, arguments, ordering, and no-tool cases in
-`web/evals/webmcp-evals.json`; it does not claim to be a live host-agent model
-evaluation.
+`web/evals/webmcp-evals.json`. A separate live Gemini 2.5 Flash run used the
+browser-discovered production contracts and real WebMCP execution path: 12/15
+cases matched the frozen call-and-argument oracle exactly, 14/15 preserved the
+required tool order, and all five protected boundary cases avoided forbidden
+mutations. See `WEBMCP_AGENT_EVAL_REPORT.html` and
+`qa_evidence/webmcp_agent_eval/latest.json`.
 
 Every official challenge resource and its implementation decision is recorded
 in `RESOURCE_REVIEW.html`.

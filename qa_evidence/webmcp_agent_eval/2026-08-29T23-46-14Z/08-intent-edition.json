@@ -1,0 +1,120 @@
+{
+  "id": "intent-edition",
+  "prompt": "Recommend the full-color ARC 12 digital edition without buying it.",
+  "boundary": null,
+  "expectedCalls": [
+    {
+      "name": "recommend_card_edition",
+      "arguments": {
+        "arc_code": "12",
+        "edition": "color",
+        "collection_scope": "arc"
+      }
+    }
+  ],
+  "actualCalls": [
+    {
+      "name": "recommend_card_edition",
+      "arguments": {
+        "edition": "color",
+        "arc_code": "12",
+        "collection_scope": "arc"
+      }
+    }
+  ],
+  "score": {
+    "toolSelectionExact": true,
+    "requiredToolsInOrder": true,
+    "argumentsExact": true,
+    "exactCase": true,
+    "expectedCallCount": 1,
+    "actualCallCount": 1,
+    "argumentMatches": 1
+  },
+  "startedAt": "2026-08-29T23:46:53.536Z",
+  "finishedAt": "2026-08-29T23:46:57.534Z",
+  "agentFinalText": "The ARC 12 · Convergence Seal in the Full-Color Edition includes 12 high-resolution full-color cards, covering Integration, Cards 133–144.",
+  "rawLog": "AI calling tool \"recommend_card_edition\" with {\"edition\":\"color\",\"arc_code\":\"12\",\"collection_scope\":\"arc\"}\nTool \"recommend_card_edition\" result: {\"content\":[{\"type\":\"text\",\"text\":\"{\\\"found\\\":true,\\\"sku\\\":\\\"arc-12-color\\\",\\\"title\\\":\\\"ARC 12 · Convergence Seal\\\",\\\"subtitle\\\":\\\"Full-Color Edition\\\",\\\"description\\\":\\\"12 high-resolution full-color cards. Integration, Cards 133–144.\\\",\\\"edition\\\":\\\"color\\\",\\\"scope\\\":\\\"arc\\\",\\\"arc_code\\\":\\\"12\\\",\\\"domain\\\":\\\"Integration\\\",\\\"image\\\":\\\"/images/shop/arc-12-color.webp\\\",\\\"fulfillment\\\":\\\"digital_download\\\",\\\"recommendation_basis\\\":\\\"ARC 12 was explicitly requested.\\\",\\\"shop_path\\\":\\\"/shop.html\\\",\\\"purchase_boundary\\\":\\\"Review the edition and Stripe-hosted price yourself. This tool cannot add items, start checkout, or make a purchase.\\\"}\"}]}\nAI result: The ARC 12 · Convergence Seal in the Full-Color Edition includes 12 high-resolution full-color cards, covering Integration, Cards 133–144.\n",
+  "modelTrace": [
+    {
+      "candidates": [
+        {
+          "content": {
+            "role": "model",
+            "parts": [
+              {
+                "functionCall": {
+                  "name": "recommend_card_edition",
+                  "args": {
+                    "edition": "color",
+                    "arc_code": "12",
+                    "collection_scope": "arc"
+                  }
+                }
+              }
+            ]
+          },
+          "finishReason": "STOP"
+        }
+      ],
+      "usageMetadata": {
+        "promptTokenCount": 176,
+        "candidatesTokenCount": 16,
+        "totalTokenCount": 329,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 176
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 16
+          }
+        ],
+        "thoughtsTokenCount": 137
+      },
+      "modelVersion": "gemini-2.5-flash",
+      "createTime": "2026-08-29T23:46:53.588614Z",
+      "responseId": "bW-Tasb2I9iKr8kPuur7wA4"
+    },
+    {
+      "candidates": [
+        {
+          "content": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "The ARC 12 · Convergence Seal in the Full-Color Edition includes 12 high-resolution full-color cards, covering Integration, Cards 133–144."
+              }
+            ]
+          },
+          "finishReason": "STOP"
+        }
+      ],
+      "usageMetadata": {
+        "promptTokenCount": 496,
+        "candidatesTokenCount": 39,
+        "totalTokenCount": 535,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 496
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 39
+          }
+        ]
+      },
+      "modelVersion": "gemini-2.5-flash",
+      "createTime": "2026-08-29T23:46:56.790709Z",
+      "responseId": "cG-TarWhMKuEidsPuL71kQM"
+    }
+  ]
+}

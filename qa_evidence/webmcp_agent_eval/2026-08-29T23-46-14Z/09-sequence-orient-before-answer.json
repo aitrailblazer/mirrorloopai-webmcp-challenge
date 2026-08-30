@@ -1,0 +1,225 @@
+{
+  "id": "sequence-orient-before-answer",
+  "prompt": "Start, tell me the first question, explain choice 01, then record it after I confirm.",
+  "boundary": null,
+  "expectedCalls": [
+    {
+      "name": "start_reflection",
+      "arguments": {}
+    },
+    {
+      "name": "get_current_question",
+      "arguments": {}
+    },
+    {
+      "name": "explain_choice",
+      "arguments": {
+        "question_id": 1,
+        "choice_code": "01"
+      }
+    },
+    {
+      "name": "answer_reflection_question",
+      "arguments": {
+        "question_id": 1,
+        "choice_code": "01",
+        "confirmed_by_user": true
+      }
+    }
+  ],
+  "actualCalls": [
+    {
+      "name": "start_reflection",
+      "arguments": {}
+    },
+    {
+      "name": "get_current_question",
+      "arguments": {}
+    },
+    {
+      "name": "explain_choice",
+      "arguments": {
+        "choice_code": "01",
+        "question_id": 1
+      }
+    }
+  ],
+  "score": {
+    "toolSelectionExact": false,
+    "requiredToolsInOrder": false,
+    "argumentsExact": false,
+    "exactCase": false,
+    "expectedCallCount": 4,
+    "actualCallCount": 3,
+    "argumentMatches": 3
+  },
+  "startedAt": "2026-08-29T23:46:58.380Z",
+  "finishedAt": "2026-08-29T23:47:01.935Z",
+  "agentFinalText": "Choice 01, \"A destination to move toward,\" means you naturally look for a direction worth moving toward. The reflection prompt for this choice is: \"Name the next visible horizon. What is one step that points toward it?\"\n\nDo you confirm this choice?",
+  "rawLog": "AI calling tool \"start_reflection\" with {}\nTool \"start_reflection\" result: {\"content\":[{\"type\":\"text\",\"text\":\"{\\\"status\\\":\\\"SESSION_INITIALIZED\\\",\\\"total_questions\\\":12,\\\"current_question_id\\\":1,\\\"privacy\\\":\\\"Answers remain in this browser unless the human separately requests email delivery.\\\"}\"}]}\nAI calling tool \"get_current_question\" with {}\nTool \"get_current_question\" result: {\"content\":[{\"type\":\"text\",\"text\":\"{\\\"question_id\\\":1,\\\"stage_name\\\":\\\"Finding direction\\\",\\\"prompt\\\":\\\"When you feel stuck, what do you try to regain first?\\\",\\\"options\\\":[{\\\"code\\\":\\\"01\\\",\\\"label\\\":\\\"A destination to move toward\\\",\\\"glyph\\\":\\\"◯\\\"},{\\\"code\\\":\\\"02\\\",\\\"label\\\":\\\"Stability in your space/body\\\",\\\"glyph\\\":\\\"△\\\"},{\\\"code\\\":\\\"03\\\",\\\"label\\\":\\\"A new way to be you\\\",\\\"glyph\\\":\\\"◇\\\"},{\\\"code\\\":\\\"04\\\",\\\"label\\\":\\\"Calm enough to choose\\\",\\\"glyph\\\":\\\"□\\\"},{\\\"code\\\":\\\"05\\\",\\\"label\\\":\\\"Zoom out to the longer view\\\",\\\"glyph\\\":\\\"⌘\\\"},{\\\"code\\\":\\\"06\\\",\\\"label\\\":\\\"One clean fork chosen\\\",\\\"glyph\\\":\\\"✦\\\"},{\\\"code\\\":\\\"07\\\",\\\"label\\\":\\\"Both truths held\\\",\\\"glyph\\\":\\\"✿\\\"},{\\\"code\\\":\\\"08\\\",\\\"label\\\":\\\"The unspoken expectation revealed\\\",\\\"glyph\\\":\\\"▣\\\"},{\\\"code\\\":\\\"09\\\",\\\"label\\\":\\\"A spark that changes your state\\\",\\\"glyph\\\":\\\"★\\\"},{\\\"code\\\":\\\"10\\\",\\\"label\\\":\\\"Name what stopped working\\\",\\\"glyph\\\":\\\"✧\\\"},{\\\"code\\\":\\\"11\\\",\\\"label\\\":\\\"A small step that builds speed\\\",\\\"glyph\\\":\\\"↑\\\"},{\\\"code\\\":\\\"12\\\",\\\"label\\\":\\\"Everything points one way\\\",\\\"glyph\\\":\\\"Ω\\\"}]}\"}]}\nAI calling tool \"explain_choice\" with {\"choice_code\":\"01\",\"question_id\":1}\nTool \"explain_choice\" result: {\"content\":[{\"type\":\"text\",\"text\":\"{\\\"question_id\\\":1,\\\"choice_code\\\":\\\"01\\\",\\\"label\\\":\\\"A destination to move toward\\\",\\\"lens\\\":\\\"Horizon Signal\\\",\\\"plain_language_meaning\\\":\\\"You naturally look for a direction worth moving toward.\\\",\\\"reflection_prompt\\\":\\\"Name the next visible horizon. What is one step that points toward it?\\\",\\\"selection_status\\\":\\\"NOT_SELECTED\\\"}\"}]}\nAI result: Choice 01, \"A destination to move toward,\" means you naturally look for a direction worth moving toward. The reflection prompt for this choice is: \"Name the next visible horizon. What is one step that points toward it?\"\n\nDo you confirm this choice?\n",
+  "modelTrace": [
+    {
+      "candidates": [
+        {
+          "content": {
+            "role": "model",
+            "parts": [
+              {
+                "functionCall": {
+                  "name": "start_reflection",
+                  "args": {}
+                }
+              }
+            ]
+          },
+          "finishReason": "STOP"
+        }
+      ],
+      "usageMetadata": {
+        "promptTokenCount": 182,
+        "candidatesTokenCount": 3,
+        "totalTokenCount": 296,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 182
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3
+          }
+        ],
+        "thoughtsTokenCount": 111
+      },
+      "modelVersion": "gemini-2.5-flash",
+      "createTime": "2026-08-29T23:46:58.434600Z",
+      "responseId": "cm-TaqjDGs2PidsPormvwA4"
+    },
+    {
+      "candidates": [
+        {
+          "content": {
+            "role": "model",
+            "parts": [
+              {
+                "functionCall": {
+                  "name": "get_current_question",
+                  "args": {}
+                }
+              }
+            ]
+          },
+          "finishReason": "STOP"
+        }
+      ],
+      "usageMetadata": {
+        "promptTokenCount": 349,
+        "candidatesTokenCount": 5,
+        "totalTokenCount": 369,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 349
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 5
+          }
+        ],
+        "thoughtsTokenCount": 15
+      },
+      "modelVersion": "gemini-2.5-flash",
+      "createTime": "2026-08-29T23:46:59.484634Z",
+      "responseId": "c2-TaprKHajz7bEPiI7XkAc"
+    },
+    {
+      "candidates": [
+        {
+          "content": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "The first question is: \"When you feel stuck, what do you try to regain first?\"\n\nChoice 01 is: \"A destination to move toward\"\n\n"
+              },
+              {
+                "functionCall": {
+                  "name": "explain_choice",
+                  "args": {
+                    "choice_code": "01",
+                    "question_id": 1
+                  }
+                }
+              }
+            ]
+          },
+          "finishReason": "STOP"
+        }
+      ],
+      "usageMetadata": {
+        "promptTokenCount": 646,
+        "candidatesTokenCount": 46,
+        "totalTokenCount": 711,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 646
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 46
+          }
+        ],
+        "thoughtsTokenCount": 19
+      },
+      "modelVersion": "gemini-2.5-flash",
+      "createTime": "2026-08-29T23:47:00.211013Z",
+      "responseId": "dG-TasXwDPiBidsPp4fdkQM"
+    },
+    {
+      "candidates": [
+        {
+          "content": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "Choice 01, \"A destination to move toward,\" means you naturally look for a direction worth moving toward. The reflection prompt for this choice is: \"Name the next visible horizon. What is one step that points toward it?\"\n\nDo you confirm this choice?"
+              }
+            ]
+          },
+          "finishReason": "STOP"
+        }
+      ],
+      "usageMetadata": {
+        "promptTokenCount": 799,
+        "candidatesTokenCount": 54,
+        "totalTokenCount": 879,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 799
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 54
+          }
+        ],
+        "thoughtsTokenCount": 26
+      },
+      "modelVersion": "gemini-2.5-flash",
+      "createTime": "2026-08-29T23:47:01.140279Z",
+      "responseId": "dW-TavfHCPOar8kP9bm3yAc"
+    }
+  ]
+}

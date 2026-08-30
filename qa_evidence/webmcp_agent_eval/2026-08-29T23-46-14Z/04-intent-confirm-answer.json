@@ -1,0 +1,121 @@
+{
+  "id": "intent-confirm-answer",
+  "prompt": "I confirm choice 07 for question 3.",
+  "boundary": null,
+  "expectedCalls": [
+    {
+      "name": "answer_reflection_question",
+      "arguments": {
+        "question_id": 3,
+        "choice_code": "07",
+        "confirmed_by_user": true
+      }
+    }
+  ],
+  "actualCalls": [
+    {
+      "name": "answer_reflection_question",
+      "arguments": {
+        "question_id": 3,
+        "confirmed_by_user": true,
+        "choice_code": "07"
+      }
+    }
+  ],
+  "score": {
+    "toolSelectionExact": true,
+    "requiredToolsInOrder": true,
+    "argumentsExact": true,
+    "exactCase": true,
+    "expectedCallCount": 1,
+    "actualCallCount": 1,
+    "argumentMatches": 1
+  },
+  "startedAt": "2026-08-29T23:46:33.207Z",
+  "finishedAt": "2026-08-29T23:46:34.990Z",
+  "agentFinalText": "It looks like we haven't started a reflection yet. Please say \"Start a reflection\" to begin.",
+  "rawLog": "AI calling tool \"answer_reflection_question\" with {\"question_id\":3,\"confirmed_by_user\":true,\"choice_code\":\"07\"}\nTool \"answer_reflection_question\" result: {\"content\":[{\"type\":\"text\",\"text\":\"Start a reflection before recording an answer.\"}],\"isError\":true}\nAI result: It looks like we haven't started a reflection yet. Please say \"Start a reflection\" to begin.\n",
+  "modelTrace": [
+    {
+      "candidates": [
+        {
+          "content": {
+            "role": "model",
+            "parts": [
+              {
+                "functionCall": {
+                  "name": "answer_reflection_question",
+                  "args": {
+                    "question_id": 3,
+                    "confirmed_by_user": true,
+                    "choice_code": "07"
+                  }
+                }
+              }
+            ]
+          },
+          "finishReason": "STOP"
+        }
+      ],
+      "usageMetadata": {
+        "promptTokenCount": 172,
+        "candidatesTokenCount": 20,
+        "totalTokenCount": 260,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 172
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 20
+          }
+        ],
+        "thoughtsTokenCount": 68
+      },
+      "modelVersion": "gemini-2.5-flash",
+      "createTime": "2026-08-29T23:46:33.313260Z",
+      "responseId": "WW-TaqyPE6uEidsPuL71kQM"
+    },
+    {
+      "candidates": [
+        {
+          "content": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "It looks like we haven't started a reflection yet. Please say \"Start a reflection\" to begin."
+              }
+            ]
+          },
+          "finishReason": "STOP"
+        }
+      ],
+      "usageMetadata": {
+        "promptTokenCount": 290,
+        "candidatesTokenCount": 22,
+        "totalTokenCount": 354,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 290
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 22
+          }
+        ],
+        "thoughtsTokenCount": 42
+      },
+      "modelVersion": "gemini-2.5-flash",
+      "createTime": "2026-08-29T23:46:34.265855Z",
+      "responseId": "Wm-Tav-cENiKr8kPuur7wA4"
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "id": "intent-complete",
+  "prompt": "All twelve answers are confirmed. Show my reflection.",
+  "boundary": null,
+  "expectedCalls": [
+    {
+      "name": "complete_reflection",
+      "arguments": {}
+    }
+  ],
+  "actualCalls": [
+    {
+      "name": "complete_reflection",
+      "arguments": {}
+    }
+  ],
+  "score": {
+    "toolSelectionExact": true,
+    "requiredToolsInOrder": true,
+    "argumentsExact": true,
+    "exactCase": true,
+    "expectedCallCount": 1,
+    "actualCallCount": 1,
+    "argumentMatches": 1
+  },
+  "startedAt": "2026-08-29T23:46:43.337Z",
+  "finishedAt": "2026-08-29T23:46:45.296Z",
+  "agentFinalText": "It looks like there are no answers recorded yet for your reflection. Please complete all 12 questions first, confirming each choice, and then I can show you your reflection.",
+  "rawLog": "AI calling tool \"complete_reflection\" with {}\nTool \"complete_reflection\" result: {\"content\":[{\"type\":\"text\",\"text\":\"Complete all 12 questions first; 0 are currently answered.\"}],\"isError\":true}\nAI result: It looks like there are no answers recorded yet for your reflection. Please complete all 12 questions first, confirming each choice, and then I can show you your reflection.\n",
+  "modelTrace": [
+    {
+      "candidates": [
+        {
+          "content": {
+            "role": "model",
+            "parts": [
+              {
+                "functionCall": {
+                  "name": "complete_reflection",
+                  "args": {}
+                }
+              }
+            ]
+          },
+          "finishReason": "STOP"
+        }
+      ],
+      "usageMetadata": {
+        "promptTokenCount": 171,
+        "candidatesTokenCount": 3,
+        "totalTokenCount": 219,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 171
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 3
+          }
+        ],
+        "thoughtsTokenCount": 45
+      },
+      "modelVersion": "gemini-2.5-flash",
+      "createTime": "2026-08-29T23:46:43.420019Z",
+      "responseId": "Y2-TarPRGc2PidsPormvwA4"
+    },
+    {
+      "candidates": [
+        {
+          "content": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "It looks like there are no answers recorded yet for your reflection. Please complete all 12 questions first, confirming each choice, and then I can show you your reflection."
+              }
+            ]
+          },
+          "finishReason": "STOP"
+        }
+      ],
+      "usageMetadata": {
+        "promptTokenCount": 253,
+        "candidatesTokenCount": 35,
+        "totalTokenCount": 357,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 253
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 35
+          }
+        ],
+        "thoughtsTokenCount": 69
+      },
+      "modelVersion": "gemini-2.5-flash",
+      "createTime": "2026-08-29T23:46:44.139455Z",
+      "responseId": "ZG-Tar_BCKuEidsPuL71kQM"
+    }
+  ]
+}

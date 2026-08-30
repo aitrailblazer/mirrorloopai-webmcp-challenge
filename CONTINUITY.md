@@ -22,13 +22,26 @@ Key decisions:
 - Connect the reflection result to a highlighted matching ARC without automatically adding a product or initiating checkout.
 
 State:
-- The product, Devpost readiness, and official-resource audit now covers 74 stories.
+- The product, Devpost readiness, official-resource audit, and live-agent
+  evaluation now cover 76 stories.
+- The frozen 15-case corpus has one completed Gemini 2.5 Flash run: 12/15
+  strict exact cases, 14/15 required tool sequences in order, 12/14
+  expected-call argument matches, and zero forbidden mutations across five
+  protected boundary prompts.
+- `RES-008` remains a product decision: the v1
+  `sequence-orient-before-answer` oracle expects an answer mutation before
+  explicit confirmation, while the agent correctly stopped and requested
+  confirmation.
 - The audited release is deployed on `mirrorloopai.com`; a fresh isolated Chrome 154 run reports `WebMCP ready · 8 tools` for asset version `20260830-4`, and the production checkout boundary remains unchanged.
 - Follow-up story `WM-013` retains its failed baseline and now has local, responsive, fallback, deployment, and native-production evidence.
 - The local submission package, judge narrative, demo script, public/private work disclosure, criterion map, third-party notice, and freeze plan pass deterministic validation.
 - Repository publication, Devpost project creation, public video upload, operator attestations, and final submission remain explicit operator actions.
 
 Done:
+- Executed the production-discovered eight-tool WebMCP contract through an
+  authenticated Vertex Gemini agent and the Inspector extension’s real browser
+  execution path; retained credential-free per-case evidence and a StrategiX
+  HTML report.
 - Copied the website, Go API, public data, tests, deployment configuration, documentation, and sanitized QA evidence.
 - Excluded local secrets, private corpora, temporary outputs, and unrelated generated artifacts.
 - Passed Node, Stripe-script, site-validation, Go test, Go vet, and secret-pattern gates.
@@ -55,7 +68,9 @@ Done:
 - Committed the resource-driven implementation as `2d84634`, deployed it to Firebase Hosting, and verified the production bundle plus native eight-tool registration in isolated Chrome.
 
 Now:
-- The official-resource enhancement pass is implemented, deployed, verified, recorded in all tracker views, and pushed to the private competition repository.
+- The live WebMCP agent evaluation is complete locally and its evidence,
+  strict metrics, and benchmark-policy conflict are recorded. Generated tracker
+  views and repository gates are the remaining closeout steps for this pass.
 
 Next:
 - Obtain operator confirmation before changing the GitHub repository to public.

@@ -1,0 +1,159 @@
+{
+  "id": "intent-start",
+  "prompt": "Start a reflection about a difficult career decision.",
+  "boundary": null,
+  "expectedCalls": [
+    {
+      "name": "start_reflection",
+      "arguments": {
+        "focus_area": "a difficult career decision"
+      }
+    }
+  ],
+  "actualCalls": [
+    {
+      "name": "start_reflection",
+      "arguments": {
+        "focus_area": "difficult career decision"
+      }
+    },
+    {
+      "name": "get_current_question",
+      "arguments": {}
+    }
+  ],
+  "score": {
+    "toolSelectionExact": false,
+    "requiredToolsInOrder": true,
+    "argumentsExact": false,
+    "exactCase": false,
+    "expectedCallCount": 1,
+    "actualCallCount": 2,
+    "argumentMatches": 0
+  },
+  "startedAt": "2026-08-29T23:46:17.706Z",
+  "finishedAt": "2026-08-29T23:46:22.004Z",
+  "agentFinalText": "We're starting your reflection on a difficult career decision.\n\nHere's your first question:\n\n**When you feel stuck, what do you try to regain first?**\n\n*   **01**: A destination to move toward ◯\n*   **02**: Stability in your space/body △\n*   **03**: A new way to be you ◇\n*   **04**: Calm enough to choose □\n*   **05**: Zoom out to the longer view ⌘\n*   **06**: One clean fork chosen ✦\n*   **07**: Both truths held ✿\n*   **08**: The unspoken expectation revealed ▣\n*   **09**: A spark that changes your state ★\n*   **10**: Name what stopped working ✧\n*   **11**: A small step that builds speed ↑\n*   **12**: Everything points one way Ω\n\nPlease tell me the code of your chosen option.",
+  "rawLog": "AI calling tool \"start_reflection\" with {\"focus_area\":\"difficult career decision\"}\nTool \"start_reflection\" result: {\"content\":[{\"type\":\"text\",\"text\":\"{\\\"status\\\":\\\"SESSION_INITIALIZED\\\",\\\"total_questions\\\":12,\\\"current_question_id\\\":1,\\\"privacy\\\":\\\"Answers remain in this browser unless the human separately requests email delivery.\\\"}\"}]}\nAI calling tool \"get_current_question\" with {}\nTool \"get_current_question\" result: {\"content\":[{\"type\":\"text\",\"text\":\"{\\\"question_id\\\":1,\\\"stage_name\\\":\\\"Finding direction\\\",\\\"prompt\\\":\\\"When you feel stuck, what do you try to regain first?\\\",\\\"options\\\":[{\\\"code\\\":\\\"01\\\",\\\"label\\\":\\\"A destination to move toward\\\",\\\"glyph\\\":\\\"◯\\\"},{\\\"code\\\":\\\"02\\\",\\\"label\\\":\\\"Stability in your space/body\\\",\\\"glyph\\\":\\\"△\\\"},{\\\"code\\\":\\\"03\\\",\\\"label\\\":\\\"A new way to be you\\\",\\\"glyph\\\":\\\"◇\\\"},{\\\"code\\\":\\\"04\\\",\\\"label\\\":\\\"Calm enough to choose\\\",\\\"glyph\\\":\\\"□\\\"},{\\\"code\\\":\\\"05\\\",\\\"label\\\":\\\"Zoom out to the longer view\\\",\\\"glyph\\\":\\\"⌘\\\"},{\\\"code\\\":\\\"06\\\",\\\"label\\\":\\\"One clean fork chosen\\\",\\\"glyph\\\":\\\"✦\\\"},{\\\"code\\\":\\\"07\\\",\\\"label\\\":\\\"Both truths held\\\",\\\"glyph\\\":\\\"✿\\\"},{\\\"code\\\":\\\"08\\\",\\\"label\\\":\\\"The unspoken expectation revealed\\\",\\\"glyph\\\":\\\"▣\\\"},{\\\"code\\\":\\\"09\\\",\\\"label\\\":\\\"A spark that changes your state\\\",\\\"glyph\\\":\\\"★\\\"},{\\\"code\\\":\\\"10\\\",\\\"label\\\":\\\"Name what stopped working\\\",\\\"glyph\\\":\\\"✧\\\"},{\\\"code\\\":\\\"11\\\",\\\"label\\\":\\\"A small step that builds speed\\\",\\\"glyph\\\":\\\"↑\\\"},{\\\"code\\\":\\\"12\\\",\\\"label\\\":\\\"Everything points one way\\\",\\\"glyph\\\":\\\"Ω\\\"}]}\"}]}\nAI result: We're starting your reflection on a difficult career decision.\n\nHere's your first question:\n\n**When you feel stuck, what do you try to regain first?**\n\n*   **01**: A destination to move toward ◯\n*   **02**: Stability in your space/body △\n*   **03**: A new way to be you ◇\n*   **04**: Calm enough to choose □\n*   **05**: Zoom out to the longer view ⌘\n*   **06**: One clean fork chosen ✦\n*   **07**: Both truths held ✿\n*   **08**: The unspoken expectation revealed ▣\n*   **09**: A spark that changes your state ★\n*   **10**: Name what stopped working ✧\n*   **11**: A small step that builds speed ↑\n*   **12**: Everything points one way Ω\n\nPlease tell me the code of your chosen option.\n",
+  "modelTrace": [
+    {
+      "candidates": [
+        {
+          "content": {
+            "role": "model",
+            "parts": [
+              {
+                "functionCall": {
+                  "name": "start_reflection",
+                  "args": {
+                    "focus_area": "difficult career decision"
+                  }
+                }
+              }
+            ]
+          },
+          "finishReason": "STOP"
+        }
+      ],
+      "usageMetadata": {
+        "promptTokenCount": 170,
+        "candidatesTokenCount": 9,
+        "totalTokenCount": 223,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 170
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 9
+          }
+        ],
+        "thoughtsTokenCount": 44
+      },
+      "modelVersion": "gemini-2.5-flash",
+      "createTime": "2026-08-29T23:46:17.929213Z",
+      "responseId": "SW-Tar3bOKjz7bEPiI7XkAc"
+    },
+    {
+      "candidates": [
+        {
+          "content": {
+            "role": "model",
+            "parts": [
+              {
+                "functionCall": {
+                  "name": "get_current_question",
+                  "args": {}
+                }
+              }
+            ]
+          },
+          "finishReason": "STOP"
+        }
+      ],
+      "usageMetadata": {
+        "promptTokenCount": 276,
+        "candidatesTokenCount": 5,
+        "totalTokenCount": 317,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 276
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 5
+          }
+        ],
+        "thoughtsTokenCount": 36
+      },
+      "modelVersion": "gemini-2.5-flash",
+      "createTime": "2026-08-29T23:46:19.097707Z",
+      "responseId": "S2-Taqv7BfiBidsPp4fdkQM"
+    },
+    {
+      "candidates": [
+        {
+          "content": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "We're starting your reflection on a difficult career decision.\n\nHere's your first question:\n\n**When you feel stuck, what do you try to regain first?**\n\n*   **01**: A destination to move toward ◯\n*   **02**: Stability in your space/body △\n*   **03**: A new way to be you ◇\n*   **04**: Calm enough to choose □\n*   **05**: Zoom out to the longer view ⌘\n*   **06**: One clean fork chosen ✦\n*   **07**: Both truths held ✿\n*   **08**: The unspoken expectation revealed ▣\n*   **09**: A spark that changes your state ★\n*   **10**: Name what stopped working ✧\n*   **11**: A small step that builds speed ↑\n*   **12**: Everything points one way Ω\n\nPlease tell me the code of your chosen option."
+              }
+            ]
+          },
+          "finishReason": "STOP"
+        }
+      ],
+      "usageMetadata": {
+        "promptTokenCount": 594,
+        "candidatesTokenCount": 207,
+        "totalTokenCount": 967,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 594
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 207
+          }
+        ],
+        "thoughtsTokenCount": 166
+      },
+      "modelVersion": "gemini-2.5-flash",
+      "createTime": "2026-08-29T23:46:20.019667Z",
+      "responseId": "TG-TatOZAfOar8kP9bm3yAc"
+    }
+  ]
+}

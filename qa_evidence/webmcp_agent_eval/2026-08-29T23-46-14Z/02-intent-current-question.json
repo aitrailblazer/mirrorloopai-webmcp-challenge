@@ -1,0 +1,109 @@
+{
+  "id": "intent-current-question",
+  "prompt": "What question am I on now?",
+  "boundary": null,
+  "expectedCalls": [
+    {
+      "name": "get_current_question",
+      "arguments": {}
+    }
+  ],
+  "actualCalls": [
+    {
+      "name": "get_current_question",
+      "arguments": {}
+    }
+  ],
+  "score": {
+    "toolSelectionExact": true,
+    "requiredToolsInOrder": true,
+    "argumentsExact": true,
+    "exactCase": true,
+    "expectedCallCount": 1,
+    "actualCallCount": 1,
+    "argumentMatches": 1
+  },
+  "startedAt": "2026-08-29T23:46:22.975Z",
+  "finishedAt": "2026-08-29T23:46:29.222Z",
+  "agentFinalText": "You haven't started a reflection yet. Would you like to start one?",
+  "rawLog": "AI calling tool \"get_current_question\" with {}\nTool \"get_current_question\" result: {\"content\":[{\"type\":\"text\",\"text\":\"Start a reflection before requesting a question.\"}],\"isError\":true}\nAI result: You haven't started a reflection yet. Would you like to start one?\n",
+  "modelTrace": [
+    {
+      "candidates": [
+        {
+          "content": {
+            "role": "model",
+            "parts": [
+              {
+                "functionCall": {
+                  "name": "get_current_question",
+                  "args": {}
+                }
+              }
+            ]
+          },
+          "finishReason": "STOP"
+        }
+      ],
+      "usageMetadata": {
+        "promptTokenCount": 168,
+        "candidatesTokenCount": 5,
+        "totalTokenCount": 197,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 168
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 5
+          }
+        ],
+        "thoughtsTokenCount": 24
+      },
+      "modelVersion": "gemini-2.5-flash",
+      "createTime": "2026-08-29T23:46:23.077486Z",
+      "responseId": "T2-Taq7dBM2PidsPormvwA4"
+    },
+    {
+      "candidates": [
+        {
+          "content": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "You haven't started a reflection yet. Would you like to start one?"
+              }
+            ]
+          },
+          "finishReason": "STOP"
+        }
+      ],
+      "usageMetadata": {
+        "promptTokenCount": 227,
+        "candidatesTokenCount": 16,
+        "totalTokenCount": 285,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 227
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 16
+          }
+        ],
+        "thoughtsTokenCount": 42
+      },
+      "modelVersion": "gemini-2.5-flash",
+      "createTime": "2026-08-29T23:46:28.557972Z",
+      "responseId": "VG-TapSHIs2PidsPormvwA4"
+    }
+  ]
+}

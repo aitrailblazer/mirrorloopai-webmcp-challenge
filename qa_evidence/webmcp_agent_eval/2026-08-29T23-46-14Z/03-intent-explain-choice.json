@@ -1,0 +1,118 @@
+{
+  "id": "intent-explain-choice",
+  "prompt": "Explain choice 04 on question 2 without choosing it.",
+  "boundary": null,
+  "expectedCalls": [
+    {
+      "name": "explain_choice",
+      "arguments": {
+        "question_id": 2,
+        "choice_code": "04"
+      }
+    }
+  ],
+  "actualCalls": [
+    {
+      "name": "explain_choice",
+      "arguments": {
+        "choice_code": "04",
+        "question_id": 2
+      }
+    }
+  ],
+  "score": {
+    "toolSelectionExact": true,
+    "requiredToolsInOrder": true,
+    "argumentsExact": true,
+    "exactCase": true,
+    "expectedCallCount": 1,
+    "actualCallCount": 1,
+    "argumentMatches": 1
+  },
+  "startedAt": "2026-08-29T23:46:30.069Z",
+  "finishedAt": "2026-08-29T23:46:32.368Z",
+  "agentFinalText": "Choice 04 for question 2 is \"One required condition fails, so action stops\". This means you seek enough inner calm to choose rather than react. The reflection prompt associated with this choice is: \"Pause for one minute. Name the feeling, then name the choice beneath it.\"",
+  "rawLog": "AI calling tool \"explain_choice\" with {\"choice_code\":\"04\",\"question_id\":2}\nTool \"explain_choice\" result: {\"content\":[{\"type\":\"text\",\"text\":\"{\\\"question_id\\\":2,\\\"choice_code\\\":\\\"04\\\",\\\"label\\\":\\\"One required condition fails, so action stops\\\",\\\"lens\\\":\\\"Silent Gate\\\",\\\"plain_language_meaning\\\":\\\"You seek enough inner calm to choose rather than react.\\\",\\\"reflection_prompt\\\":\\\"Pause for one minute. Name the feeling, then name the choice beneath it.\\\",\\\"selection_status\\\":\\\"NOT_SELECTED\\\"}\"}]}\nAI result: Choice 04 for question 2 is \"One required condition fails, so action stops\". This means you seek enough inner calm to choose rather than react. The reflection prompt associated with this choice is: \"Pause for one minute. Name the feeling, then name the choice beneath it.\"\n",
+  "modelTrace": [
+    {
+      "candidates": [
+        {
+          "content": {
+            "role": "model",
+            "parts": [
+              {
+                "functionCall": {
+                  "name": "explain_choice",
+                  "args": {
+                    "choice_code": "04",
+                    "question_id": 2
+                  }
+                }
+              }
+            ]
+          },
+          "finishReason": "STOP"
+        }
+      ],
+      "usageMetadata": {
+        "promptTokenCount": 174,
+        "candidatesTokenCount": 12,
+        "totalTokenCount": 273,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 174
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 12
+          }
+        ],
+        "thoughtsTokenCount": 87
+      },
+      "modelVersion": "gemini-2.5-flash",
+      "createTime": "2026-08-29T23:46:30.116949Z",
+      "responseId": "Vm-TatWRB_Oar8kP9bm3yAc"
+    },
+    {
+      "candidates": [
+        {
+          "content": {
+            "role": "model",
+            "parts": [
+              {
+                "text": "Choice 04 for question 2 is \"One required condition fails, so action stops\". This means you seek enough inner calm to choose rather than react. The reflection prompt associated with this choice is: \"Pause for one minute. Name the feeling, then name the choice beneath it.\""
+              }
+            ]
+          },
+          "finishReason": "STOP"
+        }
+      ],
+      "usageMetadata": {
+        "promptTokenCount": 367,
+        "candidatesTokenCount": 58,
+        "totalTokenCount": 554,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 367
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 58
+          }
+        ],
+        "thoughtsTokenCount": 129
+      },
+      "modelVersion": "gemini-2.5-flash",
+      "createTime": "2026-08-29T23:46:31.164029Z",
+      "responseId": "V2-Tar2BCviBidsPp4fdkQM"
+    }
+  ]
+}
