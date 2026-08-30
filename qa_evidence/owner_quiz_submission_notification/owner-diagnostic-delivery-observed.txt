@@ -1,0 +1,25 @@
+MIRROR//LOOP F-033 — Owner Diagnostic Delivery Observation
+
+Observation date: 2026-08-30
+Evidence source: User-supplied copy of the received operational email.
+Observed title: New quiz submission
+
+Observed required fields:
+- Participant identifier/email: PRESENT (redacted from this artifact)
+- Status: Pending email confirmation
+- Compact result: 01 · Horizon Signal (1 of 12)
+- Quiz version: 2.0.0
+- Source: automated E2E run
+- Submission timestamp: PRESENT
+- Ordered manual-review answers: Q01 through Q12 PRESENT
+- Each answer includes question text, selected response, stable code, archetype, and plain-language domain
+- Data-boundary statement: PRESENT; operational email contains the ordered answers while the subscriber database retains only the compact result
+
+Security and privacy handling:
+- The participant email address is intentionally omitted from this repository artifact.
+- No confirmation token, subscriber identifier, or message header is retained.
+
+Bounded verdict:
+PASS — owner diagnostic notification delivery and manual-fulfillment content observed.
+F-033 acceptance criterion satisfied.
+UNCONFIRMED in this evidence item — post-confirmation participant reflection email delivery.

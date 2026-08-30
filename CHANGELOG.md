@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-08-30 — Owner diagnostic delivery verified
+
+- Recorded a user-supplied receipt showing that the operational owner notification reached the mailbox.
+- Verified that it identifies the participant, records pending-confirmation status and compact result, and supplies all Q1–Q12 questions and selected responses in order for manual fulfillment.
+- Verified that the message states the storage boundary: ordered answers are carried in the operational notification while the subscriber database retains only the compact result.
+- Redacted the participant address and retained no confirmation token or subscriber identifier in repository evidence.
+- Closed F-033 as `Verified`; post-confirmation participant reflection-email delivery remains a separate observation.
+
 ## 2026-08-30 — Valid confirmation-page production evidence
 
 - Recorded a user-supplied production screenshot of a valid confirmation link.
