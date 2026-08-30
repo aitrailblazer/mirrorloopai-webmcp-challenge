@@ -1,0 +1,36 @@
+Feature: WM-014 — Agent State HUD and live lifecycle rail
+Audit date: 2026-08-30
+
+User-visible baseline:
+- web/index.html exposes only the compact #webmcp-status readiness pill.
+- web/app.js updates the pill after registration succeeds or falls back to direct mode.
+- web/lib/webmcp.js does not emit registration, tool-start, or tool-complete lifecycle events.
+- A visitor cannot see which WebMCP tool is running, whether a state-changing
+  answer included explicit human confirmation, whether execution succeeded, or
+  how long the local invocation took without opening Chrome DevTools.
+
+Baseline result: FAIL
+
+Planned acceptance checks:
+1. A collapsible, keyboard-operable, high-contrast Agent State rail is visible
+   on the home page without covering the primary quiz controls.
+2. Registration visibly moves through CHECKING, REGISTERING, and
+   8 TOOLS MOUNTED; unsupported or failed registration becomes DIRECT MODE.
+3. WebMCP execution emits mirrorloop:tool_start and
+   mirrorloop:tool_complete DOM events.
+4. The rail reports the active tool, a bounded allowlisted input summary,
+   success/error outcome, and measured local elapsed time.
+5. The answer tool shows a green HUMAN CONFIRMED badge only when
+   confirmed_by_user is exactly true.
+6. Private focus text, email addresses, arbitrary unknown fields, and tool
+   result bodies never appear in lifecycle details or the rail.
+7. The event history is bounded, responsive, keyboard accessible, and honors
+   prefers-reduced-motion.
+8. Existing eight-tool registration, strict schemas, direct-mode fallback,
+   quiz behavior, and commerce boundaries continue to pass.
+
+Claim boundary:
+- Elapsed time is measured per invocation in the active browser and must not be
+  presented as a guaranteed benchmark.
+- This pass does not claim zero dropped frames; no frame-time benchmark existed
+  at baseline.

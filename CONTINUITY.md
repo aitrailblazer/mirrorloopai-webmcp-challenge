@@ -22,7 +22,7 @@ Key decisions:
 - Connect the reflection result to a highlighted matching ARC without automatically adding a product or initiating checkout.
 
 State:
-- The product, Devpost readiness, official-resource audit, live-agent evaluation, and deadline preflight now cover 89 stories.
+- The product, Devpost readiness, official-resource audit, live-agent evaluation, deadline preflight, and Agent State HUD now cover 90 stories.
 - The frozen 15-case corpus has one completed Gemini 2.5 Flash run: 12/15
   strict exact cases, 14/15 required tool sequences in order, 12/14
   expected-call argument matches, and zero forbidden mutations across five
@@ -41,9 +41,11 @@ State:
 - The proposed “winning architecture” attachment is evidence material only. Its P2P, astronomical-engine, physical-product, x402, zero-egress, sub-20KB, 60fps, and judge-preference claims are excluded from submission copy because they are not implemented or measured in this repository.
 - `WEBMCP_DEMO_SHOT_LIST.html` now provides the validated 2:35 recording contract for the verified eight-tool build; the public video itself remains pending.
 - The six-point verified-core scope is canonical in README, submission copy, and the demo artifact. Its no-cloud claim applies only to deterministic browser scoring.
+- `WM-014` is verified: the deployed page now exposes a collapsible Agent State rail driven by privacy-filtered registration, tool-start, and tool-complete lifecycle events. It shows observed local duration and explicit answer confirmation without exposing private focus text or tool results.
 
 Done:
 - Added and browser-rendered the evidence-bounded 2:35 WebMCP demo shot list; HTML, embedded XML, exact tool inventory, timing, authority boundaries, and submission-package assertions pass.
+- Implemented and deployed the `WM-014` Agent State HUD; 32/32 web tests and desktop/mobile production browser checks pass, including eight-tool registration, real wrapper invocation, keyboard collapse, bounded history, no horizontal overflow, and focus-text redaction.
 - Executed the production-discovered eight-tool WebMCP contract through an
   authenticated Vertex Gemini agent and the Inspector extension’s real browser
   execution path; retained credential-free per-case evidence and a StrategiX
@@ -74,7 +76,7 @@ Done:
 - Committed the resource-driven implementation as `fcde886`, deployed it to Firebase Hosting, and verified the production bundle plus native eight-tool registration in isolated Chrome.
 
 Now:
-- Validate the six-point verified-core scope, update the canonical tracker views, commit, and push.
+- Finalize the `WM-014` tracker artifacts, commit the production evidence, and push the deployed Agent State HUD audit pass.
 
 Next:
 - Record and publish the under-three-minute YouTube demo using that artifact.

@@ -1,0 +1,48 @@
+WM-014 verification summary
+Date: 2026-08-30
+Production URL: https://mirrorloopai.com/
+
+PASS — npm test
+- 32 tests passed.
+- Includes exact eight-tool registration, lifecycle ordering, explicit
+  confirmation success/error states, direct-mode fallback, private focus
+  redaction, malformed known-field replacement, schema boundaries, output
+  budgets, quiz behavior, and commerce isolation.
+
+PASS — npm run validate
+- Site contract includes the versioned Agent State HUD assets and lifecycle
+  event implementation.
+
+PASS — npm run validate:submission
+- Local submission package passed all deterministic checks.
+- Account-level publication/video/Devpost gates remain external.
+
+PASS — npm run test:webmcp:chrome-ux
+PASS — npm run test:webmcp:evals
+- Frozen corpus: 15 cases, 8 tools, 2 sequences.
+PASS — npm run test:webmcp:competition-hardening
+PASS — npm run test:webmcp:six-role-claims
+PASS — npm run test:stripe
+
+PASS — npm run test:webmcp:hud:browser
+PASS — MIRRORLOOP_TEST_URL=https://mirrorloopai.com npm run test:webmcp:hud:browser
+- A browser model-context harness registered the actual eight tool definitions.
+- The browser invoked start_reflection with private focus text, then
+  answer_reflection_question with confirmed_by_user true.
+- The rail displayed the active tool, safe input, measured local duration,
+  success, and HUMAN CONFIRMED.
+- The private focus text was absent from the DOM.
+- The event list remained bounded to five rows.
+- The native details control collapsed by pointer and reopened by keyboard.
+- Desktop 1440px and mobile 390px had no horizontal overflow.
+
+PASS — Firebase Hosting deployment
+- The first Firebase CLI attempt failed under the system Node 26 runtime.
+- The same authenticated Firebase CLI deployed successfully under the bundled
+  Node 24 runtime.
+- Production HTML serves styles.css?v=20260830-2 and app.js?v=20260830-8.
+
+Claim boundary:
+- Reported milliseconds are observed for each active-browser invocation, not a
+  service-level benchmark.
+- No frame-rate, compositor, or zero-dropped-frame claim was made or tested.

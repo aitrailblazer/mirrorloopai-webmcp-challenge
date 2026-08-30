@@ -4,11 +4,11 @@ Tracker source: `feature_status_tracker.csv`
 
 ## Totals
 
-- Total features discovered: 89
-- Total verified before fixes: 59
-- Total failed before fixes: 19
+- Total features discovered: 90
+- Total verified before fixes: 60
+- Total failed before fixes: 20
 - Total fixed: 24
-- Total verified after retest: 83
+- Total verified after retest: 84
 - Total still blocked: 0
 - Total needing product decision: 1
 
@@ -98,6 +98,7 @@ Tracker source: `feature_status_tracker.csv`
 - `api/internal/subscriber/service.go; api/internal/subscriber/service_test.go; api/internal/subscriber/http.go; api/internal/subscriber/http_test.go; web/confirmation.css; web/confirmed.html; scripts/test-confirmation-page-browser.mjs; scripts/validate-site.mjs; CHANGELOG.md; qa_evidence/post_confirmation_cross_device/; feature_status_tracker.csv; feature_status_tracker.xlsx; feature_status_tracker.html; feature_qa_report.md`
 - `api/cmd/server/main.go; api/internal/subscriber/model.go; api/internal/subscriber/model_test.go; api/internal/subscriber/service.go; api/internal/subscriber/service_test.go; api/internal/subscriber/mailer.go; api/internal/subscriber/mailer_test.go; web/app.js; web/index.html; web/privacy.html; scripts/validate-site.mjs; CHANGELOG.md; qa_evidence/owner_quiz_submission_notification/; feature_status_tracker.csv; feature_status_tracker.xlsx; feature_status_tracker.html; feature_qa_report.md`
 - `feature_status_tracker.csv; feature_status_tracker.xlsx; feature_status_tracker.html; feature_qa_report.md; CHANGELOG.md; qa_evidence/submission_readiness/deadline-preflight-2026-08-30.txt`
+- `web/lib/webmcp.js; web/app.js; web/index.html; web/styles.css; web/tests/webmcp.test.mjs; scripts/test-webmcp-hud-browser.mjs; scripts/validate-site.mjs; package.json; README.md; SUBMISSION.md; CHANGELOG.md; qa_evidence/webmcp_glass_cockpit/`
 
 ## Commits Recorded In Tracker
 
@@ -123,10 +124,11 @@ Tracker source: `feature_status_tracker.csv`
 - `e185c72; 6c90ff4`
 - `2e4116f; b52b3b4`
 - `103ed7e`
+- `60762af`
 
 ## Test Evidence
 
-- Test types used: `Automated + browser`, `Automated + integration + production`, `Persona walkthrough + automated + browser`, `Production cache regression`, `Automated Test + Code Review`, `Automated Test + Cross-surface Review`, `Automated Test`, `Automated Test + Accessibility Review`, `Automated Test + Content Review`, `Browser + responsive`, `Browser interaction`, `Browser + automated`, `Automated integration + production smoke`, `Content + link review`, `Automated + security`, `Automated security review`, `Production browser + Inspector`, `Browser + content`, `Automated links + browser`, `Automated content + production smoke`, `Reference comparison + automated + Chrome responsive`, `Production browser + HTTP`, `GitHub metadata inspection`, `Documentation audit`, `Content audit`, `Artifact + content audit`, `Git + documentation audit`, `Authenticated browser + checklist audit`, `Compliance checklist`, `Operations documentation audit`, `Content + evidence audit`, `Browser compatibility`, `Link inventory + content review`, `Code review + automated lifecycle test`, `Automated contract-budget test`, `Eval dataset validation`, `Header and source review`, `Live browser-agent evaluation + deterministic scorer`, `Corpus-policy consistency review from live model evidence`, `Source-to-claim audit + deterministic corpus + live browser-agent evaluation`, `Source-to-contract audit + six-case deterministic corpus + live browser-agent evaluation`, `Claim-to-code audit + security boundary regression + submission/document validation`, `Documentation claim audit + HTML/XML validation + submission regression`, `Source-to-claim audit + browser accessibility/animation inspection + submission regression`, `Source-to-claim audit + generated StrategiX matrix + browser/submission regression`, `Production HTTP route + completed-quiz browser flow + adjacent subscriber regression`, `Source inspection + browser-local storage unit and end-to-end behavior`, `Source inspection + HTTP handler tests + responsive browser rendering`, `Production visual regression + CSP/resource loading + handler semantics`, `Cross-device confirmation UX + privacy + email delivery + browser rendering`, `Mailer payload + service lifecycle + privacy disclosure + regression`, `Authenticated Devpost team-state inspection`
+- Test types used: `Automated + browser`, `Automated + integration + production`, `Persona walkthrough + automated + browser`, `Production cache regression`, `Automated Test + Code Review`, `Automated Test + Cross-surface Review`, `Automated Test`, `Automated Test + Accessibility Review`, `Automated Test + Content Review`, `Browser + responsive`, `Browser interaction`, `Browser + automated`, `Automated integration + production smoke`, `Content + link review`, `Automated + security`, `Automated security review`, `Production browser + Inspector`, `Browser + content`, `Automated links + browser`, `Automated content + production smoke`, `Reference comparison + automated + Chrome responsive`, `Production browser + HTTP`, `GitHub metadata inspection`, `Documentation audit`, `Content audit`, `Artifact + content audit`, `Git + documentation audit`, `Authenticated browser + checklist audit`, `Compliance checklist`, `Operations documentation audit`, `Content + evidence audit`, `Browser compatibility`, `Link inventory + content review`, `Code review + automated lifecycle test`, `Automated contract-budget test`, `Eval dataset validation`, `Header and source review`, `Live browser-agent evaluation + deterministic scorer`, `Corpus-policy consistency review from live model evidence`, `Source-to-claim audit + deterministic corpus + live browser-agent evaluation`, `Source-to-contract audit + six-case deterministic corpus + live browser-agent evaluation`, `Claim-to-code audit + security boundary regression + submission/document validation`, `Documentation claim audit + HTML/XML validation + submission regression`, `Source-to-claim audit + browser accessibility/animation inspection + submission regression`, `Source-to-claim audit + generated StrategiX matrix + browser/submission regression`, `Production HTTP route + completed-quiz browser flow + adjacent subscriber regression`, `Source inspection + browser-local storage unit and end-to-end behavior`, `Source inspection + HTTP handler tests + responsive browser rendering`, `Production visual regression + CSP/resource loading + handler semantics`, `Cross-device confirmation UX + privacy + email delivery + browser rendering`, `Mailer payload + service lifecycle + privacy disclosure + regression`, `Authenticated Devpost team-state inspection`, `Unit + site contract + real browser registration/invocation + responsive production regression`
 - Commands run are not captured as a dedicated tracker column, so this report only summarizes tracker-backed test evidence.
 
 ## Coverage Gaps

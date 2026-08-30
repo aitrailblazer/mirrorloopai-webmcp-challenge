@@ -1,0 +1,40 @@
+{
+  "baseURL": "https://mirrorloopai.com",
+  "desktop": {
+    "phase": "8 TOOLS MOUNTED",
+    "activeTool": "answer_reflection_question",
+    "safeInput": "question id: 1 · choice code: 01 · confirmed by user: yes",
+    "confirmation": "HUMAN CONFIRMED",
+    "confirmationState": "confirmed",
+    "duration": "0.5 ms observed",
+    "events": [
+      "DONEanswer_reflection_question · Completed",
+      "STARTanswer_reflection_question",
+      "DONEstart_reflection · Completed",
+      "STARTstart_reflection",
+      "READY8 tools mounted"
+    ],
+    "privateFocusVisible": false,
+    "position": "fixed",
+    "horizontalOverflow": false
+  },
+  "mobile": {
+    "phase": "8 TOOLS MOUNTED",
+    "activeTool": "answer_reflection_question",
+    "safeInput": "question id: 1 · choice code: 01 · confirmed by user: yes",
+    "confirmation": "HUMAN CONFIRMED",
+    "confirmationState": "confirmed",
+    "duration": "0.5 ms observed",
+    "events": [
+      "DONEanswer_reflection_question · Completed",
+      "STARTanswer_reflection_question",
+      "DONEstart_reflection · Completed",
+      "STARTstart_reflection",
+      "READY8 tools mounted"
+    ],
+    "privateFocusVisible": false,
+    "position": "relative",
+    "horizontalOverflow": false
+  },
+  "status": "PASS"
+}
