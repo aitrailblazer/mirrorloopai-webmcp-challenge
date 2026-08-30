@@ -1,0 +1,58 @@
+UTC 2026-08-30T05:20:34Z
+--- custom domain health ---
+HTTP/2 200 
+cache-control: no-store
+content-security-policy: default-src 'self'; script-src 'self' https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; connect-src 'self' https://challenges.cloudflare.com; img-src 'self' data:; style-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
+content-type: application/json; charset=utf-8
+permissions-policy: camera=(), microphone=(), geolocation=(), payment=()
+referrer-policy: strict-origin-when-cross-origin
+server: Google Frontend
+strict-transport-security: max-age=31556926
+x-cloud-trace-context: 0e8ae3ac4ed31f068ad56b51df4e0f75;o=1
+x-content-type-options: nosniff
+x-country-code: US
+accept-ranges: bytes
+date: Sun, 30 Aug 2026 05:20:35 GMT
+x-served-by: cache-pdx12320-PDX
+x-cache: MISS
+x-cache-hits: 0
+{"status":"ok"}
+
+--- web.app health ---
+HTTP/2 200 
+cache-control: no-store
+content-security-policy: default-src 'self'; script-src 'self' https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; connect-src 'self' https://challenges.cloudflare.com; img-src 'self' data:; style-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
+content-type: application/json; charset=utf-8
+permissions-policy: camera=(), microphone=(), geolocation=(), payment=()
+referrer-policy: strict-origin-when-cross-origin
+server: Google Frontend
+strict-transport-security: max-age=31556926; includeSubDomains; preload
+x-cloud-trace-context: 4f06d636f33a14cd9d60a999198550f3
+x-content-type-options: nosniff
+x-country-code: US
+accept-ranges: bytes
+date: Sun, 30 Aug 2026 05:20:35 GMT
+x-served-by: cache-pdx12324-PDX
+x-cache: MISS
+x-cache-hits: 0
+{"status":"ok"}
+
+--- bounded invalid subscriber request ---
+HTTP/2 400 
+cache-control: no-store
+content-type: application/json; charset=utf-8
+referrer-policy: no-referrer
+server: Google Frontend
+x-cloud-trace-context: 8de9d0d7058b34012cd95f0e9817e49a
+x-content-type-options: nosniff
+accept-ranges: bytes
+date: Sun, 30 Aug 2026 05:20:35 GMT
+x-served-by: cache-pdx12326-PDX
+x-cache: MISS
+x-cache-hits: 0
+x-timer: S1788067236.703125,VS0,VE147
+vary: x-fh-requested-host, accept-encoding
+alt-svc: h3=":443";ma=86400,h3-29=":443";ma=86400,h3-27=":443";ma=86400
+content-length: 52
+{"error":"Please complete the human verification."}
+

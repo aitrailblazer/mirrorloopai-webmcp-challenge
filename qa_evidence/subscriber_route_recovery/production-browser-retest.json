@@ -1,0 +1,17 @@
+{
+  "captured_at": "2026-08-30T05:27:27.454Z",
+  "url": "https://mirrorloopai.com/?email-route-retest=20260830-1",
+  "app_bundle": "/app.js?v=20260830-5",
+  "webmcp_status": "WebMCP ready · 8 tools",
+  "completed_quiz": {
+    "button": "Email my reflection",
+    "emailCardVisible": true,
+    "formTop": 1092.234375,
+    "resultHidden": false,
+    "statusLive": "polite",
+    "statusNext": "form-note",
+    "statusRole": "status"
+  },
+  "submission_performed": false,
+  "boundary": "No email address or Turnstile token was transmitted during automated browser retest."
+}

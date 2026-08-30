@@ -1,0 +1,68 @@
+{
+  "status": "success",
+  "result": {
+    "channels": [
+      {
+        "name": "projects/mirrorloopai-com/sites/mirrorloopai-com/channels/live",
+        "url": "https://mirrorloopai-com.web.app",
+        "release": {
+          "name": "projects/mirrorloopai-com/sites/mirrorloopai-com/channels/live/releases/1788067220448000",
+          "version": {
+            "name": "projects/mirrorloopai-com/sites/mirrorloopai-com/versions/b6dfe43f678faef5",
+            "status": "FINALIZED",
+            "config": {
+              "headers": [
+                {
+                  "headers": {
+                    "Content-Security-Policy": "default-src 'self'; script-src 'self' https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; connect-src 'self' https://challenges.cloudflare.com; img-src 'self' data:; style-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests",
+                    "Permissions-Policy": "camera=(), microphone=(), geolocation=(), payment=()",
+                    "Referrer-Policy": "strict-origin-when-cross-origin",
+                    "X-Content-Type-Options": "nosniff"
+                  },
+                  "glob": "**"
+                },
+                {
+                  "headers": {
+                    "Cache-Control": "public,max-age=3600"
+                  },
+                  "glob": "/data/**"
+                }
+              ],
+              "rewrites": [
+                {
+                  "glob": "/api/**",
+                  "run": {
+                    "serviceId": "mirrorloopai-subscriber",
+                    "region": "us-central1",
+                    "tag": "fh-da1281482c4ce991"
+                  }
+                }
+              ],
+              "cleanUrls": true,
+              "trailingSlashBehavior": "REMOVE"
+            },
+            "labels": {
+              "deployment-tool": "cli-firebase"
+            },
+            "createTime": "2026-08-30T05:20:17.654944Z",
+            "createUser": {
+              "email": "constantine@aitrailblazer.com"
+            },
+            "finalizeTime": "2026-08-30T05:20:20.667420Z",
+            "finalizeUser": {
+              "email": "constantine@aitrailblazer.com"
+            }
+          },
+          "type": "DEPLOY",
+          "releaseTime": "2026-08-30T05:20:20.448Z",
+          "releaseUser": {
+            "email": "constantine@aitrailblazer.com"
+          }
+        },
+        "createTime": "2026-08-25T20:49:02.377583801Z",
+        "updateTime": "2026-08-30T05:20:20.448Z",
+        "retainedReleaseCount": 2147483647
+      }
+    ]
+  }
+}

@@ -23,6 +23,7 @@ for (const forbidden of ["monoPrompt", "colorPrompt", "articlePrompt", "founder"
   assert.ok(!JSON.stringify(cards).includes(`"${forbidden}"`), `private card field leaked: ${forbidden}`);
 }
 assert.ok(index.includes('id="subscribe-form"'));
+assert.ok(index.includes('id="form-status" class="form-status" role="status" aria-live="polite" tabindex="-1"'));
 assert.ok(index.includes('type="checkbox" required'));
 assert.ok(index.includes("No email required to see your result."));
 assert.ok(index.includes("/images/shattered-compass-entry.webp"));
@@ -30,13 +31,15 @@ assert.ok(index.includes('id="webmcp-status"'));
 assert.ok(index.includes('role="status" aria-live="polite"'));
 assert.ok(index.indexOf('id="webmcp-status"') < index.indexOf("<main"));
 assert.ok(index.includes('/styles.css?v=20260830-1'));
-assert.ok(index.includes('/app.js?v=20260830-4'));
+assert.ok(index.includes('/app.js?v=20260830-5'));
 assert.ok(index.includes('id="result-shop-link"'));
 assert.ok(config.includes("shopEnabled: true"));
 assert.ok(app.includes("shopLink.href ="));
 assert.ok(app.includes("revised: true"));
 assert.ok(app.includes("installMirrorLoopWebMCP"));
 assert.ok(app.includes("WebMCP ready · ${names.length} tools"));
+assert.ok(app.includes("The email service is temporarily unavailable."));
+assert.ok(app.includes("elements.formStatus.focus()"));
 assert.ok(app.includes("WebMCP unavailable · direct reflection ready"));
 assert.ok(!app.includes("AI-guided reflection ready"));
 for (const tool of [

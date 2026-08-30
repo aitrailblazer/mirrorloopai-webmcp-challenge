@@ -1,5 +1,23 @@
 # Changelog
 
+## 2026-08-29 — Production email-reflection route recovery
+
+- Audited the completed-quiz email action after a participant received no
+  visible outcome.
+- Confirmed that Cloud Run remained healthy while the active Firebase Hosting
+  release had lost its `/api/**` rewrite and returned Firebase 404 HTML for
+  subscriber requests.
+- Redeployed Hosting from the canonical repository configuration, pinned the
+  rewrite to the ready `mirrorloopai-subscriber` revision, and verified JSON
+  responses through both the custom domain and Firebase domain.
+- Moved submission feedback directly beneath the action, added a polite live
+  status target with programmatic focus, and added a clear temporary-service
+  message for non-JSON 404 responses.
+- Revalidated the 25 web tests, Stripe inventory test, site validation, Go
+  tests and vet, production health route, API error boundary, current
+  versioned bundle, native eight-tool WebMCP registration, and completed quiz
+  form without transmitting a real email address.
+
 ## 2026-08-29 — Six-role judge claim reconciliation
 
 - Audited the supplied Justin Rushing, Alex Nahas, Ilya Grigorik, Andrew

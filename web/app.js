@@ -389,8 +389,18 @@ async function subscribe(event) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
     });
-    const body = await response.json().catch(() => ({}));
-    if (!response.ok) throw new Error(body.error ?? "We could not send the email. Please try again.");
+    const contentType = response.headers.get("content-type") ?? "";
+    const body = contentType.includes("application/json")
+      ? await response.json().catch(() => ({}))
+      : {};
+    if (!response.ok) {
+      throw new Error(
+        body.error
+        ?? (response.status === 404
+          ? "The email service is temporarily unavailable. Your reflection is still here—please try again shortly."
+          : "We could not send the email. Please try again."),
+      );
+    }
     elements.formStatus.textContent = "Check your inbox and confirm your address to receive the reflection.";
     elements.form.reset();
   } catch (error) {
@@ -399,6 +409,7 @@ async function subscribe(event) {
     elements.subscribe.disabled = false;
     elements.subscribe.textContent = "Email my reflection";
     window.turnstile?.reset?.();
+    elements.formStatus.focus();
   }
 }
 
