@@ -1,0 +1,19 @@
+MIRROR//LOOP F-033 — Participant Confirmation Delivery Observation
+
+Observation date: 2026-08-30
+Evidence source: User-supplied copy of the received participant confirmation email.
+Observed subject/title: Confirm your reflection
+Observed behavior:
+- The participant confirmation message reached the intended mailbox.
+- The message explains that confirmation sends the saved reflection and joins the launch list.
+- The message contains a scanner-safe review-and-confirm action plus a visible fallback URL.
+- Microsoft Safe Links rewrote the primary action URL in the displayed message; the original mirrorloopai.com confirmation URL remained visible as the fallback.
+
+Security handling:
+- The live confirmation token supplied by the user is deliberately omitted from this artifact.
+- This artifact contains no email address, token, secret, or subscriber identifier.
+
+Bounded verdict:
+PASS — participant confirmation email delivery observed.
+UNCONFIRMED — owner diagnostic notification delivery.
+UNCONFIRMED — post-confirmation reflection email delivery.

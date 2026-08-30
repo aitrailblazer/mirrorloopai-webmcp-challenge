@@ -16,10 +16,11 @@
   failure log, and HTTP 200 cleanup.
 - Deleted the temporary service after the test. Production configuration and
   Turnstile remained unchanged.
-- Resend accepted all application sends, but the expected messages were not
-  observable in the connected Google Workspace mailbox. F-033 was therefore
-  reopened as `Retest Failed`; provider delivery/bounce visibility is required
-  before inbox delivery can be marked verified.
+- Resend accepted all application sends. A later user-supplied receipt confirmed
+  that the participant confirmation email reached the mailbox with the expected
+  scanner-safe review link. Delivery of the owner diagnostic notification and
+  the post-confirmation reflection email remains unconfirmed, so F-033 stays
+  `Retest Failed` until those two messages are observed or traced through provider events.
 
 ## 2026-08-30 — Owner quiz diagnostic and manual-fulfillment notification
 
