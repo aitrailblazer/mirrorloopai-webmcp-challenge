@@ -1,0 +1,19 @@
+{
+  "generatedAt": "2026-08-30T00:39:59.325Z",
+  "results": [
+    {
+      "name": "desktop",
+      "title": "MIRROR//LOOP — WebMCP Competition Claim Hardening",
+      "width": 1440,
+      "viewport": 1440,
+      "sections": 7
+    },
+    {
+      "name": "mobile",
+      "title": "MIRROR//LOOP — WebMCP Competition Claim Hardening",
+      "width": 390,
+      "viewport": 390,
+      "sections": 7
+    }
+  ]
+}

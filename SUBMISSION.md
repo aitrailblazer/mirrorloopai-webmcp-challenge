@@ -182,6 +182,12 @@ launch, sprint, team, and workspace contexts while mapping every agent action
 to the production eight-tool contract. A live Gemini/WebMCP Inspector run
 matched all six frozen cases and all eight expected calls exactly.
 
+The competition-wide claim matrix, corrected 2:35 storyboard, and copy-ready
+core are in `WEBMCP_COMPETITION_HARDENING_AUDIT.html`. This audit separates
+implemented evidence from future concepts and explicitly excludes invented
+events, a ninth tool, P2P exchange, astronomical calculations, physical
+fulfillment, x402, and autonomous payment from the submitted build.
+
 Chrome is the verified path accepted by the rules. Actual ChatGPT in-app
 browser behavior is still unconfirmed. Unsupported hosts retain the full direct
 reflection and display a truthful fallback status.

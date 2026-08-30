@@ -1,5 +1,20 @@
 # Changelog
 
+## 2026-08-29 — Competition claim hardening
+
+- Audited the proposed perfect-score strategy, architecture, security claims,
+  demo storyboard, and Devpost copy against the production code and preserved
+  WebMCP evidence.
+- Retained the real eight-tool experience, strict answer confirmation,
+  twelve-answer completion gate, public card lookup, digital recommendation,
+  and human-controlled payment boundary.
+- Rejected or deferred invented browser events, a public astronomical engine,
+  Tool 9 and P2P exchange, physical products, fixed prices, x402, autonomous
+  payment, and historical or symbolic claims presented as validated science.
+- Added `WEBMCP_COMPETITION_HARDENING_AUDIT.html` with a claim ledger,
+  corrected 2:35 demo, judge-criteria evidence map, copy-ready Devpost core,
+  release decision, and embedded XML contract.
+
 ## 2026-08-29 — Six operational WebMCP use cases
 
 - Reconciled six proposed founder, operator, launch, sprint, team, and

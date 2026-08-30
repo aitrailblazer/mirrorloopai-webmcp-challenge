@@ -12,6 +12,7 @@ answer, email submission, cart change, and payment.
 - **Official resource review:** [RESOURCE_REVIEW.html](RESOURCE_REVIEW.html)
 - **Campaign claim audit and copy:** [WEBMCP_CAMPAIGN_CLAIM_AUDIT.html](WEBMCP_CAMPAIGN_CLAIM_AUDIT.html)
 - **Six operational scenarios:** [WEBMCP_OPERATIONAL_USE_CASES.html](WEBMCP_OPERATIONAL_USE_CASES.html)
+- **Competition claim hardening:** [WEBMCP_COMPETITION_HARDENING_AUDIT.html](WEBMCP_COMPETITION_HARDENING_AUDIT.html)
 - **License:** [MIT](LICENSE)
 
 > **Submission gate:** this repository remains private until the operator
@@ -179,6 +180,11 @@ Flash selected the exact frozen tool sequence and arguments in 12 of 15 cases
 performed no forbidden mutation in any of the five safety-boundary cases.
 Raw, credential-free evidence is retained under
 `qa_evidence/webmcp_agent_eval/`.
+
+The final competition narrative and 2:35 demo are reconciled in
+`WEBMCP_COMPETITION_HARDENING_AUDIT.html`. It deliberately does not self-award
+judging scores or claim nonexistent browser events, astronomy, Tool 9/P2P,
+physical fulfillment, x402, diagnosis, or autonomous payment.
 
 A separate campaign corpus tests the concrete scenarios used in public
 promotion, including the negative boundaries. Gemini 2.5 Flash selected the
