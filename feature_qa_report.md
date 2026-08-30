@@ -4,21 +4,21 @@ Tracker source: `feature_status_tracker.csv`
 
 ## Totals
 
-- Total features discovered: 76
-- Total verified before fixes: 53
+- Total features discovered: 77
+- Total verified before fixes: 54
 - Total failed before fixes: 14
 - Total fixed: 18
-- Total verified after retest: 71
+- Total verified after retest: 72
 - Total still blocked: 0
 - Total needing product decision: 1
 
 ## Unresolved Critical Or High
 
-- SUB-002 `Public source repository and license` — Critical — Failed Test
-- SUB-005 `Under-three-minute narrated demo plan` — Critical — Needs Product Decision
-- SUB-007 `Devpost project draft readiness` — Critical — Needs Product Decision
-- SUB-008 `Eligibility, ownership, and third-party rights attestation` — Critical — Needs Product Decision
-- RES-008 `Explicit-confirmation eval oracle consistency` — High — Needs Product Decision
+-  `Public source repository and license` — Critical — Failed Test
+-  `Under-three-minute narrated demo plan` — Critical — Needs Product Decision
+-  `Devpost project draft readiness` — Critical — Needs Product Decision
+-  `Eligibility, ownership, and third-party rights attestation` — Critical — Needs Product Decision
+-  `Explicit-confirmation eval oracle consistency` — High — Needs Product Decision
 
 ## Files Changed Or Audited
 
@@ -83,6 +83,7 @@ Tracker source: `feature_status_tracker.csv`
 - `firebase.json; web/index.html`
 - `scripts/run-webmcp-agent-evals.mjs; scripts/build-webmcp-agent-eval-report.mjs; scripts/validate-webmcp-agent-evidence.mjs; WEBMCP_AGENT_EVAL_REPORT.html; qa_evidence/webmcp_agent_eval/; README.md; SUBMISSION.md; package.json; package-lock.json; CHANGELOG.md; CONTINUITY.md; feature_status_tracker.csv; .gitignore`
 - `feature_status_tracker.csv; WEBMCP_AGENT_EVAL_REPORT.html`
+- `web/evals/webmcp-campaign-evals.json; scripts/validate-webmcp-campaign-evals.mjs; scripts/run-webmcp-agent-evals.mjs; scripts/validate-webmcp-campaign-agent-evidence.mjs; scripts/build-webmcp-campaign-claim-audit.mjs; WEBMCP_CAMPAIGN_CLAIM_AUDIT.html; README.md; SUBMISSION.md; package.json; CHANGELOG.md; qa_evidence/webmcp_campaign_agent_eval/**; qa_evidence/webmcp_campaign_claim_audit/**`
 
 ## Commits Recorded In Tracker
 
@@ -95,10 +96,11 @@ Tracker source: `feature_status_tracker.csv`
 - `2f08435`
 - `2d84634`
 - `9d39b92`
+- `e74cc86`
 
 ## Test Evidence
 
-- Test types used: `Automated + browser`, `Automated + integration + production`, `Persona walkthrough + automated + browser`, `Production cache regression`, `Automated Test + Code Review`, `Automated Test + Cross-surface Review`, `Automated Test`, `Automated Test + Accessibility Review`, `Automated Test + Content Review`, `Browser + responsive`, `Browser interaction`, `Browser + automated`, `Automated integration + production smoke`, `Content + link review`, `Automated + security`, `Automated security review`, `Production browser + Inspector`, `Browser + content`, `Automated links + browser`, `Automated content + production smoke`, `Reference comparison + automated + Chrome responsive`, `Production browser + HTTP`, `GitHub metadata inspection`, `Documentation audit`, `Content audit`, `Artifact + content audit`, `Git + documentation audit`, `Authenticated browser + checklist audit`, `Compliance checklist`, `Operations documentation audit`, `Content + evidence audit`, `Browser compatibility`, `Link inventory + content review`, `Code review + automated lifecycle test`, `Automated contract-budget test`, `Eval dataset validation`, `Header and source review`, `Live browser-agent evaluation + deterministic scorer`, `Corpus-policy consistency review from live model evidence`
+- Test types used: `Automated + browser`, `Automated + integration + production`, `Persona walkthrough + automated + browser`, `Production cache regression`, `Automated Test + Code Review`, `Automated Test + Cross-surface Review`, `Automated Test`, `Automated Test + Accessibility Review`, `Automated Test + Content Review`, `Browser + responsive`, `Browser interaction`, `Browser + automated`, `Automated integration + production smoke`, `Content + link review`, `Automated + security`, `Automated security review`, `Production browser + Inspector`, `Browser + content`, `Automated links + browser`, `Automated content + production smoke`, `Reference comparison + automated + Chrome responsive`, `Production browser + HTTP`, `GitHub metadata inspection`, `Documentation audit`, `Content audit`, `Artifact + content audit`, `Git + documentation audit`, `Authenticated browser + checklist audit`, `Compliance checklist`, `Operations documentation audit`, `Content + evidence audit`, `Browser compatibility`, `Link inventory + content review`, `Code review + automated lifecycle test`, `Automated contract-budget test`, `Eval dataset validation`, `Header and source review`, `Live browser-agent evaluation + deterministic scorer`, `Corpus-policy consistency review from live model evidence`, `Source-to-claim audit + deterministic corpus + live browser-agent evaluation`
 - Commands run are not captured as a dedicated tracker column, so this report only summarizes tracker-backed test evidence.
 
 ## Coverage Gaps
