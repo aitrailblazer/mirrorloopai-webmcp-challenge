@@ -11,6 +11,7 @@ const campaignAudit = read("WEBMCP_CAMPAIGN_CLAIM_AUDIT.html");
 const operationalUseCases = read("WEBMCP_OPERATIONAL_USE_CASES.html");
 const competitionHardening = read("WEBMCP_COMPETITION_HARDENING_AUDIT.html");
 const judgePanelBrief = read("WEBMCP_JUDGE_PANEL_BRIEF.html");
+const demoShotList = read("WEBMCP_DEMO_SHOT_LIST.html");
 const license = read("LICENSE");
 const packageJSON = JSON.parse(read("package.json"));
 const manifest = JSON.parse(read("competition_manifest.json"));
@@ -31,6 +32,7 @@ const checks = [
   ["README operational use cases", readme.includes("WEBMCP_OPERATIONAL_USE_CASES.html")],
   ["README competition hardening", readme.includes("WEBMCP_COMPETITION_HARDENING_AUDIT.html")],
   ["README judge panel brief", readme.includes("WEBMCP_JUDGE_PANEL_BRIEF.html")],
+  ["README demo shot list", readme.includes("WEBMCP_DEMO_SHOT_LIST.html")],
   ["README pre-existing disclosure", readme.includes("Pre-existing before August 25, 2026")],
   ["README all eight tools", manifest.webmcpTools.every((name) => readme.includes("`" + name + "`"))],
   ["Submission four required explanations", [
@@ -46,6 +48,16 @@ const checks = [
     "Creativity & Ambition",
   ].every((criterion) => submission.includes(criterion))],
   ["Submission demo plan", submission.includes("target 2:35") && submission.includes("under three minutes")],
+  ["Evidence-bounded demo recording contract", [
+    'artifact="mirrorloop-webmcp-demo-shot-list"',
+    '<Duration target="155" maximum="180" unit="seconds"/>',
+    "<ToolCount>8</ToolCount>",
+    "confirmed_by_user false",
+    "Public YouTube upload",
+    "Claims excluded from the recording",
+    "P2P / WebRTC / evaluateDyad",
+    "x402 or autonomous payment",
+  ].every((term) => demoShotList.includes(term))],
   ["Submission challenge-period commits", ["ba15276", "8ec0a6f", "b1b5bc3", "828ee7a"].every((hash) => submission.includes(hash))],
   ["Submission freeze plan", submission.includes("Judging-window release freeze") && submission.includes("webmcp-challenge-submission")],
   ["Third-party service inventory", ["Google Cloud", "Cloudflare Turnstile", "Resend", "Stripe"].every((name) => notices.includes(name))],

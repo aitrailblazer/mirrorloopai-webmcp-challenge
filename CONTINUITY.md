@@ -39,8 +39,10 @@ State:
 - Authenticated GitHub reports the competition repository PRIVATE and anonymous API access returns 404. The sanitized rewritten main branch has been force-pushed and synchronized with origin/main.
 - The private repository history has been rewritten and pushed after removing the unnecessary billing-account metadata and synthetic E2E participant alias; current local and remote main are synchronized.
 - The proposed “winning architecture” attachment is evidence material only. Its P2P, astronomical-engine, physical-product, x402, zero-egress, sub-20KB, 60fps, and judge-preference claims are excluded from submission copy because they are not implemented or measured in this repository.
+- `WEBMCP_DEMO_SHOT_LIST.html` now provides the validated 2:35 recording contract for the verified eight-tool build; the public video itself remains pending.
 
 Done:
+- Added and browser-rendered the evidence-bounded 2:35 WebMCP demo shot list; HTML, embedded XML, exact tool inventory, timing, authority boundaries, and submission-package assertions pass.
 - Executed the production-discovered eight-tool WebMCP contract through an
   authenticated Vertex Gemini agent and the Inspector extension’s real browser
   execution path; retained credential-free per-case evidence and a StrategiX
@@ -71,10 +73,9 @@ Done:
 - Committed the resource-driven implementation as `fcde886`, deployed it to Firebase Hosting, and verified the production bundle plus native eight-tool registration in isolated Chrome.
 
 Now:
-- Build a self-contained StrategiX HTML recording shot list from the verified eight-tool production contract, then update SUB-005, generated tracker views, the QA report, and the changelog.
+- Regenerate the canonical tracker views, commit the validated demo-preparation pass, and push it to the private competition repository.
 
 Next:
-- Validate and commit the evidence-bounded demo-preparation artifact.
 - Record and publish the under-three-minute YouTube demo using that artifact.
 - Change the GitHub repository to public and verify anonymous access plus MIT detection.
 - Create the Devpost project, paste the prepared package, resolve solo-versus-team attribution, complete attestations, and submit before September 3, 2026 at 1:00 PM PT.

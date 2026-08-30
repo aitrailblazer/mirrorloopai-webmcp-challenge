@@ -7,3 +7,11 @@ PASS confirmation and publication boundaries present
 PASS browser render via http://127.0.0.1:8766/WEBMCP_DEMO_SHOT_LIST.html
 PASS responsive visual surface rendered all timeline, boundary, publication, acceptance, and XML sections
 NOTE browser reported only a missing optional resource (favicon); document rendering completed
+PASS npm run validate:submission
+PASS npm run test:webmcp:competition-hardening
+PASS npm run test:webmcp:judge-panel
+PASS npm test (28/28)
+PASS npm run validate
+PASS go test ./...
+PASS go vet ./...
+PASS generated CSV/XLSX/HTML/report views contain updated SUB-005 evidence

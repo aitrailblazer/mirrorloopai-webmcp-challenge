@@ -73,6 +73,7 @@ Tracker source: `feature_status_tracker.csv`
 - `README.md; SUBMISSION.md; THIRD_PARTY_NOTICES.md`
 - `README.md; package.json; scripts/validate-submission.mjs`
 - `SUBMISSION.md; scripts/validate-submission.mjs`
+- `WEBMCP_DEMO_SHOT_LIST.html; README.md; SUBMISSION.md; scripts/validate-submission.mjs; CHANGELOG.md; CONTINUITY.md; qa_evidence/submission_readiness/demo-shot-list-validation-2026-08-30.txt`
 - `README.md; SUBMISSION.md; scripts/validate-submission.mjs`
 - `THIRD_PARTY_NOTICES.md; README.md; SUBMISSION.md; scripts/validate-submission.mjs`
 - `SUBMISSION.md; README.md; scripts/validate-submission.mjs`
@@ -107,6 +108,7 @@ Tracker source: `feature_status_tracker.csv`
 - `4d835111b8ee24560deabafe60efc8499dc105ec`
 - `828ee7a`
 - `c6e6b0f`
+- `4313f6d`
 - `fcde886`
 - `1c0200a`
 - `2c7686c`
