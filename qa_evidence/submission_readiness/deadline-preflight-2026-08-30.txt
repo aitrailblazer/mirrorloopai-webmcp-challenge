@@ -1,0 +1,32 @@
+MIRROR//LOOP — WebMCP Challenge Deadline Preflight
+
+Evidence date: 2026-08-30
+External evidence: user-supplied official challenge reminder. Tracking links and recipient data are intentionally omitted.
+Deadline stated in supplied notice: 2026-09-03 13:00 PT.
+
+Eligibility/readiness requirements checked:
+1. Native WebMCP tools registered and at least one actual agent invocation — PASS from preserved Chrome/Inspector evaluation evidence.
+2. Core flow works end to end — PASS from production and automated lifecycle evidence.
+3. Live URL opens outside the development machine — PASS; https://mirrorloopai.com/ returned HTTP 200 in a fresh isolated browser context. The non-WebMCP browser showed the complete direct-use fallback as designed.
+4. Public repository with detectable open-source license — FAIL. Authenticated GitHub metadata reports PRIVATE; anonymous GitHub API returns 404. Root MIT license is detected when authenticated. Local main is 29 commits ahead of origin/main.
+5. Public YouTube demo under three minutes with audio — FAIL / operator action pending. SUBMISSION.md still contains a pending video URL and a complete 2:35 script.
+6. Devpost project saved and finally submitted — UNCONFIRMED / operator action pending.
+7. Teammates invited and accepted before deadline — NOT APPLICABLE if solo; otherwise operator confirmation required.
+8. Pre-existing project disclosure — PASS in README.md and SUBMISSION.md with dated challenge-period commit evidence.
+9. Eligibility, ownership, and rights attestations — UNCONFIRMED / operator-only.
+
+Publication security preflight:
+- Current and historical content scan found zero Stripe secret-key, Resend key, Google API key, GitHub token, or private-key signatures.
+- Current tracked evidence includes a cloud billing account identifier and a synthetic E2E participant alias. These are not authentication secrets, but they are unnecessary public operational metadata and should be removed from current history or intentionally accepted before publication.
+- Public contact email addresses are intentionally present in the site and source configuration.
+
+WebMCP evidence boundary:
+- A preserved Chrome 151 WebMCP Inspector run exposed all eight tools and recorded actual agent calls.
+- The fresh isolated browser used for this preflight did not expose modelContext and truthfully rendered “WebMCP unavailable · direct reflection ready”; this does not contradict the verified WebMCP-capable Chrome path.
+
+Immediate critical path:
+A. Decide publication strategy after sanitizing public-history metadata.
+B. Push the 29 local commits and make the repository public; verify signed-out access and MIT detection.
+C. Record, caption, and publish the 2:35 demo publicly on YouTube.
+D. Create/save the Devpost entry, add any teammates, complete attestations, and submit before the deadline.
+E. Tag and freeze the exact submitted commit after the final regression gate.

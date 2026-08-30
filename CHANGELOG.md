@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-08-30 — Deadline eligibility preflight
+
+- Converted the official September 3, 1:00 PM PT reminder into a tracker-backed submission preflight without retaining tracking links or recipient data.
+- Reconfirmed the live HTTPS site, preserved eight-tool Chrome agent evidence, root MIT license, challenge-period disclosure, and complete 2:35 demo script.
+- Confirmed the GitHub repository remains private, anonymous access fails, and local main is 29 commits ahead of the private remote.
+- Identified publication-history metadata that should be sanitized or explicitly accepted before public release; no common credential signatures were detected.
+- Kept the public repository, YouTube upload, Devpost project/submission, entrant attestations, and conditional teammate acceptance as explicit operator gates.
+
 ## 2026-08-30 — Owner diagnostic delivery verified
 
 - Recorded a user-supplied receipt showing that the operational owner notification reached the mailbox.
