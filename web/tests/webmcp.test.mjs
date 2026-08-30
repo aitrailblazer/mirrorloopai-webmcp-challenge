@@ -4,6 +4,7 @@ import test from "node:test";
 import {
   findModelContext,
   installMirrorLoopWebMCP,
+  MIRRORLOOP_WEBMCP_EVENTS,
   MIRRORLOOP_WEBMCP_TOOL_NAMES,
   registerMirrorLoopWebMCP,
   WEBMCP_CHARACTER_BUDGETS,
@@ -52,6 +53,91 @@ test("registers exactly eight same-origin bounded tools", async () => {
 
   registration.unregister();
   assert.ok(registrations.every(({ options }) => options.signal.aborted));
+});
+
+test("emits bounded registration and tool lifecycle evidence", async () => {
+  const { registrations, modelContext, api } = fixture();
+  const events = [];
+  const clock = [10, 10.37];
+  await registerMirrorLoopWebMCP(modelContext, api, {
+    onLifecycle: (type, detail) => events.push({ type, detail }),
+    now: () => clock.shift(),
+  });
+
+  assert.deepEqual(events.slice(0, 2), [
+    {
+      type: MIRRORLOOP_WEBMCP_EVENTS.status,
+      detail: { phase: "registering", mounted: 0, total: 8 },
+    },
+    {
+      type: MIRRORLOOP_WEBMCP_EVENTS.status,
+      detail: { phase: "mounted", mounted: 8, total: 8 },
+    },
+  ]);
+
+  const answer = registeredTool(registrations, "answer_reflection_question");
+  await answer.execute({
+    question_id: 3,
+    choice_code: "07",
+    confirmed_by_user: true,
+  });
+  const [started, completed] = events.slice(-2);
+  assert.equal(started.type, MIRRORLOOP_WEBMCP_EVENTS.toolStart);
+  assert.equal(completed.type, MIRRORLOOP_WEBMCP_EVENTS.toolComplete);
+  assert.deepEqual(started.detail, {
+    tool: "answer_reflection_question",
+    safe_input: {
+      question_id: 3,
+      choice_code: "07",
+      confirmed_by_user: true,
+    },
+    confirmed_by_user: true,
+  });
+  assert.equal(completed.detail.outcome, "success");
+  assert.equal(completed.detail.duration_ms, 0.4);
+});
+
+test("redacts private focus text from lifecycle events", async () => {
+  const { registrations, modelContext, api } = fixture();
+  const events = [];
+  const clock = [20, 21];
+  await registerMirrorLoopWebMCP(modelContext, api, {
+    onLifecycle: (type, detail) => events.push({ type, detail }),
+    now: () => clock.shift(),
+  });
+
+  const start = registeredTool(registrations, "start_reflection");
+  await start.execute({
+    focus_area: "private founder dispute and confidential@example.com",
+  });
+  const serialized = JSON.stringify(events);
+  assert.equal(serialized.includes("private founder dispute"), false);
+  assert.equal(serialized.includes("confidential@example.com"), false);
+  assert.equal(events.at(-1).detail.safe_input.focus_supplied, true);
+  assert.equal(events.at(-1).detail.outcome, "success");
+});
+
+test("replaces malformed known-field values in lifecycle evidence", async () => {
+  const { registrations, modelContext, api } = fixture();
+  const events = [];
+  const clock = [30, 31];
+  await registerMirrorLoopWebMCP(modelContext, api, {
+    onLifecycle: (type, detail) => events.push({ type, detail }),
+    now: () => clock.shift(),
+  });
+
+  const explain = registeredTool(registrations, "explain_choice");
+  const result = await explain.execute({
+    question_id: "private@example.com",
+    choice_code: "private founder dispute",
+  });
+  assert.equal(result.isError, true);
+  assert.deepEqual(events.at(-1).detail.safe_input, {
+    question_id: "invalid",
+    choice_code: "invalid",
+  });
+  assert.equal(JSON.stringify(events).includes("private@example.com"), false);
+  assert.equal(JSON.stringify(events).includes("private founder dispute"), false);
 });
 
 test("marks read operations and local state changes accurately", async () => {
@@ -103,7 +189,12 @@ test("keeps catalog recommendation read-only and outside checkout", async () => 
 
 test("requires explicit human confirmation before recording an answer", async () => {
   const { registrations, calls, modelContext, api } = fixture();
-  await registerMirrorLoopWebMCP(modelContext, api);
+  const events = [];
+  const clock = [1, 2, 3, 4];
+  await registerMirrorLoopWebMCP(modelContext, api, {
+    onLifecycle: (type, detail) => events.push({ type, detail }),
+    now: () => clock.shift(),
+  });
   const answer = registeredTool(registrations, "answer_reflection_question");
 
   const denied = await answer.execute({
@@ -114,6 +205,8 @@ test("requires explicit human confirmation before recording an answer", async ()
   assert.equal(denied.isError, true);
   assert.match(denied.content[0].text, /human must explicitly confirm/i);
   assert.equal(calls.length, 0);
+  assert.equal(events.at(-1).detail.confirmed_by_user, false);
+  assert.equal(events.at(-1).detail.outcome, "error");
 
   const accepted = await answer.execute({
     question_id: 1,
@@ -123,6 +216,8 @@ test("requires explicit human confirmation before recording an answer", async ()
   assert.equal(accepted.isError, undefined);
   assert.equal(calls[0].name, "answerQuestion");
   assert.deepEqual(calls[0].input, { questionID: 1, choiceCode: "01" });
+  assert.equal(events.at(-1).detail.confirmed_by_user, true);
+  assert.equal(events.at(-1).detail.outcome, "success");
 });
 
 test("passes an explicitly confirmed revision through the bounded answer tool", async () => {
@@ -239,6 +334,7 @@ test("reports ready only after all asynchronous registrations resolve", async ()
 test("reports direct-mode fallback after an asynchronous registration failure", async () => {
   const { api } = fixture();
   const statuses = [];
+  const lifecycle = [];
   const modelContext = {
     async registerTool() {
       throw new DOMException("Tool registration denied.", "NotAllowedError");
@@ -250,6 +346,7 @@ test("reports direct-mode fallback after an asynchronous registration failure", 
     documentRef: { modelContext },
     navigatorRef: {},
     onStatus: (status) => statuses.push(status),
+    onLifecycle: (type, detail) => lifecycle.push({ type, detail }),
   });
 
   await new Promise((resolve) => setTimeout(resolve, 0));
@@ -257,6 +354,25 @@ test("reports direct-mode fallback after an asynchronous registration failure", 
   assert.equal(statuses[0].supported, false);
   assert.deepEqual(statuses[0].names, []);
   assert.match(statuses[0].error.message, /registration denied/i);
+  assert.deepEqual(lifecycle.map(({ detail }) => detail.phase), ["registering", "registration_error"]);
+});
+
+test("emits direct mode after model context polling expires", async () => {
+  const { api } = fixture();
+  const lifecycle = [];
+  installMirrorLoopWebMCP({
+    api,
+    documentRef: {},
+    navigatorRef: {},
+    attempts: 1,
+    intervalMs: 0,
+    onLifecycle: (type, detail) => lifecycle.push({ type, detail }),
+  });
+  await new Promise((resolve) => setTimeout(resolve, 0));
+  assert.deepEqual(lifecycle, [{
+    type: MIRRORLOOP_WEBMCP_EVENTS.status,
+    detail: { phase: "direct_mode", mounted: 0, total: 8 },
+  }]);
 });
 
 test("keeps names, descriptions, parameters, and outputs within official budgets", async () => {

@@ -39,6 +39,69 @@ export const MIRRORLOOP_WEBMCP_TOOL_NAMES = Object.freeze([
   "recommend_card_edition",
 ]);
 
+export const MIRRORLOOP_WEBMCP_EVENTS = Object.freeze({
+  status: "mirrorloop:webmcp_status",
+  toolStart: "mirrorloop:tool_start",
+  toolComplete: "mirrorloop:tool_complete",
+});
+
+function emitLifecycle(emit, type, detail) {
+  try {
+    emit(type, detail);
+  } catch {
+    // Observability must never interrupt registration or tool execution.
+  }
+}
+
+function safeInputSummary(toolName, value) {
+  const input = value && typeof value === "object" && !Array.isArray(value) ? value : {};
+  const safeQuestionID = Number.isInteger(input.question_id) && input.question_id >= 1 && input.question_id <= 12
+    ? input.question_id
+    : "invalid";
+  const safeChoiceCode = CHOICE_CODE_SCHEMA.enum.includes(input.choice_code) ? input.choice_code : "invalid";
+  switch (toolName) {
+    case "start_reflection":
+      return { focus_supplied: typeof input.focus_area === "string" && input.focus_area.trim().length > 0 };
+    case "explain_choice":
+      return { question_id: safeQuestionID, choice_code: safeChoiceCode };
+    case "answer_reflection_question":
+      return {
+        question_id: safeQuestionID,
+        choice_code: safeChoiceCode,
+        confirmed_by_user: input.confirmed_by_user === true,
+      };
+    case "get_card":
+      return {
+        card_id: typeof input.card_id === "string"
+          && /^\d{3}$/.test(input.card_id)
+          && Number(input.card_id) >= 1
+          && Number(input.card_id) <= 144
+          ? input.card_id
+          : "invalid",
+      };
+    case "recommend_card_edition":
+      return {
+        arc_code: input.arc_code === undefined
+          ? "current_result"
+          : (CHOICE_CODE_SCHEMA.enum.includes(input.arc_code) ? input.arc_code : "invalid"),
+        edition: ["mono", "color"].includes(input.edition) ? input.edition : "invalid",
+        collection_scope: input.collection_scope === undefined
+          ? "arc"
+          : (["arc", "complete_visual", "complete_insight"].includes(input.collection_scope)
+            ? input.collection_scope
+            : "invalid"),
+      };
+    default:
+      return {};
+  }
+}
+
+function measuredDuration(startedAt, now) {
+  const elapsed = Number(now()) - Number(startedAt);
+  if (!Number.isFinite(elapsed) || elapsed < 0) return null;
+  return Math.round(elapsed * 10) / 10;
+}
+
 function asToolResult(value) {
   const text = JSON.stringify(value);
   if (text.length > WEBMCP_CHARACTER_BUDGETS.toolOutput) {
@@ -319,25 +382,66 @@ export async function registerMirrorLoopWebMCP(modelContext, api, options = {}) 
   }
 
   const controller = options.controller ?? new AbortController();
+  const onLifecycle = typeof options.onLifecycle === "function" ? options.onLifecycle : () => {};
+  const now = typeof options.now === "function"
+    ? options.now
+    : () => globalThis.performance?.now?.() ?? Date.now();
   const tools = defineTools(api);
+  emitLifecycle(onLifecycle, MIRRORLOOP_WEBMCP_EVENTS.status, {
+    phase: "registering",
+    mounted: 0,
+    total: tools.length,
+  });
+  let mounted = 0;
   try {
     for (const tool of tools) {
       const { run, ...definition } = tool;
       await modelContext.registerTool({
         ...definition,
         async execute(input) {
+          const safeInput = safeInputSummary(definition.name, input);
+          const confirmedByUser = definition.name === "answer_reflection_question"
+            ? safeInput.confirmed_by_user === true
+            : null;
+          const startedAt = now();
+          emitLifecycle(onLifecycle, MIRRORLOOP_WEBMCP_EVENTS.toolStart, {
+            tool: definition.name,
+            safe_input: safeInput,
+            confirmed_by_user: confirmedByUser,
+          });
+          let outcome = "success";
           try {
             return asToolResult(await run(input));
           } catch (error) {
+            outcome = "error";
             return asToolError(error);
+          } finally {
+            emitLifecycle(onLifecycle, MIRRORLOOP_WEBMCP_EVENTS.toolComplete, {
+              tool: definition.name,
+              safe_input: safeInput,
+              confirmed_by_user: confirmedByUser,
+              outcome,
+              duration_ms: measuredDuration(startedAt, now),
+            });
           }
         },
       }, { signal: controller.signal });
+      mounted += 1;
     }
   } catch (error) {
     controller.abort();
+    emitLifecycle(onLifecycle, MIRRORLOOP_WEBMCP_EVENTS.status, {
+      phase: "registration_error",
+      mounted,
+      total: tools.length,
+    });
     throw error;
   }
+  emitLifecycle(onLifecycle, MIRRORLOOP_WEBMCP_EVENTS.status, {
+    phase: "mounted",
+    mounted,
+    total: tools.length,
+  });
 
   return {
     names: tools.map(({ name }) => name),
@@ -358,6 +462,7 @@ export function installMirrorLoopWebMCP({
   attempts = 20,
   intervalMs = 500,
   onStatus = () => {},
+  onLifecycle = () => {},
 } = {}) {
   let cancelled = false;
   let timer = null;
@@ -369,7 +474,7 @@ export function installMirrorLoopWebMCP({
     const modelContext = findModelContext(documentRef, navigatorRef);
     if (modelContext) {
       try {
-        registration = await registerMirrorLoopWebMCP(modelContext, api);
+        registration = await registerMirrorLoopWebMCP(modelContext, api, { onLifecycle });
         if (!cancelled) onStatus({ supported: true, names: registration.names });
       } catch (error) {
         if (!cancelled) onStatus({ supported: false, names: [], error });
@@ -380,6 +485,11 @@ export function installMirrorLoopWebMCP({
     if (remaining > 0) {
       timer = setTimeout(tryInstall, intervalMs);
     } else {
+      emitLifecycle(onLifecycle, MIRRORLOOP_WEBMCP_EVENTS.status, {
+        phase: "direct_mode",
+        mounted: 0,
+        total: MIRRORLOOP_WEBMCP_TOOL_NAMES.length,
+      });
       onStatus({ supported: false, names: [] });
     }
   };

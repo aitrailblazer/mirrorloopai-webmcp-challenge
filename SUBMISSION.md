@@ -32,6 +32,9 @@ and interpretation effort. A visitor can ask what a choice means, proceed one
 confirmed answer at a time, correct an earlier answer without restarting, and
 retrieve a specific card by number. The page displays `WebMCP ready · 8 tools`
 when registration succeeds and an honest direct-use fallback when it does not.
+A collapsible Agent State rail makes each tool start and completion legible on
+the page, including a privacy-filtered input summary, observed local elapsed
+time, success or error state, and an explicit human-confirmation badge.
 
 ### What humans and agents can now do together
 
@@ -53,7 +56,8 @@ Three tools change only ephemeral local reflection state; five are read-only.
 `answer_reflection_question` requires `confirmed_by_user: true`. No tool can
 submit an email address, mutate the cart, create a Checkout Session, or pay.
 Automated tests validate registration, schemas, annotations, malformed inputs,
-confirmation, revision, card lookup, and commerce isolation.
+confirmation, revision, card lookup, commerce isolation, lifecycle-event
+ordering, telemetry redaction, and the responsive Agent State rail.
 
 ### Verified core repository scope
 
@@ -100,6 +104,7 @@ compositor-thread claim is made.
 ### Execution
 
 - Live HTTPS production origin with a visible eight-tool readiness state.
+- On-page registration and invocation evidence without requiring DevTools.
 - Strict schemas, read/write annotations, explicit answer confirmation, and
   graceful no-WebMCP fallback.
 - Complete Node, Go, production, responsive, and security test evidence.
@@ -154,7 +159,7 @@ list, and publication checklist are in
 | Time | Visual | Narration |
 | --- | --- | --- |
 | 0:00–0:15 | Open the live homepage and point to `WebMCP ready · 8 tools`. | “MIRROR//LOOP turns a 12-question reflection and 144 cards into a bounded human-agent collaboration.” |
-| 0:15–0:35 | Show the registered tool list. | “The page registers eight typed tools. They operate the visible experience rather than a hidden replacement service.” |
+| 0:15–0:35 | Expand the Agent State rail, then show the registered tool list. | “The page registers eight typed tools and makes each invocation visible without exposing private text. They operate the visible experience rather than a hidden replacement service.” |
 | 0:35–1:05 | Ask the agent to start, read the question, and explain one choice. | “The agent can orient and explain, but it cannot choose for me.” |
 | 1:05–1:30 | Confirm an answer, show the visible 12-step progressbar and focus moving to the next question, then revise the earlier answer. | “Every recorded choice requires explicit confirmation. The same semantic progress and focus transition is visible whether I click or the agent invokes the tool, and reduced-motion preferences are respected.” |
 | 1:30–1:55 | Review and complete the reflection. | “Scoring stays deterministic in the page. The agent guides the flow; it does not invent the result.” |

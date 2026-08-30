@@ -1,5 +1,22 @@
 # Changelog
 
+## 2026-08-30 — Agent State HUD and WebMCP live event rail
+
+- Added a collapsible, high-contrast Agent State rail that makes WebMCP
+  registration, invocation start, completion, outcome, measured local elapsed
+  time, and explicit answer confirmation visible without DevTools.
+- Added bounded `mirrorloop:webmcp_status`, `mirrorloop:tool_start`, and
+  `mirrorloop:tool_complete` lifecycle events while keeping observability
+  failures outside the tool-execution path.
+- Restricted the rail to validated, allowlisted summaries; private focus text,
+  email addresses, arbitrary input values, and tool result bodies are not
+  exposed.
+- Added unit and desktop/mobile browser coverage for registration, lifecycle
+  ordering, confirmation states, redaction, collapse behavior, responsive
+  layout, bounded history, and direct-mode fallback.
+- Kept timing language observational and made no frame-rate or zero-dropped-
+  frame claim.
+
 ## 2026-08-30 — Verified core repository scope
 
 - Added a six-capability summary of the deployed WebMCP core to the README,

@@ -1,6 +1,9 @@
 import { RESPONSE_GROUPS, resultCopy, scoreAnswers, supportingPattern } from "./lib/quiz-core.js?v=20260826-3";
 import { createFunnelTracker } from "./lib/analytics.js?v=20260826-3";
-import { installMirrorLoopWebMCP } from "./lib/webmcp.js?v=20260830-4";
+import {
+  installMirrorLoopWebMCP,
+  MIRRORLOOP_WEBMCP_EVENTS,
+} from "./lib/webmcp.js?v=20260830-5";
 import { createReflectionStore } from "./lib/reflection-storage.js?v=20260830-1";
 
 const $ = (selector) => document.querySelector(selector);
@@ -37,6 +40,100 @@ const elements = {
   back: $("#back-button"), next: $("#next-button"), form: $("#subscribe-form"),
   formStatus: $("#form-status"), subscribe: $("#subscribe-button"),
 };
+
+function formatSafeInput(input) {
+  const entries = Object.entries(input ?? {}).filter(([, value]) => value !== undefined);
+  if (!entries.length) return "None";
+  return entries
+    .map(([key, value]) => `${key.replaceAll("_", " ")}: ${typeof value === "boolean" ? (value ? "yes" : "no") : value}`)
+    .join(" · ");
+}
+
+function setConfirmationBadge(value) {
+  const badge = $("#agent-confirmation");
+  if (!badge) return;
+  if (value === true) {
+    badge.textContent = "HUMAN CONFIRMED";
+    badge.dataset.state = "confirmed";
+  } else if (value === false) {
+    badge.textContent = "NOT CONFIRMED";
+    badge.dataset.state = "missing";
+  } else {
+    badge.textContent = "NOT REQUIRED";
+    badge.dataset.state = "neutral";
+  }
+}
+
+function addAgentEvent(label, message, outcome = "") {
+  const list = $("#agent-event-list");
+  if (!list) return;
+  const item = document.createElement("li");
+  if (outcome) item.dataset.outcome = outcome;
+  const kind = document.createElement("span");
+  kind.textContent = label;
+  const description = document.createElement("strong");
+  description.textContent = message;
+  item.append(kind, description);
+  list.prepend(item);
+  while (list.children.length > 5) list.lastElementChild.remove();
+}
+
+function updateAgentPhase(label, stateName) {
+  const phase = $("#agent-phase");
+  if (!phase) return;
+  phase.textContent = label;
+  phase.dataset.state = stateName;
+}
+
+function installAgentStateHUD() {
+  window.addEventListener(MIRRORLOOP_WEBMCP_EVENTS.status, ({ detail }) => {
+    const phase = detail?.phase;
+    if (phase === "registering") {
+      updateAgentPhase("REGISTERING", "registering");
+      $("#agent-live-status").textContent = `Mounting ${detail.total} same-origin tools…`;
+      addAgentEvent("STATUS", `Registering ${detail.total} tools`);
+      return;
+    }
+    if (phase === "mounted") {
+      updateAgentPhase(`${detail.total} TOOLS MOUNTED`, "mounted");
+      $("#agent-live-status").textContent = "Ready for a browser agent. Human confirmation still controls every recorded answer.";
+      addAgentEvent("READY", `${detail.mounted} tools mounted`, "success");
+      return;
+    }
+    updateAgentPhase("DIRECT MODE", "direct");
+    $("#agent-live-status").textContent = "No agent tools are active here. The complete reflection still works directly.";
+    addAgentEvent("STATUS", "Direct reflection mode", phase === "registration_error" ? "error" : "");
+  });
+
+  window.addEventListener(MIRRORLOOP_WEBMCP_EVENTS.toolStart, ({ detail }) => {
+    updateAgentPhase("RUNNING", "registering");
+    $("#agent-active-tool").textContent = detail.tool;
+    $("#agent-safe-input").textContent = formatSafeInput(detail.safe_input);
+    $("#agent-duration").textContent = "In progress";
+    setConfirmationBadge(detail.confirmed_by_user);
+    $("#agent-live-status").textContent = `${detail.tool} is running in this page.`;
+    addAgentEvent("START", detail.tool);
+  });
+
+  window.addEventListener(MIRRORLOOP_WEBMCP_EVENTS.toolComplete, ({ detail }) => {
+    updateAgentPhase("8 TOOLS MOUNTED", "mounted");
+    $("#agent-active-tool").textContent = detail.tool;
+    $("#agent-safe-input").textContent = formatSafeInput(detail.safe_input);
+    $("#agent-duration").textContent = Number.isFinite(detail.duration_ms)
+      ? `${detail.duration_ms.toFixed(1)} ms observed`
+      : "Measurement unavailable";
+    setConfirmationBadge(detail.confirmed_by_user);
+    const outcome = detail.outcome === "success" ? "Completed" : "Stopped with an error";
+    $("#agent-live-status").textContent = `${detail.tool}: ${outcome.toLowerCase()}.`;
+    addAgentEvent(
+      detail.outcome === "success" ? "DONE" : "ERROR",
+      `${detail.tool} · ${outcome}`,
+      detail.outcome,
+    );
+  });
+}
+
+installAgentStateHUD();
 
 if (!config.subscriberEnabled) {
   $("#email-card").hidden = true;
@@ -487,6 +584,9 @@ installMirrorLoopWebMCP({
     completeReflection,
     getCard,
     recommendCardEdition,
+  },
+  onLifecycle(type, detail) {
+    window.dispatchEvent(new CustomEvent(type, { detail }));
   },
   onStatus({ supported, names }) {
     const status = $("#webmcp-status");

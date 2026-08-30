@@ -9,9 +9,9 @@
   <title>MIRROR//LOOP — See How You Respond</title>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="/images/shattered-compass-entry.webp" as="image" type="image/webp">
-  <link rel="stylesheet" href="/styles.css?v=20260830-1">
+  <link rel="stylesheet" href="/styles.css?v=20260830-2">
   <script src="/config.js?v=20260829-1"></script>
-  <script type="module" src="/app.js?v=20260830-7"></script>
+  <script type="module" src="/app.js?v=20260830-8"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -24,6 +24,43 @@
       <a href="/shop.html">Card collection</a>
     </nav>
   </header>
+
+  <aside class="agent-state-hud" aria-label="WebMCP agent activity">
+    <details id="agent-state-panel" open>
+      <summary>
+        <span>
+          <small>Live WebMCP</small>
+          <strong>Agent state</strong>
+        </span>
+        <span class="agent-phase" id="agent-phase" data-state="checking">CHECKING</span>
+      </summary>
+      <div class="agent-state-body">
+        <p class="agent-live-status" id="agent-live-status" role="status" aria-live="polite">Looking for a compatible browser agent…</p>
+        <dl class="agent-telemetry">
+          <div>
+            <dt>Active tool</dt>
+            <dd id="agent-active-tool">Waiting for agent</dd>
+          </div>
+          <div>
+            <dt>Safe input</dt>
+            <dd id="agent-safe-input">None</dd>
+          </div>
+          <div>
+            <dt>Measured locally</dt>
+            <dd id="agent-duration">Not measured</dd>
+          </div>
+          <div>
+            <dt>Human confirmation</dt>
+            <dd><span class="confirmation-badge" id="agent-confirmation" data-state="neutral">NOT REQUIRED</span></dd>
+          </div>
+        </dl>
+        <ol class="agent-event-list" id="agent-event-list" aria-label="Recent WebMCP activity">
+          <li><span>STATUS</span><strong>Checking browser support</strong></li>
+        </ol>
+        <p class="agent-privacy">This rail shows allowlisted fields only. Private focus text and tool results stay out of the display.</p>
+      </div>
+    </details>
+  </aside>
 
   <main id="main">
     <section class="hero" aria-labelledby="hero-title">

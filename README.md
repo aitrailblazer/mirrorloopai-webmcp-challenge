@@ -66,7 +66,12 @@ control of identity or payment.
 8. `recommend_card_edition`
 
 The production page visibly reports **WebMCP ready · 8 tools** after native
-registration. The implementation uses the browser-native registration pattern:
+registration. Its collapsible **Agent state** rail then makes registration and
+tool execution visible without DevTools: it shows the active tool, an
+allowlisted input summary, observed local elapsed time, outcome, and whether an
+answer carried explicit human confirmation. It never displays private focus
+text or tool results. The implementation uses the browser-native registration
+pattern:
 
 ```js
 const modelContext =
@@ -99,6 +104,12 @@ resolve. A rejection aborts the partial tool set and activates the normal
 direct-use fallback. Tool names, descriptions, parameter descriptions, and
 individual results are checked against the current Chrome WebMCP character
 budgets; each result is capped at 1,500 characters.
+
+The runtime emits `mirrorloop:webmcp_status`, `mirrorloop:tool_start`, and
+`mirrorloop:tool_complete` DOM events. The visual rail consumes those events
+without becoming part of tool execution, so an observability failure cannot
+interrupt a reflection action. Displayed timings are measurements from the
+current browser invocation, not performance guarantees.
 
 ## What humans and agents do together
 
@@ -162,6 +173,7 @@ manual experience.
 npm test
 npm run test:webmcp:evals
 npm run test:webmcp:agent-evidence
+npm run test:webmcp:hud:browser
 npm run test:stripe
 npm run validate
 npm run validate:submission
