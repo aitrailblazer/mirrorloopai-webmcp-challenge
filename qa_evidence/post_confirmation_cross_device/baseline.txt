@@ -1,0 +1,23 @@
+F-032 baseline — 2026-08-30
+
+Observed behavior:
+- The participant opened and confirmed the email link on a different computer.
+- The visible browser state is the generic MIRROR//LOOP homepage, not the participant's compact reflection or a durable "what to remember" instruction.
+- Quiz choices are intentionally saved only in localStorage on the computer where the quiz was completed, so another computer cannot restore the 12 answers.
+- The backend already stores only the compact scored result and sends it in a second email after confirmation.
+
+User-visible gap:
+- The confirmation POST redirects to a generic static success route and does not display the compact result returned from the stored subscription record.
+- The static success page says the reflection is "on its way" but does not explain that the result arrives in a second email, that the original choices remain on the original browser, or what to do on another computer.
+
+Baseline result: FAIL
+Evidence: qa_evidence/post_confirmation_cross_device/production_home_after_confirmation.png
+
+Test plan before implementation:
+1. Confirm a pending subscription through POST and verify the response displays the compact dominant result and bounded action without exposing all 12 answers or email address.
+2. Explain that a second email contains the reflection and can be opened on any device.
+3. Explain that the 12 choices remain only on the original browser and are not synchronized.
+4. Preserve GET as review-only and POST as the only confirmation mutation.
+5. Verify the reflection email still sends exactly once for the initial activation.
+6. Verify invalid/expired links remain safe and branded.
+7. Verify desktop/mobile layout, CSP, no scripts, no overflow, and no external data fetch.
