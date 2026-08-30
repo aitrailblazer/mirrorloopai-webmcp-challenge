@@ -212,8 +212,37 @@ func TestConfirmationGETDoesNotActivateSubscription(t *testing.T) {
 	post := httptest.NewRequest(http.MethodPost, verificationURL.RequestURI(), nil)
 	postResponse := httptest.NewRecorder()
 	handler.ServeHTTP(postResponse, post)
-	if postResponse.Code != http.StatusSeeOther || mailer.reflections != 1 {
+	postBody := postResponse.Body.String()
+	if postResponse.Code != http.StatusOK || mailer.reflections != 1 {
 		t.Fatalf("POST status=%d reflections=%d", postResponse.Code, mailer.reflections)
+	}
+	for _, expected := range []string{
+		"Your reflection is ready",
+		"You do not need to repeat the quiz.",
+		"What to remember",
+		"Convergence Seal",
+		"Bringing things together",
+		"You look for the point where different needs can align into one direction.",
+		"List what matters most. What single action honors more than one priority?",
+		"second email",
+		"open that email on any device",
+		"remain only in the browser where you completed the quiz",
+		"not synchronized",
+		"compact result",
+	} {
+		if !strings.Contains(postBody, expected) {
+			t.Errorf("successful confirmation page missing %q", expected)
+		}
+	}
+	for _, private := range []string{"person@example.com", `"answers"`, "12,12,12"} {
+		if strings.Contains(postBody, private) {
+			t.Errorf("successful confirmation page leaked %q", private)
+		}
+	}
+	if output := os.Getenv("MIRRORLOOP_CONFIRMED_HTML_OUT"); output != "" {
+		if err := os.WriteFile(output, postResponse.Body.Bytes(), 0o600); err != nil {
+			t.Fatal(err)
+		}
 	}
 }
 

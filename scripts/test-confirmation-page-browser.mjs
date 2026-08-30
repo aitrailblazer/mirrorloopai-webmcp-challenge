@@ -12,6 +12,8 @@ const evidenceDir = path.join(
   "qa_evidence",
   "confirmation_page_style_regression",
 );
+const evidencePrefix =
+  process.env.MIRRORLOOP_CONFIRMATION_EVIDENCE_PREFIX ?? "";
 const chromePath =
   process.env.CHROME_PATH ??
   "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
@@ -69,12 +71,13 @@ try {
       const body = getComputedStyle(document.body);
       const card = document.querySelector(".card");
       const button = document.querySelector(".button");
-      if (!card || !button) throw new Error("confirmation controls missing");
+      if (!card) throw new Error("confirmation card missing");
       return {
         bodyBackground: body.backgroundImage,
         bodyColor: body.color,
         cardRadius: getComputedStyle(card).borderRadius,
-        buttonRadius: getComputedStyle(button).borderRadius,
+        buttonRadius: button ? getComputedStyle(button).borderRadius : null,
+        resultVisible: Boolean(document.querySelector(".result")),
         stylesheetCount: document.styleSheets.length,
         horizontalOverflow:
           document.documentElement.scrollWidth >
@@ -101,7 +104,10 @@ try {
     }
 
     await page.screenshot({
-      path: path.join(evidenceDir, `${viewport.name}_local_verified.png`),
+      path: path.join(
+        evidenceDir,
+        `${evidencePrefix}${viewport.name}_local_verified.png`,
+      ),
       fullPage: true,
     });
     results.push({ viewport, status: response.status(), ...state, consoleErrors });
@@ -115,7 +121,7 @@ try {
 }
 
 await writeFile(
-  path.join(evidenceDir, "browser_local_results.json"),
+  path.join(evidenceDir, `${evidencePrefix}browser_local_results.json`),
   `${JSON.stringify({ csp, results }, null, 2)}\n`,
 );
 console.log(`PASS confirmation browser render (${results.length} viewports)`);

@@ -138,7 +138,8 @@ func (h *HTTPHandler) verify(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "method not allowed", http.StatusMethodNotAllowed)
 		return
 	}
-	if err := h.service.Confirm(r.Context(), token); err != nil {
+	record, err := h.service.Confirm(r.Context(), token)
+	if err != nil {
 		slog.WarnContext(r.Context(), "subscriber confirmation failed", "error", err)
 		renderMessagePage(w, http.StatusBadRequest, actionPage{
 			Kind:      "error",
@@ -151,7 +152,30 @@ func (h *HTTPHandler) verify(w http.ResponseWriter, r *http.Request) {
 		})
 		return
 	}
-	http.Redirect(w, r, h.service.ConfirmedURL(), http.StatusSeeOther)
+	primary := record.Result.Dominant
+	if canonical, ok := Archetypes[record.Result.DominantCode]; ok {
+		primary = canonical
+	}
+	copy := ReflectionCopies[record.Result.DominantCode]
+	renderMessagePage(w, http.StatusOK, actionPage{
+		Kind:    "success",
+		Eyebrow: "Email confirmed",
+		Title:   "Your reflection is ready",
+		Message: "You do not need to repeat the quiz.",
+		Details: []string{
+			"A second email containing this reflection has been sent to the address you confirmed. You can open that email on any device.",
+			"Your 12 individual choices remain only in the browser where you completed the quiz; they are not synchronized or placed in this page.",
+		},
+		ReviewTitle:    "On this computer or another:",
+		PatternName:    primary.Name,
+		PatternDomain:  primary.Domain,
+		PatternSummary: copy.Summary,
+		PatternPrompt:  copy.Prompt,
+		PatternCount:   record.Result.DominantCount,
+		Footnote:       "This is the compact result you asked us to remember—not your individual answers. Keep the second email if you want to return to it later.",
+		LinkLabel:      "Return to MIRROR//LOOP",
+		LinkURL:        "/",
+	})
 }
 
 func (h *HTTPHandler) unsubscribe(w http.ResponseWriter, r *http.Request) {
@@ -203,17 +227,22 @@ func (h *HTTPHandler) unsubscribe(w http.ResponseWriter, r *http.Request) {
 }
 
 type actionPage struct {
-	Kind        string
-	Eyebrow     string
-	Title       string
-	Message     string
-	Details     []string
-	ReviewTitle string
-	Button      string
-	Footnote    string
-	LinkLabel   string
-	LinkURL     string
-	Action      string
+	Kind           string
+	Eyebrow        string
+	Title          string
+	Message        string
+	Details        []string
+	ReviewTitle    string
+	Button         string
+	Footnote       string
+	LinkLabel      string
+	LinkURL        string
+	Action         string
+	PatternName    string
+	PatternDomain  string
+	PatternSummary string
+	PatternPrompt  string
+	PatternCount   int
 }
 
 func renderActionPage(w http.ResponseWriter, r *http.Request, page actionPage) {
@@ -249,6 +278,14 @@ var actionPageTemplate = template.Must(template.New("subscriber-action").Parse(`
         <p class="eyebrow">{{.Eyebrow}}</p>
         <h1 id="page-title">{{.Title}}</h1>
         <p class="lede">{{.Message}}</p>
+        {{if .PatternName}}<section class="result" aria-labelledby="result-title">
+          <p class="result-label">What to remember</p>
+          <h2 id="result-title">{{.PatternName}}</h2>
+          <p class="result-domain">{{.PatternDomain}}</p>
+          <p class="result-summary">{{.PatternSummary}}</p>
+          {{if gt .PatternCount 0}}<p class="result-evidence">This response appeared {{.PatternCount}} of 12 times in your choices.</p>{{end}}
+          <div class="bounded-action"><strong>Try this today</strong><p>{{.PatternPrompt}}</p></div>
+        </section>{{end}}
         {{if .Details}}<div class="review"><strong>{{.ReviewTitle}}</strong><ol>{{range .Details}}<li>{{.}}</li>{{end}}</ol></div>{{end}}
         {{if .Action}}<form method="post" action="{{.Action}}"><button class="button" type="submit">{{.Button}}</button></form>{{end}}
         <p class="footnote">{{.Footnote}}</p>

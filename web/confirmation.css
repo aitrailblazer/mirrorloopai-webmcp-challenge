@@ -141,6 +141,58 @@ h1 {
   color: var(--gold-2);
 }
 
+.result {
+  margin: 1.6rem 0;
+  padding: clamp(1.2rem, 4vw, 1.7rem);
+  border: 1px solid #f1be6166;
+  border-radius: 1.2rem;
+  background: linear-gradient(145deg, #201b2f, #12172a);
+}
+
+.result-label,
+.bounded-action strong {
+  display: block;
+  margin: 0 0 0.45rem;
+  color: var(--gold);
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.result h2 {
+  margin: 0;
+  font: clamp(1.8rem, 5vw, 2.7rem) / 1.05 Georgia, serif;
+}
+
+.result-domain {
+  margin: 0.35rem 0 1rem;
+  color: var(--gold-2);
+  font-size: 0.92rem;
+}
+
+.result-summary {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.result-evidence {
+  margin: 0.8rem 0 0;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.bounded-action {
+  margin-top: 1.25rem;
+  padding: 1rem;
+  border-left: 3px solid var(--gold);
+  background: #0c101e;
+}
+
+.bounded-action p {
+  margin: 0;
+}
+
 ol {
   margin: 0;
   padding-left: 1.35rem;

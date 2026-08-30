@@ -114,15 +114,15 @@ func (s *Service) Subscribe(ctx context.Context, req SubscribeRequest, remoteIP 
 	return nil
 }
 
-func (s *Service) Confirm(ctx context.Context, token string) error {
+func (s *Service) Confirm(ctx context.Context, token string) (Record, error) {
 	id, err := s.signer.Verify(token, "verify")
 	if err != nil {
-		return err
+		return Record{}, err
 	}
 	now := s.now().UTC()
 	record, activated, err := s.store.Confirm(ctx, id, now)
 	if err != nil {
-		return err
+		return Record{}, err
 	}
 	if activated {
 		if err := s.analytics.Record(ctx, analytics.EventSubscriptionConfirmed, now); err != nil {
@@ -131,14 +131,14 @@ func (s *Service) Confirm(ctx context.Context, token string) error {
 	}
 	unsubscribeToken, err := s.signer.Sign(id, "unsubscribe", 10*365*24*time.Hour)
 	if err != nil {
-		return err
+		return Record{}, err
 	}
 	unsubscribeURL := s.publicAPIURL + "/v1/subscribers/unsubscribe?token=" + url.QueryEscape(unsubscribeToken)
 	if err := s.mailer.SendReflection(ctx, record, unsubscribeURL); err != nil {
 		slog.ErrorContext(ctx, "confirmed subscriber but reflection delivery failed", "subscriber_id", id, "error", err)
-		return errors.New("subscription confirmed; reflection delivery is delayed")
+		return Record{}, errors.New("subscription confirmed; reflection delivery is delayed")
 	}
-	return nil
+	return record, nil
 }
 
 func (s *Service) Unsubscribe(ctx context.Context, token string) error {

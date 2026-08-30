@@ -73,13 +73,17 @@ func TestDoubleOptInFlow(t *testing.T) {
 		}
 	}
 	token := strings.Split(mailer.confirmationLink, "token=")[1]
-	if err := service.Confirm(context.Background(), token); err != nil {
+	record, err := service.Confirm(context.Background(), token)
+	if err != nil {
 		t.Fatal(err)
+	}
+	if record.Result.DominantCode != "04" {
+		t.Fatalf("confirmed result=%+v", record.Result)
 	}
 	if mailer.reflections != 1 {
 		t.Fatalf("reflections=%d", mailer.reflections)
 	}
-	if err := service.Confirm(context.Background(), token); err != nil {
+	if _, err := service.Confirm(context.Background(), token); err != nil {
 		t.Fatal(err)
 	}
 	if len(events.events) != 1 || events.events[0] != analytics.EventSubscriptionConfirmed {

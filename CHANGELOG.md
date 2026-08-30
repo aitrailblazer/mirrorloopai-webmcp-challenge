@@ -1,5 +1,21 @@
 # Changelog
 
+## 2026-08-30 — Cross-device reflection confirmation handoff
+
+- Reopened the confirmation audit after a participant confirmed on another
+  computer and reached a generic page without the requested “what to remember”
+  result.
+- Changed the explicit confirmation POST response to display the stored compact
+  reflection pattern, supporting count, and one bounded action immediately.
+- Clarified that the same compact reflection is sent in a second email that can
+  be opened on any device, while the 12 individual choices remain private to
+  the original browser and are not synchronized.
+- Kept the email address and all individual answers out of the response page
+  and URL; the page uses only the compact result already retained under the
+  privacy notice.
+- Added service, handler, privacy-leak, desktop, mobile, computed-style, and
+  overflow checks, and improved the static completion fallback copy.
+
 ## 2026-08-30 — CSP-compatible confirmation page styling
 
 - Reopened the confirmation-page audit after a production Chrome screenshot
