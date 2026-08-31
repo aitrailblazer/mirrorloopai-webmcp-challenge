@@ -6,15 +6,14 @@ Tracker source: `feature_status_tracker.csv`
 
 - Total features discovered: 95
 - Total verified before fixes: 63
-- Total failed before fixes: 20
-- Total fixed: 26
-- Total verified after retest: 89
+- Total failed before fixes: 19
+- Total fixed: 27
+- Total verified after retest: 90
 - Total still blocked: 0
 - Total needing product decision: 1
 
 ## Unresolved Critical Or High
 
-- SUB-002 `Public source repository and license` — Critical — Failed Test
 - SUB-005 `Under-three-minute narrated demo plan` — Critical — Needs Product Decision
 - SUB-007 `Devpost project draft readiness` — Critical — Needs Product Decision
 - SUB-008 `Eligibility, ownership, and third-party rights attestation` — Critical — Needs Product Decision
@@ -70,7 +69,7 @@ Tracker source: `feature_status_tracker.csv`
 - `web/llms.txt; scripts/validate-site.mjs`
 - `web/app.js; web/lib/webmcp.js; web/tests/webmcp.test.mjs`
 - `web/index.html; web/app.js; web/styles.css; scripts/validate-site.mjs; CHANGELOG.md`
-- `README.md; SUBMISSION.md; THIRD_PARTY_NOTICES.md`
+- `competition_manifest.json; README.md; SUBMISSION.md; web/llms.txt; CHANGELOG.md; qa_evidence/submission_readiness/public-repository-2026-08-30.txt`
 - `README.md; package.json; scripts/validate-submission.mjs`
 - `SUBMISSION.md; scripts/validate-submission.mjs`
 - `WEBMCP_DEMO_SHOT_LIST.html; README.md; SUBMISSION.md; scripts/validate-submission.mjs; CHANGELOG.md; CONTINUITY.md; qa_evidence/submission_readiness/demo-shot-list-validation-2026-08-30.txt`
@@ -113,6 +112,7 @@ Tracker source: `feature_status_tracker.csv`
 - `b1b5bc3`
 - `4d835111b8ee24560deabafe60efc8499dc105ec`
 - `828ee7a`
+- `e0362b2`
 - `c6e6b0f`
 - `4313f6d; 45f85b7; b8f25e6`
 - `fcde886`

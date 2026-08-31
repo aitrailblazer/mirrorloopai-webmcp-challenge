@@ -2,7 +2,7 @@
   "schema": "mirrorloop.webmcp.competition.v1",
   "project": "MIRROR//LOOP",
   "repository": "aitrailblazer/mirrorloopai-webmcp-challenge",
-  "visibility": "private-pending-operator-publication",
+  "visibility": "public",
   "website": "https://mirrorloopai.com/",
   "competition": "WebMCP Challenge",
   "snapshotDate": "2026-08-30",
@@ -44,7 +44,6 @@
   "submissionReadiness": {
     "localPackage": "ready",
     "externalGates": [
-      "make repository public after final operator review",
       "create Devpost project",
       "publish public YouTube demo under three minutes",
       "complete entrant eligibility and rights attestations"
