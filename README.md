@@ -171,7 +171,7 @@ while preserving the page's normal visual flow and human decision points.
 12-question quiz, curated card/shop data, subscriber email flow, Go backend,
 Firebase/Cloud Run deployment, and human-controlled Stripe Checkout.
 
-**Added during the challenge after August 25, 2026:** the nine WebMCP tools,
+**Added during the challenge after August 25, 2026:** the eleven WebMCP tools,
 strict schemas and annotations, explicit answer-confirmation boundary, prior
 answer revision, public 144-card lookup, safe edition recommendation, visible
 eleven-tool readiness badge, production browser verification, conversion link

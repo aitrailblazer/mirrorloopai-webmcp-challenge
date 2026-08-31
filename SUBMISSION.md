@@ -51,11 +51,11 @@ generic DOM automation and is direct with WebMCP.
 
 ### How WebMCP is implemented
 
-`web/lib/webmcp.js` defines ten tools with JSON input schemas,
+`web/lib/webmcp.js` defines eleven tools with JSON input schemas,
 `additionalProperties: false`, behavioral annotations, and same-origin
 registration through awaited `modelContext.registerTool(...)` calls. The installer selects
 `document.modelContext` first and supports the compatible navigator surface.
-Three tools change only ephemeral local reflection state; seven are read-only.
+Three tools change only ephemeral local reflection state; eight are read-only.
 `answer_reflection_question` requires `confirmed_by_user: true`. No tool can
 submit an email address, mutate the cart, create a Checkout Session, or pay.
 Automated tests validate registration, schemas, annotations, malformed inputs,
@@ -97,7 +97,7 @@ compositor-thread claim is made.
 
 ### WebMCP Leverage
 
-- Nine purpose-built tools operate the real page state and deterministic quiz.
+- Eleven purpose-built tools operate the real page state and deterministic quiz.
 - Typed schemas replace brittle control inference.
 - An agent can explain, record, review, revise, complete, retrieve, and
   recommend across one coherent session.
@@ -224,7 +224,7 @@ zero-server-data guarantee.
 Six concrete operational demo scenarios are available in
 `WEBMCP_OPERATIONAL_USE_CASES.html`. They preserve the founder, operator,
 launch, sprint, team, and workspace contexts while mapping every agent action
-to the production nine-tool contract. A live Gemini/WebMCP Inspector run
+to the production eleven-tool contract. A live Gemini/WebMCP Inspector run
 matched all six frozen cases and all nine expected calls exactly.
 
 The competition-wide claim matrix, corrected 2:35 storyboard, and copy-ready

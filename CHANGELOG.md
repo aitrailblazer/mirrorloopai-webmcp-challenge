@@ -1,5 +1,16 @@
 # Changelog
 
+## 2026-08-30 — Submission claim consistency pass
+
+- Reconciled the README, Devpost copy, `llms.txt`, official-resource review,
+  and operational-use-case artifact with the deployed eleven-tool WebMCP
+  contract.
+- Regenerated the operational-use-case visual artifact from its canonical
+  builder and repeated the site, submission-package, unit, and one-command
+  WebMCP evaluation gates.
+- Preserved prior eight-, nine-, and ten-tool evidence as dated historical
+  observations rather than rewriting it as current production evidence.
+
 ## 2026-08-30 — Evidence-backed autonomous-agent rationale
 
 - Added `Why Autonomous Agents Co-Pilot This Node` to the public README with
