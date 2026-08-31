@@ -55,7 +55,8 @@ generic DOM automation and is direct with WebMCP.
 `additionalProperties: false`, behavioral annotations, and same-origin
 registration through awaited `modelContext.registerTool(...)` calls. The installer selects
 `document.modelContext` first and supports the compatible navigator surface.
-Three tools change only ephemeral local reflection state; eight are read-only.
+Four tools can change browser-local state or create a local download; seven are
+read-only.
 `answer_reflection_question` requires `confirmed_by_user: true`. No tool can
 submit an email address, mutate the cart, create a Checkout Session, or pay.
 Automated tests validate registration, schemas, annotations, malformed inputs,
@@ -145,7 +146,7 @@ Meaningful WebMCP work was added after the challenge began:
 | `ba15276` | 2026-08-29 | Seven secure reflection and card tools |
 | `8ec0a6f` | 2026-08-29 | Eighth read-only edition recommendation tool |
 | `b1b5bc3` | 2026-08-29 | Revision flow, conversion path, metadata, and audited fixes |
-| `828ee7a` | 2026-08-29 | Immediately visible `WebMCP ready · 9 tools` badge |
+| `828ee7a` | 2026-08-29 | Immediately visible WebMCP readiness badge |
 
 The repository history is the timestamped source of truth. The competition
 entry claims only these documented extensions as challenge-period work.

@@ -1,5 +1,20 @@
 # Changelog
 
+## 2026-08-30 — Reproducible competition demo media
+
+- Added repeatable narration, browser-recording, caption, and MP4 packaging
+  scripts for the deployed eleven-tool WebMCP experience.
+- Corrected the recording driver to use the production result and edition
+  response contracts and loaded its visual overlay through a same-origin
+  stylesheet compatible with the production Content Security Policy.
+- Produced and decoded a 115-second H.264/AAC candidate with synchronized SRT
+  captions, audible narration, a visible Agent State rail, explicit
+  confirmation rejection, deterministic completion, provisional preview,
+  public card retrieval, read-only edition matching, and the local-export
+  boundary.
+- Preserved a credential-free verification receipt and hashes while keeping
+  generated audio and video outside the public repository.
+
 ## 2026-08-30 — Submission claim consistency pass
 
 - Reconciled the README, Devpost copy, `llms.txt`, official-resource review,

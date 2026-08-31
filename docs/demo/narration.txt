@@ -1,0 +1,41 @@
+Most AI assistants can discuss a decision, but they have to reconstruct the
+application from text. MIRROR//LOOP gives the browser a typed, site-owned
+contract instead.
+
+The live site registers eleven WebMCP tools over the same experience a person
+can use directly. The visible Agent State rail reports registration, active
+tool calls, measured local timing, and whether a protected action had explicit
+human confirmation.
+
+The agent can start a private reflection and request only the current question.
+It can explain one answer or compare two plausible answers using the site's
+authoritative public language. Comparison does not rank, select, or record
+either option.
+
+Human authority is enforced in code. An attempt to record an answer without
+confirmed-by-user set to true is rejected. After the person confirms, the
+answer is stored in browser-local state and the visible twelve-step experience
+advances.
+
+For demonstration speed, the remaining choices shown here were previously
+confirmed by the demonstrator. After all twelve answers exist, the same
+deterministic browser scorer used by the direct interface produces the result.
+The agent guides the workflow; it does not invent the score.
+
+Before revising anything, preview-answer-impact can simulate one alternative.
+It reports the projected difference while leaving both the saved answers and
+the visible result unchanged.
+
+The agent can retrieve any curated public card from the complete one-hundred
+and forty-four-card matrix. It can also identify a relevant digital edition,
+but the response contains no price and cannot add to a cart, create Checkout,
+or pay.
+
+Finally, after explicit confirmation, the reflection dossier can be downloaded
+as Markdown or JSON entirely in the browser. No email or account is required
+for that export.
+
+MIRROR//LOOP uses WebMCP to remove navigation and interpretation friction while
+keeping meaning, identity, email, cart, and payment under human control. Test
+the live node at mirrorloopai dot com, and inspect the MIT-licensed source on
+GitHub.

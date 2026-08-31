@@ -243,6 +243,24 @@ WebMCP is not an HTTP transport: rejected invocations return a bounded
 gates separately. It does not publish the repository, create a Devpost project,
 or upload a video.
 
+### Reproduce the demo media
+
+The competition demo uses the deployed site and the production tool
+definitions. A deterministic `document.modelContext`-compatible driver invokes
+the tools so the recording is repeatable; it is not presented as an external
+model-selection evaluation.
+
+```bash
+npm run demo:narration
+npm run demo:record
+npm run demo:package
+```
+
+The ignored `docs/demo/output/` directory receives the narration, synchronized
+SRT captions, silent browser capture, final H.264/AAC MP4, and machine-readable
+duration/hash receipts. The packaging command fails if the final video lacks
+audio or video or reaches three minutes.
+
 ### Test native WebMCP
 
 1. Use Chrome 149 or later, enable
