@@ -1,0 +1,17 @@
+MIRROR//LOOP turns a deterministic 12-question reflection and a 144-card public matrix into a bounded human-agent collaboration.
+
+Live experience:
+https://mirrorloopai.com/
+
+MIT-licensed source:
+https://github.com/aitrailblazer/mirrorloopai-webmcp-challenge
+
+The deployed page registers eleven same-origin WebMCP tools. An agent can start the reflection, read the current question, explain or compare choices, record only explicitly confirmed answers, review or revise answers, complete deterministic browser-side scoring, preview one hypothetical change without saving it, retrieve one curated public card, identify a relevant digital edition, and prepare a confirmed local Markdown or JSON dossier.
+
+Human authority is preserved at the boundary: no WebMCP tool can submit email, change the cart, create Stripe Checkout, or make a payment.
+
+Recording disclosure: this repeatable demo drives the deployed production tool definitions through a document.modelContext-compatible browser harness. It demonstrates the real page state, tool contracts, lifecycle events, and deterministic outputs; it is not presented as an external model-selection evaluation. Independent browser-agent evaluation evidence and the one-command headless regression runner are included in the public repository.
+
+Narration was synthesized locally from the checked-in script. No background music or third-party footage is used.
+
+#WebMCP #OpenAI #Chrome #AIagents #BuildInPublic
