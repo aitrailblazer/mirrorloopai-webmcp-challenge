@@ -75,8 +75,8 @@ Done:
 - Produced and fully decoded the 115.005-second, 1440x900 H.264/AAC demo,
   prepared captions and a thumbnail, and recorded SHA-256
   `3515ee37bfe15bbca36eb1b29489c3b49007f039242384b2b024b4238fa078f4`.
-- Verified the latest GitHub Actions run succeeded:
-  `https://github.com/aitrailblazer/mirrorloopai-webmcp-challenge/actions/runs/33358387964`.
+- Verified a GitHub Actions run for the submission-gate status update succeeded:
+  `https://github.com/aitrailblazer/mirrorloopai-webmcp-challenge/actions/runs/33359035227`.
 - Added and browser-rendered the evidence-bounded 2:35 WebMCP demo shot list; HTML, embedded XML, exact tool inventory, timing, authority boundaries, and submission-package assertions pass.
 - Implemented, deployed, and browser-tested `compare_choices` as the ninth read-only tool; all 792 valid two-choice pairings stay within the result budget, and production comparison leaves progress and selection unchanged.
 - Implemented and deployed the `WM-014` Agent State HUD; its prior 32/32 web tests and desktop/mobile production browser checks passed against the then-current eight-tool registration, including real wrapper invocation, keyboard collapse, bounded history, no horizontal overflow, and focus-text redaction.
@@ -165,8 +165,9 @@ Working set (files/ids/commands):
 - Implementation commit `fcde886`
 - Audit/evidence commit `aee0332`
 - Submission reconciliation commit `ee22f55`
+- Submission-gate status commit `b14c892`
 - `docs/demo/output/mirrorloop-webmcp-challenge-demo.mp4`
 - `docs/demo/output/mirrorloop-webmcp-demo.srt`
 - `docs/demo/output/mirrorloop-webmcp-thumbnail.png`
 - `docs/demo/output/final-video-receipt.json`
-- `https://github.com/aitrailblazer/mirrorloopai-webmcp-challenge/actions/runs/33358387964`
+- `https://github.com/aitrailblazer/mirrorloopai-webmcp-challenge/actions/runs/33359035227`
