@@ -161,8 +161,10 @@ for (const [name, passed] of checks) {
 }
 
 console.log("");
-console.log("External gates intentionally not performed by this validator:");
-console.log("- GitHub repository visibility must be PUBLIC.");
+console.log("Externally verified and recorded in the canonical tracker:");
+console.log("- GitHub repository is PUBLIC, anonymously accessible, and MIT licensed.");
+console.log("");
+console.log("Remaining external gates intentionally not performed by this validator:");
 console.log("- A Devpost project must be created.");
 console.log("- A public YouTube demo under three minutes must be supplied.");
 console.log("- The operator must complete eligibility, ownership, and rights attestations.");

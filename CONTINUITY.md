@@ -12,7 +12,9 @@ Constraints/Assumptions:
 Key decisions:
 - Use `aitrailblazer/mirrorloopai-webmcp-challenge` as the competition repository.
 - Import a sanitized working-tree snapshot rather than attaching a remote to the production repository.
-- Keep the repository private during development; public visibility is a later submission gate.
+- Keep the sanitized competition repository public under MIT for judging while
+  excluding credentials, subscriber records, private corpora, and unrelated
+  artifacts.
 - Implement the reflection tools against the existing validated 12-question quiz rather than the attachment's illustrative or unsupported data.
 - Keep WebMCP reflection tools local-only and same-origin; email submission and Stripe checkout remain outside agent tool execution.
 - Expose all 144 cards through a reduced public registry containing only curated public interpretation fields.
@@ -24,15 +26,16 @@ Key decisions:
 - Connect the reflection result to a highlighted matching ARC without automatically adding a product or initiating checkout.
 
 State:
-- The product, Devpost readiness, official-resource audit, live-agent evaluation, deadline preflight, Agent State HUD, and choice contrast now cover 91 stories.
+- The canonical tracker contains 95 stories: 91 are final-verified and four
+  remain operator-owned submission decisions (`SUB-005`, `SUB-007`,
+  `SUB-008`, and `SUB-012`). There are no unresolved engineering failures.
 - The frozen 15-case corpus has one completed Gemini 2.5 Flash run: 12/15
   strict exact cases, 14/15 required tool sequences in order, 12/14
   expected-call argument matches, and zero forbidden mutations across five
   protected boundary prompts.
-- `RES-008` remains a product decision: the v1
-  `sequence-orient-before-answer` oracle expects an answer mutation before
-  explicit confirmation, while the agent correctly stopped and requested
-  confirmation.
+- `RES-008` is closed. Its original mismatch remains preserved as historical
+  evaluation evidence, while the confirmation-preserving behavior is the
+  accepted product contract.
 - The reviewed eleven-tool release is being verified for deployment on `mirrorloopai.com`; desktop and
   mobile production browser checks completed 12 answers, invoked
   `preview_answer_impact`, and preserved both saved answers and the visible
@@ -40,11 +43,18 @@ State:
 - Follow-up story `WM-013` retains its failed baseline and now has local, responsive, fallback, deployment, and native-production evidence.
 - The local submission package, judge narrative, demo script, public/private work disclosure, criterion map, third-party notice, and freeze plan pass deterministic validation.
 - The official reminder fixes the deadline at September 3, 2026, 1:00 PM PT.
-- Repository publication, Devpost project creation, public video upload, operator attestations, conditional teammate acceptance, and final submission remain explicit operator actions.
-- Authenticated GitHub reports the competition repository PRIVATE and anonymous API access returns 404. The sanitized rewritten main branch has been force-pushed and synchronized with origin/main.
+- Devpost project creation, public video upload, operator attestations,
+  conditional teammate acceptance, and final submission remain explicit
+  operator actions.
+- The sanitized competition repository is PUBLIC at
+  `https://github.com/aitrailblazer/mirrorloopai-webmcp-challenge`, carries an
+  MIT license, and is anonymously accessible. Local and remote `main` are
+  synchronized.
 - The private repository history has been rewritten and pushed after removing the unnecessary billing-account metadata and synthetic E2E participant alias; current local and remote main are synchronized.
 - The proposed “winning architecture” attachment is evidence material only. Its P2P, astronomical-engine, physical-product, x402, zero-egress, sub-20KB, 60fps, and judge-preference claims are excluded from submission copy because they are not implemented or measured in this repository. Its earlier tool-count freeze is superseded only by tracker-backed `WM-015`, a read-only two-choice contrast with no new persistence, identity, commerce, or payment authority.
-- `WEBMCP_DEMO_SHOT_LIST.html` provides the recording contract being updated for the reviewed eleven-tool build; the public video itself remains pending.
+- `WEBMCP_DEMO_SHOT_LIST.html` provides the recording contract for the reviewed
+  eleven-tool build. A verified 1:55 local H.264/AAC demo, SRT captions, and
+  thumbnail are complete; public YouTube upload remains pending.
 - The six-point verified-core scope is canonical in README, submission copy, and the demo artifact. Its no-cloud claim applies only to deterministic browser scoring.
 - `WM-014` is verified: the deployed page now exposes a collapsible Agent State rail driven by privacy-filtered registration, tool-start, and tool-complete lifecycle events. It shows observed local duration and explicit answer confirmation without exposing private focus text or tool results.
 - `WM-015` is verified: `compare_choices` returns a neutral, public-data-only contrast for two choices and explicitly leaves both unselected.
@@ -57,6 +67,16 @@ State:
   email, registration, or an export-time network request.
 
 Done:
+- Reconciled the canonical tracker to 95 stories, with 91 final-verified and
+  four explicit operator decisions.
+- Made the sanitized GitHub repository public, confirmed anonymous access and
+  MIT license visibility, scanned all 81 commits with Gitleaks with zero
+  findings, and pushed `ee22f55`.
+- Produced and fully decoded the 115.005-second, 1440x900 H.264/AAC demo,
+  prepared captions and a thumbnail, and recorded SHA-256
+  `3515ee37bfe15bbca36eb1b29489c3b49007f039242384b2b024b4238fa078f4`.
+- Verified the latest GitHub Actions run succeeded:
+  `https://github.com/aitrailblazer/mirrorloopai-webmcp-challenge/actions/runs/33358387964`.
 - Added and browser-rendered the evidence-bounded 2:35 WebMCP demo shot list; HTML, embedded XML, exact tool inventory, timing, authority boundaries, and submission-package assertions pass.
 - Implemented, deployed, and browser-tested `compare_choices` as the ninth read-only tool; all 792 valid two-choice pairings stay within the result budget, and production comparison leaves progress and selection unchanged.
 - Implemented and deployed the `WM-014` Agent State HUD; its prior 32/32 web tests and desktop/mobile production browser checks passed against the then-current eight-tool registration, including real wrapper invocation, keyboard collapse, bounded history, no horizontal overflow, and focus-text redaction.
@@ -90,21 +110,27 @@ Done:
 - Committed the resource-driven implementation as `fcde886`, deployed it to Firebase Hosting, and verified the production bundle plus native eight-tool registration in isolated Chrome.
 
 Now:
-- Complete the external submission gates and refresh the host-agent corpus
-  against the eleven-tool release when practical.
+- Await explicit authorization to upload the verified demo publicly, Devpost
+  authentication, and the entrant eligibility/rights plus solo/team
+  attestations. YouTube Studio is authenticated to the Constantine Vassilev
+  channel; the Devpost login page is open but not authenticated.
 
 Next:
-- Record and publish the under-three-minute YouTube demo using that artifact.
-- Change the GitHub repository to public and verify anonymous access plus MIT detection.
-- Create the Devpost project, paste the prepared package, resolve solo-versus-team attribution, complete attestations, and submit before September 3, 2026 at 1:00 PM PT.
+- After explicit authorization, upload and publish the verified demo to
+  YouTube, apply the prepared title/description/thumbnail/captions, and verify
+  anonymous playback.
+- After the user signs in to Devpost, create and populate the project from
+  `SUBMISSION.md`; stop before final submission for action-time confirmation.
+- After attestations and final review, submit, tag the exact commit
+  `webmcp-challenge-submission`, push the tag, verify public artifacts, and
+  freeze the submitted release before September 3, 2026 at 1:00 PM PT.
 
 Open questions (UNCONFIRMED if needed):
-- UNCONFIRMED: Final operator approval of the prepared competition title and submission copy.
-- UNCONFIRMED: Whether a separate screenshot of the Chrome WebMCP Inspector extension panel is desired in addition to the verified browser-native registration status.
+- UNCONFIRMED: Explicit action-time authorization to upload the verified demo
+  publicly to the authenticated YouTube channel.
 - UNCONFIRMED: Entrant eligibility and authority to grant the required competition license/rights.
-- UNCONFIRMED: Public YouTube demo URL.
 - UNCONFIRMED: Whether this is a solo entry or teammate invitations must be sent and accepted.
-- UNCONFIRMED: Actual ChatGPT in-app-browser WebMCP availability; connected Chrome is already verified and satisfies the rules' alternative browser path.
+- UNCONFIRMED: Devpost authentication and final-submit authorization.
 
 Working set (files/ids/commands):
 - `/Users/constantinevassilev02/MyLocalDocuments/go-projects/SyntheonArchive/GENI/mirrorloopai-webmcp-challenge`
@@ -138,3 +164,9 @@ Working set (files/ids/commands):
 - `qa_evidence/feature-audit-2026-08-30/browser/production-webmcp-resource-audit-isolated.json`
 - Implementation commit `fcde886`
 - Audit/evidence commit `aee0332`
+- Submission reconciliation commit `ee22f55`
+- `docs/demo/output/mirrorloop-webmcp-challenge-demo.mp4`
+- `docs/demo/output/mirrorloop-webmcp-demo.srt`
+- `docs/demo/output/mirrorloop-webmcp-thumbnail.png`
+- `docs/demo/output/final-video-receipt.json`
+- `https://github.com/aitrailblazer/mirrorloopai-webmcp-challenge/actions/runs/33358387964`
