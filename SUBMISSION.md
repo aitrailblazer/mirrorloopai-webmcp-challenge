@@ -151,7 +151,7 @@ Meaningful WebMCP work was added after the challenge began:
 The repository history is the timestamped source of truth. The competition
 entry claims only these documented extensions as challenge-period work.
 
-## Demo video script — target 2:35
+## Demo video — verified 1:55 candidate
 
 Use screen narration only or music for which the entrant owns all necessary
 rights. Do not show secret dashboards, email addresses, payment details, or
@@ -160,18 +160,22 @@ The canonical second-by-second recording contract, evidence map, excluded-claim
 list, and publication checklist are in
 [`WEBMCP_DEMO_SHOT_LIST.html`](WEBMCP_DEMO_SHOT_LIST.html).
 
-| Time | Visual | Narration |
+| Time | Visual | Narration focus |
 | --- | --- | --- |
-| 0:00–0:15 | Open the live homepage and point to `WebMCP ready · 11 tools`. | “MIRROR//LOOP turns a 12-question reflection and 144 cards into a bounded human-agent collaboration.” |
-| 0:15–0:35 | Expand the Agent State rail, then show the registered tool list. | “The page registers eleven typed tools and makes each invocation visible without exposing private text. They operate the visible experience rather than a hidden replacement service.” |
-| 0:35–1:05 | Ask the agent to start, read the question, and contrast two plausible choices. | “The agent can clarify the difference, but it cannot choose for me or record either option.” |
-| 1:05–1:30 | Confirm an answer, show the visible 12-step progressbar and focus moving to the next question, then revise the earlier answer. | “Every recorded choice requires explicit confirmation. The same semantic progress and focus transition is visible whether I click or the agent invokes the tool, and reduced-motion preferences are respected.” |
-| 1:30–1:55 | Review and complete the reflection. | “Scoring stays deterministic in the page. The agent guides the flow; it does not invent the result.” |
-| 1:55–2:15 | Retrieve Card 012 and request a matching edition. | “The same contract exposes all 144 public cards and a price-free, read-only edition recommendation.” |
-| 2:15–2:35 | Open the collection page manually and stop before checkout. | “Email, cart changes, and payment remain human actions. WebMCP adds assistance without taking control.” |
+| 0:00–0:09 | Open the live homepage and identify the site-owned WebMCP contract. | Why a typed browser contract is stronger than reconstructing the app from prose. |
+| 0:09–0:24 | Show `WebMCP ready · 11 tools` and expand the Agent State rail. | Registration, live tool activity, local timing, and human-confirmation visibility. |
+| 0:24–0:37 | Start a reflection, request the current question, and compare two choices. | The agent clarifies using authoritative public language but does not rank or record. |
+| 0:37–0:50 | Reject an unconfirmed answer, then confirm it and advance the visible flow. | Human authority is enforced in code. |
+| 0:50–1:06 | Complete a prepared twelve-answer session. | The browser's deterministic scorer produces the result; the agent does not invent it. |
+| 1:06–1:16 | Preview one hypothetical answer change. | The projected difference is shown without mutating the saved answers or result. |
+| 1:16–1:30 | Retrieve a public card and request a matching digital edition. | All 144 cards are available; recommendation remains price-free and read-only. |
+| 1:30–1:40 | Export the reflection dossier after explicit confirmation. | Markdown or JSON is downloaded locally without requiring email or an account. |
+| 1:40–1:55 | Close on the authority boundary and public evidence links. | Meaning, identity, email, cart, and payment remain under human control. |
 
-Before publishing, verify the final video is under three minutes, publicly
-viewable on YouTube, audible, captioned, and demonstrates the deployed build.
+The local candidate is 115.005 seconds, 1440×900 H.264 with AAC narration,
+has a prepared SRT caption file, passes a full decode check, and has SHA-256
+`3515ee37bfe15bbca36eb1b29489c3b49007f039242384b2b024b4238fa078f4`.
+Public YouTube upload and anonymous playback verification remain pending.
 
 ## Judge test path
 
@@ -228,7 +232,7 @@ launch, sprint, team, and workspace contexts while mapping every agent action
 to the production eleven-tool contract. A live Gemini/WebMCP Inspector run
 matched all six frozen cases and all nine expected calls exactly.
 
-The competition-wide claim matrix, corrected 2:35 storyboard, and copy-ready
+The competition-wide claim matrix, verified 1:55 demo, and copy-ready
 core are in `WEBMCP_COMPETITION_HARDENING_AUDIT.html`. This audit separates
 implemented evidence from future concepts and explicitly excludes invented
 events, P2P exchange, astronomical calculations, physical
@@ -253,13 +257,14 @@ reflection and display a truthful fallback status.
 - [ ] Confirm entrant age, country/region eligibility, and authority to enter.
 - [ ] Confirm ownership or authorized use of every submitted image, font,
       narrative, code component, and demo-video element.
-- [ ] Complete the final secret, personal-data, and private-corpus scan.
-- [ ] Make the GitHub repository public and confirm anonymous access.
-- [ ] Confirm the MIT license is visible in the repository root and About panel.
+- [x] Complete the final secret, personal-data, and private-corpus scan.
+- [x] Make the GitHub repository public and confirm anonymous access.
+- [x] Confirm the MIT license is visible in the repository root and About panel.
 - [ ] Create the Devpost project and paste the copy-ready fields.
-- [ ] Record, caption, and publish the under-three-minute YouTube demo.
+- [x] Record, narrate, caption, and locally verify the under-three-minute demo.
+- [ ] Publish the verified demo to YouTube and confirm anonymous playback.
 - [ ] Replace the pending Video URL above and in Devpost.
-- [ ] Test the live site and public repository from a signed-out browser.
+- [x] Test the live site and public repository without authenticated access.
 - [ ] Submit before September 3, 2026 at 1:00 PM PDT.
 
 ## Judging-window release freeze

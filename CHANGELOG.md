@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026-08-30 — Submission tracker and local video gate
+
+- Reconciled the canonical feature tracker with the deployed eleven-tool WebMCP contract and preserved earlier eight-tool evidence as dated history.
+- Closed the obsolete explicit-confirmation corpus decision after the versioned 18-case corpus aligned its oracle with the human-confirmation boundary.
+- Recorded the verified 115-second H.264/AAC demo candidate, prepared SRT captions and thumbnail, and kept public YouTube playback as the remaining publication gate.
+- Replaced the obsolete 2:35 submission storyboard and residual ten-tool wording with the verified 1:55 timeline and complete eleven-tool contract.
+- Re-ran the full-history Gitleaks scan (81 commits, zero findings) and recorded the already-verified public repository, license, and anonymous-access gates.
+- Regenerated the CSV-derived XLSX, HTML tracker, and HTML/Markdown QA reports; 91 of 95 stories are final-verified and four operator decisions remain.
+
+
 ## 2026-08-30 — Reproducible competition demo media
 
 - Added repeatable narration, browser-recording, caption, and MP4 packaging

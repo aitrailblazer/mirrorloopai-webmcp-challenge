@@ -59,7 +59,12 @@ const checks = [
     "Potential Impact",
     "Creativity & Ambition",
   ].every((criterion) => submission.includes(criterion))],
-  ["Submission demo plan", submission.includes("target 2:35") && submission.includes("under three minutes")],
+  ["Submission demo receipt", [
+    "verified 1:55 candidate",
+    "115.005 seconds",
+    "1440×900 H.264",
+    "Public YouTube upload and anonymous playback verification remain pending",
+  ].every((term) => submission.includes(term))],
   ["Verified core repository scope", [
     "Eleven typed tools",
     "confirmed_by_user: true",
@@ -121,7 +126,7 @@ const checks = [
     'id="score" status="UNRESOLVED"',
     'id="astronomy" status="CONTRADICTED"',
     'id="p2p" status="CONTRADICTED"',
-    "Corrected 2:35 demo",
+    "Final verified 1:55 demo",
     "Freeze the reviewed eleven-tool build",
   ].every((term) => competitionHardening.includes(term))],
   ["Evidence-bounded judge panel brief", [

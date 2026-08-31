@@ -82,7 +82,7 @@ const html = `<!doctype html>
     <Run name="campaign" cases="10" exact_tool_selection="10" required_order="10" no_tool_boundaries="5"/>
     <Run name="operational" cases="6" exact_cases="6" exact_calls="8"/>
   </Evidence>
-  <DemoContract duration_target="2:35" maximum="3:00">
+  <DemoContract duration_verified="1:55.005" maximum="3:00">
     <Beat order="1">Show the live page and WebMCP ready · 11 tools.</Beat>
     <Beat order="2">Start a reflection, read the current question, and compare two choices without selecting either.</Beat>
     <Beat order="3">Demonstrate failed unconfirmed recording, then explicit confirmation and visible step transition.</Beat>
@@ -98,7 +98,7 @@ const html = `<!doctype html>
   </DecisionLog>
   <AcceptanceCriteria>
     <Criterion>Every public capability in the corrected narrative maps to inspected code or preserved execution evidence.</Criterion>
-    <Criterion>The demo remains under three minutes and uses only the ten production tools.</Criterion>
+    <Criterion>The demo remains under three minutes and uses only the eleven production tools.</Criterion>
     <Criterion>No public copy claims ephemeris, physical fulfillment, autonomous payment, diagnosis, or a zero-risk privacy guarantee.</Criterion>
     <Criterion>External submission gates remain explicit until performed by the operator.</Criterion>
   </AcceptanceCriteria>
@@ -162,7 +162,7 @@ const html = `<!doctype html>
             <section>
               <h2>Judge-facing evidence, not self-scoring</h2>
               <div class="criteria">
-                <div class="criterion"><strong>WebMCP Leverage</strong><p>Ten purpose-built tools operate the same visible reflection and card surfaces that people use; two read-only analytical tools clarify ambiguity and simulate one hypothetical change without taking the decision.</p></div>
+                <div class="criterion"><strong>WebMCP Leverage</strong><p>Eleven purpose-built tools operate the same visible reflection and card surfaces that people use; two read-only analytical tools clarify ambiguity and simulate one hypothetical change without taking the decision.</p></div>
                 <div class="criterion"><strong>Execution</strong><p>Strict schemas, confirmation gates, partial-registration rollback, character budgets, and three preserved live evaluation sets.</p></div>
                 <div class="criterion"><strong>Potential Impact</strong><p>Natural-language guidance reduces navigation work while keeping private reflection local and consequential actions human-controlled.</p></div>
                 <div class="criterion"><strong>Creativity &amp; Ambition</strong><p>A 144-card reflection system becomes agent-navigable without turning the browser agent into an identity, email, cart, or payment authority.</p></div>
@@ -174,19 +174,18 @@ const html = `<!doctype html>
               </div>
             </section>
             <section>
-              <h2>Corrected 2:35 demo</h2>
+              <h2>Final verified 1:55 demo</h2>
               <div class="beats">
-                <div class="beat"><strong>0:00–0:18</strong><p>Open the live site. Show “WebMCP ready · 11 tools” and the visible experience.</p></div>
-                <div class="beat"><strong>0:18–0:48</strong><p>Start the reflection, read the current question, and ask the agent to contrast two choices without selecting either.</p></div>
-                <div class="beat"><strong>0:48–1:18</strong><p>Show that an unconfirmed answer is rejected. Confirm it and show the visible step transition.</p></div>
-                <div class="beat"><strong>1:18–1:48</strong><p>Load a prepared eleven-answer state, confirm answer twelve, and complete deterministic local scoring.</p></div>
-                <div class="beat"><strong>1:48–2:12</strong><p>Retrieve Card 004 and show its public Mirror prompt and bounded Loop action.</p></div>
-                <div class="beat"><strong>2:12–2:35</strong><p>Recommend a digital ARC edition. Stop before Stripe and state the human authority boundary.</p></div>
+                <div class="beat"><strong>0:00–0:24</strong><p>Open the live site, show “WebMCP ready · 11 tools,” and expand the Agent State rail.</p></div>
+                <div class="beat"><strong>0:24–0:50</strong><p>Start the reflection, compare two choices without selecting either, reject an unconfirmed answer, then confirm it.</p></div>
+                <div class="beat"><strong>0:50–1:16</strong><p>Complete deterministic local scoring and preview one hypothetical answer change without mutating state.</p></div>
+                <div class="beat"><strong>1:16–1:40</strong><p>Retrieve a public card, recommend a digital edition, and export a local dossier after explicit confirmation.</p></div>
+                <div class="beat"><strong>1:40–1:55</strong><p>Close with the human authority boundary and public evidence links.</p></div>
               </div>
             </section>
             <section>
               <h2>Copy-ready Devpost core</h2>
-              <div class="copy">MIRROR//LOOP turns a deterministic 12-question, 144-card reflection experience into a typed browser capability for AI agents. Ten WebMCP tools let an agent start or resume a reflection, explain one choice, neutrally contrast two choices, preview one hypothetical answer change without saving it, record only explicitly confirmed answers, review and revise the current browser session, complete local deterministic scoring, retrieve public cards, and recommend a digital edition.
+              <div class="copy">MIRROR//LOOP turns a deterministic 12-question, 144-card reflection experience into a typed browser capability for AI agents. Eleven WebMCP tools let an agent start or resume a reflection, explain one choice, neutrally contrast two choices, preview one hypothetical answer change without saving it, record only explicitly confirmed answers, review and revise the current browser session, complete local deterministic scoring, retrieve public cards, recommend a digital edition, and export a local dossier after explicit confirmation.
 
 The browser page remains the authority for state and visible outcomes. Private source corpora are not exposed. Email submission, cart changes, Stripe Checkout, and payment remain visible human actions. This is not an ephemeris, diagnosis, physical-product fulfillment system, or autonomous commerce agent.
 

@@ -16,8 +16,8 @@ for (const required of [
   'id="physical_products" status="CONTRADICTED"',
   'id="autonomous_payment" status="CONTRADICTED"',
   "Do not self-award judging scores",
-  "Corrected 2:35 demo",
-  "Stop before Stripe",
+  "Final verified 1:55 demo",
+  "Email, cart mutation, Checkout creation, and payment remain human actions",
   "Freeze the reviewed eleven-tool build",
   "public repository visibility",
 ]) {

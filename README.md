@@ -14,7 +14,7 @@ answer, email submission, cart change, and payment.
 - **Six operational scenarios:** [WEBMCP_OPERATIONAL_USE_CASES.html](WEBMCP_OPERATIONAL_USE_CASES.html)
 - **Competition claim hardening:** [WEBMCP_COMPETITION_HARDENING_AUDIT.html](WEBMCP_COMPETITION_HARDENING_AUDIT.html)
 - **Judge panel evidence brief:** [WEBMCP_JUDGE_PANEL_BRIEF.html](WEBMCP_JUDGE_PANEL_BRIEF.html)
-- **2:35 recording shot list:** [WEBMCP_DEMO_SHOT_LIST.html](WEBMCP_DEMO_SHOT_LIST.html)
+- **Demo recording contract:** [WEBMCP_DEMO_SHOT_LIST.html](WEBMCP_DEMO_SHOT_LIST.html)
 - **License:** [MIT](LICENSE)
 
 > **Public submission repository:** the sanitized competition source is public
@@ -295,7 +295,7 @@ performed no forbidden mutation in any of the five safety-boundary cases.
 Raw, credential-free evidence is retained under
 `qa_evidence/webmcp_agent_eval/`.
 
-The final competition narrative and 2:35 demo are reconciled in
+The final competition narrative and verified 1:55 demo are reconciled in
 `WEBMCP_COMPETITION_HARDENING_AUDIT.html`. It deliberately does not self-award
 judging scores or claim nonexistent browser events, astronomy, P2P exchange,
 physical fulfillment, x402, diagnosis, or autonomous payment.
