@@ -2,17 +2,15 @@
 
 Tracker source: `feature_status_tracker.csv`
 
-Generated: 2026-08-31T04:39:25Z
-
 ## Totals
 
 - Total features discovered: 95
-- Current status — Verified: 63
-- Current status — Fixed: 28
-- Current status — Needs Product Decision: 4
-- Final verified after retest: 91
-- Final blocked: 0
-- Product decisions remaining: 4
+- Total verified before fixes: 63
+- Total failed before fixes: 19
+- Total fixed: 28
+- Total verified after retest: 91
+- Total still blocked: 0
+- Total needing product decision: 0
 
 ## Unresolved Critical Or High
 
@@ -21,42 +19,59 @@ Generated: 2026-08-31T04:39:25Z
 - SUB-008 `Eligibility, ownership, and third-party rights attestation` — Critical — Needs Product Decision
 - SUB-012 `Team attribution before deadline` — High — Needs Product Decision
 
-## Remaining Operator Decisions
-
-- SUB-005 `Under-three-minute narrated demo plan` — Yes — operator must authorize and publish the final video.
-- SUB-007 `Devpost project draft readiness` — Yes — creating the Devpost project is an external representational action.
-- SUB-008 `Eligibility, ownership, and third-party rights attestation` — Yes — entrant age/location/authority and asset rights.
-- SUB-012 `Team attribution before deadline` — Yes — confirm solo entry or provide teammate identities for invitation.
-
 ## Files Changed Or Audited
 
+- `web/index.html; web/styles.css`
+- `web/index.html; web/images/shattered-compass-entry.webp`
+- `web/index.html`
+- `web/index.html; web/app.js`
+- `web/app.js; web/data/quiz.json; web/styles.css`
+- `web/app.js`
+- `web/lib/quiz-core.js; api/internal/subscriber/model.go`
+- `web/app.js; web/lib/quiz-core.js; web/data/quiz.json`
 - `web/config.js`
 - `api/cmd/server/main.go; api/cmd/server/main_test.go; deploy/deploy-api.sh`
 - `api/internal/subscriber/http.go; api/internal/subscriber/http_test.go; api/internal/subscriber/service.go`
 - `api/cmd/server/main.go; api/internal/subscriber/mailer.go; api/internal/subscriber/mailer_test.go; api/internal/subscriber/http.go; api/internal/subscriber/http_test.go`
 - `web/index.html; web/privacy.html; api/internal/subscriber/mailer.go`
+- `web/confirmed.html`
 - `web/styles.css`
 - `web/app.js; api/internal/subscriber/http.go`
+- `scripts/validate-site.mjs; firebase.json; deploy/firestore.rules; api/internal/subscriber/http.go`
 - `deploy/bootstrap-gcp.sh; deploy/deploy-api.sh; deploy/firestore.indexes.json; firebase.json; web/config.js`
 - `web/app.js; web/lib/analytics.js; web/tests/analytics.test.mjs; web/privacy.html; api/internal/analytics; api/internal/subscriber/http.go; api/internal/subscriber/service.go; api/cmd/analytics-report; Makefile; docs/MirrorLoopAI_Subscriber_Magnet_Architecture_2026_08_25.html; CHANGELOG.md`
-- `web/index.html; web/styles.css`
 - `web/data/quiz.json; web/tests/quiz-core.test.mjs`
 - `web/app.js; web/lib/quiz-core.js; web/styles.css; web/index.html`
 - `web/index.html; web/app.js; scripts/validate-site.mjs`
+- `web/index.html; web/app.js; web/styles.css`
 - `web/app.js; web/index.html; web/lib/quiz-core.js; web/styles.css; web/tests/quiz-core.test.mjs`
 - `web/index.html; web/app.js; web/config.js; web/lib/webmcp.js; web/shop.html; web/shop.js; web/styles.css; web/llms.txt`
 - `api/internal/subscriber/mailer.go; api/internal/subscriber/mailer_test.go`
 - `api/internal/subscriber/model.go; api/internal/subscriber/model_test.go; api/internal/subscriber/mailer.go; api/internal/subscriber/mailer_test.go; api/internal/subscriber/service_test.go`
+- `web/shop.html; web/shop.js; web/styles.css`
+- `web/data/shop.json; web/shop.js`
+- `web/shop.html; web/shop.js`
+- `web/shop.js; web/shop.html`
+- `web/shop.js`
 - `web/config.js; web/shop.js; web/tests/shop.test.mjs`
+- `web/terms.html; web/shop.html`
+- `web/index.html; web/app.js; web/lib/webmcp.js`
+- `web/lib/webmcp.js; web/app.js`
+- `web/lib/webmcp.js; web/app.js; web/data/quiz.json`
+- `web/lib/webmcp.js; web/app.js; web/lib/quiz-core.js`
+- `web/lib/webmcp.js; web/app.js; web/data/cards.json`
+- `web/lib/webmcp.js; web/app.js; web/data/shop.json`
+- `web/lib/webmcp.js; api/internal/commerce/checkout.go`
 - `web/index.html; web/app.js; web/lib/webmcp.js; firebase.json`
 - `web/index.html; web/app.js; web/shop.js; web/styles.css`
+- `web/index.html; web/shop.html; web/terms.html; web/privacy.html`
 - `web/llms.txt; scripts/validate-site.mjs`
 - `web/app.js; web/lib/webmcp.js; web/tests/webmcp.test.mjs`
 - `web/index.html; web/app.js; web/styles.css; scripts/validate-site.mjs; CHANGELOG.md`
 - `competition_manifest.json; README.md; SUBMISSION.md; web/llms.txt; CHANGELOG.md; qa_evidence/submission_readiness/public-repository-2026-08-30.txt`
 - `README.md; package.json; scripts/validate-submission.mjs`
 - `SUBMISSION.md; scripts/validate-submission.mjs`
-- `docs/demo/narration.txt; docs/demo/youtube-description.txt; scripts/build-demo-narration.mjs; scripts/record-webmcp-demo.mjs; scripts/package-demo-video.mjs; README.md; SUBMISSION.md; package.json; CHANGELOG.md; qa_evidence/submission_demo/local-video-verification-2026-08-30.txt`
+- `docs/demo/scenes.json; docs/demo/narration.txt; scripts/build-demo-narration.mjs; scripts/record-webmcp-demo.mjs; scripts/package-demo-video.mjs; WEBMCP_DEMO_SHOT_LIST.html; WEBMCP_COMPETITION_HARDENING_AUDIT.html; README.md; SUBMISSION.md; CHANGELOG.md; qa_evidence/submission_demo/local-video-verification-2026-08-30.txt`
 - `README.md; SUBMISSION.md; scripts/validate-submission.mjs`
 - `THIRD_PARTY_NOTICES.md; README.md; SUBMISSION.md; scripts/validate-submission.mjs`
 - `SUBMISSION.md; README.md; scripts/validate-submission.mjs`
@@ -65,6 +80,7 @@ Generated: 2026-08-31T04:39:25Z
 - `web/lib/webmcp.js; web/tests/webmcp.test.mjs; web/app.js; web/index.html`
 - `web/lib/webmcp.js; web/tests/webmcp.test.mjs`
 - `web/evals/webmcp-evals.json; scripts/validate-webmcp-evals.mjs; package.json; README.md; SUBMISSION.md`
+- `firebase.json; web/index.html`
 - `scripts/run-webmcp-agent-evals.mjs; scripts/build-webmcp-agent-eval-report.mjs; scripts/validate-webmcp-agent-evidence.mjs; WEBMCP_AGENT_EVAL_REPORT.html; qa_evidence/webmcp_agent_eval/; README.md; SUBMISSION.md; package.json; package-lock.json; CHANGELOG.md; CONTINUITY.md; feature_status_tracker.csv; .gitignore`
 - `README.md; web/evals/webmcp-evals.json; scripts/validate-webmcp-evals.mjs; WEBMCP_DEMO_SHOT_LIST.html; scripts/validate-submission.mjs; CHANGELOG.md`
 - `web/evals/webmcp-campaign-evals.json; scripts/validate-webmcp-campaign-evals.mjs; scripts/run-webmcp-agent-evals.mjs; scripts/validate-webmcp-campaign-agent-evidence.mjs; scripts/build-webmcp-campaign-claim-audit.mjs; WEBMCP_CAMPAIGN_CLAIM_AUDIT.html; README.md; SUBMISSION.md; package.json; CHANGELOG.md; qa_evidence/webmcp_campaign_agent_eval/**; qa_evidence/webmcp_campaign_claim_audit/**`
@@ -97,7 +113,7 @@ Generated: 2026-08-31T04:39:25Z
 - `828ee7a`
 - `e0362b2`
 - `c6e6b0f`
-- `8ee2753; cb956ad`
+- `8ee2753; cb956ad; 79c6a28`
 - `fcde886`
 - `1c0200a`
 - `58d7d83`
@@ -118,3 +134,16 @@ Generated: 2026-08-31T04:39:25Z
 - `16bdaae`
 - `04af3d3`
 - `ab1ce3f`
+
+## Test Evidence
+
+- Test types used: `Automated + browser`, `Automated + integration + production`, `Persona walkthrough + automated + browser`, `Production cache regression`, `Automated Test + Code Review`, `Automated Test + Cross-surface Review`, `Automated Test`, `Automated Test + Accessibility Review`, `Automated Test + Content Review`, `Browser + responsive`, `Browser interaction`, `Browser + automated`, `Automated integration + production smoke`, `Content + link review`, `Automated + security`, `Automated security review`, `Production browser + Inspector`, `Browser + content`, `Automated links + browser`, `Automated content + production smoke`, `Reference comparison + automated + Chrome responsive`, `Production browser + HTTP`, `GitHub metadata inspection`, `Documentation audit`, `Content audit`, `Artifact + content audit`, `Git + documentation audit`, `Authenticated browser + checklist audit`, `Compliance checklist`, `Operations documentation audit`, `Content + evidence audit`, `Browser compatibility`, `Link inventory + content review`, `Code review + automated lifecycle test`, `Automated contract-budget test`, `Eval dataset validation`, `Header and source review`, `Live browser-agent evaluation + deterministic scorer`, `Corpus-policy consistency review from live model evidence`, `Source-to-claim audit + deterministic corpus + live browser-agent evaluation`, `Source-to-contract audit + six-case deterministic corpus + live browser-agent evaluation`, `Claim-to-code audit + security boundary regression + submission/document validation`, `Documentation claim audit + HTML/XML validation + submission regression`, `Source-to-claim audit + browser accessibility/animation inspection + submission regression`, `Source-to-claim audit + generated StrategiX matrix + browser/submission regression`, `Production HTTP route + completed-quiz browser flow + adjacent subscriber regression`, `Source inspection + browser-local storage unit and end-to-end behavior`, `Source inspection + HTTP handler tests + responsive browser rendering`, `Production visual regression + CSP/resource loading + handler semantics`, `Cross-device confirmation UX + privacy + email delivery + browser rendering`, `Mailer payload + service lifecycle + privacy disclosure + regression`, `Authenticated Devpost team-state inspection`, `Unit + site contract + real browser registration/invocation + responsive production regression`, `Source baseline + unit contract + browser state-preservation + active-doc/manifest validation`, `Source baseline + pure scoring simulation + strict schema + browser state-preservation + active-doc/manifest validation`, `Source baseline + deterministic artifact generation + strict schema + real browser download + network-egress regression`, `CLI integration + headless browser + CI configuration`, `Documentation contract + deterministic corpus validation + StrategiX demo artifact validation`
+- Commands run are not captured as a dedicated tracker column, so this report only summarizes tracker-backed test evidence.
+
+## Coverage Gaps
+
+- No explicit coverage gaps recorded
+
+## Recommended Next Pass
+
+- Resolve the remaining unresolved critical/high rows before expanding scope.
