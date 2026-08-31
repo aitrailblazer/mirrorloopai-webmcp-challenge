@@ -1,50 +1,67 @@
 MIRROR//LOOP submission demo local verification
-verified_at_utc=2026-08-31T04:17:32Z
+verified_at_utc=2026-08-31T06:42:00Z
 source=https://mirrorloopai.com/
 driver=production WebMCP definitions through documented modelContext-compatible recording harness
 external_model_selection_claim=false
+
+--- narration contract ---
+voice=Apple Ava (Premium)
+speech_rate_words_per_minute=175
+scene_count=13
+caption_cue_count=32
+narration_duration_seconds=132.867
+narration_normalization=-16 LUFS target / -1.5 dBTP ceiling
+canonical_timeline=docs/demo/scenes.json
+
 --- final media probe ---
-{
-    "programs": [
+video_codec=h264
+audio_codec=aac
+width=1440
+height=900
+frame_rate=25/1
+duration_seconds=132.867
+size_bytes=12324173
 
-    ],
-    "stream_groups": [
+--- synchronization ---
+video_input_seconds=134.840
+video_trim_start_seconds=1.188
+trimmed_video_input_seconds=133.652
+audio_input_seconds=132.867
+caption_end_seconds=131.767
+final_seconds=132.867
+audio_video_drift_milliseconds=0
+maximum_observed_scene_timing_drift_milliseconds=3
+captions_within_narration=true
 
-    ],
-    "streams": [
-        {
-            "index": 0,
-            "codec_name": "h264",
-            "codec_type": "video",
-            "width": 1440,
-            "height": 900,
-            "r_frame_rate": "25/1"
-        },
-        {
-            "index": 1,
-            "codec_name": "aac",
-            "codec_type": "audio",
-            "r_frame_rate": "0/0"
-        }
-    ],
-    "format": {
-        "duration": "115.004989",
-        "size": "7277159"
-    }
-}
---- captions probe ---
-{
-    "format": {
-        "format_name": "srt"
-    }
-}
---- audio levels ---
-[Parsed_volumedetect_0 @ 0x7cd0835500] mean_volume: -17.2 dB
-[Parsed_volumedetect_0 @ 0x7cd0835500] max_volume: -1.2 dB
---- decode gate ---
-decode=PASS
+--- captions ---
+format=srt
+cues=32
+parser_errors=0
+maximum_lines_per_cue=2
+maximum_characters_per_line=42
+
+--- audio measurement ---
+integrated_loudness=-15.9 LUFS
+loudness_range=2.0 LU
+true_peak=-1.5 dBFS
+
+--- decode and visual review gates ---
+full_ffmpeg_decode=PASS
+contact_sheet=docs/demo/output/demo-contact-sheet-v2.png
+visual_review=PASS
+visible_sync=gold focus spotlight + dimmed surround + plain-language explanation rail driven by the same 13-scene timeline as narration and captions
+
 --- hashes ---
-50ab48c16d32a0f48d407f02f7dbefdee770a8786fdc2c495c9439a8c6455d5b  docs/demo/narration.txt
-3515ee37bfe15bbca36eb1b29489c3b49007f039242384b2b024b4238fa078f4  docs/demo/output/mirrorloop-webmcp-challenge-demo.mp4
-67cb732cfbb793eb449a160839098f6b94a68d17f45058f6a65508246ca337e5  docs/demo/output/mirrorloop-webmcp-demo.srt
-a2d501a3e76ec467e6ee8f7012df010c1bbd0b4789b35fd6f8b72f4f77832d77  docs/demo/output/demo-contact-sheet.png
+36aa991fdc33bae46214923d5fac9ca2c87fc50f514ff3c43897464a813b1fbc  docs/demo/output/mirrorloop-webmcp-challenge-demo.mp4
+bed3dbbd8b177a37ce0979e39683931999d326a132f01af87e91044d278fedca  docs/demo/output/mirrorloop-webmcp-demo.srt
+
+--- iCloud package ---
+path=/Users/constantinevassilev02/Library/Mobile Documents/com~apple~CloudDocs/MIRROR LOOP/WebMCP Challenge Submission/MIRRORLOOP-WebMCP-Challenge-Demo-2m13s.mp4
+copied_video_sha256=36aa991fdc33bae46214923d5fac9ca2c87fc50f514ff3c43897464a813b1fbc
+copied_caption_sha256=bed3dbbd8b177a37ce0979e39683931999d326a132f01af87e91044d278fedca
+copy_integrity=PASS
+
+--- publication boundary ---
+local_under_three_minute_candidate=PASS
+public_youtube_upload=PENDING_OPERATOR_ACTION
+anonymous_youtube_playback=PENDING_OPERATOR_ACTION

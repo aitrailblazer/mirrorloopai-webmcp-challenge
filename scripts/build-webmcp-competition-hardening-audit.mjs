@@ -82,13 +82,13 @@ const html = `<!doctype html>
     <Run name="campaign" cases="10" exact_tool_selection="10" required_order="10" no_tool_boundaries="5"/>
     <Run name="operational" cases="6" exact_cases="6" exact_calls="8"/>
   </Evidence>
-  <DemoContract duration_verified="1:55.005" maximum="3:00">
-    <Beat order="1">Show the live page and WebMCP ready · 11 tools.</Beat>
+  <DemoContract duration_verified="2:12.867" maximum="3:00" voice="Apple Ava Premium" scenes="13" caption_cues="32" audio_video_drift_ms="0">
+    <Beat order="1">Establish the site-owned contract, then show WebMCP ready · 11 tools and the Agent State rail.</Beat>
     <Beat order="2">Start a reflection, read the current question, and compare two choices without selecting either.</Beat>
     <Beat order="3">Demonstrate failed unconfirmed recording, then explicit confirmation and visible step transition.</Beat>
-    <Beat order="4">Use a prepared eleven-answer state, confirm the twelfth answer, and complete deterministic local scoring.</Beat>
-    <Beat order="5">Retrieve Card 004 and show its bounded action.</Beat>
-    <Beat order="6">Recommend a matching digital ARC edition, then stop before Stripe.</Beat>
+    <Beat order="4">Use a prepared human-confirmed state and complete deterministic local scoring.</Beat>
+    <Beat order="5">Preview one hypothetical answer without mutation, then retrieve an exact public card.</Beat>
+    <Beat order="6">Recommend a matching digital ARC edition and export a confirmed local dossier.</Beat>
     <Beat order="7">Close with the human-agent authority boundary and public evidence links.</Beat>
   </DemoContract>
   <DecisionLog>
@@ -174,14 +174,15 @@ const html = `<!doctype html>
               </div>
             </section>
             <section>
-              <h2>Final verified 1:55 demo</h2>
+              <h2>Final verified 2:13 demo</h2>
               <div class="beats">
-                <div class="beat"><strong>0:00–0:24</strong><p>Open the live site, show “WebMCP ready · 11 tools,” and expand the Agent State rail.</p></div>
-                <div class="beat"><strong>0:24–0:50</strong><p>Start the reflection, compare two choices without selecting either, reject an unconfirmed answer, then confirm it.</p></div>
-                <div class="beat"><strong>0:50–1:16</strong><p>Complete deterministic local scoring and preview one hypothetical answer change without mutating state.</p></div>
-                <div class="beat"><strong>1:16–1:40</strong><p>Retrieve a public card, recommend a digital edition, and export a local dossier after explicit confirmation.</p></div>
-                <div class="beat"><strong>1:40–1:55</strong><p>Close with the human authority boundary and public evidence links.</p></div>
+                <div class="beat"><strong>0:00–0:22</strong><p>Establish the page-owned contract, show “WebMCP ready · 11 tools,” and focus the Agent State rail.</p></div>
+                <div class="beat"><strong>0:22–0:58</strong><p>Start the reflection, compare two choices without selecting either, reject an unconfirmed answer, then confirm it.</p></div>
+                <div class="beat"><strong>0:58–1:17</strong><p>Load the prepared human-confirmed state and complete deterministic local scoring.</p></div>
+                <div class="beat"><strong>1:17–1:57</strong><p>Preview without mutation, retrieve a card, recommend a digital edition, and export a local dossier.</p></div>
+                <div class="beat"><strong>1:57–2:13</strong><p>Close with the human authority boundary and public evidence links.</p></div>
               </div>
+              <p>Apple <strong>Ava (Premium)</strong> narration, 32 SRT cues, the plain-language explanation rail, and gold focus highlighting share one 13-scene timeline. The packaged candidate measures 0 milliseconds of audio/video drift.</p>
             </section>
             <section>
               <h2>Copy-ready Devpost core</h2>

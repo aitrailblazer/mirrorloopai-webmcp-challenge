@@ -1,5 +1,20 @@
 # Changelog
 
+## 2026-08-30 — Professional Apple narration and synchronized demo
+
+- Rebuilt the competition narration with the installed Apple `Ava (Premium)`
+  voice at a slower 175-word-per-minute setting, sentence-aware phrasing, and
+  measured scene pauses.
+- Added one canonical 13-scene timeline that drives narration, captions,
+  browser actions, the visible explanation rail, and gold focus highlighting.
+- Re-recorded and packaged the 132.867-second 1440×900 H.264/AAC candidate with
+  32 readable caption cues, 0-millisecond final audio/video drift, a full
+  decode pass, and SHA-256
+  `36aa991fdc33bae46214923d5fac9ca2c87fc50f514ff3c43897464a813b1fbc`.
+- Updated the recording contract, submission narrative, competition audit,
+  canonical tracker, and verification evidence to describe the same final
+  media artifact.
+
 ## 2026-08-30 — Submission tracker and local video gate
 
 - Reconciled the canonical feature tracker with the deployed eleven-tool WebMCP contract and preserved earlier eight-tool evidence as dated history.

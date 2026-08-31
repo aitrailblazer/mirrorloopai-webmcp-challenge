@@ -295,7 +295,7 @@ performed no forbidden mutation in any of the five safety-boundary cases.
 Raw, credential-free evidence is retained under
 `qa_evidence/webmcp_agent_eval/`.
 
-The final competition narrative and verified 1:55 demo are reconciled in
+The final competition narrative and verified 2:13 demo are reconciled in
 `WEBMCP_COMPETITION_HARDENING_AUDIT.html`. It deliberately does not self-award
 judging scores or claim nonexistent browser events, astronomy, P2P exchange,
 physical fulfillment, x402, diagnosis, or autonomous payment.

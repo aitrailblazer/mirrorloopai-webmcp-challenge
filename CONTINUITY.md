@@ -53,8 +53,10 @@ State:
 - The private repository history has been rewritten and pushed after removing the unnecessary billing-account metadata and synthetic E2E participant alias; current local and remote main are synchronized.
 - The proposed “winning architecture” attachment is evidence material only. Its P2P, astronomical-engine, physical-product, x402, zero-egress, sub-20KB, 60fps, and judge-preference claims are excluded from submission copy because they are not implemented or measured in this repository. Its earlier tool-count freeze is superseded only by tracker-backed `WM-015`, a read-only two-choice contrast with no new persistence, identity, commerce, or payment authority.
 - `WEBMCP_DEMO_SHOT_LIST.html` provides the recording contract for the reviewed
-  eleven-tool build. A verified 1:55 local H.264/AAC demo, SRT captions, and
-  thumbnail are complete; public YouTube upload remains pending.
+  eleven-tool build. A verified 2:13 local H.264/AAC demo now uses Apple's
+  `Ava (Premium)` voice, a slower 175-word-per-minute setting, 13 synchronized
+  scene highlights, and 32 SRT caption cues; public YouTube upload remains
+  pending.
 - The six-point verified-core scope is canonical in README, submission copy, and the demo artifact. Its no-cloud claim applies only to deterministic browser scoring.
 - `WM-014` is verified: the deployed page now exposes a collapsible Agent State rail driven by privacy-filtered registration, tool-start, and tool-complete lifecycle events. It shows observed local duration and explicit answer confirmation without exposing private focus text or tool results.
 - `WM-015` is verified: `compare_choices` returns a neutral, public-data-only contrast for two choices and explicitly leaves both unselected.
@@ -72,15 +74,19 @@ Done:
 - Made the sanitized GitHub repository public, confirmed anonymous access and
   MIT license visibility, scanned all 81 commits with Gitleaks with zero
   findings, and pushed `ee22f55`.
-- Produced and fully decoded the 115.005-second, 1440x900 H.264/AAC demo,
-  prepared captions and a thumbnail, and recorded SHA-256
-  `3515ee37bfe15bbca36eb1b29489c3b49007f039242384b2b024b4238fa078f4`.
-- Copied the verified demo to iCloud Drive at
-  `MIRROR LOOP/WebMCP Challenge Submission/MIRRORLOOP-WebMCP-Challenge-Demo-1m55s.mp4`
-  and verified the copied SHA-256 matches the source.
+- Produced and fully decoded the 132.867-second, 1440x900 H.264/AAC demo with
+  Apple `Ava (Premium)` narration, 13 scene-synchronized focus states, 32
+  caption cues, 0-millisecond final audio/video drift, and SHA-256
+  `36aa991fdc33bae46214923d5fac9ca2c87fc50f514ff3c43897464a813b1fbc`.
+- The prior 1:55 candidate remains in iCloud as historical media. The polished
+  2:13 candidate, captions, thumbnail, receipt, and scene contract were copied
+  to the submission folder; the copied MP4 and SRT hashes match their sources.
 - Verified a GitHub Actions run for the submission-gate status update succeeded:
   `https://github.com/aitrailblazer/mirrorloopai-webmcp-challenge/actions/runs/33359035227`.
-- Added and browser-rendered the evidence-bounded 2:35 WebMCP demo shot list; HTML, embedded XML, exact tool inventory, timing, authority boundaries, and submission-package assertions pass.
+- Added and browser-rendered the original evidence-bounded 2:35 WebMCP demo
+  shot list, then superseded its timing with the verified synchronized 2:13
+  production candidate while preserving the exact tool inventory and authority
+  boundaries.
 - Implemented, deployed, and browser-tested `compare_choices` as the ninth read-only tool; all 792 valid two-choice pairings stay within the result budget, and production comparison leaves progress and selection unchanged.
 - Implemented and deployed the `WM-014` Agent State HUD; its prior 32/32 web tests and desktop/mobile production browser checks passed against the then-current eight-tool registration, including real wrapper invocation, keyboard collapse, bounded history, no horizontal overflow, and focus-text redaction.
 - Executed the then-current production-discovered eight-tool WebMCP contract through an
@@ -113,7 +119,8 @@ Done:
 - Committed the resource-driven implementation as `fcde886`, deployed it to Firebase Hosting, and verified the production bundle plus native eight-tool registration in isolated Chrome.
 
 Now:
-- Await explicit authorization to upload the verified demo publicly, Devpost
+- Await explicit authorization to upload the polished 2:13 demo publicly,
+  Devpost
   authentication, and the entrant eligibility/rights plus solo/team
   attestations. YouTube Studio is authenticated to the Constantine Vassilev
   channel; the Devpost login page is open but not authenticated.
@@ -173,5 +180,6 @@ Working set (files/ids/commands):
 - `docs/demo/output/mirrorloop-webmcp-demo.srt`
 - `docs/demo/output/mirrorloop-webmcp-thumbnail.png`
 - `docs/demo/output/final-video-receipt.json`
-- `/Users/constantinevassilev02/Library/Mobile Documents/com~apple~CloudDocs/MIRROR LOOP/WebMCP Challenge Submission/MIRRORLOOP-WebMCP-Challenge-Demo-1m55s.mp4`
+- `docs/demo/scenes.json`
+- `/Users/constantinevassilev02/Library/Mobile Documents/com~apple~CloudDocs/MIRROR LOOP/WebMCP Challenge Submission/MIRRORLOOP-WebMCP-Challenge-Demo-2m13s.mp4`
 - `https://github.com/aitrailblazer/mirrorloopai-webmcp-challenge/actions/runs/33359035227`

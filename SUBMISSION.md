@@ -151,7 +151,7 @@ Meaningful WebMCP work was added after the challenge began:
 The repository history is the timestamped source of truth. The competition
 entry claims only these documented extensions as challenge-period work.
 
-## Demo video — verified 1:55 candidate
+## Demo video — verified 2:13 candidate
 
 Use screen narration only or music for which the entrant owns all necessary
 rights. Do not show secret dashboards, email addresses, payment details, or
@@ -162,19 +162,21 @@ list, and publication checklist are in
 
 | Time | Visual | Narration focus |
 | --- | --- | --- |
-| 0:00–0:09 | Open the live homepage and identify the site-owned WebMCP contract. | Why a typed browser contract is stronger than reconstructing the app from prose. |
-| 0:09–0:24 | Show `WebMCP ready · 11 tools` and expand the Agent State rail. | Registration, live tool activity, local timing, and human-confirmation visibility. |
-| 0:24–0:37 | Start a reflection, request the current question, and compare two choices. | The agent clarifies using authoritative public language but does not rank or record. |
-| 0:37–0:50 | Reject an unconfirmed answer, then confirm it and advance the visible flow. | Human authority is enforced in code. |
-| 0:50–1:06 | Complete a prepared twelve-answer session. | The browser's deterministic scorer produces the result; the agent does not invent it. |
-| 1:06–1:16 | Preview one hypothetical answer change. | The projected difference is shown without mutating the saved answers or result. |
-| 1:16–1:30 | Retrieve a public card and request a matching digital edition. | All 144 cards are available; recommendation remains price-free and read-only. |
-| 1:30–1:40 | Export the reflection dossier after explicit confirmation. | Markdown or JSON is downloaded locally without requiring email or an account. |
-| 1:40–1:55 | Close on the authority boundary and public evidence links. | Meaning, identity, email, cart, and payment remain under human control. |
+| 0:00–0:22 | Establish the site-owned WebMCP contract, then show `WebMCP ready · 11 tools` and the Agent State rail. | Why the page—not the model—owns state, registration, and visible activity. |
+| 0:22–0:41 | Start a reflection, request the current question, and compare two choices. | The agent clarifies using authoritative public language but does not rank or record. |
+| 0:41–0:58 | Reject an unconfirmed answer, then confirm it and advance the visible flow. | Human authority is enforced in code. |
+| 0:58–1:17 | Load the prepared human-confirmed state and complete the twelve-answer result. | The browser's deterministic scorer produces the result; the agent does not invent it. |
+| 1:17–1:34 | Preview one hypothetical change, then retrieve a public card. | The preview is provisional and the 144-card registry is exact and curated. |
+| 1:34–1:57 | Request a matching digital edition and export the local dossier. | Commerce remains read-only; confirmed export downloads without email or an account. |
+| 1:57–2:13 | Close on the authority boundary and public evidence links. | Meaning, identity, communication, cart, and payment remain under human control. |
 
-The local candidate is 115.005 seconds, 1440×900 H.264 with AAC narration,
-has a prepared SRT caption file, passes a full decode check, and has SHA-256
-`3515ee37bfe15bbca36eb1b29489c3b49007f039242384b2b024b4238fa078f4`.
+The local candidate is 132.867 seconds, 1440×900 H.264 with AAC narration
+spoken by Apple's installed `Ava (Premium)` voice at a measured 175-word-per-
+minute setting. Thirteen scene cues synchronize the visible gold spotlight,
+plain-language explanation rail, narration, and 32-caption SRT. The packaged
+audio/video drift is 0 milliseconds, the full decode check passes, and the
+MP4 has SHA-256
+`36aa991fdc33bae46214923d5fac9ca2c87fc50f514ff3c43897464a813b1fbc`.
 Public YouTube upload and anonymous playback verification remain pending.
 
 ## Judge test path
@@ -232,7 +234,7 @@ launch, sprint, team, and workspace contexts while mapping every agent action
 to the production eleven-tool contract. A live Gemini/WebMCP Inspector run
 matched all six frozen cases and all nine expected calls exactly.
 
-The competition-wide claim matrix, verified 1:55 demo, and copy-ready
+The competition-wide claim matrix, verified 2:13 demo, and copy-ready
 core are in `WEBMCP_COMPETITION_HARDENING_AUDIT.html`. This audit separates
 implemented evidence from future concepts and explicitly excludes invented
 events, P2P exchange, astronomical calculations, physical

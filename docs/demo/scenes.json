@@ -1,0 +1,178 @@
+[
+  {
+    "id": "intro",
+    "title": "A SITE-OWNED CONTRACT",
+    "detail": "The agent uses typed capabilities instead of reconstructing the app from page text.",
+    "focus_selector": "#hero-title",
+    "caption": "Most assistants can discuss a decision. But without a site-owned contract, they must reconstruct the application from page text. MIRROR//LOOP changes that.",
+    "caption_chunks": [
+      "Most assistants can discuss a decision.",
+      "But without a site-owned contract, they must reconstruct",
+      "the application from page text.",
+      "MIRROR//LOOP changes that."
+    ],
+    "speech": "Most assistants can discuss a decision. But without a site-owned contract, they must reconstruct the application from page text. Mirror Loop changes that.",
+    "lead_ms": 900,
+    "pause_after_ms": 650
+  },
+  {
+    "id": "registration",
+    "title": "ELEVEN TOOLS · VISIBLE STATE",
+    "detail": "Registration and every tool call remain observable on the page.",
+    "focus_selector": "#agent-state-panel",
+    "caption": "On the live site, eleven typed WebMCP tools register over the same experience a person can use directly. The Agent State rail makes every call visible.",
+    "caption_chunks": [
+      "On the live site, eleven typed WebMCP tools register",
+      "over the same experience a person can use directly.",
+      "The Agent State rail makes every call visible."
+    ],
+    "speech": "On the live site, eleven typed Web M C P tools register over the same experience a person can use directly. The Agent State rail makes every call visible.",
+    "pause_after_ms": 650
+  },
+  {
+    "id": "current-question",
+    "title": "READ ONLY WHAT IS NEEDED",
+    "detail": "Question 1 of 12 · the page remains the authority for session state.",
+    "focus_selector": "#quiz-panel",
+    "caption": "The agent starts a private reflection and asks for only the current question. The page—not the model—owns the session state.",
+    "caption_chunks": [
+      "The agent starts a private reflection and asks for only the current question.",
+      "The page—not the model—owns the session state."
+    ],
+    "speech": "The agent starts a private reflection, and asks for only the current question. The page — not the model — owns the session state.",
+    "pause_after_ms": 600
+  },
+  {
+    "id": "compare",
+    "title": "COMPARE WITHOUT CHOOSING",
+    "detail": "Two meanings are clarified; neither answer is ranked, selected, or recorded.",
+    "focus_selector": "#quiz-panel",
+    "caption": "When two answers feel close, the agent can compare them in the site's own language. It clarifies the difference, but it does not rank, select, or record either choice.",
+    "caption_chunks": [
+      "When two answers feel close, the agent can compare them in the site's own language.",
+      "It clarifies the difference, but it does not rank, select, or record either choice."
+    ],
+    "speech": "When two answers feel close, the agent can compare them in the site's own language. It clarifies the difference — but it does not rank, select, or record either choice.",
+    "pause_after_ms": 700
+  },
+  {
+    "id": "rejection",
+    "title": "HUMAN AUTHORITY GATE",
+    "detail": "An answer without explicit confirmation is rejected.",
+    "focus_selector": "#agent-state-panel",
+    "caption": "Now watch the safety boundary. An unconfirmed answer is rejected. The model cannot quietly advance the reflection.",
+    "caption_chunks": [
+      "Now watch the safety boundary. An unconfirmed answer is rejected.",
+      "The model cannot quietly advance the reflection."
+    ],
+    "speech": "Now, watch the safety boundary. An unconfirmed answer is rejected. The model cannot quietly advance the reflection.",
+    "pause_after_ms": 750
+  },
+  {
+    "id": "confirmation",
+    "title": "EXPLICITLY CONFIRMED",
+    "detail": "Only the person's confirmed choice advances the visible twelve-step flow.",
+    "focus_selector": "#quiz-panel",
+    "caption": "Only after the person explicitly confirms does the browser save the answer and move to the next question.",
+    "caption_chunks": [
+      "Only after the person explicitly confirms does the browser save the answer",
+      "and move to the next question."
+    ],
+    "speech": "Only after the person explicitly confirms, does the browser save the answer — and move to the next question.",
+    "pause_after_ms": 650
+  },
+  {
+    "id": "prepared-state",
+    "title": "TWELVE CONFIRMED ANSWERS",
+    "detail": "The remaining demonstration choices are loaded into browser-local state.",
+    "focus_selector": "#quiz-panel",
+    "caption": "For this demonstration, the remaining choices were confirmed in advance. All twelve answers now exist in browser-local state.",
+    "caption_chunks": [
+      "For this demonstration, the remaining choices were confirmed in advance.",
+      "All twelve answers now exist in browser-local state."
+    ],
+    "speech": "For this demonstration, the remaining choices were confirmed in advance. All twelve answers now exist in browser-local state.",
+    "pause_after_ms": 700
+  },
+  {
+    "id": "result",
+    "title": "DETERMINISTIC RESULT",
+    "detail": "Horizon Signal · calculated by the same scorer used by the direct interface.",
+    "focus_selector": "#result-panel",
+    "caption": "The same deterministic scorer used by the direct interface now produces Horizon Signal. The agent guides the workflow; it does not invent the result.",
+    "caption_chunks": [
+      "The same deterministic scorer used by the direct interface",
+      "now produces Horizon Signal.",
+      "The agent guides the workflow; it does not invent the result."
+    ],
+    "speech": "The same deterministic scorer used by the direct interface now produces Horizon Signal. The agent guides the workflow; it does not invent the result.",
+    "pause_after_ms": 700
+  },
+  {
+    "id": "preview",
+    "title": "PROVISIONAL WHAT-IF",
+    "detail": "One alternative is simulated; the saved answers and result do not change.",
+    "focus_selector": "#agent-state-panel",
+    "caption": "Before changing anything, a what-if preview can test one alternative. It shows the projected difference, while the saved answers and visible result remain untouched.",
+    "caption_chunks": [
+      "Before changing anything, a what-if preview can test one alternative.",
+      "It shows the projected difference,",
+      "while the saved answers and visible result remain untouched."
+    ],
+    "speech": "Before changing anything, a what-if preview can test one alternative. It shows the projected difference — while the saved answers, and visible result, remain untouched.",
+    "pause_after_ms": 700
+  },
+  {
+    "id": "card",
+    "title": "THE 144-CARD PUBLIC MATRIX",
+    "detail": "The agent retrieves one exact, curated public card record.",
+    "focus_selector": "#agent-state-panel",
+    "caption": "The agent can retrieve any curated public card from the complete 144-card matrix.",
+    "caption_chunks": [
+      "The agent can retrieve any curated public card from the complete 144-card matrix."
+    ],
+    "speech": "The agent can retrieve any curated public card, from the complete one hundred and forty-four card matrix.",
+    "pause_after_ms": 650
+  },
+  {
+    "id": "edition",
+    "title": "READ-ONLY EDITION MATCH",
+    "detail": "No price · no cart mutation · no Checkout creation · no payment.",
+    "focus_selector": "#result-shop-link",
+    "caption": "It can also identify a relevant digital edition. The response contains no price and cannot touch the cart, create Checkout, or pay.",
+    "caption_chunks": [
+      "It can also identify a relevant digital edition.",
+      "The response contains no price and cannot touch the cart, create Checkout, or pay."
+    ],
+    "speech": "It can also identify a relevant digital edition. The response contains no price — and cannot touch the cart, create Checkout, or pay.",
+    "pause_after_ms": 700
+  },
+  {
+    "id": "export",
+    "title": "LOCAL DOSSIER EXPORT",
+    "detail": "A confirmed Markdown or JSON receipt is downloaded locally—without email or an account.",
+    "focus_selector": "#agent-state-panel",
+    "caption": "With one more explicit confirmation, the user can download a Markdown or JSON dossier. The export stays in the browser; no email or account is required.",
+    "caption_chunks": [
+      "With one more explicit confirmation, the user can download",
+      "a Markdown or JSON dossier.",
+      "The export stays in the browser; no email or account is required."
+    ],
+    "speech": "With one more explicit confirmation, the user can download a Markdown, or J S O N, dossier. The export stays in the browser. No email, or account, is required.",
+    "pause_after_ms": 750
+  },
+  {
+    "id": "close",
+    "title": "HUMAN IN CONTROL",
+    "detail": "mirrorloopai.com · public MIT-licensed source on GitHub",
+    "focus_selector": "#result-panel",
+    "caption": "MIRROR//LOOP removes navigation and interpretation friction while meaning, identity, communication, and payment remain under human control. Try mirrorloopai.com and inspect the MIT-licensed source on GitHub.",
+    "caption_chunks": [
+      "MIRROR//LOOP removes navigation and interpretation friction",
+      "while meaning, identity, communication, and payment remain under human control.",
+      "Try mirrorloopai.com and inspect the MIT-licensed source on GitHub."
+    ],
+    "speech": "Mirror Loop removes navigation and interpretation friction — while meaning, identity, communication, and payment remain under human control. Try mirror loop A I dot com, and inspect the M I T licensed source on GitHub.",
+    "pause_after_ms": 1100
+  }
+]

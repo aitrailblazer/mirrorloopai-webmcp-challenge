@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MIRROR//LOOP — WebMCP Demo Shot List</title>
-  <meta name="description" content="Evidence-bounded 2:35 recording plan for the MIRROR//LOOP WebMCP Challenge demo.">
+  <meta name="description" content="Evidence-bounded 2:13 recording and synchronization contract for the MIRROR//LOOP WebMCP Challenge demo.">
   <style>
     html { background:#070a12; color:#f6f0e2; font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; line-height:1.5; }
     body { margin:0; min-height:100vh; }
@@ -19,7 +19,7 @@
   <CanonicalArtifact>
     <Path>WEBMCP_DEMO_SHOT_LIST.html</Path>
     <Owner>MIRROR//LOOP</Owner>
-    <Duration target="155" maximum="180" unit="seconds"/>
+    <Duration target="133" verified="132.867" maximum="180" unit="seconds"/>
   </CanonicalArtifact>
   <Purpose>Provide a second-by-second recording contract that demonstrates only deployed, reproducible MIRROR//LOOP WebMCP behavior.</Purpose>
   <ProductContract>
@@ -38,17 +38,21 @@
     <Capability id="chrome-deployment">The production origin includes the WebMCP Origin Trial token, has been observed in Chrome DevTools, and is covered by automated registration and contract gates.</Capability>
   </VerifiedCoreRepositoryScope>
   <Workflow>
-    <Beat start="0:00" end="0:14" tool="none">Show a split title card: a chat-only path must carry twelve-step state and a 144-card catalog; the WebMCP path requests only the current question or exact card from the page-owned contract.</Beat>
-    <Beat start="0:14" end="0:30" tool="none">Open the live origin, show WebMCP ready · 11 tools, then open DevTools Application WebMCP and show all eleven registered tools.</Beat>
-    <Beat start="0:30" end="0:48" tool="start_reflection,get_current_question">Start the visible reflection and retrieve its current question.</Beat>
-    <Beat start="0:48" end="1:08" tool="explain_choice,compare_choices">Explain one unfamiliar choice and contrast it with another without ranking, selecting, or recording either one.</Beat>
-    <Beat start="1:08" end="1:28" tool="answer_reflection_question">Show rejection when confirmed_by_user is false, then confirm and advance visibly.</Beat>
-    <Beat start="1:28" end="1:48" tool="complete_reflection">Use the prepared eleven-answer recording state, confirm the twelfth answer, and complete deterministic scoring.</Beat>
-    <Beat start="1:48" end="2:05" tool="preview_answer_impact">Preview one hypothetical answer change and show that the completed answers and visible result remain unchanged.</Beat>
-    <Beat start="2:05" end="2:20" tool="get_card">Retrieve Card 004 and show its public prompt and bounded action.</Beat>
-    <Beat start="2:20" end="2:30" tool="recommend_card_edition">Recommend a matching digital edition without returning price or checkout authority.</Beat>
-    <Beat start="2:30" end="2:35" tool="none">Close on the human authority boundary and public evidence links.</Beat>
+    <Beat start="0:00" end="0:22" tool="none">Establish the site-owned contract, show WebMCP ready · 11 tools, and focus the visible Agent State rail.</Beat>
+    <Beat start="0:22" end="0:41" tool="start_reflection,get_current_question,compare_choices">Start the reflection, retrieve only the current question, and contrast two choices without selecting either.</Beat>
+    <Beat start="0:41" end="0:58" tool="answer_reflection_question">Show rejection when confirmed_by_user false is supplied, then confirm and visibly advance.</Beat>
+    <Beat start="0:58" end="1:17" tool="complete_reflection">Load the prepared human-confirmed state and complete deterministic browser scoring.</Beat>
+    <Beat start="1:17" end="1:34" tool="preview_answer_impact,get_card">Preview one hypothetical change without mutation, then retrieve one exact record from the 144-card public matrix.</Beat>
+    <Beat start="1:34" end="1:57" tool="recommend_card_edition,export_reflection_dossier">Recommend a digital edition without commerce authority, then download a confirmed local dossier.</Beat>
+    <Beat start="1:57" end="2:13" tool="none">Close on the human authority boundary and public evidence links.</Beat>
   </Workflow>
+  <MediaSynchronization>
+    <Voice engine="Apple Speech Synthesis" name="Ava (Premium)" rate="175" unit="words-per-minute"/>
+    <Timeline source="docs/demo/scenes.json" scenes="13"/>
+    <Captions format="SRT" cues="32" maximumLinesPerCue="2" maximumCharactersPerLine="42"/>
+    <Highlighting>Each scene drives a gold focus frame, dimmed surround, and plain-language explanation rail around the relevant interface state.</Highlighting>
+    <MeasuredSync audioVideoDriftMilliseconds="0" sceneTimingToleranceMilliseconds="3"/>
+  </MediaSynchronization>
   <DataOrAPIContract>
     <InputBoundary>Use only non-sensitive demonstration text and enumerated tool arguments.</InputBoundary>
     <OutputBoundary>Do not show email addresses, tokens, payment details, secret dashboards, or private corpora.</OutputBoundary>
@@ -59,7 +63,9 @@
   </Diagrams>
   <AcceptanceCriteria>
     <Criterion>The final public YouTube video is shorter than three minutes.</Criterion>
-    <Criterion>The recording has audible narration and accurate captions.</Criterion>
+    <Criterion>The recording uses Apple Ava Premium narration with natural sentence pacing and measured pauses.</Criterion>
+    <Criterion>Narration, captions, explanation rail, and visible focus highlighting share the canonical scene timeline.</Criterion>
+    <Criterion>The final audio/video drift is no more than 75 milliseconds and captions end within the narration.</Criterion>
     <Criterion>The live page visibly reports WebMCP ready · 11 tools.</Criterion>
     <Criterion>DevTools displays exactly the eleven production tools without schema errors.</Criterion>
     <Criterion>Act I contrasts coordination burden rather than claiming that a standalone model was measured and failed.</Criterion>
@@ -73,21 +79,22 @@
     <Decision date="2026-08-30">Demonstrate a deliberate rejected mutation because the human-confirmation boundary is more distinctive than an uninterrupted happy path.</Decision>
   </DecisionLog>
   <RisksAndOpenQuestions>
-    <Risk>Public YouTube upload, captions, playback, and final duration remain operator actions.</Risk>
+    <Risk>Public YouTube upload, platform caption attachment, and anonymous playback remain operator actions.</Risk>
     <Risk>WebMCP availability is browser-session dependent; verify Chrome and the Application WebMCP panel immediately before recording.</Risk>
     <Risk>A prepared eleven-answer state must not imply that the agent chose the answers; narration must state that the choices were previously confirmed by the demonstrator.</Risk>
   </RisksAndOpenQuestions>
   <SourceDigest>
-    <Source path="SUBMISSION.md">Copy-ready project description and initial 2:35 storyboard.</Source>
+    <Source path="SUBMISSION.md">Copy-ready project description and verified 2:13 storyboard.</Source>
+    <Source path="docs/demo/scenes.json">Canonical narration, caption, focus, and explanation timeline.</Source>
     <Source path="web/lib/webmcp.js">Eleven production tool definitions and authority boundaries.</Source>
     <Source path="WEBMCP_COMPETITION_HARDENING_AUDIT.html">Claim ledger and competition evidence boundary.</Source>
     <Source path="WEBMCP_AGENT_EVAL_REPORT.html">Preserved live-agent evaluation results.</Source>
     <Source path="feature_status_tracker.csv" feature="SUB-005">Canonical demo readiness story.</Source>
   </SourceDigest>
   <ImplementationNotes>
-    <Note>Record at 1920 by 1080 or higher and keep the cursor slow enough to follow.</Note>
+    <Note>The packaged competition candidate is 1440 by 900, H.264 with AAC audio.</Note>
     <Note>Prepare the eleven-answer state before recording the completion segment to stay under three minutes.</Note>
-    <Note>Pause after each tool call so the visible page response can be read.</Note>
+    <Note>Generate speech scene-by-scene so action, caption, spotlight, and spoken explanation remain synchronized.</Note>
   </ImplementationNotes>
 </StrategiXVisualSpec>
   </script>
@@ -96,16 +103,13 @@
     import { LitElement, html, css } from "https://unpkg.com/lit@3/index.js?module";
 
     const shots = [
-      { time:"0:00–0:14", tool:"Act I · contrast", visual:"Show a clean split title card. Left: “Chat-only burden” with 12-step state and 144-card catalog. Right: “Site-owned WebMCP contract” with current-question and exact-card retrieval.", voice:"A chat can discuss the reflection, but carrying every step and all 144 records inside the conversation adds coordination burden. WebMCP lets the page remain the authority.", proof:"This is an architectural contrast, not a claim that a standalone model was measured and failed." },
-      { time:"0:14–0:30", tool:"Live origin · Chrome DevTools", visual:"Open https://mirrorloopai.com/ in the verified Chrome build, frame the “WebMCP ready · 11 tools” badge, then open Application → WebMCP and show all eleven names.", voice:"The live page exposes eleven typed tools over the same visible experience a person can use directly.", proof:"Live origin, readiness badge, and exactly eleven registered tools with no schema errors." },
-      { time:"0:30–0:48", tool:"start_reflection · get_current_question", visual:"Run start_reflection, then get_current_question. Show the quiz open and the first question in both the tool result and page.", voice:"The agent requests only the active state; it does not need to scrape controls or carry the entire catalog.", proof:"Tool output and visible question agree." },
-      { time:"0:48–1:08", tool:"explain_choice · compare_choices", visual:"Explain Choice 01, then contrast Choices 01 and 06 on Question 1. Hold on the plain-language meanings and no-selection boundary.", voice:"The site supplies its authoritative public language. The agent can clarify ambiguity without ranking the options, choosing for me, or changing the quiz.", proof:"Both meanings appear; progress and selection remain unchanged." },
-      { time:"1:08–1:28", tool:"answer_reflection_question", visual:"Run once with confirmed_by_user false and show rejection. Run again with true and show the progressbar and focus advance.", voice:"A mutation without explicit confirmation fails. Once I confirm, the same visible interface advances and announces the change.", proof:"Rejected false call, successful true call, visible step transition." },
-      { time:"1:28–1:48", tool:"complete_reflection", visual:"Switch to a prepared state with eleven human-confirmed answers. Confirm answer twelve, then complete and show the deterministic result.", voice:"For recording speed, these earlier choices were already confirmed by me. The twelfth answer unlocks deterministic local scoring; the agent does not invent the result.", proof:"Incomplete completion is gated; twelve confirmed answers complete successfully." },
-      { time:"1:48–2:05", tool:"preview_answer_impact", visual:"Preview Question 4 with another choice. Show the current and projected patterns and the PROVISIONAL_PREVIEW boundary.", voice:"Before changing anything, the agent can simulate one answer. It shows the score difference without saving the hypothetical choice or altering my visible result.", proof:"Review state and visible result remain byte-for-byte unchanged." },
-      { time:"2:05–2:20", tool:"get_card", visual:"Retrieve Card 004. Show its title, public Mirror prompt, and bounded Loop action.", voice:"The same contract can retrieve any of the 144 public cards as a concrete reflection prompt and bounded action.", proof:"Card 004 returns the curated public record." },
-      { time:"2:20–2:30", tool:"recommend_card_edition", visual:"Request a matching digital ARC edition and highlight that the result contains no price and performs no purchase.", voice:"It can identify a relevant digital edition, but it cannot add to cart, create Checkout, or pay.", proof:"Read-only, price-free recommendation." },
-      { time:"2:30–2:35", tool:"Boundary close", visual:"Return to the live page and end on the site and source URLs.", voice:"The agent helps navigate. The person keeps authority over meaning, email, cart, and payment.", proof:"Human-authority boundary stated without unsupported claims." }
+      { time:"0:00–0:22", tool:"Contract · registration", visual:"Open the live origin, focus the hero, then frame “WebMCP ready · 11 tools” and the Agent State rail.", voice:"A professional Apple voice establishes the page-owned contract and visible tool lifecycle.", proof:"The live site, readiness state, and tool activity are visible without opening DevTools." },
+      { time:"0:22–0:41", tool:"start_reflection · get_current_question · compare_choices", visual:"Focus the quiz as the agent starts, reads Question 1, and contrasts two choices.", voice:"The page owns session state. The comparison clarifies meaning without ranking, selecting, or recording.", proof:"The visible question and tool result agree; no answer is selected." },
+      { time:"0:41–0:58", tool:"answer_reflection_question", visual:"Move focus to the lifecycle rail for the rejected call, then back to the quiz for the confirmed advance.", voice:"An unconfirmed mutation fails. Only explicit human confirmation advances the flow.", proof:"The rejection and confirmed transition are both visible." },
+      { time:"0:58–1:17", tool:"complete_reflection", visual:"Load the prepared human-confirmed state, then focus the Horizon Signal result.", voice:"The deterministic browser scorer—not the agent—produces the result.", proof:"Exactly twelve confirmed answers complete successfully." },
+      { time:"1:17–1:34", tool:"preview_answer_impact · get_card", visual:"Focus the lifecycle rail for the provisional preview and the exact public card lookup.", voice:"A hypothetical answer is simulated without saving; one curated card is then retrieved from the 144-card matrix.", proof:"Saved state remains unchanged and the exact card record is returned." },
+      { time:"1:34–1:57", tool:"recommend_card_edition · export_reflection_dossier", visual:"Focus the matching edition, then the export activity and downloaded local receipt.", voice:"Discovery remains price-free and read-only. Confirmed export creates a local dossier without email or an account.", proof:"No cart or payment action occurs; the local file download completes." },
+      { time:"1:57–2:13", tool:"Human authority close", visual:"Hold on the result while the explanation rail names the human-controlled boundary and public links.", voice:"Meaning, identity, communication, cart, and payment remain under human control.", proof:"The close states the authority boundary without unsupported claims." }
     ];
 
     const excluded = [
@@ -174,11 +178,11 @@
             <section>
               <div class="eyebrow">Recording contract · evidence bounded</div>
               <h1>WebMCP Demo Shot List</h1>
-              <p class="lead">A 2:35 walkthrough of the deployed MIRROR//LOOP experience. Every beat maps to a production tool, visible state change, or explicit human-authority boundary.</p>
+              <p class="lead">A synchronized 2:13 walkthrough of the deployed MIRROR//LOOP experience. Apple Ava Premium narration, captions, focus highlighting, and the explanation rail follow one canonical 13-scene timeline.</p>
               <div class="metrics">
-                <div class="metric"><strong>2:35</strong>target duration</div>
+                <div class="metric"><strong>2:13</strong>verified duration</div>
                 <div class="metric"><strong>11</strong>production tools</div>
-                <div class="metric"><strong>0</strong>agent payment actions</div>
+                <div class="metric"><strong>0 ms</strong>final A/V drift</div>
               </div>
             </section>
 
@@ -231,7 +235,7 @@
               <h2>Recording and publication gate</h2>
               <div class="checks">
                 <div class="check"><strong class="pass">Before capture</strong>Use a fresh Chrome profile with WebMCP enabled. Confirm the badge and Application → WebMCP tool list before speaking.</div>
-                <div class="check"><strong class="pass">During capture</strong>Record at 1080p or better. Hide accounts, email, tokens, payment details, private dashboards, and unrelated tabs.</div>
+                <div class="check"><strong class="pass">During capture</strong>Record at the verified 1440×900 frame or better. Hide accounts, email, tokens, payment details, private dashboards, and unrelated tabs.</div>
                 <div class="check"><strong class="pending">Before submission</strong>Publish on YouTube, keep it public and under three minutes, add accurate captions, test audio, and open it while signed out.</div>
               </div>
               <p><strong>Stop condition:</strong> if the badge does not read <code>WebMCP ready · 11 tools</code>, do not record. Restart the verified Chrome build, reopen the live origin, and recheck Application → WebMCP.</p>

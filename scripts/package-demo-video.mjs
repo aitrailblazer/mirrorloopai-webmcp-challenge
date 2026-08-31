@@ -8,13 +8,18 @@ const videoInput = resolve(outputDir, "mirrorloop-webmcp-demo-silent.webm");
 const audioInput = resolve(outputDir, "narration.aiff");
 const captions = resolve(outputDir, "mirrorloop-webmcp-demo.srt");
 const output = resolve(outputDir, "mirrorloop-webmcp-challenge-demo.mp4");
+const recordingReceipt = JSON.parse(
+  await readFile(resolve(outputDir, "recording-receipt.json"), "utf8"),
+);
 
 const videoDuration = duration(videoInput);
 const audioDuration = duration(audioInput);
-const padding = Math.max(0, audioDuration - videoDuration + 0.5);
+const trimStart = Number(recordingReceipt.trimStartSeconds ?? 0);
+const trimmedVideoDuration = Math.max(0, videoDuration - trimStart);
+const padding = Math.max(0, audioDuration - trimmedVideoDuration + 0.5);
 run("ffmpeg", [
   "-y", "-v", "error",
-  "-i", videoInput,
+  "-ss", trimStart.toFixed(3), "-i", videoInput,
   "-i", audioInput,
   "-vf", `tpad=stop_mode=clone:stop_duration=${padding.toFixed(3)}`,
   "-c:v", "libx264",
@@ -36,11 +41,18 @@ const probe = JSON.parse(run("ffprobe", [
 ]));
 const finalDuration = Number(probe.format?.duration);
 const streamTypes = new Set((probe.streams ?? []).map(({ codec_type: type }) => type));
+const captionEnd = lastCaptionEnd(await readFile(captions, "utf8"));
 if (!Number.isFinite(finalDuration) || finalDuration >= 180) {
   throw new Error(`Final video must be under 180 seconds; observed ${finalDuration}.`);
 }
 if (!streamTypes.has("video") || !streamTypes.has("audio")) {
   throw new Error("Final video must contain both video and audio streams.");
+}
+if (Math.abs(finalDuration - audioDuration) > 0.075) {
+  throw new Error(`Audio/video duration drift exceeds 75ms: ${finalDuration} vs ${audioDuration}.`);
+}
+if (captionEnd > audioDuration || audioDuration - captionEnd > 2) {
+  throw new Error(`Caption timeline is not synchronized with narration: ${captionEnd} vs ${audioDuration}.`);
 }
 
 const receipt = {
@@ -49,7 +61,10 @@ const receipt = {
   captions,
   output,
   videoInputSeconds: round(videoDuration),
+  videoTrimStartSeconds: round(trimStart),
+  trimmedVideoInputSeconds: round(trimmedVideoDuration),
   audioInputSeconds: round(audioDuration),
+  captionEndSeconds: round(captionEnd),
   finalSeconds: round(finalDuration),
   outputBytes: Number(probe.format.size),
   sha256: createHash("sha256").update(await readFile(output)).digest("hex"),
@@ -59,6 +74,8 @@ const receipt = {
     containsVideo: true,
     containsAudio: true,
     captionsFilePrepared: true,
+    audioVideoDriftMilliseconds: Math.round(Math.abs(finalDuration - audioDuration) * 1000),
+    captionsWithinNarration: true,
   },
 };
 await writeFile(
@@ -78,6 +95,18 @@ function duration(path) {
 
 function round(value) {
   return Math.round(value * 1000) / 1000;
+}
+
+function lastCaptionEnd(contents) {
+  const matches = [...contents.matchAll(/-->\s*(\d{2}):(\d{2}):(\d{2}),(\d{3})/g)];
+  if (!matches.length) throw new Error("Caption file contains no timing cues.");
+  const [, hours, minutes, seconds, milliseconds] = matches.at(-1);
+  return (
+    Number(hours) * 3600 +
+    Number(minutes) * 60 +
+    Number(seconds) +
+    Number(milliseconds) / 1000
+  );
 }
 
 function run(command, args) {
