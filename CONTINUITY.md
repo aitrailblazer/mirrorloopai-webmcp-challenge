@@ -75,6 +75,9 @@ Done:
 - Produced and fully decoded the 115.005-second, 1440x900 H.264/AAC demo,
   prepared captions and a thumbnail, and recorded SHA-256
   `3515ee37bfe15bbca36eb1b29489c3b49007f039242384b2b024b4238fa078f4`.
+- Copied the verified demo to iCloud Drive at
+  `MIRROR LOOP/WebMCP Challenge Submission/MIRRORLOOP-WebMCP-Challenge-Demo-1m55s.mp4`
+  and verified the copied SHA-256 matches the source.
 - Verified a GitHub Actions run for the submission-gate status update succeeded:
   `https://github.com/aitrailblazer/mirrorloopai-webmcp-challenge/actions/runs/33359035227`.
 - Added and browser-rendered the evidence-bounded 2:35 WebMCP demo shot list; HTML, embedded XML, exact tool inventory, timing, authority boundaries, and submission-package assertions pass.
@@ -170,4 +173,5 @@ Working set (files/ids/commands):
 - `docs/demo/output/mirrorloop-webmcp-demo.srt`
 - `docs/demo/output/mirrorloop-webmcp-thumbnail.png`
 - `docs/demo/output/final-video-receipt.json`
+- `/Users/constantinevassilev02/Library/Mobile Documents/com~apple~CloudDocs/MIRROR LOOP/WebMCP Challenge Submission/MIRRORLOOP-WebMCP-Challenge-Demo-1m55s.mp4`
 - `https://github.com/aitrailblazer/mirrorloopai-webmcp-challenge/actions/runs/33359035227`
