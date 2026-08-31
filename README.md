@@ -17,9 +17,9 @@ answer, email submission, cart change, and payment.
 - **2:35 recording shot list:** [WEBMCP_DEMO_SHOT_LIST.html](WEBMCP_DEMO_SHOT_LIST.html)
 - **License:** [MIT](LICENSE)
 
-> **Submission gate:** this repository remains private until the operator
-> completes the final secret/IP review and explicitly changes its visibility.
-> The WebMCP Challenge requires the final repository to be public.
+> **Public submission repository:** the sanitized competition source is public
+> under the MIT License. Credentials, subscriber records, private research
+> corpora, and unrelated generated artifacts are excluded.
 
 ## Why WebMCP fits
 
