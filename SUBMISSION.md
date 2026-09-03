@@ -11,7 +11,7 @@ uncertainty into one confirmed next step.
 
 **Source URL:** https://github.com/aitrailblazer/mirrorloopai-webmcp-challenge
 
-**Video URL:** PENDING — public YouTube URL required before submission.
+**Video URL:** https://youtu.be/dcLbiYJrboI
 
 ## Copy-ready description
 
@@ -151,7 +151,7 @@ Meaningful WebMCP work was added after the challenge began:
 The repository history is the timestamped source of truth. The competition
 entry claims only these documented extensions as challenge-period work.
 
-## Demo video — verified 2:13 candidate
+## Demo video — verified 2:32 candidate
 
 Use screen narration only or music for which the entrant owns all necessary
 rights. Do not show secret dashboards, email addresses, payment details, or
@@ -162,22 +162,33 @@ list, and publication checklist are in
 
 | Time | Visual | Narration focus |
 | --- | --- | --- |
-| 0:00–0:22 | Establish the site-owned WebMCP contract, then show `WebMCP ready · 11 tools` and the Agent State rail. | Why the page—not the model—owns state, registration, and visible activity. |
-| 0:22–0:41 | Start a reflection, request the current question, and compare two choices. | The agent clarifies using authoritative public language but does not rank or record. |
-| 0:41–0:58 | Reject an unconfirmed answer, then confirm it and advance the visible flow. | Human authority is enforced in code. |
-| 0:58–1:17 | Load the prepared human-confirmed state and complete the twelve-answer result. | The browser's deterministic scorer produces the result; the agent does not invent it. |
-| 1:17–1:34 | Preview one hypothetical change, then retrieve a public card. | The preview is provisional and the 144-card registry is exact and curated. |
-| 1:34–1:57 | Request a matching digital edition and export the local dossier. | Commerce remains read-only; confirmed export downloads without email or an account. |
-| 1:57–2:13 | Close on the authority boundary and public evidence links. | Meaning, identity, communication, cart, and payment remain under human control. |
+| 0:00–0:13 | MIRROR//LOOP logo, AITrailblazer identity, copyright, and WebMCP Challenge title card. | Establish who we are, what the competition explores, and why safer human-agent cooperation matters. |
+| 0:13–0:28 | Product-and-problem card. | Explain MIRROR//LOOP as a non-diagnostic reflection for stressed people facing generic advice and pseudo-solutions. |
+| 0:28–0:40 | Website-challenge card. | Explain the comprehension and navigation burden of 12 questions and 144 unfamiliar cards. |
+| 0:40–0:52 | WebMCP solution card. | Define WebMCP as named, site-owned tools with validated inputs and structured results that replace scraping and guessing. |
+| 0:52–1:03 | Competition-entry card. | Show one experience, two interfaces, and eleven bounded tools; the agent clarifies, the browser scores, and the person confirms. |
+| 1:03–1:13 | Show `WebMCP ready · 11 tools` and the Agent State rail. | Make registration and tool activity visible without DevTools. |
+| 1:13–1:29 | Start a reflection, request the current question, and compare two choices. | The agent clarifies using authoritative public language but does not rank or record. |
+| 1:29–1:41 | Reject an unconfirmed answer, then confirm it and advance the visible flow. | Human authority is enforced in code. |
+| 1:41–1:50 | Complete the twelve-answer result. | The browser's deterministic scorer produces the result; the agent does not invent it. |
+| 1:50–2:03 | Preview one hypothetical change, then retrieve a public card. | The preview is provisional and the 144-card registry is exact and curated. |
+| 2:03–2:20 | Request a matching digital edition and export the local dossier. | Commerce remains read-only; confirmed export downloads without email or an account. |
+| 2:20–2:32 | Hold a dedicated MIRROR//LOOP ending screen with live and source URLs. | Meaning, identity, communication, cart, and payment remain under human control. |
 
-The local candidate is 132.867 seconds, 1440×900 H.264 with AAC narration
+The local candidate is 152.283 seconds, 1440×900 H.264 with AAC narration
 spoken by Apple's installed `Ava (Premium)` voice at a measured 175-word-per-
-minute setting. Thirteen scene cues synchronize the visible gold spotlight,
-plain-language explanation rail, narration, and 32-caption SRT. The packaged
-audio/video drift is 0 milliseconds, the full decode check passes, and the
+minute setting. Sixteen scene cues synchronize the visible gold spotlight,
+plain-language explanation rail, narration, and 36-caption SRT. Yellow open
+captions are burned into a dedicated 180-pixel lower band so they do not cover
+page content or bottom labels. The packaged audio/video drift is 1 millisecond,
+the full decode check passes, and the
 MP4 has SHA-256
-`36aa991fdc33bae46214923d5fac9ca2c87fc50f514ff3c43897464a813b1fbc`.
-Public YouTube upload and anonymous playback verification remain pending.
+`6618296d5eb76b1262fa21412cf414bce286d7fe7422dd7ce761cfa4ef6cae9c`.
+The public YouTube upload is available at
+https://youtu.be/dcLbiYJrboI. Anonymous playback was verified on
+September 1, 2026: the public watch page loaded without an authenticated
+YouTube session, exposed the published title, and reported the complete
+2-minute-32-second media duration.
 
 ## Judge test path
 
@@ -234,7 +245,7 @@ launch, sprint, team, and workspace contexts while mapping every agent action
 to the production eleven-tool contract. A live Gemini/WebMCP Inspector run
 matched all six frozen cases and all nine expected calls exactly.
 
-The competition-wide claim matrix, verified 2:13 demo, and copy-ready
+The competition-wide claim matrix, verified 2:32 demo, and copy-ready
 core are in `WEBMCP_COMPETITION_HARDENING_AUDIT.html`. This audit separates
 implemented evidence from future concepts and explicitly excludes invented
 events, P2P exchange, astronomical calculations, physical
@@ -264,8 +275,8 @@ reflection and display a truthful fallback status.
 - [x] Confirm the MIT license is visible in the repository root and About panel.
 - [ ] Create the Devpost project and paste the copy-ready fields.
 - [x] Record, narrate, caption, and locally verify the under-three-minute demo.
-- [ ] Publish the verified demo to YouTube and confirm anonymous playback.
-- [ ] Replace the pending Video URL above and in Devpost.
+- [x] Publish the verified demo to YouTube and confirm anonymous playback.
+- [ ] Add the verified Video URL above to Devpost.
 - [x] Test the live site and public repository without authenticated access.
 - [ ] Submit before September 3, 2026 at 1:00 PM PDT.
 

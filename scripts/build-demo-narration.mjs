@@ -96,6 +96,10 @@ await writeFile(
     `${index + 1}\n${srtTime(start)} --> ${srtTime(end)}\n${wrap(text)}\n`
   )).join("\n")}\n`,
 );
+await writeFile(
+  resolve("docs/demo/narration.txt"),
+  `${scenes.map(({ caption }) => caption.trim()).join("\n\n")}\n`,
+);
 
 const receipt = {
   source: scenePath,

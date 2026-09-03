@@ -295,7 +295,7 @@ performed no forbidden mutation in any of the five safety-boundary cases.
 Raw, credential-free evidence is retained under
 `qa_evidence/webmcp_agent_eval/`.
 
-The final competition narrative and verified 2:13 demo are reconciled in
+The final competition narrative and verified 2:32 demo are reconciled in
 `WEBMCP_COMPETITION_HARDENING_AUDIT.html`. It deliberately does not self-award
 judging scores or claim nonexistent browser events, astronomy, P2P exchange,
 physical fulfillment, x402, diagnosis, or autonomous payment.
@@ -358,6 +358,13 @@ the site truthfully falls back to the complete direct experience.
 The public static site is served by Firebase Hosting. `/api/**` is rewritten to
 the Go service on Cloud Run. Firestore, Secret Manager, Cloudflare Turnstile,
 Resend, and Stripe are server-side integrations.
+
+The 24 ARC products (ARC01–ARC12, Mono and Full-Color) are stored as private
+ZIP objects in Google Cloud Storage. The signed Stripe webhook accepts only
+paid Checkout events, resolves the allowlisted SKU metadata, verifies that each
+required object exists, and then emails expiring V4-signed download links.
+Public bucket access is prevented; unpaid, invalidly signed, incomplete, or
+duplicate events cannot release a new download.
 
 Production secrets are never stored in this repository. Local backend work uses
 a Git-ignored `.env`; see `api/cmd/server/main.go` for accepted environment

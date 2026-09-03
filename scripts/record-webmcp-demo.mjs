@@ -30,9 +30,9 @@ await page.route("**/mirrorloop-demo-overlay.css", async (route) => {
     contentType: "text/css",
     body: `
       #ml-demo-caption {
-        position: fixed; z-index: 10002; left: 50%; bottom: 28px;
-        width: min(760px, calc(100vw - 96px)); transform: translateX(-50%);
-        padding: 16px 22px; border: 1px solid rgba(239,189,97,.9);
+        position: fixed; z-index: 10002; right: 30px; top: 86px;
+        width: min(580px, calc(100vw - 96px));
+        padding: 14px 20px; border: 1px solid rgba(239,189,97,.9);
         border-radius: 16px; background: rgba(7,10,18,.94); color: #f7f1e4;
         box-shadow: 0 18px 60px rgba(0,0,0,.58), inset 0 1px rgba(255,255,255,.04);
         font-family: Inter, -apple-system, BlinkMacSystemFont, sans-serif;
@@ -42,7 +42,7 @@ await page.route("**/mirrorloop-demo-overlay.css", async (route) => {
         display: block; color: #efbd61; letter-spacing: .15em;
         font-size: 12px; line-height: 1.2; margin-bottom: 6px;
       }
-      #ml-demo-caption span { display: block; font-size: 21px; line-height: 1.3; }
+      #ml-demo-caption span { display: block; color: #ffe07a; font-size: 19px; line-height: 1.32; }
       #ml-demo-spotlight {
         position: fixed; z-index: 10001; pointer-events: none; border-radius: 18px;
         border: 2px solid rgba(239,189,97,.96);
@@ -54,6 +54,50 @@ await page.route("**/mirrorloop-demo-overlay.css", async (route) => {
       @keyframes ml-demo-pulse {
         0%, 100% { box-shadow: 0 0 0 9999px rgba(2,4,12,.22), 0 0 0 7px rgba(239,189,97,.10), 0 0 25px rgba(239,189,97,.34); }
         50% { box-shadow: 0 0 0 9999px rgba(2,4,12,.22), 0 0 0 11px rgba(239,189,97,.16), 0 0 40px rgba(239,189,97,.55); }
+      }
+      #ml-demo-stage {
+        position: fixed; z-index: 10003; inset: 0; display: grid; place-items: center;
+        padding: 9vw; text-align: center; overflow: hidden;
+        background:
+          radial-gradient(circle at 50% 24%, rgba(111,56,153,.34), transparent 34%),
+          radial-gradient(circle at 50% 88%, rgba(239,189,97,.14), transparent 35%),
+          linear-gradient(145deg, #050712 0%, #101024 48%, #080b16 100%);
+        color: #f7f1e4; opacity: 0; pointer-events: none;
+        transition: opacity .28s ease;
+      }
+      #ml-demo-stage::before, #ml-demo-stage::after {
+        content: ""; position: absolute; inset: 28px; border: 1px solid rgba(239,189,97,.32);
+        border-radius: 26px; pointer-events: none;
+      }
+      #ml-demo-stage::after { inset: 38px; border-color: rgba(239,189,97,.10); }
+      #ml-demo-stage[data-visible="true"] { opacity: 1; }
+      #ml-demo-stage .stage-inner { width: min(1050px, 84vw); transform: translateY(-16px); }
+      #ml-demo-stage .stage-mark {
+        width: 76px; height: 76px; margin: 0 auto 24px; display: grid; place-items: center;
+        border: 1px solid rgba(239,189,97,.72); border-radius: 50%; color: #efbd61;
+        font: 34px/1 Georgia, serif; box-shadow: 0 0 38px rgba(239,189,97,.16);
+      }
+      #ml-demo-stage .stage-mark img { width: 58px; height: 58px; display: block; }
+      #ml-demo-stage .stage-eyebrow {
+        color: #efbd61; font: 800 14px/1.3 Inter, -apple-system, sans-serif;
+        letter-spacing: .24em; text-transform: uppercase; margin-bottom: 18px;
+      }
+      #ml-demo-stage h1 {
+        margin: 0 auto 22px; max-width: 1050px; color: #f7f1e4;
+        font: 600 clamp(48px, 6.2vw, 92px)/.98 Georgia, serif; letter-spacing: -.035em;
+      }
+      #ml-demo-stage p {
+        margin: 0 auto; max-width: 850px; color: #c9c6d2;
+        font: 500 clamp(20px, 2vw, 29px)/1.42 Inter, -apple-system, sans-serif;
+      }
+      #ml-demo-stage .stage-rule {
+        width: 160px; height: 1px; margin: 30px auto 0;
+        background: linear-gradient(90deg, transparent, #efbd61, transparent);
+      }
+      #ml-demo-stage .stage-copyright {
+        position: absolute; left: 0; right: 0; bottom: 24px;
+        color: rgba(247,241,228,.62); font: 600 12px/1.3 Inter, -apple-system, sans-serif;
+        letter-spacing: .12em; text-transform: uppercase;
       }
     `,
   });
@@ -81,7 +125,11 @@ try {
   await installDemoOverlay(page);
   contentStartedAt = Date.now();
 
-  await runScene("intro");
+  await runScene("identity");
+  await runScene("mirrorloop");
+  await runScene("website-challenge");
+  await runScene("webmcp");
+  await runScene("entry");
   await runScene("registration", async () => {
     await page.locator("#agent-state-panel").evaluate((panel) => {
       panel.open = true;
@@ -116,7 +164,7 @@ try {
       confirmed_by_user: true,
     });
   });
-  await runScene("prepared-state", async () => {
+  await runScene("result", async () => {
     const remaining = ["01", "01", "01", "01", "01", "08", "08", "08", "08", "08", "02"];
     for (const [offset, choice_code] of remaining.entries()) {
       await call(page, "answer_reflection_question", {
@@ -125,8 +173,6 @@ try {
         confirmed_by_user: true,
       });
     }
-  });
-  await runScene("result", async () => {
     const completed = await call(page, "complete_reflection", {});
     await updateDetail(
       `${completed.primary_lens.name} · ${completed.primary_lens.observed_count} of 12 responses`,
@@ -242,7 +288,19 @@ async function installDemoOverlay(pageRef) {
     caption.id = "ml-demo-caption";
     caption.setAttribute("role", "status");
     caption.innerHTML = "<strong>LIVE WEBMCP DEMO</strong><span>Preparing the production contract…</span>";
-    document.body.append(spotlight, caption);
+    const stage = document.createElement("section");
+    stage.id = "ml-demo-stage";
+    stage.setAttribute("aria-hidden", "true");
+    stage.innerHTML = `
+      <div class="stage-inner">
+        <div class="stage-mark"><img src="/favicon.svg" alt=""></div>
+        <div class="stage-eyebrow"></div>
+        <h1></h1>
+        <p></p>
+        <div class="stage-rule"></div>
+      </div>
+      <div class="stage-copyright">© 2026 AITrailblazer · MIRROR//LOOP</div>`;
+    document.body.append(spotlight, caption, stage);
   });
   await pageRef.waitForFunction(() => (
     getComputedStyle(document.querySelector("#ml-demo-caption")).position === "fixed"
@@ -250,6 +308,18 @@ async function installDemoOverlay(pageRef) {
 }
 
 async function showScene(scene) {
+  await page.evaluate((data) => {
+    const stage = document.querySelector("#ml-demo-stage");
+    const isTitle = data.mode === "title";
+    stage.dataset.visible = String(isTitle);
+    stage.setAttribute("aria-hidden", String(!isTitle));
+    document.querySelector("#ml-demo-caption").style.opacity = isTitle ? "0" : "1";
+    if (isTitle) {
+      stage.querySelector(".stage-eyebrow").textContent = data.eyebrow ?? "";
+      stage.querySelector("h1").textContent = data.title;
+      stage.querySelector("p").textContent = data.detail;
+    }
+  }, scene);
   if (scene.focus_selector) {
     const locator = page.locator(scene.focus_selector);
     if (await locator.count() && await locator.first().isVisible()) {
@@ -268,7 +338,13 @@ async function showScene(scene) {
     },
     { heading: scene.title, body: scene.detail },
   );
-  await focus(scene.focus_selector);
+  if (scene.mode === "title") {
+    await page.evaluate(() => {
+      document.querySelector("#ml-demo-spotlight").style.opacity = "0";
+    });
+  } else {
+    await focus(scene.focus_selector);
+  }
 }
 
 async function updateDetail(detail) {

@@ -1,0 +1,55 @@
+MIRROR//LOOP WebMCP Challenge video verification
+Date: 2026-08-31
+
+Artifact:
+docs/demo/output/mirrorloop-webmcp-challenge-demo.mp4
+
+Opening contract:
+1. Identifies AITrailblazer and MIRROR//LOOP with the logo, copyright,
+   The WebMCP Challenge 2026, and why safe human-agent cooperation matters.
+2. Explains MIRROR//LOOP as a reflective tool that turns 12 everyday
+   situations into one visible response pattern and one bounded next step.
+3. Explains its value in a stressed environment where narrowed attention,
+   generic advice, and AI-generated pseudo-solutions compete for trust.
+4. Explains the website challenge: 12 questions and 144 unfamiliar cards
+   create comprehension and navigation friction.
+5. Defines WebMCP as named, site-owned capabilities with validated inputs and
+   structured results that an agent can discover and invoke without scraping.
+6. Presents this competition entry as one visual human interface and one
+   bounded agent interface over the same state and rules.
+7. Particularizes that model for MIRROR//LOOP: the agent navigates and
+   clarifies; the site owns state and scoring; the person confirms meaning and
+   every state-changing choice.
+
+Closing contract:
+- Dedicated MIRROR//LOOP human-control card.
+- Displays the live site, public source repository, and MIT license.
+
+Measured output:
+- Duration: 152.283 seconds (under the 180-second competition maximum)
+- Video: H.264, 1440x900, 25 fps
+- Audio: AAC, Apple Ava (Premium) source narration at 175 WPM
+- Scenes: 16
+- Caption cues: 36
+- Open captions: burned-in yellow
+- Caption safe area: dedicated 180-pixel lower band outside page content
+- Audio/video duration difference: 1 millisecond
+- SHA-256: 6618296d5eb76b1262fa21412cf414bce286d7fe7422dd7ce761cfa4ef6cae9c
+
+Verification:
+- Full ffmpeg decode: PASS
+- Captions end within narration: PASS
+- Scene/action synchronization: PASS
+- Opening and closing frame inspection: PASS
+- npm test: PASS (46/46)
+- npm run validate: PASS
+- npm run validate:submission: PASS
+- npm run test:webmcp:competition-hardening: PASS
+- iCloud copy hash equals local master: PASS
+
+External publication gate:
+- Public YouTube URL: https://youtu.be/dcLbiYJrboI
+- Anonymous playback verification: PASS on 2026-09-01.
+- The public watch page loaded without an authenticated YouTube session,
+  displayed the published title, and exposed the complete 2:32 duration.
+- Adding the verified URL to the Devpost submission remains an operator action.

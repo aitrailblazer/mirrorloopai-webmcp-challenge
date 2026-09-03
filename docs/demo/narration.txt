@@ -1,41 +1,31 @@
-Most assistants can discuss a decision. But without a site-owned contract, they
-must reconstruct the application from page text. MIRROR//LOOP changes that.
+We are MIRROR//LOOP, an independent AITrailblazer project. Our WebMCP Challenge entry shows how site-owned tools can help a person find one clear next step without giving up control.
 
-On the live site, eleven typed WebMCP tools register over the same experience a
-person can use directly. The Agent State rail makes every call visible.
+Stress narrows attention while generic advice and AI-generated pseudo-solutions multiply. MIRROR//LOOP reveals a response pattern and turns it into one practical action.
 
-The agent starts a private reflection and asks for only the current question.
-The page—not the model—owns the session state.
+The website challenge is comprehension and navigation. A person faces twelve questions and 144 cards, while a generic agent must infer meaning from page controls.
 
-When two answers feel close, the agent can compare them in the site's own
-language. It clarifies the difference, but it does not rank, select, or record
-either choice.
+WebMCP exposes named, site-owned tools with validated inputs and structured results. The agent uses the website's contract instead of guessing from the page.
 
-Now watch the safety boundary. An unconfirmed answer is rejected. The model
-cannot quietly advance the reflection.
+Our entry turns MIRROR//LOOP into a shared human-agent experience. The agent clarifies and navigates; the browser scores; the person confirms every choice.
 
-Only after the person explicitly confirms does the browser save the answer and
-move to the next question.
+Eleven tools register over the same experience a person can use directly. The Agent State rail makes each call visible without opening DevTools.
 
-For this demonstration, the remaining choices were confirmed in advance. All
-twelve answers now exist in browser-local state.
+The agent starts a private reflection and requests only the current question. The page—not the model—owns the session state.
 
-The same deterministic scorer used by the direct interface now produces
-Horizon Signal. The agent guides the workflow; it does not invent the result.
+When two answers feel close, the agent compares them in the site's own language. It clarifies the difference but does not choose.
 
-Before changing anything, a what-if preview can test one alternative. It shows
-the projected difference, while the saved answers and visible result remain
-untouched.
+An unconfirmed answer is rejected. The model cannot quietly advance the reflection.
 
-The agent can retrieve any curated public card from the complete 144-card
-matrix.
+Only after explicit confirmation does the browser save the answer and move forward.
 
-It can also identify a relevant digital edition. The response contains no
-price and cannot touch the cart, create Checkout, or pay.
+With twelve confirmed answers, the same deterministic scorer used by the direct interface produces Horizon Signal. The agent does not invent the result.
 
-With one more explicit confirmation, the user can download a Markdown or JSON
-dossier. The export stays in the browser; no email or account is required.
+A what-if preview can test one alternative without changing the saved answers or visible result.
 
-MIRROR//LOOP removes navigation and interpretation friction while meaning,
-identity, communication, and payment remain under human control. Try
-mirrorloopai.com and inspect the MIT-licensed source on GitHub.
+The agent can retrieve any exact public card from the complete 144-card matrix.
+
+It can identify a relevant digital edition, but it cannot change the cart, create Checkout, or pay.
+
+With one more confirmation, the user downloads a local Markdown or JSON dossier. No email or account is required.
+
+MIRROR//LOOP removes comprehension and navigation friction while meaning, identity, communication, and payment remain under human control.

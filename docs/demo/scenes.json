@@ -1,178 +1,227 @@
 [
   {
-    "id": "intro",
-    "title": "A SITE-OWNED CONTRACT",
-    "detail": "The agent uses typed capabilities instead of reconstructing the app from page text.",
-    "focus_selector": "#hero-title",
-    "caption": "Most assistants can discuss a decision. But without a site-owned contract, they must reconstruct the application from page text. MIRROR//LOOP changes that.",
+    "id": "identity",
+    "mode": "title",
+    "eyebrow": "THE WEBMCP CHALLENGE · 2026",
+    "title": "MIRROR//LOOP",
+    "detail": "AITrailblazer presents a private reflection system for clearer choices. The challenge explores safer, intentional cooperation between people, websites, and AI agents.",
+    "focus_selector": "",
+    "caption": "We are MIRROR//LOOP, an independent AITrailblazer project. Our WebMCP Challenge entry shows how site-owned tools can help a person find one clear next step without giving up control.",
     "caption_chunks": [
-      "Most assistants can discuss a decision.",
-      "But without a site-owned contract, they must reconstruct",
-      "the application from page text.",
-      "MIRROR//LOOP changes that."
+      "We are MIRROR//LOOP, an independent AITrailblazer project.",
+      "Our WebMCP Challenge entry uses site-owned tools",
+      "to help a person find one clear next step without giving up control."
     ],
-    "speech": "Most assistants can discuss a decision. But without a site-owned contract, they must reconstruct the application from page text. Mirror Loop changes that.",
-    "lead_ms": 900,
-    "pause_after_ms": 650
+    "speech": "We are Mirror Loop, an independent A I Trailblazer project. Our Web M C P Challenge entry uses site-owned tools to help a person find one clear next step, without giving up control.",
+    "lead_ms": 650,
+    "pause_after_ms": 600
+  },
+  {
+    "id": "mirrorloop",
+    "mode": "title",
+    "eyebrow": "WHAT MIRROR//LOOP SOLVES",
+    "title": "Stress creates noise. More advice is not always the answer.",
+    "detail": "Twelve everyday questions reveal the response pattern a person reaches for first, then connect that insight to one practical action. It is reflection—not diagnosis.",
+    "focus_selector": "",
+    "caption": "Stress narrows attention while generic advice and AI-generated pseudo-solutions multiply. MIRROR//LOOP reveals a response pattern and turns it into one practical action.",
+    "caption_chunks": [
+      "Stress narrows attention. Generic pseudo-solutions multiply.",
+      "MIRROR//LOOP reveals a response pattern and turns it into one practical action."
+    ],
+    "speech": "Stress narrows attention, while generic advice and A I generated pseudo-solutions multiply. Mirror Loop reveals a response pattern, and turns it into one practical action. It is reflection, not diagnosis.",
+    "pause_after_ms": 550
+  },
+  {
+    "id": "website-challenge",
+    "mode": "title",
+    "eyebrow": "THE WEBSITE CHALLENGE",
+    "title": "A useful reflection can still feel like twelve forms and 144 unfamiliar choices.",
+    "detail": "People must understand each option, preserve progress, and navigate a large card library. A generic agent sees presentation markup and may guess what the site means.",
+    "focus_selector": "",
+    "caption": "The website challenge is comprehension and navigation. A person faces twelve questions and 144 cards, while a generic agent must infer meaning from page controls.",
+    "caption_chunks": [
+      "The website challenge is comprehension and navigation.",
+      "A person faces twelve questions and 144 cards,",
+      "while a generic agent must infer meaning from page controls."
+    ],
+    "speech": "The website challenge is comprehension and navigation. A person faces twelve questions and one hundred and forty-four cards, while a generic agent must infer meaning from page controls.",
+    "pause_after_ms": 550
+  },
+  {
+    "id": "webmcp",
+    "mode": "title",
+    "eyebrow": "WHAT WEBMCP SOLVES",
+    "title": "The website publishes the actions it wants an agent to use.",
+    "detail": "Named tools define valid inputs, bounded permissions, and structured results. The agent no longer needs to scrape the interface or invent the site's meaning.",
+    "focus_selector": "",
+    "caption": "WebMCP exposes named, site-owned tools with validated inputs and structured results. The agent uses the website's contract instead of guessing from the page.",
+    "caption_chunks": [
+      "WebMCP exposes site-owned tools with validated inputs and structured results.",
+      "The agent uses the website's contract instead of guessing from the page."
+    ],
+    "speech": "Web M C P exposes named, site-owned tools with validated inputs and structured results. The agent uses the website's contract, instead of guessing from the page.",
+    "pause_after_ms": 550
+  },
+  {
+    "id": "entry",
+    "mode": "title",
+    "eyebrow": "OUR COMPETITION ENTRY",
+    "title": "One experience. Two interfaces. Eleven bounded tools.",
+    "detail": "The person sees and controls the reflection. The agent reduces explanation and navigation friction. The browser owns state and scoring.",
+    "focus_selector": "",
+    "caption": "Our entry turns MIRROR//LOOP into a shared human-agent experience. The agent clarifies and navigates; the browser scores; the person confirms every choice.",
+    "caption_chunks": [
+      "Our entry turns MIRROR//LOOP into a shared human-agent experience.",
+      "The agent clarifies and navigates; the browser scores;",
+      "the person confirms every choice."
+    ],
+    "speech": "Our entry turns Mirror Loop into a shared human-agent experience. The agent clarifies and navigates. The browser scores. And the person confirms every choice.",
+    "pause_after_ms": 600
   },
   {
     "id": "registration",
     "title": "ELEVEN TOOLS · VISIBLE STATE",
-    "detail": "Registration and every tool call remain observable on the page.",
+    "detail": "The Agent State rail makes registration and every tool call visible on the page.",
     "focus_selector": "#agent-state-panel",
-    "caption": "On the live site, eleven typed WebMCP tools register over the same experience a person can use directly. The Agent State rail makes every call visible.",
+    "caption": "Eleven tools register over the same experience a person can use directly. The Agent State rail makes each call visible without opening DevTools.",
     "caption_chunks": [
-      "On the live site, eleven typed WebMCP tools register",
-      "over the same experience a person can use directly.",
-      "The Agent State rail makes every call visible."
+      "Eleven tools register over the same experience a person can use directly.",
+      "The Agent State rail makes each call visible without opening DevTools."
     ],
-    "speech": "On the live site, eleven typed Web M C P tools register over the same experience a person can use directly. The Agent State rail makes every call visible.",
-    "pause_after_ms": 650
+    "speech": "Eleven tools register over the same experience a person can use directly. The Agent State rail makes each call visible, without opening Dev Tools.",
+    "pause_after_ms": 500
   },
   {
     "id": "current-question",
     "title": "READ ONLY WHAT IS NEEDED",
     "detail": "Question 1 of 12 · the page remains the authority for session state.",
     "focus_selector": "#quiz-panel",
-    "caption": "The agent starts a private reflection and asks for only the current question. The page—not the model—owns the session state.",
+    "caption": "The agent starts a private reflection and requests only the current question. The page—not the model—owns the session state.",
     "caption_chunks": [
-      "The agent starts a private reflection and asks for only the current question.",
+      "The agent starts a private reflection and requests only the current question.",
       "The page—not the model—owns the session state."
     ],
-    "speech": "The agent starts a private reflection, and asks for only the current question. The page — not the model — owns the session state.",
-    "pause_after_ms": 600
+    "speech": "The agent starts a private reflection and requests only the current question. The page — not the model — owns the session state.",
+    "pause_after_ms": 500
   },
   {
     "id": "compare",
     "title": "COMPARE WITHOUT CHOOSING",
     "detail": "Two meanings are clarified; neither answer is ranked, selected, or recorded.",
     "focus_selector": "#quiz-panel",
-    "caption": "When two answers feel close, the agent can compare them in the site's own language. It clarifies the difference, but it does not rank, select, or record either choice.",
+    "caption": "When two answers feel close, the agent compares them in the site's own language. It clarifies the difference but does not choose.",
     "caption_chunks": [
-      "When two answers feel close, the agent can compare them in the site's own language.",
-      "It clarifies the difference, but it does not rank, select, or record either choice."
+      "When two answers feel close, the agent compares them in the site's own language.",
+      "It clarifies the difference but does not choose."
     ],
-    "speech": "When two answers feel close, the agent can compare them in the site's own language. It clarifies the difference — but it does not rank, select, or record either choice.",
-    "pause_after_ms": 700
+    "speech": "When two answers feel close, the agent compares them in the site's own language. It clarifies the difference, but does not choose.",
+    "pause_after_ms": 500
   },
   {
     "id": "rejection",
     "title": "HUMAN AUTHORITY GATE",
     "detail": "An answer without explicit confirmation is rejected.",
     "focus_selector": "#agent-state-panel",
-    "caption": "Now watch the safety boundary. An unconfirmed answer is rejected. The model cannot quietly advance the reflection.",
+    "caption": "An unconfirmed answer is rejected. The model cannot quietly advance the reflection.",
     "caption_chunks": [
-      "Now watch the safety boundary. An unconfirmed answer is rejected.",
+      "An unconfirmed answer is rejected.",
       "The model cannot quietly advance the reflection."
     ],
-    "speech": "Now, watch the safety boundary. An unconfirmed answer is rejected. The model cannot quietly advance the reflection.",
-    "pause_after_ms": 750
+    "speech": "An unconfirmed answer is rejected. The model cannot quietly advance the reflection.",
+    "pause_after_ms": 550
   },
   {
     "id": "confirmation",
     "title": "EXPLICITLY CONFIRMED",
     "detail": "Only the person's confirmed choice advances the visible twelve-step flow.",
     "focus_selector": "#quiz-panel",
-    "caption": "Only after the person explicitly confirms does the browser save the answer and move to the next question.",
+    "caption": "Only after explicit confirmation does the browser save the answer and move forward.",
     "caption_chunks": [
-      "Only after the person explicitly confirms does the browser save the answer",
-      "and move to the next question."
+      "Only after explicit confirmation does the browser save the answer",
+      "and move forward."
     ],
-    "speech": "Only after the person explicitly confirms, does the browser save the answer — and move to the next question.",
-    "pause_after_ms": 650
-  },
-  {
-    "id": "prepared-state",
-    "title": "TWELVE CONFIRMED ANSWERS",
-    "detail": "The remaining demonstration choices are loaded into browser-local state.",
-    "focus_selector": "#quiz-panel",
-    "caption": "For this demonstration, the remaining choices were confirmed in advance. All twelve answers now exist in browser-local state.",
-    "caption_chunks": [
-      "For this demonstration, the remaining choices were confirmed in advance.",
-      "All twelve answers now exist in browser-local state."
-    ],
-    "speech": "For this demonstration, the remaining choices were confirmed in advance. All twelve answers now exist in browser-local state.",
-    "pause_after_ms": 700
+    "speech": "Only after explicit confirmation, does the browser save the answer and move forward.",
+    "pause_after_ms": 500
   },
   {
     "id": "result",
     "title": "DETERMINISTIC RESULT",
-    "detail": "Horizon Signal · calculated by the same scorer used by the direct interface.",
+    "detail": "Twelve browser-local answers · Horizon Signal · the agent does not invent the result.",
     "focus_selector": "#result-panel",
-    "caption": "The same deterministic scorer used by the direct interface now produces Horizon Signal. The agent guides the workflow; it does not invent the result.",
+    "caption": "With twelve confirmed answers, the same deterministic scorer used by the direct interface produces Horizon Signal. The agent does not invent the result.",
     "caption_chunks": [
-      "The same deterministic scorer used by the direct interface",
-      "now produces Horizon Signal.",
-      "The agent guides the workflow; it does not invent the result."
+      "With twelve confirmed answers, the deterministic browser scorer",
+      "produces Horizon Signal.",
+      "The agent does not invent the result."
     ],
-    "speech": "The same deterministic scorer used by the direct interface now produces Horizon Signal. The agent guides the workflow; it does not invent the result.",
-    "pause_after_ms": 700
+    "speech": "With twelve confirmed answers, the deterministic browser scorer produces Horizon Signal. The agent does not invent the result.",
+    "pause_after_ms": 550
   },
   {
     "id": "preview",
     "title": "PROVISIONAL WHAT-IF",
-    "detail": "One alternative is simulated; the saved answers and result do not change.",
+    "detail": "One alternative is simulated; saved answers and the visible result do not change.",
     "focus_selector": "#agent-state-panel",
-    "caption": "Before changing anything, a what-if preview can test one alternative. It shows the projected difference, while the saved answers and visible result remain untouched.",
+    "caption": "A what-if preview can test one alternative without changing the saved answers or visible result.",
     "caption_chunks": [
-      "Before changing anything, a what-if preview can test one alternative.",
-      "It shows the projected difference,",
-      "while the saved answers and visible result remain untouched."
+      "A what-if preview can test one alternative",
+      "without changing the saved answers or visible result."
     ],
-    "speech": "Before changing anything, a what-if preview can test one alternative. It shows the projected difference — while the saved answers, and visible result, remain untouched.",
-    "pause_after_ms": 700
+    "speech": "A what-if preview can test one alternative, without changing the saved answers or visible result.",
+    "pause_after_ms": 500
   },
   {
     "id": "card",
     "title": "THE 144-CARD PUBLIC MATRIX",
     "detail": "The agent retrieves one exact, curated public card record.",
     "focus_selector": "#agent-state-panel",
-    "caption": "The agent can retrieve any curated public card from the complete 144-card matrix.",
+    "caption": "The agent can retrieve any exact public card from the complete 144-card matrix.",
     "caption_chunks": [
-      "The agent can retrieve any curated public card from the complete 144-card matrix."
+      "The agent can retrieve any exact public card",
+      "from the complete 144-card matrix."
     ],
-    "speech": "The agent can retrieve any curated public card, from the complete one hundred and forty-four card matrix.",
-    "pause_after_ms": 650
+    "speech": "The agent can retrieve any exact public card, from the complete one hundred and forty-four card matrix.",
+    "pause_after_ms": 500
   },
   {
     "id": "edition",
     "title": "READ-ONLY EDITION MATCH",
     "detail": "No price · no cart mutation · no Checkout creation · no payment.",
     "focus_selector": "#result-shop-link",
-    "caption": "It can also identify a relevant digital edition. The response contains no price and cannot touch the cart, create Checkout, or pay.",
+    "caption": "It can identify a relevant digital edition, but it cannot change the cart, create Checkout, or pay.",
     "caption_chunks": [
-      "It can also identify a relevant digital edition.",
-      "The response contains no price and cannot touch the cart, create Checkout, or pay."
+      "It can identify a relevant digital edition,",
+      "but it cannot change the cart, create Checkout, or pay."
     ],
-    "speech": "It can also identify a relevant digital edition. The response contains no price — and cannot touch the cart, create Checkout, or pay.",
-    "pause_after_ms": 700
+    "speech": "It can identify a relevant digital edition, but it cannot change the cart, create Checkout, or pay.",
+    "pause_after_ms": 500
   },
   {
     "id": "export",
     "title": "LOCAL DOSSIER EXPORT",
     "detail": "A confirmed Markdown or JSON receipt is downloaded locally—without email or an account.",
     "focus_selector": "#agent-state-panel",
-    "caption": "With one more explicit confirmation, the user can download a Markdown or JSON dossier. The export stays in the browser; no email or account is required.",
+    "caption": "With one more confirmation, the user downloads a local Markdown or JSON dossier. No email or account is required.",
     "caption_chunks": [
-      "With one more explicit confirmation, the user can download",
-      "a Markdown or JSON dossier.",
-      "The export stays in the browser; no email or account is required."
+      "After confirmation, the user downloads a local Markdown or JSON dossier.",
+      "No email or account is required."
     ],
-    "speech": "With one more explicit confirmation, the user can download a Markdown, or J S O N, dossier. The export stays in the browser. No email, or account, is required.",
-    "pause_after_ms": 750
+    "speech": "With one more confirmation, the user downloads a local Markdown, or J S O N, dossier. No email or account is required.",
+    "pause_after_ms": 550
   },
   {
     "id": "close",
-    "title": "HUMAN IN CONTROL",
-    "detail": "mirrorloopai.com · public MIT-licensed source on GitHub",
-    "focus_selector": "#result-panel",
-    "caption": "MIRROR//LOOP removes navigation and interpretation friction while meaning, identity, communication, and payment remain under human control. Try mirrorloopai.com and inspect the MIT-licensed source on GitHub.",
+    "mode": "title",
+    "eyebrow": "MIRROR//LOOP · HUMAN IN CONTROL",
+    "title": "Reflection without surrendering agency.",
+    "detail": "LIVE: mirrorloopai.com · SOURCE: github.com/aitrailblazer/mirrorloopai-webmcp-challenge · MIT LICENSE",
+    "focus_selector": "",
+    "caption": "MIRROR//LOOP removes comprehension and navigation friction while meaning, identity, communication, and payment remain under human control.",
     "caption_chunks": [
-      "MIRROR//LOOP removes navigation and interpretation friction",
-      "while meaning, identity, communication, and payment remain under human control.",
-      "Try mirrorloopai.com and inspect the MIT-licensed source on GitHub."
+      "MIRROR//LOOP removes comprehension and navigation friction",
+      "while meaning, identity, communication, and payment remain under human control."
     ],
-    "speech": "Mirror Loop removes navigation and interpretation friction — while meaning, identity, communication, and payment remain under human control. Try mirror loop A I dot com, and inspect the M I T licensed source on GitHub.",
-    "pause_after_ms": 1100
+    "speech": "Mirror Loop removes comprehension and navigation friction, while meaning, identity, communication, and payment remain under human control. Try mirror loop A I dot com.",
+    "pause_after_ms": 900
   }
 ]

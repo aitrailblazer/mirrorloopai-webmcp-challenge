@@ -17,11 +17,21 @@ const audioDuration = duration(audioInput);
 const trimStart = Number(recordingReceipt.trimStartSeconds ?? 0);
 const trimmedVideoDuration = Math.max(0, videoDuration - trimStart);
 const padding = Math.max(0, audioDuration - trimmedVideoDuration + 0.5);
+const escapedCaptions = captions
+  .replaceAll("\\", "\\\\")
+  .replaceAll(":", "\\:")
+  .replaceAll("'", "\\'");
+const videoFilter = [
+  "scale=1152:720:flags=lanczos",
+  "pad=1440:900:144:0:color=0x050712",
+  `subtitles='${escapedCaptions}':force_style='FontName=Arial,FontSize=15,PrimaryColour=&H0066D1FF,OutlineColour=&H00000000,BackColour=&H80000000,BorderStyle=3,Outline=1,Shadow=0,Alignment=2,MarginL=35,MarginR=35,MarginV=20'`,
+  `tpad=stop_mode=clone:stop_duration=${padding.toFixed(3)}`,
+].join(",");
 run("ffmpeg", [
   "-y", "-v", "error",
   "-ss", trimStart.toFixed(3), "-i", videoInput,
   "-i", audioInput,
-  "-vf", `tpad=stop_mode=clone:stop_duration=${padding.toFixed(3)}`,
+  "-vf", videoFilter,
   "-c:v", "libx264",
   "-preset", "medium",
   "-crf", "20",
@@ -74,6 +84,9 @@ const receipt = {
     containsVideo: true,
     containsAudio: true,
     captionsFilePrepared: true,
+    openCaptionsBurnedIn: true,
+    captionColor: "yellow",
+    captionSafeArea: "Dedicated 180px lower band outside the 1152x720 scaled page content.",
     audioVideoDriftMilliseconds: Math.round(Math.abs(finalDuration - audioDuration) * 1000),
     captionsWithinNarration: true,
   },

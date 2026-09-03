@@ -60,12 +60,15 @@ const checks = [
     "Creativity & Ambition",
   ].every((criterion) => submission.includes(criterion))],
   ["Submission demo receipt", [
-    "verified 2:13 candidate",
-    "132.867 seconds",
+    "verified 2:32 candidate",
+    "152.283 seconds",
     "1440×900 H.264",
     "Ava (Premium)",
-    "0 milliseconds",
-    "Public YouTube upload and anonymous playback verification remain pending",
+    "1 millisecond",
+    "Yellow open",
+    "180-pixel lower band",
+    "https://youtu.be/dcLbiYJrboI",
+    "Anonymous playback was verified",
   ].every((term) => submission.includes(term))],
   ["Verified core repository scope", [
     "Eleven typed tools",
@@ -77,7 +80,7 @@ const checks = [
   ].every((term) => readme.includes(term) && submission.includes(term))],
   ["Evidence-bounded demo recording contract", [
     'artifact="mirrorloop-webmcp-demo-shot-list"',
-    '<Duration target="133" verified="132.867" maximum="180" unit="seconds"/>',
+    '<Duration target="152" verified="152.283" maximum="180" unit="seconds"/>',
     "<ToolCount>11</ToolCount>",
     "confirmed_by_user false",
     "Public YouTube upload",
@@ -88,7 +91,9 @@ const checks = [
     'id="deterministic-scoring"',
     'id="chrome-deployment"',
     "Apple Ava Premium",
-    "0 ms",
+    "1 ms",
+    "open-yellow",
+    "dedicated-180px-lower-band",
     "start_reflection · get_current_question · compare_choices",
     "exactly the eleven production tools",
   ].every((term) => demoShotList.includes(term))],
@@ -127,7 +132,7 @@ const checks = [
     'id="score" status="UNRESOLVED"',
     'id="astronomy" status="CONTRADICTED"',
     'id="p2p" status="CONTRADICTED"',
-    "Final verified 2:13 demo",
+    "Final verified 2:32 demo",
     "Freeze the reviewed eleven-tool build",
   ].every((term) => competitionHardening.includes(term))],
   ["Evidence-bounded judge panel brief", [
@@ -164,10 +169,10 @@ for (const [name, passed] of checks) {
 console.log("");
 console.log("Externally verified and recorded in the canonical tracker:");
 console.log("- GitHub repository is PUBLIC, anonymously accessible, and MIT licensed.");
+console.log("- The under-three-minute YouTube demo is public and anonymously playable.");
+console.log("- The Devpost project is public.");
 console.log("");
-console.log("Remaining external gates intentionally not performed by this validator:");
-console.log("- A Devpost project must be created.");
-console.log("- A public YouTube demo under three minutes must be supplied.");
+console.log("Human attestations intentionally not inferred by this validator:");
 console.log("- The operator must complete eligibility, ownership, and rights attestations.");
 console.log("- Actual ChatGPT in-app-browser support remains optional because verified Chrome is accepted.");
 
@@ -176,4 +181,4 @@ if (fail.length) {
   process.exit(1);
 }
 
-console.log("\nLOCAL SUBMISSION PACKAGE PASS — external gates remain pending.");
+console.log("\nLOCAL SUBMISSION PACKAGE PASS.");
