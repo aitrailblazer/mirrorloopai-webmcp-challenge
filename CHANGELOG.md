@@ -1,5 +1,89 @@
 # Changelog
 
+## 2026-09-03 — Secure Stripe success-page downloads
+
+- Added a same-origin order-download endpoint that accepts only a Stripe
+  Checkout Session ID, retrieves the session directly from Stripe, and requires
+  a complete paid session with MIRROR//LOOP source, cart-version, and SKU
+  metadata before fulfillment.
+- Added a first-class success panel to `/shop` that displays purchased ARC ZIP
+  downloads immediately after Stripe returns the buyer to the site, while
+  retaining order email as a second delivery path.
+- Kept private GCS objects behind freshly generated seven-day V4 signed links;
+  invalid, foreign-origin, unpaid, incomplete, mismatched, and unknown orders
+  receive no download.
+- Added backend and storefront regression coverage for origin enforcement,
+  payment state, metadata binding, provider-error redaction, Stripe retrieval,
+  browser rendering, mobile layout, and private ZIP delivery.
+- Deployed Cloud Run revision `mirrorloopai-subscriber-00019-lrl`, repinned the
+  Firebase Hosting rewrite, and verified the existing paid Stripe sandbox order
+  returned one ARC12 Mono download whose signed response began with the ZIP
+  magic bytes `PK\x03\x04`. The verified session remained `livemode=false`;
+  no real payment was made.
+
+## 2026-09-02 — Payment-gated ARC download fulfillment
+
+- Verified all 288 high-resolution ARC card masters against the canonical
+  byte-count and SHA-256 manifest before publication.
+- Rebuilt the defective legacy ARC12 Mono archive from its 12 canonical masters
+  and uploaded all 24 ARC01–ARC12 Mono and Full-Color ZIP editions to a private,
+  versioned Google Cloud Storage bucket with Public Access Prevention.
+- Added least-privilege Cloud Run access for object verification and IAM-backed
+  V4 URL signing without service-account key files.
+- Changed the Stripe webhook so only a valid, paid Checkout event can prepare
+  expiring ARC download links; storage or signing failures remain retryable and
+  do not mark the order processed.
+- Updated buyer and owner emails plus storefront terms to describe immediate,
+  time-limited ARC delivery while retaining manual fulfillment language for the
+  four complete-deck products.
+- Verified an actual Stripe sandbox Checkout for ARC12 Mono, observed the
+  Stripe-origin webhook return HTTP 200, and confirmed the processed order in
+  Firestore. A separately signed unpaid event returned HTTP 200 without creating
+  a fulfillment record.
+- Pinned the container builder and module toolchain to Go 1.25.13; the
+  post-upgrade `govulncheck ./...` reports zero reachable vulnerabilities.
+- Read every uploaded buyer ZIP back from private GCS and fully decoded all 288
+  embedded JPEGs. Every card matched the canonical byte count, SHA-256, and
+  dimensions and met the 4096×6144 / 25-megapixel minimum.
+
+## 2026-09-01 — Compact, preview-only storefront artwork
+
+- Reduced every public ARC preview to 240×360 and every collection preview to
+  320×320 while preserving the private high-resolution source artwork.
+- Added an embedded MIRROR//LOOP preview watermark and removed image metadata.
+- Made product artwork visually compact in the catalog and cart, labeled it as
+  preview-only, and disabled casual browser dragging. These measures deter
+  reuse but do not claim that public browser imagery can be made uncopyable.
+- Increased the rendered desktop and mobile preview area after live review so
+  customers can inspect the artwork without restoring the former full-width
+  presentation.
+- Rebalanced the catalog to two columns for complete editions and three
+  columns for individual ARCs on desktop, allowing the preview imagery to use
+  its available low-resolution dimensions instead of remaining width-bound.
+
+## 2026-08-31 — Product-led, competition-framed WebMCP demo
+
+- Reordered the opening to establish AITrailblazer and MIRROR//LOOP identity,
+  logo, copyright, competition context, product value, website challenge,
+  WebMCP solution, and the competition entry before live tool execution.
+- Added dedicated full-screen opening cards that explain what MIRROR//LOOP
+  does, explain its value in a stressed environment crowded with generic
+  pseudo-solutions, define WebMCP in plain language, and show why typed,
+  site-owned capabilities fit the reflection.
+- Added the future-web justification: people retain a visual interface while
+  agents gain a bounded capability interface over the same state and rules;
+  the MIRROR//LOOP example then shows the exact start, read, explain, compare,
+  confirm, score, retrieve, recommend, and export responsibilities.
+- Replaced the in-page closing shot with a dedicated MIRROR//LOOP end card
+  containing the live-site and public-source destinations.
+- Rebuilt Apple Ava Premium narration, 36 synchronized caption cues, live
+  highlighting, and the final 152.283-second H.264/AAC candidate.
+- Burned yellow open captions into a dedicated 180-pixel lower safe band so
+  they never cover the website, the event rail, or bottom-card text.
+- Verified a one-millisecond audio/video duration difference, full
+  under-three-minute compliance, and the rendered product/problem/WebMCP/
+  solution/end frames.
+
 ## 2026-08-30 — Professional Apple narration and synchronized demo
 
 - Rebuilt the competition narration with the installed Apple `Ava (Premium)`

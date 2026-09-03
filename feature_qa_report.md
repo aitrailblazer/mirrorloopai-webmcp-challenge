@@ -4,13 +4,13 @@ Tracker source: `feature_status_tracker.csv`
 
 ## Totals
 
-- Total features discovered: 95
-- Total verified before fixes: 63
-- Total failed before fixes: 19
-- Total fixed: 28
-- Total verified after retest: 91
+- Total features discovered: 96
+- Total verified before fixes: 62
+- Total failed before fixes: 21
+- Total fixed: 30
+- Total verified after retest: 92
 - Total still blocked: 0
-- Total needing product decision: 0
+- Total needing product decision: 4
 
 ## Unresolved Critical Or High
 
@@ -55,6 +55,8 @@ Tracker source: `feature_status_tracker.csv`
 - `web/shop.js`
 - `web/config.js; web/shop.js; web/tests/shop.test.mjs`
 - `web/terms.html; web/shop.html`
+- `api/internal/commerce/downloads.go; api/internal/commerce/downloads_test.go; api/internal/commerce/fulfillment.go; api/cmd/server/main.go; web/shop.html; web/shop.js; web/styles.css; web/tests/shop.test.mjs; firebase.json; CHANGELOG.md; CONTINUITY.md; qa_evidence/secure-download-panel-2026-09-03/**`
+- `api/internal/commerce/fulfillment.go; api/internal/commerce/fulfillment_test.go; api/internal/commerce/webhook.go; api/internal/commerce/webhook_test.go; api/internal/subscriber/mailer.go; api/internal/subscriber/mailer_test.go; api/cmd/server/main.go; api/cmd/server/main_test.go; deploy/deploy-api.sh; Dockerfile; go.mod; go.sum; web/terms.html; qa_evidence/arc-fulfillment-2026-09-02/**`
 - `web/index.html; web/app.js; web/lib/webmcp.js`
 - `web/lib/webmcp.js; web/app.js`
 - `web/lib/webmcp.js; web/app.js; web/data/quiz.json`
@@ -71,7 +73,7 @@ Tracker source: `feature_status_tracker.csv`
 - `competition_manifest.json; README.md; SUBMISSION.md; web/llms.txt; CHANGELOG.md; qa_evidence/submission_readiness/public-repository-2026-08-30.txt`
 - `README.md; package.json; scripts/validate-submission.mjs`
 - `SUBMISSION.md; scripts/validate-submission.mjs`
-- `docs/demo/scenes.json; docs/demo/narration.txt; scripts/build-demo-narration.mjs; scripts/record-webmcp-demo.mjs; scripts/package-demo-video.mjs; WEBMCP_DEMO_SHOT_LIST.html; WEBMCP_COMPETITION_HARDENING_AUDIT.html; README.md; SUBMISSION.md; CHANGELOG.md; qa_evidence/submission_demo/local-video-verification-2026-08-30.txt`
+- `docs/demo/scenes.json; docs/demo/narration.txt; scripts/build-demo-narration.mjs; scripts/record-webmcp-demo.mjs; scripts/package-demo-video.mjs; WEBMCP_DEMO_SHOT_LIST.html; WEBMCP_COMPETITION_HARDENING_AUDIT.html; README.md; SUBMISSION.md; CHANGELOG.md; qa_evidence/submission_demo/local-video-verification-2026-08-30.txt; qa_evidence/submission_demo/product-webmcp-video-verification-2026-08-31.txt; qa_evidence/submission_demo/revised-opening-caption-contact-sheet-2026-08-31.png`
 - `README.md; SUBMISSION.md; scripts/validate-submission.mjs`
 - `THIRD_PARTY_NOTICES.md; README.md; SUBMISSION.md; scripts/validate-submission.mjs`
 - `SUBMISSION.md; README.md; scripts/validate-submission.mjs`
