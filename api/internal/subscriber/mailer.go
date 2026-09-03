@@ -12,6 +12,8 @@ import (
 	"net/http"
 	"strings"
 	"time"
+
+	"mirrorloopai.com/web/api/internal/commerce"
 )
 
 type LogMailer struct{}
@@ -37,7 +39,7 @@ func (LogMailer) SendOwnerQuizSubmission(_ context.Context, submission OwnerQuiz
 func (LogMailer) SendBuyerOrderReceived(
 	_ context.Context,
 	orderID, email string,
-	items []string,
+	items []commerce.OrderItem,
 ) error {
 	slog.Info("local buyer order acknowledgement generated",
 		"order_id", orderID, "email", email, "item_count", len(items))
@@ -47,7 +49,7 @@ func (LogMailer) SendBuyerOrderReceived(
 func (LogMailer) SendOwnerOrderNotification(
 	_ context.Context,
 	orderID, email string,
-	items []string,
+	items []commerce.OrderItem,
 ) error {
 	slog.Info("local owner order notification generated",
 		"order_id", orderID, "buyer_email", email, "item_count", len(items))
@@ -94,7 +96,7 @@ func (m ResendMailer) SendOwnerQuizSubmission(ctx context.Context, submission Ow
 func (m ResendMailer) SendBuyerOrderReceived(
 	ctx context.Context,
 	orderID, email string,
-	items []string,
+	items []commerce.OrderItem,
 ) error {
 	return m.sendWithKey(
 		ctx,
@@ -108,7 +110,7 @@ func (m ResendMailer) SendBuyerOrderReceived(
 func (m ResendMailer) SendOwnerOrderNotification(
 	ctx context.Context,
 	orderID, email string,
-	items []string,
+	items []commerce.OrderItem,
 ) error {
 	if strings.TrimSpace(m.OwnerEmail) == "" {
 		return errors.New("order notification email is not configured")
@@ -248,85 +250,109 @@ Review or unsubscribe from the launch list:
 	}
 }
 
-func orderReceivedEmail(orderID string, items []string) emailMessage {
+func orderReceivedEmail(orderID string, items []commerce.OrderItem) emailMessage {
 	escapedOrderID := html.EscapeString(orderID)
 	var htmlItems strings.Builder
 	var textItems strings.Builder
 	for _, item := range items {
 		htmlItems.WriteString("<li style=\"margin:0 0 8px\">")
-		htmlItems.WriteString(html.EscapeString(item))
+		htmlItems.WriteString("<strong>")
+		htmlItems.WriteString(html.EscapeString(item.Name))
+		htmlItems.WriteString("</strong>")
+		if item.DownloadURL != "" {
+			htmlItems.WriteString("<br><a style=\"color:#f4cf8b\" href=\"")
+			htmlItems.WriteString(html.EscapeString(item.DownloadURL))
+			htmlItems.WriteString("\">Download ZIP</a>")
+			textItems.WriteString("- ")
+			textItems.WriteString(item.Name)
+			textItems.WriteString("\n  Download ZIP: ")
+			textItems.WriteString(item.DownloadURL)
+			textItems.WriteString("\n")
+		} else {
+			htmlItems.WriteString("<br><span style=\"color:#a9a2b7\">Prepared separately; we will email you when it is ready.</span>")
+			textItems.WriteString("- ")
+			textItems.WriteString(item.Name)
+			textItems.WriteString(" — prepared separately\n")
+		}
 		htmlItems.WriteString("</li>")
-		textItems.WriteString("- ")
-		textItems.WriteString(item)
-		textItems.WriteString("\n")
 	}
 	content := `
 <p style="margin:0 0 20px;color:#d8d2e1;font-size:17px;line-height:1.65">Thank you. Stripe has confirmed your MIRROR//LOOP payment.</p>
 <div style="margin:0 0 24px;padding:18px;border:1px solid #38304d;border-radius:14px;background:#151221">
-  <p style="margin:0 0 8px;color:#f0bc63;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase">Please wait while we prepare your files</p>
-  <p style="margin:0;color:#ffffff;font-size:17px;line-height:1.65">Your digital edition will be delivered separately to this email address within 24 hours.</p>
+  <p style="margin:0 0 8px;color:#f0bc63;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase">Your ARC downloads are ready</p>
+  <p style="margin:0;color:#ffffff;font-size:17px;line-height:1.65">Use the private links below within seven days. Save the ZIP files to your own device.</p>
 </div>
 <p style="margin:0 0 10px;color:#ffffff;font-size:16px"><strong>Your order</strong></p>
 <ul style="margin:0 0 22px;padding-left:22px;color:#d8d2e1;font-size:15px;line-height:1.55">` + htmlItems.String() + `</ul>
 <p style="margin:0 0 18px;color:#a9a2b7;font-size:13px;line-height:1.55">Order reference: ` + escapedOrderID + `</p>
-<p style="margin:0;color:#a9a2b7;font-size:13px;line-height:1.55">If the files have not arrived after 24 hours, reply to this email. Do not send payment-card information.</p>`
+<p style="margin:0;color:#a9a2b7;font-size:13px;line-height:1.55">These links are generated only after Stripe confirms payment. If a link expires or does not work, reply to this email. Do not send payment-card information.</p>`
 	text := `MIRROR//LOOP
 
 Thank you. Stripe has confirmed your payment.
 
-PLEASE WAIT WHILE WE PREPARE YOUR FILES
-Your digital edition will be delivered separately to this email address within 24 hours.
+YOUR ARC DOWNLOADS ARE READY
+Use the private links below within seven days. Save the ZIP files to your own device.
 
 Your order:
 ` + textItems.String() + `
 Order reference: ` + orderID + `
 
-If the files have not arrived after 24 hours, reply to this email. Do not send payment-card information.`
+These links are generated only after Stripe confirms payment. If a link expires or does not work, reply to this email. Do not send payment-card information.`
 	return emailMessage{
-		subject: "Thank you — your MIRROR//LOOP order is confirmed",
+		subject: "Your MIRROR//LOOP downloads are ready",
 		html: emailDocument(
-			"Payment received. Please wait while we prepare your MIRROR//LOOP files.",
-			"Your order is confirmed",
+			"Stripe confirmed payment. Your private MIRROR//LOOP download links are ready.",
+			"Your downloads are ready",
 			content,
 		),
 		text: text,
 	}
 }
 
-func ownerOrderEmail(orderID, buyerEmail string, items []string) emailMessage {
+func ownerOrderEmail(orderID, buyerEmail string, items []commerce.OrderItem) emailMessage {
 	var htmlItems strings.Builder
 	var textItems strings.Builder
 	for _, item := range items {
 		htmlItems.WriteString("<li style=\"margin:0 0 8px\">")
-		htmlItems.WriteString(html.EscapeString(item))
+		htmlItems.WriteString(html.EscapeString(item.Name))
+		if item.DownloadURL != "" {
+			htmlItems.WriteString(" — automated secure link sent")
+		} else {
+			htmlItems.WriteString(" — manual fulfillment remains")
+		}
 		htmlItems.WriteString("</li>")
 		textItems.WriteString("- ")
-		textItems.WriteString(item)
+		textItems.WriteString(item.Name)
+		if item.DownloadURL != "" {
+			textItems.WriteString(" — automated secure link sent")
+		} else {
+			textItems.WriteString(" — manual fulfillment remains")
+		}
 		textItems.WriteString("\n")
 	}
 	content := `
-<p style="margin:0 0 18px;color:#d8d2e1;font-size:17px;line-height:1.65">A paid order needs digital fulfillment.</p>
+<p style="margin:0 0 18px;color:#d8d2e1;font-size:17px;line-height:1.65">Stripe confirmed a paid order. Available ARC ZIP links were delivered automatically.</p>
 <div style="margin:0 0 24px;padding:18px;border:1px solid #38304d;border-radius:14px;background:#151221">
   <p style="margin:0 0 8px;color:#a9a2b7;font-size:13px">Buyer</p>
   <p style="margin:0 0 16px;color:#ffffff;font-size:16px">` + html.EscapeString(buyerEmail) + `</p>
   <p style="margin:0 0 8px;color:#a9a2b7;font-size:13px">Stripe Checkout Session</p>
   <p style="margin:0;color:#ffffff;font-size:14px;overflow-wrap:anywhere">` + html.EscapeString(orderID) + `</p>
 </div>
-<p style="margin:0 0 10px;color:#ffffff;font-size:16px"><strong>Files to deliver</strong></p>
+<p style="margin:0 0 10px;color:#ffffff;font-size:16px"><strong>Fulfillment status</strong></p>
 <ul style="margin:0;padding-left:22px;color:#d8d2e1;font-size:15px;line-height:1.55">` + htmlItems.String() + `</ul>`
 	text := `MIRROR//LOOP
 
-NEW PAID ORDER — FULFILLMENT REQUIRED
+NEW PAID ORDER — FULFILLMENT STATUS
 
 Buyer: ` + buyerEmail + `
 Stripe Checkout Session: ` + orderID + `
 
-Files to deliver:
+Items:
 ` + textItems.String()
 	return emailMessage{
-		subject: "MIRROR//LOOP order received — action needed",
+		subject: "MIRROR//LOOP paid order — fulfillment status",
 		html: emailDocument(
-			"A paid MIRROR//LOOP order needs digital fulfillment.",
+			"A paid MIRROR//LOOP order was processed.",
 			"New paid order",
 			content,
 		),

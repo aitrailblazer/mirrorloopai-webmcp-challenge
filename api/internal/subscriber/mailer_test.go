@@ -9,6 +9,8 @@ import (
 	"strings"
 	"testing"
 	"time"
+
+	"mirrorloopai.com/web/api/internal/commerce"
 )
 
 type roundTripFunc func(*http.Request) (*http.Response, error)
@@ -66,7 +68,11 @@ func TestOrderEmailsSetExpectationsAndResendIdempotency(t *testing.T) {
 		ReplyTo: "constantine@aitrailblazer.com", OwnerEmail: "owner@example.com",
 		HTTPClient: client,
 	}
-	items := []string{"ARC 01 · Horizon Signal — Mono Edition"}
+	items := []commerce.OrderItem{{
+		SKU:         "arc-01-mono",
+		Name:        "ARC 01 · Horizon Signal — Mono Edition",
+		DownloadURL: "https://storage.example/arc-01-mono",
+	}}
 	if err := mailer.SendBuyerOrderReceived(
 		context.Background(), "cs_test_order", "buyer@example.com", items,
 	); err != nil {
@@ -82,7 +88,8 @@ func TestOrderEmailsSetExpectationsAndResendIdempotency(t *testing.T) {
 	}
 	buyerText, _ := payloads[0]["text"].(string)
 	for _, phrase := range []string{
-		"Thank you", "PLEASE WAIT", "within 24 hours", "ARC 01",
+		"Thank you", "DOWNLOADS ARE READY", "within seven days",
+		"ARC 01", "https://storage.example/arc-01-mono",
 	} {
 		if !strings.Contains(buyerText, phrase) {
 			t.Errorf("buyer email missing %q", phrase)
@@ -94,7 +101,8 @@ func TestOrderEmailsSetExpectationsAndResendIdempotency(t *testing.T) {
 	}
 	ownerText, _ := payloads[1]["text"].(string)
 	for _, phrase := range []string{
-		"FULFILLMENT REQUIRED", "buyer@example.com", "cs_test_order", "ARC 01",
+		"FULFILLMENT STATUS", "buyer@example.com", "cs_test_order",
+		"ARC 01", "automated secure link sent",
 	} {
 		if !strings.Contains(ownerText, phrase) {
 			t.Errorf("owner email missing %q", phrase)
@@ -110,7 +118,7 @@ func TestOrderEmailsSetExpectationsAndResendIdempotency(t *testing.T) {
 	if payloads[1]["reply_to"] != "buyer@example.com" {
 		t.Fatalf("owner reply_to=%v", payloads[1]["reply_to"])
 	}
-	if payloads[1]["subject"] != "MIRROR//LOOP order received — action needed" {
+	if payloads[1]["subject"] != "MIRROR//LOOP paid order — fulfillment status" {
 		t.Fatalf("owner subject=%v", payloads[1]["subject"])
 	}
 }

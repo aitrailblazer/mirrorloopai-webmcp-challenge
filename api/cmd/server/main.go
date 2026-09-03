@@ -82,22 +82,40 @@ func run() error {
 		return err
 	}
 	apiHandler := subscriber.NewHTTPHandler(service, cfg.allowedOrigins)
-	checkoutHandler := commerce.NewHandler(
-		commerce.HTTPStripeClient{
-			SecretKey:  cfg.stripeSecretKey,
-			SuccessURL: cfg.shopSuccessURL,
-			CancelURL:  cfg.shopCancelURL,
-		},
-		cfg.allowedOrigins,
-	)
+	stripeClient := commerce.HTTPStripeClient{
+		SecretKey:  cfg.stripeSecretKey,
+		SuccessURL: cfg.shopSuccessURL,
+		CancelURL:  cfg.shopCancelURL,
+	}
+	checkoutHandler := commerce.NewHandler(stripeClient, cfg.allowedOrigins)
 	var eventStore commerce.EventStore = commerce.NewMemoryEventStore()
 	if firestoreClient != nil {
 		eventStore = commerce.NewFirestoreEventStore(firestoreClient)
 	}
-	webhookHandler := commerce.NewWebhookHandler(
+	var fulfillment commerce.FulfillmentProvider
+	closeFulfillment := func() error { return nil }
+	if cfg.fulfillmentBucket != "" {
+		provider, err := commerce.NewGCSFulfillmentProvider(
+			ctx,
+			cfg.fulfillmentBucket,
+		)
+		if err != nil {
+			return err
+		}
+		fulfillment = provider
+		closeFulfillment = provider.Close
+	}
+	defer closeFulfillment()
+	downloadHandler := commerce.NewDownloadHandler(
+		stripeClient,
+		fulfillment,
+		cfg.allowedOrigins,
+	)
+	webhookHandler := commerce.NewFulfillmentWebhookHandler(
 		cfg.stripeWebhookSecret,
 		orderMailer,
 		eventStore,
+		fulfillment,
 	)
 	var inboundStore inbound.EventStore = inbound.NewMemoryEventStore()
 	if firestoreClient != nil {
@@ -119,6 +137,8 @@ func run() error {
 	mux := http.NewServeMux()
 	mux.Handle("/api/v1/checkout-sessions", checkoutHandler)
 	mux.Handle("/v1/checkout-sessions", checkoutHandler)
+	mux.Handle("/api/v1/order-downloads", downloadHandler)
+	mux.Handle("/v1/order-downloads", downloadHandler)
 	mux.Handle("/api/v1/stripe/webhook", webhookHandler)
 	mux.Handle("/v1/stripe/webhook", webhookHandler)
 	mux.Handle("/api/v1/resend/inbound", inboundHandler)
@@ -129,6 +149,8 @@ func run() error {
 		staticMux := http.NewServeMux()
 		staticMux.Handle("/api/v1/checkout-sessions", checkoutHandler)
 		staticMux.Handle("/v1/checkout-sessions", checkoutHandler)
+		staticMux.Handle("/api/v1/order-downloads", downloadHandler)
+		staticMux.Handle("/v1/order-downloads", downloadHandler)
 		staticMux.Handle("/api/v1/stripe/webhook", webhookHandler)
 		staticMux.Handle("/v1/stripe/webhook", webhookHandler)
 		staticMux.Handle("/api/v1/resend/inbound", inboundHandler)
@@ -167,6 +189,7 @@ type config struct {
 	turnstileSecret, staticDir                             string
 	stripeSecretKey, stripeWebhookSecret                   string
 	shopSuccessURL, shopCancelURL, orderNotificationEmail  string
+	fulfillmentBucket                                      string
 	allowedOrigins                                         []string
 	memoryStore, logEmail, challengeRequired               bool
 	resendInboundEnabled                                   bool
@@ -185,6 +208,7 @@ func loadConfig() (config, error) {
 		turnstileSecret:     strings.TrimSpace(os.Getenv("TURNSTILE_SECRET")),
 		stripeSecretKey:     strings.TrimSpace(os.Getenv("STRIPE_SECRET_KEY")),
 		stripeWebhookSecret: strings.TrimSpace(os.Getenv("STRIPE_WEBHOOK_SECRET")),
+		fulfillmentBucket:   strings.TrimSpace(os.Getenv("FULFILLMENT_BUCKET")),
 		orderNotificationEmail: env(
 			"ORDER_NOTIFICATION_EMAIL",
 			"constantine@aitrailblazer.com",
@@ -217,6 +241,9 @@ func loadConfig() (config, error) {
 	}
 	if cfg.stripeSecretKey != "" && cfg.stripeWebhookSecret == "" {
 		return config{}, errors.New("STRIPE_WEBHOOK_SECRET is required when checkout is configured")
+	}
+	if cfg.stripeSecretKey != "" && cfg.fulfillmentBucket == "" {
+		return config{}, errors.New("FULFILLMENT_BUCKET is required when checkout is configured")
 	}
 	if cfg.resendInboundEnabled && (cfg.resendWebhookSecret == "" || cfg.resendInboundAPIKey == "") {
 		return config{}, errors.New("RESEND_WEBHOOK_SECRET and RESEND_INBOUND_API_KEY are required when inbound forwarding is enabled")

@@ -40,6 +40,21 @@ func TestLoadConfigRequiresWebhookSecretWithCheckout(t *testing.T) {
 	}
 }
 
+func TestLoadConfigRequiresFulfillmentBucketWithCheckout(t *testing.T) {
+	t.Setenv("TOKEN_SECRET", "01234567890123456789012345678901")
+	t.Setenv("SUBSCRIBER_ID_SECRET", "abcdefghijklmnopqrstuvwxyz123456")
+	t.Setenv("STRIPE_SECRET_KEY", "rk_test_example")
+	t.Setenv("STRIPE_WEBHOOK_SECRET", "whsec_example")
+	t.Setenv("FULFILLMENT_BUCKET", "")
+	t.Setenv("LOG_EMAIL", "true")
+	t.Setenv("CHALLENGE_REQUIRED", "false")
+
+	_, err := loadConfig()
+	if err == nil || !strings.Contains(err.Error(), "FULFILLMENT_BUCKET") {
+		t.Fatalf("error=%v", err)
+	}
+}
+
 func TestLoadConfigRequiresResendWebhookSecretWithInbound(t *testing.T) {
 	t.Setenv("TOKEN_SECRET", "01234567890123456789012345678901")
 	t.Setenv("SUBSCRIBER_ID_SECRET", "abcdefghijklmnopqrstuvwxyz123456")

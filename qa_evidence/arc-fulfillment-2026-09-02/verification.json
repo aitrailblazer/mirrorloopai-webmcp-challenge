@@ -1,0 +1,73 @@
+{
+  "schemaVersion": "1.0",
+  "verifiedAt": "2026-09-03T06:35:00Z",
+  "scope": "24 ARC editions (ARC01-ARC12, mono and color)",
+  "packageVerification": {
+    "editionCount": 24,
+    "cardAssetCount": 288,
+    "packageEntryCount": 336,
+    "totalBytes": 1698059293,
+    "currentCloudObjectsMatchedBySizeAndMd5": 24,
+    "errors": []
+  },
+  "storage": {
+    "provider": "Google Cloud Storage",
+    "project": "mirrorloopai-com",
+    "bucket": "mirrorloopai-com-digital-editions",
+    "prefix": "editions/v1/",
+    "uniformBucketLevelAccess": true,
+    "publicAccessPrevention": "enforced",
+    "anonymousObjectHttpStatus": 403,
+    "versioningEnabled": true,
+    "noncurrentVersionRetentionDays": 7
+  },
+  "fulfillment": {
+    "cloudRunService": "mirrorloopai-subscriber",
+    "cloudRunRevision": "mirrorloopai-subscriber-00018-4kb",
+    "paymentGate": "Stripe checkout.session completed/succeeded with payment_status=paid",
+    "delivery": "Email containing private time-limited GCS V4 signed URL",
+    "linkLifetime": "6d23h",
+    "failureBehavior": "HTTP 503 before idempotency completion so Stripe can retry"
+  },
+  "sandboxEndToEnd": {
+    "stripeMode": "test",
+    "livemode": false,
+    "sku": "arc-12-mono",
+    "checkoutStatus": "complete",
+    "paymentStatus": "paid",
+    "webhookHttpStatus": 200,
+    "fulfillmentRecordStatus": "emails_sent",
+    "realPaymentMade": false
+  },
+  "regression": {
+    "goTestAll": "pass",
+    "goVetAll": "pass",
+    "goModVerify": "pass",
+    "nodeTests": "47/47 pass",
+    "siteValidation": "pass",
+    "stripeInventoryTest": "1/1 pass",
+    "gitDiffCheck": "pass",
+    "deployScriptSyntax": "pass",
+    "firebaseHostingDeploy": "pass",
+    "govulncheck": "0 reachable vulnerabilities with Go 1.25.13",
+    "productionApiHealth": "pass"
+  },
+  "remainingBoundary": "The four complete-deck catalog products are outside this 24 ARC-edition fulfillment pass and remain manual fulfillment.",
+  "highResolutionAudit": {
+    "acceptanceThreshold": "JPEG, portrait, at least 4096x6144 pixels and 25 megapixels",
+    "canonicalSourcesFullyDecoded": 288,
+    "canonicalHashesMatched": 288,
+    "uploadedArchivesReadBack": 24,
+    "uploadedCardsFullyVerified": 288,
+    "minimumDimensions": [
+      4096,
+      6144
+    ],
+    "maximumDimensions": [
+      4096,
+      6540
+    ],
+    "allPassed": true,
+    "errors": []
+  }
+}

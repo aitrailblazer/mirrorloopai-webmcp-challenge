@@ -1,4 +1,4 @@
-FROM golang:1.25-bookworm AS build
+FROM golang:1.25.13-bookworm AS build
 WORKDIR /src
 COPY go.mod go.sum ./
 RUN go mod download
@@ -10,4 +10,3 @@ COPY --from=build /out/subscriber-api /subscriber-api
 USER nonroot:nonroot
 EXPOSE 8080
 ENTRYPOINT ["/subscriber-api"]
-

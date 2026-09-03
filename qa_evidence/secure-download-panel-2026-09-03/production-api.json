@@ -1,0 +1,19 @@
+{
+  "tested_at": "2026-09-03T19:05:03Z",
+  "cloud_run_revision": "mirrorloopai-subscriber-00019-lrl",
+  "stripe_mode": "test",
+  "real_payment_made": false,
+  "invalid_session_http": 400,
+  "foreign_origin_http": 403,
+  "paid_session_http": 200,
+  "paid_session_id": "[REDACTED]",
+  "paid_session_livemode": false,
+  "item_count": 1,
+  "sku": "arc-12-mono",
+  "delivery": "download",
+  "signed_url_present": true,
+  "signed_download_http": 206,
+  "zip_magic_hex": "504b0304",
+  "signed_url": "[REDACTED]",
+  "status": "PASS"
+}

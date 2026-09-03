@@ -1,0 +1,106 @@
+{
+  "sourceAudit": {
+    "assetsAudited": 288,
+    "cardsCovered": 144,
+    "arcEditionsAudited": 24,
+    "highResolutionAssets": 288,
+    "fullyDecodedJPEGs": 288,
+    "hashMatches": 288,
+    "dimensionMatches": 288,
+    "coverageComplete": true,
+    "allPassed": true,
+    "errors": []
+  },
+  "uploadedBuyerPackageAudit": {
+    "archivesAudited": 24,
+    "archivesPassed": 24,
+    "cardsAudited": 288,
+    "highResolutionCards": 288,
+    "allPassed": true,
+    "errors": []
+  },
+  "dimensionDistribution": [
+    {
+      "width": 4096,
+      "height": 6144,
+      "count": 276,
+      "megapixels": 25.166
+    },
+    {
+      "width": 4096,
+      "height": 6152,
+      "count": 1,
+      "megapixels": 25.199
+    },
+    {
+      "width": 4096,
+      "height": 6188,
+      "count": 1,
+      "megapixels": 25.346
+    },
+    {
+      "width": 4096,
+      "height": 6212,
+      "count": 1,
+      "megapixels": 25.444
+    },
+    {
+      "width": 4096,
+      "height": 6216,
+      "count": 1,
+      "megapixels": 25.461
+    },
+    {
+      "width": 4096,
+      "height": 6224,
+      "count": 1,
+      "megapixels": 25.494
+    },
+    {
+      "width": 4096,
+      "height": 6236,
+      "count": 1,
+      "megapixels": 25.543
+    },
+    {
+      "width": 4096,
+      "height": 6244,
+      "count": 2,
+      "megapixels": 25.575
+    },
+    {
+      "width": 4096,
+      "height": 6252,
+      "count": 1,
+      "megapixels": 25.608
+    },
+    {
+      "width": 4096,
+      "height": 6256,
+      "count": 1,
+      "megapixels": 25.625
+    },
+    {
+      "width": 4096,
+      "height": 6292,
+      "count": 1,
+      "megapixels": 25.772
+    },
+    {
+      "width": 4096,
+      "height": 6540,
+      "count": 1,
+      "megapixels": 26.788
+    }
+  ],
+  "smallestFileBytes": 2605645,
+  "largestFileBytes": 8686651,
+  "minimumDimensions": [
+    4096,
+    6144
+  ],
+  "maximumDimensions": [
+    4096,
+    6540
+  ]
+}

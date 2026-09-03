@@ -33,6 +33,25 @@ LEGACY_NAMES = {
 STRIPE_MODE = "live"
 
 
+def existing_product_names(item: dict) -> set[str]:
+    """Return every known historical name for one canonical storefront SKU."""
+    names = {f"{item['title']} — {item['subtitle']}"}
+    legacy_name = LEGACY_NAMES.get(item["sku"])
+    if legacy_name:
+        names.add(legacy_name)
+    if item.get("arcCode"):
+        edition = (
+            "Mono Visual Edition"
+            if item["edition"] == "mono"
+            else "Full-Color Visual Edition"
+        )
+        names.add(
+            f"Mirror // Loop — Arc {item['arcCode']}: "
+            f"{item['domain']} ({edition})"
+        )
+    return names
+
+
 def stripe(arguments: list[str], dry_run: bool = False) -> dict:
     if dry_run:
         print("DRY RUN:", " ".join(arguments))
@@ -109,8 +128,13 @@ def create_or_update_product(
         for product in products
     }
     by_name = {product.get("name"): product for product in products}
-    product = by_sku.get(item["sku"]) or by_name.get(
-        LEGACY_NAMES.get(item["sku"])
+    product = by_sku.get(item["sku"]) or next(
+        (
+            by_name[name]
+            for name in existing_product_names(item)
+            if name in by_name
+        ),
+        None,
     )
     name = f"{item['title']} — {item['subtitle']}"
     arguments = [

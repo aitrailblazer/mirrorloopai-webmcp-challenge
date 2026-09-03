@@ -5,11 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Shop all twelve MIRROR//LOOP ARCs and complete 144-card digital editions.">
   <meta name="theme-color" content="#080b15">
+  <meta name="referrer" content="no-referrer">
   <title>MIRROR//LOOP — Card Collection</title>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="/styles.css?v=20260829-1">
+  <link rel="stylesheet" href="/styles.css?v=20260903-1">
   <script src="/config.js?v=20260829-1"></script>
-  <script type="module" src="/shop.js?v=20260829-1"></script>
+  <script type="module" src="/shop.js?v=20260903-2"></script>
 </head>
 <body>
   <a class="skip-link" href="#shop-main">Skip to collection</a>
@@ -35,6 +36,19 @@
         <li>Digital editions</li>
         <li>Secure Stripe checkout</li>
       </ul>
+    </section>
+
+    <section class="download-panel" id="download-panel" aria-labelledby="download-title" hidden>
+      <p class="eyebrow">Secure order delivery</p>
+      <h2 id="download-title">Your private downloads</h2>
+      <p id="download-status" class="download-status" role="status" aria-live="polite">
+        Verifying your completed payment with Stripe…
+      </p>
+      <div id="download-items" class="download-items"></div>
+      <button class="button button-quiet" id="download-retry" type="button" hidden>
+        Check payment again
+      </button>
+      <p class="download-help">Links are generated only after the server verifies the paid Checkout Session directly with Stripe. They expire after seven days. We also send them to the checkout email address.</p>
     </section>
 
     <section class="shop-section" id="collections" aria-labelledby="collections-title">
@@ -66,7 +80,7 @@
     <section class="delivery-note" aria-labelledby="delivery-title">
       <p class="eyebrow">Before you buy</p>
       <h2 id="delivery-title">A digital collection, not a physical deck.</h2>
-      <p>Your cart is handed to Stripe for secure payment. Stripe shows the final items and total before you confirm. After Stripe confirms payment, MIRROR//LOOP emails a thank-you acknowledgement to the checkout address, followed separately by digital fulfillment.</p>
+      <p>Your cart is handed to Stripe for secure payment. Stripe shows the final items and total before you confirm. After Stripe confirms payment, this page reveals private, time-limited download links for purchased ARC editions and MIRROR//LOOP also emails them to the checkout address.</p>
       <p>Review the <a href="/terms.html">digital purchase, delivery, and refund terms</a> before checkout.</p>
       <p>Questions about an existing purchase? <a href="mailto:constantine@aitrailblazer.com">Contact MIRROR//LOOP support.</a></p>
     </section>

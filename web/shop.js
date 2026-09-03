@@ -16,7 +16,10 @@ function productCard(item) {
   article.dataset.edition = item.edition;
   if (item.arcCode) article.dataset.arcCode = item.arcCode;
   article.innerHTML = `
-    <img src="${item.image}" width="480" height="720" loading="lazy" alt="Preview from ${item.title}, ${item.subtitle}">
+    <div class="product-preview">
+      <img src="${item.image}?v=20260901-2" width="${item.kind === "arc" ? "360" : "480"}" height="${item.kind === "arc" ? "540" : "480"}" loading="lazy" decoding="async" draggable="false" alt="Watermarked web preview from ${item.title}, ${item.subtitle}">
+      <span aria-hidden="true">Preview only</span>
+    </div>
     <div class="product-copy">
       <p class="product-kind">${item.kind === "arc" ? `${recommended ? "MATCHED TO YOUR REFLECTION · " : ""}ARC ${item.arcCode} · 12 CARDS` : "COMPLETE COLLECTION"}</p>
       <h3>${item.title}</h3>
@@ -86,7 +89,7 @@ function renderCart() {
       const row = document.createElement("article");
       row.className = "cart-item";
       row.innerHTML = `
-        <img src="${item.image}" width="64" height="96" alt="">
+        <img src="${item.image}?v=20260901-2" width="48" height="72" loading="lazy" decoding="async" draggable="false" alt="">
         <div><strong>${item.title}</strong><span>${item.subtitle}</span></div>
         <div><span>Price at Stripe</span><button type="button" data-remove="${item.sku}">Remove</button></div>`;
       row.querySelector("[data-remove]").addEventListener("click", () => toggleItem(item.sku));
@@ -140,6 +143,77 @@ async function checkout() {
   }
 }
 
+function showDownloadPanel() {
+  const panel = $("#download-panel");
+  panel.hidden = false;
+  panel.tabIndex = -1;
+  panel.focus({ preventScroll: true });
+  panel.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+function renderDownloadItems(items) {
+  const container = $("#download-items");
+  const rows = items.map((item) => {
+    const row = document.createElement("article");
+    row.className = "download-item";
+    const copy = document.createElement("div");
+    const name = document.createElement("strong");
+    name.textContent = item.name;
+    const detail = document.createElement("span");
+    detail.textContent = item.delivery === "download"
+      ? `Private ZIP link · expires ${new Date(item.expires_at).toLocaleString()}`
+      : "Prepared separately · check your order email for delivery status";
+    copy.append(name, detail);
+    row.append(copy);
+    if (item.delivery === "download" && item.download_url) {
+      const link = document.createElement("a");
+      const downloadURL = new URL(item.download_url);
+      if (downloadURL.protocol !== "https:" || downloadURL.hostname !== "storage.googleapis.com") {
+        throw new Error("The secure download address was invalid.");
+      }
+      link.className = "button button-primary";
+      link.href = downloadURL.href;
+      link.rel = "noreferrer";
+      link.textContent = "Download ZIP";
+      row.append(link);
+    }
+    return row;
+  });
+  container.replaceChildren(...rows);
+}
+
+async function loadOrderDownloads(sessionID) {
+  const status = $("#download-status");
+  const retry = $("#download-retry");
+  showDownloadPanel();
+  status.textContent = "Verifying your completed payment with Stripe…";
+  retry.hidden = true;
+  $("#download-items").replaceChildren();
+  try {
+    const response = await fetch(`${config.apiBaseURL}/v1/order-downloads`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ session_id: sessionID }),
+    });
+    const payload = await response.json().catch(() => ({}));
+    if (!response.ok || payload.status !== "ready" || !Array.isArray(payload.items)) {
+      throw new Error(payload.error || "Your order could not be verified yet.");
+    }
+    renderDownloadItems(payload.items);
+    const downloads = payload.items.filter((item) => item.delivery === "download").length;
+    const paymentLabel = payload.livemode === false
+      ? "Stripe test payment confirmed—no real charge was made."
+      : "Payment confirmed.";
+    status.textContent = downloads
+      ? `${paymentLabel} ${downloads} private ${downloads === 1 ? "download is" : "downloads are"} ready.`
+      : `${paymentLabel} Your order is being prepared separately.`;
+    history.replaceState(null, "", "/shop?checkout=success");
+  } catch (error) {
+    status.textContent = `${error.message} Your order email remains the delivery fallback.`;
+    retry.hidden = false;
+  }
+}
+
 async function start() {
   const response = await fetch("/data/shop.json", { cache: "no-cache" });
   if (!response.ok) throw new Error("The collection could not be loaded.");
@@ -153,8 +227,14 @@ async function start() {
     state.cart.clear();
     persistCart();
     renderCart();
-    $("#checkout-status").textContent = "Checkout returned from Stripe. If payment completed, Stripe will send your receipt and MIRROR//LOOP will email you while your files are prepared.";
-    openCart();
+    const sessionID = new URLSearchParams(location.search).get("session_id");
+    if (sessionID) {
+      $("#download-retry").addEventListener("click", () => loadOrderDownloads(sessionID));
+      await loadOrderDownloads(sessionID);
+    } else {
+      showDownloadPanel();
+      $("#download-status").textContent = "The checkout session is missing from this return link. Use the private links in your order email or contact support.";
+    }
   } else if (checkoutState === "cancelled") {
     $("#checkout-status").textContent = "Checkout was cancelled. Your cart is still here.";
     openCart();

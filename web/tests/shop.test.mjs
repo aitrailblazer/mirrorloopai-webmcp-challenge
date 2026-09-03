@@ -6,6 +6,11 @@ const root = new URL("../../", import.meta.url);
 const catalog = JSON.parse(await readFile(new URL("web/data/shop.json", root), "utf8"));
 const source = JSON.parse(await readFile(new URL("catalog/shop-source.json", root), "utf8"));
 const shop = await readFile(new URL("web/shop.html", root), "utf8");
+const shopScript = await readFile(new URL("web/shop.js", root), "utf8");
+const thumbnailBuilder = await readFile(
+  new URL("scripts/build-shop-images.py", root),
+  "utf8",
+);
 const terms = await readFile(new URL("web/terms.html", root), "utf8");
 const config = await readFile(new URL("web/config.js", root), "utf8");
 
@@ -61,8 +66,31 @@ test("every product image exists and checkout explains its boundary", async () =
   assert.ok(shop.includes("Secure Stripe checkout"));
   assert.ok(shop.includes("not a physical deck"));
   assert.ok(shop.includes('id="cart-panel"'));
+  assert.ok(shop.includes('id="download-panel"'));
+  assert.ok(shop.includes('id="download-items"'));
   assert.ok(shop.includes("/terms.html"));
   assert.ok(terms.includes("No physical cards"));
-  assert.ok(terms.includes("within 24 hours"));
+  assert.ok(terms.includes("private, time-limited download links"));
+  assert.ok(terms.includes("If a link expires"));
   assert.ok(terms.includes("within 14 days"));
+});
+
+test("Stripe success return verifies the session before rendering downloads", () => {
+  assert.match(shop, /meta name="referrer" content="no-referrer"/);
+  assert.match(shopScript, /\/v1\/order-downloads/);
+  assert.match(shopScript, /JSON\.stringify\(\{ session_id: sessionID \}\)/);
+  assert.match(shopScript, /payload\.status !== "ready"/);
+  assert.match(shopScript, /Stripe test payment confirmed—no real charge was made/);
+  assert.match(shopScript, /downloadURL\.hostname !== "storage\.googleapis\.com"/);
+  assert.match(shopScript, /history\.replaceState\(null, "", "\/shop\?checkout=success"\)/);
+  assert.ok(!shopScript.includes("payment_status"));
+});
+
+test("storefront exposes preview-only thumbnails rather than downloadable source art", () => {
+  assert.match(shopScript, /draggable="false"/);
+  assert.match(shopScript, /Watermarked web preview/);
+  assert.match(shopScript, /Preview only/);
+  assert.match(thumbnailBuilder, /CARD_SIZE = \(360, 540\)/);
+  assert.match(thumbnailBuilder, /COLLECTION_SIZE = \(480, 480\)/);
+  assert.match(thumbnailBuilder, /MIRROR\/\/LOOP · PREVIEW/);
 });

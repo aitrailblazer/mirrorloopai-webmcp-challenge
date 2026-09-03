@@ -1,0 +1,229 @@
+{
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-09-03T06:25:30.529791+00:00",
+  "project": "mirrorloopai-com",
+  "bucket": "mirrorloopai-com-digital-editions",
+  "publicAccess": "prevented",
+  "versioning": true,
+  "editionCount": 24,
+  "cardAssetCount": 288,
+  "totalBytes": 1698059293,
+  "objects": [
+    {
+      "sku": "arc-01-color",
+      "object": "editions/v1/arc-01-color.zip",
+      "byteCount": 58579445,
+      "md5Base64": "rIpis3TatrAY8U2okChMWg==",
+      "sha256": "aefdc21acdf396fe5fad367cf8dc5884ef05523cdcb581a01437d4e51bf4984e",
+      "cardCount": 12,
+      "packageEntryCount": 14
+    },
+    {
+      "sku": "arc-01-mono",
+      "object": "editions/v1/arc-01-mono.zip",
+      "byteCount": 71353048,
+      "md5Base64": "ttpPY7+qRBZOlp/oelD5fg==",
+      "sha256": "1ae1b81a005a2132c266c239342e5856e962b865bf40f6f36cfa6d9beb8e4bbb",
+      "cardCount": 12,
+      "packageEntryCount": 14
+    },
+    {
+      "sku": "arc-02-color",
+      "object": "editions/v1/arc-02-color.zip",
+      "byteCount": 70653736,
+      "md5Base64": "9TXjWvE5kyvWkqzaCyBUFQ==",
+      "sha256": "c492b9578daf84a0ebba9484c6577e2afbfafa7e694220a3713c31de84dce896",
+      "cardCount": 12,
+      "packageEntryCount": 14
+    },
+    {
+      "sku": "arc-02-mono",
+      "object": "editions/v1/arc-02-mono.zip",
+      "byteCount": 69112534,
+      "md5Base64": "Bf0JQWPlAii+ZUTicS2fXg==",
+      "sha256": "644d6e24ad3977dfac440358d2c8942eb581c431e9a465b36562e346b575e8e7",
+      "cardCount": 12,
+      "packageEntryCount": 14
+    },
+    {
+      "sku": "arc-03-color",
+      "object": "editions/v1/arc-03-color.zip",
+      "byteCount": 62039320,
+      "md5Base64": "W5drG3Ia+o1AhvRuEvcUvg==",
+      "sha256": "969051efa822745debdae4a3919b8ca7fd3b588da095e61556ba2cf1dabc16bc",
+      "cardCount": 12,
+      "packageEntryCount": 14
+    },
+    {
+      "sku": "arc-03-mono",
+      "object": "editions/v1/arc-03-mono.zip",
+      "byteCount": 65015036,
+      "md5Base64": "TffjO4/kAXrRllR1ayFnLQ==",
+      "sha256": "2360ed0297e49acc68c98574ccf5d70ad06083232ca9c895052c05fab219df07",
+      "cardCount": 12,
+      "packageEntryCount": 14
+    },
+    {
+      "sku": "arc-04-color",
+      "object": "editions/v1/arc-04-color.zip",
+      "byteCount": 72525250,
+      "md5Base64": "zQue0z72J0+pe3WeSTAdbg==",
+      "sha256": "ae002b18e390474ba4f51977695a53a71206635d56e96791aca6f541877389d9",
+      "cardCount": 12,
+      "packageEntryCount": 14
+    },
+    {
+      "sku": "arc-04-mono",
+      "object": "editions/v1/arc-04-mono.zip",
+      "byteCount": 65917555,
+      "md5Base64": "3vvY2sZtDJJEzm/cc0kx0g==",
+      "sha256": "2772338ef293bbb60c26d1c075b69602b124020a3bb030728a0bd679a7a30601",
+      "cardCount": 12,
+      "packageEntryCount": 14
+    },
+    {
+      "sku": "arc-05-color",
+      "object": "editions/v1/arc-05-color.zip",
+      "byteCount": 76890306,
+      "md5Base64": "/5pRg4faOddZIvGkzDTCyw==",
+      "sha256": "aa036d99314a71bac5e73d34b3b818b922fbe94951b68dfe9aafb439f8abd911",
+      "cardCount": 12,
+      "packageEntryCount": 14
+    },
+    {
+      "sku": "arc-05-mono",
+      "object": "editions/v1/arc-05-mono.zip",
+      "byteCount": 71267288,
+      "md5Base64": "wW+UNVsPFHucNwOF524HQw==",
+      "sha256": "1b872c615ef28477371b670447cd73e78ba390ae414a6abb05e8ef8a425c7925",
+      "cardCount": 12,
+      "packageEntryCount": 14
+    },
+    {
+      "sku": "arc-06-color",
+      "object": "editions/v1/arc-06-color.zip",
+      "byteCount": 72364102,
+      "md5Base64": "o1ou6IVlrR7C1vQxp3imEw==",
+      "sha256": "f542659aa4651ee316deae698ac8e285e1fdca55951667c097f99e74ed731330",
+      "cardCount": 12,
+      "packageEntryCount": 14
+    },
+    {
+      "sku": "arc-06-mono",
+      "object": "editions/v1/arc-06-mono.zip",
+      "byteCount": 72977978,
+      "md5Base64": "IwGMCfVf2noYOGoNeTTQeg==",
+      "sha256": "61b2a18f8523528620cce59fa662dee6b492c96d9c2b78b9ada2dd9b97c8a014",
+      "cardCount": 12,
+      "packageEntryCount": 14
+    },
+    {
+      "sku": "arc-07-color",
+      "object": "editions/v1/arc-07-color.zip",
+      "byteCount": 72460028,
+      "md5Base64": "t3XbsieaqldWbNRmoZ4Jpg==",
+      "sha256": "f5d04de88b67b03c82ee8be52bfbee5c349b87fbff6d0deffbb1cda71460f3e2",
+      "cardCount": 12,
+      "packageEntryCount": 14
+    },
+    {
+      "sku": "arc-07-mono",
+      "object": "editions/v1/arc-07-mono.zip",
+      "byteCount": 73127568,
+      "md5Base64": "Cd3nEXmdKnRJd1A/85a/zA==",
+      "sha256": "9df4252bee46e2720436c2f499207e068298f1eb6bbe8df9fdb3deca504426a9",
+      "cardCount": 12,
+      "packageEntryCount": 14
+    },
+    {
+      "sku": "arc-08-color",
+      "object": "editions/v1/arc-08-color.zip",
+      "byteCount": 71028418,
+      "md5Base64": "OVWJm+PXkiGivtggNQZoyQ==",
+      "sha256": "928b362b788c0508d43d7a871c54bdd364a50e91b0ad38dad154643643ba5f77",
+      "cardCount": 12,
+      "packageEntryCount": 14
+    },
+    {
+      "sku": "arc-08-mono",
+      "object": "editions/v1/arc-08-mono.zip",
+      "byteCount": 68160063,
+      "md5Base64": "GE4geGKnsuSPUySehAjnRw==",
+      "sha256": "6f0bbcc14f40bb15cfd4ae3c1646f16bb3d011dbdd5aef46259dd2356e30749c",
+      "cardCount": 12,
+      "packageEntryCount": 14
+    },
+    {
+      "sku": "arc-09-color",
+      "object": "editions/v1/arc-09-color.zip",
+      "byteCount": 71516690,
+      "md5Base64": "aAmt8mUJBNpk8C8p1GZp5A==",
+      "sha256": "6c77447ff43e5e77454ff0dedd45a541abbd610ba10ee8776e16aa90fdff1197",
+      "cardCount": 12,
+      "packageEntryCount": 14
+    },
+    {
+      "sku": "arc-09-mono",
+      "object": "editions/v1/arc-09-mono.zip",
+      "byteCount": 67887912,
+      "md5Base64": "W+QdGZ5/aqIIqqfnyytE7A==",
+      "sha256": "704122c1588a0d4c44570e6f567700c6d63f0d56141d7fc7e45c9ac057d620ce",
+      "cardCount": 12,
+      "packageEntryCount": 14
+    },
+    {
+      "sku": "arc-10-color",
+      "object": "editions/v1/arc-10-color.zip",
+      "byteCount": 67573805,
+      "md5Base64": "zmMGmysZh6eSeArj/U0+tQ==",
+      "sha256": "eadae76449a64510595262fa2ac9807825c02580d5c54064fa0f6350f39a32b0",
+      "cardCount": 12,
+      "packageEntryCount": 14
+    },
+    {
+      "sku": "arc-10-mono",
+      "object": "editions/v1/arc-10-mono.zip",
+      "byteCount": 73205833,
+      "md5Base64": "u6AOphcihkLjufgwFB7lEQ==",
+      "sha256": "bdfbb195cbf695738072436cbcf802da87b2b9c2b239a97baa6190ba7fcdc3ed",
+      "cardCount": 12,
+      "packageEntryCount": 14
+    },
+    {
+      "sku": "arc-11-color",
+      "object": "editions/v1/arc-11-color.zip",
+      "byteCount": 73253329,
+      "md5Base64": "3e0K9tYMYyWvqyG/zrWuWA==",
+      "sha256": "c43dd435d1d54976a2b87700b281e9d79b1e8e233d5942ffb3c6c4927867553a",
+      "cardCount": 12,
+      "packageEntryCount": 14
+    },
+    {
+      "sku": "arc-11-mono",
+      "object": "editions/v1/arc-11-mono.zip",
+      "byteCount": 82189604,
+      "md5Base64": "QZLkBAlbW4D/vLgJvt8eXQ==",
+      "sha256": "b060630b6aec8ddb3c921450c4e78ecb88445e288f6b0ecf7df9739083320490",
+      "cardCount": 12,
+      "packageEntryCount": 14
+    },
+    {
+      "sku": "arc-12-color",
+      "object": "editions/v1/arc-12-color.zip",
+      "byteCount": 74773335,
+      "md5Base64": "flpj6XbrAMBwV4t0nr8P0Q==",
+      "sha256": "d6227e272c5d96ae2284ed95d034efade4b8946cc9a923c79383f622d8a6378d",
+      "cardCount": 12,
+      "packageEntryCount": 14
+    },
+    {
+      "sku": "arc-12-mono",
+      "object": "editions/v1/arc-12-mono.zip",
+      "byteCount": 74187110,
+      "md5Base64": "8xVSRsNuwx7oJkTPl3JHmw==",
+      "sha256": "b2351774fc1b21003e87169f24acc75899c509479543fb8bf8314e86da70ad7b",
+      "cardCount": 12,
+      "packageEntryCount": 14
+    }
+  ]
+}

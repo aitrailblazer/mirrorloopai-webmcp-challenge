@@ -21,8 +21,8 @@ const (
 )
 
 type OrderMailer interface {
-	SendBuyerOrderReceived(context.Context, string, string, []string) error
-	SendOwnerOrderNotification(context.Context, string, string, []string) error
+	SendBuyerOrderReceived(context.Context, string, string, []OrderItem) error
+	SendOwnerOrderNotification(context.Context, string, string, []OrderItem) error
 }
 
 type EventStore interface {
@@ -31,10 +31,11 @@ type EventStore interface {
 }
 
 type WebhookHandler struct {
-	secret string
-	mailer OrderMailer
-	store  EventStore
-	now    func() time.Time
+	secret      string
+	mailer      OrderMailer
+	store       EventStore
+	fulfillment FulfillmentProvider
+	now         func() time.Time
 }
 
 func NewWebhookHandler(secret string, mailer OrderMailer, store EventStore) http.Handler {
@@ -44,6 +45,17 @@ func NewWebhookHandler(secret string, mailer OrderMailer, store EventStore) http
 		store:  store,
 		now:    time.Now,
 	}
+}
+
+func NewFulfillmentWebhookHandler(
+	secret string,
+	mailer OrderMailer,
+	store EventStore,
+	fulfillment FulfillmentProvider,
+) http.Handler {
+	handler := NewWebhookHandler(secret, mailer, store).(*WebhookHandler)
+	handler.fulfillment = fulfillment
+	return handler
 }
 
 func (h *WebhookHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
@@ -105,7 +117,7 @@ func (h *WebhookHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	if email == "" {
 		email = strings.TrimSpace(session.CustomerEmail)
 	}
-	items, ok := orderItemNames(session.Metadata["cart_skus"])
+	items, ok := orderItems(session.Metadata["cart_skus"])
 	if event.ID == "" || session.ID == "" || email == "" || !ok {
 		slog.ErrorContext(r.Context(), "paid Stripe order lacks fulfillment metadata",
 			"event_id", event.ID, "session_id", session.ID)
@@ -120,6 +132,19 @@ func (h *WebhookHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	if processed {
 		w.WriteHeader(http.StatusOK)
 		return
+	}
+	if needsDigitalFulfillment(items) {
+		if h.fulfillment == nil {
+			http.Error(w, "temporary webhook failure", http.StatusServiceUnavailable)
+			return
+		}
+		items, err = h.fulfillment.Prepare(r.Context(), items, h.now())
+		if err != nil {
+			slog.ErrorContext(r.Context(), "digital fulfillment preparation failed",
+				"event_id", event.ID, "session_id", session.ID, "error", err)
+			http.Error(w, "temporary webhook failure", http.StatusServiceUnavailable)
+			return
+		}
 	}
 	if err := h.mailer.SendBuyerOrderReceived(
 		r.Context(), session.ID, email, items,
@@ -144,12 +169,12 @@ func (h *WebhookHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusOK)
 }
 
-func orderItemNames(value string) ([]string, bool) {
+func orderItems(value string) ([]OrderItem, bool) {
 	raw := strings.Split(value, ",")
 	if value == "" || len(raw) > maxCartItems {
 		return nil, false
 	}
-	names := make([]string, 0, len(raw))
+	items := make([]OrderItem, 0, len(raw))
 	seen := make(map[string]struct{}, len(raw))
 	for _, item := range raw {
 		sku := strings.TrimSpace(item)
@@ -161,9 +186,18 @@ func orderItemNames(value string) ([]string, bool) {
 			return nil, false
 		}
 		seen[sku] = struct{}{}
-		names = append(names, name)
+		items = append(items, OrderItem{SKU: sku, Name: name})
 	}
-	return names, true
+	return items, true
+}
+
+func needsDigitalFulfillment(items []OrderItem) bool {
+	for _, item := range items {
+		if _, _, ok := fulfillmentObject(item.SKU); ok {
+			return true
+		}
+	}
+	return false
 }
 
 func verifyStripeSignature(body []byte, header, secret string, now time.Time) error {

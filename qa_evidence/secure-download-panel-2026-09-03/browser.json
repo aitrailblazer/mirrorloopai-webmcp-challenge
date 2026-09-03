@@ -1,0 +1,35 @@
+{
+  "target": "https://mirrorloopai.com/shop?checkout=success&session_id=[REDACTED]",
+  "testedAt": "2026-09-03T19:11:53.274Z",
+  "desktop": {
+    "title": "Your private downloads",
+    "status": "Stripe test payment confirmed—no real charge was made. 1 private download is ready.",
+    "items": [
+      {
+        "name": "ARC 12 · Convergence Seal — Mono Edition",
+        "detail": "Private ZIP link · expires 9/10/2026, 11:11:54 AM",
+        "button": "Download ZIP",
+        "host": "storage.googleapis.com"
+      }
+    ],
+    "horizontalOverflow": false,
+    "urlContainsSession": false,
+    "consoleErrors": []
+  },
+  "mobile": {
+    "title": "Your private downloads",
+    "status": "Stripe test payment confirmed—no real charge was made. 1 private download is ready.",
+    "items": [
+      {
+        "name": "ARC 12 · Convergence Seal — Mono Edition",
+        "detail": "Private ZIP link · expires 9/10/2026, 11:11:57 AM",
+        "button": "Download ZIP",
+        "host": "storage.googleapis.com"
+      }
+    ],
+    "horizontalOverflow": false,
+    "urlContainsSession": false,
+    "consoleErrors": []
+  },
+  "status": "PASS"
+}

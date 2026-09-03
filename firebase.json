@@ -40,6 +40,24 @@
             "value": "public,max-age=3600"
           }
         ]
+      },
+      {
+        "source": "/shop",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-cache, max-age=0, must-revalidate"
+          }
+        ]
+      },
+      {
+        "source": "/shop.html",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-cache, max-age=0, must-revalidate"
+          }
+        ]
       }
     ],
     "rewrites": [
@@ -58,4 +76,3 @@
     "indexes": "deploy/firestore.indexes.json"
   }
 }
-
