@@ -1,0 +1,19 @@
+MIRROR//LOOP production Checkout non-charge verification
+Date: 2026-09-03
+Endpoint: POST https://mirrorloopai.com/api/v1/checkout-sessions
+Origin: https://mirrorloopai.com
+Cart: one allowlisted ARC01 Mono SKU
+HTTP result: 201 Created
+Stripe mode: live
+Checkout status when inspected: open
+Payment status: unpaid
+Currency: USD
+Amount total: 6900
+Customer creation: always
+Automatic tax: enabled
+Bound cart SKU metadata: arc-01-mono
+Final action: the unpaid Checkout Session was expired immediately
+Real payment made: no
+Charge created: no
+
+The opaque Checkout Session identifier is intentionally omitted from committed evidence.

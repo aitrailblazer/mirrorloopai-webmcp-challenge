@@ -137,6 +137,11 @@ def create_or_update_product(
         None,
     )
     name = f"{item['title']} — {item['subtitle']}"
+    fulfillment = (
+        "secure_download"
+        if item["kind"] == "arc"
+        else "manual_email_24h"
+    )
     arguments = [
         "-d", f"name={name}",
         "-d", f"description={item['description']}",
@@ -145,7 +150,7 @@ def create_or_update_product(
         "-d", f"metadata[mirrorloop_sku]={item['sku']}",
         "-d", f"metadata[kind]={item['kind']}",
         "-d", f"metadata[edition]={item['edition']}",
-        "-d", "metadata[fulfillment]=digital",
+        "-d", f"metadata[fulfillment]={fulfillment}",
     ]
     if item.get("arcCode"):
         arguments.extend([
@@ -211,6 +216,49 @@ def create_or_update_price(
         "currency": "usd",
         "unit_amount": item["unitAmount"],
     }
+
+
+def resolve_existing_catalog(
+    items: list[dict],
+    products: list[dict],
+    prices: list[dict],
+) -> list[dict]:
+    """Bind source SKUs to active, amount-matched Stripe objects without writes."""
+    by_sku = {
+        product.get("metadata", {}).get("mirrorloop_sku"): product
+        for product in products
+    }
+    by_name = {product.get("name"): product for product in products}
+    published = []
+    for item in items:
+        product = by_sku.get(item["sku"]) or next(
+            (
+                by_name[name]
+                for name in existing_product_names(item)
+                if name in by_name
+            ),
+            None,
+        )
+        if not product or not product.get("active"):
+            raise RuntimeError(
+                f"live Stripe product is missing or inactive for {item['sku']}"
+            )
+        matches = [
+            price for price in prices
+            if price.get("product") == product["id"]
+            and price.get("active")
+            and price.get("currency") == "usd"
+            and price.get("unit_amount") == item["unitAmount"]
+            and price.get("type") == "one_time"
+        ]
+        if len(matches) != 1:
+            raise RuntimeError(
+                f"expected one active amount-matched live price for "
+                f"{item['sku']}; found {len(matches)}"
+            )
+        published.append({**item, "stripePriceID": matches[0]["id"]})
+        print(f"{item['sku']}: {product['id']} / {matches[0]['id']}")
+    return published
 
 
 def retire_preorders(products: list[dict], prices: list[dict], dry_run: bool):
@@ -290,13 +338,28 @@ def main() -> None:
     global STRIPE_MODE
     parser = argparse.ArgumentParser()
     parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument(
+        "--catalog-only",
+        action="store_true",
+        help=(
+            "Verify and bind existing active Stripe products/prices without "
+            "mutating Stripe."
+        ),
+    )
     parser.add_argument("--mode", choices=("test", "live"), default="live")
     args = parser.parse_args()
+    if args.dry_run and args.catalog_only:
+        parser.error("--dry-run and --catalog-only cannot be combined")
     STRIPE_MODE = args.mode
     source = json.loads(SOURCE.read_text())
     items = expanded_items(source)
     products = list_all(["products", "list"])
     prices = list_all(["prices", "list"])
+    if args.catalog_only:
+        write_catalog(resolve_existing_catalog(items, products, prices))
+        print(f"Wrote {WEB_CATALOG}")
+        print(f"Wrote {GO_CATALOG}")
+        return
     verify_write_permissions(products, prices, args.dry_run)
     retire_preorders(products, prices, args.dry_run)
     published = []

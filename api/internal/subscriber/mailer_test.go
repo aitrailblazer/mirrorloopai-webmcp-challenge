@@ -123,6 +123,68 @@ func TestOrderEmailsSetExpectationsAndResendIdempotency(t *testing.T) {
 	}
 }
 
+func TestManualOrderEmailsSetTwentyFourHourExpectationAndOwnerAction(t *testing.T) {
+	items := []commerce.OrderItem{{
+		SKU:  "deck-color-insight",
+		Name: "Complete 144-Card Deck — Full-Color Insight Edition",
+	}}
+	buyer := orderReceivedEmail("cs_live_manual", items)
+	for _, phrase := range []string{
+		"order is being prepared",
+		"manual email delivery, normally within 24 hours",
+		"Complete 144-Card Deck",
+	} {
+		if !strings.Contains(strings.ToLower(buyer.text), strings.ToLower(phrase)) {
+			t.Errorf("buyer email missing %q", phrase)
+		}
+	}
+	if buyer.subject != "Your MIRROR//LOOP order is being prepared" {
+		t.Fatalf("buyer subject=%q", buyer.subject)
+	}
+
+	owner := ownerOrderEmail("cs_live_manual", "buyer@example.com", items)
+	for _, phrase := range []string{
+		"ACTION REQUIRED",
+		"buyer@example.com",
+		"email within 24 hours",
+		"Complete 144-Card Deck",
+	} {
+		if !strings.Contains(owner.text, phrase) {
+			t.Errorf("owner email missing %q", phrase)
+		}
+	}
+	if owner.subject != "ACTION REQUIRED — MIRROR//LOOP paid order" {
+		t.Fatalf("owner subject=%q", owner.subject)
+	}
+}
+
+func TestMixedOrderEmailDistinguishesAutomaticAndManualDelivery(t *testing.T) {
+	items := []commerce.OrderItem{
+		{
+			SKU:         "arc-01-mono",
+			Name:        "ARC 01 · Horizon Signal — Mono Edition",
+			DownloadURL: "https://storage.example/arc-01-mono",
+		},
+		{
+			SKU:  "deck-mono-visual",
+			Name: "Complete 144-Card Deck — Mono Visual Edition",
+		},
+	}
+	buyer := orderReceivedEmail("cs_live_mixed", items)
+	for _, phrase := range []string{
+		"DOWNLOADS AND DELIVERY STATUS",
+		"https://storage.example/arc-01-mono",
+		"manual email delivery, normally within 24 hours",
+	} {
+		if !strings.Contains(buyer.text, phrase) {
+			t.Errorf("mixed buyer email missing %q", phrase)
+		}
+	}
+	if buyer.subject != "Your MIRROR//LOOP downloads and delivery status" {
+		t.Fatalf("buyer subject=%q", buyer.subject)
+	}
+}
+
 func TestResendMailerAddsReplyTo(t *testing.T) {
 	payload := captureResendPayload(t, func(mailer ResendMailer) error {
 		return mailer.SendConfirmation(context.Background(), "person@example.com", "https://example.com/confirm")

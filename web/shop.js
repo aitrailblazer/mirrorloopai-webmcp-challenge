@@ -25,6 +25,9 @@ function productCard(item) {
       <h3>${item.title}</h3>
       <strong class="product-edition">${item.subtitle}</strong>
       <p>${item.description}</p>
+      <p class="product-delivery">${item.kind === "arc"
+        ? "Delivery: private download immediately after payment."
+        : "Delivery: prepared and emailed manually, normally within 24 hours."}</p>
       <div class="product-action">
         <strong>Price shown at Stripe</strong>
         <button class="button button-quiet add-button" type="button" data-sku="${item.sku}" aria-pressed="false">Add to cart</button>
@@ -90,7 +93,7 @@ function renderCart() {
       row.className = "cart-item";
       row.innerHTML = `
         <img src="${item.image}?v=20260901-2" width="48" height="72" loading="lazy" decoding="async" draggable="false" alt="">
-        <div><strong>${item.title}</strong><span>${item.subtitle}</span></div>
+        <div><strong>${item.title}</strong><span>${item.subtitle}</span><span>${item.kind === "arc" ? "Immediate ARC download" : "Manual email delivery · normally within 24 hours"}</span></div>
         <div><span>Price at Stripe</span><button type="button" data-remove="${item.sku}">Remove</button></div>`;
       row.querySelector("[data-remove]").addEventListener("click", () => toggleItem(item.sku));
       return row;

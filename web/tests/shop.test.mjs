@@ -65,12 +65,16 @@ test("every product image exists and checkout explains its boundary", async () =
   assert.ok(shop.includes("Digital editions"));
   assert.ok(shop.includes("Secure Stripe checkout"));
   assert.ok(shop.includes("not a physical deck"));
+  assert.ok(shop.includes("Complete 144-card editions are prepared separately"));
+  assert.ok(shop.includes("normally within 24 hours"));
   assert.ok(shop.includes('id="cart-panel"'));
   assert.ok(shop.includes('id="download-panel"'));
   assert.ok(shop.includes('id="download-items"'));
   assert.ok(shop.includes("/terms.html"));
   assert.ok(terms.includes("No physical cards"));
   assert.ok(terms.includes("private, time-limited download links"));
+  assert.ok(terms.includes("delivered manually"));
+  assert.ok(terms.includes("within 24 hours"));
   assert.ok(terms.includes("If a link expires"));
   assert.ok(terms.includes("within 14 days"));
 });
@@ -83,6 +87,7 @@ test("Stripe success return verifies the session before rendering downloads", ()
   assert.match(shopScript, /Stripe test payment confirmed—no real charge was made/);
   assert.match(shopScript, /downloadURL\.hostname !== "storage\.googleapis\.com"/);
   assert.match(shopScript, /history\.replaceState\(null, "", "\/shop\?checkout=success"\)/);
+  assert.match(shopScript, /Manual email delivery · normally within 24 hours/);
   assert.ok(!shopScript.includes("payment_status"));
 });
 

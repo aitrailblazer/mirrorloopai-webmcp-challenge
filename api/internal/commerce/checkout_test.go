@@ -178,6 +178,12 @@ func TestStripeSessionIncludesFulfillmentSKUs(t *testing.T) {
 		"arc-01-mono,deck-color-visual" {
 		t.Fatalf("cart_skus=%q", values.Get("metadata[cart_skus]"))
 	}
+	if values.Get("automatic_tax[enabled]") != "true" {
+		t.Fatalf(
+			"automatic_tax[enabled]=%q",
+			values.Get("automatic_tax[enabled]"),
+		)
+	}
 	if values.Get("line_items[0][price]") != allowedPrices["arc-01-mono"] {
 		t.Fatalf("first price=%q", values.Get("line_items[0][price]"))
 	}

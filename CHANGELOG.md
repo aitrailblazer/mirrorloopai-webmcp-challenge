@@ -1,5 +1,32 @@
 # Changelog
 
+## 2026-09-03 — Live commerce promotion readiness
+
+- Enabled Stripe automatic tax on every new Checkout Session while preserving
+  the existing server-owned SKU and price allowlist.
+- Bound all 28 storefront SKUs to active live Stripe one-time prices without
+  creating duplicate catalog objects.
+- Provisioned the live Stripe webhook for completed and asynchronously
+  completed Checkout events, stored its signing secret in Google Secret
+  Manager, and deployed Cloud Run revision
+  `mirrorloopai-subscriber-00020-h29`.
+- Made the mixed fulfillment contract explicit before checkout: 24 ARC
+  editions receive immediate private downloads on the success page and by
+  email; four complete 144-card editions are emailed manually, normally within
+  24 hours.
+- Added fulfillment-aware buyer and owner emails. Orders containing a complete
+  edition now produce an `ACTION REQUIRED` owner notice with the buyer address,
+  Stripe order reference, purchased items, and 24-hour service target.
+- Verified the production live-mode Checkout contract without paying: the
+  server created an unpaid, open, tax-enabled Checkout Session for the
+  allowlisted ARC01 Mono SKU, and the session was expired immediately.
+- Verified the deployed webhook route and signing secret with a locally signed,
+  intentionally ignored event; the route returned HTTP 200 without creating a
+  payment, order, or email.
+- Updated storefront delivery copy, cart labels, purchase terms, unit tests,
+  generated tracker views, continuity notes, and sanitized promotion-readiness
+  evidence.
+
 ## 2026-09-03 — Secure Stripe success-page downloads
 
 - Added a same-origin order-download endpoint that accepts only a Stripe

@@ -254,12 +254,15 @@ func orderReceivedEmail(orderID string, items []commerce.OrderItem) emailMessage
 	escapedOrderID := html.EscapeString(orderID)
 	var htmlItems strings.Builder
 	var textItems strings.Builder
+	downloadCount := 0
+	manualCount := 0
 	for _, item := range items {
 		htmlItems.WriteString("<li style=\"margin:0 0 8px\">")
 		htmlItems.WriteString("<strong>")
 		htmlItems.WriteString(html.EscapeString(item.Name))
 		htmlItems.WriteString("</strong>")
 		if item.DownloadURL != "" {
+			downloadCount++
 			htmlItems.WriteString("<br><a style=\"color:#f4cf8b\" href=\"")
 			htmlItems.WriteString(html.EscapeString(item.DownloadURL))
 			htmlItems.WriteString("\">Download ZIP</a>")
@@ -269,18 +272,40 @@ func orderReceivedEmail(orderID string, items []commerce.OrderItem) emailMessage
 			textItems.WriteString(item.DownloadURL)
 			textItems.WriteString("\n")
 		} else {
-			htmlItems.WriteString("<br><span style=\"color:#a9a2b7\">Prepared separately; we will email you when it is ready.</span>")
+			manualCount++
+			htmlItems.WriteString("<br><span style=\"color:#a9a2b7\">Prepared separately and emailed manually, normally within 24 hours.</span>")
 			textItems.WriteString("- ")
 			textItems.WriteString(item.Name)
-			textItems.WriteString(" — prepared separately\n")
+			textItems.WriteString(" — manual email delivery, normally within 24 hours\n")
 		}
 		htmlItems.WriteString("</li>")
+	}
+	subject := "Your MIRROR//LOOP downloads are ready"
+	preheader := "Stripe confirmed payment. Your private MIRROR//LOOP download links are ready."
+	heading := "Your downloads are ready"
+	panelTitle := "Your ARC downloads are ready"
+	panelCopy := "Use the private links below within seven days. Save the ZIP files to your own device."
+	textHeading := "YOUR ARC DOWNLOADS ARE READY"
+	if downloadCount == 0 && manualCount > 0 {
+		subject = "Your MIRROR//LOOP order is being prepared"
+		preheader = "Stripe confirmed payment. Your complete edition is being prepared for email delivery."
+		heading = "Your order is being prepared"
+		panelTitle = "Manual delivery is in progress"
+		panelCopy = "Your complete edition will be emailed to this address, normally within 24 hours."
+		textHeading = "YOUR ORDER IS BEING PREPARED"
+	} else if manualCount > 0 {
+		subject = "Your MIRROR//LOOP downloads and delivery status"
+		preheader = "Stripe confirmed payment. ARC downloads are ready and complete editions are being prepared."
+		heading = "Downloads and delivery status"
+		panelTitle = "ARC downloads are ready"
+		panelCopy = "Use ARC links within seven days. Complete editions will be emailed separately, normally within 24 hours."
+		textHeading = "DOWNLOADS AND DELIVERY STATUS"
 	}
 	content := `
 <p style="margin:0 0 20px;color:#d8d2e1;font-size:17px;line-height:1.65">Thank you. Stripe has confirmed your MIRROR//LOOP payment.</p>
 <div style="margin:0 0 24px;padding:18px;border:1px solid #38304d;border-radius:14px;background:#151221">
-  <p style="margin:0 0 8px;color:#f0bc63;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase">Your ARC downloads are ready</p>
-  <p style="margin:0;color:#ffffff;font-size:17px;line-height:1.65">Use the private links below within seven days. Save the ZIP files to your own device.</p>
+  <p style="margin:0 0 8px;color:#f0bc63;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase">` + panelTitle + `</p>
+  <p style="margin:0;color:#ffffff;font-size:17px;line-height:1.65">` + panelCopy + `</p>
 </div>
 <p style="margin:0 0 10px;color:#ffffff;font-size:16px"><strong>Your order</strong></p>
 <ul style="margin:0 0 22px;padding-left:22px;color:#d8d2e1;font-size:15px;line-height:1.55">` + htmlItems.String() + `</ul>
@@ -290,8 +315,8 @@ func orderReceivedEmail(orderID string, items []commerce.OrderItem) emailMessage
 
 Thank you. Stripe has confirmed your payment.
 
-YOUR ARC DOWNLOADS ARE READY
-Use the private links below within seven days. Save the ZIP files to your own device.
+` + textHeading + `
+` + panelCopy + `
 
 Your order:
 ` + textItems.String() + `
@@ -299,26 +324,24 @@ Order reference: ` + orderID + `
 
 These links are generated only after Stripe confirms payment. If a link expires or does not work, reply to this email. Do not send payment-card information.`
 	return emailMessage{
-		subject: "Your MIRROR//LOOP downloads are ready",
-		html: emailDocument(
-			"Stripe confirmed payment. Your private MIRROR//LOOP download links are ready.",
-			"Your downloads are ready",
-			content,
-		),
-		text: text,
+		subject: subject,
+		html:    emailDocument(preheader, heading, content),
+		text:    text,
 	}
 }
 
 func ownerOrderEmail(orderID, buyerEmail string, items []commerce.OrderItem) emailMessage {
 	var htmlItems strings.Builder
 	var textItems strings.Builder
+	manualCount := 0
 	for _, item := range items {
 		htmlItems.WriteString("<li style=\"margin:0 0 8px\">")
 		htmlItems.WriteString(html.EscapeString(item.Name))
 		if item.DownloadURL != "" {
 			htmlItems.WriteString(" — automated secure link sent")
 		} else {
-			htmlItems.WriteString(" — manual fulfillment remains")
+			manualCount++
+			htmlItems.WriteString(" — ACTION REQUIRED: email within 24 hours")
 		}
 		htmlItems.WriteString("</li>")
 		textItems.WriteString("- ")
@@ -326,9 +349,15 @@ func ownerOrderEmail(orderID, buyerEmail string, items []commerce.OrderItem) ema
 		if item.DownloadURL != "" {
 			textItems.WriteString(" — automated secure link sent")
 		} else {
-			textItems.WriteString(" — manual fulfillment remains")
+			textItems.WriteString(" — ACTION REQUIRED: email within 24 hours")
 		}
 		textItems.WriteString("\n")
+	}
+	actionCopy := "No manual action is required for the listed ARC editions."
+	subject := "MIRROR//LOOP paid order — fulfillment status"
+	if manualCount > 0 {
+		actionCopy = "Manual fulfillment is required. Reply to the buyer with the prepared complete-edition files within 24 hours."
+		subject = "ACTION REQUIRED — MIRROR//LOOP paid order"
 	}
 	content := `
 <p style="margin:0 0 18px;color:#d8d2e1;font-size:17px;line-height:1.65">Stripe confirmed a paid order. Available ARC ZIP links were delivered automatically.</p>
@@ -338,6 +367,7 @@ func ownerOrderEmail(orderID, buyerEmail string, items []commerce.OrderItem) ema
   <p style="margin:0 0 8px;color:#a9a2b7;font-size:13px">Stripe Checkout Session</p>
   <p style="margin:0;color:#ffffff;font-size:14px;overflow-wrap:anywhere">` + html.EscapeString(orderID) + `</p>
 </div>
+<p style="margin:0 0 18px;padding:14px;border:1px solid #f0bc63;border-radius:12px;color:#ffffff;font-size:15px;line-height:1.55">` + actionCopy + `</p>
 <p style="margin:0 0 10px;color:#ffffff;font-size:16px"><strong>Fulfillment status</strong></p>
 <ul style="margin:0;padding-left:22px;color:#d8d2e1;font-size:15px;line-height:1.55">` + htmlItems.String() + `</ul>`
 	text := `MIRROR//LOOP
@@ -347,10 +377,12 @@ NEW PAID ORDER — FULFILLMENT STATUS
 Buyer: ` + buyerEmail + `
 Stripe Checkout Session: ` + orderID + `
 
+Operator action: ` + actionCopy + `
+
 Items:
 ` + textItems.String()
 	return emailMessage{
-		subject: "MIRROR//LOOP paid order — fulfillment status",
+		subject: subject,
 		html: emailDocument(
 			"A paid MIRROR//LOOP order was processed.",
 			"New paid order",

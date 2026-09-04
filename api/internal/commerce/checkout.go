@@ -41,6 +41,7 @@ func (c HTTPStripeClient) CreateCheckoutSession(
 		"cancel_url":             {c.CancelURL},
 		"customer_creation":      {"always"},
 		"allow_promotion_codes":  {"true"},
+		"automatic_tax[enabled]": {"true"},
 		"metadata[source]":       {shopSource},
 		"metadata[cart_version]": {shopCartVersion},
 		"metadata[cart_skus]":    {strings.Join(priceIDsToSKUs(priceIDs), ",")},

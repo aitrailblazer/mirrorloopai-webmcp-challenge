@@ -1,0 +1,10 @@
+MIRROR//LOOP production storefront verification
+Date: 2026-09-03
+URL: https://mirrorloopai.com/shop?launch-verify=20260903
+
+Observed public contract:
+- 28 product cards rendered.
+- ARC products disclose a private download immediately after payment.
+- Complete 144-card products disclose manual email delivery, normally within 24 hours.
+- The before-buy panel states that Stripe shows applicable tax and total before confirmation.
+- The secure success-page and email delivery descriptions are visible before checkout.

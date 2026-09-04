@@ -1,0 +1,15 @@
+MIRROR//LOOP commerce promotion readiness deployment receipt
+Date: 2026-09-03
+
+Cloud Run service: mirrorloopai-subscriber
+Revision: mirrorloopai-subscriber-00020-h29
+Traffic: 100%
+Firebase Hosting deployment: completed
+Live Stripe webhook: enabled
+Events:
+- checkout.session.completed
+- checkout.session.async_payment_succeeded
+Webhook signing secret: stored in Google Secret Manager (value omitted)
+Stripe server credential: stored in Google Secret Manager (value omitted)
+
+No credential, webhook secret, signed URL query string, or payment-card data is included in this evidence.

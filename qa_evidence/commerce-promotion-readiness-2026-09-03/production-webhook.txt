@@ -1,0 +1,11 @@
+MIRROR//LOOP production webhook verification
+Date: 2026-09-03
+Endpoint: POST https://mirrorloopai.com/api/v1/stripe/webhook
+Method: locally signed Stripe-compatible test event
+Event type: product.updated (intentionally ignored by the order pipeline)
+HTTP result: 200 OK
+Purpose: verify the deployed endpoint, configured signing secret, and signature validation without simulating a payment
+Payment created: no
+Order created: no
+Email sent: no
+Webhook secret and signature: omitted

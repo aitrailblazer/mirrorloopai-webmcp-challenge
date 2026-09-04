@@ -175,19 +175,41 @@ Done:
 - Committed the resource-driven implementation as `fcde886`, deployed it to Firebase Hosting, and verified the production bundle plus native eight-tool registration in isolated Chrome.
 
 Now:
+- The public storefront is ready for promotion with 28 active live Stripe
+  one-time prices. Stripe Checkout remains the only payment surface and now
+  calculates applicable tax automatically.
 - The 24 ARC edition ZIPs, paid Stripe email fulfillment, and secure
   success-page download panel are live. The panel re-verifies the opaque
   Checkout Session directly with Stripe, exposes only fresh private GCS links,
-  and removes the Session ID from the visible URL. Four complete-deck catalog
-  products remain deliberately outside this pass and continue to use manual
-  fulfillment.
+  and removes the Session ID from the visible URL.
+- The four complete 144-card products are also sale-ready under an explicit
+  manual fulfillment contract: the buyer is told before checkout and in the
+  order email that delivery normally occurs within 24 hours, and the owner
+  receives an `ACTION REQUIRED` email containing the buyer address, order
+  reference, and item list.
+- Live webhook endpoint `we_1UBo1pEIDp9HcrAzWqUBe99X` is enabled for
+  `checkout.session.completed` and
+  `checkout.session.async_payment_succeeded`. Its signing secret and the
+  server-side Checkout credential are stored in Google Secret Manager.
+- Cloud Run revision `mirrorloopai-subscriber-00020-h29` serves 100% of API
+  traffic. A production live-mode Checkout was created only to inspect its
+  unpaid contract and then expired; no real payment was made. A signed ignored
+  webhook event returned HTTP 200 without producing an order or email.
 
 Next:
-- If desired, build four separate complete-deck buyer bundles and extend the
-  same verified mapping and delivery path to those SKUs.
+- Promote the live storefront and monitor the owner inbox for any complete-deck
+  `ACTION REQUIRED` notices.
+- Replace the current server-side standard live Stripe key with a
+  least-privilege restricted key that can create/retrieve Checkout Sessions
+  and read the required Price/Product objects, then redeploy and repeat the
+  non-charge smoke test.
+- If desired after promotion, build four separate complete-deck buyer bundles
+  and extend the same verified automatic delivery path to those SKUs.
 
 Open questions (UNCONFIRMED if needed):
-- UNCONFIRMED: Whether the four complete-deck products should receive separate downloadable bundles in a later pass; this pass is explicitly scoped to the 24 ARC editions.
+- UNCONFIRMED: Whether the four complete-deck products should receive separate
+  downloadable bundles in a later pass. They are currently sold with clearly
+  disclosed manual email delivery, normally within 24 hours.
 
 Working set (files/ids/commands):
 - `/Users/constantinevassilev02/MyLocalDocuments/go-projects/SyntheonArchive/GENI/mirrorloopai-webmcp-challenge`
